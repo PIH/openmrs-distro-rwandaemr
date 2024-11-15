@@ -1,8 +1,6 @@
 <config>
     <globalProperties>
 
-        <!-- Core -->
-
         <!-- EMR API -->
         <globalProperty>
             <property>emrapi.visitExpireHours</property>
@@ -21,6 +19,13 @@
             <value>f5ba47a8-c124-4fc9-9da7-598e7455efd6</value>
         </globalProperty>
 
+        <!-- Core Apps -->
+        <globalProperty>
+            <property>coreapps.patientSearchHandler</property>
+            <value>imbemrPatientSearch</value>
+        </globalProperty>
+
+        <!-- Core -->
         <globalProperty>
             <property>patient.listingAttributeTypes</property>
             <value>Health Center,Phone number</value>
