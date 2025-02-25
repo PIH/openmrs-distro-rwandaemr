@@ -1,6 +1,6 @@
 [
   {
-    "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.currentEnrollment",
+    "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.currentEnrollment",
     "order": 1,
     "config": {
       "widget": "programstatus",
@@ -11,8 +11,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.currentEnrollment.extension",
-        "appId": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.currentEnrollment",
+        "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.currentEnrollment.extension",
+        "appId": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.currentEnrollment",
         "extensionPointId": "6b825913-ab44-4e49-9ea0-c9e5919f94af.firstColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.previousEnrollment",
+    "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.previousEnrollment",
     "order": 2,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -33,8 +33,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.previousEnrollment.extension",
-        "appId": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.previousEnrollment",
+        "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.previousEnrollment.extension",
+        "appId": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.previousEnrollment",
         "extensionPointId": "6b825913-ab44-4e49-9ea0-c9e5919f94af.firstColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -45,9 +45,9 @@
   },
 
   {
-    "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.recentEncounters",
+    "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.recentEncounters",
     "description": "coreapps.mostRecentVitals.app.description",
-    "label": "imbemr.clinicianfacing.recentEncounters",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
     "icon": "icon-calendar",
     "order": 4,
     "config": {
@@ -58,18 +58,18 @@
     },
     "extensions": [
       {
-        "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.recentEncounters.extension",
-        "appId": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.recentEncounters",
+        "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.recentEncounters.extension",
+        "appId": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.recentEncounters",
         "extensionPointId": "6b825913-ab44-4e49-9ea0-c9e5919f94af.secondColumnFragments",
         "extensionParams": {
-          "provider": "imbemr",
+          "provider": "rwandaemr",
           "fragment": "patient/encountersSection"
         }
       }
     ]
   },
   {
-    "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.obsGraph.weight",
+    "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.obsGraph.weight",
     "order": 3,
     "config": {
       "widget": "obsgraph",
@@ -85,8 +85,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.obsGraphWeight.extension",
-        "appId": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.obsGraph.weight",
+        "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.obsGraphWeight.extension",
+        "appId": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.obsGraph.weight",
         "extensionPointId": "6b825913-ab44-4e49-9ea0-c9e5919f94af.secondColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -96,7 +96,7 @@
     ]
   },
   {
-    "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.Enrollment.Form",
+    "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.Enrollment.Form",
     "order": 1,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -107,7 +107,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.Enrollment.Form",
+        "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.Enrollment.Form",
         "extensionPointId": "6b825913-ab44-4e49-9ea0-c9e5919f94af.overallActions",
         "type": "link",
         "label": "Enrollment Form",
@@ -118,7 +118,7 @@
     ]
   },
   {
-    "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.vitals",
+    "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.vitals",
     "order": 2,
     "config": {
       "label": "coreapps.programHistoryDashboardWidget.label",
@@ -128,7 +128,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.vitals",
+        "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.vitals",
         "extensionPointId": "6b825913-ab44-4e49-9ea0-c9e5919f94af.overallActions",
         "type": "link",
         "label": "referenceapplication.app.capturevitals.title",
@@ -140,7 +140,7 @@
     ]
   },
   {
-    "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.ClinicalVisits.Form",
+    "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.ClinicalVisits.Form",
     "order": 3,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -151,7 +151,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.ClinicalVisits.Form",
+        "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.ClinicalVisits.Form",
         "extensionPointId": "6b825913-ab44-4e49-9ea0-c9e5919f94af.overallActions",
         "type": "link",
         "label": "Clinic Visits Form",
@@ -163,7 +163,7 @@
   }
 ,
   {
-    "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.medicationlist.Form",
+    "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.medicationlist.Form",
     "order": 4,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -174,7 +174,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.medicationlist.Form",
+        "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.medicationlist.Form",
         "extensionPointId": "6b825913-ab44-4e49-9ea0-c9e5919f94af.overallActions",
         "type": "link",
         "label": "Medication List Form",
@@ -185,7 +185,7 @@
     ]
   },
   {
-    "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.otherInvestigations.Form",
+    "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.otherInvestigations.Form",
     "order": 5,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -196,7 +196,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.otherInvestigations.Form",
+        "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.otherInvestigations.Form",
         "extensionPointId": "6b825913-ab44-4e49-9ea0-c9e5919f94af.overallActions",
         "type": "link",
         "label": "Other Investigations Form",
@@ -207,7 +207,7 @@
     ]
   },
   {
-    "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.exitFromCare.Form",
+    "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.exitFromCare.Form",
     "order": 5,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -218,7 +218,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.exitFromCare.Form",
+        "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.exitFromCare.Form",
         "extensionPointId": "6b825913-ab44-4e49-9ea0-c9e5919f94af.overallActions",
         "type": "link",
         "label": "Exit From Care",
@@ -229,7 +229,7 @@
     ]
   },
   {
-    "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.regimens",
+    "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.regimens",
     "order": 5,
     "config": {
       "icon": "fas fa-fw fa-briefcase-medical",
@@ -240,11 +240,11 @@
     },
     "extensions": [
       {
-        "id": "imbemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.exitFromCare.Form",
+        "id": "rwandaemr.6b825913-ab44-4e49-9ea0-c9e5919f94af.exitFromCare.Form",
         "extensionPointId": "6b825913-ab44-4e49-9ea0-c9e5919f94af.overallActions",
         "type": "link",
         "label": "Regimens",
-        "url": "imbemr/patient/regimen.page?patientId={{patient.uuid}}",
+        "url": "rwandaemr/patient/regimen.page?patientId={{patient.uuid}}",
         "icon": "fas fa-fw fa-briefcase-medical",
         "order": 15
       }

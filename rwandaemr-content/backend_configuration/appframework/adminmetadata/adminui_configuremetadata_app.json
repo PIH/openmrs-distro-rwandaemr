@@ -1,19 +1,19 @@
 [
   {
-    "id": "org.openmrs.distro.rwandaemr-imb.configuremetadata",
+    "id": "org.openmrs.distro.rwandaemr.configuremetadata",
     "extensionPoints": [
       {
-        "id": "org.openmrs.distro.rwandaemr-imb.adminGroups",
-        "description": "rwandaemr-imb.configuremetadata.adminGroups.description"
+        "id": "org.openmrs.distro.rwandaemr.adminGroups",
+        "description": "rwandaemr.configuremetadata.adminGroups.description"
       },
       {
-        "id": "org.openmrs.distro.rwandaemr-imb.adminLinks",
-        "description": "rwandaemr-imb.configuremetadata.adminLinks.description"
+        "id": "org.openmrs.distro.rwandaemr.adminLinks",
+        "description": "rwandaemr.configuremetadata.adminLinks.description"
       }
     ],
     "extensions": [
       {
-        "id": "org.openmrs.distro.rwandaemr-imb.configuremetadata.homepageLink",
+        "id": "org.openmrs.distro.rwandaemr.configuremetadata.homepageLink",
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
         "label": "Configure Metadata",

@@ -1,0 +1,348 @@
+<htmlform
+        htmlformUuid="6439dd32-97cc-4af5-abfc-b6fec42ff9a2"
+        formUuid="e0539cae-892c-4c13-b051-229e79143cc7"
+        formName="Ambulance Record Form"
+        formDescription="Ambulance Record Form"
+        formVersion="1.0"
+        formEncounterType="9a969edd-f02f-4339-8852-2c9218811665"
+        formPublished="true"
+        formRetired="false"
+>
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+        @patient_chronic_disease_history@ = e20ab8c4-bd53-4f9f-b2e1-04fe7cb667ea
+        @HEART_FAILURE@ = 0670f6b9-5456-4bd3-86b1-846abc4fe2ba
+        @HYPERTENSION@ = 3cd50188-26fe-102b-80cb-0017a47871b2
+        @stroke@ = 111103AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        @ASTHMA@ = 3ccc4bf6-26fe-102b-80cb-0017a47871b2
+        @COPD@ = be7adab0-2ed5-44d7-972e-586911b08c8e
+        @DIABETES_MELLITUS@ = 3cce629c-26fe-102b-80cb-0017a47871b2
+        @TUBERCULOSIS@ = 3ccca7cc-26fe-102b-80cb-0017a47871b2
+        @HIV@ = 3cd4dca8-26fe-102b-80cb-0017a47871b2
+        @LIVER_FAILURE@ = 7018a636-4e28-4681-969d-9caf98178abb
+        @Cancer@ = 22e045f9-a880-416f-a6b2-0e0706d585bf
+        @Dialysis@ = 36200521-676e-48c8-a6f9-f101bf4a691b
+        @chronical_kidney_disease@ = 8611a721-9f01-484d-9405-5d88efdd9ce7
+        @Patient_Medical_History@ = 9090e8f8-54cd-4ed0-b994-1130afb384bd
+        @OTHER_RELATIVE@ = 3ce18bec-26fe-102b-80cb-0017a47871b2
+        @Other_disease_(text)@ = f9e8e946-d177-4ca9-8004-779ae6abe9df
+    </macros>
+    <style>
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+    </style>
+
+    <style type="text/css">
+        #who-when-where {
+        margin-bottom: 6px;
+        border-bottom: 1px solid #ccc;
+        }
+
+        #who-when-where p {
+        display: inline-block;
+        padding-right: 20px;
+        }
+
+        #where &gt;
+
+        input[type=text] {
+        display: inline-block;
+        }
+
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        #data-collection {
+        display: inline-block;
+        width: 58%;
+        vertical-align: top;
+        }
+
+        #encounter-diagnoses-target {
+        display: inline-block;
+        width: 40%;
+        vertical-align: top;
+        }
+
+        #encounter-diagnoses-app {
+        margin-bottom: 20px;
+        }
+
+    </style>
+
+
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateBillOnHtmlFormSubmissionAction"/>
+
+
+    <ifMode include="false" mode="VIEW">
+        <h2>
+            <uimessage code="AMBULANCE RECORD FORM" />
+        </h2>
+
+        <div id="who-when-where" class="section-container">
+            <p id="who">
+                <label>
+                    <uimessage code="coreapps.patientDashBoard.provider" />
+                </label>
+                <span>
+                    <encounterProvider default="currentUser" required="true" />
+                </span>
+            </p>
+            <p id="when">
+                <label>
+                    <uimessage code="coreapps.patientDashBoard.location" />
+                </label>
+                <span>
+                    <encounterLocation default="GlobalProperty:billing.defaultLocation" />
+                </span>
+            </p>
+            <p id="where">
+                <label>
+                    <uimessage code="coreapps.patientDashBoard.date" />
+                </label>
+                <span class="date-on-line">
+                    <encounterDate default="now" id="encounterDate" />
+                </span>
+            </p>
+            <p class="flexView">
+                <b>Insurance:</b> <font color="green">
+                <lookup expression="fn.latestObs(6741).getValueText()"/>(Reg. Date:<lookup expression="fn.latestObs(6741).obsDatetime"/>)</font>
+            </p>
+        </div>
+    </ifMode>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="AMBULANCE INFO">
+        <div class="section-container">
+
+            <p>
+                <label>Department</label>
+                <obs conceptId="c920931b-fa93-4e99-9e36-28e1e4c16cf7" required="true" />
+            </p>
+
+            <p>
+                <label>Provenance /Catchment Area Population</label>
+                <obs conceptId="f8c17ed2-38e4-4010-bd10-e27c99185eb4"
+                     answerConceptIds="1aa519c4-ce19-4c2f-baa4-fb9808164f47,94efe7f2-9b74-4c38-b017-f77b9874d88b,a5701f65-8a41-4904-aa9c-be0a0fabcc88" />
+            </p>
+
+            <p class="small-input flexView">
+
+                <obs conceptId="3cda3efa-26fe-102b-80cb-0017a47871b2" labelText="Transfer(CS)/Transfer From:" style="" size="20"/><br/>
+                <obs conceptId="abd699f4-413d-4f24-ae1a-d6de750a2152" labelText="Ambulance par KM:" />
+            </p>
+
+        </div>
+    </section>
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm right">
+                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                            style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+</htmlform>

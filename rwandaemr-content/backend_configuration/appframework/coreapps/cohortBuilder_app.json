@@ -1,11 +1,11 @@
 [
   {
-    "id": "imbemr.cohortBuilderApp",
+    "id": "rwandaemr.cohortBuilderApp",
     "description": "Opening cohort builder window in legacy UI",
     "order": 7,
     "extensions": [
       {
-        "id": "imbemr.cohortBuilderApp",
+        "id": "rwandaemr.cohortBuilderApp",
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
         "label": "Cohort Builder",

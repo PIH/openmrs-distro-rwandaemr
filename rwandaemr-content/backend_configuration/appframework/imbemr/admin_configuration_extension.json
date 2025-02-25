@@ -1,20 +1,20 @@
 [
     {
-        "id": "imbemr.adminConfigurationLink",
+        "id": "rwandaemr.adminConfigurationLink",
         "extensionPointId": "systemAdministration.apps",
         "type": "link",
-        "label": "imbemr.admin.configuration",
-        "url": "imbemr/admin/configuration.page",
+        "label": "rwandaemr.admin.configuration",
+        "url": "rwandaemr/admin/configuration.page",
         "icon": "icon-refresh",
 		"requiredPrivilege": "App: coreapps.systemAdministration",
         "order": 95
     },
     {
-        "id": "imbemr.adminConfigureLoginLocations",
+        "id": "rwandaemr.adminConfigureLoginLocations",
         "extensionPointId": "systemAdministration.apps",
         "type": "link",
-        "label": "imbemr.admin.configureLoginLocations",
-        "url": "imbemr/admin/configureLoginLocations.page",
+        "label": "rwandaemr.admin.configureLoginLocations",
+        "url": "rwandaemr/admin/configureLoginLocations.page",
         "icon": "icon-hospital",
         "requiredPrivilege": "App: coreapps.systemAdministration",
         "order": 96

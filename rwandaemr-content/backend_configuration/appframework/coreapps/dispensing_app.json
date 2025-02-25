@@ -1,11 +1,11 @@
 [
   {
-    "id": "imbemr.dispensingApp",
+    "id": "rwandaemr.dispensingApp",
     "description": "Home Page Link to Dispensing App",
     "order": 20,
     "extensions": [
       {
-        "id": "imbemr.dispensingApp",
+        "id": "rwandaemr.dispensingApp",
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
         "label": "Drug Dispensing",

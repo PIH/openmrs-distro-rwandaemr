@@ -1,6 +1,6 @@
 [
   {
-    "id": "imbemr.oncologyProgramDashboard.currentEnrollment",
+    "id": "rwandaemr.oncologyProgramDashboard.currentEnrollment",
     "order": 1,
     "config": {
       "widget": "programstatus",
@@ -11,8 +11,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.oncologyProgramDashboard.currentEnrollment.extension",
-        "appId": "imbemr.oncologyProgramDashboard.currentEnrollment",
+        "id": "rwandaemr.oncologyProgramDashboard.currentEnrollment.extension",
+        "appId": "rwandaemr.oncologyProgramDashboard.currentEnrollment",
         "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.firstColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "id": "imbemr.oncologyProgramDashboard.previousEnrollment",
+    "id": "rwandaemr.oncologyProgramDashboard.previousEnrollment",
     "order": 2,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -33,8 +33,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.oncologyProgramDashboard.previousEnrollment.extension",
-        "appId": "imbemr.oncologyProgramDashboard.previousEnrollment",
+        "id": "rwandaemr.oncologyProgramDashboard.previousEnrollment.extension",
+        "appId": "rwandaemr.oncologyProgramDashboard.previousEnrollment",
         "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.firstColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -44,9 +44,9 @@
     ]
   },
   {
-    "id": "imbemr.f02857cb-f894-42e9-b324-dcb8fea70f69.recentEncounters",
+    "id": "rwandaemr.f02857cb-f894-42e9-b324-dcb8fea70f69.recentEncounters",
     "description": "coreapps.mostRecentVitals.app.description",
-    "label": "imbemr.clinicianfacing.recentEncounters",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
     "icon": "icon-calendar",
     "order": 4,
     "config": {
@@ -57,18 +57,18 @@
     },
     "extensions": [
       {
-        "id": "imbemr.f02857cb-f894-42e9-b324-dcb8fea70f69.recentEncounters.extension",
-        "appId": "imbemr.f02857cb-f894-42e9-b324-dcb8fea70f69.recentEncounters",
+        "id": "rwandaemr.f02857cb-f894-42e9-b324-dcb8fea70f69.recentEncounters.extension",
+        "appId": "rwandaemr.f02857cb-f894-42e9-b324-dcb8fea70f69.recentEncounters",
         "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.secondColumnFragments",
         "extensionParams": {
-          "provider": "imbemr",
+          "provider": "rwandaemr",
           "fragment": "patient/encountersSection"
         }
       }
     ]
   },
   {
-    "id": "imbemr.oncologyProgramDashboard.obsGraph.weight",
+    "id": "rwandaemr.oncologyProgramDashboard.obsGraph.weight",
     "order": 3,
     "config": {
       "widget": "obsgraph",
@@ -84,8 +84,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.oncologyProgramDashboard.obsGraphWeight.extension",
-        "appId": "imbemr.oncologyProgramDashboard.obsGraph.weight",
+        "id": "rwandaemr.oncologyProgramDashboard.obsGraphWeight.extension",
+        "appId": "rwandaemr.oncologyProgramDashboard.obsGraph.weight",
         "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.secondColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -95,7 +95,7 @@
     ]
   },
   {
-    "id": "imbemr.f02857cb-f894-42e9-b324-dcb8fea70f69.regimens",
+    "id": "rwandaemr.f02857cb-f894-42e9-b324-dcb8fea70f69.regimens",
     "order": 5,
     "config": {
       "icon": "fas fa-fw fa-briefcase-medical",
@@ -106,11 +106,11 @@
     },
     "extensions": [
       {
-        "id": "imbemr.f02857cb-f894-42e9-b324-dcb8fea70f69.exitFromCare.Form",
+        "id": "rwandaemr.f02857cb-f894-42e9-b324-dcb8fea70f69.exitFromCare.Form",
         "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
         "type": "link",
         "label": "Regimens",
-        "url": "imbemr/patient/regimen.page?patientId={{patient.uuid}}",
+        "url": "rwandaemr/patient/regimen.page?patientId={{patient.uuid}}",
         "icon": "fas fa-fw fa-briefcase-medical",
         "order": 15
       }

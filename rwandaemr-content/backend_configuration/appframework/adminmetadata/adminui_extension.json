@@ -1,6 +1,6 @@
 [
   {
-    "id": "org.openmrs.distro.rwandaemr-imb.accounts",
+    "id": "org.openmrs.distro.rwandaemr.accounts",
     "extensionPointId": "systemAdministration.apps",
     "type": "link",
     "label": "adminui.manageAccounts.label",
@@ -10,7 +10,7 @@
     "order": 20
   },
   {
-    "id": "org.openmrs.distro.rwandaemr-imb.globalProperties",
+    "id": "org.openmrs.distro.rwandaemr.globalProperties",
     "extensionPointId": "systemAdministration.apps",
     "type": "link",
     "label": "adminui.manageGlobalProperties.label",

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "imbemr.appointmentsServicesApp",
+    "description": "Opening moh appointment provider services dashboard window in legacy UI",
+    "order": 4,
+    "extensions": [
+      {
+        "id": "imbemr.appointmentsServicesApp",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Appointments Services",
+        "url": "module/mohappointment/serviceProvider.list",
+        "icon": "icon-th-list",
+        "order": 10,
+        "requiredPrivilege": "App: coreapps.systemAdministration"
+      }
+    ]
+  }
+]

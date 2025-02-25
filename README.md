@@ -119,13 +119,13 @@ in an SDK server named `rwinktest` without rebuilding and restarting as follows:
 cp -r rwandaemr-content/backend_configuration/messageproperties/* ~/openmrs/rwinktest/configuration/messageproperties/
 ```
 
-Then, navigate to http://localhost:8080/openmrs/imbemr/admin/configuration.page and click "Refresh Message Properties"
+Then, navigate to http://localhost:8080/openmrs/rwandaemr/admin/configuration.page and click "Refresh Message Properties"
 
 Similarly, if you are editing appframework configuration files, you can update these without rebuilding and restarting as follows:
 
 `cp -r rwandaemr-content/backend_configuration/appframework/* ~/openmrs/rwinktest/configuration/appframework/`
 
-Then, navigate to http://localhost:8080/openmrs/imbemr/admin/configuration.page and click "Refresh Apps and Extensions"
+Then, navigate to http://localhost:8080/openmrs/rwandaemr/admin/configuration.page and click "Refresh Apps and Extensions"
 
 ### Other versions and historical documentation
 
@@ -135,4 +135,4 @@ https://github.com/Rwanda-EMR/openmrs-config-rwandaemr
 However, ideally the above projects would be rekindled using the content and configuration found in this project, and
 the contents of `./rwandaemr-content` and `./rwandaemr-distro` could be migrated to these appropriately.
 
-Early documentation for this project which is no longer current [can be found here](https://github.com/PIH/openmrs-distro-rwandaemr-imb/wiki).
+Early documentation for this project which is no longer current [can be found here](https://github.com/PIH/openmrs-distro-rwandaemr/wiki).

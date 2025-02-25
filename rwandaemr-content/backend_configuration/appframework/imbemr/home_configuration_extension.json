@@ -1,6 +1,6 @@
 [
     {
-        "id": "imbemr.myAccountHomePageLink",
+        "id": "rwandaemr.myAccountHomePageLink",
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
         "label": "authenticationui.myAccount.title",
@@ -9,11 +9,11 @@
         "order": 100
     },
     {
-        "id": "imbemr.registration",
+        "id": "rwandaemr.registration",
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
         "label": "registrationapp.app.registerPatient.label",
-        "url": "registrationapp/findPatient.page?appId=imbemr.registerPatient",
+        "url": "registrationapp/findPatient.page?appId=rwandaemr.registerPatient",
         "requiredPrivilege": "App: registrationapp.registerPatient",
         "icon": "fas fa-fw fa-user",
         "order": 2

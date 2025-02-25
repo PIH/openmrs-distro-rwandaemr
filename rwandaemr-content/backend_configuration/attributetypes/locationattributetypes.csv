@@ -1,2 +1,2 @@
 UUID,Entity name,Name,Description,Datatype classname,Datatype config,Min occurs,Max occurs,Preferred handler classname
-eb844bfb-b1d9-11ef-8756-0242ac120002,Location,FOSA ID,Unique facility identiifer defined nationally,org.openmrs.customdatatype.datatype.FreeTextDatatype,,0,1,
+${locationAttribute.fosaId.uuid},Location,FOSA ID,Unique facility identiifer defined nationally,org.openmrs.customdatatype.datatype.FreeTextDatatype,,0,1,

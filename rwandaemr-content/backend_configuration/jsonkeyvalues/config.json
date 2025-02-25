@@ -6,6 +6,7 @@
   "identifierType.upid.uuid": "01edaedd-956a-11ef-93fa-0242ac120002",
   "identifierType.nin.uuid": "0c69d739-956a-11ef-93fa-0242ac120002",
   "identifierType.passportNumber.uuid": "12a72978-956a-11ef-93fa-0242ac120002",
+  "locationAttribute.fosaId.uuid": "${locationAttribute.fosaId.uuid}",
   "personAttribute.phoneNumber.uuid": "${personAttribute.phoneNumber.uuid}",
   "personAttribute.mothersName.uuid": "8d871d18-c2cc-11de-8d13-0010c6dffd0f",
   "personAttribute.fathersName.uuid": "${personAttribute.fathersName.uuid}",

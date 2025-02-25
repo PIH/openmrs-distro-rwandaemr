@@ -1,11 +1,11 @@
 [
   {
-    "id": "imbemr.registerPatient",
+    "id": "rwandaemr.registerPatient",
     "instanceOf": "registrationapp.registerPatient",
-    "description": "imbemr.registerPatient",
+    "description": "rwandaemr.registerPatient",
     "config": {
-      "afterCreatedUrl": "registrationapp/registrationSummary.page?patientId={{patientId}}&appId=imbemr.registerPatient",
-      "patientDashboardLink": "registrationapp/registrationSummary.page?appId=imbemr.registerPatient",
+      "afterCreatedUrl": "registrationapp/registrationSummary.page?patientId={{patientId}}&appId=rwandaemr.registerPatient",
+      "patientDashboardLink": "registrationapp/registrationSummary.page?appId=rwandaemr.registerPatient",
       "afterCreatedActions": [],
       "allowRetrospectiveEntry": true,
       "allowUnknownPatients": true,
@@ -31,11 +31,11 @@
           "questions": [
             {
               "id": "national-ids-questions",
-              "legend": "imbemr.registration.nationalIds.legend",
+              "legend": "rwandaemr.registration.nationalIds.legend",
               "fields": [
                 {
                   "type": "patientIdentifier",
-                  "label": "imbemr.identifer.nationalId.label",
+                  "label": "rwandaemr.identifer.nationalId.label",
                   "formFieldName": "nationalId",
                   "uuid": "ed52ec82-4b7c-411b-804a-13bd9651bb3e",
                   "cssClasses": ["regex"],
@@ -50,7 +50,7 @@
                 },
                 {
                   "type": "patientIdentifier",
-                  "label": "imbemr.identifer.applicationNumber.label",
+                  "label": "rwandaemr.identifer.applicationNumber.label",
                   "formFieldName": "applicationNumber",
                   "uuid": "0f7d2e40-956a-11ef-93fa-0242ac120002",
                   "widget": {
@@ -63,7 +63,7 @@
                 },
                 {
                   "type": "patientIdentifier",
-                  "label": "imbemr.identifer.upid.label",
+                  "label": "rwandaemr.identifer.upid.label",
                   "formFieldName": "upid",
                   "uuid": "01edaedd-956a-11ef-93fa-0242ac120002",
                   "widget": {
@@ -76,7 +76,7 @@
                 },
                 {
                   "type": "patientIdentifier",
-                  "label": "imbemr.identifer.nin.label",
+                  "label": "rwandaemr.identifer.nin.label",
                   "formFieldName": "nin",
                   "uuid": "0c69d739-956a-11ef-93fa-0242ac120002",
                   "widget": {
@@ -89,7 +89,7 @@
                 },
                 {
                   "type": "patientIdentifier",
-                  "label": "imbemr.identifer.passportNumber.label",
+                  "label": "rwandaemr.identifer.passportNumber.label",
                   "formFieldName": "passportNumber",
                   "uuid": "12a72978-956a-11ef-93fa-0242ac120002",
                   "widget": {
@@ -102,7 +102,7 @@
                 },
                 {
                   "widget": {
-                    "providerName": "imbemr",
+                    "providerName": "rwandaemr",
                     "fragmentId": "field/searchClientRegistry",
                     "config": {
                       "formFields": [
@@ -166,16 +166,16 @@
         },
         {
           "id": "attribute-section",
-          "label": "imbemr.registration.personAttributes",
+          "label": "rwandaemr.registration.personAttributes",
           "questions": [
             {
               "id": "mothers-name-question",
-              "legend": "imbemr.registration.mothersName.legend",
+              "legend": "rwandaemr.registration.mothersName.legend",
               "fields": [
                 {
                   "formFieldName": "mothersName",
                   "type": "personAttribute",
-                  "label": "imbemr.registration.mothersName.label",
+                  "label": "rwandaemr.registration.mothersName.label",
                   "uuid": "8d871d18-c2cc-11de-8d13-0010c6dffd0f",
                   "widget": {
                     "providerName": "uicommons",
@@ -189,12 +189,12 @@
             },
             {
               "id": "fathers-name-question",
-              "legend": "imbemr.registration.fathersName.legend",
+              "legend": "rwandaemr.registration.fathersName.legend",
               "fields": [
                 {
                   "formFieldName": "fathersName",
                   "type": "personAttribute",
-                  "label": "imbemr.registration.fathersName.label",
+                  "label": "rwandaemr.registration.fathersName.label",
                   "uuid": "${personAttribute.fathersName.uuid}",
                   "widget": {
                     "providerName": "uicommons",
@@ -208,12 +208,12 @@
             },
             {
               "id": "education-level-question",
-              "legend": "imbemr.registration.educationLevel.legend",
+              "legend": "rwandaemr.registration.educationLevel.legend",
               "fields": [
                 {
                   "formFieldName": "educationLevel",
                   "type": "personAttribute",
-                  "label": "imbemr.registration.educationLevel.label",
+                  "label": "rwandaemr.registration.educationLevel.label",
                   "uuid": "${personAttribute.educationLevel.uuid}",
                   "widget": {
                     "providerName": "uicommons",
@@ -227,12 +227,12 @@
             },
             {
               "id": "profession-question",
-              "legend": "imbemr.registration.profession.legend",
+              "legend": "rwandaemr.registration.profession.legend",
               "fields": [
                 {
                   "formFieldName": "profession",
                   "type": "personAttribute",
-                  "label": "imbemr.registration.profession.label",
+                  "label": "rwandaemr.registration.profession.label",
                   "uuid": "${personAttribute.profession.uuid}",
                   "widget": {
                     "providerName": "uicommons",
@@ -246,12 +246,12 @@
             },
             {
               "id": "religion-question",
-              "legend": "imbemr.registration.religion.legend",
+              "legend": "rwandaemr.registration.religion.legend",
               "fields": [
                 {
                   "formFieldName": "religion",
                   "type": "personAttribute",
-                  "label": "imbemr.registration.religion.label",
+                  "label": "rwandaemr.registration.religion.label",
                   "uuid": "${personAttribute.religion.uuid}",
                   "widget": {
                     "providerName": "uicommons",
@@ -265,15 +265,15 @@
             },
             {
               "id": "health-center-question",
-              "legend": "imbemr.registration.healthCenter.legend",
+              "legend": "rwandaemr.registration.healthCenter.legend",
               "fields": [
                 {
                   "formFieldName": "healthCenter",
                   "type": "personAttribute",
-                  "label": "imbemr.registration.healthCenter.label",
+                  "label": "rwandaemr.registration.healthCenter.label",
                   "uuid": "8d87236c-c2cc-11de-8d13-0010c6dffd0f",
                   "widget": {
-                    "providerName": "imbemr",
+                    "providerName": "rwandaemr",
                     "fragmentId": "field/location",
                     "config": {
                       "withTag": "Visit Location",

@@ -1,10 +1,10 @@
 <config>
     <globalProperties>
 
-        <!-- IMB EMR -->
+        <!-- Rwanda EMR -->
         <globalProperty>
-            <property>imbemr.autoCreateInsuranceType</property>
-            <value>NONE(PRIVATE)</value>
+            <property>rwandaemr.autoCreateInsuranceType</property>
+            <value>${insurance.private.name}</value>
         </globalProperty>
 
         <!-- EMR API -->
@@ -28,7 +28,7 @@
         <!-- Core Apps -->
         <globalProperty>
             <property>coreapps.patientSearchHandler</property>
-            <value>imbemrPatientSearch</value>
+            <value>rwandaemrPatientSearch</value>
         </globalProperty>
 
         <!-- Core -->
@@ -56,11 +56,11 @@
         </globalProperty>
         <globalProperty>
             <property>registrationcore.fastSimilarPatientSearchAlgorithm</property>
-            <value>imbemr.RwandaFastPatientSearchAlgorithm</value>
+            <value>rwandaemr.RwandaFastPatientSearchAlgorithm</value>
         </globalProperty>
         <globalProperty>
             <property>registrationcore.preciseSimilarPatientSearchAlgorithm</property>
-            <value>imbemr.RwandaPrecisePatientSearchAlgorithm</value>
+            <value>rwandaemr.RwandaPrecisePatientSearchAlgorithm</value>
         </globalProperty>
         <globalProperty>
             <property>registrationcore.mpi.implementation</property>

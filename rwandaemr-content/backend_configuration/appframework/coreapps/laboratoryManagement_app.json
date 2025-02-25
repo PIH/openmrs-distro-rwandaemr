@@ -1,11 +1,11 @@
 [
   {
-    "id": "imbemr.labManageApp",
+    "id": "rwandaemr.labManageApp",
     "description": "Opening moh laboratory management window in legacy UI",
     "order": 10,
     "extensions": [
       {
-        "id": "imbemr.labManageApp",
+        "id": "rwandaemr.labManageApp",
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
         "label": "Laboratory Management",

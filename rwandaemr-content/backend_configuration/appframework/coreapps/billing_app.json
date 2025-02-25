@@ -1,11 +1,11 @@
 [
   {
-    "id": "imbemr.billingApp",
+    "id": "rwandaemr.billingApp",
     "description": "Opening Billing window in legacy UI",
     "order": 6,
     "extensions": [
       {
-        "id": "imbemr.billingApp",
+        "id": "rwandaemr.billingApp",
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
         "label": "Billing",

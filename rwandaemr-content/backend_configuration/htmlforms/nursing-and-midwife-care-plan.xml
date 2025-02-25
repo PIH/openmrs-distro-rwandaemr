@@ -1,13 +1,6 @@
-<htmlform 
-	htmlformUuid="4f117600-da0d-4ea5-a7dc-5dca83ac4784" 
-	formUuid="b83778af-3d64-45fb-b0ed-5d4ada7bdde6" 
-	formName="Nursing and Midwife care plan" 
-	formDescription="Midwife care plan" 
-	formVersion="1.0" 
-	formEncounterType="daf32375-d293-4e27-a68d-2a58494c96e1" 
-	formPublished="${trueIfRwinkwavu}"
-	formRetired="false"
->
+<htmlform htmlformUuid="4f117600-da0d-4ea5-a7dc-5dca83ac4784" formUuid="b83778af-3d64-45fb-b0ed-5d4ada7bdde6"
+          formName="Nursing and Midwife care plan" formDescription="Midwife care plan" formVersion="1.0"
+          formEncounterType="939aec82-b53b-4651-8ba1-4cc52126102f" formPublished="${trueIfRwinkwavu}" formRetired="false">
 
     <macros>
         paperFormId = Flow-DM-RW.V2.0.akb.15May09
@@ -26,214 +19,264 @@
 
     </macros>
     <style>
-        th.tableHeader {
-        background-color: #009d8e;
-        color: #FFFFFF;
-        font-size: 16px;
-        text-align: left;
-        }
-        .sectionHeader { background-color: #009d8e;
-        color: white; display: block; padding: 2px; font-weight:bold; }
-        ul {
-        list-style-type: square;
-        font-family: Verdana, Arial, Helvetica, sans-serif;
-        font-size: 11px;
-        }
-
-        tr.spaceUnder>td {
-        padding-bottom: 1em;
-        }
-
-        td {
-        font-size: 15px;
-        }
-
-        #container {
-        
-        margin: auto;
-        
-        height: auto;
-        }
-
-        @media print {
-        #container {
-        display: none;
-        }
-
-        #printArea {
+        form fieldset {
         display: block;
         }
 
-        #userBar {
-        display: none;
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
         }
 
-        #banner {
-        display: none;
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
         }
 
-        #footer {
-        display: none;
+        .section-header {
+        margin-top: 1.5em;
         }
 
-        #htmlFormEntryBanner {
-        display: none;
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
         }
 
-        .error {
-        display: none;
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
         }
 
-        .lables {
-        width: 200px;
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
         }
 
-        table {
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
         width: 100%;
         }
 
-        table,td,th {
-        border: 1px solid black;
-        border-collapse: collapse;
+        .div {
+        float: left;
         }
 
-        th {
-        text-align: left;
-        background-color: #D9D9D9;
-        font-size: 10px;
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
         }
 
-        td {
-        font-size: 10px;
+        .side-by-side label {
+        display: inline-block;
         }
 
-        .selectedCancerStagingKeys {
-        page-break-before: always;
-        border: 0px;
+        .date-one-line {
+        display: flex;
         }
 
-        table.selectedCancerStagingKeys td {
-        border: 0px;
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
         }
 
-        #signature {
-        border: none;
-        }
-        #signature td {
-        border: none;
-        }
+        .date-one-line span {
+        display: flex;
         }
 
-        @media screen {
-        table {
-        border: 1px solid #DFDFDF;
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
         width: 100%;
-        border-color: #009d8e;
         }
 
-        #container {
-        display: block;
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
         }
 
-        #printArea {
-        display: none;
-        }
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
         }
 
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
     </style>
 
-    <section headerLabel="NURSING / MIDWIFE CARE PLAN">
-        <table cellspacing="0" cellpadding="6" width="100%" style="background-color:AliceBlue">
-            <tr>
-                <td><img src="/openmrs/moduleResources/mohbilling/images/rwanda-logo.jpg" align="left"
-                         height="65"></img>
-                    <b>REPUBLIC OF RWANDA
-                        <br/>MINISTRY OF HEALTH</b>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>
-                        <encounterLocation id="location" />
-                    </b><br/>
-                </td>
 
-                <td>
-                    <encounterProvider id="encounterProvider"
-                                       role="Provider" />
-                </td>
-            </tr>
-        </table>
-    </section>
+    <h1>NURSING / MIDWIFE CARE PLAN</h1>
 
-    <section headerLabel="Patient Information">
-        <table cellspacing="0" cellpadding="6" width="100%" style="background-color:AliceBlue">
-            <tr>
-                <td>
-                    Primary Care ID Type:
-                    <lookup class="value" expression="patientIdentifiers.get(&quot;Primary Care ID Type&quot;)"/>
-                    <br/>
-                    Nom / Last name:
-                    <lookup class="value" expression="patient.personName.familyName"/>
-                    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-                    Prénom/ First name:
-                    <lookup class="value" expression="patient.personName.givenName"/>
-                    <br/>
-                    Sexe/Sex:
-                    <lookup class="value" expression="patient.Gender"/>
-                    <br/>
-                    Date de naissance/Date of birth:
-                    <lookup class="value" expression="patient.birthdate"/>
-                </td>
-            </tr>
-        </table>
-    </section>
-
-
-    <section headerLabel="">
-        <table cellspacing="0" cellpadding="6" width="100%" style="background-color:AliceBlue">
-            <tr class="strong">
-                <th>Date/Time</th>
-                <th>Nursing assessment</th>
-                <th>Nursing Diagnosis</th>
-                <th>Nursing objectives/outcome</th>
-                <th>Nursing intervention</th>
-                <th>Nursing Evaluation</th>
-            </tr>
-            <obsgroup groupingConceptId="61d862a5-1cb7-4d97-a32c-b4a774b2dab7">
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION">
+        <div class="section-container">
+            <table style="table-layout: fixed;">
                 <tr>
                     <td>
-                        <!-- Frequancy -->
-                        <obs conceptId="91f417a4-2942-4f7c-90de-70ca5a135f79" style="textarea" rows="3" cols=""/>
-                    </td>
-
-                    <td>
-                        <!-- Frequancy -->
-                        <obs conceptId="d028e520-c49d-4a99-a048-802d0d48af61" style="textarea" rows="3" cols="30"/>
+                        Date:
+                        <encounterDate default="today" />
                     </td>
                     <td>
-                        <!-- Motif -->
-                        <obs conceptId="1fe24902-2b62-4461-b2e7-a0fb76fc2970" style="textarea" rows="3" cols="20"/>
+                        Health Facility:
+                        <encounterLocation id="location" default="GlobalProperty:registration.defaultLocationCode" />
                     </td>
                     <td>
-                        <!-- Drud -->
-                        <obs conceptId="7a122ee2-039e-463b-92df-48fc3dd6ca5f" style="textarea" rows="3" cols="20"/>
-                    </td>
-                    <td>
-                        <!-- Drud -->
-                        <obs conceptId="96cd0d39-6a27-4691-b2d4-5d33a092c16c" style="textarea" rows="3" cols="20"/>
-                    </td>
-                    <td>
-                        <!-- Drud -->
-                        <obs conceptId="ccfca656-fa58-4c4f-a9df-2dbc6801e4a0" style="textarea" rows="3" cols="20"/>
+                        Provider:
+                        <encounterProvider default="currentUser" />
                     </td>
                 </tr>
-            </obsgroup>
-        </table>
+            </table>
+        </div>
     </section>
 
-    <center>
-        <submit/>
-    </center>
-</htmlform>
 
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Nursing care plan">
+        <div class="section-container">
+            <table cellspacing="0" cellpadding="6" style="table-layout: fixed;" width="100%">
+                <tr class="strong">
+                    <th>Date/Time</th>
+                    <th>Nursing assessment</th>
+                    <th>Nursing Diagnosis</th>
+                    <th>Nursing Goal</th>
+                    <th>Nursing Intervention</th>
+                    <th>Nursing Outcome</th>
+                </tr>
+                <obsgroup groupingConceptId="61d862a5-1cb7-4d97-a32c-b4a774b2dab7">
+                    <tr>
+                        <td>
+                            <p>
+                                <obs conceptId="91f417a4-2942-4f7c-90de-70ca5a135f79" allowFutureDates="true"/>
+
+                            </p>
+                        </td>
+
+                        <td>
+                            <p>
+                                <obs conceptId="d028e520-c49d-4a99-a048-802d0d48af61" style="textarea" rows="2"
+                                     cols="20" />
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <obs conceptId="1fe24902-2b62-4461-b2e7-a0fb76fc2970" style="textarea" rows="3"
+                                     cols="20" />
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <obs conceptId="7a122ee2-039e-463b-92df-48fc3dd6ca5f" style="textarea" rows="3"
+                                     cols="20" />
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <obs conceptId="96cd0d39-6a27-4691-b2d4-5d33a092c16c" style="textarea" rows="3"
+                                     cols="20" />
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <obs conceptId="ccfca656-fa58-4c4f-a9df-2dbc6801e4a0" style="textarea" rows="3"
+                                     cols="20" />
+                            </p>
+                        </td>
+                    </tr>
+                </obsgroup>
+            </table>
+        </div>
+    </section>
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm right">
+                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                            style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+
+</htmlform>

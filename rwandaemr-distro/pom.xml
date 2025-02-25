@@ -20,7 +20,7 @@
     </scm>
 
     <properties>
-        <openMRSVersion>2.6.3</openMRSVersion>
+        <openMRSVersion>2.6.11</openMRSVersion>
         <addresshierarchyVersion>2.19.0</addresshierarchyVersion>
         <adminuiVersion>1.7.0-SNAPSHOT</adminuiVersion>
         <allergyuiVersion>1.8.6</allergyuiVersion>
@@ -31,21 +31,18 @@
         <authenticationuiVersion>1.1.0-SNAPSHOT</authenticationuiVersion>
         <calculationVersion>1.3.0</calculationVersion>
         <coreappsVersion>2.0.0-SNAPSHOT</coreappsVersion>
-        <!-- dhisconnector-1.5.6.omod -->
         <emrapiVersion>2.1.0</emrapiVersion>
         <eventVersion>2.10.0</eventVersion>
         <fhir2Version>2.3.0-SNAPSHOT</fhir2Version>
         <formconceptsVersion>2.0.1</formconceptsVersion>
         <formentryappVersion>1.4.3</formentryappVersion>
         <groovyVersion>2.3.1</groovyVersion>
-        <!-- growthchart-2.2.0-SNAPSHOT.omod  -->
         <heightweighttrackerVersion>2.1.0</heightweighttrackerVersion>
         <htmlformentryVersion>5.3.0</htmlformentryVersion>
         <htmlformentryuiVersion>2.5.0-SNAPSHOT</htmlformentryuiVersion>
         <htmlformflowsheetVersion>2.0.0</htmlformflowsheetVersion>
         <htmlwidgetsVersion>1.12.0-SNAPSHOT</htmlwidgetsVersion>
         <idgenVersion>4.14.0</idgenVersion>
-        <imbemrVersion>2.0.0-SNAPSHOT</imbemrVersion>
         <imbpathologyrequestVersion>1.0.0-SNAPSHOT</imbpathologyrequestVersion>
         <initializerVersion>2.7.0</initializerVersion>
         <laboratorymanagementVersion>2.0.0-SNAPSHOT</laboratorymanagementVersion>
@@ -56,16 +53,14 @@
         <mohbillingVersion>2.0.2-SNAPSHOT</mohbillingVersion>
         <mohdataflowmoduleVersion>0.0.5-SNAPSHOT</mohdataflowmoduleVersion>
         <mohtracVersion>2.0.0-SNAPSHOT</mohtracVersion>
-        <!-- muzimacore-2.5.3-SNAPSHOT.omod -->
         <namephoneticsVersion>1.19.0</namephoneticsVersion>
-        <!-- ohrimamba-1.0.1-SNAPSHOT.omod -->
-        <omodExportVersion>2.2.0-SNAPSHOT</omodExportVersion>
-        <orderextensionVersion>3.3.0-SNAPSHOT</orderextensionVersion>
+        <openconceptlabVersion>2.5.0-SNAPSHOT</openconceptlabVersion>
+        <omodExportVersion>2.1.0</omodExportVersion>
+        <orderextensionVersion>3.2.0</orderextensionVersion>
         <owaVersion>1.15.0</owaVersion>
-        <patientsummaryVersion>1.4.0</patientsummaryVersion> <!-- not on production -->
+        <patientsummaryVersion>1.4.0</patientsummaryVersion>
         <pharmacymanagementVersion>2.0.0-SNAPSHOT</pharmacymanagementVersion>
         <providermanagementVersion>2.15.0</providermanagementVersion>
-        <!-- rbcmessaging-1.0-SNAPSHOT -->
         <registrationappVersion>1.27.0-SNAPSHOT</registrationappVersion>
         <registrationcoreVersion>1.13.0</registrationcoreVersion>
         <reportingVersion>1.26.0</reportingVersion>
@@ -74,18 +69,19 @@
         <reportingrestVersion>1.14.0</reportingrestVersion>
         <reportinguiVersion>1.12.0</reportinguiVersion>
         <rowperpatientreportsVersion>2.0.0</rowperpatientreportsVersion>
+        <rwandaemrVersion>3.0.0-SNAPSHOT</rwandaemrVersion>
         <rwandahivflowsheetVersion>2.1.0</rwandahivflowsheetVersion>
         <rwandaprimarycareVersion>2.1.0-SNAPSHOT</rwandaprimarycareVersion>
         <rwandareportsVersion>3.0.0-SNAPSHOT</rwandareportsVersion>
         <serializationVersion>0.2.16</serializationVersion>
-        <simplelabentryVersion>2.0.0</simplelabentryVersion> <!-- not on production -->
+        <simplelabentryVersion>2.0.0</simplelabentryVersion>
         <spaVersion>2.0.0</spaVersion>
         <syncVersion>3.1.0-SNAPSHOT</syncVersion>
         <uicommonsVersion>2.26.0</uicommonsVersion>
         <uiframeworkVersion>3.25.0</uiframeworkVersion>
         <uilibraryVersion>2.0.7</uilibraryVersion>
         <usagestatisticsVersion>2.1.0</usagestatisticsVersion>
-        <validationVersion>2.0.0</validationVersion> <!-- not on production -->
+        <validationVersion>2.0.0</validationVersion>
         <webservicesRestVersion>2.48.0-SNAPSHOT</webservicesRestVersion>
     </properties>
 
@@ -233,8 +229,8 @@
         </dependency>
         <dependency>
             <groupId>org.openmrs.module</groupId>
-            <artifactId>imbemr-omod</artifactId>
-            <version>${imbemrVersion}</version>
+            <artifactId>rwandaemr-omod</artifactId>
+            <version>${rwandaemrVersion}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

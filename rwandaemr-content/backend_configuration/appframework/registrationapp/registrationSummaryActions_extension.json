@@ -3,23 +3,23 @@
     "id": "registrationSummary.overallActions.registrationHome",
     "extensionPointId": "registrationSummary.overallActions",
     "type": "link",
-    "label": "imbemr.registration.home",
-    "url": "registrationapp/findPatient.page?appId=imbemr.registerPatient",
+    "label": "rwandaemr.registration.home",
+    "url": "registrationapp/findPatient.page?appId=rwandaemr.registerPatient",
     "order": 1
   },
   {
     "id": "registrationSummary.overallActions.insurancePolicies",
     "extensionPointId": "registrationSummary.overallActions",
     "type": "link",
-    "label": "imbemr.insurancePolicies.manage",
-    "url": "imbemr/patient/insurancePolicies.page?patientId={{patient.patientId}}&returnUrl=registrationSummary",
+    "label": "rwandaemr.insurancePolicies.manage",
+    "url": "rwandaemr/patient/insurancePolicies.page?patientId={{patient.patientId}}&returnUrl=registrationSummary",
     "order": 2
   },
   {
     "id": "registrationSummary.overallActions.realTimeRegistration",
     "extensionPointId": "registrationSummary.overallActions",
     "type": "link",
-    "label": "imbemr.startVisit",
+    "label": "rwandaemr.startVisit",
     "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&createVisit=true&definitionUiResource=file:configuration/htmlforms/registration.xml",
     "order": 3,
     "require": "visit == null || !visit.encounters || !some(visit.encounters, (function(encounter) { return encounter.encounterType.uuid === 'cfe614d5-fa7e-4919-b76b-a66117f57e4c'; } ))"
@@ -28,7 +28,7 @@
     "id": "registrationSummary.overallActions.visitDashboard",
     "extensionPointId": "registrationSummary.overallActions",
     "type": "link",
-    "label": "imbemr.visitDashboard.view",
+    "label": "rwandaemr.visitDashboard.view",
     "url": "coreapps/patientdashboard/patientDashboard.page?patientId={{patient.uuid}}",
     "order": 5
   },
@@ -36,7 +36,7 @@
     "id": "registrationSummary.overallActions.enterPastVisit",
     "extensionPointId": "registrationSummary.overallActions",
     "type": "script",
-    "label": "imbemr.startVisit.retrospective",
+    "label": "rwandaemr.startVisit.retrospective",
     "script": "visit.showRetrospectiveVisitCreationDialog()",
     "order": 6,
     "requiredPrivilege": "Task: coreapps.createRetrospectiveVisit"
@@ -45,8 +45,8 @@
     "id": "registrationSummary.overallActions.clinicalDashboard",
     "extensionPointId": "registrationSummary.overallActions",
     "type": "link",
-    "label": "imbemr.clinicalDashboard.view",
-    "url": "coreapps/clinicianfacing/patient.page?patientId={{patient.uuid}}&appId=imbemr.registerPatient",
+    "label": "rwandaemr.clinicalDashboard.view",
+    "url": "coreapps/clinicianfacing/patient.page?patientId={{patient.uuid}}&appId=rwandaemr.registerPatient",
     "order": 7
   },
   {

@@ -1,11 +1,11 @@
 [
   {
-    "id": "imbemr.pharmacyManageApp",
+    "id": "rwandaemr.pharmacyManageApp",
     "description": "Opening moh pharmacy management window in legacy UI",
     "order": 10,
     "extensions": [
       {
-        "id": "imbemr.pharmacyManageApp",
+        "id": "rwandaemr.pharmacyManageApp",
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
         "label": "Pharmacy Services",

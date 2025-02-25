@@ -63,8 +63,8 @@
 		</Logger>
 		<Logger name="org.openmrs.module.authentication.web.AuthenticationFilter" level="INFO"/>
 
-		<!-- IMB EMR Logging -->
-		<Logger name="org.openmrs.module.imbemr" level="INFO" />
+		<!-- Rwanda EMR Logging -->
+		<Logger name="org.openmrs.module.rwandaemr" level="INFO" />
 
 		<Root level="WARN">
 			<AppenderRef ref="CONSOLE" />

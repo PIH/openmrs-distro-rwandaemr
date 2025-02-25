@@ -3,8 +3,8 @@
         "id": "patientDashboard.overallActions.registrationSummary",
         "extensionPointId": "patientDashboard.overallActions",
         "type": "link",
-        "label": "imbemr.registration.summary",
-        "url": "registrationapp/registrationSummary.page?patientId={{patient.uuid}}&appId=imbemr.registerPatient",
+        "label": "rwandaemr.registration.summary",
+        "url": "registrationapp/registrationSummary.page?patientId={{patient.uuid}}&appId=rwandaemr.registerPatient",
         "icon": "icon-pencil",
         "order": 4,
         "requiredPrivilege": "App: registrationapp.registerPatient"
@@ -66,7 +66,7 @@
         "extensionPointId": "patientDashboard.overallActions",
         "type": "link",
         "label": "Billing",
-        "url": "imbemr/patient/manualBilling.page?patientId={{patient.uuid}}",
+        "url": "rwandaemr/patient/manualBilling.page?patientId={{patient.uuid}}",
         "icon": "icon-money",
         "order": 0
     },
@@ -75,7 +75,7 @@
         "extensionPointId": "patientDashboard.overallActions",
         "type": "link",
         "label": "Lab Orders",
-        "url": "imbemr/patient/labOrders.page?patientId={{patient.uuid}}",
+        "url": "rwandaemr/patient/labOrders.page?patientId={{patient.uuid}}",
         "icon": "icon-beaker",
         "order": 1
     },
@@ -84,7 +84,7 @@
         "extensionPointId": "patientDashboard.overallActions",
         "type": "link",
         "label": "Drug Order",
-        "url": "imbemr/patient/drugOrders.page?patientId={{patient.uuid}}",
+        "url": "rwandaemr/patient/drugOrders.page?patientId={{patient.uuid}}",
         "icon": "icon-plus-sign",
         "order": 2
     },
@@ -93,7 +93,7 @@
         "extensionPointId": "patientDashboard.overallActions",
         "type": "link",
         "label": "Insurance Partner",
-        "url": "imbemr/patient/mohdataflowpatient.page?patientId={{patient.uuid}}",
+        "url": "rwandaemr/patient/mohdataflowpatient.page?patientId={{patient.uuid}}",
         "icon": "icon-road",
         "order": 3,
         "requiredPrivilege": "View Medical History Link"

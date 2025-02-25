@@ -1,11 +1,11 @@
 [
   {
-    "id": "imbemr.appointmentsApp",
+    "id": "rwandaemr.appointmentsApp",
     "description": "Opening moh appointment provider dashboard window in legacy UI",
     "order": 4,
     "extensions": [
       {
-        "id": "imbemr.appointmentsApp",
+        "id": "rwandaemr.appointmentsApp",
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
         "label": "Appointments",

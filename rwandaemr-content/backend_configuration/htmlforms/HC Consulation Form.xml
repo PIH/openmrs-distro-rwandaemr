@@ -287,7 +287,7 @@
             </p>
             <p class="flexView">
                 <b>Department:</b>
-                <obs conceptId="c920931b-fa93-4e99-9e36-28e1e4c16cf7" required="true"/>
+                <obs conceptId="aa7b8e25-f564-4d93-a262-93cd3d3a9e17" required="true"/>
             </p>
         </div>
     </section>
@@ -376,11 +376,9 @@
         <div class="section-container">
             <p>
                 <b>Presumptive diagnosis:</b><br/>
-                1. <obs  conceptId="099195f8-83b6-4598-9f77-919149c8a5f5"
-            /><br/>
-                2. <obs  conceptId="099195f8-83b6-4598-9f77-919149c8a5f5"
-            /><br/>
-                3. <obs  conceptId="099195f8-83b6-4598-9f77-919149c8a5f5"
+                1. <obs  conceptId="$@Presumptive_diagnosis_or_Hypothesis@" required="true"  size="20" style="autocomplete" answerClasses="Diagnosis"/><br/>
+                2. <obs  conceptId="$@Presumptive_diagnosis_or_Hypothesis@"  size="20" style="autocomplete" answerClasses="Diagnosis"                                                     /><br/>
+                3. <obs  conceptId="$@Presumptive_diagnosis_or_Hypothesis@"  size="20" style="autocomplete" answerClasses="Diagnosis"
             />
             </p>
 
@@ -441,7 +439,7 @@
     <ifMode mode="VIEW" include="false">
         <div id="buttons">
 
-            <button id="submit" class="submitButton confirm">
+            <button id="submit" class="submitButton confirm right">
                 <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
                                             style="display: none; margin-left: 10px;"></i>
             </button>

@@ -1,12 +1,12 @@
 [
   {
-    "id": "imbemr.dashboardWidget.attributes",
+    "id": "rwandaemr.dashboardWidget.attributes",
     "icon": "icon-user",
     "order": 2,
     "extensions": [
       {
-        "id": "imbemr.dashboardWidget.attributes",
-        "appId": "imbemr.dashboardWidget.attributes",
+        "id": "rwandaemr.dashboardWidget.attributes",
+        "appId": "rwandaemr.dashboardWidget.attributes",
         "extensionPointId": "registrationSummary.contentFragments",
         "extensionParams": {
           "provider": "registrationapp",
@@ -19,13 +19,13 @@
     ]
   },
   {
-    "id": "imbemr.dashboardWidget.identifiers",
+    "id": "rwandaemr.dashboardWidget.identifiers",
     "icon": "icon-barcode",
     "order": 3,
     "extensions": [
       {
-        "id": "imbemr.dashboardWidget.identifiers",
-        "appId": "imbemr.dashboardWidget.identifiers",
+        "id": "rwandaemr.dashboardWidget.identifiers",
+        "appId": "rwandaemr.dashboardWidget.identifiers",
         "extensionPointId": "registrationSummary.contentFragments",
         "extensionParams": {
           "provider": "registrationapp",
@@ -39,33 +39,33 @@
     ]
   },
   {
-    "id": "imbemr.dashboardWidget.insurancePolicies",
+    "id": "rwandaemr.dashboardWidget.insurancePolicies",
     "icon": "icon-briefcase",
     "order": 2,
     "extensions": [
       {
-        "id": "imbemr.dashboardWidget.insurancePolicies",
-        "appId": "imbemr.dashboardWidget.insurancePolicies",
+        "id": "rwandaemr.dashboardWidget.insurancePolicies",
+        "appId": "rwandaemr.dashboardWidget.insurancePolicies",
         "extensionPointId": "registrationSummary.secondColumnContentFragments",
         "extensionParams": {
-          "provider": "imbemr",
+          "provider": "rwandaemr",
           "fragment": "patient/insurancePolicies"
         }
       }
     ]
   },
   {
-    "id": "imbemr.dashboardWidget.registrationEncounters",
+    "id": "rwandaemr.dashboardWidget.registrationEncounters",
     "icon": "icon-book",
-    "label": "imbemr.todaysRegistration",
+    "label": "rwandaemr.todaysRegistration",
     "order": 3,
     "extensions": [
       {
-        "id": "imbemr.dashboardWidget.registrationEncounters",
-        "appId": "imbemr.dashboardWidget.registrationEncounters",
+        "id": "rwandaemr.dashboardWidget.registrationEncounters",
+        "appId": "rwandaemr.dashboardWidget.registrationEncounters",
         "extensionPointId": "registrationSummary.secondColumnContentFragments",
         "extensionParams": {
-          "provider": "imbemr",
+          "provider": "rwandaemr",
           "fragment": "patient/encountersDuringVisit",
           "fragmentConfig": {
             "encounterType": "cfe614d5-fa7e-4919-b76b-a66117f57e4c",

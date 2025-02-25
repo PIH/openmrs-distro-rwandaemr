@@ -1,6 +1,6 @@
 [
   {
-    "id": "imbemr.heartFaillureProgramDashboard.currentEnrollment",
+    "id": "rwandaemr.heartFaillureProgramDashboard.currentEnrollment",
     "order": 1,
     "config": {
       "widget": "programstatus",
@@ -11,8 +11,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.heartFaillureProgramDashboard.currentEnrollment.extension",
-        "appId": "imbemr.heartFaillureProgramDashboard.currentEnrollment",
+        "id": "rwandaemr.heartFaillureProgramDashboard.currentEnrollment.extension",
+        "appId": "rwandaemr.heartFaillureProgramDashboard.currentEnrollment",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.firstColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "id": "imbemr.heartFaillureProgramDashboard.previousEnrollment",
+    "id": "rwandaemr.heartFaillureProgramDashboard.previousEnrollment",
     "order": 2,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -33,8 +33,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.heartFaillureProgramDashboard.previousEnrollment.extension",
-        "appId": "imbemr.heartFaillureProgramDashboard.previousEnrollment",
+        "id": "rwandaemr.heartFaillureProgramDashboard.previousEnrollment.extension",
+        "appId": "rwandaemr.heartFaillureProgramDashboard.previousEnrollment",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.firstColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -44,9 +44,9 @@
     ]
   },
   {
-    "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.recentEncounters",
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.recentEncounters",
     "description": "coreapps.mostRecentVitals.app.description",
-    "label": "imbemr.clinicianfacing.recentEncounters",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
     "icon": "icon-calendar",
     "order": 4,
     "config": {
@@ -57,18 +57,18 @@
     },
     "extensions": [
       {
-        "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.recentEncounters.extension",
-        "appId": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.recentEncounters",
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.recentEncounters.extension",
+        "appId": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.recentEncounters",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.secondColumnFragments",
         "extensionParams": {
-          "provider": "imbemr",
+          "provider": "rwandaemr",
           "fragment": "patient/encountersSection"
         }
       }
     ]
   },
   {
-    "id": "imbemr.heartFaillureProgramDashboard.obsGraph.weight",
+    "id": "rwandaemr.heartFaillureProgramDashboard.obsGraph.weight",
     "order": 3,
     "config": {
       "widget": "obsgraph",
@@ -84,8 +84,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.heartFaillureProgramDashboard.obsGraphWeight.extension",
-        "appId": "imbemr.heartFaillureProgramDashboard.obsGraph.weight",
+        "id": "rwandaemr.heartFaillureProgramDashboard.obsGraphWeight.extension",
+        "appId": "rwandaemr.heartFaillureProgramDashboard.obsGraph.weight",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.secondColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -95,7 +95,7 @@
     ]
   },
   {
-    "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.Enrollment.Form",
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.Enrollment.Form",
     "order": 1,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -106,7 +106,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.Enrollment.Form",
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.Enrollment.Form",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
         "type": "link",
         "label": "Enrollment Form",
@@ -117,7 +117,7 @@
     ]
   },
   {
-    "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.vitals",
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.vitals",
     "order": 2,
     "config": {
       "label": "coreapps.programHistoryDashboardWidget.label",
@@ -127,7 +127,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.vitals",
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.vitals",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
         "type": "link",
         "label": "referenceapplication.app.capturevitals.title",
@@ -139,7 +139,7 @@
     ]
   },
   {
-    "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.ClinicalVisits.Form",
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.ClinicalVisits.Form",
     "order": 3,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -150,7 +150,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.ClinicalVisits.Form",
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.ClinicalVisits.Form",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
         "type": "link",
         "label": "Clinic Visits Form",
@@ -161,7 +161,7 @@
     ]
   },
   {
-    "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.medicationlist.Form",
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.medicationlist.Form",
     "order": 4,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -172,7 +172,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.medicationlist.Form",
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.medicationlist.Form",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
         "type": "link",
         "label": "Medication List Form",
@@ -183,7 +183,7 @@
     ]
   },
   {
-    "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.echoCardiography.Form",
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.echoCardiography.Form",
     "order": 5,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -194,7 +194,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.echoCardiography.Form",
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.echoCardiography.Form",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
         "type": "link",
         "label": "Echo-Cardiography Form",
@@ -205,7 +205,7 @@
     ]
   },
   {
-    "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.preliminaryEcho.Form",
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.preliminaryEcho.Form",
     "order": 5,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -216,7 +216,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.preliminaryEcho.Form",
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.preliminaryEcho.Form",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
         "type": "link",
         "label": "Cardiology Preliminary Echo Form",
@@ -227,7 +227,7 @@
     ]
   },
   {
-    "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.medicationExam.Form",
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.medicationExam.Form",
     "order": 5,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -238,7 +238,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.medicationExam.Form",
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.medicationExam.Form",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
         "type": "link",
         "label": "Medication Exam",
@@ -249,7 +249,7 @@
     ]
   },
   {
-    "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.problemList.Form",
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.problemList.Form",
     "order": 5,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -260,7 +260,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.problemList.Form",
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.problemList.Form",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
         "type": "link",
         "label": "Diagnosis and Problem List",
@@ -271,7 +271,7 @@
     ]
   },
   {
-    "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.regimens",
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.regimens",
     "order": 5,
     "config": {
       "icon": "fas fa-fw fa-briefcase-medical",
@@ -282,11 +282,11 @@
     },
     "extensions": [
       {
-        "id": "imbemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.exitFromCare.Form",
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.exitFromCare.Form",
         "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
         "type": "link",
         "label": "Regimens",
-        "url": "imbemr/patient/regimen.page?patientId={{patient.uuid}}",
+        "url": "rwandaemr/patient/regimen.page?patientId={{patient.uuid}}",
         "icon": "fas fa-fw fa-briefcase-medical",
         "order": 15
       }

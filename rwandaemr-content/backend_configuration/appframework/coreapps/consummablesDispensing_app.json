@@ -1,11 +1,11 @@
 [
   {
-    "id": "imbemr.consummableDispensingApp",
+    "id": "rwandaemr.consummableDispensingApp",
     "description": "Opening moh consummables dispensing window in legacy UI",
     "order": 10,
     "extensions": [
       {
-        "id": "imbemr.consummbleDispensingApp",
+        "id": "rwandaemr.consummbleDispensingApp",
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
         "label": "Consummables Despensing",

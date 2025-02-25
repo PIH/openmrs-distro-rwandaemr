@@ -1,11 +1,11 @@
 [
   {
-    "id": "imbemr.primaryCareApp",
+    "id": "rwandaemr.primaryCareApp",
     "description": "Registration of a patient through primary care",
     "order": 11,
     "extensions": [
       {
-        "id": "imbemr.primaryCareApp",
+        "id": "rwandaemr.primaryCareApp",
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
         "label": "Primary Care Registration",

@@ -6,7 +6,7 @@
     "order": 1,
     "extensions": [
       {
-        "id": "imbemr.diagnoses.clinicianDashboardFirstColumn",
+        "id": "rwandaemr.diagnoses.clinicianDashboardFirstColumn",
         "appId": "coreapps.diagnoses",
         "extensionPointId": "patientDashboard.firstColumnFragments",
         "extensionParams": {
@@ -18,9 +18,9 @@
     ]
   },
   {
-    "id": "imbemr.recentEncounters",
+    "id": "rwandaemr.recentEncounters",
     "description": "coreapps.mostRecentVitals.app.description",
-    "label": "imbemr.clinicianfacing.recentEncounters",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
     "icon": "icon-calendar",
     "order": 3,
     "config": {
@@ -28,11 +28,11 @@
     },
     "extensions": [
       {
-        "id": "imbemr.recentEncounters.clinicianDashboardSecondColumn",
-        "appId": "imbemr.recentEncounters",
+        "id": "rwandaemr.recentEncounters.clinicianDashboardSecondColumn",
+        "appId": "rwandaemr.recentEncounters",
         "extensionPointId": "patientDashboard.secondColumnFragments",
         "extensionParams": {
-          "provider": "imbemr",
+          "provider": "rwandaemr",
           "fragment": "patient/encountersSection"
         }
       }

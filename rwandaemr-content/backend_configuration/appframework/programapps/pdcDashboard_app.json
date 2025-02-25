@@ -1,6 +1,6 @@
 [
   {
-    "id": "imbemr.pdcProgramDashboard.currentEnrollment",
+    "id": "rwandaemr.pdcProgramDashboard.currentEnrollment",
     "order": 1,
     "config": {
       "widget": "programstatus",
@@ -11,8 +11,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.pdcProgramDashboard.currentEnrollment.extension",
-        "appId": "imbemr.pdcProgramDashboard.currentEnrollment",
+        "id": "rwandaemr.pdcProgramDashboard.currentEnrollment.extension",
+        "appId": "rwandaemr.pdcProgramDashboard.currentEnrollment",
         "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.firstColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "id": "imbemr.pdcProgramDashboard.previousEnrollment",
+    "id": "rwandaemr.pdcProgramDashboard.previousEnrollment",
     "order": 2,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -33,8 +33,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.pdcProgramDashboard.previousEnrollment.extension",
-        "appId": "imbemr.pdcProgramDashboard.previousEnrollment",
+        "id": "rwandaemr.pdcProgramDashboard.previousEnrollment.extension",
+        "appId": "rwandaemr.pdcProgramDashboard.previousEnrollment",
         "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.firstColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -44,9 +44,9 @@
     ]
   },
   {
-    "id": "imbemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.recentEncounters",
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.recentEncounters",
     "description": "coreapps.mostRecentVitals.app.description",
-    "label": "imbemr.clinicianfacing.recentEncounters",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
     "icon": "icon-calendar",
     "order": 4,
     "config": {
@@ -57,18 +57,18 @@
     },
     "extensions": [
       {
-        "id": "imbemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.recentEncounters.extension",
-        "appId": "imbemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.recentEncounters",
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.recentEncounters.extension",
+        "appId": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.recentEncounters",
         "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.secondColumnFragments",
         "extensionParams": {
-          "provider": "imbemr",
+          "provider": "rwandaemr",
           "fragment": "patient/encountersSection"
         }
       }
     ]
   },
   {
-    "id": "imbemr.pdcProgramDashboard.obsGraph.weight",
+    "id": "rwandaemr.pdcProgramDashboard.obsGraph.weight",
     "order": 3,
     "config": {
       "widget": "obsgraph",
@@ -84,8 +84,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.pdcProgramDashboard.obsGraphWeight.extension",
-        "appId": "imbemr.pdcProgramDashboard.obsGraph.weight",
+        "id": "rwandaemr.pdcProgramDashboard.obsGraphWeight.extension",
+        "appId": "rwandaemr.pdcProgramDashboard.obsGraph.weight",
         "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.secondColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -95,7 +95,7 @@
     ]
   },
   {
-    "id": "imbemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcFlowsheet.Form",
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcFlowsheet.Form",
     "order": 1,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -106,7 +106,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcFlowsheet.Form",
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcFlowsheet.Form",
         "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
         "type": "link",
         "label": "Intake Visit",

@@ -1,6 +1,6 @@
 [
   {
-    "id": "imbemr.mentalHealthProgramDashboard.currentEnrollment",
+    "id": "rwandaemr.mentalHealthProgramDashboard.currentEnrollment",
     "order": 1,
     "config": {
       "widget": "programstatus",
@@ -11,8 +11,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.mentalHealthProgramDashboard.currentEnrollment.extension",
-        "appId": "imbemr.mentalHealthProgramDashboard.currentEnrollment",
+        "id": "rwandaemr.mentalHealthProgramDashboard.currentEnrollment.extension",
+        "appId": "rwandaemr.mentalHealthProgramDashboard.currentEnrollment",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.firstColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "id": "imbemr.mentalHealthProgramDashboard.previousEnrollment",
+    "id": "rwandaemr.mentalHealthProgramDashboard.previousEnrollment",
     "order": 2,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -33,8 +33,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.mentalHealthProgramDashboard.previousEnrollment.extension",
-        "appId": "imbemr.mentalHealthProgramDashboard.previousEnrollment",
+        "id": "rwandaemr.mentalHealthProgramDashboard.previousEnrollment.extension",
+        "appId": "rwandaemr.mentalHealthProgramDashboard.previousEnrollment",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.firstColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -44,9 +44,9 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.recentEncounters",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.recentEncounters",
     "description": "coreapps.mostRecentVitals.app.description",
-    "label": "imbemr.clinicianfacing.recentEncounters",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
     "icon": "icon-calendar",
     "order": 4,
     "config": {
@@ -57,18 +57,18 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.recentEncounters.extension",
-        "appId": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.recentEncounters",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.recentEncounters.extension",
+        "appId": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.recentEncounters",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.secondColumnFragments",
         "extensionParams": {
-          "provider": "imbemr",
+          "provider": "rwandaemr",
           "fragment": "patient/encountersSection"
         }
       }
     ]
   },
   {
-    "id": "imbemr.mentalHealthProgramDashboard.obsGraph.weight",
+    "id": "rwandaemr.mentalHealthProgramDashboard.obsGraph.weight",
     "order": 3,
     "config": {
       "widget": "obsgraph",
@@ -84,8 +84,8 @@
     },
     "extensions": [
       {
-        "id": "imbemr.mentalHealthProgramDashboard.obsGraphWeight.extension",
-        "appId": "imbemr.mentalHealthProgramDashboard.obsGraph.weight",
+        "id": "rwandaemr.mentalHealthProgramDashboard.obsGraphWeight.extension",
+        "appId": "rwandaemr.mentalHealthProgramDashboard.obsGraph.weight",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.secondColumnFragments",
         "extensionParams": {
           "provider": "coreapps",
@@ -95,7 +95,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhInitial.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhInitial.Form",
     "order": 5,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -106,7 +106,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhInitial.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhInitial.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Initial Encounter",
@@ -117,7 +117,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhAccessBasicInfo.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhAccessBasicInfo.Form",
     "order": 6,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -128,7 +128,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhAccessBasicInfo.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhAccessBasicInfo.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Access Basic Information",
@@ -139,7 +139,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhAccessInpatientAdmission.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhAccessInpatientAdmission.Form",
     "order": 7,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -150,7 +150,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhAccessInpatientAdmission.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhAccessInpatientAdmission.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Access Inpatient Admission",
@@ -161,7 +161,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhAccessOutpatientVisit.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhAccessOutpatientVisit.Form",
     "order": 8,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -172,7 +172,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhAccessOutpatientVisit.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhAccessOutpatientVisit.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Access Outpatient Visit",
@@ -183,7 +183,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhDiagnosis.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhDiagnosis.Form",
     "order": 9,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -194,7 +194,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhDiagnosis.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhDiagnosis.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Diagnosis",
@@ -205,7 +205,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhMedicationList.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhMedicationList.Form",
     "order": 10,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -216,7 +216,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhMedicationList.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhMedicationList.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Medication List",
@@ -227,7 +227,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhInvestigations.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhInvestigations.Form",
     "order": 11,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -238,7 +238,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhInvestigations.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhInvestigations.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Investigations",
@@ -249,7 +249,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhMissedVisit.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhMissedVisit.Form",
     "order": 12,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -260,7 +260,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhMissedVisit.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhMissedVisit.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Missed Visit",
@@ -271,7 +271,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhPhqScore9.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhPhqScore9.Form",
     "order": 13,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -282,7 +282,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhPhqScore9.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhPhqScore9.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "PHQ Score 9",
@@ -293,7 +293,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhPharmacotherapy.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhPharmacotherapy.Form",
     "order": 14,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -304,7 +304,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhPharmacotherapy.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhPharmacotherapy.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Pharmacotherapy",
@@ -315,7 +315,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhPsychotherapyApproachVisit.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhPsychotherapyApproachVisit.Form",
     "order": 15,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -326,7 +326,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhPsychotherapyApproachVisit.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhPsychotherapyApproachVisit.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Psychotherapy approach visit",
@@ -337,7 +337,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhSuicideRiskAssessment.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhSuicideRiskAssessment.Form",
     "order": 16,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -348,7 +348,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhSuicideRiskAssessment.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.mhSuicideRiskAssessment.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Suicide Risk Assessment",
@@ -359,7 +359,7 @@
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.regimens",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.regimens",
     "order": 5,
     "config": {
       "icon": "fas fa-fw fa-briefcase-medical",
@@ -370,18 +370,18 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.regimens",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.regimens",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Regimens",
-        "url": "imbemr/patient/regimen.page?patientId={{patient.uuid}}",
+        "url": "rwandaemr/patient/regimen.page?patientId={{patient.uuid}}",
         "icon": "fas fa-fw fa-briefcase-medical",
         "order": 15
       }
     ]
   },
   {
-    "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.exitFromCare.Form",
+    "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.exitFromCare.Form",
     "order": 16,
     "config": {
       "icon": "fas fa-fw fa-stethoscope",
@@ -392,7 +392,7 @@
     },
     "extensions": [
       {
-        "id": "imbemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.exitFromCare.Form",
+        "id": "rwandaemr.51304c8c-ecc2-4bed-818b-a5c785ad58a6.exitFromCare.Form",
         "extensionPointId": "51304c8c-ecc2-4bed-818b-a5c785ad58a6.overallActions",
         "type": "link",
         "label": "Exit from care",

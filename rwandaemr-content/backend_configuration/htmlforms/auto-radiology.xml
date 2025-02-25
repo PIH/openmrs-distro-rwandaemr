@@ -157,6 +157,12 @@
 						Provider:
 						<encounterProvider default="currentUser"/>
 					</td>
+					<td>
+						<label>
+							<b>Department</b>
+						</label>
+						<obs conceptId="c920931b-fa93-4e99-9e36-28e1e4c16cf7" required="true"/>
+					</td>
 				</tr>
 
 			</table>
@@ -186,7 +192,9 @@
 						<font color="red">X-RAY TESTS</font>
 					</b>
 				</legend>
+
 				<div class="two-columns">
+
 
 					<p class="small-input flexView">
 
