@@ -428,7 +428,15 @@
         @Clinican_notes@ = 6602a73b-b8d3-40bc-bae8-f00ff3b9cceb
         @Chronological_Age@ = 63dbac65-dbc7-4333-a6d2-9f679373c9e7
         @chonological_age_text@ = 800eeca4-6ae2-4361-886a-249b4ebc33e6
-
+        @who_attended_with_the_child@ = f7a4a6cc-c95d-49b0-8be9-26cc41fe9aa7
+        @MOTHER@ = 3ce185ca-26fe-102b-80cb-0017a47871b2
+        @FATHER@ = 3ce18444-26fe-102b-80cb-0017a47871b2
+        @Grandmother@ = b307989a-bb33-448d-9000-5cdecc9f6618
+        @uncle@ = 1fd73eee-ebea-4f50-9b9a-ded008acfe15
+        @aunt@ = 5a7dab85-010a-487a-b21b-49aef3d2c39f
+        @SIBLING@ = 3ce18a70-26fe-102b-80cb-0017a47871b2
+        @OTHER_NON_CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
+        @who_attended_with_the_child_text@ = 98531426-f675-40bf-80d9-b8c4665c3ee7
 
 
     </macros>
@@ -648,6 +656,22 @@
                     <td>
                         <p class="side-by-side">
                             Type of Visit: <obs conceptId="$@REASON_FOR_VISIT@" answerConceptIds="$@Standard_visit@,$@REGULAR_FOLLOWUP_VISIT@" answerLabels="Standard Visit (complete the standard visit form) ,Follow-up for a specific issue (malnutrition etc.)" style="radio"/>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="side-by-side">
+                            Who attended with the child
+                            <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@MOTHER@" answerLabel="Mother" style="checkbox"/>
+                            <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@FATHER@" answerLabel="Father" style="checkbox"/>
+                            <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@Grandmother@" answerLabel="Grandmother" style="checkbox"/>
+                            <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@Grandfather@" answerLabel="Grandfather" style="checkbox"/>
+                            <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@uncle@" answerLabel="uncle" style="checkbox"/>
+                            <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@aunt@" answerLabel="aunt" style="checkbox"/>
+                            <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@SIBLING@" answerLabel="SIBLING" style="checkbox"/>
+                            <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@OTHER_NON_CODED@" answerLabel="Other" style="checkbox"/>
+                            <obs conceptId="@who_attended_with_the_child_text@"/>
                         </p>
                     </td>
                 </tr>
