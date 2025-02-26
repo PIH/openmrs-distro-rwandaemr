@@ -111,6 +111,34 @@
         @RESPIRATORY_RATE@ = 3ceb11f8-26fe-102b-80cb-0017a47871b2
         @BLOOD_OXYGEN_SATURATION@ = 3ce9401c-26fe-102b-80cb-0017a47871b2
         @Pain_score@ = 9b461c8e-155a-481c-83a4-1de363f7301e
+        @Other_anxiety_disorders_F41@ = cf671994-d38a-11e8-b6e2-0c5b8f279a64
+        @Attention_deficit_hyperactivity_disorders_F90@ = cf672d7b-d38a-11e8-b6e2-0c5b8f279a64
+        @Bipolar_disorder_F31@ = cf66f134-d38a-11e8-b6e2-0c5b8f279a64
+        @Conduct_disorder_childhood_onset_type_F911@ = cf672e51-d38a-11e8-b6e2-0c5b8f279a64
+        @Major_depressive_disorder_single_episode_F32@ = cf670451-d38a-11e8-b6e2-0c5b8f279a64
+        @Depression_due_to_other_medical_condition@ = be8ceb74-03b7-4de4-915b-2cd34c3face7
+        @Major_depressive_disorder_recurrent_severe_with_psychotic_symptoms_F333@ = cf670c7e-d38a-11e8-b6e2-0c5b8f279a64
+        @Unspecified_intellectual_disabilities_F79@ = cf672ac9-d38a-11e8-b6e2-0c5b8f279a64
+        @Other_psychoactive_substance_related_disorders_F19@ = cf66bb43-d38a-11e8-b6e2-0c5b8f279a64
+        @Major_depressive_disorder_recurrent_F33@ = cf6709a7-d38a-11e8-b6e2-0c5b8f279a64
+        @Unspecified_mood_affective_disorder_F39@ = cf6715c7-d38a-11e8-b6e2-0c5b8f279a64
+        @Panic_disorder_without_agoraphobia_F410@ = cf6719ae-d38a-11e8-b6e2-0c5b8f279a64
+        @Unspecified_psychosis_not_due_to_a_substance_or_known_psychological_condition_F29@ = cf66eb96-d38a-11e8-b6e2-0c5b8f279a64
+        @Psychosis_due_to_other_medical_condition@ = 2fd7581b-b4d2-48bb-8513-5b31589eaecb
+        @Unspecified_disorder_of_adult_personality_and_behavior_F69@ = cf672a2e-d38a-11e8-b6e2-0c5b8f279a64
+        @Post-traumatic_stress_disorder_PTSD_F431@ = cf671a7a-d38a-11e8-b6e2-0c5b8f279a64
+        @Schizophrenia_F20@ = cf66e454-d38a-11e8-b6e2-0c5b8f279a64
+        @Schizoaffective_disorders_F25@ = cf66e9c1-d38a-11e8-b6e2-0c5b8f279a64
+        @Somatoform_disorders_F45@ = cf671d1c-d38a-11e8-b6e2-0c5b8f279a64
+        @Epilepsy_and_recurrent_seizures_G40@ = cf6741b1-d38a-11e8-b6e2-0c5b8f279a64
+        @NEUROLOGICAL_SYNDROMES_OTHER@ = 3cd67b9e-26fe-102b-80cb-0017a47871b2
+        @Other_Medical_Disorder@ = 5bebf6a5-c2be-4da0-9cd5-befe19106f3b
+        @OTHER_NON-CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
+        @Other_clinical_diagnosis@ = 135d1163-d50a-411c-9ea1-530ca2033e10
+        @Mental_Health_Diagnosis_Stopping_Reason@ = f2d4789d-082c-447c-935d-6aa4ff211882
+        @is_this_a_primary_diagnosis@ = a6c4a10e-0c00-43e8-bd60-c523d084de2a
+        @YES@ = 3cd6f600-26fe-102b-80cb-0017a47871b2
+
 
 
     </macros>
@@ -483,9 +511,9 @@
                     <br/>
                     <obs conceptId="$@danger_to_life@" answerConceptId="$@very_distressed_and_or_risk_of_self_harm@" style="checkbox" answerlabel="Very distressed, risk of self-harm"/>
                     <br/>
-                    <obs conceptId="$@danger_to_life@" answerConceptId="$acutely_psychotic_or_thought_disordered@" style="checkbox" answerlabel="Acutely psychotic or thought-disordered"/>
+                    <obs conceptId="$@danger_to_life@" answerConceptId="$@acutely_psychotic_or_thought_disordered@" style="checkbox" answerlabel="Acutely psychotic or thought-disordered"/>
                     <br/>
-                    <obs conceptId="@$danger_to_life@" answerConceptId="$@situational_crisis_and_or_deliberate_self_harm@" style="checkbox" answerlabel="Situational crisis, deliberate self-harm"/>
+                    <obs conceptId="$@danger_to_life@" answerConceptId="$@situational_crisis_and_or_deliberate_self_harm@" style="checkbox" answerlabel="Situational crisis, deliberate self-harm"/>
                     <br/>
                     <obs conceptId="$@danger_to_life@" answerConceptId="$@Agitated_or_withdrawn@" style="checkbox" answerlabel="Agitated/ withdrawn"/>
                 </td>
@@ -629,70 +657,71 @@
         </table>
     </section>
 
-    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Diagnosis/Indwara">
-        <div class="section-container">
-            <table class="baseline-aligned" border="1">
+<!--    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Diagnosis/Indwara">-->
+<!--        <div class="section-container">-->
+<!--            <table class="baseline-aligned" border="1">-->
 
-                <tr>
-                    <th>EMR</th>
-                    <th></th>
-
-
-                </tr>
-                <!--<obsgroup groupingConceptId="$@Diagnosis_Grouping_Categories@">-->
-                <tr>
-                    <td>
-                        <strong> <lookup expression="fn.message('Diagnosis_and_Start_Date')"/> </strong> <br/>
+<!--                <tr>-->
+<!--                    <th>EMR</th>-->
+<!--                    <th></th>-->
 
 
-                    </td>
+<!--                </tr>-->
+<!--                &lt;!&ndash;<obsgroup groupingConceptId="$@Diagnosis_Grouping_Categories@">&ndash;&gt;-->
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <strong> <lookup expression="fn.message('Diagnosis_and_Start_Date')"/> </strong> <br/>-->
 
 
-                    <td>
-                        <obs id="diagnosis" conceptId="$@Mental_Health_Diagnosis@"
-                             answerConceptIds="$@Other_anxiety_disorders-F41@,$@Attention-deficit_hyperactivity_disorders-F90@,$@Bipolar_disorder-F31@,$@Conduct_disorder_childhood-onset_type-F911@,$@Major_depressive_disorder_single_episode-F32@,$@Depression_due_to_other_medical_condition@,
-                             $@Major_depressive_disorder_recurrent_severe_with_psychotic_symptoms-F333@,$@Unspecified_intellectual_disabilities-F79@,$@Other_psychoactive_substance_related_disorders-F19@,$@Major_depressive_disorder_recurrent-F33@,$@Unspecified_mood_[affective]_disorder-F39@,$@Panic_disorder_without_agoraphobia-F410@,$@Unspecified_psychosis_not_due_to_a_substance_or_known_psychological_condition-F29@,
-                             $@Psychosis_due_to_other_medical_condition@,$@Unspecified_disorder_of_adult_personality_and_behavior-F69@,$@Post-traumatic_stress_disorder_(PTSD)-F431@,$@Schizophrenia-F20@,$@Schizoaffective_disorders-F25@,$@Somatoform_disorders-F45@,$@Epilepsy_and_recurrent_seizures-G40@,$@NEUROLOGICAL_SYNDROMES_OTHER@,$@Other_Medical_Disorder@,$@OTHER_NON-CODED@"
+<!--                    </td>-->
 
-                             answerCodes="ANXIETY_DISORDER,Attention_Deficit_Hyperactivity_Disorder,Bipolar_Disorder,Conduct_Disorder_or_Childhood_Behavioral_Disorder,Depression_unspecified,Depression_due_to_other_medical_condition,
-                             Depression_with_Psychotic_Features,Mental_retardation,Disorders_due_to_alcohol_and_illicit_drug_use,Major_Depressive_Disorder,Mood_Disorder_unspecified,Panic_disorder,PSYCHOSIS,
-                             Psychosis_due_to_other_medical_condition,Personality_Disorder,PTSD,SCHIZOPHRENIA,Schizoaffective_Disorder,Somatoform_Disorder_Trouble_Somatoform,EPILEPSY,NEUROLOGICAL_SYNDROMES_OTHER,Other_Medical_Disorder,OTHER_NON-CODED"
-                             showDate="true" dateLabel="Start Date/Italiki ibanza"/>
-                        <br/>
-                        <span id="otherDiagnosis">
-                            <obs  conceptId="$@Other_clinical_diagnosis@" labelCode="Other" cols="60"/>
-                        </span>
 
-                    </td>
-                </tr>
+<!--                    <td>-->
+<!--                        <obs id="diagnosis" conceptId="$@Mental_Health_Diagnosis@"-->
+<!--                             answerConceptIds="$@Other_anxiety_disorders_F41@,$@Attention_deficit_hyperactivity_disorders_F90@,$@Bipolar_disorder_F31@,$@Conduct_disorder_childhood_onset_type_F911@,$@Major_depressive_disorder_single_episode_F32@,$@Depression_due_to_other_medical_condition@,-->
+<!--                             $@Major_depressive_disorder_recurrent_severe_with_psychotic_symptoms_F333@,$@Unspecified_intellectual_disabilities_F79@,$@Other_psychoactive_substance_related_disorders_F19@,$@Major_depressive_disorder_recurrent_F33@,$@Unspecified_mood_affective_disorder_F39@,$@Panic_disorder_without_agoraphobia_F410@,$@Unspecified_psychosis_not_due_to_a_substance_or_known_psychological_condition_F29@,-->
+<!--                             $@Psychosis_due_to_other_medical_condition@,$@Unspecified_disorder_of_adult_personality_and_behavior_F69@,$@Post-traumatic_stress_disorder_PTSD_F431@,$@Schizophrenia_F20@,$@Schizoaffective_disorders_F25@,$@Somatoform_disorders_F45@,$@Epilepsy_and_recurrent_seizures_G40@,$@NEUROLOGICAL_SYNDROMES_OTHER@,$@Other_Medical_Disorder@,$@OTHER_NON-CODED@"-->
 
-                <tr>
-                    <td>
-                        <strong>
-                            <lookup expression="fn.message('Reason_for_stopping_and_End_Date')"/>
-                        </strong>
-                    </td>
-                    <td> <obs conceptId="$@Mental_Health_Diagnosis_Stopping_Reason@"
-                              showDate="true" dateLabel="End Date/Italiki yanyuma" cols="90"/></td>
-                </tr>
+<!--                             answerCodes="ANXIETY DISORDER,Attention Deficit Hyperactivity Disorder,Bipolar Disorder,Conduct Disorder or Childhood Behavioral Disorder,Depression unspecified,Depression due to other medical condition,-->
+<!--                             Depression with Psychotic Features,Mental retardation,Disorders due to alcohol and illicit drug use,Major Depressive Disorder,Mood Disorder unspecified,Panic disorder,PSYCHOSIS,-->
+<!--                             Psychosis due to other medical condition,Personality Disorder,PTSD,SCHIZOPHRENIA,Schizoaffective Disorder,Somatoform Disorder Trouble Somatoform,EPILEPSY,NEUROLOGICAL SYNDROMES OTHER,Other Medical Disorder,OTHER"-->
+<!--                             showDate="true" dateLabel="Start Date/Italiki ibanza"/>-->
+<!--                        <br/>-->
 
-                <tr>
-                    <td>
-                        <strong>
-                            <lookup expression="fn.message('Primary_Diagnosis')"/>
-                        </strong>
-                    </td>
-                    <td>
 
-                        <obs conceptId="$@is_this_a_primary_diagnosis@" answerConceptId="$@YES@" answerCode="Yes" style="radio"/>
+<!--                        <span id="otherDiagnosis">-->
+<!--                            <obs  conceptId="$@Other_clinical_diagnosis@" labelCode="Other" cols="60"/>-->
+<!--                        </span>-->
 
-                    </td>
-                </tr>
-                <!--</obsgroup>-->
+<!--                    </td>-->
+<!--                </tr>-->
 
-            </table>
-        </div>
-    </section>
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <strong>-->
+<!--                            <lookup expression="fn.message('Reason_for_stopping_and_End_Date')"/>-->
+<!--                        </strong>-->
+<!--                    </td>-->
+<!--                    <td> <obs conceptId="$@Mental_Health_Diagnosis_Stopping_Reason@"-->
+<!--                              showDate="true" dateLabel="End Date/Italiki yanyuma" cols="90"/></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <strong>-->
+<!--                            <lookup expression="fn.message('Primary_Diagnosis')"/>-->
+<!--                        </strong>-->
+<!--                    </td>-->
+<!--                    <td>-->
+
+<!--                        <obs conceptId="$@is_this_a_primary_diagnosis@" answerConceptId="$@YES@" answerCode="Yes" style="radio"/>-->
+
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                &lt;!&ndash;</obsgroup>&ndash;&gt;-->
+
+<!--            </table>-->
+<!--        </div>-->
+<!--    </section>-->
 
     <ifMode mode="VIEW" include="false">
         <div id="buttons">
