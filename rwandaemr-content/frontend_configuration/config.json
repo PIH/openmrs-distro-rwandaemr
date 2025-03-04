@@ -265,6 +265,14 @@
       "substitutionType": {
         "uuid": "b9c5bca0-d026-4245-a4d2-e4c0a8999082"
       }
-    }
+    },
+    "enableStockDispense": true
+  },
+  "@openmrs/esm-stock-management-app": {
+    "packagingUnitsUUID": "6468f785-f54f-11ef-bdcb-866a2ce1d8f0",
+    "stockAdjustmentReasonUUID": "dbcc4e49-f550-11ef-bdcb-866a2ce1d8f0",
+    "stockSourceTypeUUID": "059e29b6-f549-11ef-bdcb-866a2ce1d8f0",
+    "dispensinUnitsUUID": "b798c638-f894-11ef-aa5e-0a03ba1f52ea",
+    "stockItemCategoryUUID": "6a027f44-f54e-11ef-bdcb-866a2ce1d8f0"
   }
 }

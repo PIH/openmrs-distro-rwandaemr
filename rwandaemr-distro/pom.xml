@@ -76,6 +76,7 @@
         <serializationVersion>0.2.16</serializationVersion>
         <simplelabentryVersion>2.0.0</simplelabentryVersion>
         <spaVersion>2.0.0</spaVersion>
+        <stockmanagementVersion>2.0.3-SNAPSHOT</stockmanagementVersion>
         <syncVersion>3.1.0-SNAPSHOT</syncVersion>
         <uicommonsVersion>2.26.0</uicommonsVersion>
         <uiframeworkVersion>3.25.0</uiframeworkVersion>
@@ -400,6 +401,12 @@
             <groupId>org.openmrs.module</groupId>
             <artifactId>spa-omod</artifactId>
             <version>${spaVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>stockmanagement-omod</artifactId>
+            <version>${stockmanagementVersion}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
