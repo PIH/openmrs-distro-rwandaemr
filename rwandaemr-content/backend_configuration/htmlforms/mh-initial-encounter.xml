@@ -2796,12 +2796,12 @@
                 </td>
 
                 <td>
-                    <obs conceptId="$@Allergic_reaction_non-coded@" cols="100"/>
+                    <obs conceptId="$@ALLERGY@" cols="100"/>
                     <br/>
                     <obs conceptId="$@NO_ALLERGIES@" answerConceptId="$@NO@" answerCode="None" style="checkbox"/>
                     <br/><br/>
                     <strong><lookup expression="fn.message('Specify_the_allergic_reaction')"/></strong>
-                    <obs conceptId="$@ALLERGY@"/>
+                    <obs conceptId="$@Allergic_reaction_non-coded@"/>
                 </td>
             </tr>
         </table>
@@ -2913,7 +2913,7 @@
                         <br/>
 
 
-                        <obs conceptId="$@plan_to_referral@" answerConceptIds="$@GBV@,$@NONE@,$@Caraes_Ndera_Hospital@,$@Butaro_Hospital@,$@OTHER_NON-CODED@"
+                        <obs conceptId="$@plan_to_referral@" answerConceptIds="$@NONE@,$@Caraes_Ndera_Hospital@,$@Butaro_Hospital@,$@GBV@,$@OTHER_NON-CODED@"
                              answerCodes="Referrals_None,Ndera Hospital,Butaro Hospital,GBV,other_place" style="radio"/>
 
                         <obs conceptId="$@other_referrals_planned@"/>

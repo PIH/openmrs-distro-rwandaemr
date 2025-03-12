@@ -423,10 +423,10 @@
                 <td>
                     <label><strong>Dehydration: </strong></label>
                 </td>
-                <td> <obs conceptId="$@Dehydration_(RMNCH)@" answerConceptId="$@SEVERE_DIHYDRATION@" style="checkbox" answerlabel="Severe dehydration &#62;&#9868; +2 of following"/></td>
-                <td> <obs conceptId="$@Dehydration_(RMNCH)@" answerConceptId="$@Skin_pinch_less_or_equal_2sec@" style="checkbox" answerlabel="Skin pinch &#62;&#9868; 2sec"/></td>
-                <td colspan="2"> <obs conceptId="$@Dehydration_(RMNCH)@" answerConceptId="$@Lethargy@" style="checkbox" answerlabel="Lethargy"/></td>
-                <td colspan="2"> <obs conceptId="$@Dehydration_(RMNCH)@" answerConceptId="$@SUNKEN_EYES@" style="checkbox" answerlabel="Sunken eyes"/></td>
+                <td> <obs conceptId="$@Dehydration_(RMNCH)@" answerConceptId="$@SEVERE_DIHYDRATION@" style="checkbox" answerLabel="Severe dehydration &#62;&#9868; +2 of following"/></td>
+                <td> <obs conceptId="$@Dehydration_(RMNCH)@" answerConceptId="$@Skin_pinch_less_or_equal_2sec@" style="checkbox" answerLabel="Skin pinch &#62;&#9868; 2sec"/></td>
+                <td colspan="2"> <obs conceptId="$@Dehydration_(RMNCH)@" answerConceptId="$@Lethargy@" style="checkbox" answerLabel="Lethargy"/></td>
+                <td colspan="2"> <obs conceptId="$@Dehydration_(RMNCH)@" answerConceptId="$@SUNKEN_EYES@" style="checkbox" answerLabel="Sunken eyes"/></td>
             </tr>
 
 
@@ -434,10 +434,10 @@
                 <td>
                     <label><strong>Other: </strong></label>
                 </td>
-                <td colspan="2"> <obs conceptId="$@other_symptoms@" answerConceptId="$@HYPOGLYCEMIA@" style="checkbox" answerlabel="Hypoglycemia (Glucose &#60; 3 mmol/L/60mg/dl"/></td>
-<!--                <td> <obs conceptId="$@other_symptoms@" answerConceptId="" style="checkbox" answerlabel="Purpuric rash"/></td>-->
-                <td colspan="2"> <obs conceptId="$@other_symptoms@" answerConceptId="$@purpuric_rash@" style="checkbox" answerlabel="Purpuric rash"/></td>
-                <td colspan="2"> <obs conceptId="$@other_symptoms@" answerConceptId="$@burn-face@" style="checkbox" answerlabel="Burn-face/inhalation"/></td>
+                <td colspan="2"> <obs conceptId="$@other_symptoms@" answerConceptId="$@HYPOGLYCEMIA@" style="checkbox" answerLabel="Hypoglycemia (Glucose &#60; 3 mmol/L/60mg/dl"/></td>
+<!--                <td> <obs conceptId="$@other_symptoms@" answerConceptId="" style="checkbox" answerLabel="Purpuric rash"/></td>-->
+                <td colspan="2"> <obs conceptId="$@other_symptoms@" answerConceptId="$@purpuric_rash@" style="checkbox" answerLabel="Purpuric rash"/></td>
+                <td colspan="2"> <obs conceptId="$@other_symptoms@" answerConceptId="$@burn-face@" style="checkbox" answerLabel="Burn-face/inhalation"/></td>
             </tr>
 
         </table>
@@ -485,82 +485,82 @@
                 <td>
                     <strong>Definite danger to life (self or others)</strong> <br/><br/>
 
-                    <obs conceptId="$@definite_danger_to_life@" answerConceptId="$@Severe_behavioral_disorder_with_immediate_threat_of_dangerous_violence@" style="radio" answerlabel="Severe behavioral disorder with immediate threat of dangerous violence"/>
+                    <obs conceptId="$@definite_danger_to_life@" answerConceptId="$@Severe_behavioral_disorder_with_immediate_threat_of_dangerous_violence@" style="radio" answerLabel="Severe behavioral disorder with immediate threat of dangerous violence"/>
                 </td>
                 <td>
                     <strong> Observed</strong> <br/><br/>
-                    <obs conceptId="$@immediate_emergency_observation@" answerConceptId="$@violent_behavior@" style="checkbox" answerlabel="Violent behavior"/> <br/>
-                    <obs conceptId="$@immediate_emergency_observation@" answerConceptId="$@possession_of_weapon@" style="checkbox" answerlabel="Possession of weapon"/> <br/>
-                    <obs conceptId="$@immediate_emergency_observation@" answerConceptId="$@possession_of_weapon@" style="checkbox" answerlabel="Self-destruction"/> <br/>
-                    <obs conceptId="$@immediate_emergency_observation@" answerConceptId="$@self_destruction@" style="checkbox" answerlabel="Extreme agitation or restlessness"/>
-                    <obs conceptId="$@immediate_emergency_observation@" answerConceptId="$@bizarre_disorientated_behavior@" style="checkbox" answerlabel="Bizarre/ disorientated behavior"/>
+                    <obs conceptId="$@immediate_emergency_observation@" answerConceptId="$@violent_behavior@" style="checkbox" answerLabel="Violent behavior"/> <br/>
+                    <obs conceptId="$@immediate_emergency_observation@" answerConceptId="$@possession_of_weapon@" style="checkbox" answerLabel="Possession of weapon"/> <br/>
+                    <obs conceptId="$@immediate_emergency_observation@" answerConceptId="$@possession_of_weapon@" style="checkbox" answerLabel="Self-destruction"/> <br/>
+                    <obs conceptId="$@immediate_emergency_observation@" answerConceptId="$@self_destruction@" style="checkbox" answerLabel="Extreme agitation or restlessness"/>
+                    <obs conceptId="$@immediate_emergency_observation@" answerConceptId="$@bizarre_disorientated_behavior@" style="checkbox" answerLabel="Bizarre/ disorientated behavior"/>
                 </td>
                 <td>
                     <strong> Reported </strong> <br/><br/>
-                    <obs conceptId="$@immediate_emergency_report@" answerConceptId="$@recent_violent_behavior@" style="checkbox" answerlabel="Verbal commands to do harm to self or others, that the person is unable to resist (command hallucination)"/> <br/>
-<!--                    <obs conceptId="" answerConceptId="" style="radio" answerlabel="Recent violent behavior"/>-->
+                    <obs conceptId="$@immediate_emergency_report@" answerConceptId="$@recent_violent_behavior@" style="checkbox" answerLabel="Verbal commands to do harm to self or others, that the person is unable to resist (command hallucination)"/> <br/>
+<!--                    <obs conceptId="" answerConceptId="" style="radio" answerLabel="Recent violent behavior"/>-->
                 </td>
             </tr>
             <tr>
                 <td style="background-color:yellow;"> YELLOW Urgent Within 30 minutes</td>
                 <td>
                     <strong>Possible danger to self or others</strong> <br/><br/>
-                    <obs conceptId="$@danger_to_life@" answerConceptId="$@moderate_behavior_disturbance@" style="checkbox" answerlabel="Moderate behavior disturbance"/>
+                    <obs conceptId="$@danger_to_life@" answerConceptId="$@moderate_behavior_disturbance@" style="checkbox" answerLabel="Moderate behavior disturbance"/>
                     <br/>
-                    <obs conceptId="$@danger_to_life@" answerConceptId="$@severe_distress@" style="checkbox" answerlabel="Severe distress"/>
+                    <obs conceptId="$@danger_to_life@" answerConceptId="$@severe_distress@" style="checkbox" answerLabel="Severe distress"/>
                     <br/>
-                    <obs conceptId="$@danger_to_life@" answerConceptId="$@very_distressed_and_or_risk_of_self_harm@" style="checkbox" answerlabel="Very distressed, risk of self-harm"/>
+                    <obs conceptId="$@danger_to_life@" answerConceptId="$@very_distressed_and_or_risk_of_self_harm@" style="checkbox" answerLabel="Very distressed, risk of self-harm"/>
                     <br/>
-                    <obs conceptId="$@danger_to_life@" answerConceptId="$@acutely_psychotic_or_thought_disordered@" style="checkbox" answerlabel="Acutely psychotic or thought-disordered"/>
+                    <obs conceptId="$@danger_to_life@" answerConceptId="$@acutely_psychotic_or_thought_disordered@" style="checkbox" answerLabel="Acutely psychotic or thought-disordered"/>
                     <br/>
-                    <obs conceptId="$@danger_to_life@" answerConceptId="$@situational_crisis_and_or_deliberate_self_harm@" style="checkbox" answerlabel="Situational crisis, deliberate self-harm"/>
+                    <obs conceptId="$@danger_to_life@" answerConceptId="$@situational_crisis_and_or_deliberate_self_harm@" style="checkbox" answerLabel="Situational crisis, deliberate self-harm"/>
                     <br/>
-                    <obs conceptId="$@danger_to_life@" answerConceptId="$@Agitated_or_withdrawn@" style="checkbox" answerlabel="Agitated/ withdrawn"/>
+                    <obs conceptId="$@danger_to_life@" answerConceptId="$@Agitated_or_withdrawn@" style="checkbox" answerLabel="Agitated/ withdrawn"/>
                 </td>
                 <td>
                     <strong> Observed</strong> <br/><br/>
-                    <obs conceptId="$@urgent_within_30mins_observation@" answerConceptId="$@agitation_or_restlessness@" style="checkbox" answerlabel="Agitation/ restlessness"/>
+                    <obs conceptId="$@urgent_within_30mins_observation@" answerConceptId="$@agitation_or_restlessness@" style="checkbox" answerLabel="Agitation/ restlessness"/>
                     <br/>
-                    <obs conceptId="$@urgent_within_30mins_observation@" answerConceptId="$@Intrusive_behavior@" style="checkbox" answerlabel="Intrusive behavior"/>
+                    <obs conceptId="$@urgent_within_30mins_observation@" answerConceptId="$@Intrusive_behavior@" style="checkbox" answerLabel="Intrusive behavior"/>
                     <br/>
-                    <obs conceptId="$@urgent_within_30mins_observation@" answerConceptId="$@confused@" style="checkbox" answerlabel="Confused"/>
+                    <obs conceptId="$@urgent_within_30mins_observation@" answerConceptId="$@confused@" style="checkbox" answerLabel="Confused"/>
                     <br/>
-                    <obs conceptId="$@urgent_within_30mins_observation@" answerConceptId="$@ambivalence_about_treatment@" style="checkbox" answerlabel="Ambivalence about treatment"/>
+                    <obs conceptId="$@urgent_within_30mins_observation@" answerConceptId="$@ambivalence_about_treatment@" style="checkbox" answerLabel="Ambivalence about treatment"/>
                     <br/>
-                    <obs conceptId="$@urgent_within_30mins_observation@" answerConceptId="$@not_likely_to_wait_for_treatment@" style="checkbox" answerlabel="Not likely to wait for treatment"/>
+                    <obs conceptId="$@urgent_within_30mins_observation@" answerConceptId="$@not_likely_to_wait_for_treatment@" style="checkbox" answerLabel="Not likely to wait for treatment"/>
                     <br/><br/><br/>
 
                     <strong> Presence of psychotic symptoms</strong> <br/><br/>
 
-                    <obs conceptId="$@Presence_of_psychotic_symptoms@" answerConceptId="$@Hallucinations@" style="checkbox" answerlabel="Hallucinations"/>
+                    <obs conceptId="$@Presence_of_psychotic_symptoms@" answerConceptId="$@Hallucinations@" style="checkbox" answerLabel="Hallucinations"/>
                     <br/>
-                    <obs conceptId="$@Presence_of_psychotic_symptoms@" answerConceptId="$@Delusions@" style="checkbox" answerlabel="Delusions"/>
+                    <obs conceptId="$@Presence_of_psychotic_symptoms@" answerConceptId="$@Delusions@" style="checkbox" answerLabel="Delusions"/>
                     <br/>
-                    <obs conceptId="$@Presence_of_psychotic_symptoms@" answerConceptId="$@paranoid_ideas@" style="checkbox" answerlabel="Paranoid ideas"/>
+                    <obs conceptId="$@Presence_of_psychotic_symptoms@" answerConceptId="$@paranoid_ideas@" style="checkbox" answerLabel="Paranoid ideas"/>
                     <br/>
-                    <obs conceptId="$@Presence_of_psychotic_symptoms@" answerConceptId="$@thought_disordered@" style="checkbox" answerlabel="Thought disordered"/>
+                    <obs conceptId="$@Presence_of_psychotic_symptoms@" answerConceptId="$@thought_disordered@" style="checkbox" answerLabel="Thought disordered"/>
                     <br/>
-                    <obs conceptId="$@Presence_of_psychotic_symptoms@" answerConceptId="$@Bizarre_or_agitated_behavior@" style="checkbox" answerlabel="Bizarre/agitated behavior"/>
+                    <obs conceptId="$@Presence_of_psychotic_symptoms@" answerConceptId="$@Bizarre_or_agitated_behavior@" style="checkbox" answerLabel="Bizarre/agitated behavior"/>
                     <br/><br/><br/>
 
                     <strong> Presence of mood disturbance</strong> <br/><br/>
 
-                    <obs conceptId="$@presence_of_mood_disturbance@" answerConceptId="$@severe_symptoms_of_depression@" style="checkbox" answerlabel="Severe symptoms of depression"/>
+                    <obs conceptId="$@presence_of_mood_disturbance@" answerConceptId="$@severe_symptoms_of_depression@" style="checkbox" answerLabel="Severe symptoms of depression"/>
                     <br/>
-                    <obs conceptId="$@presence_of_mood_disturbance@" answerConceptId="$@withdrawn_or_uncommunicative_and_or_anxiety@" style="checkbox" answerlabel="Withdrawn/uncommunicative and or anxiety"/>
+                    <obs conceptId="$@presence_of_mood_disturbance@" answerConceptId="$@withdrawn_or_uncommunicative_and_or_anxiety@" style="checkbox" answerLabel="Withdrawn/uncommunicative and or anxiety"/>
                     <br/>
-                    <obs conceptId="$@presence_of_mood_disturbance@" answerConceptId="$@elevated_or_irritable_mood@" style="checkbox" answerlabel="Elevated or irritable mood"/>
+                    <obs conceptId="$@presence_of_mood_disturbance@" answerConceptId="$@elevated_or_irritable_mood@" style="checkbox" answerLabel="Elevated or irritable mood"/>
 
                 </td>
 
                 <td>
                     <strong> Reported </strong> <br/><br/>
 
-                    <obs conceptId="$@urgent_within_30_mins_reported@" answerConceptId="$@suicidal_ideation@" style="checkbox" answerlabel="Suicidal ideation"/>
+                    <obs conceptId="$@urgent_within_30_mins_reported@" answerConceptId="$@suicidal_ideation@" style="checkbox" answerLabel="Suicidal ideation"/>
                     <br/>
-                    <obs conceptId="$@urgent_within_30_mins_reported@" answerConceptId="$@situational_crisis@" style="checkbox" answerlabel="situational crisis"/>
+                    <obs conceptId="$@urgent_within_30_mins_reported@" answerConceptId="$@situational_crisis@" style="checkbox" answerLabel="situational crisis"/>
                     <br/>
-                    <obs conceptId="$@urgent_within_30_mins_reported@" answerConceptId="$@unable_to_wait_safely@" style="checkbox" answerlabel="unable to wait safely"/>
+                    <obs conceptId="$@urgent_within_30_mins_reported@" answerConceptId="$@unable_to_wait_safely@" style="checkbox" answerLabel="unable to wait safely"/>
 
                 </td>
             </tr>
@@ -568,29 +568,29 @@
                 <td style="background-color:green;">GREEN semi-urgent within 60 or +60 minutes</td>
                 <td>
                     <strong>Mederate distress</strong> <br/><br/>
-                    <obs conceptId="$@moderate_distress@" answerConceptId="$@semi_urgent_mental_health_problem@" style="checkbox" answerlabel="semi-urgent mental health problem"/>
+                    <obs conceptId="$@moderate_distress@" answerConceptId="$@semi_urgent_mental_health_problem@" style="checkbox" answerLabel="semi-urgent mental health problem"/>
                     <br/>
-                    <obs conceptId="$@moderate_distress@" answerConceptId="$@under_observation_and_or_no_immediate_risk_to_self_or_others@" style="checkbox" answerlabel="under observation and or no immediate risk to self or others"/>
+                    <obs conceptId="$@moderate_distress@" answerConceptId="$@under_observation_and_or_no_immediate_risk_to_self_or_others@" style="checkbox" answerLabel="under observation and or no immediate risk to self or others"/>
                     <br/>
                 </td>
                 <td>
                     <strong> Observed</strong> <br/><br/>
-                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_observed@" answerConceptId="$@no_agitation_or_restlessness@" style="checkbox" answerlabel="no agitation or restlessness"/>
+                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_observed@" answerConceptId="$@no_agitation_or_restlessness@" style="checkbox" answerLabel="no agitation or restlessness"/>
                     <br/>
-                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_observed@" answerConceptId="$@irritable_without_aggression@" style="checkbox" answerlabel="irritable without aggression"/>
+                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_observed@" answerConceptId="$@irritable_without_aggression@" style="checkbox" answerLabel="irritable without aggression"/>
                     <br/>
-                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_observed@" answerConceptId="$@Cooperative@" style="checkbox" answerlabel="Cooperative"/>
+                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_observed@" answerConceptId="$@Cooperative@" style="checkbox" answerLabel="Cooperative"/>
                     <br/>
-                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_observed@" answerConceptId="$@gives_coherent_history@" style="checkbox" answerlabel="gives coherent history"/>
+                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_observed@" answerConceptId="$@gives_coherent_history@" style="checkbox" answerLabel="gives coherent history"/>
                     <br/>
                 </td>
                 <td>
                     <strong> Reported </strong> <br/><br/>
-                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_reported@" answerConceptId="$@pre_existing_mental_health_disorder@" style="checkbox" answerlabel="pre existing mental health disorder"/>
+                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_reported@" answerConceptId="$@pre_existing_mental_health_disorder@" style="checkbox" answerLabel="pre existing mental health disorder"/>
                     <br/>
-                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_reported@" answerConceptId="$@symptoms_of_anxiety_or_of_depression_without_suicidal_ideation@" style="checkbox" answerlabel="symptoms of anxiety or of depression without suicidal ideation"/>
+                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_reported@" answerConceptId="$@symptoms_of_anxiety_or_of_depression_without_suicidal_ideation@" style="checkbox" answerLabel="symptoms of anxiety or of depression without suicidal ideation"/>
                     <br/>
-                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_reported@" answerConceptId="$@willing_to_wait@" style="checkbox" answerlabel="willing to wait"/>
+                    <obs conceptId="$@semi_urgent_within_60_or_60_plus_minutes_reported@" answerConceptId="$@willing_to_wait@" style="checkbox" answerLabel="willing to wait"/>
 
 
                 </td>
