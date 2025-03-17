@@ -48,7 +48,7 @@
         @Mutuelle_does_not_cover_treatment@ = af96b16b-7a5b-4f77-bec4-d34930bf93cc
         @Declined_Care@ = 1b83f37a-df3a-42a5-b83b-ebc5237f2dbf
         @Reason_for_Declining_Care@ = 084aa443-8c02-4f77-b60d-c68fb2573b67
-        @Moved_to_another_country@ = a2ccfe9b-e9e1-4510-afa8-00ee769ad16d
+        @Changed_location@ = a2ccfe9b-e9e1-4510-afa8-00ee769ad16d
         @PATIENT_TRANSFERRED_OUT@ = 3cdd5c02-26fe-102b-80cb-0017a47871b2
         @TRANSFERRED_TO@ = 86454b1a-5e7b-47d1-871c-feaa77d6ff56
         @Other_exit_reason@ = 66d4ff3c-548c-42d5-b9aa-17b95f870f11
@@ -385,7 +385,7 @@
             <variant locale="rw" value="Uburwayi bw’ibanze"/>
         </code>
         <code name="Three_calls_without_success">
-            <variant locale="en" value="Patient was attempted to be reached three times with no answer"/>
+            <variant locale="en" value="Patient was attempted to be reached three times with no answer / Patient did not show up"/>
             <variant locale="rw" value="YAHAMAGAWE INSHURO ZIRENZE ESHATU ATABONEKA"/>
         </code>
         <code name="Patient_Improved">
@@ -404,8 +404,8 @@
             <variant locale="en" value="Did not wish to continue treatment, Reason"/>
             <variant locale="rw" value="NTASHAKA GUKOMEZA KWIVUZA,IMPAMVU"/>
         </code>
-        <code name="Moved_to_another_country">
-            <variant locale="en" value="Moved to another country/area "/>
+        <code name="Changed_location">
+            <variant locale="en" value="Changed location"/>
             <variant locale="rw" value="YIMUKIYE MU KINDI GIHUGU"/>
         </code>
         <code name="PATIENT_TRANSFERRED_OUT">
@@ -484,18 +484,18 @@
                             <obs conceptId="$@Mental_Health_exit_reasons@"
                                  answerConceptId="$@Patient_Improved@" answerCode="Patient_Improved" style="checkbox"/>
                             <br/>
-                            <obs conceptId="$@Mental_Health_exit_reasons@"
-                                 answerConceptId="$@financial_Reasons@" answerCode="financial_Reasons" style="checkbox"/>
-                            <br/>
-                            <obs conceptId="$@Mental_Health_exit_reasons@"
-                                 answerConceptId="$@Mutuelle_does_not_cover_treatment@" answerCode="Mutuelle_does_not_cover_treatment" style="checkbox"/>
-                            <br/>
+<!--                            <obs conceptId="$@Mental_Health_exit_reasons@"-->
+<!--                                 answerConceptId="$@financial_Reasons@" answerCode="financial_Reasons" style="checkbox"/>-->
+<!--                            <br/>-->
+<!--                            <obs conceptId="$@Mental_Health_exit_reasons@"-->
+<!--                                 answerConceptId="$@Mutuelle_does_not_cover_treatment@" answerCode="Mutuelle_does_not_cover_treatment" style="checkbox"/>-->
+<!--                            <br/>-->
                             <obs conceptId="$@Mental_Health_exit_reasons@"
                                  answerConceptId="$@Declined_Care@" answerCode="Declined_Care" style="checkbox"/>:
                             <obs conceptId="$@Reason_for_Declining_Care@"/>
                             <br/>
                             <obs conceptId="$@Mental_Health_exit_reasons@"
-                                 answerConceptId="$@Moved_to_another_country@" answerCode="Moved_to_another_country" style="checkbox"/>
+                                 answerConceptId="$@Changed_location@" answerCode="Changed_location" style="checkbox"/>
                             <br/>
                             <obs conceptId="$@Mental_Health_exit_reasons@"
                                  answerConceptId="$@PATIENT_TRANSFERRED_OUT@" answerCode="PATIENT_TRANSFERRED_OUT" style="checkbox"/>

@@ -365,6 +365,7 @@
         @per_need@ = f72f0403-cd94-4746-814d-717c687f63a2
         @DRUG_ORDER_FREQUENCY@ = 71ffb8ee-382e-4ad0-9b42-0b665f81aaf9
         @OTHER_NON-CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
+        @METFORMIN_850MG_TABLET@ = 49ad0cbc-e408-4b66-afed-5be849c28d6d
 
 
 
@@ -589,6 +590,7 @@
                 <option value="$@Warfarin_(Coumadin)_(2_mg_tablet)@" />
                 <option value=" $@aspirin@" />
                 <option value="$@Aspirin(100mg)@" />
+                <option value="$@Methyldopa_(250_mg)@" />
 
             </orderProperty>
             <orderProperty name="action">
@@ -718,6 +720,8 @@
                 <option value="$@Aminophylline_25mg/mL_@" />
                 <option value="$@Aminophylline_(100_mg)@" />
                 <option value="$@Aminophylline_(25mg/mL_from_10mL_ampule)@" />
+                <option value="$@Methyldopa_(250_mg)@" />
+                <option value="$@METFORMIN_850MG_TABLET@" />
 
             </orderProperty>
             <orderProperty name="action">
@@ -1075,6 +1079,7 @@
                 <option value="$@Prednisone_(100_mg/m2)@" />
                 <option value="$@Cyclophosphamide_(150mg/m2)@" />
                 <option value="$@Vincristine_(2mg/m2)@" />
+                <option value="$@METFORMIN_850MG_TABLET@" />
 
             </orderProperty>
             <orderProperty name="action">

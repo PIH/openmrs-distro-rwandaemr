@@ -352,7 +352,7 @@
                         <lookup expression="patient.personAddress.address1" />
                         <br/>
                         Phone:
-                        <lookup expression="fn.latestObs($@TELEPHONE_NUMBER@).valueText"/>
+                        <lookup expression="fn.latestObs(1426).valueText"/>
 
                     </td>
                 </tr>
@@ -369,10 +369,10 @@
                 <td>
 
                     Diagnosis:
-                    <lookup expression="fn.currentProgramWorkflowStatus(51).state.concept.name" />
+                    <lookup expression="fn.currentProgramWorkflowStatus(49).state.concept.name" />
                     <br/>
                     Date of Dx:
-                    <lookup expression="fn.latestObs($@Date_of_diagnosis@).valueDatetime"/>
+                    <lookup expression="fn.latestObs('PIH:7417').valueDatetime"/>
                     <br/>
                     Stage at Diagnosis:
                     <lookup expression="fn.latestObs($@OVERALL_ONCOLOGY_STAGE@).valueCoded.name"/>
@@ -596,7 +596,7 @@
                     <strong>  Next appointment date</strong>
                 </td>
                 <td>
-                    <obs conceptId="$@RETURN_VISIT_DATE@" />
+                    <obs conceptId="$@RETURN_VISIT_DATE@" allowFutureDates="true"/>
 
                 </td>
             </tr>
@@ -605,18 +605,20 @@
         </table>
     </section>
 
-    <ifMode mode="VIEW" include="false">
-        <div id="buttons">
+<!--    <ifMode mode="VIEW" include="false">-->
+<!--        <div id="buttons">-->
 
-            <button id="submit" class="submitButton confirm right">
-                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
-                                            style="display: none; margin-left: 10px;"></i>
-            </button>
-            <button id="cancel" type="button" class="cancel">
-                <uimessage code="emr.cancel" />
-            </button>
-        </div>
-    </ifMode>
+<!--            <button id="submit" class="submitButton confirm right">-->
+<!--                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"-->
+<!--                                            style="display: none; margin-left: 10px;"></i>-->
+<!--            </button>-->
+<!--            <button id="cancel" type="button" class="cancel">-->
+<!--                <uimessage code="emr.cancel" />-->
+<!--            </button>-->
+<!--        </div>-->
+<!--    </ifMode>-->
+
+    <submit/>
 
     <encounterVoided/>
 
