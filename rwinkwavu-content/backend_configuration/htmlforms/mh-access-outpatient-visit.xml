@@ -326,14 +326,20 @@
                 <tr>
                     <td colspan="2">
                         <strong>Primary diagnosis:</strong>
+<!--                        <obs conceptId="$@Primary_Diagnosis@" answerConceptIds="$@Disorders_due_to_alcohol_and_illicit_drug_use@,$@Bipolar_Disorder@,$@Depression_unspecified@,-->
+<!--                        $@Medical_diagnosis@,$@EPILEPSY@,$@PSYCHOSIS@,$@SCHIZOPHRENIA@,$@Schizophrenia_and_other_psychhoses@,$@Somatoform_Disorder_Trouble_Somatoform@,-->
+<!--                        $@Non-drug_or_alcohol-related_disorders_of_behavior@,$@PTSD@,$@Other_Psychological_problems@,$@Attempted_Suicide@,$@Completed_suicide@,$@OTHER_NON_CODED@,-->
+<!--                        $@None_recorded@,$@Mental_handicap@,$@ANXIETY_DISORDER@" answerLabels="Drug or alcohol-related diagnosis,Bipolaire ou Manie/Bipolar or Mania,Dépression/Depression,-->
+<!--                        Diagnostic médical/Medical diagnosis,Epilepsie/Epilepsy,Psychose/Psychosis,Schizophrenie/Schizophrenia,Schizophrenie et autre psychose/Schizophrenia and other psychhoses-->
+<!--                        Trouble somatoforme/Somatoform disorder,Non-drug or alcohol-related disorders of behavior,Syndrome de PTSD/PTSD,Autres problèmes psychologiques/Other psychological problems,-->
+<!--                        Attempted suicide,Completed suicide,Autre/Other,Aucun enregistré/None recorded,Trouble mentale/Mental trouble,Disordre d'anxiété/Anxiety disorder" />-->
                         <obs conceptId="$@Primary_Diagnosis@" answerConceptIds="$@Disorders_due_to_alcohol_and_illicit_drug_use@,$@Bipolar_Disorder@,$@Depression_unspecified@,
-                        $@Medical_diagnosis@,$@EPILEPSY@,$@PSYCHOSIS@,$@SCHIZOPHRENIA@,$@Schizophrenia_and_other_psychhoses@,$@Somatoform_Disorder_Trouble_Somatoform@,
+                        $@Medical_diagnosis@,$@EPILEPSY@,$@PSYCHOSIS@,$@SCHIZOPHRENIA@,$@Schizophrenia_and_other_psychhoses@,
                         $@Non-drug_or_alcohol-related_disorders_of_behavior@,$@PTSD@,$@Other_Psychological_problems@,$@Attempted_Suicide@,$@Completed_suicide@,$@OTHER_NON_CODED@,
                         $@None_recorded@,$@Mental_handicap@,$@ANXIETY_DISORDER@" answerLabels="Drug or alcohol-related diagnosis,Bipolaire ou Manie/Bipolar or Mania,Dépression/Depression,
                         Diagnostic médical/Medical diagnosis,Epilepsie/Epilepsy,Psychose/Psychosis,Schizophrenie/Schizophrenia,Schizophrenie et autre psychose/Schizophrenia and other psychhoses
                         Trouble somatoforme/Somatoform disorder,Non-drug or alcohol-related disorders of behavior,Syndrome de PTSD/PTSD,Autres problèmes psychologiques/Other psychological problems,
                         Attempted suicide,Completed suicide,Autre/Other,Aucun enregistré/None recorded,Trouble mentale/Mental trouble,Disordre d'anxiété/Anxiety disorder" />
-
 
                     </td>
 

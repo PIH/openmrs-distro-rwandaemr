@@ -437,6 +437,7 @@
         @SIBLING@ = 3ce18a70-26fe-102b-80cb-0017a47871b2
         @OTHER_NON_CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
         @who_attended_with_the_child_text@ = 98531426-f675-40bf-80d9-b8c4665c3ee7
+        @Grandfather@ = 3d98776c-043c-485d-981a-38bb217b22d6
 
 
     </macros>
@@ -670,8 +671,9 @@
                             <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@uncle@" answerLabel="uncle" style="checkbox"/>
                             <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@aunt@" answerLabel="aunt" style="checkbox"/>
                             <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@SIBLING@" answerLabel="SIBLING" style="checkbox"/>
+                            <br/>
                             <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@OTHER_NON_CODED@" answerLabel="Other" style="checkbox"/>
-                            <obs conceptId="@who_attended_with_the_child_text@"/>
+                            <obs conceptId="@$who_attended_with_the_child_text@"/>
                         </p>
                     </td>
                 </tr>

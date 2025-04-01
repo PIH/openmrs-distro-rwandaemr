@@ -681,6 +681,8 @@
                 <option value="$@Aminophylline_25mg/mL_@" />
                 <option value="$@Aminophylline_(100_mg)@" />
                 <option value="$@Aminophylline_(25mg/mL_from_10mL_ampule)@" />
+                <option value="$@METFORMIN_850MG_TABLET@" />
+                <option value="$@Methyldopa_(250_mg)@" />
 
             </orderProperty>
             <orderProperty name="action">
@@ -1038,6 +1040,7 @@
                 <option value="$@Prednisone_(100_mg/m2)@" />
                 <option value="$@Cyclophosphamide_(150mg/m2)@" />
                 <option value="$@Vincristine_(2mg/m2)@" />
+                <option value="$@METFORMIN_850MG_TABLET@" />
 
             </orderProperty>
             <orderProperty name="action">
