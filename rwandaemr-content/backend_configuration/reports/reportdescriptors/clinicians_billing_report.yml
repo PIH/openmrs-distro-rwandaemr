@@ -1,7 +1,7 @@
-key: "opd_report"
-uuid: "84204c52-a274-11ef-b0d9-d880837ea3cd"
-name: "OPD/IPD Report"
-description: "A report that contains data needed in hmis"
+key: "clinicians_billing_report"
+uuid: "37b2cf7f-e91f-11ef-8bef-88a4c2c8ecf6"
+name: "Bills created during a certain period by clinicians"
+description: "Bills created during a certain period by clinicians"
 parameters:
   - key: "startDate"
     type: "java.util.Date"
@@ -10,9 +10,9 @@ parameters:
     type: "java.util.Date"
     label: "reporting.parameter.endDate"
 datasets:
-  - key: "opd_report"
+  - key: "clinicians_billing_report"
     type: "sql"
-    config: "sql/opd_report.sql"
+    config: "sql/clinicians_billing_report.sql"
 designs:
   - type: "csv"
     properties:
