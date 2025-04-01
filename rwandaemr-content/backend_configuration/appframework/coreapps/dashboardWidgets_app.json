@@ -173,6 +173,60 @@
       ]
     },
   {
+    "id": "coreapps.partogramGrph.fetalHeartRate",
+    "instanceOf": "coreapps.template.dashboardWidget",
+    "description": "coreapps.obsGraph.app.description",
+    "order": 4,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "fas fa-fw fa-chart-area",
+      "label": "Partograph:Fetal Heart Rate",
+      "conceptId": "57c934dd-a086-4e73-a9b8-3b9c1abef1b1",
+      "maxResults": "10",
+      "maxAge": "1y"
+    },
+    "extensions": [
+      {
+        "id": "coreapps.obsGraph.clinicianDashboardFirstColumn",
+        "appId": "coreapps.partogramGrph.fetalHeartRate",
+        "extensionPointId": "patientDashboard.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        },
+        "requiredPrivilege": "App: coreapps.partogramGrph",
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Maternity Location') && visit.admitted && patient.person.gender == 'F'"
+      }
+    ]
+  },
+  {
+    "id": "coreapps.partogramGrph.Descent",
+    "instanceOf": "coreapps.template.dashboardWidget",
+    "description": "coreapps.obsGraph.app.description",
+    "order": 4,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "fas fa-fw fa-chart-area",
+      "label": "Partograph:Descent",
+      "conceptId": "927948ed-8be0-4917-9199-9dc3fb776f86",
+      "maxResults": "10",
+      "maxAge": "1y"
+    },
+    "extensions": [
+      {
+        "id": "coreapps.obsGraph.clinicianDashboardFirstColumn",
+        "appId": "coreapps.partogramGrph.Descent",
+        "extensionPointId": "patientDashboard.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        },
+        "requiredPrivilege": "App: coreapps.partogramGrph",
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Maternity Location') && visit.admitted && patient.person.gender == 'F'"
+      }
+    ]
+  },
+  {
     "id": "coreapps.partogramGrph",
     "instanceOf": "coreapps.template.dashboardWidget",
     "description": "coreapps.obsGraph.app.description",
@@ -195,30 +249,7 @@
           "fragment": "dashboardwidgets/dashboardWidget"
         },
         "requiredPrivilege": "App: coreapps.partogramGrph",
-        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Maternity') && visit.admitted && patient.person.gender == 'F'"
-      }
-    ]
-  },
-  {
-    "id": "coreapps.partograh",
-    "instanceOf": "coreapps.template.mostRecentEncounter",
-    "description": "Partograph Info",
-    "label": "Partograph Info",
-    "icon": "icon-vitals",
-    "order": 5,
-    "config": {
-      "encounterTypeUuid": "f0d3c07e-bb5a-4a99-9643-b49810e18981",
-      "encounterDateLabel": "Partograph Info"
-    },
-    "extensions": [
-      {
-        "id": "coreapps.partograh",
-        "appId": "coreapps.partograh",
-        "extensionPointId": "patientDashboard.firstColumnFragments",
-        "extensionParams": {
-          "provider": "coreapps",
-          "fragment": "encounter/mostRecentEncounter"
-        }
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Maternity Location') && visit.admitted && patient.person.gender == 'F'"
       }
     ]
   }

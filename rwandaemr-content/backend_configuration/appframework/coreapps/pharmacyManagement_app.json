@@ -1,7 +1,7 @@
 [
   {
     "id": "rwandaemr.pharmacyManageApp",
-    "description": "Opening moh pharmacy management window in legacy UI",
+    "description": "SPA Stock management",
     "order": 10,
     "extensions": [
       {
@@ -9,7 +9,7 @@
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
         "label": "Pharmacy Services",
-        "url": "module/pharmacymanagement/storequest.form",
+        "url": "spa/stock-management",
         "icon": "icon-beaker",
         "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Pharmacy Location')",
         "order": 10
