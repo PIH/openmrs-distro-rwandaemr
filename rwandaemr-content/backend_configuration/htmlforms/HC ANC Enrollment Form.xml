@@ -497,12 +497,16 @@
         </section>
 
         <h2 id="page1id">CONTACT INFORMATION,PREGNANCY &amp; DELIVERY HISTORY</h2>
-
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Contacts">
+            <div class="section-container">
+                <p class="small-input flexView">
+                    <obs conceptId="bbe69d90-984d-40b4-9ab5-7fe758a58aaf" required="true" labelText="ANC Contact:"/>
+                </p>
+            </div>
+        </section>
         <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Contact Information">
             <div class="section-container">
-                <p class="flexView small-input">
-                    ANC Number : <obs conceptId="bbe69d90-984d-40b4-9ab5-7fe758a58aaf" required="true"/>
-                </p>
+
                 <p class="radio">
                     <b>Provenance/Catchment area:</b><br/>
                     <obs conceptId="f8c17ed2-38e4-4010-bd10-e27c99185eb4" answerConceptId="1aa519c4-ce19-4c2f-baa4-fb9808164f47" answerCodes ="Z " style="radio"/><br/>

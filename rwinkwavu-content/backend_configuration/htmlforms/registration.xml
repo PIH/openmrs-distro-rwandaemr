@@ -8,7 +8,7 @@
 
     <macros>
         <macro key="serviceRequestedQuestion" expression="fn.globalProperty('registration.serviceRequestedConcept')"/>
-        <!-- The below 2 expressions are provided by the RwandaEmrVelocityContextProvider -->
+        <!-- The below 2 expressions are provided by the rwandaemrVelocityContextProvider -->
         <macro key="serviceConcepts" expression="appointmentServiceConceptUuids"/>
         <macro key="serviceLabels" expression="appointmentServiceConceptNames"/>
     </macros>
@@ -17,7 +17,7 @@
         <script type="text/javascript">
             // When opening the form, skip to the service requested section for faster entry
             jq(function() {
-                jq("#service-requested-question > select").focus();
+            jq("#service-requested-question > select").focus();
             });
         </script>
     </ifMode>
@@ -25,15 +25,15 @@
     <ifMode mode="VIEW" include="true">
         <style>
             #registration-form-section label {
-                padding-right: 10px;
-                width: 160px;
+            padding-right: 10px;
+            width: 160px;
             }
             #registration-form-section label::after {
-                content: ': ';
-                display: inline;
+            content: ': ';
+            display: inline;
             }
             #insurance-question {
-                display: inline-block;
+            display: inline-block;
             }
         </style>
     </ifMode>
@@ -83,6 +83,20 @@
                                     emptyOptionLabel=""
                                     showAll="true"
                                     required="true"
+                />
+            </div>
+            <div class="col-12">
+                <obs
+                        conceptId="4bab6d66-8d2b-4a10-8043-82d833e94de4"
+                        labelText="Scanned Transfer:"
+                        required="true"
+                />
+            </div>
+            <div class="col-12">
+                <obs
+                        conceptId="2601bc72-71ff-40a9-bc64-fe6ecdb8b0fd"
+                        labelText="Scanned ID:"
+                        required="true"
                 />
             </div>
         </div>
