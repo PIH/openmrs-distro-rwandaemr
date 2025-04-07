@@ -1,0 +1,11 @@
+UUID,Fully specified name:en,Data class,Data type,Mappings|SAME-AS|org.openmrs.module.emrapi,Answers,Members
+226ed7ad-b776-4b99-966d-fd818d3302c2,Coded Diagnosis,Question,Coded,Coded Diagnosis,,
+970d41ce-5098-47a4-8872-4dd843c0df3f,"Diagnosis or problem, non-coded",Diagnosis,Text,Non-Coded Diagnosis,,
+3cd9bd04-26fe-102b-80cb-0017a47871b2,CONFIRMED,Misc,N/A,Confirmed,,
+3cd9be80-26fe-102b-80cb-0017a47871b2,PRESUMED,Misc,N/A,Presumed,,
+3cd9ef9a-26fe-102b-80cb-0017a47871b2,Diagnosis certainty,Question,Coded,Diagnosis Certainty,CONFIRMED,PRESUMED,
+159943AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,primary,Misc,N/A,Primary,,
+159944AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,secondary,Misc,N/A,Secondary,,
+159946AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,Diagnosis order,Finding,Coded,Diagnosis Order,primary;secondary,
+38efd811-74bc-4032-b6f5-b4a150d84d1d,Date of diagnosis,Question,Date,,,
+159947AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,Visit Diagnoses,ConvSet,N/A,Diagnosis Concept Set,,"Coded Diagnosis;Diagnosis or problem, non-coded;Diagnosis certainty;Diagnosis order;Date of diagnosis"
