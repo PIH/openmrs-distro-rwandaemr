@@ -1,0 +1,609 @@
+<htmlform
+
+        htmlformUuid="0f205283-351c-409a-8466-403aae2e94da"
+        formUuid="4c050aba-665b-4d5e-aed9-18ae159b0784"
+        formName="Anaesthesia Record sheet"
+        formDescription="Anaesthesia Record sheet"
+        formVersion="1.0"
+        formEncounterType="03c36ceb-d4c5-441f-aca5-d88fdd9b6964"
+        formPublished="true"
+        formRetired="false"
+
+>
+
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+    </macros>
+
+    <style>
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+    </style>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION">
+        <div class="section-container">
+            <table>
+                <tr>
+                    <td>
+                        Date:
+                        <encounterDate default="today" />
+                    </td>
+                    <td>
+                        Health Facility:
+                        <encounterLocation id="location" default="GlobalProperty:registration.defaultLocationCode" />
+                    </td>
+                    <td>
+                        Provider:
+                        <encounterProvider default="currentUser" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="VITAL SIGNS">
+        <div class="section-container">
+
+
+            <table style="table-layout: fixed;" cellspacing="0" cellpadding="6" width="100%">
+                <tr>
+                    <td class="lblcolor">Temperature</td>
+                    <td>
+                        <font color="red">
+                            <lookup expression="fn.latestObs(5088).getValueNumeric()" />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tablelblcolor">Weight:</td>
+                    <td>
+                        <font color="red">
+                            <lookup expression="fn.latestObs(5089).getValueNumeric()" />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lblcolor">Height:</td>
+                    <td>
+                        <font color="red">
+                            <lookup expression="fn.latestObs(5090).getValueNumeric()" />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lblcolor">SBP:</td>
+                    <td>
+                        <font color="red">
+                            <lookup expression="fn.latestObs(5085).getValueNumeric()" />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lblcolor">DBP:</td>
+                    <td>
+                        <font color="red">
+                            <lookup expression="fn.latestObs(5086).getValueNumeric()" />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lblcolor">Pulse:</td>
+                    <td>
+                        <font color="red">
+                            <lookup expression="fn.latestObs(5087).getValueNumeric()" />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lblcolor">O2 Saturator:</td>
+                    <td>
+                        <font color="red">
+                            <lookup expression="fn.latestObs(5092).getValueNumeric()" />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lblcolor">CLINICAL IMPRESSION COMMENTS:</td>
+                    <td>
+                        <font color="red">
+                            <lookup expression="fn.latestObs(1364).getValueText()" />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lblcolor">RECOMMENDATIONS:</td>
+                    <td>
+                        <font color="red">
+                            <lookup expression="fn.latestObs(1391).getValueText()" />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lblcolor">Dernier Detail de Treatment </td>
+                    <td>
+                        <font color="red">
+                            <lookup expression="fn.latestObs(1364).getValueText()" />
+                        </font>
+                    </td>
+                    <td>
+                        <font color="red">
+                            <lookup expression="fn.latestObs(3974).getValueDate()" />
+                        </font>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="PRE OP ASSESSMENT">
+        <div class="section-container">
+
+            <p class="date-one-line">
+                <obs conceptId="254397cc-b242-4c53-8507-489e1075a20a" labelText="Date of Pre-Op Assessment:" />
+            </p>
+            <p class="date-one-line">
+                <obs conceptId="e3dda747-5795-4af6-8691-2040243ae99e"
+                     labelText="Date Planned for Anesthesia intervention:" />
+            </p>
+            <p class="radio">
+                <label for=""><b>INTERVENTION:</b></label>
+                <obs conceptId="bfe72d67-6bf8-4786-9a7e-9dce552bc395" labelText="Elective" style="checkbox" />
+                <obs conceptId="c2a5721a-3b0c-4da7-b2f7-603c3faac9a0" labelText="Urgent" style="checkbox" />
+                <obs conceptId="f0c2d92c-3847-4721-92a5-5a0578b684a7" labelText="Emergent" style="checkbox" /><br />
+                <obs conceptId="fb49aef4-b6f5-498b-bc62-a8dea6b9facf"
+                     labelText="Type of Intervention Planned and Indication" style="textarea" rows="3" cols="30" />
+            </p>
+
+            <p class="side-by-side">
+                <label for=""> <b>Drug Reactions:</b></label>
+                <obs conceptId="a22144f0-a280-4e42-885a-601092c19c4f" answerConceptIds="1065,1066" answerLabels="Yes,No" id="dr" style="radio">
+
+                    <controls>
+                        <when value="1065" thenDisplay="#druRea"/>
+                    </controls>
+                </obs>
+            </p>
+            <p class="radio" id="druRea">
+                <obs conceptId="dea046a7-771f-4246-9e31-4c590e7fde24" labelText="Hives/itching" style="checkbox" /><br />
+                <obs conceptId="12517935-c66b-402a-8380-926c57d65a9f" labelText="Mouth Swelling" style="checkbox" /><br />
+                <obs conceptId="8e9de5b6-dd4e-4715-950c-efd1bcf7552d" labelText="Other reactions:" /><br />
+            </p>
+            <p class="radio">
+                <obs conceptId="5ce970b9-a66d-4f99-abe0-35c6fbf43b7c" labelText="Difficulty Breathing" answerConceptIds="1065,1066" answerLabels="Yes,No"
+                     style="radio" /><br />
+            </p>
+            <p class="side-by-side">
+                <label for=""><b> Patient Medical history:
+                </b></label>
+                <obs conceptId="ece17e8c-7ba9-4e89-b999-2a074f8757ef" answerConceptIds="1066,1067,1065"
+                     answerLabels="No,Unknown,Yes" style="radio" id="medHis">
+
+                    <controls>
+                        <when value="1065" thenDisplay="#yesMedHis" />
+                    </controls>
+                </obs>
+            </p>
+            <p class="radio" id="yesMedHis">
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="2239" answerLabel="Smoking"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="2318" answerLabel="Alcohol"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="9987" answerLabel="Toxicomania"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="3716" answerLabel="COPD"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="58" answerLabel="Tuberculosis"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="3468" answerLabel="Heart Failure"
+                     style="radio" /><br />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="903" answerLabel="Hypertension"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="884" answerLabel="HIV"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="3681" answerLabel="Renal Failure"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="11763"
+                     answerLabel="Tyroid disease" style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="155" answerLabel="Epilepdy"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="11658" answerLabel="DVT"
+                     style="radio" /><br />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="12932" answerLabel="Stroke"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="3310" answerLabel="Arrhythmia"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="117690AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" answerLabel="Valvupathy"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="11708"
+                     answerLabel="Abnormal Bleeding" style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="3714" answerLabel="Cirhosis"
+                     style="radio" />
+                <obs conceptId="3ae7eae2-34e6-40dd-a202-d84e58cf23a4" answerConceptId="212" answerLabel="Gastric Ulcer"
+                     style="radio" />
+            </p>
+            <p>
+                Other Past medication History:
+                <obs conceptId="bc3862d8-6825-4878-8801-f1e7b0790071" style="textarea" rows="3" cols="30" /><br />
+            </p>
+
+            <p class="side-by-side">
+                Surgical and Anesthetic history:
+                <obs conceptId="09ee5e55-5b93-4d45-8d38-98224fa68bf2" answerConceptIds="1066,1067,1065"
+                     answerLabels="No,Unknown,Yes" style="radio" id="surHis">
+
+                    <controls>
+                        <when value="1065" thenDisplay="#yesSurHis" />
+                    </controls>
+                </obs>
+            </p>
+            <p id="yesSurHis">
+                <obs conceptId="6f035d26-aab4-4a54-ae3b-6c1db01cd120" style="textarea" rows="3" cols="30"
+                     labelText="if yes, comment:" /><br />
+            </p>
+            <p class="side-by-side">
+                Currently on Medication:
+                <obs conceptId="d5afe6ab-ce66-43b0-9121-733e0f4f001d" answerConceptIds="1066,1067,1065"
+                     answerLabels="No,Unknown,Yes" style="radio" id="onMed">
+
+                    <controls>
+                        <when value="1065" thenDisplay="#yesOnMed" />
+                    </controls>
+                </obs>
+
+            </p>
+            <p id="yesOnMed">
+                <obs conceptId="40f308b2-a4fb-46c9-a066-b78e1b39fed9" style="textarea" rows="3" cols="30" labelText="if yes, comment:"  /><br />
+            </p>
+            <fieldset>
+                <legend>
+                    Clinicical exam
+                </legend>
+                <p>
+                    <b>General Status</b>
+                    <obs conceptId="0fc29d6f-f7b6-4bd0-9f67-19d24d145dee" style="textarea" rows="3" cols="30" />
+                </p>
+                <p>
+                    <b>Neurological exam</b>
+                    <obs conceptId="42167e07-3538-401c-87c9-a2b5f81aa184" style="textarea" rows="3" cols="30" />
+                </p>
+                <p class="flexView small-input">
+                    <label for=""> <b>Cardiovascular Exam:</b>
+                    </label>
+                    <obs conceptId="3ce93824-26fe-102b-80cb-0017a47871b2" labelText="HR (bpm)" />
+                    <obs conceptId="ed0032c4-d0a8-47c4-bb02-cb727c373721" labelText="BP" />
+                    <obs conceptId="ac7624fd-8f71-479a-acb2-bcceb6b7ebe0" labelText="AUSCULTATION" />
+                </p>
+                <p>
+                    <b>Abnormal Findings:</b>
+                    <obs conceptId="3c5c2c4b-b311-46bb-8283-318f7212c7b6" style="textarea" rows="3" cols="30" />
+                </p>
+                <p class="side-by-side">
+                    <b>AIRWAY EVALUATION:</b>Modified Mallampati score:
+                    <obs conceptId="60f4e431-f461-4fda-a638-71b677e57109"
+                         answerConceptIds="e670be96-553e-4677-ac37-42e61c344303,a6d97b09-a4a2-4260-9dc2-af83843edb41,44c7ff2b-782d-4035-ab78-1d49db99bb22,c91bda62-a717-48da-976b-d5167319d3ab"
+                         answerLabels="I,II,III,IV" style="radio" />
+
+                </p>
+                <p class="side-by-side">
+                    <b>Mouth Opening</b>
+                    <obs conceptId="d97fa17c-f72c-408a-b9ec-bb8631a38fca"
+                         answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2"
+                         answerLabels="Normal,Abnormal" style="radio" id="mouOp">
+                        <controls>
+                            <when value="1116" thenDisplay="#abnoMouOp" />
+                        </controls>
+                    </obs>
+                </p>
+                <p id="abnoMouOp">
+                    <obs conceptId="8a3ab93d-1701-4dc3-86c3-7374c333d065" style="textarea" rows="2" cols="30" labelText="if abnormal, comment:" />
+                </p>
+                <p class="side-by-side">
+                    <b>Thyromental distance </b>
+                    <obs conceptId="30651f84-561f-4106-9038-e3edb469b1c9"
+                         answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2"
+                         answerLabels="Normal,Abnormal" id="thyDis" style="radio">
+                        <controls>
+                            <when value="1116" thenDisplay="#abnothyDis" />
+                        </controls>
+                    </obs>
+                </p>
+                <p id="abnothyDis">
+                    <obs conceptId="ccfdc5ff-1bec-4e42-97a0-015cd510b2bb" style="textarea" rows="2" cols="30" labelText="if abnormal, comment:" />
+                </p>
+                <p class="side-by-side">
+                    <b>Neck mobility </b>
+                    <obs conceptId="805134a9-5de1-4b13-b159-5d3a18b5e7cb"
+                         answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2"
+                         answerLabels="Normal,Abnormal" style="radio" id="necMob">
+
+                        <controls>
+                            <when value="1116" thenDisplay="#abnoNecMob" />
+                        </controls>
+                    </obs>
+                </p>
+                <p id="abnoNecMob">
+                    <obs conceptId="150fb48b-574a-43c3-afb7-fcff6f06170c" style="textarea" rows="2" cols="30" labelText="if abnormal, comment:" />
+                </p>
+            </fieldset>
+        </div>
+    </section>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Lab results">
+        <div class="section-container">
+
+            <p class="side-by-side">
+                <b></b>
+                <obs conceptId="e511d2e9-8406-4338-8235-ec41917d6e2f"
+                     answerConceptIds="3cd6f86c-26fe-102b-80cb-0017a47871b2,3cd6f600-26fe-102b-80cb-0017a47871b2"
+                     answerLabels="No,Yes" labelText="Relevant Lab Results and Relevant study results" style="radio" id="anyResu">
+                    <controls>
+                        <when value="1065" thenDisplay="#results" />
+                    </controls>
+                </obs>
+            </p>
+            <p id="results">
+                <b>HGB:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(21).getValueNumeric()" />
+                </font>
+                <b>HCT:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(1015).getValueNumeric()" />
+                </font>
+
+                <b>PLT:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(729).getValueNumeric()" />
+                </font>
+                <b>aPTT:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(7220).getValueNumeric()" />
+                </font>
+
+                <b>INR:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(3796).getValueNumeric()" />
+                </font>
+                <b>Na:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(1132).getValueNumeric()" />
+                </font>
+
+                <b>K:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(1133).getValueNumeric()" />
+                </font>
+                <b>Cl:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(1134).getValueNumeric()" />
+                </font>
+
+                <b>Urea:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(7245).getValueNumeric()" />
+                </font>
+                <b>Glycemia:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(887).getValueNumeric()" />
+                </font>
+
+                <b>Creatinine:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(790).getValueNumeric()" />
+                </font>
+                <b>ECG:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(105579).getValueBoolean()" />
+                </font>
+
+                <b>Chest x-Ray:</b>
+                <font color="red">
+                    <lookup expression="fn.latestObs(3389).getValueNumeric()" />
+                </font><br />
+                <b> Other Lab Results</b>
+                <obs conceptId="3ce1ca8a-26fe-102b-80cb-0017a47871b2" style="textarea" rows="2" cols="30" />
+            </p>
+
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Other Information">
+        <div class="section-container">
+
+            <p class="side-by-side">
+                <b>ASA CLASSIFICATION:</b>
+                <obs conceptId="8acbb85e-f957-4f0b-b653-e18e9a237cc1"
+                     answerConceptIds="89251ef6-3237-402f-806a-1c53c9f4560c,fb3418da-63b2-4ab8-a29a-ffec68fd50f3,2de314d2-8c4e-4bb1-9b50-6ad5c101cc3f,b8852093-688f-47b2-b548-5f4b3da88420,6776221d-7670-4d6a-b8c5-8d9d3bc9cb29,991589e4-9225-4cd8-8700-bd52d7dfb8a1"
+                     answerLabels="I,II,III,IV,V,E" style="radio" /><br />
+            </p>
+            <p class="side-by-side">
+                <b>PLANNED ANESTHESIA:</b>
+                <obs conceptId="21ce2ec5-ccd3-4fff-a702-f36b47dfc76c"
+                     answerConceptIds="8281,73d6fe17-ae0c-45b5-812b-240cf8712b98,3631ce85-da66-418c-8068-87cd91b82a36,ea371ded-e743-458e-8d20-63ff1772a160,f0279975-d451-4d60-8c7e-788798150112,d4008238-7e18-44da-9996-d8389a7386db"
+                     answerLabels="GA,SA,Epidural,Block,Local,Sedation" style="radio" />
+            </p>
+            <p class="side-by-side">
+                <b>Plan for Procedure Includes:</b>
+                <obs conceptId="aa5ca009-57c2-43b6-93d6-8bd9e6d05d7c" answerConceptIds="4dcc8f78-aba4-4171-b650-e0091d668b49,0275cde8-eee3-4610-94a4-1842f2f7d104,6b07d822-13ca-40bc-9996-595150f57de6"
+                     answerLabels="NPO,Booking for Blood,Special Monitoring" style="radio" />
+            </p>
+            <p>
+                <b>premedication:</b>
+                <obs conceptId="4beea88c-3fee-449f-ada9-7cff1f5ed294" style="textarea" rows="3" cols="30" />
+            </p>
+        </div>
+    </section>
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm left">
+                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                            style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+
+</htmlform>

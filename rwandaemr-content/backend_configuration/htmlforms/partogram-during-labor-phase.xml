@@ -222,7 +222,7 @@
                 <tr>
                     <td>
                         Date:
-                        <encounterDate default="today" />
+                        <encounterDate default="today" showTime="true"/>
                     </td>
                     <td>
                         Health Facility:
@@ -240,10 +240,10 @@
     <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Partograph">
         <div class="section-container">
 
-            <p class="small-input flexView">
-                Date and Time:
-                <obs conceptId="1b8f65ed-d801-4945-a354-de70c1212d80" required="true" allowFutureDates="true"/>
-            </p>
+<!--            <p class="small-input flexView">-->
+<!--                Date and Time:-->
+<!--                <obs conceptId="1b8f65ed-d801-4945-a354-de70c1212d80" required="true" allowFutureDates="true"/>-->
+<!--            </p>-->
             <p class="small-input flexView">
                 Fetal heart rate:
                 <obs conceptId="57c934dd-a086-4e73-a9b8-3b9c1abef1b1" />bpm
@@ -292,8 +292,10 @@
                     Pulse Rate:<obs conceptId="3ce93824-26fe-102b-80cb-0017a47871b2" />
                 </p>
                 <p class="small-input flexView">
-                    BP:
-                    <obs conceptId="ed0032c4-d0a8-47c4-bb02-cb727c373721" />
+                    SBP:
+                    <obs conceptId="3ce934fa-26fe-102b-80cb-0017a47871b2" required="true"/>
+                    DBP:
+                    <obs conceptId="3ce93694-26fe-102b-80cb-0017a47871b2" required="true"/>
                 </p>
                 <p class="small-input flexView">
                     Temperature:<obs conceptId="3ce939d2-26fe-102b-80cb-0017a47871b2" />

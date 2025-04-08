@@ -336,6 +336,11 @@
 
             </p>
             <p>
+                Post operative report:
+                <obs conceptId="18a3ddfd-f5fb-4d1f-b962-d2bb6a402422" style="textarea" rows="4" cols="40" /><br />
+
+            </p>
+            <p>
                 Post operative plan:
                 <obs conceptId="9a07f37c-eba2-42f6-9856-170277e6b8bf" style="textarea" rows="4" cols="40" /><br />
 

@@ -222,7 +222,7 @@
         "extensionPointId": "6b825913-ab44-4e49-9ea0-c9e5919f94af.overallActions",
         "type": "link",
         "label": "Exit From Care",
-        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-exit-form-169.xml",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-asthma--exit-from-care-information.xml",
         "icon": "icon-file",
         "order": 5
       }

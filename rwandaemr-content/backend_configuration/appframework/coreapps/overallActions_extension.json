@@ -1,5 +1,52 @@
 [
     {
+        "id": "referenceapplication.realTime.manualBilling",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "Billing",
+        "url": "rwandaemr/patient/manualBilling.page?patientId={{patient.uuid}}",
+        "icon": "icon-money",
+        "order": 0
+    },
+    {
+        "id": "referenceapplication.realTime.labOrder",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "Lab Orders",
+        "url": "rwandaemr/patient/labOrders.page?patientId={{patient.uuid}}",
+        "icon": "icon-beaker",
+        "order": 1
+    },
+    {
+        "id": "referenceapplication.realTime.drugOrder",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "Drug Order",
+        "url": "rwandaemr/patient/drugOrders.page?patientId={{patient.uuid}}",
+        "icon": "icon-plus-sign",
+        "order": 2
+    },
+    {
+        "id": "referenceapplication.realTime.medicalHistory",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "Insurance Partner",
+        "url": "rwandaemr/patient/mohdataflowpatient.page?patientId={{patient.uuid}}",
+        "icon": "icon-road",
+        "order": 3,
+        "requiredPrivilege": "View Medical History Link"
+    },
+    {
+        "id": "org.openmrs.module.growthchart.growthChart",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "growthchart.growthCharts",
+        "url": "growthchart/growthCharts.page?patientId={{patient.uuid}}",
+        "icon": "icon-bar-chart",
+        "order": 4,
+        "requiredPrivilege": "View Growth Charts monitoring"
+    },
+    {
         "id": "patientDashboard.overallActions.registrationSummary",
         "extensionPointId": "patientDashboard.overallActions",
         "type": "link",
@@ -62,50 +109,12 @@
         "requiredPrivilege": "Task: coreapps.deletePatient"
     },
     {
-        "id": "referenceapplication.realTime.manualBilling",
+        "id": "patientDashboard.drugAdministration.overallAction",
         "extensionPointId": "patientDashboard.overallActions",
         "type": "link",
-        "label": "Billing",
-        "url": "rwandaemr/patient/manualBilling.page?patientId={{patient.uuid}}",
-        "icon": "icon-money",
-        "order": 0
-    },
-    {
-        "id": "referenceapplication.realTime.labOrder",
-        "extensionPointId": "patientDashboard.overallActions",
-        "type": "link",
-        "label": "Lab Orders",
-        "url": "rwandaemr/patient/labOrders.page?patientId={{patient.uuid}}",
-        "icon": "icon-beaker",
-        "order": 1
-    },
-    {
-        "id": "referenceapplication.realTime.drugOrder",
-        "extensionPointId": "patientDashboard.overallActions",
-        "type": "link",
-        "label": "Drug Order",
-        "url": "rwandaemr/patient/drugOrders.page?patientId={{patient.uuid}}",
-        "icon": "icon-plus-sign",
-        "order": 2
-    },
-    {
-        "id": "referenceapplication.realTime.medicalHistory",
-        "extensionPointId": "patientDashboard.overallActions",
-        "type": "link",
-        "label": "Insurance Partner",
-        "url": "rwandaemr/patient/mohdataflowpatient.page?patientId={{patient.uuid}}",
-        "icon": "icon-road",
-        "order": 3,
-        "requiredPrivilege": "View Medical History Link"
-    },
-    {
-        "id": "org.openmrs.module.growthchart.growthChart",
-        "extensionPointId": "patientDashboard.overallActions",
-        "type": "link",
-        "label": "growthchart.growthCharts",
-        "url": "growthchart/growthCharts.page?patientId={{patient.uuid}}",
-        "icon": "icon-bar-chart",
-        "order": 4,
-        "requiredPrivilege": "View Growth Charts monitoring"
+        "label": "rwandaemr.drugAdministrations",
+        "url": "rwandaemr/patient/drugAdministrations.page?patientId={{patient.uuid}}",
+        "icon": "icon-medkit",
+        "order": 10
     }
 ]
