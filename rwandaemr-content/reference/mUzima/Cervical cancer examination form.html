@@ -657,15 +657,24 @@
     <fieldset>
 
         <div class="form-group initialHide ScreeningTypeHPV ScreeningTypeHybridVIAandHPV">
-            <label>
-                Specimen code
-                <br/>
-                (Fosaid/year(e.g 23 0r 24)/Annual patient registration number  from the register)
+<!--            <label>-->
+<!--                Specimen code-->
+<!--                <br/>-->
+<!--                (Fosaid/year(e.g 23 0r 24)/Annual patient registration number  from the register)-->
 
-            </label>
+<!--            </label>-->
             <br/>
-            <label class="font-normal">
-                <input id="obs.specimenCode" name="obs.specimenCode" type="text"
+            <label>
+                Fosaid:
+                <input id = "fosaid" type="text" min="4" max="4" inputmode="numeric" pattern="[0-9]*">
+                <br/><br/>
+                Annual patient registration number from the register;
+                <input id="APRNFTR" type="text" min="4" max="4" inputmode="numeric" pattern="[0-9]*">
+            </label>
+            <br/> <br/>
+            <label >
+                Specimen code
+                <input id="obs.specimenCode" name="obs.specimenCode" type="text" disabled="disabled"
                        data-concept="16cd65e3-45af-4291-88fd-fe4d91847e4f^Specimen Code^99DCT">
 
             </label>
@@ -676,11 +685,11 @@
             </label>
             <br/>
             <label>
-                <input id="obs.TRACnetSampleCodeType" name="obs.TRACnetSampleCodeType" type="text"
+                <input id="obs.TRACnetSampleCodeType" name="obs.otherSampleIdCodeTypes" type="radio"
                        data-concept="4b7798cb-616d-4916-9c03-25f74b58a5f0^Other Sample ID code types^99DCT"
                        value="8bfcdab8-3eb0-47c0-86ac-b6600d9f5821^TRACnet Sample ID code^99DCT"> TRACnet Sample ID code
                 <br/>
-                <input id="obs.BGISampleCodeType" name="obs.BGISampleCodeType" type="text"
+                <input id="obs.BGISampleCodeType" name="obs.otherSampleIdCodeTypes" type="radio"
                        data-concept="4b7798cb-616d-4916-9c03-25f74b58a5f0^Other Sample ID code types^99DCT"
                        value="e52e3314-89a1-4af8-907a-24de175a2843^BGI Sample ID code^99DCT"> BGI Sample ID code
 
@@ -886,6 +895,7 @@
 <!--            </label>-->
             <br/>
             <label><u>Result</u></label>
+            <span class="required initialHide" id="VIAResultsrequirementIndicator">*</span></label>
             <br/>
             <label class="font-normal">
                 <input class="activate" id="VIATriageResultThermalablation" name="VIATriageResults" type="checkbox"
@@ -1291,6 +1301,7 @@
                            value="d0e94536-0b91-40a1-b994-04bb4f5cd15d^Follow-up at this health facility^99DCT">
                     Follow-up at this health facility
                 </label>
+                <br/>
                 <label class="font-normal">
                     <input class="deactivate" id="DispositionFollowupAtAnotherHealthFacility" name="Disposition" type="checkbox"
                            data-concept="0af3dbde-15f5-102d-96e4-000c29c2a5d7^DISPOSITION^99DCT"
@@ -1314,6 +1325,7 @@
                     <input class="initialHide" id="serviceTransferredTo" name="serviceTransferredTo" type="text"
                            data-concept="0af3dbde-15f5-102d-96e4-000c29c2a5d7^Transfer to internal department text^99DCT"/>
                 </label>
+                <br/>
                 <label class="font-normal">
                     <input class="activate" id="DispositionReferredOut" name="Disposition" type="checkbox"
                            data-concept="0af3dbde-15f5-102d-96e4-000c29c2a5d7^DISPOSITION^99DCT"
@@ -1674,9 +1686,12 @@
             });
             $('#ScreeningTypeHPV').change(function(){
                 if($("input[id='ScreeningTypeHPV']").prop('checked')){
+
+                    $("#nextVisitSpan").hide();
                     $("#managementDiv").hide();
                     $("#obs\\.specimenCode").prop("required",true);
                     specimenCodeAutofill();
+                    $("#obs\\.BreastDispositionNextDate").prop("required",false);
                 }else{
                     $("#managementDiv").show()
                     $("#obs\\.specimenCode").prop("required",false);
@@ -1685,11 +1700,15 @@
             $('#ScreeningTypePapSmear').change(function(){
                 if($("input[id='ScreeningTypePapSmear']").prop('checked')){
                     $("#managementDiv").show()
+                    $("#nextVisitSpan").hide();
+                    $("#obs\\.BreastDispositionNextDate").prop("required",false);
                 }
             });
             $('#ScreeningTypeVIA').change(function(){
                 if($("input[id='ScreeningTypeVIA']").prop('checked')){
                     $("#managementDiv").show()
+                    $("#nextVisitSpan").show();
+                    $("#obs\\.nextVisitDate").prop("required",true);
                 }
             });
             $('#ScreeningTypeHybridVIAandHPV').change(function(){
@@ -1697,6 +1716,8 @@
                     $("#managementDiv").show();
                     $("#obs\\.specimenCode").prop("required",true);
                     specimenCodeAutofill();
+                    $("#nextVisitSpan").hide();
+                    $("#obs\\.BreastDispositionNextDate").prop("required",false);
                 }
                 else{
                     $("#obs\\.specimenCode").prop("required",false);
@@ -1797,6 +1818,7 @@
                 if($("input[id='DispositionReferredIn']").prop('checked')){
                    $("#serviceTransferredTo").show();
                     $("#serviceTransferredTo").prop("required",true);
+                    $("#nextVisitSpan").hide();
                 }
                 else{
                     $("#serviceTransferredTo").hide();
@@ -1830,8 +1852,48 @@
             }
             /* End */
 
+            /* Validate specimen code */
 
+             var currentYearTwodigit = new Date().getFullYear() % 100;
 
+            $('#fosaid, #APRNFTR').change(function () {
+
+                var fosaidVal = $("#fosaid").val();
+                var APRNFTRVal = $("#APRNFTR").val();
+
+                var fosaidLength = fosaidVal ? fosaidVal.toString().length : 0;
+                var APRNFTRLength = APRNFTRVal ? APRNFTRVal.toString().length : 0;
+
+                if (fosaidLength === 4 && APRNFTRLength === 4) {
+
+                    var specimentCodegenerated = fosaidVal + "/" + currentYearTwodigit + "/" + APRNFTRVal;
+
+                    $("#obs\\.specimenCode").val(specimentCodegenerated);
+                }
+                else if (fosaidLength === 0 || APRNFTRLength === 0){
+                    $("#obs\\.specimenCode").val("");
+                }else{
+                    alert("fosaid na register's number ni imibare 4 gusa.");
+                }
+            });
+            /* End of specimen code validation*/
+
+            /* make VIA results mandatory */
+
+            $('input[name="VIAPerformedType"]').change(function(){
+                var VIATypeChecked = $('input[name=VIAPerformedType]:checked');
+                if(VIATypeChecked.length>=1){
+                    $("#VIATriageResultThermalablation").prop("required",true);
+                    $("#VIAResultsrequirementIndicator").show();
+                }
+                else{
+                    $("#VIATriageResultThermalablation").prop("required",false);
+
+                    $("#VIAResultsrequirementIndicator").hide();
+                }
+
+            })
+            /* End */
 
             $(".initialHide").hide();
 
