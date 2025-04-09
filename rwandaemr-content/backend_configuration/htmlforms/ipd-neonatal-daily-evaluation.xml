@@ -229,7 +229,7 @@
             </p>
             &#160;&#160;
             <p class="flexView small-input">
-                <obs conceptId="960f0865-f07a-40f5-82f5-97fd67cc67ce" labelText="Post mestrual age" required="true"/>&#160;(GA+DOL)
+                <obs conceptId="53ff9b26-d648-4cd6-aeab-1fff1396265f" labelText="Post mestrual age" required="true"/>&#160;(GA+DOL)
             </p>
             <p>
                 <obs conceptId="29beb9a0-145e-4509-9257-d2e8f4bd6b5c" rows="3" cols="30"
@@ -301,7 +301,7 @@
                 </tr>
                 <tr>
                     <td colspan="5" class="side-by-side">General appearance:
-                        <obs conceptId="ffe9860f-48b3-416d-94fd-9358cd20a12a"
+                        <obs conceptId="98074a69-6ee1-4d30-8598-f385439af569"
                              answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2"
                              answerCodes="Normal,Abnormal" style="radio" id="geneApp" required="true">
                             <controls>
@@ -337,7 +337,7 @@
                 </tr>
                 <tr>
                     <td colspan="5" class="side-by-side">
-                        Ears,eyes,nose,mouth Exam:<obs conceptId="190455c2-5d45-4f91-b122-9be0126c281b"
+                        Ears,eyes,nose,mouth Exam:<obs conceptId="ab36778f-e591-4597-a11d-b6929501acb1"
                                                        answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2"
                                                        answerCodes="Normal,Abnormal" style="radio" labelText="" id="ears" required="true">
                         <controls>
@@ -349,7 +349,7 @@
                 <tr id="abnoEars">
                     <td colspan="5">
                         Specify if abnormal:
-                        <obs conceptId="d2aa91b1-3b54-4c9b-b70b-99451d486395" style="textarea" rows="1" cols="50" />
+                        <obs conceptId="b42753dc-b5a2-4f5d-abd5-3f0219eacdd6" style="textarea" rows="1" cols="50" />
                     </td>
                 </tr>
                 <tr>
@@ -473,7 +473,7 @@
             <p class="side-by-side">
                 <label>Orders:</label>
                 <obs conceptId="aeadea4a-768b-487e-896f-1de3c9bee70f"
-                     answerConceptIds="da6999d8-9c83-44fc-a81f-c6fa10e7a67a,327a3066-3d0e-41df-8960-1cfba4bb5138"
+                     answerConceptIds="3cd937e4-26fe-102b-80cb-0017a47871b2,327a3066-3d0e-41df-8960-1cfba4bb5138"
                      answerCodes="Ordered,Not Ordered" style="radio" />
             </p>
 
@@ -540,33 +540,45 @@
     </section>
     <section sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="Infectious Desease(see INFECTIOUS DISEASE PROTOCOL">
-        <!-- <table>
-               <tr>
-              <td>
-                <obs conceptId="809f1e07-a5d7-4238-9acc-fbaf91a02630" answerConceptIds="f39ce36c-fb3d-485a-8650-7275f90d9161,bb1cc9da-7aa9-4cee-a2a8-f891b4f9293b,cd5bc9dc-603e-4342-b519-e089764fe12e,db5dd9c3-2bb0-427d-9e03-07fd0ae62c64,c61e1b7f-371f-4d36-9ae0-cf40cc77af4d,d06cbfb5-d826-449b-b36a-c8224a17cdc7,13cd5440-45d6-44df-aff6-591db14aea27" style="radio"
-                  answerCodes="FBC with differ,-sepsis valuat 48Hs,Gram+ meningitis 2W,CHEST-X-R,Pneum/Sepsis 1Week,Gram-meningitis 3Weeks,Urinaly with gramstain" labeText=""/>
-              </td>
-            </tr>
-            <td><font color="blue"><b>Drugs</b></font></td>
-            <tr>
-              <td>
-                <obs conceptId="  ef5c19e6-2658-4c14-8222-902f17ec672d" labelText="Ampicillin"/>
-                <obs conceptId="3d89e5de-69c6-4c7e-a866-47b42d4a4c9b" answerConceptIds="776e2fd1-e3bf-4a82-92a4-68f83894eff9" style="radio"  answerCodes="Stop Ampicillin"/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <obs conceptId="4bfbabcd-d28e-455a-9d45-7e94f8b07b21" labelText="Gentamicin"/>
-                <obs conceptId="3d89e5de-69c6-4c7e-a866-47b42d4a4c9b" answerConceptIds="d7160bd2-fea6-4185-aa0e-e7533a9b2d52" style="radio"  answerCodes="Stop Gentamicin"/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <obs conceptId="7ad7d537-51ae-4941-bd57-619d39415458" labelText="Other (cefotaxine, ceftriaxone, NVP)"/>
-                <obs conceptId="3d89e5de-69c6-4c7e-a866-47b42d4a4c9b" answerConceptIds="59f13ce1-f49c-4796-a63b-6593c2449374" style="radio"  answerCodes="Stop Other (cefotaxine, ceftriaxone, NVP)"/>
-              </td>
-            </tr>
-          </table> -->
+        <div class="section-container">
+            <p class="radio side-by-side">
+                <obs conceptId="bae9e7d2-755a-41f0-b1de-87f0ecf63bbe" answerConceptId="a0dafd90-ec9e-4fd8-8a63-95b8e6386be9" style="radio"
+                     answerCode="FBC with differential" labeText=""/>
+                <obs conceptId="bae9e7d2-755a-41f0-b1de-87f0ecf63bbe" answerConceptId="caf281c0-25ea-422e-aa46-bb03e624f5f2" style="radio"
+                     answerCode="CRP" labeText=""/>
+                <obs conceptId="bae9e7d2-755a-41f0-b1de-87f0ecf63bbe" answerConceptId="a14a50d0-86dd-4cc2-9075-d748d30c3ca7" style="radio"
+                     answerCode="Chest X-Ray" labeText=""/>
+                <obs conceptId="bae9e7d2-755a-41f0-b1de-87f0ecf63bbe" answerConceptId="bd2a3114-6068-4856-8a1b-381af00af6e5" style="radio"
+                     answerCode="Urinalysis with gram stain" labeText=""/>
+            </p>
+            <p class="radio side-by-side">
+                <obs conceptId="bae9e7d2-755a-41f0-b1de-87f0ecf63bbe" answerConceptId="fa789e96-4e4e-41e0-b665-b49c2f220879" style="radio"
+                     answerCode="Negative sepsis valuation:48 Hoursl" labeText=""/>
+                <obs conceptId="bae9e7d2-755a-41f0-b1de-87f0ecf63bbe" answerConceptId="01ed4635-4e53-40f0-b2ba-b70f133448d1" style="radio"
+                     answerCode="Pneumonia/Sepsis: 1 week" labeText=""/>
+            </p>
+            <p class="radio side-by-side">
+                <obs conceptId="bae9e7d2-755a-41f0-b1de-87f0ecf63bbe" answerConceptId="56726ab3-cd20-41f7-b25f-c0e7d1a1a60a" style="radio"
+                     answerCode="Gram Positive meningitis: 2 weeks" labeText=""/>
+                <obs conceptId="bae9e7d2-755a-41f0-b1de-87f0ecf63bbe" answerConceptId="669633bc-d27b-4f3e-affc-526ff79d0ede" style="radio"
+                     answerCode="Gram negative meningitis:3 weeks" labeText=""/>
+            </p>
+            <p class="radio side-by-side small-input">
+                Ampicillin:
+                <obs conceptId="5c8dc21a-df7d-47e1-86d5-ba735f14b25e" labelText="Dose" style="text" size="10"/>
+                <obs conceptId="ef5c19e6-2658-4c14-8222-902f17ec672d" answerConceptId="e88bd7e2-8ab1-4727-88bc-57761497f45b" style="radio"  answerCode="Stop Ampicillin"/>
+            </p>
+            <p class="radio side-by-side small-input">
+                Gentamicin:
+                <obs conceptId="97e20723-e336-40f2-91e7-2441ecf0123f" labelText="Dose" style="text" size="10"/>
+                <obs conceptId="4bfbabcd-d28e-455a-9d45-7e94f8b07b21" answerConceptId="7cd07559-0f87-49c8-8949-ac34113af298" style="radio"  answerCode="Stop Gentamicin"/>
+            </p>
+            <p class="radio side-by-side small-input">
+                Other (cefotaxine, ceftriaxone, NVP):
+                <obs conceptId="6a656017-250c-46dd-972f-c73e32f5a1a7" style="text"/>
+                <obs conceptId="ef5c19e6-2658-4c14-8222-902f17ec672d" answerConceptId="658f07f2-1f47-4174-a101-2102482be0df" style="radio"  answerCode="Stop Other (cefotaxine, ceftriaxone, NVP)"/>
+            </p>
+        </div>
     </section>
     <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Fluids,Electrolytes and Nutrition">
         <div class="section-container">
@@ -590,13 +602,13 @@
                 <obs conceptId="7b5e874b-5b91-4de5-be40-ce6eee651b39" answerConceptId="fb60a25d-19bf-4f04-a06d-64b12c7a2c90"
                      style="radio" answerCode="Remove IV catheter" />
             </p>
-            <p class="side-by-side">
+            <p class="radio side-by-side">
                 <label>Fluid IV+Enteral:</label>
                 <obs conceptId="7173bf4d-7db1-4e11-a177-5b3c4f454cb2"
                      answerConceptIds="86c26b5d-0688-4817-a9d0-e255d6d258fc,f7740dfb-0d1e-467a-98f5-e14bb868c825,9ed495ee-630b-4eba-96e9-8a842e299550,f5564638-1932-40b2-bfae-7065bfd89f08"
                      style="radio" answerCodes=" D10%,D10% 1/4LR,D10%1/4NS,D12.5%1/4LR" />
             </p>
-            <p class="side-by-side">
+            <p class="radio side-by-side">
                 <obs conceptId="5cd98cf7-5973-4993-8cd4-ec39163926eb"
                      answerConceptIds="4dcc8f78-aba4-4171-b650-e0091d668b49,6303a6e1-9708-451b-95b4-1f73adb18471" style="radio"
                      answerCodes="NPO,ad lib PO" labelText="ENTERAL NUTRITION:" />
@@ -607,13 +619,13 @@
                 <obs conceptId="822e7f20-3942-4dc4-9a4c-1bec266c4dd6" />h
 
             </p>
-            <p class="side-by-side">
+            <p class="radio side-by-side">
                 <label>Milk:</label>
                 <obs conceptId="6e9ecc76-9151-4bdf-acc6-3b8d54ba1361"
-                     answerConceptId="7d228a64-8db2-48a7-aaf0-7fb0b6bcedb3"
+                     answerConceptId="1e13b0ac-fc97-4db0-abc6-b2d66a49e679"
                      style="checkbox" answerCodes="Breast milk (Prefered)" />
                 <obs conceptId="6e9ecc76-9151-4bdf-acc6-3b8d54ba1361"
-                     answerConceptId="8fb71b3d-ef5b-4e34-bb8a-fc491cbde731"
+                     answerConceptId="01004d88-1701-443b-a2ac-c767fda78fb9"
                      style="checkbox" answerCodes="Artificialmilk" />
                 <obs conceptId="6e9ecc76-9151-4bdf-acc6-3b8d54ba1361"
                      answerConceptId="46aaaca8-1f21-410a-aac9-67bfcc1fd577"
@@ -623,7 +635,7 @@
                      style="checkbox" answerCodes="Nasogastric Tube" />
 
             </p>
-            <p class="side-by-side">
+            <p class="radio side-by-side">
                 <label>Calories:</label>
                 <obs conceptId="767439c5-1640-4afb-b65d-1a93cf9b8c4e"
                      answerConceptId="e255c68a-9573-4653-ae4e-4d0296534717"

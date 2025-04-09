@@ -350,7 +350,7 @@
                 <p class="side-by-side">
                     <obs answerCodes="Yes,No"
                          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
-                         conceptId="cdf849df-0dfe-4da6-814c-9adee4dae0c4" labelText="Traditional medecine usage:"
+                         conceptId="02ff8890-e472-4737-8ab1-f8df1ea22d33" labelText="Traditional medecine usage:"
                          style="radio" />
                 </p>
                 <p class="side-by-side">
@@ -459,12 +459,12 @@
                 <p id="ifRisk" class="flexView side-by-side">
                     <b>If yes:</b>
                     <obs answerCodes="Prolonged rupture of membranes,Abnormal fever during labor,Foul smelling amniotic fluid,Antibiotic given during labor,Preterm labor"
-                         answerConceptIds="e7caef4d-368d-4436-9eea-9ca52dc232b0,34871302-0b54-43ba-a46d-0efa6d9ab05d,f6cd1393-4489-4e85-a27f-cc4206b80e6e,04f9d44a-a555-48ef-9cd0-857867595c13,6c2b736b-113e-4164-a92c-38ba23f794d1"
-                         conceptId="5b0eb07d-fe38-4549-a277-42b00825d093" labelText="" style="radio" />
+                         answerConceptIds="809f1e07-a5d7-4238-9acc-fbaf91a02630,f39ce36c-fb3d-485a-8650-7275f90d9161,bb1cc9da-7aa9-4cee-a2a8-f891b4f9293b,7ad7d537-51ae-4941-bd57-619d39415458,776e2fd1-e3bf-4a82-92a4-68f83894eff9"
+                         conceptId="cd5bc9dc-603e-4342-b519-e089764fe12e" labelText="" style="radio" />
                 </p>
                 <p class="side-by-side">
                     <obs answerCodes="Oxytocin during labor,Prolonged labor,Labor Dystocia,Multiple gestation,Signs of fetal distress,Meconium staining"
-                         answerConceptIds="a7954c51-e365-4f38-9e0b-21fe7b0aa969,1d71d824-c40d-4ab2-83f7-11ddc861eb30,042f8447-16a8-4412-a0bb-6983d85339e6,115491AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,83646636-561c-4cf7-82bf-c13fbb0d6a3f,cf729cec-d38a-11e8-b6e2-0c5b8f279a64,1066"
+                         answerConceptIds="c61e1b7f-371f-4d36-9ae0-cf40cc77af4d,1d71d824-c40d-4ab2-83f7-11ddc861eb30,042f8447-16a8-4412-a0bb-6983d85339e6,115491AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,83646636-561c-4cf7-82bf-c13fbb0d6a3f,cf729cec-d38a-11e8-b6e2-0c5b8f279a64,1066"
                          conceptId="d06cbfb5-d826-449b-b36a-c8224a17cdc7" labelText="Risk Factor for Birth Asphyxia:"
                          style="radio" required="true"/>
                 </p>
@@ -545,7 +545,7 @@
             </p>
             &#160;&#160;
             <p class="flexView small-input">
-                <obs conceptId="960f0865-f07a-40f5-82f5-97fd67cc67ce" labelText="Post mestrual age" />&#160;(GA+DOL)
+                <obs conceptId="53ff9b26-d648-4cd6-aeab-1fff1396265f" labelText="Post mestrual age" />&#160;(GA+DOL)
             </p>
             <p>
                 <obs conceptId="29beb9a0-145e-4509-9257-d2e8f4bd6b5c" rows="3" cols="30"
@@ -615,7 +615,7 @@
                 </tr>
                 <tr>
                     <td colspan="5" class="side-by-side">General appearance:
-                        <obs conceptId="ffe9860f-48b3-416d-94fd-9358cd20a12a"
+                        <obs conceptId="98074a69-6ee1-4d30-8598-f385439af569"
                              answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2"
                              answerCodes="Normal,Abnormal" style="radio" id="geneApp">
                             <controls>
@@ -931,20 +931,21 @@
                 <obs conceptId="822e7f20-3942-4dc4-9a4c-1bec266c4dd6" />h
 
             </p>
-            <p class="side-by-side radio">
+            <p class="radio side-by-side">
                 <label>Milk:</label>
                 <obs conceptId="6e9ecc76-9151-4bdf-acc6-3b8d54ba1361"
-                     answerConceptId="7d228a64-8db2-48a7-aaf0-7fb0b6bcedb3"
-                     style="radio" answerCode="Breast milk (Prefered)" />
+                     answerConceptId="1e13b0ac-fc97-4db0-abc6-b2d66a49e679"
+                     style="checkbox" answerCodes="Breast milk (Prefered)" />
                 <obs conceptId="6e9ecc76-9151-4bdf-acc6-3b8d54ba1361"
-                     answerConceptId="8fb71b3d-ef5b-4e34-bb8a-fc491cbde731"
-                     style="radio" answerCode="Artificialmilk" />
+                     answerConceptId="01004d88-1701-443b-a2ac-c767fda78fb9"
+                     style="checkbox" answerCodes="Artificialmilk" />
                 <obs conceptId="6e9ecc76-9151-4bdf-acc6-3b8d54ba1361"
                      answerConceptId="46aaaca8-1f21-410a-aac9-67bfcc1fd577"
-                     style="radio" answerCode="ORAL" />
+                     style="checkbox" answerCodes="ORAL" />
                 <obs conceptId="6e9ecc76-9151-4bdf-acc6-3b8d54ba1361"
                      answerConceptId="14961172-cc5e-4d9a-b327-49fb569157fe"
-                     style="radio" answerCode="Nasogastric Tube" />
+                     style="checkbox" answerCodes="Nasogastric Tube" />
+
             </p>
             <p class="side-by-side">
                 <label>Calories:</label>

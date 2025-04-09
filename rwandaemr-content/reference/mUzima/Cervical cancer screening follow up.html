@@ -838,44 +838,45 @@
             <label class="font-normal"> <strong> Type of VIA performed: </strong> </label>
             <br/>
 <!--            <label class="font-normal" id="ScreenVIAPerformedTypeLabel">-->
-<!--                <input id="ScreenVIAPerformedType" name="obs.VIAPerformedType" type="radio"-->
+<!--                <input id="ScreenVIAPerformedType" name="VIAPerformedType" type="radio"-->
 <!--                       data-concept="820b0e37-5d3e-46c6-9462-a8e7adaff954^type of VIA Performed^99DCT"-->
 <!--                       value="690d8a13-a1ac-4fd7-97a4-f3964b97f049^VIA Screen^99DCT">-->
 <!--                VIA Screen-->
 <!--            </label>-->
 <!--            <br/>-->
             <label class="font-normal" id ="triageVIAPerformedTypeLabel">
-                <input id="obs.TriageVIAPerformedType" name="obs.VIAPerformedType" type="radio"
+                <input id="obs.TriageVIAPerformedType" name="VIAPerformedType" type="radio"
                        data-concept="820b0e37-5d3e-46c6-9462-a8e7adaff954^type of VIA Performed^99DCT"
                        value="69a0ca97-2fee-4c4a-9d84-4f2c25f70c93^VIA Triage^99DCT">
                 VIA Triage
             </label>
             <br/>
             <label><u>Result</u></label>
+            <span class="required initialHide" id="VIAResultsrequirementIndicator">*</span></label>
             <br/>
             <label class="font-normal">
-                <input id="obs.VIATriageResultThermalablation" name="obs.VIATriageResults" type="radio"
+                <input id="VIATriageResultThermalablation" name="obs.VIATriageResults" type="radio"
                        data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA Results^99DCT"
                        value="3fe69559-cc82-48cb-926e-5d925aca088b^VIA+ Eligible for Thermal ablation^99DCT">
                 VIA+ Eligible for Thermal ablation
             </label>
             <br/>
             <label class="font-normal">
-                <input id="obs.VIATriageResultLEEP" name="obs.VIATriageResults" type="radio"
+                <input id="VIATriageResultLEEP" name="obs.VIATriageResults" type="radio"
                        data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA Results^99DCT"
                        value="402f3951-420e-4c09-9a9a-955bc0cff140^VIA+ Eligible for LEEP^99DCT">
                 VIA+ Eligible for LEEP
             </label>
             <br/>
             <label class="font-normal">
-                <input id="obs.VIATriageResultNegative" name="obs.VIATriageResults" type="radio"
+                <input id="VIATriageResultNegative" name="obs.VIATriageResults" type="radio"
                        data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA Results^99DCT"
                        value="a7b08a37-0380-49dd-8f12-c2c2c76c8b13^VIA Negative^99DCT">
                 VIA-
             </label>
             <br/>
             <label class="font-normal">
-                <input id="obs.VIATriageResultSuspectedCancer" name="obs.VIATriageResults" type="radio"
+                <input id="VIATriageResultSuspectedCancer" name="obs.VIATriageResults" type="radio"
                        data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA Results^99DCT"
                        value="476123d7-54f1-4278-92f1-2de4f19ae951^Suspected cancer diagnosis^99DCT">
                 Suspected cancer
@@ -1627,36 +1628,45 @@
                 }
             });
 
-            $('#ScreeningTypeHPV').change(function(){
+$('#ScreeningTypeHPV').change(function(){
                 if($("input[id='ScreeningTypeHPV']").prop('checked')){
-                    $("#managementDiv").hide()
-                    $("#colposcopy").hide()
-                    $("#HPVLabResult").show()
+
+                    $("#nextVisitSpan").hide();
+                    $("#managementDiv").hide();
+                    $("#obs\\.specimenCode").prop("required",true);
+                    specimenCodeAutofill();
+                    $("#obs\\.BreastDispositionNextDate").prop("required",false);
                 }else{
                     $("#managementDiv").show()
+                    $("#obs\\.specimenCode").prop("required",false);
                 }
-            })
+            });
             $('#ScreeningTypePapSmear').change(function(){
                 if($("input[id='ScreeningTypePapSmear']").prop('checked')){
                     $("#managementDiv").show()
-                    $("#colposcopy").show()
-                    $("#HPVLabResult").show()
+                    $("#nextVisitSpan").hide();
+                    $("#obs\\.BreastDispositionNextDate").prop("required",false);
                 }
-            })
+            });
             $('#ScreeningTypeVIA').change(function(){
                 if($("input[id='ScreeningTypeVIA']").prop('checked')){
                     $("#managementDiv").show()
-                    $("#colposcopy").show()
-                    $("#HPVLabResult").hide()
+                    $("#nextVisitSpan").show();
+                    $("#obs\\.nextVisitDate").prop("required",true);
                 }
-            })
+            });
             $('#ScreeningTypeHybridVIAandHPV').change(function(){
                 if($("input[id='ScreeningTypeHybridVIAandHPV']").prop('checked')){
-                    $("#managementDiv").show()
-                    $("#colposcopy").show()
-                    $("#HPVLabResult").hide()
+                    $("#managementDiv").show();
+                    $("#obs\\.specimenCode").prop("required",true);
+                    specimenCodeAutofill();
+                    $("#nextVisitSpan").hide();
+                    $("#obs\\.BreastDispositionNextDate").prop("required",false);
                 }
-            })
+                else{
+                    $("#obs\\.specimenCode").prop("required",false);
+                }
+            });
 
             $('#LevelOfCareHospital').change(function(){
                 if($("input[id='LevelOfCareHospital']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
@@ -1664,14 +1674,14 @@
                 }else{
                     $(".referralReason").show()
                 }
-            })
+            });
             $('#EntryModeVoluntary').change(function(){
                 if($("input[id='LevelOfCareHospital']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
                     $(".referralReason").hide()
                 }else{
                     $(".referralReason").show()
                 }
-            })
+            });
 
             $('#followUpReasonTriage').change(function(){
                 if($("input[id='followUpReasonTriage']").prop('checked') && $("input[id='TestResultsHPVPositive']").prop('checked')){
@@ -1680,7 +1690,7 @@
                 }else{
                     $("ScreenVIAPerformedTypeLabel").show()
                 }
-            })
+            });
             $('#TestResultsHPVPositive').change(function(){
                 if($("input[id='followUpReasonTriage']").prop('checked') && $("input[id='TestResultsHPVPositive']").prop('checked')){
                     $("#ScreenVIAPerformedTypeLabel").hide()
@@ -1689,7 +1699,7 @@
                 }else{
                     $("#ScreenVIAPerformedTypeLabel").show()
                 }
-            })
+            });
 
             $('#followUpReasonPostTreatmentFollowup').change(function(){
                 if($("input[id='followUpReasonPostTreatmentFollowup']").prop('checked') && $("input[id='TestResultsHPVPositive']").prop('checked')){
@@ -1698,7 +1708,7 @@
                 }else{
                     $("triageVIAPerformedTypeLabel").hide()
                 }
-            })
+            });
             $('#TestResultsHPVPositive').change(function(){
                 if($("input[id='followUpReasonPostTreatmentFollowup']").prop('checked') && $("input[id='TestResultsHPVPositive']").prop('checked')){
                     $("#triageVIAPerformedTypeLabel").hide()
@@ -1706,7 +1716,7 @@
                 }else{
                     $("#triageVIAPerformedTypeLabel").show()
                 }
-            })
+            });
 
             $('input[name="Disposition"]').change(function(){
 
@@ -1748,12 +1758,13 @@
                 if($("input[id='DispositionReferredIn']").prop('checked')){
                    $("#serviceTransferredTo").show();
                     $("#serviceTransferredTo").prop("required",true);
+                    $("#nextVisitSpan").hide();
                 }
                 else{
                     $("#serviceTransferredTo").hide();
                     $("#serviceTransferredTo").prop("required",false);
                 }
-            })
+            });
 
             /* spacemen code auto-complete function */
             function specimenCodeAutofill(){
@@ -1779,6 +1790,23 @@
                     $('#obs\\.specimenCode').val(allSpecCodeForPatient[0].valueText);
                 }
             }
+            /* End */
+
+            /* make VIA results mandatory */
+
+            $('input[name="VIAPerformedType"]').change(function(){
+                var VIATypeChecked = $('input[name=VIAPerformedType]:checked');
+                if(VIATypeChecked.length>=1){
+                    $("#VIATriageResultThermalablation").prop("required",true);
+                    $("#VIAResultsrequirementIndicator").show();
+                }
+                else{
+                    $("#VIATriageResultThermalablation").prop("required",false);
+
+                    $("#VIAResultsrequirementIndicator").hide();
+                }
+
+            })
             /* End */
 
             if($("#patient\\.sex").val()=="M"){
