@@ -1,0 +1,11 @@
+UUID,Fully specified name:en,Data class,Data type,Mappings|SAME-AS|org.openmrs.module.emrapi,Answers,Members
+6c047a20-c2bf-43ef-9e88-6da7b17e8c1a,Admit to Hospital,Misc,N/A,,,
+dc98ea48-66e9-4b2a-8533-3833f8200d06,Internal facility transfer/referral,Misc,N/A,,,
+2537896a-7d27-4c71-8e93-4c265ffa5954,Discharge from hospital,Misc,N/A,,,
+ce085d74-323c-4c9a-9fdf-051de81dd020,Inpatient patient disposition,Question,Coded,Disposition,Admit to Hospital;Internal facility transfer/referral;Discharge from hospital,
+b9cd9e47-da43-4a46-8f3c-e30ec9209cc7,Admitted to location (text/code),Question,Text,Admission Location,,
+731318a6-9fa9-4f68-97a9-5bd4cbc707f7,Internal transfer location (text/code),Question,Text,Internal Transfer Location,,
+cc6a6126-b8a1-4d2d-9a35-31f9be7c5e68,Admission denied,Misc,N/A,Deny Admission,,
+ac4d3e94-03f3-458a-9cb1-9c2ab3c3a3f7,Admission to hospital decision,Question,Coded,Admission Decision,Admit to Hospital;Admission denied,
+9ceedfb7-60e4-42ce-a11e-f2dbabc82112,Inpatient disposition construct,ConvSet,N/A,Disposition Concept Set,,Inpatient patient disposition;Admitted to location (text/code);Internal transfer location (text/code)
+ce0afb8a-35b3-496e-8ac9-37c3b8f6592e,Date of Death,Question,Date,Date of Death,,

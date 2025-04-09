@@ -1,0 +1,19 @@
+[
+  {
+    "id": "rwandaemr.wardApp",
+    "description": "Home Page Link to Ward App",
+    "order": 30,
+    "extensions": [
+      {
+        "id": "rwandaemr.wardApp",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Inpatient Ward",
+        "url": "spa/home/ward",
+        "icon": "fas fa-fw fa-bed",
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Admission Location')",
+        "order": 7
+      }
+    ]
+  }
+]
