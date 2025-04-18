@@ -17,6 +17,8 @@ a703372d-28b7-4831-9817-ee385c8c47d8,,ANC visit,ANC visit
 d088d4ed-b51b-46fd-ae73-30a1669b60d6,,ASRH Visit,ASRH Visit
 820004cd-5f2b-40a9-bf26-bf6f5a945790,,ASTHMA VISIT,ASTHMA VISIT
 5021b1a1-e7f6-44b4-ba02-da2f2bcf8718,,Attachment Upload,Encounters used to record uploads of attachments.
+f47ac10b-58cc-4372-a567-0e02b2c3d479,,Bed Assignment,Assigning a new bed to a patient without admitting or transferring them
+550e8400-e29b-41d4-a716-446655440000,,Cancel ADT,An encounter that notes that a request to admit/transfer/discharge a patient is being overridden
 b5b00648-739a-40f8-a509-da2d03ce9dc0,,Cause of Death visit,Cause of Death visit
 66b9053c-c97d-4a6a-992f-0d9af3c17abd,,CheckIn visit,CheckIn visit
 710c8487-9831-4063-a79d-bf07f27653b2,,CHRONIC KIDNEY DISEASE VISIT,Chronic Kidney Disease Encounter Type
@@ -46,6 +48,7 @@ afa9251e-5d99-44dd-96d9-c0c8f54614d6,,HTC visit,HTC visit
 2f75f29f-454d-4e91-915c-ec3fd49532b1,,HYPERTENSION VISIT,Hypertension Visit
 462e7e66-8d01-4d43-af1f-b80c1a5239c8,,IMNCI VISIT,Encounter for IMNCI(PECIME) Visits
 0b3925f9-0336-47a6-931e-5c356e9cc82f,,Inpatient Oncology,Inpatient Oncology
+a1f5c3d2-4b6e-4e8a-9f2d-1b3e8e4a2d7f,,Inpatient Note,A short free-text note written by a clinician about an inpatient during their stay
 f3f15319-4d43-4720-8baf-499ece4fcf97,,investigation encounter,investigation encounter
 5117d944-9a73-4a09-a1ed-08d8407a38ba,,IPD auto Observation or general followup encounter,IPD auto Observation or general followup encounter
 b5d79036-f5ba-4274-b8ed-e1d0fe351064,,IPD Clinical Examination,IPD Clinical Examination
@@ -109,6 +112,7 @@ dd0f8dd0-e8c6-44a1-9320-174fce0022ad,,Stomatology acts encounter,Stomatology act
 1bcebba6-fca6-4568-a024-1ec575568b43,,Surgery followup encounter,Surgery followup encounter
 df461d45-5074-4bb6-beb4-864ac5f69c06,,Temporary,Just for tests
 a363b0d4-d430-467d-810c-4a2ee9891430,,Transfer,Indicates that a patient is being transferred into a different department within the hospital. (Transfers out of the hospital should not use this encounter type.)
+b2c4d5e6-7f8a-4e9b-8c1d-2e3f8e4a3b8f,,Transfer Request,A stand-alone encounter type for a transfer request not part of a larger note
 b42ac53d-4817-4b58-a884-a76c946083be,,triage encounter,triage encounter
 a4b7b206-da96-4c54-83bf-6fb31551a993,,vital sings encounter,vital sings encounter
 daf32375-d293-4e27-a68d-2a58494c96e1,,Vitals,Patient vital signs taken before seeing clinician

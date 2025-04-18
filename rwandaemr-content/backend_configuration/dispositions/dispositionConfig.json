@@ -1,0 +1,26 @@
+[
+  {
+    "uuid": "admission",
+    "name": "disposition.admit",
+    "type": "ADMIT",
+    "conceptCode": "6c047a20-c2bf-43ef-9e88-6da7b17e8c1a",
+    "actions": [],
+    "additionalObs": []
+  },
+  {
+    "uuid": "transfer",
+    "name": "disposition.transfer",
+    "type": "TRANSFER",
+    "conceptCode": "dc98ea48-66e9-4b2a-8533-3833f8200d06",
+    "actions": [],
+    "additionalObs": []
+  },
+  {
+    "uuid": "discharge",
+    "name": "disposition.discharge",
+    "type": "DISCHARGE",
+    "conceptCode": "2537896a-7d27-4c71-8e93-4c265ffa5954",
+    "actions": [],
+    "additionalObs": []
+  }
+]

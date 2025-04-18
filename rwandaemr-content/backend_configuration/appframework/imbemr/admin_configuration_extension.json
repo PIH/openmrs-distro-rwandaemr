@@ -1,5 +1,15 @@
 [
     {
+        "id": "rwandaemr.adminConfigureBedsLink",
+        "extensionPointId": "systemAdministration.apps",
+        "type": "link",
+        "label": "Administer Beds",
+        "url": "spa/bed-management",
+        "icon": "fas fa-fw fa-bed",
+        "requiredPrivilege": "App: coreapps.systemAdministration",
+        "order": 90
+    },
+    {
         "id": "rwandaemr.adminConfigurationLink",
         "extensionPointId": "systemAdministration.apps",
         "type": "link",
