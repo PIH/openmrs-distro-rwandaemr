@@ -319,6 +319,7 @@
       "action-menu-ward-patient-items-slot": {
         "remove": [
           "o2-visit-summary-workspace-siderail-button",
+          "ward-inpatient-notes-form-action-button",
           "order-basket-action-menu"
         ],
         "add": [
