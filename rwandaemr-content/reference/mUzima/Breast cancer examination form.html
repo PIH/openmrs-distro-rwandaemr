@@ -1362,7 +1362,7 @@
             </label>
             <br/>
             <label class="font-normal">
-                <input class="deactivate" id="obs.BreastDispositionAtThisHealthFacility" name="BreastDisposition" type="radio"
+                <input class="activate" id="obs.BreastDispositionAtThisHealthFacility" name="BreastDisposition" type="radio"
                        data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
                        value="d0e94536-0b91-40a1-b994-04bb4f5cd15d^Follow-up at this health facility^99DCT">
                 Follow-up at this health facility
@@ -1372,21 +1372,21 @@
             </label>
             <br/>
             <label class="font-normal">
-                <input class="deactivate" id="DispositionFollowupAtAnotherHealthFacility" name="BreastDisposition" type="radio"
+                <input class="activate" id="DispositionFollowupAtAnotherHealthFacility" name="BreastDisposition" type="radio"
                        data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
                        value="147b2af6-d789-416d-bfc0-42e2b717d582^Follow-up at another health facility^99DCT">
                 Follow-up at another health facility
             </label>
             <br/>
             <label class="font-normal">
-                <input class="deactivate" id="DispositionRescreening" name="BreastDisposition" type="radio"
+                <input class="activate" id="DispositionRescreening" name="BreastDisposition" type="radio"
                        data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
                        value="9f77a776-4306-4a34-a42d-0a57808a90e9^Rescreening^99DCT">
                 Rescreening
             </label>
             <br/>
             <label class="font-normal">
-                <input class="deactivate" id="DispositionReferredIn" name="BreastDisposition" type="radio"
+                <input class="activate" id="DispositionReferredIn" name="BreastDisposition" type="radio"
                        data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
                        value="031ea34b-f95b-4cf7-a3c6-026f6fd60f1f^TRANSFER IN^99DCT">
                 transfer in:
@@ -1403,7 +1403,7 @@
                 <span class="required requirementReferralSymbol initialHide" >*</span>
             </label>
             <br/>
-            <div class="initialHide BreastDisposition">
+            <div class="initialHide healthFacility">
                 <label class="font-normal">
                     <!--                <input id="obs.healthFacility" name="obs.healthFacility"-->
                     <!--                       type="text" size="50" data-concept="3a84ab37-f75c-48ad-8bcf-322c927f36bb^referred to (coded)^99DCT"/>-->
@@ -1435,7 +1435,7 @@
             <!--                    </label>-->
             <!--                </li>-->
             <!--            </ul>-->
-            <div class="initialHide BreastDisposition">
+            <div class="initialHide reasonForReferral" id="reasonForReferral">
                 <label class="font-normal">
                     Reason for referral:
                     <span class="required requirementReferralSymbol initialHide" >*</span>
@@ -1618,73 +1618,111 @@
                     }
                 }
             });
-            $('#LevelOfCareHospital').change(function(){
+/*            $('#LevelOfCareHospital').change(function(){
                 if($("input[id='LevelOfCareHospital']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
                     $(".referralReason").hide()
                 }else{
                     $(".referralReason").show()
                 }
-            })
+            });
             $('#EntryModeVoluntary').change(function(){
                 if($("input[id='LevelOfCareHospital']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
                     $(".referralReason").hide()
                 }else{
                     $(".referralReason").show()
                 }
-            })
+            });
             $('#LevelOfCarePrivateClinic').change(function(){
                 if($("input[id='LevelOfCarePrivateClinic']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
                     $(".referralReason").hide()
                 }else{
                     $(".referralReason").show()
                 }
-            })
-            $('input[name="Disposition"]').change(function(){
+            }); */
+            $("input[name='BreastDisposition']").change(function(){
+
 
                 if($("input[id='DispositionDischarged']").prop('checked')){
                     $("#healthFacilityUuid").prop("required",false);
-                    $("#nextVisitSpan").hide();
-                    $("#obs\\.nextVisitDate").prop("required",false);
+                    $("#BreastDisposition").hide();
+                    $("#BreastDispositionNextDate").prop("required",false);
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
                 }
                 else if($("input[id='DispositionReferredOut']").prop('checked')){
                     $("#healthFacilityUuid").prop("required",true);
-                    $("#nextVisitSpan").show();
-                    $("#obs\\.nextVisitDate").prop("required",true);
+                    $("#BreastDisposition").show();
+                    $("#BreastDispositionNextDate").prop("required",true);
                     $("#ManagementReferralReasonSuspectedCancer").prop("required",true);
                     $(".requirementReferralSymbol").show();
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
                 }
                 else if($("input[id='DispositionFollowupAtThisHealthFacility']").prop('checked')){
                     $("#healthFacilityUuid").prop("required",false);
-                    $("#nextVisitSpan").show();
-                    $("#obs\\.nextVisitDate").prop("required",true);
+                    $("#BreastDisposition").show();
+                    $("#BreastDispositionNextDate").prop("required",true);
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
                 }
                 else if($("input[id='DispositionFollowupAtAnotherHealthFacility']").prop('checked')){
                     $("#healthFacilityUuid").prop("required",false);
-                    $("#nextVisitSpan").show();
-                    $("#obs\\.nextVisitDate").prop("required",true);
+                    $("#BreastDisposition").show();
+                    $("#BreastDispositionNextDate").prop("required",true);
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
                 }
                 else if($("input[id='DispositionRescreening']").prop('checked')){
                     $("#healthFacilityUuid").prop("required",false);
-                    $("#nextVisitSpan").show();
-                    $("#obs\\.nextVisitDate").prop("required",true);
+                    $("#BreastDisposition").show();
+                    $("#BreastDispositionNextDate").prop("required",true);
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
                 }
                 else{
                     $("#healthFacilityUuid").prop("required",false);
-                    $("#obs\\.nextVisitDate").prop("required",false);
-                    $("#nextVisitSpan").show();
+                    $("#BreastDispositionNextDate").prop("required",false);
+                    $("#BreastDisposition").show();
                     $("#ManagementReferralReasonSuspectedCancer").prop("required",false);
                     $(".requirementReferralSymbol").hide();
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
                 }
 
                 if($("input[id='DispositionReferredIn']").prop('checked')){
                    $("#serviceTransferredTo").show();
+                   $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
                     $("#serviceTransferredTo").prop("required",true);
+                    $(".healthFacility").hide();
                 }
                 else{
                     $("#serviceTransferredTo").hide();
-                    $("#serviceTransferredTo").prop("required",false);
+
+                    $(".healthFacility").hide();
                 }
-            })
+                if($("input[id='BreastDispositionReferralTo']").prop('checked')){
+
+                   $("#serviceTransferredTo").hide();
+                   $(".reasonForReferral").show();
+
+                   $("#ReasonForReferralFurtherManagement").prop("required",true);
+                   $(".healthFacility").show();
+                   $("#healthFacility").prop("required",true);
+                }
+            });
             //Hide for Male
             if($("#patient\\.sex").val()=="M"){
             $(".hideForMale").hide();
