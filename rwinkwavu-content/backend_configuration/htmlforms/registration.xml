@@ -1,0 +1,116 @@
+<htmlform id="registration-form"
+          formUuid="c2d8e8d1-825c-11ef-b23c-0242ac120002"
+          formName="Registration"
+          formEncounterType="cfe614d5-fa7e-4919-b76b-a66117f57e4c"
+          formVersion="1.0">
+
+    <postSubmissionAction class="org.openmrs.module.rwandaemr.htmlformentry.CreateAppointmentAction"/>
+
+    <macros>
+        <macro key="serviceRequestedQuestion" expression="fn.globalProperty('registration.serviceRequestedConcept')"/>
+        <!-- The below 2 expressions are provided by the rwandaemrVelocityContextProvider -->
+        <macro key="serviceConcepts" expression="appointmentServiceConceptUuids"/>
+        <macro key="serviceLabels" expression="appointmentServiceConceptNames"/>
+    </macros>
+
+    <ifMode mode="VIEW" include="false">
+        <script type="text/javascript">
+            // When opening the form, skip to the service requested section for faster entry
+            jq(function() {
+            jq("#service-requested-question > select").focus();
+            });
+        </script>
+    </ifMode>
+
+    <ifMode mode="VIEW" include="true">
+        <style>
+            #registration-form-section label {
+            padding-right: 10px;
+            width: 160px;
+            }
+            #registration-form-section label::after {
+            content: ': ';
+            display: inline;
+            }
+            #insurance-question {
+            display: inline-block;
+            }
+        </style>
+    </ifMode>
+
+    <section id="registration-form-section" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="">
+        <includeIf velocityTest="$visit || $context.mode != 'ENTER'">
+            <div class="row col-12">
+                <div class="col-12">
+                    <label for="encounterDate"><uimessage code="rwandaemr.registration.encounter.date.label"/></label>
+                    <encounterDate id="encounterDate" showTime="true" default="now"/>
+                </div>
+                <div class="col-12 hide-on-dashboard">
+                    <label for="encounterProvider"><uimessage code="rwandaemr.registration.encounter.provider.label"/></label>
+                    <encounterProviderAndRole id="encounterProvider" default="currentUser" encounterRole="e8a0fb6a-aba5-11e1-b9e7-002713655c9f" required="true"/>
+                </div>
+                <div class="col-12">
+                    <label for="encounterLocation"><uimessage code="rwandaemr.registration.encounter.location.label"/></label>
+                    <!-- TODO: Determine what location tags to limit this to: eg.  tags="Registration Location" -->
+                    <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" required="true"/>
+                </div>
+            </div>
+            <br class="hide-on-dashboard"/>
+        </includeIf>
+        <excludeIf velocityTest="$visit || $context.mode != 'ENTER'">
+            <div style="display:none">
+                <encounterDate id="encounterDate" default="now"/>
+                <encounterProviderAndRole id="encounterProvider" default="currentUser" autocompleteProvider="true" encounterRole="e8a0fb6a-aba5-11e1-b9e7-002713655c9f" required="true"/>
+                <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" required="true"/>
+            </div>
+        </excludeIf>
+
+        <div class="row col-12">
+            <div class="col-12">
+                <label for="service-requested-question"><uimessage code="rwandaemr.registration.encounter.serviceRequested.label"/></label>
+                <obs id="service-requested-question"
+                     conceptId="$serviceRequestedQuestion"
+                     answerConceptIds="$serviceConcepts"
+                     answerLabels="$serviceLabels"
+                     style="dropdown"
+                     required="true">
+                </obs>
+            </div>
+            <div class="col-12">
+                <insurancePolicyObs id="insurance-question"
+                                    encounterDateFieldId="encounterDate"
+                                    label="rwandaemr.registration.encounter.insurance.label"
+                                    emptyOptionLabel=""
+                                    showAll="true"
+                                    required="true"
+                />
+            </div>
+            <div class="col-12">
+                <obs
+                        conceptId="4bab6d66-8d2b-4a10-8043-82d833e94de4"
+                        labelText="Scanned Transfer:"
+                        required="true"
+                />
+            </div>
+            <div class="col-12">
+                <obs
+                        conceptId="2601bc72-71ff-40a9-bc64-fe6ecdb8b0fd"
+                        labelText="Scanned ID:"
+                        required="true"
+                />
+            </div>
+        </div>
+
+        <ifMode mode="VIEW" include="false">
+            <br/>
+            <div id="buttons">
+                <submit id="submitBtn" submitClass="confirm" submitCode="general.save"/>
+                <button type="button" class="cancel">
+                    <uimessage code="emr.cancel"/>
+                </button>
+            </div>
+        </ifMode>
+
+    </section>
+
+</htmlform>

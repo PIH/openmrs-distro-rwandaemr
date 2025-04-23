@@ -1,0 +1,104 @@
+<htmlform
+        htmlformUuid="6a233011-f845-4a3b-9c05-43135f630237"
+        formUuid="788875de-c473-422d-8ff6-278b87cfec79"
+        formName="HC ASRH Individual counselling"
+        formDescription="HC ASRH Individual counselling"
+        formVersion="1.0"
+        formEncounterType="d088d4ed-b51b-46fd-ae73-30a1669b60d6"
+        formPublished="true"
+        formRetired="false"
+>
+
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+    </macros>
+
+    <style>
+        .section {
+        border: 1px solid $headerColor;
+        padding: 2px;
+        text-align: left;
+        margin-bottom: 1em;
+        }
+        .sectionHeader {
+        background-color: $headerColor;
+        color: $fontOnHeaderColor;
+        display: block;
+        padding: 2px;
+        font-weight: bold;
+        }
+        table.baseline-aligned td {
+        vertical-align: baseline;
+        }
+    </style>
+
+    <translations defaultLocale="fr">
+        <code name="gender_m">
+            <variant locale="fr" value="Homme"/>
+            <variant locale="en" value="Male"/>
+        </code>
+        <code name="gender_f">
+            <variant locale="fr" value="Femme"/>
+            <variant locale="en" value="Female"/>
+        </code>
+    </translations>
+
+    <section headerLabel="GENERAL INFORMATION (Required)">
+        <table border="1" width="100%">
+            <tr>
+                <td>
+                    DATE:
+                    <encounterDate default="today"/>
+                </td>
+                <td>
+                    Health Facility :
+                    <encounterLocation default="GlobalProperty:encounter.defaultLocation" id="location"/>
+                </td>
+                <td>Provider
+                    <encounterProvider/>
+                </td>
+            </tr>
+        </table>
+
+    </section>
+    <section headerLabel="VISIT INFORMATION">
+        <table border="0" width="100%">
+            <tr>
+                <td>
+                    School
+                </td>
+                <td>
+                    Main reason of visit
+                </td>
+                <td>
+                    Action taken
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs conceptId="756fed41-451e-464d-9cb8-888681fd2ea8"/>
+                </td>
+                <td>
+                    <obs conceptId="2cbbc702-0e40-41e8-945f-76c84a1d97df"/> Other Reason: <obs conceptId="1b605edb-6ff0-4847-8e48-785697cc636d"/>
+                </td>
+                <td>
+                    <obs conceptId="be20e32d-7ed5-462f-81e8-f9aa19375a8f"/> Other action taken: <obs conceptId="b003a49a-6e19-4305-b280-e3cfad77d9b7"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <obs allowFutureDates="true" conceptId="3ce94df0-26fe-102b-80cb-0017a47871b2" labelText="Next rendez-vous?"/>
+                </td>
+            </tr>
+
+        </table>
+    </section>
+
+    <center>
+        <submit/>
+    </center>
+    <br/>
+
+</htmlform>

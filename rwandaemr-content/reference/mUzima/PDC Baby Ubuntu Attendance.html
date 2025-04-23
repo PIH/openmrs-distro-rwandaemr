@@ -1,0 +1,868 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/muzima.css" rel="stylesheet">
+    <link href="css/ui-darkness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="js/muzima.js"></script>
+    <style>
+        .float-container {
+          border: solid 1px #ccc;
+          position: fixed;
+          background-color:black;
+          color: white;
+        }
+
+    </style>
+
+    <title>PDC Baby Ubuntu Caregivers Group Individual Attendance Sheet</title>
+</head>
+
+<body class="col-md-8 col-md-offset-2">
+<form id="child_attendance" name="child_attendance">
+    <div id="floatContainer" class="float-container" >
+        <center>
+            <input id="en" name="language" type="radio" > EN
+            &nbsp &nbsp &nbsp
+            <input id="kiny" name="language" type="radio" > KINY
+
+        </center>
+    </div>
+    <div class="form-group">
+        <h2 class="text-center language en">PDC Baby Ubuntu Caregivers Group Individual Attendance Sheet</h2>
+        <h2 class="text-center language kiny">Ubwitabire mu Itsinda rya Baby Ubuntu</h2>
+
+        <label for="district" class="language en">District:</label><br>
+        <label for="district" class="language kiny">Akarere:</label><br>
+        <select id="district" onchange="updateInputDistrict(this.value)">
+            <option value="Burera">Burera</option>
+            <option value="Kamonyi">Kamonyi</option>
+            <option value="Gakenke">Gakenke</option>
+        </select>
+    </div>
+
+    <div class="section">
+        <fieldset>
+            <div class="form-group">
+                <label for="encounter.location_id" class="text-center language en">Encounter Location:<span class="required">*</span></label>
+                <label for="encounter.location_id" class="language kiny">Izina ry’Ikigo:<span class="required">*</span></label>
+                <input class="form-control valid-location-only" id="encounter.location_id" type="text" placeholder="Start typing something..." required="required">
+                <input class="form-control" name="encounter.location_id" type="hidden">
+            </div>
+
+            <div class="form-group hidden">
+                <label for="encounter.location_id_select">Encounter Location <span class="required">*</span></label>
+                <select class="form-control" id="encounter.location_id_select" required="required">
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="encounter.provider_id_select" class="language en">Provider:</label>
+                <label for="encounter.provider_id_select" class="language kiny">Uwakoze isuzuma:</label>
+                <input class="form-control valid-provider-only" id="encounter.provider_id_select" type="text" placeholder="Start typing something...">
+                <input class="form-control" name="encounter.provider_id_select" type="hidden">
+            </div>
+            <div class="form-group hidden">
+                <select id="select_providers">
+                </select>
+            </div>
+            <div class="form-group show_provider_id_text">
+                <label for="encounter.provider_id" class="language en">Provider's system-id:<span class="required">*</span></label>
+                <label for="encounter.provider_id" class="language kiny">nomero iranga uwakoze isuzuma:<span class="required">*</span></label>
+                <input class="form-control checkDigit" id="encounter.provider_id" name="encounter.provider_id"
+                       type="text" required="required" disabled="disabled">
+            </div>
+            <div class="form-group">
+                <label for="encounter.encounter_datetime" class="language en">Encounter Date:<span class="required">*</span></label>
+                <label for="encounter.encounter_datetime" class="language kiny">Itariki:<span class="required">*</span></label>
+                <input class="form-control nonFutureDate past-date datepicker" readonly="readonly" id="encounter.encounter_datetime"
+                       name="encounter.encounter_datetime" type="text" required="required">
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="encounter.form_uuid" name="encounter.form_uuid"
+                       type="hidden" required="required">
+            </div>
+
+
+        </fieldset>
+    </div>
+    <div class="section">
+        <fieldset>
+            <div class="form-group">
+                <label for="group" class="language en">Group name:</label>
+                <label for="group" class="language kiny">Izina ry'itsinda:</label>
+                <input class="form-control" type="text" name="selected-group" id="selected-group" readonly="readonly" data-concept="50963d2c-8918-4076-bb4c-89b74bd88467^PDC Baby Ubuntu Group^99DCT"/>
+            </div>
+        </fieldset>
+        <fieldset>
+            <h3 class="language en">Child’s name</h3>
+            <h3 class="language kiny">Amazina y’umwana</h3>
+            <div class="form-group">
+                <input class="form-control" id="patient.uuid"
+                       name="patient.uuid" type="hidden" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.family_name" class="language en">Family Name:</label>
+                <label for="patient.family_name" class="language kiny">Izina Ry' ikinyarwanda: </label>
+                <input class="form-control" id="patient.family_name" name="patient.family_name" type="text"
+                       readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.middle_name" class="language en">Middle Name:</label>
+                <label for="patient.middle_name" class="language kiny">Irindi zina:</label>
+                <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text"
+                       readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.given_name" class="language en">First Name: </label>
+                <label for="patient.given_name" class="language kiny">Izina ry' irikirisitu: </label>
+                <input class="form-control" id="patient.given_name" name="patient.given_name" type="text"
+                       readonly="readonly">
+            </div>
+        </fieldset>
+
+    </div>
+    <div class="section">
+        <fieldset>
+            <label for="name_of_the_module_covered" class="language en">Name of the module covered:</label>
+            <label for="name_of_the_module_covered" class="language kiny">Isomo ryizwe:</label>
+            <br/>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="59019f69-c606-4c77-a258-e91b125b75c0^Module 0 before you begin^99DCT">
+                <span class="language en">Module 0 before you begin </span>
+                <span class="language kiny">Isomo rya 0  (Mbere y’uko utangira) </span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="7cfdfde4-d6f8-4c49-bc15-1377aba6bf89^Module 1 Let’s get started^99DCT">
+                <span class="language en">Module 1 Let’s get started</span>
+                <span class="language kiny"> Isomo rya 1 Dutangire</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="1457f552-23a0-4b2b-a08d-3ab54c62029d^Module 2 Know your child^99DCT">
+                <span class="language en">Module 2 Know your child</span>
+                <span class="language kiny"> Isomo rya 2 Menya umwana wawe</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="ce69f9d0-a04e-4961-9afb-11e4cf960fb3^Module 3 Positioning and carrying^99DCT">
+                <span class="language en">Module 3 Positioning and carrying</span>
+                <span class="language kiny"> Isomo rya 3 Uburyo bwiza bwo gufatamo, kuryamisha, kwicaza no guteruramo umwana</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="dd307dbf-be02-4b3b-a444-b09e272911c3^Module 4 Eating and drinking^99DCT">
+                <span class="language en">Module 4 Eating and drinking </span>
+                <span class="language kiny">Isomo rya 4 Kurya no kunywa</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="2fdff113-2f25-4449-91fd-f59682bf2586^Module 5 Learning to move^99DCT">
+                <span class="language en">Module 5 Learning to move </span>
+                <span class="language kiny"> Isomo rya 5 Kwiga kugenda no gukoresha ingingo z’umubiri</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="87a93a10-6fe6-4a2f-aee1-630b799ba24d^Livelihood module – Building foundations^99DCT">
+                <span class="language en">Livelihood module – Building foundations</span>
+                <span class="language kiny">Isomo ryo: Kubaka umusinge mu kwiteza imbere</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="81e15c30-f7d3-4333-a963-9bab1db107e6^Module 6 Communicating^99DCT">
+                <span class="language en">Module 6 Communicating</span>
+                <span class="language kiny">Isomo rya 6 Gushyikirana</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="e860d882-d7e8-43fe-838c-6d2bd2cdbd96^Module 7 Play and early stimulation^99DCT">
+                <span class="language en">Module 7 Play and early stimulation</span>
+                <span class="language kiny"> Isomo rya 7 Gukinisha no gukangura ubwinko bw’umwana</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="c0e2c024-c556-4909-9183-e29517f10039^Module 8 Everyday activities^99DCT">
+                <span class="language en">Module 8 Everyday activities</span>
+                <span class="language kiny">Isomo rya 8 Ibikorwa bya Buri munsi</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="9b4baa7e-6d63-4d5b-a38c-8cd5d8f5fa75^Module 9 Togetherness & belonging^99DCT">
+                <span class="language en">Module 9 Togetherness & belonging </span>
+                <span class="language kiny">Isomo rya 9 Kugira ubumwe n’aho umuntu abarizwa</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="b2061f4a-7a5a-4afe-be8a-1ee2ec0f653d^Module 10 Our community^99DCT">
+                <span class="language en">Module 10 Our community </span>
+                <span class="language kiny">Isomo rya 10 Aho dutuye</span>
+            </label>
+            <br/>
+            </label>
+            <label class="font-normal">
+                <input id="name_of_the_module_covered" name="name_of_the_module_covered" type="checkbox"
+                       data-concept="11b38517-82b8-484a-aded-ee638b5b05ff^Name of the module covered^99DCT"
+                       value="62f6d7ca-56f3-40cc-a74c-7da3142e086a^Module 11 Next steps^99DCT">
+                <span class="language en">Module 11 Next steps</span>
+                <span class="language kiny">Isomo rya 11. Ibikurikiraho</span>
+            </label>
+            <br/>
+        </fieldset>
+    </div>
+    <div class="section">
+        <fieldset>
+            <label for="family_attendance" class="language en">Did their family attend the session?</label>
+            <label for="family_attendance" class="language kiny">Ese umuryango w’umwana witabiriye isomo:</label>
+            <br/>
+
+            <label class="font-normal">
+                <input id="family_attendance_yes" name="family_attendance_yes" type="radio"
+                       data-concept="4e4ffa88-bc83-4e84-ae16-c3c3156bfce0^Did their family attend the session?^99DCT"
+                       value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                <span class="language en">Yes </span>
+                <span class="language kiny">Yego</span>
+            </label>
+            <br/>
+            </label>
+            <label class="font-normal">
+                <input id="family_attendance_no" name="family_attendance_no" type="radio"
+                       data-concept="4e4ffa88-bc83-4e84-ae16-c3c3156bfce0^Did their family attend the session?^99DCT"
+                       value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                <span class="language en">No</span>
+                <span class="language kiny">Oya</span>
+            </label>
+            <br/>
+
+        </fieldset>
+    </div>
+    <div class="section" id="whoAttended">
+        <fieldset>
+            <label for="who_attended_from_the_family" class="language en">If yes, who attended from the family? </label>
+            <label for="who_attended_from_the_family" class="language kiny">Niba ari yego, ni inde muntu wo muryango witabiriye? </label>
+            <br/>
+
+            <label class="font-normal">
+                <input id="who_attended_from_the_family" name="who_attended_from_the_family" type="checkbox"
+                       data-concept="8f89aaa0-3176-42b8-b272-3964d9732584^If yes, who attended from the family^99DCT"
+                       value="3ce185ca-26fe-102b-80cb-0017a47871b2^MOTHER^99DCT">
+                <span class="language en">Mother </span>
+                <span class="language kiny">Nyina w’umwana</span>
+            </label>
+            <br/>
+            </label>
+            <label class="font-normal">
+                <input id="who_attended_from_the_family" name="who_attended_from_the_family" type="checkbox"
+                       data-concept="8f89aaa0-3176-42b8-b272-3964d9732584^If yes, who attended from the family^99DCT"
+                       value="3ce18444-26fe-102b-80cb-0017a47871b2^FATHER^99DCT">
+                <span class="language en">Father </span>
+                <span class="language kiny">Papa w’umwana</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="who_attended_from_the_family" name="who_attended_from_the_family" type="checkbox"
+                       data-concept="8f89aaa0-3176-42b8-b272-3964d9732584^If yes, who attended from the family^99DCT"
+                       value="b307989a-bb33-448d-9000-5cdecc9f6618^Grandmother^99DCT">
+                <span class="language en">Grandmother </span>
+                <span class="language kiny">Nyirakuru</span>
+            </label>
+            <br/>
+            </label>
+            <label class="font-normal">
+                <input id="who_attended_from_the_family" name="who_attended_from_the_family" type="checkbox"
+                       data-concept="8f89aaa0-3176-42b8-b272-3964d9732584^If yes, who attended from the family^99DCT"
+                       value="286d7e41-743b-4607-91ad-895d63c610e6^Grand Father^99DCT">
+                <span class="language en">Grand Father</span>
+                <span class="language kiny">Sekuru</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="who_attended_from_the_family" name="who_attended_from_the_family" type="checkbox"
+                       data-concept="8f89aaa0-3176-42b8-b272-3964d9732584^If yes, who attended from the family^99DCT"
+                       value="3ce18a70-26fe-102b-80cb-0017a47871b2^SIBLING^99DCT">
+                <span class="language en">Sibling</span>
+                <span class="language kiny">Uwo bavukana</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="who_attended_from_the_family" name="who_attended_from_the_family" type="checkbox"
+                       data-concept="8f89aaa0-3176-42b8-b272-3964d9732584^If yes, who attended from the family^99DCT"
+                       value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">
+                <span class="language en">Other</span>
+                <span class="language kiny">Undi muntu</span>
+            </label>
+        </fieldset>
+    </div>
+    <div class="section">
+        <fieldset>
+            <label for="child_attendance" class="language en">If yes, did the child attend? </label>
+            <label for="child_attendance" class="language kiny">Niba ari yego, umwana yaba yitabiriye? </label>
+            <br/>
+
+            <label class="font-normal">
+                <input id="child_attendance_yes" name="child_attendance_yes" type="radio"
+                       data-concept="4dd7f7ae-ab68-44aa-b66c-5f4aeb5bd2f2^If yes, did the child attend^99DCT"
+                       value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                <span class="language en">Yes </span>
+                <span class="language kiny">Yego</span>
+            </label>
+            <br/>
+            </label>
+            <label class="font-normal">
+                <input id="child_attendance_no" name="child_attendance_no" type="radio"
+                       data-concept="4dd7f7ae-ab68-44aa-b66c-5f4aeb5bd2f2^If yes, did the child attend^99DCT"
+                       value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                <span class="language en">No</span>
+                <span class="language kiny">Oya</span>
+            </label>
+            <br/>
+
+        </fieldset>
+    </div>
+    <div class="section" id="whyNotAttended">
+        <fieldset>
+            <label for="why_family_not_attended" class="language en">If no, why did the family not attend?  </label>
+            <label for="why_family_not_attended" class="language kiny">Niba ari Oya, Niyihe (cg Izihe) mpamvu zatumye umuryango utitabira?  </label>
+            <br/>
+
+            <label class="font-normal">
+                <input id="why_family_not_attended" name="why_family_not_attended" type="checkbox"
+                       data-concept="e6e90492-9a32-458e-9eef-13386283c9e4^If no, why did the family not attend?^99DCT"
+                       value="49dc60d5-96bd-4844-93a7-5a99de44af05^Child ill^99DCT">
+                <span class="language en">Child ill </span>
+                <span class="language kiny">Umwana ararwaye</span>
+            </label>
+            <br/>
+
+            <label class="font-normal">
+                <input id="why_family_not_attended" name="why_family_not_attended" type="checkbox"
+                       data-concept="e6e90492-9a32-458e-9eef-13386283c9e4^If no, why did the family not attend?^99DCT"
+                       value="a3c3a481-47c9-40a8-912e-1f4964551d63^Caregiver ill^99DCT">
+                <span class="language en">Caregiver ill </span>
+                <span class="language kiny">Umubyeyi ararwaye</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="why_family_not_attended" name="why_family_not_attended" type="checkbox"
+                       data-concept="e6e90492-9a32-458e-9eef-13386283c9e4^If no, why did the family not attend?^99DCT"
+                       value="b1b440dd-6e5e-4698-bdc7-9cb2a94be5ca^Medical appointment at hospital^99DCT">
+                <span class="language en">Medical appointment at hospital</span>
+                <span class="language kiny">Yarafite gahunda yo kujya kwivuza ku kubitaro</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="why_family_not_attended" name="why_family_not_attended" type="checkbox"
+                       data-concept="e6e90492-9a32-458e-9eef-13386283c9e4^If no, why did the family not attend?^99DCT"
+                       value="f6924a2e-f870-4a4c-a22e-e9c692a8ed8d^Missed transport^99DCT">
+                <span class="language en">Missed transport </span>
+                <span class="language kiny">Yabuze uburyo (taxi/moto/igare) bumufasha kuza</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="why_family_not_attended" name="why_family_not_attended" type="checkbox"
+                       data-concept="e6e90492-9a32-458e-9eef-13386283c9e4^If no, why did the family not attend?^99DCT"
+                       value="e064aebc-196b-402c-bbfb-f3b33cbb4b18^Unable to afford transport^99DCT">
+                <span class="language en">Unable to afford transport</span>
+                <span class="language kiny">Nta bushobozi bwo kwishyura amafaranga y’urugendo</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="why_family_not_attended" name="why_family_not_attended" type="checkbox"
+                       data-concept="e6e90492-9a32-458e-9eef-13386283c9e4^If no, why did the family not attend?^99DCT"
+                       value="d493832d-3c70-4a2d-b298-df4921d46b19^Partner or family denied their attendance^99DCT">
+                <span class="language en">Partner or family denied their attendance </span>
+                <span class="language kiny">Umufasha we yamwangiye kuza</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="why_family_not_attended" name="why_family_not_attended" type="checkbox"
+                       data-concept="e6e90492-9a32-458e-9eef-13386283c9e4^If no, why did the family not attend?^99DCT"
+                       value="30f291d7-e03a-438d-8e71-f7d58458a7ef^Child deceased^99DCT">
+                <span class="language en">Child deceased </span>
+                <span class="language kiny">Umwana yitabye Imana</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="why_family_not_attended" name="why_family_not_attended" type="checkbox"
+                       data-concept="e6e90492-9a32-458e-9eef-13386283c9e4^If no, why did the family not attend?^99DCT"
+                       value="0ada9b34-d9d2-41c4-be8c-26cafa554997^Family moved^99DCT">
+                <span class="language en">Family moved</span>
+                <span class="language kiny">Umuryango warimutse</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="why_family_not_attended" name="why_family_not_attended" type="checkbox"
+                       data-concept="e6e90492-9a32-458e-9eef-13386283c9e4^If no, why did the family not attend?^99DCT"
+                       value="ea0769f7-fac5-4d71-881a-b221d9351fb7^Family no longer wanted to be involved in the program^99DCT">
+                <span class="language en">Family no longer wanted to be involved in the program</span>
+                <span class="language kiny">Umuryango ntabwo ugishaka gukomeza kwitabira porogaramu</span>
+            </label>
+            <br/>
+            <label class="font-normal"></label>
+            <input id="why_family_not_attended" name="why_family_not_attended" type="checkbox"
+                   data-concept="e6e90492-9a32-458e-9eef-13386283c9e4^If no, why did the family not attend?^99DCT"
+                   value="3cd6fac4-26fe-102b-80cb-0017a47871b2^UNKNOWN^99DCT">
+            <span class="language en">Unknown </span>
+            <span class="language kiny">Nta mpamvu izwi</span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="why_family_not_attended_other" name="why_family_not_attended" type="checkbox"
+                       data-concept="e6e90492-9a32-458e-9eef-13386283c9e4^If no, why did the family not attend?^99DCT"
+                       value="6182165d-761c-48b0-b19c-c748b14a0dd4^Other, please specify, why did the family not attend^99DCT">
+                <span class="language en">Other, please specify, why did the family not attend</span>
+                <span class="language kiny">Iyindi mpamvu, sobanura</span>
+            </label>
+            <br/>
+            <label id="why_family_not_attended_other_text">
+                <input id="obs.why_family_not_attended_other" class="form-control"
+                       name="obs.why_family_not_attended_other" type="text" size="30" data-concept="6182165d-761c-48b0-b19c-c748b14a0dd4^Other, please specify, why did the family not attend^99DCT"/>
+            </label>
+        </fieldset>
+    </div>
+    <div class="section">
+        <fieldset>
+            <label>
+                <span class="language en">If yes and if module 10 (Our Community), how many community members accompanied the primary caregiver </span>
+                <span class="language kiny">Niba ari Isomo rya 10 Aho dutuye (umuryango mugari), ni abantu bangage baje bahereje urera umwana </span>
+
+                <input id="obs.members_accompanied_caregiver" class="form-control"
+                       name="obs.members_accompanied_caregiver" type="number"
+                       data-concept="9bba5a3b-0b55-46d2-8942-020cadaa1db5^If yes and if module 10 (Our Community), how many community members accompanied the primary caregiver^99DCT"/>
+
+            </label>
+        </fieldset>
+    </div>
+    <div class="section">
+        <fieldset>
+            <label>
+                <span class="language en">Start time of group session</span>
+                <span class="language kiny">Igihe itsinda ryatangiriye </span>
+
+                <input id="obs.members_accompanied_caregiver" class="form-control"
+                       name="obs.members_accompanied_caregiver" type="time" size="50"
+                       data-concept="9bba5a3b-0b55-46d2-8942-020cadaa1db5^If yes and if module 10 (Our Community), how many community members accompanied the primary caregiver^99DCT"/>
+
+            </label>
+        </fieldset>
+    </div>
+    <div class="section">
+        <fieldset>
+            <label>
+                <span class="language en">End time of group session </span>
+                <span class="language kiny">Igihe itsinda ryasorejweho</span>
+
+                <input id="obs.members_accompanied_caregiver" class="form-control"
+                       name="obs.members_accompanied_caregiver" type="time" size="50"
+                       data-concept="9bba5a3b-0b55-46d2-8942-020cadaa1db5^If yes and if module 10 (Our Community), how many community members accompanied the primary caregiver^99DCT"/>
+
+            </label>
+        </fieldset>
+    </div>
+
+    <div class="section">
+        <fieldset>
+            <label for="facilitaro1_info" class="language en">Name and cadre of facilitator 1 </label>
+            <label for="facilitaro1_info" class="language kiny">Izina ry’uwayoboye itsinda nicyo akora</label>
+            <br/>
+
+            <label>
+                <input id="obs.facilitaro1_info_name" class="form-control"
+                       name="obs.facilitaro1_info" type="text" size="20" data-concept="e12d8cc3-7943-4152-b139-43bbf34afeab^Name of facilitator 1^99DCT"/>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="facilitaro1_info" name="facilitaro1_info" type="checkbox"
+                       data-concept="72419ec0-03f2-487a-b69f-e659be4bb303^Cadre of facilitator 1^99DCT"
+                       value="391e93ee-7c0d-46dd-ba47-7abc2a09ec32^Expert parent^99DCT">
+                <span class="language en">Expert parent </span>
+                <span class="language kiny">Umubyeyi ufasha abandi </span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="facilitaro1_info" name="facilitaro1_info" type="checkbox"
+                       data-concept="72419ec0-03f2-487a-b69f-e659be4bb303^Cadre of facilitator 1^99DCT"
+                       value="b01757aa-e0f3-4193-af6b-36c3c7cf5a12^Social Worker^99DCT">
+                <span class="language en">Social Worker</span>
+
+            </label>
+            <br/>
+            <label class="font-normal">
+                <label class="font-normal">
+                    <input id="facilitaro1_info" name="facilitaro1_info" type="checkbox"
+                           data-concept="72419ec0-03f2-487a-b69f-e659be4bb303^Cadre of facilitator 1^99DCT"
+                           value="9c282371-55d1-4ba9-9039-0080c7b19ac9^Expert parent^99DCT">
+                    <span class="language en">Nurse</span>
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <label class="font-normal">
+                        <input id="facilitaro1_info" name="facilitaro1_info" type="checkbox"
+                               data-concept="72419ec0-03f2-487a-b69f-e659be4bb303^Cadre of facilitator 1^99DCT"
+                               value="e41b355e-8318-4c12-be5e-610bc46e7301^MENTAL HEALTH SPECIALIST^99DCT">
+                        <span class="language en">Psychologist</span>
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <label class="font-normal">
+                            <input id="facilitaro1_info_other" name="facilitaro1_info" type="checkbox"
+                                   data-concept="72419ec0-03f2-487a-b69f-e659be4bb303^Cadre of facilitator 1^99DCT"
+                                   value="5374d01c-ac89-4075-9dac-11b3ecaf83fa^Other cadre facilitator 1, specify^99DCT">
+                            <span class="language en">Other, specify: </span>
+                        </label>
+                        <br/>
+                        <label id="other_cadre_facilitator1_specify">
+                            <input id="obs.other_cadre_facilitator1_specify" class="form-control"
+                                   name="obs.other_cadre_facilitator1_specify" type="text" size="20"
+                                   data-concept="5374d01c-ac89-4075-9dac-11b3ecaf83fa^Other cadre facilitator 1, specify^99DCT"/>
+                        </label>
+        </fieldset>
+    </div>
+
+    <div class="section">
+        <fieldset>
+            <label for="facilitaro2_info" class="language en">Name and cadre of facilitator 2 </label>
+            <label for="facilitaro2_info" class="language kiny">Izina ry’uwayoboye itsinda nicyo akora</label>
+            <br/>
+
+            <label id="facilitaro2_info_name">
+                <input id="obs.facilitaro2_info_name" class="form-control"
+                       name="obs.facilitaro2_info_name" type="text" size="20" data-concept="152554de-9e42-47ff-a511-5c801f5f6f47^Name of facilitator 2^99DCT"/>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="facilitaro2_info" name="facilitaro2_info" type="checkbox"
+                       data-concept="bcef4516-86e0-475c-b553-edf4ca8cd1e7^Cadre of facilitator 2^99DCT"
+                       value="391e93ee-7c0d-46dd-ba47-7abc2a09ec32^Expert parent^99DCT">
+                <span class="language en">Expert parent </span>
+                <span class="language kiny">Umubyeyi ufasha abandi </span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="facilitaro2_info" name="facilitaro2_info" type="checkbox"
+                       data-concept="bcef4516-86e0-475c-b553-edf4ca8cd1e7^Cadre of facilitator 2^99DCT"
+                       value="b01757aa-e0f3-4193-af6b-36c3c7cf5a12^Social Worker^99DCT">
+                <span class="language en">Social Worker</span>
+
+            </label>
+            <br/>
+            <label class="font-normal">
+                <label class="font-normal">
+                    <input id="facilitaro2_info" name="facilitaro2_info" type="checkbox"
+                           data-concept="bcef4516-86e0-475c-b553-edf4ca8cd1e7^Cadre of facilitator 2^99DCT"
+                           value="9c282371-55d1-4ba9-9039-0080c7b19ac9^Expert parent^99DCT">
+                    <span class="language en">Nurse</span>
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <label class="font-normal">
+                        <input id="facilitaro2_info" name="facilitaro2_info" type="checkbox"
+                               data-concept="bcef4516-86e0-475c-b553-edf4ca8cd1e7^Cadre of facilitator 2^99DCT"
+                               value="e41b355e-8318-4c12-be5e-610bc46e7301^MENTAL HEALTH SPECIALIST^99DCT">
+                        <span class="language en">Psychologist</span>
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <label class="font-normal">
+                            <input id="facilitaro2_info_other" name="facilitaro2_info" type="checkbox"
+                                   data-concept="bcef4516-86e0-475c-b553-edf4ca8cd1e7^Cadre of facilitator 2^99DCT"
+                                   value="725b4eeb-e0a2-4b7a-81df-dd9570c5adf7^Other cadre facilitator 2, specify^99DCT">
+                            <span class="language en">Other, specify: </span>
+                        </label>
+                        <br/>
+                        <label id="other_cadre_facilitator2_specify">
+                            <input id="obs.other_cadre_facilitator2_specify" class="form-control"
+                                   name="obs.other_cadre_facilitator2_specify" type="text" size="20"
+                                   data-concept="725b4eeb-e0a2-4b7a-81df-dd9570c5adf7^Other cadre facilitator 2, specify^99DCT"/>
+                        </label>
+        </fieldset>
+    </div>
+    <div class="section">
+        <fieldset>
+            <label for="facilitaro3_info" class="language en">Name and cadre of facilitator 3</label>
+            <label for="facilitaro3_info" class="language kiny">Izina ry’uwayoboye itsinda nicyo akora</label>
+            <br/>
+
+            <label id="facilitaro3_info_name">
+                <input id="obs.facilitaro3_info_name" class="form-control"
+                       name="obs.facilitaro3_info_name" type="text" size="20" data-concept="7fc16e42-c683-4d2f-a258-2d8d5ffb7a3e^Name of facilitator 3^99DCT"/>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="facilitaro3_info" name="facilitaro3_info" type="checkbox"
+                       data-concept="becb2ba8-a34f-422c-a80c-efa5eef407cf^Cadre of facilitator 3^99DCT"
+                       value="391e93ee-7c0d-46dd-ba47-7abc2a09ec32^Expert parent^99DCT">
+                <span class="language en">Expert parent </span>
+                <span class="language kiny">Umubyeyi ufasha abandi </span>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="facilitaro3_info" name="facilitaro3_info" type="checkbox"
+                       data-concept="becb2ba8-a34f-422c-a80c-efa5eef407cf^Cadre of facilitator 3^99DCT"
+                       value="b01757aa-e0f3-4193-af6b-36c3c7cf5a12^Social Worker^99DCT">
+                <span class="language en">Social Worker</span>
+
+            </label>
+            <br/>
+            <label class="font-normal">
+                <label class="font-normal">
+                    <input id="facilitaro3_info" name="facilitaro3_info" type="checkbox"
+                           data-concept="becb2ba8-a34f-422c-a80c-efa5eef407cf^Cadre of facilitator 3^99DCT"
+                           value="9c282371-55d1-4ba9-9039-0080c7b19ac9^Expert parent^99DCT">
+                    <span class="language en">Nurse</span>
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <label class="font-normal">
+                        <input id="facilitaro3_info" name="facilitaro3_info" type="checkbox"
+                               data-concept="becb2ba8-a34f-422c-a80c-efa5eef407cf^Cadre of facilitator 3^99DCT"
+                               value="e41b355e-8318-4c12-be5e-610bc46e7301^MENTAL HEALTH SPECIALIST^99DCT">
+                        <span class="language en">Psychologist</span>
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <label class="font-normal">
+                            <input id="facilitaro3_info_other" name="facilitaro3_info" type="checkbox"
+                                   data-concept="becb2ba8-a34f-422c-a80c-efa5eef407cf^Cadre of facilitator 3^99DCT"
+                                   value="38cfd9e3-dbb5-4ff8-8e8b-a6d8b179c72d^Other cadre facilitator 3, specify^99DCT">
+                            <span class="language en">Other, specify: </span>
+                        </label>
+                        <br/>
+                        <label id="other_cadre_facilitator3_specify">
+                            <input id="obs.other_cadre_facilitator3_specify" class="form-control"
+                                   name="obs.other_cadre_facilitator3_specify" type="text" size="20"
+                                   data-concept="38cfd9e3-dbb5-4ff8-8e8b-a6d8b179c72d^Other cadre facilitator 3, specify^99DCT"/>
+                        </label>
+        </fieldset>
+    </div>
+
+    <div class="section">
+        <fieldset>
+            <label for="next_group_session" class="language en">Next group session date</label>
+            <label for="next_group_session" class="language kiny">Itariki irindi somo rizaberaho </label>
+            <br/>
+
+            <label class="font-normal">
+                <input id="next_group_session_yes" name="next_group_session" type="checkbox"
+                       data-concept="8eba506e-be20-48dd-8061-8c82028dbdf8^Is there any Next group session^99DCT"
+                       value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                <span class="language en">Yes </span>
+                <br/>
+                <label id="next_group_session_date">
+                    Date:
+                    <input id="obs.next_group_session_date" class="form-control"
+                           name="obs.next_group_session_date" type="date" data-concept="3ce94df0-26fe-102b-80cb-0017a47871b2^RETURN VISIT DATE^99DCT"/>
+                </label>
+            </label>
+            <br/>
+            </label>
+            <label class="font-normal">
+                <input id="next_group_session_no" name="next_group_session" type="checkbox"
+                       data-concept="8eba506e-be20-48dd-8061-8c82028dbdf8^Is there any Next group session^99DCT"
+                       value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                <span class="language en">No,Baby Ubuntu Group sessions completed</span>
+            </label>
+            <br/>
+
+        </fieldset>
+    </div>
+</form>
+
+<script>
+    function addGroup() {
+        const groupName = prompt("Enter new group name:");
+        if (groupName) {
+            const groupSelect = document.getElementById("group");
+            const newOption = document.createElement("option");
+            newOption.value = groupName;
+            newOption.textContent = groupName;
+            groupSelect.appendChild(newOption);
+        }
+    }
+
+    function addOtherContact() {
+        const container = document.getElementById("otherContactsContainer");
+        const contactCount = container.childElementCount + 1;
+
+        const newContact = document.createElement("div");
+        newContact.classList.add("group");
+        newContact.innerHTML = `
+            <h4>Contact ${contactCount}</h4>
+            <label for="otherName${contactCount}">Name:</label>
+            <input type="text" id="otherName${contactCount}" name="otherName${contactCount}" data-concept="3cd997f2-26fe-102b-80cb-0017a47871b2^NAMES AND FIRSTNAMES OF CONTACT^99DCT"/><br>
+            <label for="otherRelation${contactCount}">Relationship to child:</label>
+            <input type="text" id="otherRelation${contactCount}" name="otherRelation${contactCount}" data-concept="3cd99a68-26fe-102b-80cb-0017a47871b2^RELATIONSHIPS OF CONTACT^99DCT"/><br>
+            <label for="otherPhone${contactCount}">Phone number:</label>
+            <input type="tel" id="otherPhone${contactCount}" name="otherPhone${contactCount}" data-concept="276f8057-55a4-4b1c-8915-69ad090fcffb^TELEPHONE NUMBER OF CONTACT^99DCT"/><br>
+        `;
+        container.appendChild(newContact);
+    }
+</script>
+</body>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        // $('#whoAttended').hide();
+        // $('#why_family_not_attended_other_text').hide();
+        // $('#other_cadre_facilitator1_specify').hide();
+
+        function updateInputDistrict(value) {
+        document.getElementById('selected-district').value = value;
+         }
+
+         /* auto-complete specimen code */
+         var patientuuid = $('#patient\\.uuid').val();
+         var selectGroupID = 158496;
+         var allGroupForPatient = htmlDataStore.getObsByConceptId(patientuuid,selectGroupID);
+         $('#selected-group').val(allGroupForPatient[0].valueText);
+
+
+
+            $('#why_family_not_attended_other').change(function () {
+        if (this.checked) {
+            $('#why_family_not_attended_other_text').show();
+        } else {
+            $('#why_family_not_attended_other_text').hide();
+        }
+        });
+        $('#facilitaro1_info_other').change(function () {
+        if (this.checked) {
+            $('#other_cadre_facilitator1_specify').show();
+        } else {
+            $('#other_cadre_facilitator1_specify').hide();
+        }
+        });
+        //     $('#family_attendance_yes').change(function () {
+        // if (this.checked) {
+        //     $('#whoAttended').show();
+        // } else {
+        //     $('#whoAttended').hide();
+        // }
+        // });
+
+        $('#family_attendance_yes, #family_attendance_no').change(function () {
+        $('#whoAttended').toggle($('#family_attendance_yes').is(':checked'));
+          });
+
+
+
+    // Add checkboxes representing languages you want to involve in the form.
+    // Each checkbox needs to have an id represting the language it represent and name as "language".
+    // Each label needs to have different translation and a class ressembling the id of the checkbox representing the language.
+
+
+    $(document).on("click", function(event){
+        var classOfClicked = event.target.className;
+        var nameOfClicked = event.target.name;
+        var idOfClicked = event.target.id
+
+
+        if(nameOfClicked =="language" ){
+            if($("input[id='"+idOfClicked+"']").prop('checked')){
+                    $(".language").hide();
+                    $("."+idOfClicked).show();
+            }
+        }
+
+    });
+
+
+    //setting default language
+    var defaultLang= "en";
+    $("#"+defaultLang).prop("checked", true);
+    $(".language").hide();
+    $("."+defaultLang).show();
+
+
+});
+
+var dateFormat = "dd-mm-yy";
+        var currentDate = $.datepicker.formatDate(dateFormat, new Date());
+        var encounterDatetime = $('#encounter\\.encounter_datetime');
+        if ($(encounterDatetime).val() == "") {
+            $(encounterDatetime).val(currentDate);
+        }
+
+        $('#save_draft').click(function () {
+        $(this).prop('disabled', true);
+        document.saveDraft(this);
+        $(this).prop('disabled', false);
+        });
+        $('#submit_form').click(function () {
+            $(this).prop('disabled', true);
+            document.submit();
+            $(this).prop('disabled', false);
+        });
+
+        document.setupAutoCompleteData('encounter\\.location_id');
+        document.setupValidationForLocation("$('#encounter\\.location_id').val()","encounter\\.location_id");
+        document.setupAutoCompleteDataForProvider('encounter\\.provider_id_select');
+        document.setupValidationForProvider("$('#encounter\\.provider_id_select').val()","encounter\\.provider_id");
+        $('#encounter\\.provider_id_select').change(function () {
+            if ($('#encounter\\.provider_id_select').val() === '') {
+                $('#encounter\\.provider_id').val('');
+                   $('.show_provider_id_text').show();
+            }
+        });
+        $('.future-or-today-date').change(function () {
+            if ($(this).is(':visible') && $(this).val() != '') {
+                var errors = {};
+                var pattern = /(\d{2})-(\d{2})-(\d{4})/g;
+                var matches = pattern.exec($(this).val());
+                var enteredDate = new Date(matches[3], matches[2] - 1, matches[1]);
+                var today = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate());
+                if (enteredDate < today) {
+                    errors[$(this).attr('name')] = "Please enter present or future date.";
+                }
+                toggleValidationMessages(errors);
+            }
+        });
+        $(document).on("click", function(event){
+                var classOfClicked = event.target.className;
+                var nameOfClicked = event.target.name;
+                var idOfClicked = event.target.id;
+                var parentElement = $("input[id='"+idOfClicked+"']").parent().parent();
+                if(parentElement.hasClass("checkboxGroup")) {
+                    parentElement.children().each(function () {
+                        var nameOfElement = $(this).find("input").attr("name");
+                        var idOfElement = $(this).find("input").attr("id");
+                        if(idOfElement!=idOfClicked){
+                           $("input[id='"+idOfElement+"']").prop('checked', false)
+                        }
+                        $("."+nameOfElement).hide();
+                    })
+                }
+  });
+</script>
+
+</html>

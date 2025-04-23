@@ -1,0 +1,80 @@
+[
+  {
+    "id": "rwandaemr.dashboardWidget.attributes",
+    "icon": "icon-user",
+    "order": 2,
+    "extensions": [
+      {
+        "id": "rwandaemr.dashboardWidget.attributes",
+        "appId": "rwandaemr.dashboardWidget.attributes",
+        "extensionPointId": "registrationSummary.contentFragments",
+        "extensionParams": {
+          "provider": "registrationapp",
+          "fragment": "summary/section",
+          "fragmentConfig": {
+            "sectionId": "attribute-section"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.dashboardWidget.identifiers",
+    "icon": "icon-barcode",
+    "order": 3,
+    "extensions": [
+      {
+        "id": "rwandaemr.dashboardWidget.identifiers",
+        "appId": "rwandaemr.dashboardWidget.identifiers",
+        "extensionPointId": "registrationSummary.contentFragments",
+        "extensionParams": {
+          "provider": "registrationapp",
+          "fragment": "summary/section",
+          "fragmentConfig": {
+            "sectionId": "patient-identification-section",
+            "displayEachField": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.dashboardWidget.insurancePolicies",
+    "icon": "icon-briefcase",
+    "order": 2,
+    "extensions": [
+      {
+        "id": "rwandaemr.dashboardWidget.insurancePolicies",
+        "appId": "rwandaemr.dashboardWidget.insurancePolicies",
+        "extensionPointId": "registrationSummary.secondColumnContentFragments",
+        "extensionParams": {
+          "provider": "rwandaemr",
+          "fragment": "patient/insurancePolicies"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.dashboardWidget.registrationEncounters",
+    "icon": "icon-book",
+    "label": "rwandaemr.todaysRegistration",
+    "order": 3,
+    "extensions": [
+      {
+        "id": "rwandaemr.dashboardWidget.registrationEncounters",
+        "appId": "rwandaemr.dashboardWidget.registrationEncounters",
+        "extensionPointId": "registrationSummary.secondColumnContentFragments",
+        "extensionParams": {
+          "provider": "rwandaemr",
+          "fragment": "patient/encountersDuringVisit",
+          "fragmentConfig": {
+            "encounterType": "cfe614d5-fa7e-4919-b76b-a66117f57e4c",
+            "creatable": true,
+            "definitionUiResource": "file:configuration/htmlforms/registration.xml",
+            "classToHide": "hide-on-dashboard"
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,1736 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/muzima.css" rel="stylesheet">
+    <link href="css/ui-darkness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="js/jquery-autocomplete-min.js"></script>
+    <script src="js/muzima.js"></script>
+
+    <title>CLINICAL BREAST EXAMINATION</title>
+</head>
+<body class="col-md-10 col-md-offset-1">
+<div id="pre_populate_data"></div>
+<form id="DiabetesCardiovascularCheckup_form" name="DiabetesCardiovascularCheckup_form">
+    <div class="section">
+        <fieldset>
+            <h3>Encounter Details</h3>
+            <div class="form-group">
+                <label for="encounter.location_id">Location Name:<span class="required">*</span></label>
+                <input class="form-control valid-location-only" id="encounter.location_id" type="text" placeholder="Start typing something..."
+                       required="required">
+                <input class="form-control" name="encounter.location_id" type="hidden">
+            </div>
+            <div class="form-group">
+                <label for="encounter.provider_id_select">Provider:</label>
+                <input class="form-control valid-provider-only" id="encounter.provider_id_select" type="text" placeholder="Start typing something...">
+                <input class="form-control" name="encounter.provider_id_select" type="hidden">
+            </div>
+            <div class="form-group hidden">
+                <select id="select_providers"></select>
+            </div>
+            <div class="form-group show_provider_id_text">
+                <label for="encounter.provider_id">Provider's system-id:<span class="required">*</span></label>
+                <input class="form-control checkDigit" id="encounter.provider_id" name="encounter.provider_id"
+                       type="text" required="required" disabled="disabled">
+            </div>
+            <div class="form-group">
+                <label for="encounter.encounter_datetime">Encounter Date:<span class="required">*</span></label>
+                <input class="form-control datepicker nonFutureDate past-date" id="encounter.encounter_datetime"
+                       name="encounter.encounter_datetime" type="text" readonly="readonly"
+                       required="required">
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="encounter.form_uuid" name="encounter.form_uuid"
+                       type="hidden" required="required">
+            </div>
+        </fieldset>
+    </div>
+    <div class="section">
+        <fieldset>
+            <h3>DEMOGRAPHICS & CLINICAL MEASUREMENTS</h3>
+
+            <div class="form-group">
+                <input class="form-control" id="patient.uuid"
+                       name="patient.uuid" type="hidden" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.medical_record_number">Patient identifier:</label>
+                <input class="form-control" id="patient.medical_record_number"
+                       name="patient.medical_record_number" type="text" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.given_name">Given Name:</label>
+                <input class="form-control" id="patient.given_name" name="patient.given_name" type="text"
+                       readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.middle_name">Middle Name:</label>
+                <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text"
+                       readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.family_name">Family Name:</label>
+                <input class="form-control" id="patient.family_name" name="patient.family_name" type="text"
+                       readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.sex">Gender:</label>
+                <select class="form-control" id="patient.sex" name="patient.sex" disabled="disabled">
+                    <option value="">...</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="patient.birth_date">Date Of Birth:</label>
+                <input class="form-control" id="patient.birth_date" name="patient.birth_date" type="text"
+                       readonly="readonly" disabled="disabled">
+            </div>
+        </fieldset>
+    </div>
+    <div class="form-group">
+        <fieldset>
+            <div>
+                <label>Level of Care:  <span class="required">*</span></label>
+            </div>
+            <label class="font-normal">
+                <input  class="deactivate" id="LevelOfCareHealthCenter" name="LevelOfCare" type="radio" required="required"
+                        data-concept="4893bd7a-8943-4a75-82da-67ef0ed86db2^Level of Care^99DCT"
+                        value="7e327a1a-c1df-4712-ab5d-e05dc0dac35d^HEALTH CENTER^99DCT">
+                Health center
+            </label>
+            <label class="font-normal">
+                <input class="activate" id="LevelOfCareHospital" name="LevelOfCare" type="radio"
+                       data-concept="4893bd7a-8943-4a75-82da-67ef0ed86db2^Level of Care^99DCT"
+                       value="3ce0d472-26fe-102b-80cb-0017a47871b2^HOSPITAL^99DCT">
+                Hospital
+            </label>
+            <label class="font-normal">
+                <input class="activate" id="LevelOfCarePrivateClinic" name="LevelOfCare" type="radio"
+                       data-concept="4893bd7a-8943-4a75-82da-67ef0ed86db2^Level of Care^99DCT"
+                       value="c97a85fe-c77f-46ea-8c4f-85895a86f16b^Private clinic^99DCT">
+                Private clinic
+            </label>
+        </fieldset>
+    </div>
+<!--        <div class="form-group LevelOfCare">-->
+<!--            <fieldset>-->
+<!--                <div>-->
+<!--                    <label>Entry mode:</label>-->
+<!--                </div>-->
+<!--                <br/>-->
+<!--                <label class="font-normal">-->
+<!--                    <input id="EntryModeVoluntary" name="obs.EntryMode" type="radio"-->
+<!--                           data-concept="5c1c525c-07f0-4a76-bcff-f64cf1f7108d^Entry mode^99DCT"-->
+<!--                           value="6c31b035-4a63-48e0-bfed-e8dd32c00475^Voluntary^99DCT">-->
+<!--                    Voluntary check-up/screening-->
+<!--                </label>-->
+<!--                <br/>-->
+<!--                <label class="font-normal">-->
+<!--                    <input id="EntryModeTRANSFER" name="obs.EntryMode" type="radio"-->
+<!--                           data-concept="5c1c525c-07f0-4a76-bcff-f64cf1f7108d^Entry mode^99DCT"-->
+<!--                           value="3cda3efa-26fe-102b-80cb-0017a47871b2^TRANSFER IN FROM^99DCT">-->
+<!--                    Referred from Health Facility-->
+<!--                </label>-->
+<!--                <br/>-->
+<!--                <label class="font-normal">-->
+<!--                    <input id="obs.NameOfReferring" class="form-control" name="obs.NameOfReferring" type="text" data-concept="3cda3efa-26fe-102b-80cb-0017a47871b2^TRANSFER IN FROM^99DCT"/>-->
+<!--                </label>-->
+<!--            </fieldset>-->
+<!--        </div>-->
+<!--    <div class="form-group LevelOfCare referralReason">-->
+<!--        <fieldset>-->
+<!--            <div>-->
+<!--                <label>Reason for referral in:</label>-->
+<!--            </div>-->
+<!--            <br/>-->
+<!--            <label class="font-normal">-->
+<!--                <input id="obs.ReasonForReferralInFurtherManagement" name="obs.ReasonForReferralInFurtherManagement" type="radio"-->
+<!--                       data-concept="cc227602-a240-43fb-926d-b6ad3f42edab^Reasons for Referral In^99DCT"-->
+<!--                       value="de3a4342-b07e-48f8-ab80-202aab697756^Further management^99DCT">-->
+<!--                Further management-->
+<!--            </label>-->
+<!--            <br/>-->
+<!--            <label class="font-normal">-->
+<!--                <input id="obs.ReasonForReferralInImaging" name="obs.ReasonForReferralInImaging" type="radio"-->
+<!--                       data-concept="cc227602-a240-43fb-926d-b6ad3f42edab^Reasons for Referral In^99DCT"-->
+<!--                       value="7f779262-de04-425b-97f7-9e5cc834eb55^Medical Imaging^99DCT">-->
+<!--                Imaging-->
+<!--            </label>-->
+<!--            <br/>-->
+<!--            <label class="font-normal">-->
+<!--                <input id="obs.ReasonForReferralInBiopsy" name="obs.ReasonForReferralInBiopsy" type="radio"-->
+<!--                       data-concept="cc227602-a240-43fb-926d-b6ad3f42edab^Reasons for Referral In^99DCT"-->
+<!--                       value="db64df50-1db1-4f80-abe5-b0307d7d4f9e^BIOPSY^99DCT">-->
+<!--                Biopsy-->
+<!--            </label>-->
+<!--            <br/>-->
+<!--            <label class="font-normal">-->
+<!--                <input id="obs.ReasonForReferralInOther" name="obs.ReasonForReferralInOther" type="radio"-->
+<!--                       data-concept="1aa373f4-4db5-4b01-bce0-c10a636bb931^Reasons for Referral^99DCT"-->
+<!--                       value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">-->
+<!--                Other-->
+<!--                <br/>-->
+<!--                <input id="obs.OtherReasonForReferralIn" class="form-control" name="obs.OtherReasonForReferralIn" type="text" data-concept="be706af6-f25d-4bfa-aec7-0f6b3ede600e^Other reason for referral in^99DCT"/>-->
+
+<!--            </label>-->
+<!--        </fieldset>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="obs.visitReason">Reason for visit (check one)</label>-->
+<!--        <br/>-->
+<!--        <label class="font-normal">-->
+<!--            <input id="obs.BreastScreening" name="obs.visitReason" type="radio"-->
+<!--                   data-concept="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346^REASON FOR VISIT^99DCT"-->
+<!--                   value="ebd55bf3-6c07-4c2d-a3f4-c0f107c49b7e^Breast screening^99DCT">-->
+<!--            Breast screening-->
+<!--        </label>-->
+<!--        <br/>-->
+<!--        <label class="font-normal">-->
+<!--            <input id="obs.cervicScreening" name="obs.visitReason" type="radio"-->
+<!--                   data-concept="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346^REASON FOR VISIT^99DCT"-->
+<!--                   value="8651ef08-c01d-4341-bbcd-a0ff7ed08b3b^Cervix screening^99DCT">-->
+<!--            Cervix screening-->
+<!--        </label>-->
+<!--        <br/>-->
+<!--        <label class="font-normal">-->
+<!--            <input id="obs.ScreeningforBoth" name="obs.visitReason" type="radio"-->
+<!--                   data-concept="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346^REASON FOR VISIT^99DCT"-->
+<!--                   value="ae407511-2568-4e40-8a7c-7e495967ccd3^Screening for both^99DCT">-->
+<!--            Screening for Both-->
+<!--        </label>-->
+<!--        <br/>-->
+<!--        <label class="font-normal">-->
+<!--            <input id="obs.Breastconcerns" name="obs.visitReason" type="radio"-->
+<!--                   data-concept="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346^REASON FOR VISIT^99DCT"-->
+<!--                   value="ae85aa47-6ece-470c-8f9c-adf0b5afa708^Breast concerns^99DCT">-->
+<!--            Breast concerns-->
+<!--        </label>-->
+<!--    </div>-->
+    <hr/>
+    <div class="form-group">
+        <fieldset>
+            <label> Service/unit: </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.HIVCLINICEntryPoint" name="obs.EntryPoint" type="radio"
+                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"
+                       value="398996ac-93bd-4a95-884f-3b58132d2367^HIV clinic^99DCT">
+                HIV clinic
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.OPDEntryPoint" name="obs.EntryPoint" type="radio"
+                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"
+                       value="9e5e7ffc-6eb8-4d0f-a1a8-319eed6399fb^OUTPATIENT Department^99DCT">
+                OPD
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.familyPlanningEntryPoint" name="obs.EntryPoint" type="radio"
+                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"
+                       value="3ce6a212-26fe-102b-80cb-0017a47871b2^FAMILY PLANNING CLINIC^99DCT">
+                Family planning
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.vaccinationEntryPoint" name="obs.EntryPoint" type="radio"
+                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"
+                       value="16edb286-a2c0-4b35-a3b6-101ea2bbb231^VACCINATION SERVICE^99DCT">
+                Vaccination
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.ANCEntryPoint" name="obs.EntryPoint" type="radio"
+                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"
+                       value="29ce8244-5251-4c76-8e99-bbad280be2ef^Consultation ANC^99DCT">
+                ANC
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.WCEDEntryPoint" name="obs.EntryPoint" type="radio"
+                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"
+                       value="e8e6a8fa-0aab-427d-9960-8501de238ad7^woman cancer early detection CLINIC^99DCT">
+                WCED Clinic
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.OtherEntryPoint" name="obs.EntryPoint" type="radio"
+                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"
+                       value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">
+                Other
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.NameOfOtherEntryPoint" class="form-control" name="obs.EntryPoint" type="text" data-concept="cd5fc859-79e6-4184-af6c-e493c95a4749^OTHER METHOD OF ENROLLMENT^99DCT"/>
+            </label>
+        </fieldset>
+    </div>
+    <!--    <hr/>-->
+    <!--    <h3>Client Information</h3>-->
+    <!--    <hr/>-->
+    <!--    <div class="section">-->
+    <!--        <fieldset>-->
+    <!--            <div class="form-group">-->
+    <!--                <label for="obs.phoneOne">Phone(1)</label>-->
+    <!--                <input id="obs.phoneOne" class="form-control" name="obs.phoneOne" type="tel" data-concept="3cda3d7e-26fe-102b-80cb-0017a47871b2^TELEPHONE NUMBER^99DCT"/>-->
+    <!--            </div>-->
+    <!--            <div class="form-group">-->
+    <!--                <label for="obs.phoneTWO">Phone(2)</label>-->
+    <!--                <input id="obs.phoneTWO" class="form-control" name="obs.phoneTWO" type="tel" data-concept="bcddbe7e-04dc-4494-a330-d5b54c4a4dd0^Emergency contact phone number^99DCT"/>-->
+    <!--            </div>-->
+    <!--            <div class="form-group">-->
+    <!--                <label for="obs.CHWNames">CHW Names</label>-->
+    <!--                <input id="obs.CHWNames" class="form-control" name="obs.CHWNames" type="text" data-concept="899c6350-b3b0-409f-9e13-34d23fc5f1bb^Community health worker Names^99DCT"/>-->
+    <!--            </div>-->
+    <!--            <br/>-->
+    <!--            <div class="form-group">-->
+    <!--                <label for="obs.CHWPhone">CHW Phone No.</label>-->
+    <!--                <input id="obs.CHWPhone" class="form-control" name="obs.CHWPhone" type="tel" data-concept="5c9cb4a0-7b67-4c00-a926-ff7eaa8f0089^ACCOMPAGNATEUR PHONE NUMBER^99DCT"/>-->
+    <!--            </div>-->
+
+    <!--        </fieldset>-->
+    <!--    </div>-->
+    <!--    <hr/>-->
+    <!--    <div class="section">-->
+    <!--        <fieldset>-->
+    <!--            <label> <strong>Referred(name)</strong> </label>-->
+    <!--            <label class="font-normal">-->
+    <!--                <input id="obs.referredByHC" name="obs.referredBy" type="radio"-->
+    <!--                       data-concept="c3e1d8d4-3040-49dd-ad66-c0928d912941^TYPE OF REFERRING CLINIC OR HOSPITAL^99DCT"-->
+    <!--                       value="7e327a1a-c1df-4712-ab5d-e05dc0dac35d^HEALTH CENTER^99DCT">-->
+    <!--                From HC-->
+    <!--            </label>-->
+    <!--            <label class="font-normal">-->
+    <!--                <input id="obs.referredByDH" name="obs.referredBy" type="radio"-->
+    <!--                       data-concept="c3e1d8d4-3040-49dd-ad66-c0928d912941^TYPE OF REFERRING CLINIC OR HOSPITAL^99DCT"-->
+    <!--                       value="e3f356b2-a340-47df-8b87-b70224437833^DISTRICT HOSPITAL^99DCT">-->
+    <!--                From DH-->
+    <!--            </label>-->
+    <!--            <label class="font-normal">-->
+    <!--                <input id="obs.referredByVoluntary" name="obs.referredBy" type="radio"-->
+    <!--                       data-concept="c3e1d8d4-3040-49dd-ad66-c0928d912941^TYPE OF REFERRING CLINIC OR HOSPITAL^99DCT"-->
+    <!--                       value="6c31b035-4a63-48e0-bfed-e8dd32c00475^Voluntary^99DCT">-->
+    <!--                Voluntary check-up/screening-->
+    <!--            </label>-->
+    <!--            <label class="font-normal"> Name of referring location</label>-->
+    <!--            <label class="font-normal">-->
+    <!--                <input id="obs.NameOfReferrring" class="form-control" name="obs.NameOfReferrring" type="text" data-concept="3cda3efa-26fe-102b-80cb-0017a47871b2^TRANSFER IN FROM^99DCT"/>-->
+    <!--            </label>-->
+    <!--        </fieldset>-->
+    <!--    </div>-->
+    <hr/>
+    <h3>History</h3>
+    <hr/>
+    <div class="section">
+        <fieldset>
+            <div class="form-group">
+                <label for="obs.familyBreastCancerHistory">History of breast cancer in the family: <span class="required">*</span> </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.familyBreastCancerHistoryYes" name="obs.familyBreastCancerHistory" type="radio" required="required"
+                           data-concept="b1ce912b-a90e-4f87-93ac-c64650904828^Family History of breast cancer^99DCT"
+                           value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                    Yes
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.familyBreastCancerHistoryNo" name="obs.familyBreastCancerHistory" type="radio"
+                           data-concept="b1ce912b-a90e-4f87-93ac-c64650904828^Family History of breast cancer^99DCT"
+                           value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                    No
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.familyBreastCancerHistoryUnkown" name="obs.familyBreastCancerHistory" type="radio"
+                           data-concept="b1ce912b-a90e-4f87-93ac-c64650904828^Family History of breast cancer^99DCT"
+                           value="3cd6fac4-26fe-102b-80cb-0017a47871b2^UNKNOWN^99DCT">
+                    Unknown
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>HIV Status: <span class="required">*</span> </label>
+                <br/>
+                <label class="font-normal">
+                    <input class="activate" id="obs.positiveHIVStatusHistory" name="HIVStatusHistory" type="radio"
+                           data-concept="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e^HIV STATUS^99DCT"
+                           value="3cd3a7a2-26fe-102b-80cb-0017a47871b2^POSITIVE^99DCT" required="required">
+                    Positive
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input class="deactivate" id="obs.negativeHIVStatusHistory" name="HIVStatusHistory" type="radio"
+                           data-concept="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e^HIV STATUS^99DCT"
+                           value="3cd28732-26fe-102b-80cb-0017a47871b2^NEGATIVE^99DCT">
+                    Negative
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input class="deactivate" id="obs.unknownHIVStatusHistory" name="HIVStatusHistory" type="radio"
+                           data-concept="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e^HIV STATUS^99DCT"
+                           value="3cd6fac4-26fe-102b-80cb-0017a47871b2^UNKNOWN^99DCT">
+                    Unknown
+                </label>
+            </div>
+            <div class="form-group HIVStatusHistory">
+                <label> If HIV positive on ARV: </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.onARVYes" name="obs.onARV" type="radio"
+                           data-concept="6086ea54-d658-44ec-84fe-ab898c2f0cf6^On ARVs^99DCT"
+                           value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                    Yes
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.onARVNo" name="obs.onARV" type="radio"
+                           data-concept="6086ea54-d658-44ec-84fe-ab898c2f0cf6^On ARVs^99DCT"
+                           value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                    No
+                </label>
+            </div>
+            <!--        <div class="form-group">-->
+            <!--            <label> Entry point: </label>-->
+            <!--            <label class="font-normal">-->
+            <!--                <input id="obs.HIVCLINICEntryPoint" name="obs.EntryPoint" type="radio"-->
+            <!--                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"-->
+            <!--                       value="398996ac-93bd-4a95-884f-3b58132d2367^HIV clinic^99DCT">-->
+            <!--                HIV clinic-->
+            <!--            </label>-->
+            <!--            <label class="font-normal">-->
+            <!--                <input id="obs.OPDEntryPoint" name="obs.EntryPoint" type="radio"-->
+            <!--                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"-->
+            <!--                       value="9e5e7ffc-6eb8-4d0f-a1a8-319eed6399fb^OUTPATIENT Department^99DCT">-->
+            <!--                OPD-->
+            <!--            </label>-->
+            <!--            <label class="font-normal">-->
+            <!--                <input id="obs.familyPlanningEntryPoint" name="obs.EntryPoint" type="radio"-->
+            <!--                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"-->
+            <!--                       value="3ce6a212-26fe-102b-80cb-0017a47871b2^FAMILY PLANNING CLINIC^99DCT">-->
+            <!--                Family planning-->
+            <!--            </label>-->
+            <!--            <label class="font-normal">-->
+            <!--                <input id="obs.vaccinationEntryPoint" name="obs.EntryPoint" type="radio"-->
+            <!--                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"-->
+            <!--                       value="16edb286-a2c0-4b35-a3b6-101ea2bbb231^VACCINATION SERVICE^99DCT">-->
+            <!--                Vaccination-->
+            <!--            </label>-->
+            <!--            <label class="font-normal">-->
+            <!--                <input id="obs.ANCEntryPoint" name="obs.EntryPoint" type="radio"-->
+            <!--                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"-->
+            <!--                       value="29ce8244-5251-4c76-8e99-bbad280be2ef^Consultation ANC^99DCT">-->
+            <!--                ANC-->
+            <!--            </label>-->
+            <!--            <label class="font-normal">-->
+            <!--                <input id="obs.WCEDEntryPoint" name="obs.EntryPoint" type="radio"-->
+            <!--                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"-->
+            <!--                       value="e8e6a8fa-0aab-427d-9960-8501de238ad7^woman cancer early detection CLINIC^99DCT">-->
+            <!--                WCED Clinic-->
+            <!--            </label>-->
+            <!--        </div>-->
+            <div class="form-group hideForMale">
+                <label>Currently pregnant? </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.pregnantYes" name="obs.pregnant" type="radio"
+                           data-concept="3ceb4880-26fe-102b-80cb-0017a47871b2^PREGNANCY STATUS^99DCT"
+                           value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                    Yes
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.pregnantNo" name="obs.pregnant" type="radio"
+                           data-concept="3ceb4880-26fe-102b-80cb-0017a47871b2^PREGNANCY STATUS^99DCT"
+                           value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                    No
+                </label>
+            </div>
+            <div class="form-group hideForMale">
+                <label>Currently breastfeeding? </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.breastfeedingYes" name="obs.breastfeeding" type="radio"
+                           data-concept="3cd4860e-26fe-102b-80cb-0017a47871b2^BREASTFEEDING^99DCT"
+                           value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                    Yes
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.breastfeedingNo" name="obs.breastfeeding" type="radio"
+                           data-concept="3cd4860e-26fe-102b-80cb-0017a47871b2^BREASTFEEDING^99DCT"
+                           value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                    No
+                </label>
+
+            </div>
+        </fieldset>
+    </div>
+    <hr/>
+    <h3>CLINICAL BREAST EXAMINATION</h3>
+    <hr/>
+    <div class="section">
+        <div class="section">
+
+            <fieldset>
+                <div class="form-group">
+                    <label for="obs.breastExamReason"><strong>Reason for breast exam </strong> <span class="required">*</span> </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input class="deactivate" id="obs.BreastScreeningNosymptoms" name="breastExamReason" type="radio" required="required"
+                               data-concept="0483b8fa-b6d2-4551-ab4c-b141399897d7^Reason for breast exam^99DCT"
+                               value="d9e56001-1c4e-479b-95f1-878e18d7ece8^Screening^99DCT">
+                        screening (no symptoms)
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input class="activate" id="obs.BreastScreeningWithsymptoms" name="breastExamReason" type="radio"
+                               data-concept="0483b8fa-b6d2-4551-ab4c-b141399897d7^Reason for breast exam^99DCT"
+                               value="b761e2c9-3d07-4a03-b274-c38282cc723c^Breast symptoms^99DCT">
+                        Breast symptoms
+                    </label>
+                </div>
+                <div class="form-group breastExamReason">
+                    <label><strong>If breast symptoms, </strong> please check all that apply</label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.breastPain" name="obs.breastSymptoms" type="checkbox"
+                               data-concept="b761e2c9-3d07-4a03-b274-c38282cc723c^Breast symptoms^99DCT"
+                               value="89f78558-aa31-48f1-956f-74427640ec26^breast pain^99DCT">
+                        breast pain
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.breastMass" name="obs.breastSymptoms" type="checkbox"
+                               data-concept="b761e2c9-3d07-4a03-b274-c38282cc723c^Breast symptoms^99DCT"
+                               value="09e3246a-5968-4ab4-960a-6b324517dc64^breast mass^99DCT">
+                        breast mass
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.nippleDischarge" name="obs.breastSymptoms" type="checkbox"
+                               data-concept="b761e2c9-3d07-4a03-b274-c38282cc723c^Breast symptoms^99DCT"
+                               value="1d9561ca-ac25-406e-bd8b-81174ab68a26^nipple discharge^99DCT">
+                        nipple discharge
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.nippleRetraction" name="obs.breastSymptoms" type="checkbox"
+                               data-concept="b761e2c9-3d07-4a03-b274-c38282cc723c^Breast symptoms^99DCT"
+                               value="65df0c5e-a638-41dc-857f-129e32ff1af9^nipple retraction^99DCT">
+                        nipple retraction
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.breastWound" name="obs.breastSymptoms" type="checkbox"
+                               data-concept="b761e2c9-3d07-4a03-b274-c38282cc723c^breast symptoms^99DCT"
+                               value="1d9561ca-ac25-406e-bd8b-81174ab68a26^breast wound^99DCT">
+                        breast wound
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.skinChanges" name="obs.breastSymptoms" type="checkbox"
+                               data-concept="b761e2c9-3d07-4a03-b274-c38282cc723c^Breast symptoms^99DCT"
+                               value="5b357578-179a-4ddf-996f-2eb760b092d7^Skin changes related to breast cancer diagnosis^99DCT">
+                        skin changes
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.other" name="obs.breastSymptoms" type="checkbox"
+                               data-concept="b761e2c9-3d07-4a03-b274-c38282cc723c^Breast symptoms^99DCT"
+                               value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">
+                        other
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group">
+                    <label> Clinical breast examination: </strong> <span class="required">*</span> </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input class="deactivate" id="obs.NormalBreastexamination" name="Breastexamination" type="radio" required="required"
+                               data-concept="f9576ba2-e96f-4b48-a178-42e72e6382ca^Breast examination^99DCT"
+                               value="3cd750a0-26fe-102b-80cb-0017a47871b2^NORMAL^99DCT">
+                        Normal
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input class="activate" id="obs.abnormalBreastexamination" name="Breastexamination" type="radio"
+                               data-concept="f9576ba2-e96f-4b48-a178-42e72e6382ca^Breast examination^99DCT"
+                               value="3cd75230-26fe-102b-80cb-0017a47871b2^ABNORMAL^99DCT">
+                        Abnormal
+                    </label>
+                    <b/>
+                    <div class="Breastexamination">
+                        <label class="font-normal">Lymphadenopathy? (check all that apply)</label>
+                        <br/>
+                        <label> Cervical: </label>
+                        <br/>
+                        <label class="font-normal">
+                            <input id="obs.cervicalLeft" name="obs.cervical" type="checkbox"
+                                   data-concept="3cd265f4-26fe-102b-80cb-0017a47871b2^CERVICAL^99DCT"
+                                   value="3ce99198-26fe-102b-80cb-0017a47871b2^LEFT^99DCT">
+                            Left
+                        </label>
+                        <br/>
+                        <label class="font-normal">
+                            <input id="obs.cervicalRight" name="obs.cervical" type="checkbox"
+                                   data-concept="3cd265f4-26fe-102b-80cb-0017a47871b2^CERVICAL^99DCT"
+                                   value="3ce9949a-26fe-102b-80cb-0017a47871b2^RIGHT^99DCT">
+                            Right
+                        </label>
+                        <br/>
+                        <label> Supraclavicular: </label>
+                        <br/>
+                        <label class="font-normal">
+                            <input id="obs.SupraclavicularLeft" name="obs.SUPRACLAVICULAR" type="checkbox"
+                                   data-concept="3cd170d6-26fe-102b-80cb-0017a47871b2^SUPRACLAVICULAR^99DCT"
+                                   value="3ce99198-26fe-102b-80cb-0017a47871b2^LEFT^99DCT">
+                            Left
+                        </label>
+                        <br/>
+                        <label class="font-normal">
+                            <input id="obs.SupraclavicularRight" name="obs.SUPRACLAVICULAR" type="checkbox"
+                                   data-concept="3cd170d6-26fe-102b-80cb-0017a47871b2^SUPRACLAVICULAR^99DCT"
+                                   value="3ce9949a-26fe-102b-80cb-0017a47871b2^RIGHT^99DCT">
+                            Right
+                        </label>
+                        <br/>
+                        <label> Infraclavicular: </label>
+                        <br/>
+                        <label class="font-normal">
+                            <input id="obs.InfraclavicularLeft" name="obs.Infraclavicular" type="checkbox"
+                                   data-concept="0b9dacc5-16b9-49f9-a287-79e683fb0a6e^Infraclavicular^99DCT"
+                                   value="3ce99198-26fe-102b-80cb-0017a47871b2^LEFT^99DCT">
+                            Left
+                        </label>
+                        <br/>
+                        <label class="font-normal">
+                            <input id="obs.InfraclavicularRight" name="obs.Infraclavicular" type="checkbox"
+                                   data-concept="0b9dacc5-16b9-49f9-a287-79e683fb0a6e^Infraclavicular^99DCT"
+                                   value="3ce9949a-26fe-102b-80cb-0017a47871b2^RIGHT^99DCT">
+                            Right
+                        </label>
+                        <br/>
+                        <label> Axillary: </label>
+                        <br/>
+                        <label class="font-normal">
+                            <input id="obs.axillaryLeft" name="obs.axillary" type="checkbox"
+                                   data-concept="3ce9672c-26fe-102b-80cb-0017a47871b2^AXILLARY^99DCT"
+                                   value="3ce99198-26fe-102b-80cb-0017a47871b2^LEFT^99DCT">
+                            Left
+                        </label>
+                        <br/>
+                        <label class="font-normal">
+                            <input id="obs.axillaryRight" name="obs.axillary" type="checkbox"
+                                   data-concept="3ce9672c-26fe-102b-80cb-0017a47871b2^AXILLARY^99DCT"
+                                   value="3ce9949a-26fe-102b-80cb-0017a47871b2^RIGHT^99DCT">
+                            Right
+                        </label>
+                        <!--                <label> Supraclavicular: </label>-->
+                        <!--                <label class="font-normal">-->
+                        <!--                    <input id="obs.SupraclavicularLeft" name="obs.SUPRACLAVICULAR" type="checkbox"-->
+                        <!--                           data-concept="3cd170d6-26fe-102b-80cb-0017a47871b2^SUPRACLAVICULAR^99DCT"-->
+                        <!--                           value="3ce99198-26fe-102b-80cb-0017a47871b2^LEFT^99DCT">-->
+                        <!--                    Left-->
+                        <!--                </label>-->
+
+                        <!--                <label class="font-normal">-->
+                        <!--                    <input id="obs.SupraclavicularRight" name="obs.SUPRACLAVICULAR" type="checkbox"-->
+                        <!--                           data-concept="3cd170d6-26fe-102b-80cb-0017a47871b2^SUPRACLAVICULAR^99DCT"-->
+                        <!--                           value="3ce9949a-26fe-102b-80cb-0017a47871b2^RIGHT^99DCT">-->
+                        <!--                    Right-->
+                        <!--                </label>-->
+                        <!--                <br/>-->
+                        <!--                <label class="font-normal">-->
+                        <!--                    <input id="obs.Otherlymphadenopathy" name="obs.Otherlymphadenopathy" type="checkbox"-->
+                        <!--                           data-concept="d12597da-602f-4642-b15c-2463a617da57^LYMPHADENOPATHY TYPE^99DCT"-->
+                        <!--                           value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">-->
+                        <!--                    Other lymphadenopathy-->
+                        <!--                </label>-->
+                    </div>
+                </div>
+                <div class="form-group Breastexamination">
+                    <label> Breast mass: </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input class="activate" id="obs.breastMassYes" name="breastMass" type="radio"
+                               data-concept="09e3246a-5968-4ab4-960a-6b324517dc64^breast mass^99DCT"
+                               value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                        Yes
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input class="deactivate" id="obs.breastMassNo" name="breastMass" type="radio"
+                               data-concept="09e3246a-5968-4ab4-960a-6b324517dc64^breast mass^99DCT"
+                               value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                        No
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group concept-set Breastexamination breastMass" data-concept="9b551488-8b10-4a98-8d4e-7ee194acbccf^First Mass^99DCT">
+                    <label>Mass 1: </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.breastMassLeft1" name="obs.breastMassPosition1" type="radio"
+                               data-concept="09e3246a-5968-4ab4-960a-6b324517dc64^breast mass^99DCT"
+                               value="3ce99198-26fe-102b-80cb-0017a47871b2^LEFT^99DCT">
+                        Left
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.breastMassRight1" name="obs.breastMassPosition1" type="radio"
+                               data-concept="09e3246a-5968-4ab4-960a-6b324517dc64^breast mass^99DCT"
+                               value="3ce9949a-26fe-102b-80cb-0017a47871b2^RIGHT^99DCT">
+                        right
+                    </label>
+                    <br/>
+                    <label for="obs.LocationOnClockFace1">Location on clock face :</label>
+                    <br/>
+                    <input id="obs.LocationOnClockFace1" class="form-control" name="obs.LocationOnClockFace1" type="text" data-concept="12bb321d-d1fe-4929-bf8a-8577ae2a3568^Location on clock face^99DCT"/>
+                    <br/>
+                    <label for="obs.cmFromNipple1">Cm from nipple: </label>
+                    <br/>
+                    <input id="obs.cmFromNipple1" class="form-control" name="obs.cmFromNipple1" type="number" data-concept="bc0d7955-9777-4eb1-82ed-52d8be66b0f6^cm from Nipple^99DCT"/>
+                    <br/>
+                    <label for="massSize1"> size: </label>
+                    <br/>
+                    <input id="massSize1" class="form-control" name="obs.massSize1" type="number"  data-concept="570ee3b3-ae80-4a87-9efb-0ed1719204f4^mass size value1^99DCT"/>
+                    x
+                    <input id="massSize2" class="form-control" name="obs.massSize2" type="number" data-concept="25bac2c2-6e54-447b-b6e9-9196df380892^mass size value2^99DCT"/>
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group concept-set Breastexamination breastMass" data-concept="7f8dd1c5-e09f-4abc-b7ce-bec784f8f83b^Second mass^99DCT">
+                    <label>Mass 2: </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.breastMassLeft2" name="obs.breastMassPosition2" type="radio"
+                               data-concept="09e3246a-5968-4ab4-960a-6b324517dc64^breast mass^99DCT"
+                               value="3ce99198-26fe-102b-80cb-0017a47871b2^LEFT^99DCT">
+                        Left
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.breastMassRight2" name="obs.breastMassPosition2" type="radio"
+                               data-concept="09e3246a-5968-4ab4-960a-6b324517dc64^breast mass^99DCT"
+                               value="3ce9949a-26fe-102b-80cb-0017a47871b2^RIGHT^99DCT">
+                        right
+                    </label>
+                    <br/>
+                    <label for="obs.LocationOnClockFace2">Location on clock face :</label>
+                    <br/>
+                    <input id="obs.LocationOnClockFace2" class="form-control" name="obs.LocationOnClockFace2" type="text" data-concept="12bb321d-d1fe-4929-bf8a-8577ae2a3568^Location on clock face^99DCT"/>
+                    <br/>
+                    <label for="obs.cmFromNipple2">Cm from nipple: </label>
+                    <br/>
+                    <input id="obs.cmFromNipple2" class="form-control" name="obs.cmFromNipple2" type="number" data-concept="bc0d7955-9777-4eb1-82ed-52d8be66b0f6^cm from Nipple^99DCT"/>
+                    <br/>
+                    <label for="massSize1"> size: </label>
+                    <br/>
+                    <input id="massSize3" class="form-control" name="obs.massSize1" type="number" data-concept="570ee3b3-ae80-4a87-9efb-0ed1719204f4^mass size value1^99DCT"/>
+                    x
+                    <input id="massSize4" class="form-control" name="obs.massSize2" type="number" data-concept="25bac2c2-6e54-447b-b6e9-9196df380892^mass size value2^99DCT"/>
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group concept-set Breastexamination breastMass" data-concept="654fe058-ce95-4fb8-88f1-6dc652ad9634^Third mass^99DCT">
+                    <label>Mass 3: </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.breastMassLeft3" name="obs.breastMassPosition3" type="radio"
+                               data-concept="09e3246a-5968-4ab4-960a-6b324517dc64^breast mass^99DCT"
+                               value="3ce99198-26fe-102b-80cb-0017a47871b2^LEFT^99DCT">
+                        Left
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.breastMassRight3" name="obs.breastMassPosition3" type="radio"
+                               data-concept="09e3246a-5968-4ab4-960a-6b324517dc64^breast mass^99DCT"
+                               value="3ce9949a-26fe-102b-80cb-0017a47871b2^RIGHT^99DCT">
+                        right
+                    </label>
+                    <br/>
+                    <label for="obs.LocationOnClockFace3">Location on clock face :</label>
+                    <br/>
+                    <input id="obs.LocationOnClockFace3" class="form-control" name="obs.LocationOnClockFace3" type="text" data-concept="12bb321d-d1fe-4929-bf8a-8577ae2a3568^Location on clock face^99DCT"/>
+                    <br/>
+                    <label for="obs.cmFromNipple3">Cm from nipple: </label>
+                    <br/>
+                    <input id="obs.cmFromNipple3" class="form-control" name="obs.cmFromNipple3" type="number" data-concept="bc0d7955-9777-4eb1-82ed-52d8be66b0f6^cm from Nipple^99DCT"/>
+                    <br/>
+                    <label for="massSize1"> size: </label>
+                    <br/>
+                    <input id="massSize5" class="form-control" name="obs.massSize1" type="number" data-concept="570ee3b3-ae80-4a87-9efb-0ed1719204f4^mass size value1^99DCT"/>
+                    x
+                    <input id="massSize6" class="form-control" name="obs.massSize2" type="number" data-concept="25bac2c2-6e54-447b-b6e9-9196df380892^mass size value2^99DCT"/>
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group Breastexamination">
+
+                    <label>Skin changes: </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input class="activate" id="obs.skinChangesYes" name="skinChanges" type="radio"
+                               data-concept="250a4faf-13d0-467f-979f-d4dab6706ff4^skin changes coded^99DCT"
+                               value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                        Yes
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input class="deactivate" id="obs.skinChangesNo" name="skinChanges" type="radio"
+                               data-concept="250a4faf-13d0-467f-979f-d4dab6706ff4^skin changes coded^99DCT"
+                               value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                        No
+                    </label>
+
+                </div>
+                <div class="form-group Breastexamination skinChanges">
+                    <label>If skin change: </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.skinChangeTypesPeaudOrange" name="obs.skinChangesTypes" type="radio"
+                               data-concept="aff3fee4-ec5a-4ab9-bc6a-9004e70baf41^skin change types^99DCT"
+                               value="cd4b909c-809c-42e3-bff9-0f5d305cef6f^peau d'orange^99DCT">
+                        peau d'orange
+                    </label>
+                    <br/>
+
+                    <label class="font-normal">
+                        <input id="obs.skinChangeRedness" name="obs.skinChangesTypes" type="radio"
+                               data-concept="aff3fee4-ec5a-4ab9-bc6a-9004e70baf41^skin change types^99DCT"
+                               value="3f04d623-58d8-45d5-bb7a-96c83936b866^redness^99DCT">
+                        redness
+                    </label>
+
+                </div>
+                <div class="Breastexamination" >
+                    <label>Nipple discharge: </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input class="activate" id="obs.nippleDischarderYes" name="nippleDischarder" type="radio"
+                               data-concept="1d9561ca-ac25-406e-bd8b-81174ab68a26^nipple discharge^99DCT"
+                               value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                        Yes
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input class="deactivate" id="obs.nippleDischarderNo" name="nippleDischarder" type="radio"
+                               data-concept="1d9561ca-ac25-406e-bd8b-81174ab68a26^nipple discharge^99DCT"
+                               value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                        No
+                    </label>
+                </div>
+                <div class="form-group Breastexamination nippleDischarder">
+                    <label>If yes: </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.typeNippleDischargeBlood" name="obs.typeNippleDischarge" type="radio"
+                               data-concept="ac704a9f-0bcf-4089-99de-b8094873ba22^Types of nipples discharge^99DCT"
+                               value="b6ddda59-8473-45c9-bfad-5e00b9e86320^BLOOD^99DCT">
+                        blood
+                    </label>
+                    <br/>
+
+                    <label class="font-normal">
+                        <input id="obs.typeNippleDischargePus" name="obs.typeNippleDischarge" type="radio"
+                               data-concept="ac704a9f-0bcf-4089-99de-b8094873ba22^Types of nipples discharge^99DCT"
+                               value="ec4f3c17-db68-4780-be49-0c9cdd6186c3^pus^99DCT">
+                        pus
+                    </label>
+                    <br/>
+
+                    <label class="font-normal">
+                        <input id="obs.typeNippleDischargeOther" name="obs.typeNippleDischarge" type="radio"
+                               data-concept="ac704a9f-0bcf-4089-99de-b8094873ba22^Types of nipples discharge^99DCT"
+                               value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">
+                        other:
+                        <br/>
+                        <input id="obs.typeNippleDischargeOtherText" class="form-control" name="obs.typeNippleDischarge"
+                               type="text" data-concept="359592d7-8625-4600-926a-fe546caed91e^other nipple discharge^99DCT"/>
+                    </label>
+
+                </div>
+
+                <div class="Breastexamination" >
+                    <label>Nipple retraction: </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.nippleRetractionYes" name="nippleRetraction" type="radio"
+                               data-concept="65df0c5e-a638-41dc-857f-129e32ff1af9^nipple retraction^99DCT"
+                               value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                        Yes
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.nippleRetractionNo" name="nippleRetraction" type="radio"
+                               data-concept="65df0c5e-a638-41dc-857f-129e32ff1af9^nipple retraction^99DCT"
+                               value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                        No
+                    </label>
+                </div>
+                <div class="form-group Breastexamination">
+                    <label>Other </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input class="activate" id="obs.otherBreastChangesYes" name="otherBreastChanges" type="radio"
+                               data-concept="a8a5b37c-a94e-4c39-a3fc-c12ff2045bfa^other breast changes^99DCT"
+                               value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                        Yes
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input class="deactivate" id="obs.otherBreastChangesNo" name="otherBreastChanges" type="radio"
+                               data-concept="a8a5b37c-a94e-4c39-a3fc-c12ff2045bfa^other breast changes^99DCT"
+                               value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                        No
+                    </label>
+                    <br/>
+                    <div class="otherBreastChanges" >
+                        <label>
+                            If yes specify:
+                        </label>
+                        <br/>
+                        <label class="font-normal">
+                            <input id="obs.otherBreastChangesText" class="form-control" name="obs.otherBreastChanges"
+                                   type="text" data-concept="334efbef-93b0-4ea3-90db-2f64f8c3f402^other breast change (text)^99DCT"/>
+                        </label>
+                    </div>
+
+                </div>
+
+                <!--            <div>-->
+                <!--                <label>Other exam findings: </label>-->
+                <!--                <textarea class="form-control" id="obs.otherExamFindings"-->
+                <!--                          name="obs.otherExamFindings" type="text"  rows="5"-->
+                <!--                                        data-concept="8d8597b4-0b54-4bc1-a35c-fa06d80e7a2b^OTHER GENERAL EXAM FINDINGS^99DCT"></textarea>-->
+                <!--            </div>-->
+            </fieldset>
+
+        </div>
+        <hr/>
+        <h3>CLINICAL DIAGNOSIS - BREAST:</h3>
+        <hr/>
+        <fieldset>
+            <div class="section">
+                <label class="font-normal">
+                    <input class="deactivate" id="obs.NormalBreastDignosis" name="breastClinicalDiagnosisNormal" type="checkbox"
+                           data-concept="1ed543c7-36ff-4444-bc99-0f01eede9937^Breast diagnosis^99DCT"
+                           value="3cd750a0-26fe-102b-80cb-0017a47871b2^NORMAL^99DCT">
+                    Normal breast
+                </label>
+                <br/>
+                <div class="breastClinicalDiagnosisNormal">
+                    <label class="font-normal">
+                        <input id="obs.BreastPainDignosis" name="obs.breastClinicalDiagnosis" type="checkbox"
+                               data-concept="1ed543c7-36ff-4444-bc99-0f01eede9937^Breast diagnosis^99DCT"
+                               value="89f78558-aa31-48f1-956f-74427640ec26^breast pain^99DCT">
+                        breast pain only ( <i>no mass,skin changes,nipple discharge</i> )
+                    </label>
+                    <br/>
+                    <!--                <label class="font-normal">-->
+                    <!--                    <input id="obs.BreastInfectionDignosis" name="obs.breastClinicalDiagnosis" type="checkbox"-->
+                    <!--                           data-concept="1ed543c7-36ff-4444-bc99-0f01eede9937^Breast diagnosis^99DCT"-->
+                    <!--                           value="56ac82d2-547d-4a28-9148-11659b15a459^Breast infection^99DCT">-->
+                    <!--                    breast infection-->
+                    <!--                </label> <br/> -->
+                    <label class="font-normal">
+                        <input id="obs.MastitisDignosis" name="obs.breastClinicalDiagnosis" type="checkbox"
+                               data-concept="1ed543c7-36ff-4444-bc99-0f01eede9937^Breast diagnosis^99DCT"
+                               value="3ccd029e-26fe-102b-80cb-0017a47871b2^MASTITIS^99DCT">
+                        Mastitis
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.abscessDignosis" name="obs.breastClinicalDiagnosis" type="checkbox"
+                               data-concept="1ed543c7-36ff-4444-bc99-0f01eede9937^Breast diagnosis^99DCT"
+                               value="3ccd2666-26fe-102b-80cb-0017a47871b2^ABSCESS^99DCT">
+                        abscess
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.eczemaDignosis" name="obs.breastClinicalDiagnosis" type="checkbox"
+                               data-concept="1ed543c7-36ff-4444-bc99-0f01eede9937^Breast diagnosis^99DCT"
+                               value="3cd47e3e-26fe-102b-80cb-0017a47871b2^ECZEMA^99DCT">
+                        eczema
+                    </label>
+                    <br/>
+                    <label class="font-normal">
+                        <input id="obs.breastMassDignosis" name="obs.breastClinicalDiagnosis" type="checkbox"
+                               data-concept="1ed543c7-36ff-4444-bc99-0f01eede9937^Breast diagnosis^99DCT"
+                               value="09e3246a-5968-4ab4-960a-6b324517dc64^breast mass^99DCT">
+                        breast mass
+                    </label>
+                    <br/>
+                    <!--                <label class="font-normal">-->
+                    <!--                    <input id="obs.otherInfectionDignosis" name="obs.breastClinicalDiagnosis" type="checkbox"-->
+                    <!--                           data-concept="1ed543c7-36ff-4444-bc99-0f01eede9937^Breast diagnosis^99DCT"-->
+                    <!--                           value="e5155801-8d61-43c9-ac7d-dcb886a36f46^Other infection^99DCT">-->
+                    <!--                    Other infection(specify)-->
+                    <!--                </label>-->
+                    <!--                <textarea class="form-control" id="obs.otherInfectionDignosisText"-->
+                    <!--                          name="obs.otherInfectionDignosisText" type="text"  rows="5"-->
+                    <!--                          data-concept="e5155801-8d61-43c9-ac7d-dcb886a36f46^Other infection^99DCT"></textarea>-->
+                    <!--                <br/>-->
+                    <label class="font-normal">
+                        <input id="obs.otherDignosis" name="obs.breastClinicalDiagnosis" type="checkbox"
+                               data-concept="1ed543c7-36ff-4444-bc99-0f01eede9937^Breast diagnosis^99DCT"
+                               value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">
+                        Other (specify)
+                    </label>
+                    <br/>
+                    <!--                <textarea class="form-control" id="obs.otherDignosisText"-->
+                    <!--                          name="obs.otherDignosisText" type="text"  rows="5"-->
+                    <!--                          data-concept="135d1163-d50a-411c-9ea1-530ca2033e10^Other clinical diagnosis, non-coded^99DCT"></textarea>-->
+                    <input id="obs.otherDignosisText" class="form-control" name="obs.otherDignosisText"
+                           type="text" data-concept="135d1163-d50a-411c-9ea1-530ca2033e10^Other clinical diagnosis, non-coded^99DCT"/>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <hr/>
+    <h3> BREAST ULTRASOUND RESULTS if applicable  </h3>
+    <hr/>
+    <div class="section LevelOfCare">
+        <label>ultrasound performed? </label>
+        <br/>
+        <label class="font-normal">
+            <input class="activate" id="obs.ultrasoundPerformedYes" name="ultrasoundPerformed" type="radio"
+                   data-concept="58eacedf-cb05-4a8f-a98d-cc5717348d74^Breast ultrasound^99DCT"
+                   value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+            Yes
+        </label>
+        <br/>
+        <label class="font-normal">
+            <input class="deactivate" id="obs.ultrasoundPerformedNo" name="ultrasoundPerformed" type="radio"
+                   data-concept="58eacedf-cb05-4a8f-a98d-cc5717348d74^Breast ultrasound^99DCT"
+                   value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+            No
+        </label>
+        <br/>
+        <label class="font-normal">
+            <input class="deactivate" id="obs.ultrasoundPerformedNotEligible" name="ultrasoundPerformed" type="radio"
+                   data-concept="58eacedf-cb05-4a8f-a98d-cc5717348d74^Breast ultrasound^99DCT"
+                   value="d05d61ac-0c87-405c-ba92-f3164821c36d^not eligible^99DCT">
+            Not eligible
+        </label>
+        <br/>
+        <div class="ultrasoundPerformed">
+            <label>Date performed: </label>
+            <br/>
+            <input id="obs.dateUltrasoundPerformed" class="datepicker" name="obs.dateUltrasoundPerformed" type="text" readonly="readonly" data-concept="74f8cb2e-3408-4136-8e57-102f6ec14b1c^Date Ultrasound Performed^99DCT"/>
+            <br/>
+            <label>RADIOLOGIC DIAGNOSIS: </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.radiologicDiagnosisNegative" name="obs.radiologicDiagnosis" type="checkbox"
+                       data-concept="16318cc8-cdd9-41be-94d2-b31c67bc6b8f^Radiologic Diagnosis^99DCT"
+                       value="3cd750a0-26fe-102b-80cb-0017a47871b2^NORMAL^99DCT">
+                Negative Ultrasound-normal breast or axilla
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input class="activate" id="obs.radiologicDiagnosisBreastMass" name="radiologicDiagnosisBreastMass" type="checkbox"
+                       data-concept="16318cc8-cdd9-41be-94d2-b31c67bc6b8f^Radiologic Diagnosis^99DCT"
+                       value="09e3246a-5968-4ab4-960a-6b324517dc64^breast mass^99DCT">
+                Breast mass
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input class="activate" id="obs.radiologicDiagnosisAxillaryMass" name="radiologicDiagnosisAxillaryMass" type="checkbox"
+                       data-concept="16318cc8-cdd9-41be-94d2-b31c67bc6b8f^Radiologic Diagnosis^99DCT"
+                       value="3ce9672c-26fe-102b-80cb-0017a47871b2^AXILLARY^99DCT">
+                Axillary mass
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.radiologicDiagnosisOther" name="obs.radiologicDiagnosis" type="checkbox"
+                       data-concept="16318cc8-cdd9-41be-94d2-b31c67bc6b8f^Radiologic Diagnosis^99DCT"
+                       value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">
+                OTHER, specify:
+                <input id="obs.OtherRadiologicDiagnosis" name="obs.OtherRadiologicDiagnosis" type="text"
+                       data-concept="3cdd0da6-26fe-102b-80cb-0017a47871b2^OTHER RADIOLOGY EXAM COMMENTS^99DCT"/>
+
+            </label>
+        </div>
+        <br/>
+        <div class="initialHide radiologicDiagnosisBreastMass">
+            <label class="font-normal">If Breast mass(choose one)</label>
+            <br/>
+            <fieldset>
+                <label class="font-normal">
+                    <input id="obs.breastMassResultsNormalympnode" name="obs.breastMassResults" type="checkbox"
+                           data-concept="f43869bd-4dbf-453d-bd05-7b693b316e69^breast mass ultrasound results^99DCT"
+                           value="96d23e9b-ef0f-48b8-b99f-2f8dfee577a7^normal Intramammary lymp node^99DCT">
+                    Normal intramammary lymp node
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.breastMassResultsSimpleCyst" name="breastMassResultsSimpleCyst" type="checkbox"
+                           data-concept="f43869bd-4dbf-453d-bd05-7b693b316e69^breast mass ultrasound results^99DCT"
+                           value="ad76c2b9-e239-4fc6-8f96-4f77899d59fa^simple cyst^99DCT">
+                    Simple cyst
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.breastMassResultsProbableCyst" name="breastMassResultsProbableCyst" type="checkbox"
+                           data-concept="f43869bd-4dbf-453d-bd05-7b693b316e69^breast mass ultrasound results^99DCT"
+                           value="9c9c5c5e-e05e-4286-9561-601325919469^probalbe cyst^99DCT">
+                    Probable cyst
+                </label>
+                <br/>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.breastMassResultsSuspicionOfBenignMass" name="breastMassResultsSuspicionOfBenignMass" type="checkbox"
+                           data-concept="f43869bd-4dbf-453d-bd05-7b693b316e69^breast mass ultrasound results^99DCT"
+                           value="f1e01159-b28d-427a-a6bb-e05ce0768324^suspicion of benign mass^99DCT">
+                    Suspicion of benign mass
+                </label>
+                <label class="font-normal">
+                    <input class="activate" id="obs.breastMassResultsComplexCystic" name="breastMassResultsComplexCystic" type="checkbox"
+                           data-concept="f43869bd-4dbf-453d-bd05-7b693b316e69^breast mass ultrasound results^99DCT"
+                           value="7a637747-d98b-4d30-9d19-b998e26c70a1^complex cystic^99DCT">
+                    Complex cystic/solid mass?
+                </label>
+                <br/>
+                <div class="initialHide breastMassResultsComplexCystic">
+                    <label> <i>If yes, possible abcess</i> </label>
+                    <br/>
+                    <ul style="list-style-type:none;">
+                        <li>
+                            <label class="font-normal">
+                                <input id="obs.ComplexcysticAbscessYes" name="obs.ComplexcysticAbscess" type="radio"
+                                       data-concept="3ccd2666-26fe-102b-80cb-0017a47871b2^ABSCESS^99DCT"
+                                       value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                                Yes
+                            </label>
+                        </li>
+                        <li>
+                            <label class="font-normal">
+                                <input id="obs.ComplexcysticAbscessNo" name="obs.ComplexcysticAbscess" type="radio"
+                                       data-concept="3ccd2666-26fe-102b-80cb-0017a47871b2^ABSCESS^99DCT"
+                                       value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                                No
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.breastMassResultsSolidMasss" name="obs.breastMassResults" type="checkbox"
+                           data-concept="f43869bd-4dbf-453d-bd05-7b693b316e69^breast mass ultrasound results^99DCT"
+                           value="9ca1695a-f070-462e-81ce-d9778ee749b6^solid mass^99DCT">
+                    Solid mass:
+                </label>
+                <br/>
+                <ul style="list-style-type:none;">
+                    <li>
+
+
+                        <label class="font-normal">
+                            <input id="obs.LowsolidMass" name="obs.solidMass" type="checkbox"
+                                   data-concept="9ca1695a-f070-462e-81ce-d9778ee749b6^solid mass^99DCT"
+                                   value="4836f9ee-6f6f-4640-aa77-298ed4d2e7f4^low^99DCT">
+                            Low
+                        </label>
+                    </li>
+                    <li>
+                        <label class="font-normal">
+                            <input id="obs.intermediatesolidMass" name="obs.solidMass" type="checkbox"
+                                   data-concept="9ca1695a-f070-462e-81ce-d9778ee749b6^solid mass^99DCT"
+                                   value="636fc0a4-b82e-4a18-a97a-2cd43af8b852^intermediate^99DCT">
+                            Intermediate
+                        </label>
+                    </li>
+                    <li>
+                        <label class="font-normal">
+                            <input id="obs.HighsolidMass" name="obs.solidMass" type="checkbox"
+                                   data-concept="9ca1695a-f070-462e-81ce-d9778ee749b6^solid mass^99DCT"
+                                   value="f133b708-d7cf-47b3-81aa-17e618d47b2d^High suspicious for malignancy^99DCT">
+                            High suspicious for malignancy
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
+        </div>
+        <div class="initialHide radiologicDiagnosisAxillaryMass">
+            <label class="font-normal">
+                If Axillary mass:
+            </label>
+        </div>
+        <fieldset>
+            <div class="initialHide radiologicDiagnosisAxillaryMass">
+                <label class="font-normal">
+                    <input id="obs.AxillaryMassNormalLymphNode" name="obs.AxillaryMass" type="checkbox"
+                           data-concept="e63fef93-e3f7-478f-8c08-f922786ab592^Axillary mass ultrasound results^99DCT"
+                           value="eb495c19-1804-4271-8b0d-d0a9dd81c028^Normal Lymph node^99DCT">
+                    Normal Lymph node(s)
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.AxillaryMassHeterotopicTissue" name="obs.AxillaryMass" type="checkbox"
+                           data-concept="e63fef93-e3f7-478f-8c08-f922786ab592^Axillary mass ultrasound results^99DCT"
+                           value="df489a41-bff9-469c-85b9-583218511bed^Heterotopic tissue^99DCT">
+                    Heterotopic tissue
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.AxillaryMassSkinLesion" name="obs.AxillaryMassSkinLesion" type="checkbox"
+                           data-concept="e63fef93-e3f7-478f-8c08-f922786ab592^Axillary mass ultrasound results^99DCT"
+                           value="19cd6cd1-3a3b-4245-b67a-aaf7b38a8b0f^Skin Lesion^99DCT">
+                    Skin lesion
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.AxillaryMassPalpableLymphNode" name="obs.AxillaryMassPalpableLymphNode" type="checkbox"
+                           data-concept="e63fef93-e3f7-478f-8c08-f922786ab592^Axillary mass ultrasound results^99DCT"
+                           value="1e3af50c-a676-4e11-baec-1028a6b91a2d^abnormal Palpable lymph node^99DCT">
+                    Abnormal palpable lymph node(s)
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input class="activate" id="obs.AxillaryMassNonPalpableLymphNode" name="AxillaryMassNonPalpableLymphNode" type="checkbox"
+                           data-concept="e63fef93-e3f7-478f-8c08-f922786ab592^Axillary mass ultrasound results^99DCT"
+                           value="396e21d0-7f45-4353-aa05-8522eb1a33fb^abnormal non-palpable lymph node^99DCT">
+                    Abnormal non-palpable lymph node(s)
+                </label>
+                <br/>
+                <div class="initialHide AxillaryMassNonPalpableLymphNode">
+                    <label class="font-normal">,which are :</label>
+                    <ul style="list-style-type:none;">
+                        <li>
+                            <label class="font-normal">
+                                <input id="obs.unilateralNonPalpableLymphNode" name="obs.NonPalpableLymphNode" type="radio"
+                                       data-concept="396e21d0-7f45-4353-aa05-8522eb1a33fb^abnormal non-palpable lymph node^99DCT"
+                                       value="57422cfd-a739-4ca3-9d6d-6970be72d102^unilateral^99DCT">
+                                unilateral
+                            </label>
+                        </li>
+                        <li>
+                            <label class="font-normal">
+                                <input id="obs.bilateralNonPalpableLymphNode" name="obs.NonPalpableLymphNode" type="radio"
+                                       data-concept="396e21d0-7f45-4353-aa05-8522eb1a33fb^abnormal non-palpable lymph node^99DCT"
+                                       value="57ec1a86-4e5a-4402-b417-9cd14d294f79^Bilateral^99DCT">
+                                bilateral;
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <label class="ultrasoundPerformed">
+                <br/>
+                maximum cortical thickness
+                <input id="obs.maximumCorticalThickness" name="obs.maximumCorticalThickness" type="number" data-concept="a496f719-c09d-4219-99d3-be9f14d080c2^maximum cortical thickness^99DCT"/>
+                mm
+
+            </label>
+
+
+        </fieldset>
+
+
+        <div class="ultrasoundPerformed">
+
+            <label class="font-normal">
+                <strong> BIRADS Final Assessment Category </strong>
+                <input id="obs.BiradsFinal"
+                       name="obs.BiradsFinal" type="number"
+                       data-concept="1ba801e8-969b-418d-8ad1-7262580ee0c0^birads Final Assessment Category^99DCT"></input>
+            </label>
+        </div>
+    </div>
+    <hr/>
+    <h3>BREAST MANAGEMENT: </h3>
+    <hr/>
+    <fieldset>
+        <div class="section">
+            <label>Medications provided(name,dosage, and duration): </label>
+            <br/>
+            <textarea class="form-control" id="obs.MedicationProvided"
+                      name="obs.MedicationProvided" type="text"  rows="2"
+                      data-concept="c28bc221-065e-4716-a9b0-b959239bc102^Drug prescribed^99DCT"></textarea>
+            <br/>
+            <label>Procedures done: </label>
+            <br/>
+            <label class="font-normal">
+                <input class="deactivate" id="obs.ProcedureDoneNone" name="ProcedureDone" type="radio"
+                       data-concept="e44f17a3-28bd-4fe1-a4e1-1bb94779a1fd^Procedures done^99DCT"
+                       value="3cd743f8-26fe-102b-80cb-0017a47871b2^NONE^99DCT">
+                None
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input class="deactivate" id="obs.ProcedureDoneDressing" name="ProcedureDone" type="radio"
+                       data-concept="e44f17a3-28bd-4fe1-a4e1-1bb94779a1fd^Procedures done^99DCT"
+                       value="3cd10bf0-26fe-102b-80cb-0017a47871b2^CLEAN AND DRESSING^99DCT">
+                Dressing
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input class="deactivate" id="obs.ProcedureDoneAspirationOfCyst" name="ProcedureDone" type="radio"
+                       data-concept="e44f17a3-28bd-4fe1-a4e1-1bb94779a1fd^Procedures done^99DCT"
+                       value="edd2f11d-cff0-474a-8eb4-8ea9ee887108^aspiration of cyst^99DCT">
+                Aspiration of cyst
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input class="deactivate" id="obs.ProcedureDoneDrainageOfAbscess" name="ProcedureDone" type="radio"
+                       data-concept="e44f17a3-28bd-4fe1-a4e1-1bb94779a1fd^Procedures done^99DCT"
+                       value="725c97cb-d2ed-4b9e-a63c-c71aa10f3392^Drainage of abscess^99DCT">
+                Drainage of abscess
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input class="activate" id="obs.ProcedureDoneBiopsy" name="ProcedureDone" type="radio"
+                       data-concept="e44f17a3-28bd-4fe1-a4e1-1bb94779a1fd^Procedures done^99DCT"
+                       value="db64df50-1db1-4f80-abe5-b0307d7d4f9e^BIOPSY^99DCT">
+                Biopsy
+            </label>
+
+        </div>
+        <div class="section ProcedureDone initialHide">
+            <label>Type of Biopsy done: </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.typeOfBiopsyDoneFNA" name="typeOfBiopsyDone" type="radio"
+                       data-concept="37cddcb8-4629-4680-ba90-6bf043baae97^type of biopsy done^99DCT"
+                       value="99a34009-2046-4dd7-8c5c-0e69d3e79dca^Fine needle aspiration^99DCT">
+                FNA- (Fine needle aspiration)
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.typeOfBiopsyDoneCNB" name="typeOfBiopsyDone" type="radio"
+                       data-concept="37cddcb8-4629-4680-ba90-6bf043baae97^type of biopsy done^99DCT"
+                       value="2ce73cbd-52ad-485b-bd68-1c236a9a6a48^Core needle biopsy^99DCT">
+                CNB- (Core needle biopsy)
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.typeOfBiopsyDoneGuidedCNB" name="typeOfBiopsyDone" type="radio"
+                       data-concept="37cddcb8-4629-4680-ba90-6bf043baae97^type of biopsy done^99DCT"
+                       value="527e43e1-e3f2-4e55-9402-9547455149bc^ultrasound guided - CNB^99DCT">
+                ultrasound guided - CNB
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.typeOfBiopsyDoneExcisionalBiopsy" name="typeOfBiopsyDone" type="radio"
+                       data-concept="37cddcb8-4629-4680-ba90-6bf043baae97^type of biopsy done^99DCT"
+                       value="56cb9ae9-314c-4d40-a4c8-6d9151e3102f^Excisional biopsy^99DCT">
+                Excisional biopsy
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.typeOfBiopsyDoneIncisionalBiopsy" name="typeOfBiopsyDone" type="radio"
+                       data-concept="37cddcb8-4629-4680-ba90-6bf043baae97^type of biopsy done^99DCT"
+                       value="b45b0875-8938-4056-bbb7-f59931cfbe02^Incisional biopsy^99DCT">
+                Incisional biopsy
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="obs.typeOfBiopsyDoneOTHERNONCODED" name="typeOfBiopsyDone" type="radio"
+                       data-concept="37cddcb8-4629-4680-ba90-6bf043baae97^type of biopsy done^99DCT"
+                       value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">
+                OTHER NON-CODED
+            </label>
+            <br/>
+            <input class="form-control" name="otherTypeOfBiopsy" type="text"
+                   data-concept="fc549a2c-4af4-4a78-a7cb-a8cb369e8536^Other type of biopsy^99DCT" />
+
+        </div>
+    </fieldset>
+
+    <h4>BREAST DISPOSITION <span class="required">*</span></h4>
+    <fieldset>
+        <div class="section">
+            <label class="font-normal">
+                <input class="deactivate" id="obs.BreastDispositionDischarged" name="BreastDisposition" type="radio" required="required"
+                       data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
+                       value="6340fd67-facb-4a6c-a9d9-f629c9e53053^DISCHARGED^99DCT">
+                Discharged
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input class="activate" id="obs.BreastDispositionAtThisHealthFacility" name="BreastDisposition" type="radio"
+                       data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
+                       value="d0e94536-0b91-40a1-b994-04bb4f5cd15d^Follow-up at this health facility^99DCT">
+                Follow-up at this health facility
+                <!--                 date-->
+                <!--                <input id="obs.BreastDispositionNextDate" name="obs.BreastDispositionNextDate" type="date"-->
+                <!--                       data-concept="3ce94df0-26fe-102b-80cb-0017a47871b2^RETURN VISIT DATE^99DCT"/>-->
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input class="activate" id="DispositionFollowupAtAnotherHealthFacility" name="BreastDisposition" type="radio"
+                       data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
+                       value="147b2af6-d789-416d-bfc0-42e2b717d582^Follow-up at another health facility^99DCT">
+                Follow-up at another health facility
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input class="activate" id="DispositionRescreening" name="BreastDisposition" type="radio"
+                       data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
+                       value="9f77a776-4306-4a34-a42d-0a57808a90e9^Rescreening^99DCT">
+                Rescreening
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input class="activate" id="DispositionReferredIn" name="BreastDisposition" type="radio"
+                       data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
+                       value="031ea34b-f95b-4cf7-a3c6-026f6fd60f1f^TRANSFER IN^99DCT">
+                transfer in:
+                <br/>
+                <input class="initialHide" id="serviceTransferredTo" name="serviceTransferredTo" type="text"
+                       data-concept="0af3dbde-15f5-102d-96e4-000c29c2a5d7^Transfer to internal department text^99DCT"/>
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input class="activate" id="BreastDispositionReferralTo" name="BreastDisposition" type="radio"
+                       data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
+                       value="25782f2c-074f-4834-b7d2-4668cd645a57^referred to^99DCT">
+                Referral to (facility name):
+                <span class="required requirementReferralSymbol initialHide" >*</span>
+            </label>
+            <br/>
+            <div class="initialHide healthFacility">
+                <label class="font-normal">
+                    <!--                <input id="obs.healthFacility" name="obs.healthFacility"-->
+                    <!--                       type="text" size="50" data-concept="3a84ab37-f75c-48ad-8bcf-322c927f36bb^referred to (coded)^99DCT"/>-->
+
+
+                    <input class="form-control " id="healthFacility" type="text" placeholder="Start typing something...">
+                </label>
+
+                <label class="font-normal">
+                    <input class="form-control" name="healthFacility" type="text" data-concept="3a84ab37-f75c-48ad-8bcf-322c927f36bb^referred to (coded)^99DCT" readonly="readonly">
+                </label>
+            </div>
+            <br/>
+            <!--            <ul style="list-style-type:none;">-->
+            <!--                <li>-->
+            <!--                    <label class="font-normal">-->
+            <!--                        <input id="obs.ReferredToDistrictHospital" name="obs.ReferredTo" type="radio"-->
+            <!--                               data-concept="4c12ce40-d2d9-42dc-8202-3ffc91e1e642^Patient referred to where^99DCT"-->
+            <!--                               value="e3f356b2-a340-47df-8b87-b70224437833^DISTRICT HOSPITAL^99DCT">-->
+            <!--                        District hospital-->
+            <!--                    </label>-->
+            <!--                </li>-->
+            <!--                <li>-->
+            <!--                    <label class="font-normal">-->
+            <!--                        <input id="obs.ReferredToReferralHospital" name="obs.ReferredTo" type="radio"-->
+            <!--                               data-concept="4c12ce40-d2d9-42dc-8202-3ffc91e1e642^Patient referred to where^99DCT"-->
+            <!--                               value="da32efc3-f18c-404c-bab2-acf68f42f85c^REFERRAL HOSPITAL^99DCT">-->
+            <!--                        Referral hospital-->
+            <!--                    </label>-->
+            <!--                </li>-->
+            <!--            </ul>-->
+            <div class="initialHide reasonForReferral" id="reasonForReferral">
+                <label class="font-normal">
+                    Reason for referral:
+                    <span class="required requirementReferralSymbol initialHide" >*</span>
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="ReasonForReferralFurtherManagement" name="obs.ReasonForReferral" type="radio"
+                           data-concept="1aa373f4-4db5-4b01-bce0-c10a636bb931^Reasons for Referral^99DCT"
+                           value="de3a4342-b07e-48f8-ab80-202aab697756^Further management^99DCT">
+                    Further management
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.ReasonForReferralImaging" name="obs.ReasonForReferral" type="radio"
+                           data-concept="1aa373f4-4db5-4b01-bce0-c10a636bb931^Reasons for Referral^99DCT"
+                           value="7f779262-de04-425b-97f7-9e5cc834eb55^Medical Imaging^99DCT">
+                    Imaging
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.ReasonForReferralBiopsy" name="obs.ReasonForReferral" type="radio"
+                           data-concept="1aa373f4-4db5-4b01-bce0-c10a636bb931^Reasons for Referral^99DCT"
+                           value="db64df50-1db1-4f80-abe5-b0307d7d4f9e^BIOPSY^99DCT">
+                    Biopsy
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="obs.ReasonForReferralOther" name="obs.ReasonForReferral" type="radio"
+                           data-concept="1aa373f4-4db5-4b01-bce0-c10a636bb931^Reasons for Referral^99DCT"
+                           value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">
+                    Other
+                    <br/>
+                    <input id="obs.otherReasonForReferral" name="obs.otherReasonForReferral" type="text"
+                           data-concept="eea065ac-117b-4be9-976b-2948b29046b7^Other reason for referral^99DCT"/>
+
+                </label>
+            </div>
+            <br/>
+            <div class="BreastDisposition">
+                <label class="font-normal"> <strong> Date of next visit:  </strong> <span class="required requirementReferralSymbol initialHide" >*</span> </label>
+                <br/>
+                <label class="font-normal">
+                    <input class="form-control datepicker future-or-today-date" id="BreastDispositionNextDate" name="BreastDispositionNextDate" type="text"
+                           data-concept="3ce94df0-26fe-102b-80cb-0017a47871b2^RETURN VISIT DATE^99DCT" readonly="readonly"/>
+                </label>
+            </div>
+        </div>
+    </fieldset>
+
+
+    <!--    <div>-->
+    <!--        <input id="save_draft" name="save_draft" type="submit" value="Draft"/>-->
+    <!--        <input id="submit_form" name="submit_form" type="submit" value="submit"/>-->
+    <!--    </div>-->
+</form>
+
+</body>
+<script type="text/javascript">
+        $(document).ready(function () {
+           var dateFormat = "dd-mm-yy";
+            var currentDate = $.datepicker.formatDate(dateFormat, new Date());
+            var encounterDatetime = $('#encounter\\.encounter_datetime');
+            if ($(encounterDatetime).val() == "") {
+                $(encounterDatetime).val(currentDate);
+            }
+
+            $('#save_draft').click(function () {
+            $(this).prop('disabled', true);
+            document.saveDraft(this);
+            $(this).prop('disabled', false);
+            });
+            $('#submit_form').click(function () {
+                $(this).prop('disabled', true);
+                document.submit();
+                $(this).prop('disabled', false);
+            });
+
+            document.setupAutoCompleteData('encounter\\.location_id');
+            document.setupValidationForLocation("$('#encounter\\.location_id').val()","encounter\\.location_id");
+            document.setupAutoCompleteDataForProvider('encounter\\.provider_id_select');
+            document.setupValidationForProvider("$('#encounter\\.provider_id_select').val()","encounter\\.provider_id");
+            $('#encounter\\.provider_id_select').change(function () {
+                if ($('#encounter\\.provider_id_select').val() === '') {
+                    $('#encounter\\.provider_id').val('');
+                       $('.show_provider_id_text').show();
+                }
+            });
+            $('.future-or-today-date').change(function () {
+                if ($(this).is(':visible') && $(this).val() != '') {
+                    var errors = {};
+                    var pattern = /(\d{2})-(\d{2})-(\d{4})/g;
+                    var matches = pattern.exec($(this).val());
+                    var enteredDate = new Date(matches[3], matches[2] - 1, matches[1]);
+                    var today = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate());
+                    if (enteredDate < today) {
+                        errors[$(this).attr('name')] = "Please enter present or future date.";
+                    }
+                    toggleValidationMessages(errors);
+                }
+            });
+            var WhereToRefer = [
+                {"val": "64d4a6d9-8e71-4d80-83bc-fc5b5e44703f^Caraes Ndera Hospital^99DCT", "label": "Caraes Ndera Hospital "},
+                {"val": "682754d6-cff2-4f2e-90a3-ea3b1e7fa230^Butaro Hospital^99DCT", "label": "Butaro Hospital "},
+                {"val": "927be708-d8b3-4809-bd7e-c1bea7c821eb^Byumba Hospital^99DCT", "label": "Byumba Hospital "},
+                {"val": "c7e37519-bcea-4a6e-a29d-14cd972fc551^GAHINI HOSPITAL^99DCT", "label": "GAHINI HOSPITAL "},
+                {"val": "20b838ed-d624-4abf-9ae1-7fe2b90133e5^Gakoma Hospital^99DCT", "label": "Gakoma Hospital "},
+                {"val": "a810cdff-0221-425a-bde5-d33f1366a126^GIHUNDWE HOSPITAL^99DCT", "label": "GIHUNDWE HOSPITAL "},
+                {"val": "325e942f-c41d-4032-b86d-2cdff25b7b81^Gisenyi District Hospital^99DCT", "label": "Gisenyi District Hospital "},
+                {"val": "cc121d58-d969-4ae7-a4ba-0d04580fee56^Gitwe Hospital^99DCT", "label": "Gitwe Hospital "},
+                {"val": "74c27b34-2305-4384-ac94-4b3f24e1d98d^Kabaya Hospital^99DCT", "label": "Kabaya Hospital "},
+                {"val": "fbe11e25-c7dd-423c-823a-d62a8f2f7182^KABGAYI HOSPITAL^99DCT", "label": "KABGAYI HOSPITAL "},
+                {"val": "5eb665f3-06b6-4fa7-b111-a9470d15d2ba^KABUTARE^99DCT", "label": "KABUTARE HOSPITAL "},
+                {"val": "9b2d4d19-1e77-4ac7-9dc5-a3c02be14b1a^Kaduha Hospital^99DCT", "label": "Kaduha Hospital "},
+                {"val": "1ae17163-c8c9-44bd-b2eb-8c3f7771180b^KIBAGABAGA^99DCT", "label": "KIBAGABAGA Hospital "},
+                {"val": "eeac5a5c-1c33-4149-a0a5-3d7aef4fc673^Kibilizi Hospital^99DCT", "label": "Kibilizi Hospital "},
+                {"val": "697069e2-233d-44d4-a0fc-66557b01ef36^Kibogora Hospital^99DCT", "label": "Kibogora Hospital "},
+                {"val": "3aa054a5-8eca-4c4b-9d99-752c2ff86cc1^Kigeme Hospital^99DCT", "label": "Kigeme Hospital "},
+                {"val": "2dc4146e-cabd-4597-801b-5da3c2014a4a^Kirehe hospital^99DCT", "label": "Kirehe hospital "},
+                {"val": "6ecc713e-ced3-40ef-8638-5521cc867cff^Kirinda Hospital^99DCT", "label": "Kirinda Hospital "},
+                {"val": "b2f81d84-6c3e-4189-ba0e-f3897378bb93^Kiziguro District Hospital^99DCT", "label": "Kiziguro District Hospital "},
+                {"val": "5db13b6c-0706-4380-b645-db171a0ebd50^Mibilizi Hospital^99DCT", "label": "Mibilizi Hospital "},
+                {"val": "d14a8f85-2a68-4b27-9e4b-bc5364ff1508^Mugonero Hospital^99DCT", "label": "Mugonero Hospital "},
+                {"val": "94e1993c-e6cf-4e86-bb03-5e0912fccd24^Muhima Hospital^99DCT", "label": "Muhima Hospital "},
+                {"val": "a3cbcfd4-e362-4b59-a2de-6c43117b1a25^Muhororo Hospital^99DCT", "label": "Muhororo Hospital "},
+                {"val": "7364e504-c446-4144-9c13-57fca35d519e^Murunda Hospital^99DCT", "label": "Murunda Hospital "},
+                {"val": "62539c87-257a-45d3-ad98-1dfc469517d6^Nemba Hospital^99DCT", "label": "Nemba Hospital "},
+                {"val": "c2a42405-2be8-4a73-8250-c70ea8e643c3^Ngarama Hospital^99DCT", "label": "Ngarama Hospital "},
+                {"val": "8a75974a-67b6-4a57-8902-4217819dba4c^Nyagatare Hospital^99DCT", "label": "Nyagatare Hospital "},
+                {"val": "929e23c1-07c7-445e-8611-65a37e0f1aa5^Nyamata Hospital^99DCT", "label": "Nyamata Hospital "},
+                {"val": "e36e7e90-7d0e-44f9-80c9-529ee5356fb7^Nyanza Hospital^99DCT", "label": "Nyanza Hospital "},
+                {"val": "1a033e97-0411-4911-9183-a31d0ce3c750^Remera-Rukumo Hospital^99DCT", "label": "Remera-Rukumo Hospital "},
+                {"val": "d9c92270-44a1-4498-8a49-84d04f59cd48^Ruli Hospital^99DCT", "label": "Ruli Hospital "},
+                {"val": "12ad8530-0686-4559-be53-748de74caab2^Rutongo Hospital^99DCT", "label": "Rutongo Hospital "},
+                {"val": "83ee379e-1576-4401-9d37-687fb5bba296^SHYIRA HOSPITAL^99DCT", "label": "SHYIRA HOSPITAL "},
+                {"val": "9b04a9ee-60dd-46c6-8ce1-e3657ec55d67^Masaka Hospital^99DCT", "label": "Masaka Hospital "},
+                {"val": "2514bef8-5bc6-4657-bdf5-c5d82abc8e11^Munini Hospital^99DCT", "label": "Munini Hospital "},
+                {"val": "3cda8388-26fe-102b-80cb-0017a47871b2^RWINKWAVU^99DCT", "label": "RWINKWAVU Hospital "},
+                {"val": "bc64178d-d6a5-4289-88ec-debdd7a6f885^Bushenge Hospital^99DCT", "label": "Bushenge Hospital "},
+                {"val": "544547d4-dac5-49e3-9e0d-718a8fe324dc^Kinihira Hospital^99DCT", "label": "Kinihira Hospital "},
+                {"val": "f2e75b8c-b770-4019-a70e-7acec43c53ee^RWAMAGANA HOSPITAL^99DCT", "label": "Rwamagana HOSPITAL "},
+                {"val": "9020f09f-237f-4ccf-a3f9-8755044fbe29^Ruhango Hospital^99DCT", "label": "Ruhango Hospital "},
+                {"val": "3cb82e34-7ea2-44f6-af0b-f0ea4d995bf4^RUHENGERI HOSPITAL^99DCT", "label": "Ruhengeri Hospital "},
+                {"val": "3b49bab4-9e1f-425e-b597-47fa60606fc9^KIBUNGO HOSPITAL^99DCT", "label": "Kibungo Hospital "},
+                {"val": "b757c3c7-d259-419f-9fa8-56292c0d2d0d^Kibuye Hospital^99DCT", "label": "Kibuye Hospital "},
+                {"val": "68222ccb-71ee-418e-a4a4-b924b4e80108^Centre Hôspitalier Universitaire de Kigali (CHUK)^99DCT", "label": "CHUK Hospital "},
+                {"val": "2b472c6b-a0d4-44b1-bb2f-3d44289a19e5^Centre Hôspitalier Universitaire de Butare (CHUB)^99DCT", "label": "CHUB Hospital "},
+                {"val": "c8f88b6d-0781-4171-bf61-88f1681778d8^Rwanda Military Hospital^99DCT", "label": "Rwanda Military Hospital "},
+                {"val": "2072327c-1a6d-47b3-8a54-202d6b5d3036^Gatunda Hospital^99DCT", "label": "Gatunda Hospital "},
+                {"val": "50437ff2-856b-4b1c-b136-aa80eb13ac64^Gatonde Hospital^99DCT", "label": "Gatonde Hospital "},
+                {"val": "13a847d6-3d60-42e7-9328-579f3f260ec1^Nyarugenge Hospital^99DCT", "label": "Nyarugenge Hospital "},
+                {"val": "3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT", "label": "Other "}
+            ];
+            document.setupAutoComplete('healthFacility', WhereToRefer);
+            // helps in hide and show. Just set name of checkbox/radio to equate
+            // the class on div to hide, set activate/deactive class on the checkbox/radio
+            // to be clicked
+            $(document).on("click", function(event){
+                var classOfClicked = event.target.className;
+                var nameOfClicked = event.target.name;
+                var idOfClicked = event.target.id
+
+                if($("input[id='"+idOfClicked+"']").prop('checked')){
+                    if(classOfClicked=="activate" ){
+                        $("."+nameOfClicked).show();
+                    }
+                    else if (classOfClicked=="deactivate"){
+                        $("."+nameOfClicked).find("input").attr("checked",false);
+                        $("."+nameOfClicked).find("input").val("");
+                        $("."+nameOfClicked).hide();
+                    }
+                }
+                else if(!$("input[id='"+idOfClicked+"']").prop('checked')){
+                    if(classOfClicked=="activate" ){
+                        $("."+nameOfClicked).find("input").attr("checked",false);
+                        $("."+nameOfClicked).find("input").val("");
+                        $("."+nameOfClicked).hide();
+                    }
+                    else if (classOfClicked=="deactivate"){
+                        $("."+nameOfClicked).show();
+                    }
+                }
+            });
+/*            $('#LevelOfCareHospital').change(function(){
+                if($("input[id='LevelOfCareHospital']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
+                    $(".referralReason").hide()
+                }else{
+                    $(".referralReason").show()
+                }
+            });
+            $('#EntryModeVoluntary').change(function(){
+                if($("input[id='LevelOfCareHospital']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
+                    $(".referralReason").hide()
+                }else{
+                    $(".referralReason").show()
+                }
+            });
+            $('#LevelOfCarePrivateClinic').change(function(){
+                if($("input[id='LevelOfCarePrivateClinic']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
+                    $(".referralReason").hide()
+                }else{
+                    $(".referralReason").show()
+                }
+            }); */
+            $("input[name='BreastDisposition']").change(function(){
+
+
+                if($("input[id='DispositionDischarged']").prop('checked')){
+                    $("#healthFacilityUuid").prop("required",false);
+                    $("#BreastDisposition").hide();
+                    $("#BreastDispositionNextDate").prop("required",false);
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
+                }
+                else if($("input[id='DispositionReferredOut']").prop('checked')){
+                    $("#healthFacilityUuid").prop("required",true);
+                    $("#BreastDisposition").show();
+                    $("#BreastDispositionNextDate").prop("required",true);
+                    $("#ManagementReferralReasonSuspectedCancer").prop("required",true);
+                    $(".requirementReferralSymbol").show();
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
+                }
+                else if($("input[id='DispositionFollowupAtThisHealthFacility']").prop('checked')){
+                    $("#healthFacilityUuid").prop("required",false);
+                    $("#BreastDisposition").show();
+                    $("#BreastDispositionNextDate").prop("required",true);
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
+                }
+                else if($("input[id='DispositionFollowupAtAnotherHealthFacility']").prop('checked')){
+                    $("#healthFacilityUuid").prop("required",false);
+                    $("#BreastDisposition").show();
+                    $("#BreastDispositionNextDate").prop("required",true);
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
+                }
+                else if($("input[id='DispositionRescreening']").prop('checked')){
+                    $("#healthFacilityUuid").prop("required",false);
+                    $("#BreastDisposition").show();
+                    $("#BreastDispositionNextDate").prop("required",true);
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
+                }
+                else{
+                    $("#healthFacilityUuid").prop("required",false);
+                    $("#BreastDispositionNextDate").prop("required",false);
+                    $("#BreastDisposition").show();
+                    $("#ManagementReferralReasonSuspectedCancer").prop("required",false);
+                    $(".requirementReferralSymbol").hide();
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
+                }
+
+                if($("input[id='DispositionReferredIn']").prop('checked')){
+                   $("#serviceTransferredTo").show();
+                   $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                    $("#serviceTransferredTo").prop("required",true);
+                    $(".healthFacility").hide();
+                }
+                else{
+                    $("#serviceTransferredTo").hide();
+
+                    $(".healthFacility").hide();
+                }
+                if($("input[id='BreastDispositionReferralTo']").prop('checked')){
+
+                   $("#serviceTransferredTo").hide();
+                   $(".reasonForReferral").show();
+
+                   $("#ReasonForReferralFurtherManagement").prop("required",true);
+                   $(".healthFacility").show();
+                   $("#healthFacility").prop("required",true);
+                }
+            });
+            //Hide for Male
+            if($("#patient\\.sex").val()=="M"){
+            $(".hideForMale").hide();
+            }
+
+
+            $(".initialHide").hide();
+        });
+</script>
+
+</html>

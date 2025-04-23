@@ -1,0 +1,19 @@
+Uuid,Void/Retire,Name,Description,Format,Foreign uuid,Searchable
+8d8718c2-c2cc-11de-8d13-0010c6dffd0f,,Birthplace,Location of persons birth,java.lang.String,,FALSE
+${personAttribute.boardingSchool.uuid},,Boarding School,Boarding school that a patient attends,java.lang.String,,TRUE
+8d871afc-c2cc-11de-8d13-0010c6dffd0f,,Citizenship,Country of which this person is a member,java.lang.String,,FALSE
+8d871f2a-c2cc-11de-8d13-0010c6dffd0f,,Civil Status,Marriage status of this person,org.openmrs.Concept,,FALSE
+99cc76cc-3914-11e7-a919-92ebcb67fe33,,Contact Person's Name,Contact Person's first and last name,java.lang.String,,FALSE
+99cc76cc-3914-11e7-a919-92ebcb67fe44,,Contact Person's Phone Number,Contact Person's personal phone number,java.lang.String,,FALSE
+${personAttribute.educationLevel.uuid},,Education Level,Education Level,java.lang.String,,FALSE
+${personAttribute.fathersName.uuid},,Father's name,First or last name of this person's father,java.lang.String,,FALSE
+8d87236c-c2cc-11de-8d13-0010c6dffd0f,,Health Center,Specific Location of this person's home health center.,org.openmrs.Location,,FALSE
+8d872150-c2cc-11de-8d13-0010c6dffd0f,,Health District,District/region in which this patient' home health center resides,java.lang.String,,FALSE
+8d871d18-c2cc-11de-8d13-0010c6dffd0f,,Mother's Name,First or last name of this person's mother,java.lang.String,,FALSE
+${personAttribute.phoneNumber.uuid},,Phone number,The phone number of the patient of their care giver.,java.lang.String,,TRUE
+${personAttribute.profession.uuid},,Profession,Profession,java.lang.String,,FALSE
+8d871386-c2cc-11de-8d13-0010c6dffd0f,,Race,Group of persons related by common descent or heredity,java.lang.String,,FALSE
+${personAttribute.religion.uuid},,Religion,Religion,java.lang.String,,FALSE
+4f07985c-88a5-4abd-aa0c-f3ec8324d8e7,,Test Patient,Flag to describe if the patient was created for demonstration or testing purposes,java.lang.Boolean,,FALSE
+d5e995dd-b94c-42d3-b6bc-d966af1586e1,,Ubudehe,Ubudehe number,java.lang.Integer,,FALSE
+8b56eac7-5c76-4b9c-8c6f-1deab8d3fc47,,Unknown patient,Used to flag patients that cannot be identified during the check-in process,java.lang.String,,FALSE

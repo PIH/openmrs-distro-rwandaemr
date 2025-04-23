@@ -1,0 +1,16 @@
+{
+  "encounterType.registration.uuid": "cfe614d5-fa7e-4919-b76b-a66117f57e4c",
+  "identifierType.primaryCareId.uuid": "4e458867-9a68-4e55-9fe0-fb49fac4e6b0",
+  "identifierType.nationalId.uuid": "ed52ec82-4b7c-411b-804a-13bd9651bb3e",
+  "identifierType.applicationNumber.uuid": "0f7d2e40-956a-11ef-93fa-0242ac120002",
+  "identifierType.upid.uuid": "01edaedd-956a-11ef-93fa-0242ac120002",
+  "identifierType.nin.uuid": "0c69d739-956a-11ef-93fa-0242ac120002",
+  "identifierType.passportNumber.uuid": "12a72978-956a-11ef-93fa-0242ac120002",
+  "locationAttribute.fosaId.uuid": "${locationAttribute.fosaId.uuid}",
+  "personAttribute.phoneNumber.uuid": "${personAttribute.phoneNumber.uuid}",
+  "personAttribute.mothersName.uuid": "8d871d18-c2cc-11de-8d13-0010c6dffd0f",
+  "personAttribute.fathersName.uuid": "${personAttribute.fathersName.uuid}",
+  "personAttribute.religion.uuid": "${personAttribute.religion.uuid}",
+  "personAttribute.profession.uuid": "${personAttribute.profession.uuid}",
+  "personAttribute.educationLevel.uuid": "${personAttribute.educationLevel.uuid}"
+}

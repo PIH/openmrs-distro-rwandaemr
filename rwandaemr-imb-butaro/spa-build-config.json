@@ -1,9 +1,0 @@
-{
-  "frontendModules":{
-    "@pih/esm-pathology-app":"1.1.1-pre.29",
-    "@pih/esm-legacyui-navbar-app":"1.0.1-pre.1"
-  },
-  "configUrls":[
-    "site/config.json"
-  ]
-}

@@ -1,9 +1,0 @@
-[
-    {
-        "id": "registrationapp.editPatientContactInfo",
-        "extensionPointId": "patientHeader.editPatientContactInfo",
-        "type": "link",
-        "label": "general.edit",
-        "url": "registrationapp/editSection.page?patientId={{patient.patientId}}&sectionId=contactInfo&appId=imbemr.registerPatient"
-    }
-]

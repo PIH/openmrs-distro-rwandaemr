@@ -1,0 +1,360 @@
+<htmlform formDescription="Radiology Form" formEncounterType="e9355a6e-b2df-44b4-911c-104c6a41ed24"
+		  formName="Radiology Form" formPublished="true" formRetired="false" formUuid="906677bc-1930-4791-9e75-a0cc7b44ad95"
+		  formVersion="1.0" htmlformUuid="15450dd7-ab8d-4ac0-9893-c1bbf2536f7e">
+<macros>
+        @Type_of_Radiology@=a691882f-ad3b-48b3-80ed-b8609728a84a
+        @Radiology_report@=6d28e69f-e456-4721-b104-6c4ef4f8b911
+	</macros>
+	<style type="text/css">
+		form fieldset {
+		display: block;
+		}
+
+		.family-history-item .label {
+		display: inline-block;
+		width: 250px;
+		}
+
+		.family-history-item .relative {
+		display: inline-block;
+		width: 120px;
+		}
+
+		.section-header {
+		margin-top: 1.5em;
+		}
+
+		.past-medical-history-item {}
+
+		.past-medical-history-item input[type=checkbox] {
+		float: none;
+		vertical-align: middle;
+		}
+
+		.past-medical-history-item input[type=text] {
+		min-width: 200px;
+		display: inline !important;
+		vertical-align: middle;
+		padding: 1px 10px;
+		}
+
+		.past-medical-history-item&gt;span,
+		.past-medical-history-item&gt;label {
+		display: inline !important;
+		vertical-align: middle;
+		}
+
+		.two-columns {
+		column-count: 2;
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		}
+
+		p.radio&gt;* {
+		display: inline;
+		float: none !important;
+		min-width: initial;
+		}
+
+		.section-container {
+		background: #F2F2F2;
+		box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+		padding: 10px 5px 10px 15px;
+		line-height: 1.5em;
+		/*add this for vertical spacing between elements*/
+		}
+
+		.section-container-color {
+		background: #F2F2F2;
+		box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+		padding: 10px 5px 10px 15px;
+		line-height: 1.5em;
+		/*add this for vertical spacing between elements*/
+		}
+
+		.section-container input[type="checkbox"] {
+		margin: 0px 5px;
+		/*changed values to vertical, horizontal*/
+		top: 5px;
+		/*added to offset the checkbox position to line up*/
+		}
+
+		.section-container label {
+		/*new definition to override labels inside section-containers*/
+		margin: 0px;
+		}
+
+		.section {
+		width: 100%;
+		}
+
+		form input[type="radio"],
+		.form input[type="radio"] {
+		float: none;
+		display: inline-block;
+		}
+
+		.side-by-side label {
+		display: inline-block;
+		}
+
+		p input {
+		min-width: 5em;
+
+		}
+
+		.small-input input {
+		min-width: 5em;
+		}
+
+		.flexView {
+		display: flex;
+		}
+
+		.field-error {
+		color: #ff6666;
+		font-size: 1.1em;
+		display: block;
+		}
+	</style>
+	<script type="text/javascript">
+        $j(document).ready(function() {
+
+
+			if(getValue("encounterDate.value") &#60;&#61;'2024-06-07'){
+                $j(".before20240607changes").show();
+            }else{
+                 $j(".before20240607changes").hide();
+            }
+            getField('encounterDate.value').change(function() {
+                if(getValue("encounterDate.value") &#60;&#61; '2019-05-20'){
+                    $j(".before20240607changes").show();
+                }else{
+                    $j(".before20240607changes").hide();
+                }
+            });
+
+		});
+    </script>
+	<!-- RADIOLOGY  FORM -->
+	<postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateBillOnHtmlFormSubmissionAction"/>
+	<h1>RADIOLOGY RESULTS FORM</h1>
+	<section headerCode="GENERAL INFORMATION" headerStyle="title" headerTag="legend" sectionTag="fieldset">
+		<div class="section-container">
+
+
+			<table border="2" cellpadding="6" cellspacing="0" width="100%">
+				<tr>
+					<td>
+						Date:
+						<encounterDate default="today"/>
+					</td>
+					<td>
+						Health Facility:
+						<encounterLocation default="GlobalProperty:billing.defaultLocation" id="location"/>
+					</td>
+					<td>
+						Provider:
+						<encounterProvider default="currentUser"/>
+					</td>
+					<td>
+						<label>
+							<b>Department</b>
+						</label>
+						<obs conceptId="c920931b-fa93-4e99-9e36-28e1e4c16cf7" required="true"/>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+	</section>
+	<section class="before20240607changes" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Old Radiology Reports">
+		<div class="section-container">
+<table class="baseline-aligned">
+			<tr>
+				<td>Type of radiology</td>
+				<td><obs conceptId="$@Type_of_Radiology@" style="text"/></td>
+			</tr>
+			<tr>
+				<td>Radiology report</td>
+				<td><obs conceptId="$@Type_of_Radiology@" style="text" cols="50" rows="5"/></td>
+			</tr>
+		
+		</table>
+		</div>
+		</section>
+	<section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="1. X-RAY TESTS REQUEST">
+		<div class="section-container">
+
+			<fieldset>
+				<legend>
+					<b>
+						<font color="red">X-RAY TESTS</font>
+					</b>
+				</legend>
+
+				<div class="two-columns">
+
+
+					<p class="small-input flexView">
+
+						<p class="small-input flexView">
+							<obs conceptId="0db466b6-ac96-4827-ab71-89e74ea29937" labelText="Orteils (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="dd2e9452-8233-4de8-9f8b-138732a405b9" labelText="Poumons F: " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="786db9a4-e73b-4e92-934f-69d9822520cc" labelText="Coude (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="221d6366-4f96-431a-8b10-415a472e89be" labelText="Fémur (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="a693ac9a-bcd7-47d4-b5f7-8eb9ace3579a" labelText="Jambe (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="2ab6721f-aa99-4519-8141-980442292460" labelText="Poumons P:" />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="50f65f2b-9ef8-40ca-aa5a-22fce561f54f" labelText="Poignet (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="a96381ef-6750-44ea-8acf-b11370e9e2a5" labelText="Humérus (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="c92c38cb-05f3-40be-8442-a85827a94641" labelText="Cheville (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="231e9d1b-5d9d-4103-94f0-117a35fac2e5" labelText="Lav. baryté: " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="93c0e726-687d-4264-be9b-a35ba343b71c" labelText="Doigt (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="cc99bebc-a7ac-4ead-9d9f-2a5f0feb5c50"
+								 labelText="Abdomen sans préparation (Asp): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="464e7c68-21b9-4416-8e68-ef05d3984543" labelText="Gril costal F: " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="9e76ebcc-c8d2-4338-ba75-65a4c4a48452" labelText="Pied (F et P):" />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="9052bbb8-c699-4623-aba0-f8714be41512" labelText="Histerosalpingographie: " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="e8dd851b-3102-45c7-b7c4-e5d8e0a03945" labelText="Bassin (F): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="ea22e5a0-0479-4b17-a194-7e7b61cae2d7" labelText="Avant-bras (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="7764f9f6-d7d3-4b3d-bade-d5633247ac34" labelText="Main (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="b1dbbe21-d680-448b-9f6e-550b57b85f72" labelText="Genou (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="3a05a519-fa9f-4c01-aaaa-f2ca632e6e46" labelText="Hanche (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="47598eb2-497c-4c24-8e4a-d784a5ee4e82" labelText="Clavicule (F et P):" />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="501d8859-e2a2-4b84-94ff-881481422bfa" labelText="Omoplate: " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="6ddadad2-a213-4def-9668-4571bd701860" labelText="Crâne (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="2dea5a49-0edc-4a29-979f-e613131780f8" labelText="Rachis Cervical (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="a21a0d70-5fee-4998-9e77-651f0b75e5b4" labelText="Rachis dorsal (F et P): " />
+						</p>
+						<p class="small-input flexView">
+							<obs conceptId="94381601-8efd-4f62-9556-7a2cebadd83d"
+								 labelText="Rachis lombo-sacré (F et P): " />
+						</p>
+
+					</p>
+
+				</div>
+			</fieldset>
+		</div>
+	</section>
+	<section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="2. ULTRASOUND TESTS">
+		<div class="section-container">
+
+			<fieldset>
+				<legend>
+					<b>
+						<font color="red">ULTRASOUND OF</font>
+					</b>
+				</legend>
+				<p class="small-input flexView">
+					<obs conceptId="d36c1cc7-8876-4f22-8c72-d722fe804521" labelText="Abdominal ultrasound:" />
+				</p>
+				<p class="small-input flexView">
+					<obs conceptId="94804134-5e97-4e34-9edc-85599a242ffd"
+						 labelText="Gynecological and Obstetric ultrasound:" />
+				</p>
+			</fieldset>
+		</div>
+	</section>
+	<ifMode mode="VIEW" include="true">
+		<section class="before20240805changes" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+				 headerCode="Old Radiology Results">
+			<div class="section-container">
+
+				<fieldset>
+					<legend>
+						<b>
+							<font color="red">RADIOGRAPHER'S COMMENTS: EXPOSURE FACTORS:</font>
+						</b>
+					</legend>
+					<p>
+						<label for="">Radiology Finding: </label>
+						<obs cols="80" conceptId="3cdd0da6-26fe-102b-80cb-0017a47871b2" rows="3" style="textarea"/>
+					</p>
+					<p>
+						<label for="">Echograph Finding:</label>
+						<obs cols="80" conceptId="8d8597b4-0b54-4bc1-a35c-fa06d80e7a2b" rows="3" style="textarea"/>
+					</p>
+				</fieldset>
+				<fieldset>
+					<legend>
+						<b>
+							<font color="green">ATTACH IMAGE</font>
+						</b>
+					</legend>
+					<p>
+						<obs conceptId="3d47a038-c74a-4246-a0aa-40a0db014fe7"/>
+					</p>
+					<p>
+						<obs conceptId="930257d0-6ee2-451c-bef3-a1e7c20ff5ff"/>
+					</p>
+					<p>
+						<obs conceptId="c80acf00-6be0-4d41-908b-78995fd183ca"/>
+					</p>
+				</fieldset>
+			</div>
+		</section>
+	</ifMode>
+	<ifMode include="false" mode="VIEW">
+		<div id="buttons">
+
+			<button class="submitButton confirm right" id="submit">
+				<uimessage code="Save"/>
+				<i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"/>
+			</button>
+			<button class="cancel" id="cancel" type="button">
+				<uimessage code="emr.cancel"/>
+			</button>
+		</div>
+	</ifMode>
+
+
+</htmlform>

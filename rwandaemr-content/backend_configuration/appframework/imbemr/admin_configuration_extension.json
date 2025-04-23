@@ -1,0 +1,22 @@
+[
+    {
+        "id": "rwandaemr.adminConfigurationLink",
+        "extensionPointId": "systemAdministration.apps",
+        "type": "link",
+        "label": "rwandaemr.admin.configuration",
+        "url": "rwandaemr/admin/configuration.page",
+        "icon": "icon-refresh",
+		"requiredPrivilege": "App: coreapps.systemAdministration",
+        "order": 95
+    },
+    {
+        "id": "rwandaemr.adminConfigureLoginLocations",
+        "extensionPointId": "systemAdministration.apps",
+        "type": "link",
+        "label": "rwandaemr.admin.configureLoginLocations",
+        "url": "rwandaemr/admin/configureLoginLocations.page",
+        "icon": "icon-hospital",
+        "requiredPrivilege": "App: coreapps.systemAdministration",
+        "order": 96
+    }
+]

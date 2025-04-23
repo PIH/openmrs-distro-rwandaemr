@@ -1,0 +1,20 @@
+[
+  {
+    "id": "rwandaemr.dispensingApp",
+    "description": "Home Page Link to Dispensing App",
+    "order": 20,
+    "extensions": [
+      {
+        "id": "rwandaemr.dispensingApp",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Drug Dispensing",
+        "url": "spa/dispensing",
+        "icon": "fas fa-fw fa-prescription-bottle-alt",
+        "requiredPrivilege": "App: coreapps.dispensing",
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Pharmacy Location')",
+        "order": 7
+      }
+    ]
+  }
+]

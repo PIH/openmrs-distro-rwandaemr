@@ -1,0 +1,23 @@
+key: "hc_patients_report"
+uuid: "84204c52-a274-11ef-b0d9-d880837ea3cd"
+name: "Health Center Patients Report"
+description: "A report that contains data needed in hmis for health center"
+parameters:
+  - key: "startDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.startDate"
+  - key: "endDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.endDate"
+
+datasets:
+  - key: "hc_patients_report"
+    type: "sql"
+    config: "sql/hc_patients_report.sql"
+designs:
+  - type: "csv"
+    properties:
+      "filenameBase": "usersdateexport.{{ formatDate request.evaluateStartDatetime \"yyyyMMdd\" }}.{{ formatDate request.evaluateStartDatetime \"HHmm\" }}"
+      "characterEncoding": "ISO-8859-1"
+      "blacklistRegex": "[^\\p{InBasicLatin}\\p{L}]"
+      "dateFormat": "dd-MMM-yyyy HH:mm:ss"

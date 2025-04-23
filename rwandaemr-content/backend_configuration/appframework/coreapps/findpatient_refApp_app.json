@@ -1,0 +1,20 @@
+[
+    {
+        "id": "coreapps.findPatient_refApp",
+        "instanceOf": "coreapps.template.findPatient",
+        "description": "Basic patient search that goes to the patient dashboard",
+        "order": 2,
+        "extensions": [
+            {
+                "id": "rwandaemr.findPatientRefApp",
+                "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+                "type": "link",
+                "label": "Find Patient Record",
+                "url": "coreapps/findpatient/findPatient.page?app=coreapps.findPatient_refApp",
+                "icon": "icon-search",
+                "requiredPrivilege": "App: coreapps.findPatient",
+                "order": 1
+            }
+        ]
+    }
+]

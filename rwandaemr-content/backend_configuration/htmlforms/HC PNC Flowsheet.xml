@@ -1,0 +1,151 @@
+<htmlform
+        htmlformUuid="3ca80f02-44ba-410c-8b07-2bfaafecfc14"
+        formUuid="94a97259-8b19-4e2f-8a8e-1f7d24908fd6"
+        formName="HC PNC 0-24H Form"
+        formDescription="HC PNC 0-24H Form"
+        formVersion="1.0"
+        formEncounterType="a703372d-28b7-4831-9817-ee385c8c47d8"
+        formPublished="true"
+        formRetired="false"
+>
+    <!-- Pedi HIV top level form.
+         HIV-RW.V1.akb.July13.doc
+         Created by Neil Gupta 2014
+     -->
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#2F9599
+        <!--headerColor =#009d8e-->
+        fontOnHeaderColor = white
+    </macros>
+
+    <style>
+        .section {
+        border: 1px solid $headerColor;
+        padding: 2px;
+        text-align: left;
+        margin-bottom: 1em;
+        }
+        .sectionHeader {
+        background-color: $headerColor;
+        color: $fontOnHeaderColor;
+        display: block;
+        padding: 2px;
+        font-weight: bold;
+        }
+        table.baseline-aligned td {
+        vertical-align: baseline;
+        }
+        th.subheader {
+        background-color: $headerColor;
+        color:white
+        }
+    </style>
+
+
+    <translations defaultLocale="fr">
+        <code name="gender_m">
+            <variant locale="fr" value="Homme" />
+            <variant locale="en" value="Male" />
+        </code>
+        <code name="gender_f">
+            <variant locale="fr" value="Femme" />
+            <variant locale="en" value="Female" />
+        </code>
+    </translations>
+    <!-- Form header -->
+    Centre de santé :
+
+    <table border="2" cellspacing="0" cellpadding="6" width="100%">
+        <tr>
+
+            <td>
+                <img src="/openmrs/moduleResources/rwandareports/images/rwanda-logo.jpg" align="left" height="100"
+                     width="100">
+                </img>
+            </td>
+            <td>
+                <h2>
+                    RWANDA MINISTRY OF HEALTH
+                    <br />
+                    <span class="english">MOH Rwanda</span>
+                </h2>
+            </td>
+
+            <td>
+                <strong>
+                    Program
+                    <br />
+
+                    <br />
+                    <span class="english">PNC </span>
+                </strong>
+                <br />
+
+            </td>
+        </tr>
+    </table>
+
+    <table border="1" width="100%">
+        <tr>
+            <td>
+                Nom/
+                <span class="english">Name</span>
+                :
+                <lookup class="value" expression="patient.personName.familyName" />
+                <lookup class="value" expression="patient.personName.givenName" />
+                ID:
+                <lookup class="value" expression="patientIdentifiers.get(&quot;TRACnet ID&quot;)" />
+                <lookup class="value" expression="patientIdentifiers.get(&quot;Primary Care ID Type&quot;)" />
+            </td>
+            <td>
+                Location or Clinic:<encounterLocation id="location" default="GlobalProperty:registration.defaultLocationCode"/>
+            </td>
+            <td>
+                Date:<encounterDate default="today" />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <div>
+        <section headerLabel="PNC consultation">
+            <htmlformflowsheet formId="2b29c5c9-0923-4ab6-9bfc-e4274592210f" windowHeight="450" sharedEncounter="true" showHtmlForm="true"/>
+        </section>
+    </div>
+    <div>
+
+        <section headerLabel="PNC History 0 - 24 Hours">
+
+            <htmlformflowsheet formId="1ed9269c-c98e-4321-8a13-7933cf81e483" sharedEncounter="true" showHtmlForm="true" windowHeight="1000"/>
+
+        </section>
+
+    </div>
+
+    <div>
+        <section headerLabel="PNC Examination  0 - 24 Hours">
+            <htmlformflowsheet formId="94a97259-8b19-4e2f-8a8e-1f7d24908fd6" sharedEncounter="true" showHtmlForm="true" windowHeight="1000"/>
+        </section>
+    </div>
+    <div>
+        <section headerLabel="PNC Examination 1 - 4 Days">
+            <htmlformflowsheet formId="c689d40d-404f-4434-bfc6-5a2b7d0c5648" sharedEncounter="true" showHtmlForm="true" windowHeight="1000"/>
+        </section>
+    </div>
+    <div>
+        <section headerLabel="PNC Investigation">
+            <htmlformflowsheet formId="df2000f0-6e3b-45f9-a6f5-1f78ac5a0501" sharedEncounter="true" showHtmlForm="true" windowHeight="1000"/>
+        </section>
+    </div>
+    <div>
+        <section headerLabel="PNC Examination Before Discharge">
+            <htmlformflowsheet formId="f8f7e79d-cc36-4cad-b5d6-d7c92a939405" sharedEncounter="true" showHtmlForm="true" windowHeight="1000"/>
+        </section>
+    </div>
+    <div>
+        <section headerLabel="PNC Treatment Before Discharge">
+            <htmlformflowsheet formId="a1644d59-0f43-48fa-b8e6-9419767f5160" sharedEncounter="true" showHtmlForm="true" windowHeight="1000"/>
+
+        </section>
+    </div>
+</htmlform>

@@ -1,0 +1,185 @@
+[
+  {
+    "id": "rwandaemr.silicosisProgramDashboard.currentEnrollment",
+    "order": 1,
+    "config": {
+      "widget": "programstatus",
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.currentEnrollmentDashboardWidget.label",
+      "program": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "dashboard": "326475d7-07f6-4357-ba1b-9098f8137849"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.silicosisProgramDashboard.currentEnrollment.extension",
+        "appId": "rwandaemr.silicosisProgramDashboard.currentEnrollment",
+        "extensionPointId": "326475d7-07f6-4357-ba1b-9098f8137849.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.silicosisProgramDashboard.previousEnrollment",
+    "order": 2,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "dashboard": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.silicosisProgramDashboard.previousEnrollment.extension",
+        "appId": "rwandaemr.silicosisProgramDashboard.previousEnrollment",
+        "extensionPointId": "326475d7-07f6-4357-ba1b-9098f8137849.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "program/programHistory"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.326475d7-07f6-4357-ba1b-9098f8137849.recentEncounters",
+    "description": "coreapps.mostRecentVitals.app.description",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
+    "icon": "icon-calendar",
+    "order": 4,
+    "config": {
+      "program": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "dashboard": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "includeActive": false,
+      "limit": "5"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.326475d7-07f6-4357-ba1b-9098f8137849.recentEncounters.extension",
+        "appId": "rwandaemr.326475d7-07f6-4357-ba1b-9098f8137849.recentEncounters",
+        "extensionPointId": "326475d7-07f6-4357-ba1b-9098f8137849.secondColumnFragments",
+        "extensionParams": {
+          "provider": "rwandaemr",
+          "fragment": "patient/encountersSection"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.silicosisProgramDashboard.obsGraph.weight",
+    "order": 3,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "icon-bar-chart",
+      "conceptId": "3ce93cf2-26fe-102b-80cb-0017a47871b2,3ce93b62-26fe-102b-80cb-0017a47871b2",
+      "maxResults": "6",
+      "showLegend": true,
+      "function": "(bmi,3ce93b62-26fe-102b-80cb-0017a47871b2,3ce93cf2-26fe-102b-80cb-0017a47871b2);",
+      "label": "WEIGHT,HEIGHT AND BMI GRAPH",
+      "program": "",
+      "dashboard": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.silicosisProgramDashboard.obsGraphWeight.extension",
+        "appId": "rwandaemr.silicosisProgramDashboard.obsGraph.weight",
+        "extensionPointId": "326475d7-07f6-4357-ba1b-9098f8137849.secondColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.326475d7-07f6-4357-ba1b-9098f8137849.enrollment.Form",
+    "order": 1,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "dashboard": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.326475d7-07f6-4357-ba1b-9098f8137849.insulinList.Form",
+        "extensionPointId": "326475d7-07f6-4357-ba1b-9098f8137849.overallActions",
+        "type": "link",
+        "label": "Enrollment Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-silicosis--enrollment-form.xml",
+        "icon": "icon-file",
+        "order": 1
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.326475d7-07f6-4357-ba1b-9098f8137849.clinicVisits.Form",
+    "order": 2,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "dashboard": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.326475d7-07f6-4357-ba1b-9098f8137849.clinicVisits.Form",
+        "extensionPointId": "326475d7-07f6-4357-ba1b-9098f8137849.overallActions",
+        "type": "link",
+        "label": "Other Investigations Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-silicosis--VisitForm.xml",
+        "icon": "icon-file",
+        "order": 2
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.326475d7-07f6-4357-ba1b-9098f8137849.exitFromCare.Form",
+    "order": 3,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "dashboard": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.326475d7-07f6-4357-ba1b-9098f8137849.exitFromCare.Form",
+        "extensionPointId": "326475d7-07f6-4357-ba1b-9098f8137849.overallActions",
+        "type": "link",
+        "label": "Exit From Care",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-silicosis--exit-from-care.xml",
+        "icon": "icon-file",
+        "order": 3
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.326475d7-07f6-4357-ba1b-9098f8137849.regimens",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-briefcase-medical",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "dashboard": "326475d7-07f6-4357-ba1b-9098f8137849",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.326475d7-07f6-4357-ba1b-9098f8137849.exitFromCare.Form",
+        "extensionPointId": "326475d7-07f6-4357-ba1b-9098f8137849.overallActions",
+        "type": "link",
+        "label": "Regimens",
+        "url": "rwandaemr/patient/regimen.page?patientId={{patient.uuid}}",
+        "icon": "fas fa-fw fa-briefcase-medical",
+        "order": 15
+      }
+    ]
+  }
+]

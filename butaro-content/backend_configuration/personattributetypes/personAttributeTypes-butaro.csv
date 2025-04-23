@@ -1,0 +1,4 @@
+Uuid,Void/Retire,Name,Description,Format,Foreign uuid,Searchable
+d0aba99f-7441-44de-a1df-c2b5e109056f,,Email,provider email for pathology project but any person email,java.lang.String,,FALSE
+be5febe4-6771-4b7b-8b3e-c12650e7201f,,Email old version,provider email for pathology project but any person email,java.lang.String,,FALSE
+7ee3aa10-94aa-46ac-a885-5aad1c35901f,,Mobile phone,The telephone number for the person,java.lang.String,,FALSE

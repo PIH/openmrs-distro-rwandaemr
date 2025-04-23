@@ -1,0 +1,27 @@
+[
+  {
+    "id": "org.openmrs.distro.rwandaemr.configuremetadata",
+    "extensionPoints": [
+      {
+        "id": "org.openmrs.distro.rwandaemr.adminGroups",
+        "description": "rwandaemr.configuremetadata.adminGroups.description"
+      },
+      {
+        "id": "org.openmrs.distro.rwandaemr.adminLinks",
+        "description": "rwandaemr.configuremetadata.adminLinks.description"
+      }
+    ],
+    "extensions": [
+      {
+        "id": "org.openmrs.distro.rwandaemr.configuremetadata.homepageLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Configure Metadata",
+        "url": "adminui/metadata/configureMetadata.page",
+        "icon": "icon-tasks",
+        "order": 90,
+        "requiredPrivilege": "App: adminui.configuremetadata"
+      }
+    ]
+  }
+]

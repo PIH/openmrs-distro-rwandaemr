@@ -1,0 +1,119 @@
+[
+  {
+    "id": "rwandaemr.oncologyProgramDashboard.currentEnrollment",
+    "order": 1,
+    "config": {
+      "widget": "programstatus",
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.currentEnrollmentDashboardWidget.label",
+      "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+      "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.oncologyProgramDashboard.currentEnrollment.extension",
+        "appId": "rwandaemr.oncologyProgramDashboard.currentEnrollment",
+        "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.oncologyProgramDashboard.previousEnrollment",
+    "order": 2,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+      "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.oncologyProgramDashboard.previousEnrollment.extension",
+        "appId": "rwandaemr.oncologyProgramDashboard.previousEnrollment",
+        "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "program/programHistory"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.f02857cb-f894-42e9-b324-dcb8fea70f69.recentEncounters",
+    "description": "coreapps.mostRecentVitals.app.description",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
+    "icon": "icon-calendar",
+    "order": 4,
+    "config": {
+      "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+      "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+      "includeActive": false,
+      "limit": "5"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.f02857cb-f894-42e9-b324-dcb8fea70f69.recentEncounters.extension",
+        "appId": "rwandaemr.f02857cb-f894-42e9-b324-dcb8fea70f69.recentEncounters",
+        "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.secondColumnFragments",
+        "extensionParams": {
+          "provider": "rwandaemr",
+          "fragment": "patient/encountersSection"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.oncologyProgramDashboard.obsGraph.weight",
+    "order": 3,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "icon-bar-chart",
+      "conceptId": "3ce93cf2-26fe-102b-80cb-0017a47871b2,3ce93b62-26fe-102b-80cb-0017a47871b2",
+      "maxResults": "6",
+      "showLegend": true,
+      "function": "(bmi,3ce93b62-26fe-102b-80cb-0017a47871b2,3ce93cf2-26fe-102b-80cb-0017a47871b2);",
+      "label": "WEIGHT,HEIGHT AND BMI GRAPH",
+      "program": "",
+      "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.oncologyProgramDashboard.obsGraphWeight.extension",
+        "appId": "rwandaemr.oncologyProgramDashboard.obsGraph.weight",
+        "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.secondColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.f02857cb-f894-42e9-b324-dcb8fea70f69.regimens",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-briefcase-medical",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+      "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.f02857cb-f894-42e9-b324-dcb8fea70f69.exitFromCare.Form",
+        "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+        "type": "link",
+        "label": "Regimens",
+        "url": "rwandaemr/patient/regimen.page?patientId={{patient.uuid}}",
+        "icon": "fas fa-fw fa-briefcase-medical",
+        "order": 15
+      }
+    ]
+  }
+]

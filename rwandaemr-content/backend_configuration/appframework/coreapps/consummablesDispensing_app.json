@@ -1,0 +1,20 @@
+[
+  {
+    "id": "rwandaemr.consummableDispensingApp",
+    "description": "Opening moh consummables dispensing window in legacy UI",
+    "order": 10,
+    "extensions": [
+      {
+        "id": "rwandaemr.consummbleDispensingApp",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Consummables Despensing",
+        "url": "module/pharmacymanagement/consumabledispensation.htm",
+        "icon": "icon-share",
+        "requiredPrivilege": "App: coreapps.dispensing",
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Pharmacy Location')",
+        "order": 8
+      }
+    ]
+  }
+]

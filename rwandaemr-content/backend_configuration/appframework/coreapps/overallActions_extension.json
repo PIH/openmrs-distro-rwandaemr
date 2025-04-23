@@ -1,0 +1,120 @@
+[
+    {
+        "id": "referenceapplication.realTime.manualBilling",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "Billing",
+        "url": "rwandaemr/patient/manualBilling.page?patientId={{patient.uuid}}",
+        "icon": "icon-money",
+        "order": 0
+    },
+    {
+        "id": "referenceapplication.realTime.labOrder",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "Lab Orders",
+        "url": "rwandaemr/patient/labOrders.page?patientId={{patient.uuid}}",
+        "icon": "icon-beaker",
+        "order": 1
+    },
+    {
+        "id": "referenceapplication.realTime.drugOrder",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "Drug Order",
+        "url": "rwandaemr/patient/drugOrders.page?patientId={{patient.uuid}}",
+        "icon": "icon-plus-sign",
+        "order": 2
+    },
+    {
+        "id": "referenceapplication.realTime.medicalHistory",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "Insurance Partner",
+        "url": "rwandaemr/patient/mohdataflowpatient.page?patientId={{patient.uuid}}",
+        "icon": "icon-road",
+        "order": 3,
+        "requiredPrivilege": "View Medical History Link"
+    },
+    {
+        "id": "org.openmrs.module.growthchart.growthChart",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "growthchart.growthCharts",
+        "url": "growthchart/growthCharts.page?patientId={{patient.uuid}}",
+        "icon": "icon-bar-chart",
+        "order": 4,
+        "requiredPrivilege": "View Growth Charts monitoring"
+    },
+    {
+        "id": "patientDashboard.overallActions.registrationSummary",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "rwandaemr.registration.summary",
+        "url": "registrationapp/registrationSummary.page?patientId={{patient.uuid}}&appId=rwandaemr.registerPatient",
+        "icon": "icon-pencil",
+        "order": 4,
+        "requiredPrivilege": "App: registrationapp.registerPatient"
+    },
+    {
+        "id": "coreapps.createVisit",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "script",
+        "label": "coreapps.task.startVisit.label",
+        "script": "visit.showQuickVisitCreationDialog({{patient.patientId}})",
+        "icon": "icon-check-in",
+        "order": 5,
+        "require": "!visit && !patient.person.dead",
+        "requiredPrivilege": "Task: coreapps.createVisit"
+    },
+    {
+        "id": "coreapps.createRetrospectiveVisit",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "script",
+        "label": "coreapps.task.createRetrospectiveVisit.label",
+        "script": "visit.showRetrospectiveVisitCreationDialog()",
+        "icon": "icon-plus",
+        "order": 6,
+        "requiredPrivilege": "Task: coreapps.createRetrospectiveVisit"
+    },
+    {
+        "id": "coreapps.mergeVisits",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "coreapps.task.mergeVisits.label",
+        "url": "coreapps/mergeVisits.page?patientId={{patient.uuid}}",
+        "icon": "icon-link",
+        "order": 7,
+        "requiredPrivilege": "Task: coreapps.mergeVisits",
+        "require": "patient.age < 6"
+    },
+    {
+        "id": "coreapps.markPatientDead",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "Link",
+        "label": "coreapps.markPatientDead.label",
+        "url": "coreapps/markPatientDead.page?patientId={{patient.uuid}}",
+        "icon": "icon-plus-sign-alt",
+        "order": 8,
+        "requiredPrivilege": "Task: coreapps.markPatientDead"
+    },
+    {
+        "id": "coreapps.deletePatient",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "script",
+        "label": "coreapps.task.deletePatient.label",
+        "script": "delPatient.showDeletePatientCreationDialog(&#x27;{{patient.uuid}}&#x27;)",
+        "icon": "icon-remove",
+        "order": 9,
+        "requiredPrivilege": "Task: coreapps.deletePatient"
+    },
+    {
+        "id": "patientDashboard.drugAdministration.overallAction",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "rwandaemr.drugAdministrations",
+        "url": "rwandaemr/patient/drugAdministrations.page?patientId={{patient.uuid}}",
+        "icon": "icon-medkit",
+        "order": 10
+    }
+]

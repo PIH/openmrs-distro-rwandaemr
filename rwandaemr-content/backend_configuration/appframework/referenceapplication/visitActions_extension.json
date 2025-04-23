@@ -1,0 +1,44 @@
+[
+  {
+    "id": "rwandaemr.visitAction.registrationEncounter",
+    "extensionPointId": "patientDashboard.visitActions",
+    "type": "link",
+    "label": "rwandaemr.registration.encounter.label",
+    "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/registration.xml",
+    "icon": "icon-user",
+    "require": "visit != null && (!visit.encounters || !some(visit.encounters, (function(encounter) { return encounter.encounterType.uuid === 'cfe614d5-fa7e-4919-b76b-a66117f57e4c'; } )))",
+    "order": 1
+  },
+  {
+    "id": "rwandaemr.visitAction.vitalsEncounter",
+    "extensionPointId": "patientDashboard.visitActions",
+    "type": "link",
+    "label": "rwandaemr.vitals.encounter.label",
+    "url": "htmlformentryui/htmlform/enterHtmlFormWithSimpleUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/auto-vital-signs.xml",
+    "icon": "icon-user",
+    "require": "visit != null",
+    "order": 2
+  },
+  {
+    "id": "referenceapplication.realTime.simpleTransfer",
+    "extensionPointId": "patientDashboard.visitActions",
+    "type": "link",
+    "label": "referenceapplication.task.simpleTransfer.label",
+    "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/simpleTransfer.xml",
+    "icon": "icon-random",
+    "order": 51,
+    "requiredPrivilege": "Task: referenceapplication.simpleTransfer",
+    "require": "visit.active && visit.admitted"
+  },
+  {
+    "id": "referenceapplication.realTime.endVisit",
+    "extensionPointId": "patientDashboard.visitActions",
+    "type": "script",
+    "label": "coreapps.task.endVisit.label",
+    "script": "visit.showEndVisitDialog({{visit.id}})",
+    "icon": "icon-off",
+    "require": "visit.active",
+    "order": 20,
+    "requiredPrivilege": "Task: coreapps.endVisit"
+  }
+]

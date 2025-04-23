@@ -1,0 +1,57 @@
+header {
+    background-color:#00473f;
+}
+.login-header-image {
+    padding: 8px;
+}
+body {
+    max-width: unset !important;
+    width: 1500px;
+}
+.patient-header.dead .death-header {
+    background: red;
+}
+form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+  min-width: 80%;
+  color: #003F5E;
+  display: block;
+  padding: 5px 10px;
+  margin: 0;
+  margin-top: 5px;
+  background-color: #FFF;
+  border: 1px solid #DDD;
+}
+span.value {
+    color: blue;
+}
+
+label {
+    vertical-align: top;
+}
+
+.dashboard .info-body h3 {
+    width: 160px;
+}
+
+#encounterDate input, #encounterDate select {
+    min-width: unset;
+    display: unset;
+}
+
+#encounterDate .hfe-hours, #encounterDate > .hfe-minutes, #encounterDate > .hfe-seconds {
+    min-width: unset;
+}
+
+.encounters-during-visit span.value {
+    color: #363463;
+}
+
+#visits-list li.selected {
+    background: #5b57a6;
+    color: white;
+    font-weight: bold;
+}
+
+#national-ids-questions > h3 {
+    font-weight: bold;
+}

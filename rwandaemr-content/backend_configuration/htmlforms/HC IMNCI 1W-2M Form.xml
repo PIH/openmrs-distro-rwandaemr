@@ -1,0 +1,1255 @@
+<htmlform
+        htmlformUuid="e8a36308-4cc0-472a-9e45-5e7d8066880d"
+        formUuid="daaded5b-9876-4638-a141-d8ad3bd38ae2"
+        formName="HC IMNCI 1W-2M Examination"
+        formDescription="HC IMNCI 1W-2M Examination"
+        formVersion="1.0"
+        formEncounterType="462e7e66-8d01-4d43-af1f-b80c1a5239c8"
+        formPublished="true"
+        formRetired="false"
+>
+    <macros>
+        headerColor =#0F5149
+        fontOnHeaderColor = #ffffff
+    </macros>
+    <style>
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+    </style>
+    <style>
+        .section {
+        border: 1px solid $headerColor;
+        padding: 2px;
+        text-align: left;
+        margin-bottom: 1em;
+        }
+
+        .sectionHeader {
+        background-color: $headerColor;
+        color: $fontOnHeaderColor;
+        display: block;
+        padding: 2px;
+        font-weight: bold;
+        }
+
+        table.baseline-aligned td {
+        vertical-align: baseline;
+        }
+
+        th.subheader {
+        background-color: $headerColor;
+        color: white
+        }
+
+        .lblcolor {
+        background: #e2e3f2;
+        width: 300px;
+        }
+    </style>
+
+    <style>
+        table.risks td {
+        font-size: 0.9em;
+        }
+
+        .section {
+        border: 1px solid$headerColor;
+        padding: 2px;
+        text-align: left;
+        margin-bottom: 1em;
+        }
+
+        .sectionHeader {
+        background-color: $headerColor;
+        color: $fontOnHeaderColor;
+        display: block;
+        padding: 2px;
+        font-weight: bold;
+        }
+
+        table.baseline-aligned td {
+        vertical-align: center;
+        }
+
+        .pages:hover {
+        color: blue;
+        background-color: gold;
+        }
+
+        .pages {
+        background-color: $headerColor;
+        color: $fontOnHeaderColor;
+        display: block;
+        padding: 2px;
+        font-weight: bold;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+
+        $j(document).ready(function () {
+        // Hide elements by grouping them into arrays
+        function hideElements(elementIds) {
+        elementIds.forEach(function (id) {
+        $j(id).hide();
+        });
+        }
+
+        // Initial hide for sections
+        hideElements([
+        '#cough1', '#cough2', '#cough3', '#cough4', '#cough5', '#cough6', '#classbreathid',
+        '#nosifDrug', '.bloodyDia', '#diarrh1', '#diarrh2', '#diarrh3', '#diarrh4', '#diarrh5', '#diarrh6',
+        '#diarrh7', '#diarrh8', '#diarrh9', '#diarrh10', '#diarrh11', '#classdiarrhid',
+        '#fever0', '#fever1', '#fever2', '#fever3', '#fever4', '#fever5', '#fever6', '#fever7',
+        '#fever8', '#fever9', '#fever10', '#fever11', '#fever12', '#fever13', '#fever14', '#fever15',
+        '#classfeverid', '.eartr', '.tb'
+        ]);
+
+        // Toggle visibility based on radio buttons
+        function toggleSection(sectionId, show) {
+        if (show) {
+        $j(sectionId).show();
+        } else {
+        $j(sectionId).hide();
+        }
+        }
+
+        // Event handler for showing sections based on checkbox state
+        function handleToggleChange(selector, sectionIds) {
+        $j(selector).change(function () {
+        var isCheckedYes = $j(this).find('input[value="1066"]').prop('checked');
+        sectionIds.forEach(function (id) {
+        toggleSection(id, isCheckedYes);
+        });
+        });
+        }
+
+        // Apply toggle to different sections
+        handleToggleChange('#coughid', ['#cough1', '#cough2', '#cough3', '#cough4', '#cough5', '#cough6', '#classbreathid']);
+        handleToggleChange('#diarrhoeaid', ['#diarrh1', '#diarrh2', '#diarrh3', '#diarrh4', '#diarrh5', '#diarrh6', '#diarrh7', '#diarrh8', '#diarrh9', '#diarrh10', '#diarrh11', '#classdiarrhid']);
+        handleToggleChange('#feverid', ['#fever0', '#fever1', '#fever2', '#fever3', '#fever4', '#fever5', '#fever6', '#fever7', '#fever8', '#fever9', '#fever10', '#fever11', '#fever12', '#fever13', '#fever14', '#fever15', '#classfeverid']);
+        handleToggleChange('#earid', ['.eartr']);
+        handleToggleChange('#tbrisk', ['.tb']);
+
+        // Toggle bloody diarrhea section based on stool bloody input
+        $j('#stoolBloody input').change(function () {
+        toggleSection('.bloodyDia', $j(this).val() === "1065");
+        });
+
+        // Toggle nosifDrug section based on harmful input
+        $j('#harmful input').change(function () {
+        toggleSection('#nosifDrug', $j(this).val() === "1065");
+        });
+
+        // Automatically check anemia based on other anemia selections
+        function autoCheckAnemia(triggerId, targetSelector, value) {
+        $j(triggerId).click(function () {
+        $j(targetSelector).prop("checked", $j(this).find(`input[value="${value}"]`).prop('checked'));
+        });
+        }
+
+        autoCheckAnemia('#anemia1', '#anemia4 input[value="8618"]', "111005");
+        autoCheckAnemia('#anemia2', '#anemia5 input[value="10988"]', "112235");
+        autoCheckAnemia('#anemia3', '#anemia6 input[value="110883"]', "112113");
+
+        // Toggle diaHidClass based on diarrhea duration
+        $j("#diaDays input").change(function () {
+        var diaDuration = parseInt($j(this).val());
+        toggleSection('.diaHidClass', diaDuration >= 14);
+        });
+
+
+        $j('#page1').click(function () {
+        $j('#tb1').toggle();
+        });
+
+        $j('#page2').click(function () {
+        $j('#tb2').toggle();
+        });
+        $j('#page3').click(function () {
+        $j('#tb3').toggle();
+        });
+
+        $j('#page4').click(function () {
+        $j('#tb4').toggle();
+        });
+        $j('#page5').click(function () {
+        $j('#tb5').toggle();
+        });
+        $j('#page6').click(function () {
+        $j('#tb6').toggle();
+        });
+        $j('#page7').click(function () {
+        $j('#tb7').toggle();
+        });
+        $j('#page8').click(function () {
+        $j('#tb8').toggle();
+        });
+        $j('#page9').click(function () {
+        $j('#tb9').toggle();
+        });
+        $j('#page10').click(function () {
+        $j('#tb10').toggle();
+        });
+        $j('#page11').click(function () {
+        $j('#tb11').toggle();
+        });
+        $j('#page12').click(function () {
+        $j('#tb12').toggle();
+        });
+        $j('#page13').click(function () {
+        $j('#tb13').toggle();
+        });
+        $j('#page14').click(function () {
+        $j('#tb14').toggle();
+        });
+        $j('#page15').click(function () {
+        $j('#tb15').toggle();
+        });
+        $j('#page16').click(function () {
+        $j('#tb16').toggle();
+        });
+        $j('#page17').click(function () {
+        $j('#tb17').toggle();
+        });
+        $j('#page18').click(function () {
+        $j('#tb18').toggle();
+        });
+        $j('#page19').click(function () {
+        $j('#tb19').toggle();
+        });
+
+        });
+    </script>
+    <ifMode mode="VIEW">
+
+        <script type="text/javascript">
+
+            $j(document).ready(function () {
+            // Hide elements by grouping them into arrays
+            function hideElements(elementIds) {
+            elementIds.forEach(function (id) {
+            $j(id).hide();
+            });
+            }
+
+            $j('#page1').click(function () {
+            $j('#tb1').toggle();
+            });
+
+            $j('#page2').click(function () {
+            $j('#tb2').toggle();
+            });
+            $j('#page3').click(function () {
+            $j('#tb3').toggle();
+            });
+
+            $j('#page4').click(function () {
+            $j('#tb4').toggle();
+            });
+            $j('#page5').click(function () {
+            $j('#tb5').toggle();
+            });
+            $j('#page6').click(function () {
+            $j('#tb6').toggle();
+            });
+            $j('#page7').click(function () {
+            $j('#tb7').toggle();
+            });
+            $j('#page8').click(function () {
+            $j('#tb8').toggle();
+            });
+            $j('#page9').click(function () {
+            $j('#tb9').toggle();
+            });
+            $j('#page10').click(function () {
+            $j('#tb10').toggle();
+            });
+            $j('#page11').click(function () {
+            $j('#tb11').toggle();
+            });
+            $j('#page12').click(function () {
+            $j('#tb12').toggle();
+            });
+            $j('#page13').click(function () {
+            $j('#tb13').toggle();
+            });
+            $j('#page14').click(function () {
+            $j('#tb14').toggle();
+            });
+            $j('#page15').click(function () {
+            $j('#tb15').toggle();
+            });
+            $j('#page16').click(function () {
+            $j('#tb16').toggle();
+            });
+            $j('#page17').click(function () {
+            $j('#tb17').toggle();
+            });
+            $j('#page18').click(function () {
+            $j('#tb18').toggle();
+            });
+            $j('#page19').click(function () {
+            $j('#tb19').toggle();
+            });
+
+            });
+        </script>
+    </ifMode>
+    <h2>EXMINATION 1W-2M</h2>
+
+    <!-- <includeIf velocityTest="$patient.gender == 'F' "> -->
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="ENCOUNTER INFORMATION">
+        <div class="section-container">
+            <table border="2" cellpadding="6" cellspacing="0" width="100%" style="table-layout: fixed;">
+
+                <tr>
+                    <td>
+                        Date:
+                        <encounterDate default="today" />
+                    </td>
+                    <td>
+                        Health Facility:
+                        <encounterLocation default="GlobalProperty:billing.defaultLocation" />
+                    </td>
+                    <td>
+                        Provider:
+                        <encounterProvider default="currentUser" />
+                    </td>
+                    <td>
+                        Coming From:
+                        <obs conceptId="924763f9-7557-41aa-811e-12ec77b5a9a8" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Relationship to caregiver:
+                        <obs conceptId="3ce18156-26fe-102b-80cb-0017a47871b2" />
+                        <br/>
+                        Other please specify:
+                        <obs conceptId="a08ae436-a1c5-4672-9766-94eca8971981" />
+                        <br/>
+                        <span class="side-by-side">
+                            Caregiver Gender:
+                            <obs answerCodes="Male,Female" conceptId="d1ecd154-13b1-433a-8480-3213e178aff7" style="radio" />
+                        </span>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section>
+        <div class="pages" id="page3">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">A. CURRENT
+                    COMPLAINTS</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb3" style="display:none">
+            <tr>
+                <td class="lblcolor">Complaint?</td>
+                <td>
+                    <obs cols="30" conceptId="3ce2b170-26fe-102b-80cb-0017a47871b2" rows="3" style="textarea" />
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section>
+        <div class="pages" id="page1">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">B. Possibility of
+                    severe bacterial infection or severe disease</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb1" style="display:none">
+            <tr>
+                <td>
+                    <p class="radio">
+
+                        <obs answerConceptId="d1c89a81-0b56-4c66-9a71-fa7f327b5d6c" answerLabel="Not able to feed"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        <br/>
+
+                        <obs answerConceptId="3cce938e-26fe-102b-80cb-0017a47871b2"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        <br/>
+
+
+                        <obs answerConceptId="3cd44f04-26fe-102b-80cb-0017a47871b2"
+                             answerLabel="Fast breathing (≥60 breaths/min)" conceptId="8823eb86-8234-4d06-9a53-180276f23be3"
+                             style="checkbox" />
+                        <br/>
+                        Breaths per minute:
+                        <obs conceptId="56da8729-a018-4585-8b0f-97f53194cd06" />/min
+                        <br/>
+
+
+                        <obs answerConceptId="a3883c11-6ad9-497d-be33-9fec8ede1064"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        <br/>
+
+                        <obs answerConceptId="2368db66-d10b-45a8-9a93-e5efebb1e2cf"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="text" />
+                        <br/>
+
+                        <obs answerConceptId="57a0030d-7dd3-4ce5-99b5-3c886959acbc"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        <br/>
+
+
+                        <obs answerConceptId="53859d2e-6123-49b9-855e-f9c40ca81148"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        <br/>
+
+                        <obs answerConceptId="b6208a89-6561-4d0a-82bb-a80bf33e3d0b"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        <br/>
+
+                        <obs answerConceptId="9b0f9a0a-29fb-4f17-804f-f076855c8c7b"
+                             answerLabel="Umbilical redness extended to skin"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        <br/>
+
+
+                        <obs answerConceptId="0e3f8c98-a356-4c33-94f3-8abd04307d67"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        <br/>
+
+                        <obs answerConceptId="e8c1d8c1-3332-48a4-9aef-8507f2308e4f"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        <br/>
+
+                        <obs answerConceptId="8d059f47-50c0-4d22-8ddb-f40398c840b1"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        <br/>
+
+                        <obs answerConceptId="1de167c3-f0bc-4c40-b688-d9a6a94364bc"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        <br/>
+
+                        <obs answerConceptId="01379c13-2978-48ad-a437-2319f6f140d3"
+                             conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        <br/>
+                    </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <section headerCode="Classification " id="classillnessid">
+
+                        <table class="baseline-aligned">
+                            <tr>
+                                <td class="side-by-side">
+                                    <obs answerConceptIds="030459aa-57b2-4e1c-861c-d7cba0dfa1e9,6cc38d5f-dd33-43d3-b091-7b27f3ede447,7832d9c8-a057-40ed-93ed-0576f247ab78"
+                                         conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="radio" />
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </section>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+
+    <section>
+        <div class="pages" id="page9">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">C. DIARRHOEA</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb9" style="display:none">
+            <tr>
+                <td class="lblcolor">Does the child have diarrhoea? </td>
+                <td class="side-by-side">
+                    <obs answerCodes="Yes,No" conceptId="50aa9ce3-3102-4e84-b06a-6da1307cd83c" id="diarrhoeaid"
+                         style="radio" />
+                </td>
+            </tr>
+            <tr id="diarrh1">
+                <td class="lblcolor">For how long (Days)</td>
+                <td id="diaDays" class="flexView">
+                    <obs conceptId="9b526620-8499-491d-a2be-adbae37ba445" style="text" />
+                </td>
+            </tr>
+            <tr id="diarrh3">
+                <td class="lblcolor">
+                    <strong>Diarrhea lasting 14 days or more</strong>
+                </td>
+                <td class="side-by-side">
+                    <obs answerCodes="Yes,No" conceptId="2d10e090-752c-4bdc-959e-40647def18c3" id="diarrhoeaid0"
+                         style="radio" />
+                </td>
+            </tr>
+            <tr id="diarrh2">
+                <td class="lblcolor">Is there blood in the stool?</td>
+                <td class="side-by-side">
+                    <obs answerCodes="Yes,No"
+                         answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+                         conceptId="1df22b31-1db0-4ca0-839e-b18d4b60fef9" id="stoolBloody" style="radio" />
+                </td>
+            </tr>
+
+            <tr id="diarrh4">
+                <td class="lblcolor">Is the child: Lethargic or unconscious? </td>
+                <td class="side-by-side">
+                    <obs answerCodes="Yes,No" conceptId="7f0b442f-faa3-4af7-ae0b-c184baec63b8" style="radio" />
+                </td>
+            </tr>
+            <tr id="diarrh5">
+                <td class="lblcolor">Restless and irritable? </td>
+                <td class="side-by-side">
+                    <obs answerCodes="Yes,No" conceptId="a6a81f00-d863-4e33-a31f-9096f2900b5f" style="radio" />
+                </td>
+            </tr>
+            <tr id="diarrh6">
+                <td class="lblcolor">Sunken eyes </td>
+                <td class="side-by-side">
+                    <obs answerCodes="Yes,No" conceptId="e8fabe7d-89c7-4195-85b0-ab3b9fabaf2d" style="radio" />
+                </td>
+            </tr>
+            <tr id="diarrh7">
+                <td class="lblcolor">Drinking eagerly, thirsty?</td>
+                <td class="side-by-side">
+                    <obs answerCodes="Yes,No" conceptId="24caa9f7-368e-41ac-bbe8-aa5e3a9da4a6" style="radio" />
+                </td>
+            </tr>
+            <tr id="diarrh8">
+                <td class="lblcolor">Not able to drink or drinking poorly? </td>
+                <td class="side-by-side">
+                    <obs answerCodes="Yes,No" conceptId="7ae0f245-b72b-4345-81c0-095fe8ace3d7" style="radio" />
+                </td>
+            </tr>
+
+            <tr id="diarrh9">
+                <td class="lblcolor">
+                    <strong>Skin pinch goes back</strong>
+                </td>
+                <td />
+            </tr>
+            <tr id="diarrh10">
+                <td class="radio">
+                    <obs answerConceptId="183826ad-e3fb-4a8c-a8d2-a3a86daeb4d7"
+                         conceptId="0a9de4fc-c1a2-4817-a896-71503ec8c90f" style="checkbox" />
+                </td>
+            </tr>
+            <tr id="diarrh11">
+                <td class="radio">
+                    <obs answerConceptId="e9286e05-cd2a-448a-a001-d866f45c9da7"
+                         conceptId="0a9de4fc-c1a2-4817-a896-71503ec8c90f" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+
+                    <section headerCode="Classification " id="classdiarrhid">
+                        <table class="baseline-aligned">
+                            <tr>
+                                <td>
+                                    <obs answerConceptId="d5e674ae-76a6-40cf-bc41-0922732ad479"
+                                         conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" style="checkbox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <obs answerConceptId="bbfbef0a-e30e-41a9-b436-b5ed7dbaa296"
+                                         answerLabel="Some Dehydration" conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e"
+                                         style="checkbox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <obs answerConceptId="8d3cf7a2-9d05-418c-b714-01657c477d7d"
+                                         conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" style="checkbox" />
+                                </td>
+                            </tr>
+                            <tr class="diaHidClass">
+                                <td class="diaHidClass">
+                                    <obs answerConceptId="021b16db-632c-47d2-afae-c1677ef1a04c"
+                                         conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" style="checkbox" />
+                                </td>
+                            </tr>
+                            <tr class="bloodyDia">
+                                <td>
+                                    <obs answerConceptId="21f708a6-1631-4145-90b3-4b01dd6ea63c"
+                                         conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" style="checkbox" />
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section>
+        <div class="pages" id="page6">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">D. ASSESS ATTACHMENT TO
+                    BREAST</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb6" style="display:none">
+            <tr>
+                <td class="lblcolor">chin touching the breast </td>
+                <td class="side-by-side">
+                    <obs answers="Yes,No" conceptId="0077bada-eb56-47a5-86b8-298296f60e32" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td class="lblcolor">Mouth wide open </td>
+                <td class="side-by-side">
+                    <obs answerCodes="Yes,No"
+                         answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+                         conceptId="a5395915-ab22-4f3d-b19d-0c006bc5a7c3" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td class="lblcolor">Lower lip turned outwards </td>
+                <td class="side-by-side">
+                    <obs answers="Yes,No" conceptId="cd7f2ea0-d0ac-4c31-9983-62285106d58b" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td class="lblcolor">More areola seen above young infant’s top lip than below bottom lip</td>
+                <td class="side-by-side">
+                    <obs answerCodes="Yes,No"
+                         answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+                         conceptId="63953307-a9a5-4d69-b642-432e2a090ff7" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <section headerCode="Classification " id="classbreastid">
+                        <table class="baseline-aligned">
+                            <tr>
+                                <td>
+                                    Breast attachment:
+                                    <br/>
+
+                                    <p class="side-by-side">
+
+                                        <obs answerConceptIds="3cdef3d2-26fe-102b-80cb-0017a47871b2,a13676ea-13e7-47ff-b426-a52681c0c219,9c2237f6-c6d7-4c0f-b438-869842c8b6b9"
+                                             conceptId="9c2237f6-c6d7-4c0f-b438-869842c8b6b9" style="radio" />
+                                    </p>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Sucking:
+                                    <br/>
+                                    <p class="side-by-side">
+                                        <obs answerConceptIds="418be0d5-94fd-4595-abcd-0380504243b1,b2bc962e-42a2-4f05-ba47-699dc85df86a,fb1d3a22-7fe6-4030-a34f-c504bcae387c"
+                                             conceptId="b365a38a-c528-4933-924e-cb57550f5fc1" style="radio" />
+                                    </p>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <div class="pages" id="page10">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">E. Feeding problems and
+                    low weight</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb10" style="display:none">
+            <tr>
+                <td>
+                    <obs answerConceptId="59492d1a-0aa5-46ac-b045-bb3724ae1e30"
+                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="e79a330d-9dcb-475e-b8f2-5602d8786bc7" answerLabel="No attachment to breast"
+                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="fb1d3a22-7fe6-4030-a34f-c504bcae387c"
+                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="6a193c1c-a7b9-4944-8932-b5885a693787" answerLabel="Poor attachement to breast"
+                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="b2bc962e-42a2-4f05-ba47-699dc85df86a" answerLabel="Not effective suckling "
+                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>How many times does an infant have to breastfeed in 24 h:
+                    <obs conceptId="395d9e20-14ab-4ef6-a349-d23cb1ff8415" style="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="c6dd4cb5-7e63-467c-9430-fc7ebd94e423"
+                         answerLabel="Less than 8 breastfeeding/day" conceptId="4135357d-dff1-450b-b239-b7fa7cae8575"
+                         style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="97468516-6315-42cc-b1c1-2d105695018c"
+                         answerLabel="Receives other food or drinks" conceptId="4135357d-dff1-450b-b239-b7fa7cae8575"
+                         style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="e1c519b2-e143-49b8-b91c-f189b5e184d4" answerLabel="Low weight for age"
+                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="3cebb5fe-26fe-102b-80cb-0017a47871b2"
+                         answerLabel="Ulcerations in the mouth  (Thrush)"
+                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <section headerCode="Classification">
+
+                        <table class="baseline-aligned">
+
+
+                            <tr>
+                                <td class="side-by-side">
+                                    <obs answerConceptIds="030459aa-57b2-4e1c-861c-d7cba0dfa1e9,63f7b285-5bdd-4580-ac67-008d99d3f9e3,9c75669f-f57d-4c5f-8e38-351e55fcd2e6"
+                                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="radio" />
+                                </td>
+                            </tr>
+
+                        </table>
+                    </section>
+                </td>
+            </tr>
+        </table>
+
+    </section>
+
+    <section>
+        <div class="pages" id="page2">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">F. HIV /AIDS </a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb2" style="display:none">
+            <tr>
+                <td>
+                    <obs answerConceptId="bda7159d-33fe-4c0e-96b0-50e26bced61f"
+                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="372ee4a4-e81c-472e-b385-d31297a67d0e"
+                         answerLabel="Positive HIV antibody test of the mother and/or father"
+                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="eec9e3c0-48ea-4e0b-9669-1b8769d172d8"
+                         answerLabel="Positive PCR or antibody test of the young infant"
+                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td class="side-by-side">
+                    <obs answerConceptId="c1a7689b-f5fe-4425-aab9-65b0cf5204b4"
+                         answerLabel="Unknown antibody test for parents" conceptId="4135357d-dff1-450b-b239-b7fa7cae8575"
+                         style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="aee3b421-6bd8-46e5-b1d3-75555f467c7b"
+                         answerLabel="Negative mother’s and father’s antibody tests  during the pregnancy and breastfeeding "
+                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <section headerCode="Classification">
+
+                        <table class="baseline-aligned">
+
+
+                            <tr>
+                                <td class="side-by-side">
+                                    <obs answerConceptIds="99011209-bc28-4fe0-aae8-13ecf34afd1d,f45918b4-fe03-4467-b6fc-ee0c37c99e1d,afc9a46e-6e8f-4b03-83a3-013db9a458cf,13a47b71-37b3-4f70-a765-952fdf87c3f1"
+                                         conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="radio" />
+                                </td>
+                            </tr>
+
+
+
+                        </table>
+                    </section>
+                </td>
+            </tr>
+        </table>
+
+    </section>
+    <section>
+        <div class="pages" id="page11">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">G. Immunization</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb11" style="display:none">
+            <tr>
+                <td>
+                    <obs answerCode="BCG" answerConceptId="3cd4e004-26fe-102b-80cb-0017a47871b2"
+                         conceptId="63953307-a9a5-4d69-b642-432e2a090ff7" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td class="lblcolor">Polio : </td>
+                <td class="radio">
+                    <obs answerCode="0" answerConceptId="3ce1a3ca-26fe-102b-80cb-0017a47871b2"
+                         conceptId="b7f12bef-f2d7-428d-953f-f5ce9d217831" style="radio" />
+                    <obs answerCode="1" answerConceptId="3ce1a3ca-26fe-102b-80cb-0017a47871b2"
+                         conceptId="b7f12bef-f2d7-428d-953f-f5ce9d217831" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td class="lblcolor">Pentavalent : </td>
+                <td>
+                    <obs answerCode="1" answerConceptId="3ce1b144-26fe-102b-80cb-0017a47871b2"
+                         conceptId="b7f12bef-f2d7-428d-953f-f5ce9d217831" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td class="lblcolor">PCV :</td>
+                <td>
+                    <obs answerCode="1" answerConceptId="e4bd9111-8ba3-4a70-9510-878d5db98187"
+                         conceptId="b7f12bef-f2d7-428d-953f-f5ce9d217831" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td class="lblcolor">Rotavirus :</td>
+                <td>
+                    <obs answerCode="1" answerConceptId="4be49281-12ee-4051-b8ed-8c641573b1bc"
+                         conceptId="b7f12bef-f2d7-428d-953f-f5ce9d217831" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <section headerCode="Classification " id="classVaccid">
+                        <table class="baseline-aligned">
+                            <tr>
+                                <td>
+                                    <obs answerCodes="Immunization not up-to-date"
+                                         answerConceptId="cbca4a1b-c788-4c31-a5ea-3c87c6e7fdaa"
+                                         conceptId="b7f12bef-f2d7-428d-953f-f5ce9d217831" style="radio" />
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <div class="pages" id="page7">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">I. Other problems</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb7" style="display:none">
+
+
+            <tr>
+                <td>Other problems:
+                    <obs cols="30" conceptId="8190007d-85b6-4e1d-947f-a319a8580c85" rows="3" style="textarea" />
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section>
+        <div class="pages" id="page12">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">J. Treatment</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb12" style="display:none">
+            <tr>
+                <td>
+                    <obs cols="30" conceptId="c28bc221-065e-4716-a9b0-b959239bc102" rows="3" style="textarea" />
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <div class="pages" id="page13">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">K. Counsel the
+                    Mother</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb13" style="display:none">
+            <tr>
+                <td>
+                    <obs answerCode="Breastfeeding" answerConceptId="cbd8027b-98e4-41d9-8942-81ddb448c964"
+                         conceptId="57af67f1-fc3c-4c8d-bd0e-f5da5f5e424a" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerCode="Warm the child" answerConceptId="cbd8027b-98e4-41d9-8942-81ddb448c964"
+                         conceptId="57af67f1-fc3c-4c8d-bd0e-f5da5f5e424a" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerCode="Birth spacing" answerConceptId="3cdcf172-26fe-102b-80cb-0017a47871b2"
+                         conceptId="57af67f1-fc3c-4c8d-bd0e-f5da5f5e424a" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerCode="Feeding" answerConceptId="acde4117-1052-4609-baf7-eef5464d7d93"
+                         conceptId="57af67f1-fc3c-4c8d-bd0e-f5da5f5e424a" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerCode="Position on how to breastfeed"
+                         answerConceptId="acde4117-1052-4609-baf7-eef5464d7d93"
+                         conceptId="57af67f1-fc3c-4c8d-bd0e-f5da5f5e424a" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerCode="Home Based  Treatment " answerConceptId="7d3e89bb-a2c7-4f43-8eb6-dd2a728a8d62"
+                         conceptId="57af67f1-fc3c-4c8d-bd0e-f5da5f5e424a" style="radio" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerCode="When to return back" answerConceptId="7bf40d80-e2fd-483d-bb4b-5a0c6e42d0b6"
+                         conceptId="57af67f1-fc3c-4c8d-bd0e-f5da5f5e424a" style="radio" />
+                </td>
+            </tr>
+
+        </table>
+    </section>
+    <section>
+        <div class="pages" id="page14">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">L. Transfer from/to</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb14" style="display:none">
+            <tr>
+                <td>
+                    <obs cols="30" conceptId="6cf3d521-9035-4301-bbf9-baa4e87251cb" rows="3" style="textarea" />
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section>
+        <div class="pages" id="page15">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">M. When to return back
+                    immediately</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb15" style="display:none">
+            <tr>
+                <td>
+                    <obs answerConceptId="1c50ac29-5af4-4598-a9dd-f177ee419a4f"
+                         answerLabel="Not able to drink or breastfeed" conceptId="6585efb9-6432-4083-a535-9b575e8281c7"
+                         style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="18e2599b-ee2f-43d3-939a-514b990ca511" answerLabel="Becomes sicker"
+                         conceptId="6585efb9-6432-4083-a535-9b575e8281c7" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="b5c5929a-648f-4cbf-aa99-d5dc6887f384" answerLabel="Develops Fever"
+                         conceptId="6585efb9-6432-4083-a535-9b575e8281c7" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="5f231a6e-6ba1-4325-bc75-8b2961754999" answerLabel="Fast breathing"
+                         conceptId="6585efb9-6432-4083-a535-9b575e8281c7" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="592a7b04-750f-4da5-ba81-ad9c766f3630" answerLabel="Difficulty breathing"
+                         conceptId="6585efb9-6432-4083-a535-9b575e8281c7" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <obs answerConceptId="1df22b31-1db0-4ca0-839e-b18d4b60fef9" answerLabel="Blood in stool"
+                         conceptId="6585efb9-6432-4083-a535-9b575e8281c7" style="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>Date of follow-up:
+                    <obs allowFutureDates="true" conceptId="7349eb39-4336-4d8c-a769-9b90e8746ea7" />
+                </td>
+            </tr>
+        </table>
+
+    </section>
+    <section>
+        <div class="pages" id="page17">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">N. Follow-up visit</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb17" style="display:none">
+            <tr>
+                <td>Done on:
+                    <obs allowFutureDates="true" conceptId="7349eb39-4336-4d8c-a769-9b90e8746ea7" />
+                </td>
+            </tr>
+            <tr>
+                <td>- Result:</td>
+            </tr>
+            <tr>
+                <td class="side-by-side">
+                    <obs answerConceptIds="5a465297-2ae7-466f-8352-c7f878c2e4c0,30f5d9e7-292c-43a4-be96-8e750702694a,673f5588-8756-4464-bf97-79c18afc71ca,3cce322c-26fe-102b-80cb-0017a47871b2,3ceb0ed8-26fe-102b-80cb-0017a47871b2"
+                         answerLabels="Improved,Worsened,Stationnary,Deceased,Lost to follow up"
+                         conceptId="558bb96a-66ca-443c-8c56-c15667b0812c" style="radio" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>- What to do:</td>
+            </tr>
+            <tr>
+                <td>
+                    <obs cols="30" conceptId="4044b850-32da-4689-bb59-107fdacfb470" rows="3" style="textarea" />
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <div class="pages" id="page18">
+            <li>
+                <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold; color:white;">O. Observations</a>
+            </li>
+        </div>
+        <table class="baseline-aligned" id="tb18" style="display:none">
+            <tr>
+                <td>
+                    <obs cols="30" conceptId="6602a73b-b8d3-40bc-bae8-f00ff3b9cceb" rows="3" style="textarea" />
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm">
+                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                            style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+</htmlform>

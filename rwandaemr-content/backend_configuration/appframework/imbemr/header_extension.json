@@ -1,0 +1,20 @@
+[
+    {
+        "id": "rwandaemr.headerConfig",
+        "extensionPointId": "org.openmrs.module.appui.header.config",
+        "type": "config",
+        "extensionParams": {
+            "custom-provider": "rwandaemr",
+            "custom-fragment": "header",
+            "logo-icon-url": "/ms/uiframework/resource/file/configuration/globalresources/images/rwandaLogo.png"
+        }
+    },
+    {
+        "id": "coreapps.patientHeader.secondLineFragments.stickyNote",
+        "extensionPointId": "patientHeader.secondLineFragments",
+        "extensionParams": {
+            "provider": "coreapps",
+            "fragment": "stickyNote"
+        }
+    }
+]

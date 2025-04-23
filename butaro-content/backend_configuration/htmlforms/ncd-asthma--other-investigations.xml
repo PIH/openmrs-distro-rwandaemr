@@ -1,0 +1,318 @@
+<htmlform 
+	htmlformUuid="8ae47596-9733-41bb-aa64-3d9f5a865ac0" 
+	formUuid="27dd3e4a-ff4f-48a3-913c-415616616ca1" 
+	formName="NCD Asthma: other investigations" 
+	formDescription="The other investigations for Asthma patient" 
+	formVersion="0.1" 
+	formEncounterType="820004cd-5f2b-40a9-bf26-bf6f5a945790" 
+	formPublished="false"
+	formRetired="false"
+>
+    <!-- Heart Failure flowsheet:  Other Investigation
+         written by jberchmas
+         -->
+    <macros>
+        @STUDY@=3ce1c90e-26fe-102b-80cb-0017a47871b2
+        @RESULTS@=3ce1ca8a-26fe-102b-80cb-0017a47871b2
+        @DATE_OF_RETURNED_RESULT@ = c19867c0-fec9-404c-bf25-6cf7a8c54eb7
+        @AFB_results@ = 00f6aecd-813c-4676-a354-d50cd73f21e1
+        @CXR_Results@ = 8f33541b-fb0e-4a0d-9b4c-9deecfcb2237
+        @OTHER_LAB_TEST_RESULT@ = 3ce1ca8a-26fe-102b-80cb-0017a47871b2
+        @DATE_OF_LABORATORY_TEST@ = bbeb58d7-63ba-4d7b-ac5b-4f72d3985888
+        @dates_group@ = b982a38b-9a3a-4445-b59d-f8d58fa58f47
+        @AFB_SPUTU_SMEAR@ = 3cda584a-26fe-102b-80cb-0017a47871b2
+        @POSITIVE@ = 3cd3a7a2-26fe-102b-80cb-0017a47871b2
+        @NEGATIVE@ = 3cd28732-26fe-102b-80cb-0017a47871b2
+        @UNKNOWN@ = 3cd6fac4-26fe-102b-80cb-0017a47871b2
+        @forced_vital_capacity@ = d8e7de46-d107-424d-a92e-289b61c991f8
+        @forced_expiratory_volume_in_one_second@ = 9a2c82fb-517a-4785-84e5-cb1f444c81c2
+        @FVC1_TO_FVC_ratio@ = da7bf1ef-7170-4a4b-98de-0ad186ef3671
+        @CHEST_XRAY@ = 3ccc6186-26fe-102b-80cb-0017a47871b2
+        @CHEST_XRAY@ = 3ccc6186-26fe-102b-80cb-0017a47871b2
+        @PULMONARY_EFFUSION@ = 3cd771ac-26fe-102b-80cb-0017a47871b2
+        @MILIARY_CHANGES@ = 3cd7733c-26fe-102b-80cb-0017a47871b2
+        @EVIDENCE_OF_CARDIAC_ENLARGEMENT@ = 3ce9d4be-26fe-102b-80cb-0017a47871b2
+        @INFILTRATE@ = 3cf2e4d2-26fe-102b-80cb-0017a47871b2
+        @DIFFUSE_NON-MILIARY_CHANGES@ = 3cf2e734-26fe-102b-80cb-0017a47871b2
+        @CAVITARY_LESION@ = 3cf2ebda-26fe-102b-80cb-0017a47871b2
+        @FIBROSIS@ = 3ce439be-26fe-102b-80cb-0017a47871b2
+        @LYMPHADENOPATHY@ = 3cce4c76-26fe-102b-80cb-0017a47871b2
+        @CAVITY@ = 3ce43842-26fe-102b-80cb-0017a47871b2
+        @PNEUMONOTHORAX@ = 3ce43b3a-26fe-102b-80cb-0017a47871b2
+        @INDETERMINATE@ = 3cd774d6-26fe-102b-80cb-0017a47871b2
+        @PNEUMOTHORAX@ = 3ce603a2-26fe-102b-80cb-0017a47871b2
+        @SEVERE@ = 3cdefc92-26fe-102b-80cb-0017a47871b2
+        @MODERATE@ = 3cdef832-26fe-102b-80cb-0017a47871b2
+        @A_LITTLE_BIT@ = 3cdf0106-26fe-102b-80cb-0017a47871b2
+        @LARGE@ = 1b8d3cfc-1a36-4a8e-8dbd-47da53a54bee
+        @SMALL@ = c01fdf9e-b32b-4f18-b1ee-97db3e7dbd78
+        @Xrays@ = 3723fd15-2e30-477d-9488-5cfd78bd790c
+        @NORMAL@ = 3cd750a0-26fe-102b-80cb-0017a47871b2
+        @OTHER_NON-CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
+    </macros>
+    <style>
+        th.tableHeader {
+        background-color: #009d8e;
+        color: #FFFFFF;
+        font-size: 16px;
+        text-align: left;
+        }
+        .sectionHeader { background-color: #009d8e;
+        color: white; display: block; padding: 2px; font-weight:bold; }
+        ul {
+        list-style-type: square;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        }
+
+        tr.spaceUnder>td {
+        padding-bottom: 1em;
+        }
+
+        td {
+        font-size: 15px;
+        }
+
+        #container {
+        
+        margin: auto;
+        
+        height: auto;
+        }
+
+        @media print {
+        #container {
+        display: none;
+        }
+
+        #printArea {
+        display: block;
+        }
+
+        #userBar {
+        display: none;
+        }
+
+        #banner {
+        display: none;
+        }
+
+        #footer {
+        display: none;
+        }
+
+        #htmlFormEntryBanner {
+        display: none;
+        }
+
+        .error {
+        display: none;
+        }
+
+        .lables {
+        width: 200px;
+        }
+
+        table {
+        width: 100%;
+        }
+
+        table,td,th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        }
+
+        th {
+        text-align: left;
+        background-color: #D9D9D9;
+        font-size: 10px;
+        }
+
+        td {
+        font-size: 10px;
+        }
+
+        .selectedCancerStagingKeys {
+        page-break-before: always;
+        border: 0px;
+        }
+
+        table.selectedCancerStagingKeys td {
+        border: 0px;
+        }
+
+        #signature {
+        border: none;
+        }
+        #signature td {
+        border: none;
+        }
+        }
+
+        @media screen {
+        table {
+        border: 1px solid #DFDFDF;
+        width: 100%;
+        border-color: #009d8e;
+        }
+
+        #container {
+        display: block;
+        }
+
+        #printArea {
+        display: none;
+        }
+        }
+    </style>
+    <script type="text/javascript">
+        $j(document).ready(function() {
+
+            var ratio;
+            getField('fvc.value').change(function() {
+            var fvc = getValue("fvc.value");
+            var fev1 = getValue("fev1.value");
+            if(fvc!="" &amp;&amp; fev1!=""){
+                ratio = fev1/fvc
+                setValue('ratio.value',ratio);
+                //$j('#ratio').html(ratio);
+                //$j('#ratio').show();
+            }
+            });
+            getField('fev1.value').change(function() {
+            var fvc = getValue("fvc.value");
+            var fev1 = getValue("fev1.value");
+            if(fvc!="" &amp;&amp; fev1!=""){
+                ratio = fev1/fvc
+                setValue('ratio.value',ratio);
+                //$j('#ratio').html(ratio);
+                //$j('#ratio').show();
+            }
+            });
+
+
+        });
+    </script>
+    <table cellspacing="0" cellpadding="6" width="100%">
+        <tr>
+            <td><img src="/openmrs/moduleResources/mohbilling/images/rwanda-logo.jpg" align="left"
+                     height="65" ></img>
+                <b>REPUBLIC OF RWANDA
+                    <br />MINISTRY OF HEALTH</b>
+            </td>
+            <td><strong>ANTECENDENTS/</strong> PAST HISTORY <br/>
+                <b> IMB ID: <lookup class="value"
+                                    expression="patientIdentifiers.get(&quot;IMB ID&quot;)" /> <lookup class="value"
+                                                                                                       expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" /></b>
+                <br/>
+                Nom / Last name: <lookup class="value" expression="patient.personName.familyName" />
+                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                Prénom/ First name: <lookup class="value" expression="patient.personName.givenName" />
+            </td>
+        </tr>
+        <tr>
+            <td>Clinique / Clinic: <encounterLocation />
+            </td>
+            <td>Date: <encounterDate id="encounterDate" default="today" /> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                Provider:<encounterProvider id="encounterProvider"
+                                            role="Provider" default="currentUser"/>
+            </td>
+        </tr>
+    </table>
+
+    <section headerLabel=" AUTRE INVESTIGATIONS / OTHER INVESTIGATION" >
+        <table border="1" width="100%">
+            <tr>
+                <td>Etude / Study</td>
+                <td>Date requested</td>
+                <td>Résultats / Results</td>
+            </tr>
+
+            <tr>
+                <td><strong>Crachats</strong><br/>/Sputum smear for AFB</td>
+                <obsgroup groupingConceptId="$@dates_group@">
+                    <td><obs conceptId="$@DATE_OF_LABORATORY_TEST@" allowFutureDates="true"/></td>
+                </obsgroup>
+                <td>
+                    <obs conceptId="$@AFB_SPUTU_SMEAR@" answerConceptIds="$@POSITIVE@,$@NEGATIVE@,$@UNKNOWN@"
+                         answerLabels="POSITIVE,NEGATIVE,UNKNOWN" style="radio" showDate="true" allowFutureDates="true"/>
+                    <!--
+                    <obs conceptId="$@AFB_results@" rows="2" cols="60" dateLabel="Date" showDate="true" allowFutureDates="true"/>
+                    -->
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Cliche du thorax</strong>/CXR</td>
+                <obsgroup groupingConceptId="$@dates_group@">
+                    <td><obs conceptId="$@DATE_OF_LABORATORY_TEST@" allowFutureDates="true"/></td>
+                </obsgroup>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>
+                                <obs conceptId="$@CHEST_XRAY@" answerConceptId="$@NORMAL@" answerLabel="NORMAL" style="radio"/>
+                            </td>
+                            <td>
+                                <obs conceptId="$@CHEST_XRAY@" answerConceptIds="$@PULMONARY_EFFUSION@,$@MILIARY_CHANGES@,
+                                                        $@EVIDENCE_OF_CARDIAC_ENLARGEMENT@,$@INFILTRATE@,$@DIFFUSE_NON-MILIARY_CHANGES@,$@CAVITARY_LESION@,
+                                                        $@FIBROSIS@,$@LYMPHADENOPATHY@,$@CAVITY@,$@PNEUMONOTHORAX@,$@INDETERMINATE@,$@PNEUMOTHORAX@,$@SEVERE@,
+                                                        $@MODERATE@,$@A_LITTLE_BIT@,$@LARGE@,$@SMALL@,$@UNKNOWN@,$@OTHER_NON-CODED@" style="radio"/>
+                                <obs conceptId="$@Xrays@"/>
+                            </td>
+
+                        </tr>
+                    </table>
+                    <!--
+                    <obs conceptId="$@CXR_Results@" rows="2" cols="60"  dateLabel="Date" showDate="true" allowFutureDates="true"/>
+                    -->
+                </td>
+
+            </tr>
+            <tr>
+
+                <td><strong>spirometry</strong></td>
+                <obsgroup groupingConceptId="$@dates_group@">
+                    <td><obs conceptId="$@DATE_OF_LABORATORY_TEST@" allowFutureDates="true"/></td>
+                </obsgroup>
+                <td>
+
+                    FVC :
+                    <obs conceptId="$@forced_vital_capacity@" id="fvc"/> % <br/>
+                    FEV1:
+                    <obs conceptId="$@forced_expiratory_volume_in_one_second@" id="fev1"/>% <br/>
+                    Ratio:
+                    <ifMode mode="ENTER">
+                    <obs conceptId="$@FVC1_TO_FVC_ratio@" id="ratio"/> FEV1/FVC
+                    </ifMode>
+                    <ifMode mode="VIEW">
+                        <obs conceptId="$@FVC1_TO_FVC_ratio@" id="ratio"/> FEV1/FVC
+                    </ifMode>
+                    <ifMode mode="EDIT">
+                        <obs conceptId="$@FVC1_TO_FVC_ratio@" id="ratio"/> FEV1/FVC
+                    </ifMode>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <strong>Others</strong>
+                    <br/>
+                    <obs conceptId="$@STUDY@" />
+                </td>
+                <obsgroup groupingConceptId="$@dates_group@">
+                    <td><obs conceptId="$@DATE_OF_LABORATORY_TEST@" allowFutureDates="true"/></td>
+                </obsgroup>
+                <td><obs conceptId="$@OTHER_LAB_TEST_RESULT@" rows="2" cols="60" dateLabel="Date" showDate="true" allowFutureDates="true"/></td>
+            </tr>
+
+        </table>
+    </section>
+
+    <br />
+    <center>
+        <submit />
+    </center>
+    <br />
+
+</htmlform>
+

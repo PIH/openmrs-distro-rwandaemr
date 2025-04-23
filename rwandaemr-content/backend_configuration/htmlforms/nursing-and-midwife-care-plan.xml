@@ -1,0 +1,282 @@
+<htmlform htmlformUuid="4f117600-da0d-4ea5-a7dc-5dca83ac4784" formUuid="b83778af-3d64-45fb-b0ed-5d4ada7bdde6"
+          formName="Nursing and Midwife care plan" formDescription="Midwife care plan" formVersion="1.0"
+          formEncounterType="939aec82-b53b-4651-8ba1-4cc52126102f" formPublished="${trueIfRwinkwavu}" formRetired="false">
+
+    <macros>
+        paperFormId = Flow-DM-RW.V2.0.akb.15May09
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+
+        @Motivation_Of_Drug_Prescription@ = 4ac07e09-570c-497b-8b9a-639cdedbe2df
+        @RWANDA_INSURANCE_NUMBER@ = 5775fd72-b120-40e1-84a4-a2554a781bb2
+        @RWANDA_INSURANCE_TYPE@ = 8da67e73-776c-43f6-9758-79d1f6786db3
+        @Insurance_Beneficiary_Names@ = b2783c61-6ff2-4964-bbb8-3440b30ed954
+        @BENEFICIALY_INSURANCE_NUMBER@ = b4bf4d52-ae92-4d8f-b7f0-3c99c521a568
+        @GENERAL_DRUG_FREQUENCY@ = 5e152a81-8635-41d6-aef2-2527a5f584f3
+        @Other_Drugs@ = aaa7aeff-c1cc-4c34-befc-0821c7f5e2e0
+        @Date_of_Ordonance@ = 65ef339a-801c-4f43-ad3e-ef4913d23e70
+
+
+    </macros>
+    <style>
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+    </style>
+
+
+    <h1>NURSING / MIDWIFE CARE PLAN</h1>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION">
+        <div class="section-container">
+            <table style="table-layout: fixed;">
+                <tr>
+                    <td>
+                        Date:
+                        <encounterDate default="today" />
+                    </td>
+                    <td>
+                        Health Facility:
+                        <encounterLocation id="location" default="GlobalProperty:registration.defaultLocationCode" />
+                    </td>
+                    <td>
+                        Provider:
+                        <encounterProvider default="currentUser" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Nursing care plan">
+        <div class="section-container">
+            <table cellspacing="0" cellpadding="6" style="table-layout: fixed;" width="100%">
+                <tr class="strong">
+                    <th>Date/Time</th>
+                    <th>Nursing assessment</th>
+                    <th>Nursing Diagnosis</th>
+                    <th>Nursing Goal</th>
+                    <th>Nursing Intervention</th>
+                    <th>Nursing Outcome</th>
+                </tr>
+                <obsgroup groupingConceptId="61d862a5-1cb7-4d97-a32c-b4a774b2dab7">
+                    <tr>
+                        <td>
+                            <p>
+                                <obs conceptId="91f417a4-2942-4f7c-90de-70ca5a135f79" allowFutureDates="true"/>
+
+                            </p>
+                        </td>
+
+                        <td>
+                            <p>
+                                <obs conceptId="d028e520-c49d-4a99-a048-802d0d48af61" style="textarea" rows="2"
+                                     cols="20" />
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <obs conceptId="1fe24902-2b62-4461-b2e7-a0fb76fc2970" style="textarea" rows="3"
+                                     cols="20" />
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <obs conceptId="7a122ee2-039e-463b-92df-48fc3dd6ca5f" style="textarea" rows="3"
+                                     cols="20" />
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <obs conceptId="96cd0d39-6a27-4691-b2d4-5d33a092c16c" style="textarea" rows="3"
+                                     cols="20" />
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <obs conceptId="ccfca656-fa58-4c4f-a9df-2dbc6801e4a0" style="textarea" rows="3"
+                                     cols="20" />
+                            </p>
+                        </td>
+                    </tr>
+                </obsgroup>
+            </table>
+        </div>
+    </section>
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm right">
+                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                            style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+
+</htmlform>

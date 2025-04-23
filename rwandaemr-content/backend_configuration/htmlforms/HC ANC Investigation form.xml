@@ -1,0 +1,373 @@
+<htmlform
+        formDescription="Form	HC ANC Investigation Form"
+        formEncounterType="a703372d-28b7-4831-9817-ee385c8c47d8"
+        formName="Form	HC ANC Investigation Form"
+        formPublished="true"
+        formRetired="false"
+        formUuid="be018113-5a84-4876-ada2-8a0fe051be99"
+        formVersion="1.0"
+        htmlformUuid="b8951fbc-5f91-47aa-95e9-df286c04cfec"
+>
+    <macros>
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+    </macros>
+    <style>
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+    </style>
+
+
+    <!--th><b>PAGE 1</b></th-->
+
+    <includeIf velocityTest="$patient.gender == 'F' ">
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION">
+            <div class="section-container">
+
+
+                <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                    <tr>
+                        <td>
+                            Date:
+                            <encounterDate default="today"/>
+                        </td>
+                        <td>
+                            Health Facility:
+                            <encounterLocation id="location" default="GlobalProperty:billing.defaultLocation" />
+                        </td>
+                        <td>
+                            Provider:
+                            <encounterProvider default="currentUser" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <div class="pageHead"><h4 id="page3id">D. LABORATORY EXAMS</h4></div>
+
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="LABORATORY EXAMS">
+            <div class="section-container">
+
+                <table class="baseline-aligned">
+
+                    <tr>
+                        <td class="lblcolor">ANC Contact</td>
+                        <td class="flexView">
+                            <obs conceptId="cabf0c04-7d4e-4db4-921c-d5ba90f00fc9" required="true" />
+
+                        </td>
+                    </tr>
+                </table>
+                <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Urinary test">
+                    <table class="baseline-aligned">
+                        <tr>
+                            <td class="lblcolor">Glucosuria</td>
+                            <td class="side-by-side" >
+                                <obs conceptId="2b1261a0-7fd4-4211-bd8c-1880c99710d7" answerConceptIds="6d0d2e97-deca-4b4d-97df-1c5d9c22d768,2f08b055-afff-48cb-a0f6-c34eb9080aca,8c1147d0-2dac-4a0b-9b58-56f0cead6ad3,664" style="radio" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Proteinuria</td>
+                            <td class="side-by-side">
+                                <obs conceptId="7117a4ce-2bab-4162-bf63-cb7675b5d75d" answerConceptIds="6d0d2e97-deca-4b4d-97df-1c5d9c22d768,2f08b055-afff-48cb-a0f6-c34eb9080aca,8c1147d0-2dac-4a0b-9b58-56f0cead6ad3,664" style="radio"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Urinalysis(ECBU)</td>
+                            <td class="flexView">
+                                <obs conceptId="3ccf43b0-26fe-102b-80cb-0017a47871b2"  />
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+                <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Blood analysis">
+                    <table class="baseline-aligned">
+                        <tr>
+                            <td><b> Full Blood Count</b></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">WBC</td>
+                            <td ><obs conceptId="3cd2a906-26fe-102b-80cb-0017a47871b2"/></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">RBC</td>
+                            <td ><obs conceptId="3cd2ab40-26fe-102b-80cb-0017a47871b2"/></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Hb</td>
+                            <td ><obs conceptId="3ccc7158-26fe-102b-80cb-0017a47871b2"/></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Plt</td>
+                            <td ><obs conceptId="3cd3d038-26fe-102b-80cb-0017a47871b2"/></td>
+                        </tr>
+                        <tr>
+                            <td ><b>Blood type and Rhesus</b></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Blood group and Rhesus</td>
+                            <td class="side-by-side"><obs conceptId="3ccf4090-26fe-102b-80cb-0017a47871b2" answerConceptIds="3cd392b2-26fe-102b-80cb-0017a47871b2,3cd39686-26fe-102b-80cb-0017a47871b2,3cd39988-26fe-102b-80cb-0017a47871b2,3cd39ca8-26fe-102b-80cb-0017a47871b2,3cd3a144-26fe-102b-80cb-0017a47871b2,3cd3a464-26fe-102b-80cb-0017a47871b2,3cd8f716-26fe-102b-80cb-0017a47871b2,3cd8f8b0-26fe-102b-80cb-0017a47871b2" answerCodes ="A+ ,A-, B+, B-,O+,O-,AB+,AB-" style="radio" /></td>
+                        </tr>
+                        <tr>
+                            <td ><b>RPR </b></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">RPR Mother Results</td>
+                            <td class="side-by-side"><obs conceptId="3cdb36f2-26fe-102b-80cb-0017a47871b2" answerConceptIds="664,703,1118" answerCodes ="Negative(No-Reactive),Positive(Reactive),Not Done" style="radio"/></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">If Not done why?</td>
+                            <td ><obs conceptId="a332d896-b3d5-4987-b61d-f6fe1bfbcff8"/></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Partner RPR Result</td>
+                            <td class="side-by-side"> <obs conceptId="2e6e3f3e-32ac-4919-b62a-d0e19708a3eb" answerConceptIds="664,703,1118" answerCodes ="Negative(No-Reactive),Positive(Reactive),Not Done" style="radio"/></td>
+                        </tr>
+                        <tr>
+                            <td><b>HIV Test </b> </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Mother HIV Test results</td>
+                            <td class="side-by-side"> <obs conceptId="3ce17cec-26fe-102b-80cb-0017a47871b2" answerConceptIds="664,703,3083" answerCodes ="Negative,Positive,No tested" style="radio"/></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">If No tested why?</td>
+                            <td ><obs conceptId="ec6d136f-3afa-422c-8cca-933d61ba5d61"/></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Partner HIV Test Results</td>
+                            <td class="side-by-side"> <obs conceptId="34e08543-a000-4e8b-bd9c-435a1c15d1c2" answerConceptIds="664,703,3083" answerCodes ="Negative,Positive,No tested" style="radio"/></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">If No tested why?</td>
+                            <td ><obs conceptId="ec6d136f-3afa-422c-8cca-933d61ba5d61"/></td>
+                        </tr>
+                        <tr>
+                            <td ><b>Malaria </b> </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Malaria Test Results</td>
+                            <td class="side-by-side"><obs conceptId="1bcce0cd-5a65-425a-bad2-740f28530ece" style="radio"/></td>
+                        </tr>
+                        <tr>
+                            <td><b>Hepatite B </b> </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Hepatite B Test Results</td>
+                            <td  class="side-by-side"><obs conceptId="622e11d3-1055-4e12-b787-da6434a595aa" style="radio"/></td>
+                        </tr>
+                        <tr>
+                            <td><b>Hepatite C </b> </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Hepatite C Test Results</td>
+                            <td class="side-by-side"><obs conceptId="25fb16c5-3edd-4a4a-91cc-485064d64a50" style="radio"/></td>
+                        </tr>
+                        <tr>
+                            <td><b>Glycemia Result</b> </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Glycemia</td>
+                            <td ><obs conceptId="3cd4e194-26fe-102b-80cb-0017a47871b2" /></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Final Clinical impression</td>
+                            <td ><obs conceptId="6602a73b-b8d3-40bc-bae8-f00ff3b9cceb" style="textarea" rows="3" cols="30" /></td>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+        </section>
+
+
+        <ifMode mode="VIEW" include="false">
+            <div id="buttons">
+
+                <button id="submit" class="submitButton confirm">
+                    <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                                style="display: none; margin-left: 10px;"></i>
+                </button>
+                <button id="cancel" type="button" class="cancel">
+                    <uimessage code="emr.cancel" />
+                </button>
+            </div>
+        </ifMode>
+    </includeIf>
+    <includeIf velocityTest="$patient.gender == 'M' ">
+        <section headerLabel="Invalid Patient Message">
+            <table border="0" width="100%">
+                <tr><td>This Form Is Only Filled For Female Patients:</td>
+                </tr>
+            </table>
+        </section>
+    </includeIf>
+</htmlform>

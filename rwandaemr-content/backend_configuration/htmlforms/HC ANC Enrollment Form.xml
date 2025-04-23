@@ -1,0 +1,978 @@
+<htmlform
+        formDescription="HC ANC Enrollment Form	"
+        formEncounterType="a703372d-28b7-4831-9817-ee385c8c47d8"
+        formName="HC ANC Enrollment Form"
+        formPublished="true"
+        formRetired="false"
+        formUuid="867408ee-3b46-46ee-951f-aa521c47ec0f"
+        formVersion="1.0"
+        htmlformUuid="d0a2dd34-2abd-420c-a83e-11af80d7b65d">
+    <macros>
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+    </macros>
+    <style>
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+    </style>
+
+    <translations defaultLocale="en">
+
+        <code name="duration_week">
+
+            <variant locale="en" value="Duration of pregnancy (week)"/>
+        </code>
+        <code name="hd_currentprobl">
+            <variant locale="en" value="CURRENT PROBLEMS"/>
+            <variant locale="fr" value="PROBLÈMES ACTUELS"/>
+        </code>
+        <code name="urinary_infection">
+            <variant locale="en" value="Signs suggestive of urinary infections"/>
+            <variant locale="fr" value="Signes évocateurs d'infections urinaires"/>
+        </code>
+        <code name="abdominal_pains">
+            <variant locale="en" value="Abdominal pains"/>
+            <variant locale="fr" value="Douleurs abdominales"/>
+        </code>
+        <code name="fever_history">
+            <variant locale="en" value="Fever"/>
+            <variant locale="fr" value="Fièvre"/>
+        </code>
+        <code name="cough_hystory">
+            <variant locale="en" value="Cough"/>
+            <variant locale="fr" value="La toux"/>
+        </code>
+        <code name="pv_bleeding">
+            <variant locale="en" value="PV Bleeding"/>
+            <variant locale="fr" value="Saignement PV"/>
+        </code>
+        <code name="pv_discharge">
+            <variant locale="en" value="PV Discharge"/>
+            <variant locale="fr" value="Décharge PV"/>
+        </code>
+        <code name="baby_mooving">
+            <variant locale="en" value="Baby moving (after 4 months)"/>
+            <variant locale="fr" value="Bébé bouge (après 4 mois)"/>
+        </code>
+        <code name="tetanus_vaccine">
+            <variant locale="en" value="Tetanus vaccine"/>
+            <variant locale="fr" value="Vaccin contre le tétanos"/>
+        </code>
+        <code name="tobaco_alcohol_drug">
+            <variant locale="en" value="Tobacco Alcohol and Drug Abuse"/>
+            <variant locale="fr" value="Abus de tabac et d'alcool"/>
+        </code>
+
+
+        <code name="hd_preg_history">
+            <variant locale="en" value="PREGNANCY HISTORY"/>
+            <variant locale="fr" value="HISTORIQUE DE LA GROSSESSE"/>
+        </code>
+        <code name="recurrent_abortions">
+            <variant locale="en" value="Recurrent abortions"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="premature_deliveries">
+            <variant locale="en" value="Premature deliveries "/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="still_births">
+            <variant locale="en" value="Still births/death immediately after birth "/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="postpartum_haemorrhage">
+            <variant locale="en" value="Postpartum haemorrhage in the past"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="previous_retained">
+            <variant locale="en" value="Previous retained placenta"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="C/sections">
+            <variant locale="en" value="C/sections"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="ruptured_uterus">
+            <variant locale="en" value="Ruptured uterus"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="pre/eclampsia">
+            <variant locale="en" value="Pre/Eclampsia"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="Multipara_pregnancy">
+            <variant locale="en" value="Multipara pregnancy (> 6 pregnancies) "/>
+            <variant locale="fr" value="fr"/>
+        </code>
+
+
+        <code name="hd_health_history">
+            <variant locale="en" value="HEALTH HISTORY"/>
+            <variant locale="fr" value="HISTORIQUE DE LA SANTÉ"/>
+        </code>
+
+        <code name="myomectomy">
+            <variant locale="en" value="Previous operations like myomectomy "/>
+            <variant locale="fr" value="fr"/>
+        </code>
+
+        <code name="DIABETES_MELLITUS">
+            <variant locale="en" value="Diabetes Mellitus  ( DM) "/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="ASTHMA">
+            <variant locale="en" value="Still births/death immediately after birth "/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="HEART_DISEASE">
+            <variant locale="en" value="Heart diseases"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="RENAL_DISEASE">
+            <variant locale="en" value="Renal diseases "/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="Cancer">
+            <variant locale="en" value="Cancer patient"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="TUBERCULOSIS">
+            <variant locale="en" value="TB (If taking anti-tuberculosis drugs)"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="HIV_INFECTED">
+            <variant locale="en" value="HIV (if under HIV treatement)"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="SEXUALLY_TRANSMITTED_INFECTION">
+            <variant locale="en" value="STI ( if as other STI diagnosed)"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="hd_family_planing">
+            <variant locale="en" value="FAMILY PLANING NETHOD USED BEFORE ( ANC1,2,3,4)"/>
+            <variant locale="fr" value="METHODE DE PLANIFICATION FAMILIALE UTILISEE AVANT"/>
+        </code>
+        <code name="Birthdate">
+            <variant locale="en" value="Birthdate"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="Which_methods">
+            <variant locale="en" value="Which methods"/>
+            <variant locale="fr" value="fr"/>
+        </code>
+
+        <code name="Methods_do_you_plan">
+            <variant locale="en" value="What do you plan to use "/>
+            <variant locale="fr" value="fr"/>
+        </code>
+        <code name="itbn">
+            <variant locale="en" value="ITBN  ( insecticide Treated Bed Net)  "/>
+            <variant locale="fr" value="ITBN  ( insecticide Treated Bed Net)  "/>
+        </code>
+    </translations>
+
+
+    <script type="text/javascript">
+        var $j = jQuery.noConflict();
+
+        $j(document).ready(function () {
+        // Listen for changes in the LMP field
+        getField('lmp.value').change(function () {
+        var mp = getValue('lmp.value'); // Get the LMP value
+        if (!mp) return; // Exit if no LMP is entered
+
+        var lmpDate = new Date(mp); // Convert LMP to a Date object
+
+        // Calculate EDD: Add 1 year, subtract 3 months, add 7 days
+        var eddDate = new Date(lmpDate);
+        eddDate.setFullYear(eddDate.getFullYear() + 1);
+        eddDate.setMonth(eddDate.getMonth() - 3);
+        eddDate.setDate(eddDate.getDate() + 7);
+
+        // Update the EDD field
+        var eddFormatted = eddDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+        setValue('dd.value', eddFormatted);
+
+        // Calculate gestational age (weeks and days)
+        var today = new Date();
+        var diffInMs = today - lmpDate; // Difference in milliseconds
+        var diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24)); // Convert to days
+
+        if (diffInDays &lt; 0) {
+        setValue('wkId.value', 0);
+        setValue('dayId.value', 0);
+        return;
+        }
+
+        var weeks = Math.floor(diffInDays / 7); // Calculate completed weeks
+        var days = diffInDays % 7; // Remaining days
+
+        // Calculate remaining weeks until 36 weeks (if needed)
+        var remainingWeeks = 36 - weeks;
+        if (remainingWeeks &lt; 0) remainingWeeks = 0;
+
+        // Update gestational age fields
+        setValue('wkId.value', weeks); // Completed weeks
+        setValue('dayId.value', days); // Remaining days within the current week
+
+        // Optional: Display a message
+        var message = weeks + " weeks and " + days + " days gestational age.";
+        $j('#wkmsg').text(message).css('color', 'blue').css("font-weight", "Bold");
+        });
+        });
+    </script>
+
+    <script type="text/javascript">
+        if(jQuery){
+        $j(document).ready(function(){
+        $j(".checkboxGroup").each(function(){
+        var group = $j(this);
+        var uncheckAll = function(){
+        group.find("input[type$='checkbox']").attr("checked",false);
+        group.find("input[type$='checkbox']").change();
+        }
+        var uncheckRadioAndAll = function(){
+        group.find("#checkboxAll,#checkboxRadio").find("input[type$='checkbox']").attr("checked",false);
+        group.find("#checkboxAll,#checkboxRadio").find("input[type$='checkbox']").change();
+        }
+        group.find("#checkboxRadio").find("input[type$='checkbox']").click(function(){
+        uncheckAll();
+        $j(this).siblings("input[type$='checkbox']").attr("checked",false);
+        $j(this).attr("checked",true);
+        $j(this).change();
+        });
+        });
+
+        $j('input[type=radio]').change(function() {
+        // Find the associated textarea based on the name attribute of the radio button
+        var textarea = $j(this).closest('td').find('textarea');
+
+        // Update the textarea value based on the selected radio button value
+        if ($j(this).val() === 'normal') {
+        textarea.val('Normal');
+        } else if ($j(this).val() === 'abnormal') {
+        textarea.val('Abnormal because:');
+        }
+        });
+        });
+        }
+    </script>
+
+    <script type="text/javascript">
+        var $ = jQuery.noConflict();
+        $j(document).ready(function(){
+
+        $j('.submitButton').val('Save Form');
+
+        var patientage = <lookup expression="patient.age"/>
+        if(patientage &lt; 18 ){
+        $j('#message').text('This patient is under 18 years old should deliver in hospital ' ).css('color','red').css(
+        "font-weight","Bold");
+        //$j('#dangertd').css('background-color','red');
+        } else{
+
+        $j('#message').text('   ').css('color','red').css("font-weight","Bold");
+        //$j('#dangertd').css('background-color','white');
+        }
+
+        });
+    </script>
+
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateOPDAdmissionOnHtmlFormSubmissionAction"/>
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateBillOnHtmlFormSubmissionAction"/>
+
+
+    <!--th><b>PAGE 1</b></th-->
+
+    <includeIf velocityTest="$patient.gender == 'F' ">
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION">
+            <div class="section-container">
+
+
+                <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                    <tr>
+                        <td>
+                            Date:
+                            <encounterDate default="today"/>
+                        </td>
+                        <td>
+                            Health Facility:
+                            <encounterLocation id="location" default="GlobalProperty:billing.defaultLocation" />
+                        </td>
+                        <td>
+                            Provider:
+                            <encounterProvider default="currentUser" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="ADMISSION INFO">
+            <div class="section-container">
+                <p class="flexView">
+                    <b>Insurance:</b> <font color="green">
+                    <lookup expression="fn.latestObs(6741).getValueText()"/>(Reg. Date:<lookup expression="fn.latestObs(6741).obsDatetime"/>)</font>
+                </p>
+                <p class="flexView">
+                    <b>Desease Type:</b><obs conceptId="90029723-7058-40bd-b20a-e369524cb355" required="true"/>
+                </p>
+                <p class="flexView">
+                    <b>Consultation Type:</b>
+                    <obs conceptId="d6dafc4b-9ad8-4467-94a9-0eca78648254" answerConceptIds="50596903-9f01-4627-9911-6bbd178790cd,29ce8244-5251-4c76-8e99-bbad280be2ef
+                    ,2554e8da-eed3-42c9-ada5-ae304b2b5587,b1ebf22b-1fa4-4538-8b07-abc33dd05ea8,433f21dc-c3be-4dc0-9e94-1ace7c8bcc66,8fee77af-6973-4e5b-b586-7a6c3ad5226b,59bb1a32-a36a-4766-b47c-eb9c580bb0ad,0d3517fd-891e-405d-b1d1-6669ad05aa9f,fecab067-fb65-4d0e-96bf-8c42dd123353,df54a8e3-cf9e-46c3-9efd-92bb5e4ef7f9,a9fc23ad-410a-4142-964b-21193ab1a8bd,50596903-9f01-4627-9911-6bbd178790cd,8bb801d8-48f8-4bbc-b3b0-3698ef1c03aa" required="true"/>
+                </p>
+                <p class="flexView">
+                    <b>Department:</b>
+                    <obs conceptId="c920931b-fa93-4e99-9e36-28e1e4c16cf7" required="true"/>
+                </p>
+            </div>
+        </section>
+
+        <h2 id="page1id">CONTACT INFORMATION,PREGNANCY &amp; DELIVERY HISTORY</h2>
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Contacts">
+            <div class="section-container">
+                <p class="small-input flexView">
+                    <obs conceptId="bbe69d90-984d-40b4-9ab5-7fe758a58aaf" required="true" labelText="ANC Contact:"/>
+                </p>
+            </div>
+        </section>
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Contact Information">
+            <div class="section-container">
+
+                <p class="radio">
+                    <b>Provenance/Catchment area:</b><br/>
+                    <obs conceptId="f8c17ed2-38e4-4010-bd10-e27c99185eb4" answerConceptId="1aa519c4-ce19-4c2f-baa4-fb9808164f47" answerCodes ="Z " style="radio"/><br/>
+                    <obs conceptId="f8c17ed2-38e4-4010-bd10-e27c99185eb4" answerConceptId="94efe7f2-9b74-4c38-b017-f77b9874d88b" answerCodes ="HZ" style="radio"/><br/>
+                    <obs conceptId="f8c17ed2-38e4-4010-bd10-e27c99185eb4" answerConceptId="a5701f65-8a41-4904-aa9c-be0a0fabcc88" answerCodes ="HD" style="radio"/>
+                </p>
+            </div>
+        </section>
+
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Complaints">
+            <div class="section-container">
+                <p>
+                    Main Complaints:
+                    <obs conceptId="3ce2b170-26fe-102b-80cb-0017a47871b2" style="textarea" rows="3" cols="30"  />
+                </p>
+            </div>
+        </section>
+
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Obstetric History">
+            <div class="section-container">
+                <p class="flexView small-input">
+                    Gravida
+                    <obs conceptId="3cee82de-26fe-102b-80cb-0017a47871b2"  id="gravidityid" />
+                </p>
+                <p class="flexView small-input">
+                    Parity
+                    <obs conceptId="3cd6dda0-26fe-102b-80cb-0017a47871b2"  id="parityid"/>
+                </p>
+                <p class="flexView small-input">
+                    Alive children
+                    <obs conceptId="90178a9f-9870-4aae-bcaf-63e956736052" id="aliveid"/>
+                </p>
+                <p class="flexView small-input">
+                    Number Of Stillbirth
+                    <obs conceptId="c7e538a1-67d0-441e-aa6a-63d11dd77a89"  id="diedkidsid" />
+                </p>
+                <p class="flexView small-input">
+                    Number Of Abortions
+                    <obs conceptId="6df78bbb-24a6-4a1d-af5a-3717ecbeb260" id="abortionid" />
+                </p>
+                <p class="flexView small-input">
+                    Number of Caesarian sections
+                    <obs conceptId="9aee29d7-8d05-4195-bca6-1eaa606fc79d" id="caesarianid" />
+                    Date  of last C/section
+                    <obs conceptId="9ed0aedc-8a3d-4874-8feb-e81b3cb92f22" />
+
+                </p>
+
+                <p class="flexView small-input">
+                    Date of Birth for last born
+                    <obs conceptId="789dabea-e83e-478a-871b-215559288746"  />
+                </p>
+                <p class="side-by-side">
+                    Last born status
+                    <obs conceptId="959030fd-ffc2-4a97-999b-2e53904218da" answerConceptIds="bf09f37f-e4b6-49cb-a272-fdd2681e9b83,face643b-036a-4ebd-b4d1-9bf59e623db3" answerCodes="Alive,Dead" style="radio" />
+                </p>
+
+                <p class="date-one-line">Last Menstrual period (LMP)
+                    <obs conceptId="968" id="lmp" labelCode=""/>
+                </p>
+                <p class="date-one-line">Expected Date of Delivery (EDD)
+                    <obs conceptId="6188" id="dd" allowFutureDates="true" labelCode=""/>
+                </p>
+
+                <p class="flexView small-input">
+                    Gestation Age
+                    <obs conceptId="d616d705-6c11-4b7f-96ec-a8c7994a07bc" id="wkId" />weeks
+                    and  <obs conceptId="a646afa3-2984-4d25-963f-b3097d3c5e64" id="dayId" />days
+                </p>
+                <p class="side-by-side">
+                    Accompanied by partner
+                    <obs id="nvisitid" conceptId="d8986fab-ab55-44d3-8ff5-b93a96b89bbd" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio">
+                        <controls>
+                            <when value="3cd6f600-26fe-102b-80cb-0017a47871b2" thenDisplay="#nvisit"/>
+                        </controls>
+                    </obs>
+                </p>
+                <p id="nvisit" class="small-input flexView">
+                    Which Contact?
+                    <obs  conceptId="3eb7e679-81ba-47a5-8b02-61cce925a9c5" />
+                </p>
+            </div>
+        </section>
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="General information of pregnant woman">
+            <div class="section-container">
+
+
+                <p class="side-by-side">
+                    Surgical history or cervical trauma or cerclage
+                    <obs conceptId="cae7a302-4013-4e98-bb3b-47d62ec3f5f7"  answerLabels="Yes,No" style="radio" />
+                </p>
+                <p class="side-by-side">
+                    History of Diabetes
+                    <obs conceptId="3ce4c50a-26fe-102b-80cb-0017a47871b2" answerConceptIds="1065,1066" answerLabels="Yes,No" style="radio"/>
+                </p>
+                <p class="side-by-side">
+                    History og Kidney problems
+                    <obs conceptId="37c267c6-fa16-46e6-a712-d92627eb8995" answerLabels="Yes,No" style="radio" />
+                </p>
+                <p class="side-by-side">
+                    History of Heart disease
+                    <obs conceptId="0761f10f-cce3-4922-af01-ebe55e6d544f"  answerLabels="Yes,No" style="radio" />
+                </p>
+                <p class="side-by-side">
+                    History of gynecological problem
+                    <obs conceptId="138959ff-59d6-4fdd-8460-f18d38a93730"  answerLabels="Yes,No" style="radio"  />
+                </p>
+                <p class="side-by-side">
+                    History of Tuberculosis
+                    <obs conceptId="5d1e684c-b8ef-4af6-8e39-df0b48557b1f" answerLabels="Yes,No" style="radio" />
+                </p>
+                <p class="side-by-side">
+                    Is she currently taking medicines
+                    <obs conceptId="ce95f875-cf86-4e3e-85ea-58261ec27561" answerConceptIds="1065,1066" answerLabels="Yes,No" style="radio" id="takeMed">
+                        <controls>
+                            <when value="1065" thenDisplay="#meds"/>
+                        </controls>
+                    </obs>
+                </p>
+                <p class="side-by-side" id="meds">
+                    If Yes, mention them
+                    <obs conceptId="4acb1a6f-e643-433c-b300-84679734cfeb" style="textarea" rows="1" cols="30" />
+                </p>
+
+                <!-- <p class="side-by-side">
+                  any medical allergies?
+                  <obs conceptId="3cdcdf84-26fe-102b-80cb-0017a47871b2" answerConceptIds="1066,1065"  answerLabels="Yes,No" style="radio" />
+                </p>
+                <p class="side-by-side">
+                  If Yes, mention them
+                  <obs conceptId="a23a5eb2-fdad-41d6-b730-098830b6cb81" style="textarea" rows="1" cols="30" />
+                </p>
+         -->
+                <p class="side-by-side">
+                    Does she take alcohol?
+                    <obs conceptId="7b22a1a1-137a-484e-8a5d-e29a4fa9f4c9" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" />
+                </p>
+                <p class="side-by-side">
+                    Does she take tobacco?
+                    <obs conceptId="b751b790-274f-4a5b-85e8-9fd297bfab40" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" />
+                </p>
+                <p class="side-by-side">
+                    History of Psychological problems
+                    <obs conceptId="269a3af1-f8d9-42de-8157-52de0f4ff53d" answerCodes="Yes,No" style="radio" />
+                </p>
+            </div>
+        </section>
+
+
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Systems review">
+            <div class="section-container">
+                <p>
+                    <label>
+                        <b>
+                            General aspect / Aspect general:
+                        </b>
+                    </label>
+                    <obs conceptId="3cd9ae0e-26fe-102b-80cb-0017a47871b2" style="textarea" rows="3" cols="30" />
+                </p>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <fieldset>
+                                <legend>
+                                    <b>Systems exams / Examens des appareils</b>
+                                </legend>
+                                <table>
+                                    <tr>
+                                        <td>PULMONARY SYSTEM</td>
+                                        <td><span> <input type="radio"
+                                                          name="normal_1" value="normal" />Normal <input
+                                                type="radio" name="normal_1" value="abnormal" />Abnormal
+                                        </span> <span id="pulmonary"> <obs conceptId="3ce15384-26fe-102b-80cb-0017a47871b2"
+                                                                           style="textarea" rows="1" cols="50"  required="true"/>
+                                        </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>CARDIOVASCULAR SYSTEM</td>
+                                        <td><span> <input type="radio"
+                                                          name="normal_2" value="normal" />Normal <input
+                                                type="radio" name="normal_2" value="abnormal" />Abnormal
+                                        </span> <span id="cardio"> <obs conceptId="3ce1567c-26fe-102b-80cb-0017a47871b2"
+                                                                        style="textarea" rows="1" cols="50"  required="true"/>
+                                        </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ABDOMINAL SYSTEM</td>
+                                        <td><span> <input type="radio"
+                                                          name="normal_3" value="normal" />Normal <input
+                                                type="radio" name="normal_3" value="abnormal" />Abnormal
+                                        </span> <span id="abdominal"> <obs conceptId="3ce157ee-26fe-102b-80cb-0017a47871b2"
+                                                                           style="textarea" rows="1" cols="50" required="true" />
+                                        </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>NEUROLOGIC SYSTEM</td>
+                                        <td><span> <input type="radio"
+                                                          name="normal_4" value="normal" />Normal <input
+                                                type="radio" name="normal_4" value="abnormal" />Abnormal
+                                        </span> <span id="neurologic"> <obs conceptId="3ce1596a-26fe-102b-80cb-0017a47871b2"
+                                                                            style="textarea" rows="1" cols="50" required="true" />
+                                        </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>MUSCULOSKELETAL SYSTEM</td>
+                                        <td><span> <input type="radio"
+                                                          name="normal_5" value="normal" />Normal <input
+                                                type="radio" name="normal_5" value="abnormal" />Abnormal
+                                        </span> <span id="musculo"> <obs conceptId="3ce15c58-26fe-102b-80cb-0017a47871b2"
+                                                                         style="textarea" rows="1" cols="50" required="true" />
+                                        </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>UROGENITAL SYSTEM</td>
+                                        <td><span> <input type="radio"
+                                                          name="normal_6" value="normal" />Normal <input
+                                                type="radio" name="normal_6" value="abnormal" />Abnormal
+                                        </span> <span id="urogenital"> <obs conceptId="3ce15f46-26fe-102b-80cb-0017a47871b2"
+                                                                            style="textarea" rows="1" cols="50" required="true" />
+                                        </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SKIN, GROWTHS, GANGLIONS</td>
+                                        <td><span> <input type="radio"
+                                                          name="normal_7" value="normal" />Normal <input
+                                                type="radio" name="normal_7" value="abnormal" />Abnormal
+                                        </span> <span id="skin"> <obs conceptId="3ce1625c-26fe-102b-80cb-0017a47871b2"
+                                                                      style="textarea" rows="1" cols="50" />
+                                        </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>PSYCHOMOTOR SYSTEM</td>
+                                        <td><span> <input type="radio"
+                                                          name="normal_8" value="normal" />Normal <input
+                                                type="radio" name="normal_8" value="abnormal" />Abnormal
+                                        </span> <span id="psychomotor"> <obs conceptId="00727a2a-821a-4d21-af08-581e04b7b279"
+                                                                             style="textarea" rows="1" cols="50"  required="true"/>
+                                        </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>HEAD, EARS,EYES,NOSE,THROAT</td>
+                                        <td><span> <input type="radio"
+                                                          name="normal_9" value="normal" />Normal <input
+                                                type="radio" name="normal_9" value="abnormal" />Abnormal
+                                        </span> <span id="hd"> <obs id="hd"
+                                                                    conceptId="d2aa91b1-3b54-4c9b-b70b-99451d486395" style="textarea" rows="1" cols="50" required="true" />
+                                        </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>NECK</td>
+                                        <td><span> <input type="radio"
+                                                          name="normal_10" value="normal" />Normal <input
+                                                type="radio" name="normal_10" value="abnormal" />Abnormal
+                                        </span> <span id="neck"> <obs id="neck"
+                                                                      conceptId="150fb48b-574a-43c3-afb7-fcff6f06170c" style="textarea" rows="1" cols="50" required="true" />
+                                        </span></td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </section>
+
+        <section  sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Clinical consideration of pregnant woman in consultation">
+            <div class="section-container">
+                <fieldset>
+                    <legend>
+                        <label><b>Previous history of pregnancy</b></label>
+                    </legend>
+                    <p class="side-by-side">
+
+                        History of premature delivery
+                        <obs conceptId="49bed4cd-cad1-4a05-bbca-69e00fc92d2a" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" id="histPrem">
+                            <controls>
+                                <when value="1065" thenDisplay="#histPremYes"/>
+                            </controls>
+                        </obs>
+                        <obs conceptId="09f6350f-c100-4dcd-b6c7-96b74bd909fa" style="textarea" rows="1" cols="30" id="histPremYes"/>
+                    </p>
+                    <p class="side-by-side">
+                        History of birth disabilities
+                        <obs conceptId="c83a2371-ce82-4d15-bf0e-9bd8a528e509" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" id="birDisa">
+                            <controls>
+                                <when value="1065" thenDisplay="#birDisaYes"/>
+                            </controls>
+                        </obs>
+                        <obs conceptId="fd1b0f52-6c97-4d6a-8a55-a78b390ad380" style="textarea" rows="1" cols="30" id="birDisaYes"/>
+
+                    </p>
+                    <p class="side-by-side">
+                        Previous cesarean section
+                        <obs conceptId="778553cf-55f8-4173-91de-08616142f17f" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio"/>
+                    </p>
+                    <p class="side-by-side">
+                        History of stillbirth or neonatal death
+                        <obs conceptId="1e154024-518d-449c-8f40-6d3965ef120d" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" id="neoDeath">
+                            <controls>
+                                <when value="1065" thenDisplay="#neoDeathYes"/>
+                            </controls>
+                        </obs>
+                        <obs conceptId="0f32b7f5-2fe1-40ca-8bf5-970aad284daf" style="textarea" rows="1" cols="30" id="neoDeathYes"/>
+
+                    </p>
+                    <p class="side-by-side">
+                        Recurrent abortion 3 times
+                        <obs conceptId="f3429526-d600-4247-b5e1-557dc7c178dc" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" id="recAbor">
+                            <controls>
+                                <when value="1065" thenDisplay="#recAborYes"/>
+                            </controls>
+                        </obs>
+                        <obs conceptId="a290dc69-8917-480a-81c8-9cd49bea9a95" style="textarea" rows="1" cols="30" id="recAborYes"/>
+
+                    </p>
+                    <p class="side-by-side">
+                        History of delivery of newborn with less than 2.5 kgs on term pregnant
+                        <obs conceptId="f8dbde0c-9915-4942-9d26-047790ce9863" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" id="lessThan">
+                            <controls>
+                                <when value="1065" thenDisplay="#lessThanYes"/>
+                            </controls>
+                        </obs>
+                        <obs conceptId="0154d21e-4d46-4211-9072-e7d281325f60" style="textarea" rows="1" cols="30" id="lessThanYes"/>
+
+                    </p>
+                    <p class="side-by-side">
+                        History of macrosomia(Birth weight>=4 kgs)
+                        <obs conceptId="891ca104-be06-4997-87cb-a40ac5a8422d" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" id="microso">
+                            <controls>
+                                <when value="1065" thenDisplay="#microsoYes"/>
+                            </controls>
+                        </obs>
+                        <obs conceptId="dd697691-0223-4841-bde7-4b7820256ab7" style="textarea" rows="1" cols="30" id="microsoYes"/>
+
+                    </p>
+                    <p class="side-by-side">
+                        History of Hypertension disorders
+                        <obs conceptId="042d3875-0e29-4d16-bc5b-8c8a40060c92" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" id="hyperDiso">
+                            <controls>
+                                <when value="1065" thenDisplay="#hypeDisoYes"/>
+                            </controls>
+                        </obs>
+                        <obs conceptId="3e4997c6-bdec-416b-9457-c08cdc9f6812" style="textarea" rows="1" cols="30" id="hypeDisoYes"/>
+
+                    </p>
+                    <p class="side-by-side">
+                        Any history of multiple pregnancy?
+                        <obs conceptId="69f193b7-9f8e-4b7d-be2c-3f82994eb44d" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" id="multPre">
+                            <controls>
+                                <when value="1065" thenDisplay="#multiPreYes"/>
+                            </controls>
+                        </obs>
+                        <obs conceptId="8082111d-da30-4501-800b-f37ca84ab7af" style="textarea" rows="1" cols="30" id="multiPreYes"/>
+
+                    </p>
+                    <p class="side-by-side">
+                        History of vaginal bleeding during pregnancy or postpartum hemorrhage
+                        <obs conceptId="e8f52434-9728-4502-b58e-2eb51256d50a" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" id="pph">
+                            <controls>
+                                <when value="1065" thenDisplay="#pphYes"/>
+                            </controls>
+                        </obs>
+                        <obs conceptId="7859f226-1ec3-4726-81b0-63123179964e" style="textarea" rows="1" cols="30" id="pphYes"/>
+
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <label>
+                            <b>information on current pregnancy</b>
+                        </label>
+                    </legend>
+
+                    <p class="side-by-side">
+                        Is women age less than or older than 35 at first pregnancy?
+                        <obs conceptId="f1f34c32-91da-449e-8456-0606741e1f01" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" id="more35">
+                            <controls>
+                                <when value="1065" thenDisplay="#more35Yes"/>
+                            </controls>
+                        </obs>
+                        <obs conceptId="5501d555-e433-4f18-a473-42c94e26b7eb" style="textarea" rows="1" cols="30" id="more35Yes"/>
+
+                    </p>
+                    <p class="side-by-side">
+                        Is she having vaginal bleeding?
+                        <obs conceptId="41ea8e8b-dd03-4d34-9859-efc3c17e5723" answerConceptIds="1065,1066" answerCodes="Yes,No" style="radio" id="vagBleed">
+                            <controls>
+                                <when value="1065" thenDisplay="#vagBleedYes"/>
+                            </controls>
+                        </obs>
+                        <obs conceptId="d727918f-7f78-4f6f-b1a4-806a44418b5a" style="textarea" rows="1" cols="30" id="vagBleedYes"/>
+
+                    </p>
+                </fieldset>
+            </div>
+        </section>
+
+
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="HIV STATUS AT ADMISSION">
+            <div class="section-container">
+                <p class="side-by-side">
+                    Mother HIV status/Results
+                    <obs conceptId="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e" answerConceptIds="3cd3a7a2-26fe-102b-80cb-0017a47871b2,3cd28732-26fe-102b-80cb-0017a47871b2,3cd6fac4-26fe-102b-80cb-0017a47871b2" answerCodes ="Positive,Negative,Unknown" style="radio" />
+                </p>
+                <p class="side-by-side">
+                    Partner HIV status/Results
+                    <obs conceptId="34e08543-a000-4e8b-bd9c-435a1c15d1c2" answerConceptIds="3cd3a7a2-26fe-102b-80cb-0017a47871b2,3cd28732-26fe-102b-80cb-0017a47871b2,3cd6fac4-26fe-102b-80cb-0017a47871b2"  answerCodes ="Positive,Negative,Unknown" style="radio" />
+                </p>
+            </div>
+        </section>
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Contraceptive Methods">
+            <div class="section-container">
+
+                <p class="side-by-side">
+                    Any Contraceptive Methods used before this pregnancy?
+                    <obs id="contrid" conceptId="6db5e961-8612-4378-9e94-66ed9b862dad"
+                         answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+                         answerCodes="Yes,No" style="radio">
+                        <controls>
+                            <when value="3cd6f600-26fe-102b-80cb-0017a47871b2" thenDisplay="#oldMeth"/>
+                        </controls>
+                    </obs>
+                </p>
+                <p id="oldMeth">
+                    <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" labelText="Modern"/>
+                    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                    <obs conceptId="b54777dc-538c-44d4-ad0b-baa38b707592" labelText="Natural"/>
+                </p>
+                <p>
+                    Contraceptive Methods needed before this pregnancy?<br/>
+                    <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" labelText="Modern"/>
+                    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                    <obs conceptId="b54777dc-538c-44d4-ad0b-baa38b707592" labelText="Natural"/>
+                </p>
+                <p class="side-by-side">
+                    Got Pregnant while using FP method?<obs id="contrid" conceptId="6db5e961-8612-4378-9e94-66ed9b862dad" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" />
+                </p>
+            </div>
+
+        </section>
+
+        <ifMode mode="VIEW" include="false">
+            <div id="buttons">
+
+                <button id="submit" class="submitButton confirm">
+                    <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                                style="display: none; margin-left: 10px;"></i>
+                </button>
+                <button id="cancel" type="button" class="cancel">
+                    <uimessage code="emr.cancel" />
+                </button>
+            </div>
+        </ifMode>
+
+    </includeIf>
+    <includeIf velocityTest="$patient.gender == 'M' ">
+        <section headerLabel="Invalid Patient Message">
+            <table border="0" width="100%">
+                <tr><td>This Form Is Only Filled For Female Patients:</td>
+                </tr>
+            </table>
+        </section>
+    </includeIf>
+</htmlform>

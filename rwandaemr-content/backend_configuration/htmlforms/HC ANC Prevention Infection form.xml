@@ -1,0 +1,292 @@
+<htmlform
+        formDescription="HC ANC Prevention Infection Form"
+        formEncounterType="a703372d-28b7-4831-9817-ee385c8c47d8"
+        formName="HC ANC Prevention Infection Form"
+        formPublished="true"
+        formRetired="false"
+        formUuid="de4a8710-f7d3-4ec0-b8ed-2339f4c6e196"
+        formVersion="1.0"
+        htmlformUuid="c1a288a7-c026-48d2-9314-54fddfa989b8"
+>
+    <macros>
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+    </macros>
+    <style>
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+    </style>
+
+
+    <!--th><b>PAGE 1</b></th-->
+
+    <includeIf velocityTest="$patient.gender == 'F' ">
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION">
+            <div class="section-container">
+
+
+                <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                    <tr>
+                        <td>
+                            Date:
+                            <encounterDate default="today"/>
+                        </td>
+                        <td>
+                            Health Facility:
+                            <encounterLocation id="location" default="GlobalProperty:billing.defaultLocation" />
+                        </td>
+                        <td>
+                            Provider:
+                            <encounterProvider default="currentUser" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Contacts">
+            <div class="section-container">
+                <p class="small-input flexView">
+                    <obs conceptId="bbe69d90-984d-40b4-9ab5-7fe758a58aaf" required="true" labelText="ANC Contact:"/>
+
+                </p>
+            </div>
+
+        </section>
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Preventive measures">
+
+            <div class="section-container">
+                <fieldset>
+                    <legend>
+                        <label><b>Prevention and treatment</b></label>
+                    </legend>
+                    <p class="radio">
+                        <obs conceptId='830919a3-dfda-4356-a7a0-80ea2e3cf35b' answerConceptId="1594849e-f8db-43ec-9294-645ac0ec6e7d"  style="checkbox"/><br/>
+                        <obs conceptId='830919a3-dfda-4356-a7a0-80ea2e3cf35b' answerConceptId="3cced6b4-26fe-102b-80cb-0017a47871b2"  style="checkbox"/><br/>
+                        <obs conceptId='830919a3-dfda-4356-a7a0-80ea2e3cf35b' answerConceptId="0bd8cc98-0aec-4fa4-89b2-68a0748a1c0e"  style="checkbox"/><br/>
+                        <obs conceptId='830919a3-dfda-4356-a7a0-80ea2e3cf35b' answerConceptId="a8bc4df0-1f87-4253-b0c8-f44f19e8cabd"  style="checkbox"/>
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <label><b>Tenanus and Diphteria Vaccines (TD)</b></label>
+                    </legend>
+                    <p>
+                        Tetanus and Diphteria  Vaccines(TT1):<obs conceptId="1ee10434-7442-4c6a-9de7-fa06e3f61145"/><br/>
+                        Tetanus and Diphteria  Vaccines(TT2):<obs conceptId="5c95c913-2d15-4640-8ded-0a6a6aaaff01" /><br/>
+                        Tetanus and Diphteria  Vaccines(TT3):<obs conceptId="2344ec1b-1727-4350-849d-8c878dd4d3d7" /><br/>
+                        Tetanus and Diphteria  Vaccines(TT4):<obs conceptId="23e213d6-e7f9-4881-b0e3-950f8ae6de7c" /><br/>
+                        Tetanus and Diphteria  Vaccines(TT5):<obs conceptId="10cb2549-1b78-4483-9d30-01807b8e61e8" />
+                    </p>
+                </fieldset>
+            </div>
+        </section>
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Health Education">
+            <div class="section-container">
+                <obsgroup groupingConceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc">
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc" answerConceptId="458b21a5-0473-4398-ac00-d6102509db4a" answerCode="HIV prevention" style="radio"/>
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc" answerConceptId="3efaa1e6-1b15-4984-9900-ae069a2ceb9c" style="radio"/>
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc" answerConceptId="dbdc3e61-d842-4689-ba39-f09e0abbda8d" />
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc" answerConceptId="2bd9654e-3913-43d8-b629-2448c767bfbc" answerCode="Family Planning" style="radio"/>
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc" answerConceptId="3f631de2-ff23-406b-a850-ae295dd1cc48" answerCode="Nutrition" style="radio"/>
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc" answerConceptId="2f70d07e-69f7-44f2-8fe2-fe2cb72e2f79" answerCode="Hygiene" style="radio"/>
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc" answerConceptId="613bb3f8-4d07-4703-8632-bb7aaae6032c" answerCode="danger Signs" style="radio"/>
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc" answerConceptId="220cea37-a1dc-40ff-95e3-d68b41208994" style="radio"/>
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc" answerConceptId="964aec0e-f296-428f-8164-7ec55400b730" style="radio"/>
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc" answerConceptId="182d4bdd-4ae2-4e8e-9bea-c2ae1499af33" style="radio"/>
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc" answerConceptId="70c4ef6d-af47-493c-8576-59d053cc10ff" style="radio"/>
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc" answerConceptId="3cd4860e-26fe-102b-80cb-0017a47871b2" style="radio"/>
+                </obsgroup>
+            </div>
+        </section>
+
+        <ifMode mode="VIEW" include="false">
+            <div id="buttons">
+
+                <button id="submit" class="submitButton confirm">
+                    <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                                style="display: none; margin-left: 10px;"></i>
+                </button>
+                <button id="cancel" type="button" class="cancel">
+                    <uimessage code="emr.cancel" />
+                </button>
+            </div>
+        </ifMode>
+
+    </includeIf>
+    <includeIf velocityTest="$patient.gender == 'M' ">
+        <section headerLabel="Invalid Patient Message">
+            <table border="0" width="100%">
+                <tr><td>This Form Is Only Filled For Female Patients:</td>
+                </tr>
+            </table>
+        </section>
+    </includeIf>
+</htmlform>

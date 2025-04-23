@@ -1,0 +1,20 @@
+[
+  {
+    "id": "rwandaemr.labManageApp",
+    "description": "Opening moh laboratory management window in legacy UI",
+    "order": 10,
+    "extensions": [
+      {
+        "id": "rwandaemr.labManageApp",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Laboratory Management",
+        "url": "module/laboratorymanagement/viewLabOrder.form",
+        "icon": "icon-beaker",
+        "requiredPrivilege": "App: coreapps.laboratory",
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Laboratory Location')",
+        "order": 7
+      }
+    ]
+  }
+]

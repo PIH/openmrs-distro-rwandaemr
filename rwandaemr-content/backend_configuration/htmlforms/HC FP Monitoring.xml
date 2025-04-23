@@ -1,0 +1,766 @@
+<htmlform
+        htmlformUuid="8e76c7fe-0de9-4b38-9f3d-fddf14969f5b"
+        formUuid="674d6dc1-4911-44c2-9b4e-71d5d4ac8dea"
+        formName="RMNCH - FP Monitoring New	"
+        formDescription="RMNCH - FP Monitoring New	"
+        formVersion="1.0"
+        formEncounterType="36167d4a-2a8b-4de2-a392-5e365107856e"
+        formPublished="true"
+        formRetired="false"
+>
+
+    <macros>
+
+        @PRIMARY_CARE_SERVICE_REQUESTED@ = 2cda28df-2fe7-42e0-bb2f-376c9f803537
+        @Consultation@ = d6dafc4b-9ad8-4467-94a9-0eca78648254
+
+
+    </macros>
+    <style>
+        .section {
+        border: 1px solid #0F5149;
+        padding: 2px;
+        text-align: left;
+        margin-bottom: 1em;
+        }
+        .sectionHeader {
+        background-color: #0F5149;
+        color: white;
+        display: block;
+        padding: 2px;
+        font-weight: bold;
+        }
+        table.baseline-aligned td {
+        vertical-align: baseline;
+        }
+        .lblcolor{background: white;width: 500px;}
+        th.subheader {
+        background-color: #0F5149;
+        color:white
+        }
+
+        .pages {
+        display:none;
+        }
+
+        .pageHead {
+        background-color: #9d5600;
+        color: white;Ni
+        display: block;
+        padding: 2px;
+        font-weight: bold;
+        border-style: solid;
+        border-color: white;
+        cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        var $ = jQuery.noConflict();
+        $j(document).ready(function(){
+        $('#page1').hide();
+        $('#page2').hide();
+        $('#page3').hide();
+        $('#page4').hide();
+
+        $("#echographyId").hide();
+        $("#stomatologyId").hide();
+        $("#soinsInfirmiersId").hide();
+        $("#chirurgieId").hide();
+        $("#radioId").hide();
+        $("#maternityId").hide();
+        $("#ophtalmologyId").hide();
+        $("#kinestherapyId").hide();
+        $("#oxygenotherapyId").hide();
+
+        $('#page1id').click(function() {
+        $('#page1').toggle();
+        $('#page2').hide();
+        $('#page3').hide();
+        $('#page4').hide();
+        });
+
+        $('#page2id').click(function() {
+        $('#page2').toggle();
+        $('#page1').hide();
+        $('#page3').hide();
+        $('#page4').hide();
+        });
+        $('#page3id').click(function() {
+        $('#page3').toggle();
+        $('#page1').hide();
+        $('#page2').hide();
+        $('#page4').hide();
+        });
+        $('#page4id').click(function() {
+        $('#page4').toggle();
+        $('#page1').hide();
+        $('#page2').hide();
+        $('#page3').hide();
+        });
+
+        var selected_value;
+
+        $("select[name=service]").change(function() {
+        selected_value = $("select[name=service]").val();
+
+
+        if (selected_value == "0") {
+        $("#echographyId").hide();
+        $("#stomatologyId").hide();
+        $("#soinsInfirmiersId").hide();
+        $("#chirurgieId").hide();
+        $("#radioId").hide();
+        $("#maternityId").hide();
+        $("#ophtalmologyId").hide();
+        $("#kinestherapyId").hide();
+        $("#oxygenotherapyId").hide();
+        }
+        if (selected_value == "1") {
+        $("#echographyId").show();
+        $("#stomatologyId").hide();
+        $("#soinsInfirmiersId").hide();
+        $("#chirurgieId").hide();
+        $("#radioId").hide();
+        $("#maternityId").hide();
+        $("#ophtalmologyId").hide();
+        $("#kinestherapyId").hide();
+        $("#oxygenotherapyId").hide();
+        }
+        if (selected_value == "2") {
+        $("#stomatologyId").show();
+        $("#echographyId").hide();
+        $("#soinsInfirmiersId").hide();
+        $("#chirurgieId").hide();
+        $("#radioId").hide();
+        $("#maternityId").hide();
+        $("#ophtalmologyId").hide();
+        $("#kinestherapyId").hide();
+        $("#oxygenotherapyId").hide();
+        }
+        if (selected_value == "3") {
+        $("#soinsInfirmiersId").show();
+        $("#stomatologyId").hide();
+        $("#echographyId").hide();
+        $("#chirurgieId").hide();
+        $("#radioId").hide();
+        $("#maternityId").hide();
+        $("#ophtalmologyId").hide();
+        $("#kinestherapyId").hide();
+        $("#oxygenotherapyId").hide();
+        }
+        if (selected_value == "4") {
+        $("#chirurgieId").show();
+        $("#echographyId").hide();
+        $("#stomatologyId").hide();
+        $("#soinsInfirmiersId").hide();
+        $("#radioId").hide();
+        $("#maternityId").hide();
+        $("#ophtalmologyId").hide();
+        $("#kinestherapyId").hide();
+        $("#oxygenotherapyId").hide();
+        }
+        if (selected_value == "5") {
+        $("#radioId").show();
+        $("#echographyId").hide();
+        $("#stomatologyId").hide();
+        $("#soinsInfirmiersId").hide();
+        $("#chirurgieId").hide();
+        $("#maternityId").hide();
+        $("#ophtalmologyId").hide();
+        $("#kinestherapyId").hide();
+        $("#oxygenotherapyId").hide();
+        }
+        if (selected_value == "6") {
+        $("#radioId").hide();
+        $("#echographyId").hide();
+        $("#stomatologyId").hide();
+        $("#soinsInfirmiersId").hide();
+        $("#chirurgieId").hide();
+        $("#maternityId").show();
+        $("#ophtalmologyId").hide();
+        $("#kinestherapyId").hide();
+        $("#oxygenotherapyId").hide();
+        }
+        if (selected_value == "7") {
+        $("#echographyId").hide();
+        $("#stomatologyId").hide();
+        $("#soinsInfirmiersId").hide();
+        $("#chirurgieId").hide();
+        $("#radioId").hide();
+        $("#maternityId").hide();
+        $("#ophtalmologyId").show();
+        $("#kinestherapyId").hide();
+        $("#oxygenotherapyId").hide();
+        }
+        if (selected_value == "8") {
+        $("#echographyId").hide();
+        $("#stomatologyId").hide();
+        $("#soinsInfirmiersId").hide();
+        $("#chirurgieId").hide();
+        $("#radioId").hide();
+        $("#maternityId").hide();
+        $("#ophtalmologyId").hide();
+        $("#kinestherapyId").show();
+        $("#oxygenotherapyId").hide();
+        }
+        if (selected_value == "9") {
+        $("#echographyId").hide();
+        $("#stomatologyId").hide();
+        $("#soinsInfirmiersId").hide();
+        $("#chirurgieId").hide();
+        $("#radioId").hide();
+        $("#maternityId").hide();
+        $("#ophtalmologyId").hide();
+        $("#kinestherapyId").hide();
+        $("#oxygenotherapyId").show();
+        }
+        });
+
+
+        //    var today = new Date();
+        // 	var dated = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        // 	setValue('encdateId.value',dated);
+        // end of encounter date
+        });
+    </script>
+
+    <translations defaultLocale="en">
+        <code name="Temp">
+
+            <variant locale="en" value="Temp  (celcius)"/>
+        </code>
+
+
+        <code name="hd_currentprobl">
+            <variant locale="en" value="CURRENT PROBLEMS"/>
+            <variant locale="fr" value="PROBLÈMES ACTUELS"/>
+        </code>
+        <code name="urinary_infection">
+            <variant locale="en" value="Signs suggestive of urinary infections"/>
+            <variant locale="fr" value="Signes évocateurs d'infections urinaires"/>
+        </code>
+
+    </translations>
+    <style>
+        table.risks td {
+        font-size: 0.9em;
+        }
+
+        .section {
+        border: 1px solid#0F5149;
+        padding: 2px;
+        text-align: left;
+        margin-bottom: 1em;
+        }
+
+        .sectionHeader {
+        background-color: #0F5149;
+        color: white;
+        display: block;
+        padding: 2px;
+        font-weight: bold;
+        }
+
+        table.baseline-aligned td {
+        vertical-align: center;
+        }
+    </style>
+
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateBillOnHtmlFormSubmissionAction"/>
+
+
+    <!-- <includeIf velocityTest="$patient.gender == 'F' "> -->
+    <section headerCode="ENCOUNTER INFORMATION">
+        <table border="2" cellspacing="0" cellpadding="6" width="100%">
+
+            <tr>
+                <td>
+                    Date:
+                    <encounterDate default="today"/>
+                </td>
+                <td>
+                    Health Facility:
+                    <encounterLocation id="location" default="GlobalProperty:registration.defaultLocationCode" />
+                </td>
+                <td>
+                    Provider:
+                    <encounterProvider default="currentUser"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" id="message"></td>
+            </tr>
+        </table>
+    </section>
+    <!-- <section headerCode="DEMOGRAPHIC INFORMATION">
+        <table width="100%" style="border-collapse: collapse;border-spacing: 0; width: 100%;border: 1px solid #ddd;">
+                    <tr>
+                        <td>
+                            <b><u>Patient:</u></b><lookup expression="patient.personName"/><br/>
+                            <b>Id Number:</b><lookup expression="patient.patientIdentifier.identifier"/><br/>
+
+                            <b>Sex:</b><font color="blue"><lookup expression="patient.gender"/></font>&#160;&#160;&#160;&#160;&#160;&#160;
+                            <b>Age:</b><font color="blue"><lookup expression="patient.age"/></font>&#160;&#160;&#160;&#160;&#160;&#160;
+                            <b>Education Level:</b><font color="blue"><lookup expression="personAttributes.get('Education Level')"/></font>&#160;&#160;&#160;&#160;&#160;&#160;
+                            <b>Religion:</b><font color="blue"><lookup expression="personAttributes.get('Religion')"/></font>&#160;&#160;&#160;&#160;&#160;&#160;
+                            <b>Profession:</b><font color="blue"><lookup expression="personAttributes.get('Profession')"/></font>&#160;&#160;&#160;&#160;&#160;&#160;
+                            <b>Phone number:</b><font color="blue"><lookup expression="personAttributes.get('Phone number')"/></font>
+                            <b>Father/Pere:</b> <font color="blue"><lookup expression="personAttributes.get('Fathers name')"/></font>&#160;&#160;&#160;&#160;&#160;&#160;
+                            <b>Mother/Mere:</b> <font color="blue"><lookup expression="personAttributes.get('Mothers Name')"/></font>&#160;&#160;&#160;&#160;&#160;&#160;
+                            <b>Insurance:</b><font color="green"><lookup expression="fn.latestObs(6740).getValueCoded().getName()"/> | <lookup expression="fn.latestObs(6741).getValueText()"/>(Reg. Date:<lookup expression="fn.latestObs(6741).obsDatetime"/>)</font>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+        <b>Country:</b><font color="blue"> <lookup expression="patient.personAddress.country"/></font> &#160;&#160;&#160;&#160;&#160;&#160;
+        <b>Province:</b><font color="blue"> <lookup expression="patient.personAddress.stateProvince"/></font> &#160;&#160;&#160;&#160;&#160;&#160;
+        <b>District:</b><font color="blue"> <lookup expression="patient.personAddress.countyDistrict"/></font> &#160;&#160;&#160;&#160;&#160;&#160;
+        <b>Sector:</b><font color="blue"> <lookup expression="patient.personAddress.cityVillage"/></font> &#160;&#160;&#160;&#160;&#160;&#160;
+        <b>Cell:</b><font color="blue"> <lookup expression="patient.personAddress.address3"/></font> &#160;&#160;&#160;&#160;&#160;&#160;
+        <b>Village:</b><font color="blue"> <lookup expression="patient.personAddress.address1"/></font>
+                        </td>
+                    </tr>
+                </table></section> -->
+    <div class="pageHead"><h2 id="page2id">EXAMS FOLLOWUP</h2></div>
+    <div id="page2" class="pages">
+        <section headerCode="A. Counseling given on different methods">
+            <table class="baseline-aligned">
+                <tr>
+                    <td><obs conceptId="8b6e7d89-7af2-4bc4-ac0e-48c43cabd484" answerConceptId="3bbde00f-cc35-4f20-a723-f983e59f3c3c" style="checkbox" /></td>
+                    <td><obs conceptId="8b6e7d89-7af2-4bc4-ac0e-48c43cabd484" answerConceptId="d4095097-8570-487d-a2e9-a111c5d19feb" style="checkbox" /></td>
+                    <td><obs conceptId="8b6e7d89-7af2-4bc4-ac0e-48c43cabd484" answerConceptId="f5494dbb-3aeb-4108-a310-a200c39eaea7" style="checkbox" /></td>
+                    <td><obs conceptId="8b6e7d89-7af2-4bc4-ac0e-48c43cabd484" answerConceptId="05c8468a-72f7-476a-81f0-09165826c6c0" style="checkbox" /></td>
+                    <td><obs conceptId="8b6e7d89-7af2-4bc4-ac0e-48c43cabd484" answerConceptId="40fc8f04-d2f2-436c-9ac8-ee2092dc60c8" style="checkbox" /></td>
+                    <td><obs conceptId="8b6e7d89-7af2-4bc4-ac0e-48c43cabd484" answerConceptId="86324ea8-2900-4a41-be6e-3eb4a762d7b3" style="checkbox" /></td>
+                    <td><obs conceptId="8b6e7d89-7af2-4bc4-ac0e-48c43cabd484" answerConceptId="be00e78a-be9e-4405-8550-463aec85f6ba" style="checkbox" /></td>
+                    <td></td>
+                </tr>
+            </table>
+        </section>
+        <section headerLabel="GENERAL EXAMS">
+            <table width="100%" class="rdv">
+                <obsgroup groupingConceptId="76cb28ac-3eaf-4c8e-a15c-de5a59d2346e">
+                    <tr>
+                        <td class="lblcolor">Complaints</td>
+                        <td>
+                            <!-- Plaints -->
+                            <obs conceptId="3ce2b170-26fe-102b-80cb-0017a47871b2" style="textarea" rows="3" cols="13" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lblcolor">Weight</td>
+                        <td>
+                            <!-- Poids -->
+                            <obs conceptId="3ce93b62-26fe-102b-80cb-0017a47871b2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lblcolor">Blood pressure</td>
+                        <td>
+                            <!-- TA -->
+                            <obs conceptId="6d4b1720-f45c-4069-98d9-e7e865105a7a" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lblcolor">Liver</td>
+                        <td>
+                            <!-- Foie -->
+                            <obs conceptId="b6cf70b6-f1c7-45af-b1a3-7443f64238c8" />
+                        </td>
+                    </tr>
+                    <!-- Sein -->
+
+                    <tr>
+                        <td class="lblcolor">Legs</td>
+                        <td>
+                            <!-- Jambes -->
+                            <obs conceptId="2a46d793-f500-4eac-aeda-b5ea5f02e764" answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2" style="dropdown" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <section headerLabel="Gynecological examination">
+                                <table width="100%" class="rdv">
+                                    <tr>
+                                        <td class="lblcolor">Vulva</td>
+                                        <td>
+                                            <!-- Vulve -->
+                                            <obs conceptId="d1642f47-e2c9-4014-850a-2559548f9016" answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2" style="dropdown"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lblcolor">Collar</td>
+                                        <td>
+                                            <!-- Col -->
+                                            <obs conceptId="53c87b1d-e5c9-429c-a1ac-0ffd98d4efbe" answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2" style="dropdown"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lblcolor">Uterus</td>
+                                        <td>
+                                            <!-- Uterus -->
+                                            <obs conceptId="5f1780c0-d0a0-4aae-a2c4-1d61427e596b" answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2" style="dropdown"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lblcolor">Adnexes</td>
+                                        <td>
+                                            <!-- Annex -->
+                                            <obs conceptId="9ff6f3a9-a277-43f5-a489-43cd0be939d3" answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2" style="dropdown"/>
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td class="lblcolor">Observation and Treatments</td>
+                                        <td>												 Observation et Traitements
+                                            <obs conceptId="42c0164c-1e73-43e7-bc44-9099a41762fa" answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2" style="dropdown"/>
+                                        </td>
+                                    </tr> -->
+                                    <tr>
+                                        <td class="lblcolor">Next appointment</td>
+                                        <td>
+                                            <!-- Prochain RDV -->
+                                            <obs conceptId="3ce94df0-26fe-102b-80cb-0017a47871b2" allowFutureDates="true"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </section>
+                        </td>
+                    </tr>
+                </obsgroup>
+            </table>
+        </section>
+    </div>
+
+    <!--  <div class="pageHead"><h3 id="page1id">MONITORING SHEET</h3></div>
+     <div id="page1" class="pages">
+         <section>
+             <section headerCode="A. USED METHOD">
+                  <table border="1" width="100%" style="background-color:lightgrey">
+                     <tr>
+                         <td>
+                             Legende
+                         </td>
+                     </tr>
+                     <tr>
+                         <td>
+                             P=pilule(PP=Pilule progestative only <br/>
+                             PC=Pilule combined) S=DIU   <br/>
+                             I=injectables CM= condom masculin<br/>
+                             CF=condom feminin B= Autre Barrieres <br/>
+                             A=Auto observation <br/>
+                             LAM=Lactation <br/>
+                             Amenorrhea <br/>
+                             CL= Collier <br/>
+                             M=Implants (MJ and MI) <br/>
+                             T= Ligature des trompes<br/>
+                             V=Vasectomie <br/>
+                             X=Perdu de vue <br/>
+                             SRV:  Neg ou Pos
+                         </td>
+                     </tr>
+                 </table>
+                 <table class="baseline-aligned">
+                     <tr>
+                         <td class="lblcolor">Previous FP Method Date</td>
+                         <td ><obs conceptId="107010"/></td>
+                     </tr>
+                 </table>
+             </section>
+
+             <section headerLabel="ANAMNESE">
+                 <obsgroup groupingConceptId="13578">
+                     <table  border="1" cellspacing="0" cellpadding="6" width="100%">
+                         <tr class="strong">
+                             <th>Month</th>
+                             <th> Stopped FP Method</th>
+                             <th>HIV status</th>
+                         </tr><tr><td>
+                         <tr> <td><obs conceptId="106876" style=""/></td>                              <table>  <tr><td><obs conceptId="13544" answerConceptId="9412" style="checkbox" /></td></tr>
+                                 <tr><td><obs conceptId="13544" answerConceptId="1721" style="checkbox" /></td></tr>
+                                     <tr><td><obs conceptId="13544" answerConceptId="1719" style="checkbox" /></td></tr>
+                                         <tr><td><obs conceptId="13544" answerConceptId="106997" style="checkbox" /></td></tr>
+                                             <tr><td><obs conceptId="13544" answerConceptId="106996" style="checkbox" /></td></tr>
+                                                 <tr><td><obs conceptId="13544" answerConceptId="190" style="checkbox" /></td></tr>
+                                                     <tr><td><obs conceptId="13544" answerConceptId="5275" style="checkbox" /></td></tr>
+                                                         <tr><td><obs conceptId="13544" answerConceptId="13538" style="checkbox" /></td></tr>
+                                                             <tr><td><obs conceptId="13544" answerConceptId="106784" style="checkbox" /></td></tr>
+                                                             <tr><td><obs conceptId="13544" answerConceptId="106783" style="checkbox" /></td></tr>
+                                                             <tr><td><obs conceptId="13544" answerConceptId="106998" style="checkbox" /></td></tr>
+                                                             <tr><td><obs conceptId="13544" answerConceptId="106781" style="checkbox" /></td></tr>
+
+                                  <br/><obs conceptId="13568" answerConceptId="" style="checkbox" /></td>
+                             <td><obs conceptId="7251" /></td>
+                         </table></td><td><obs conceptId="7251" answerCodes="Positive,Negative" answerConceptIds="664,703" style="radio"/></td></tr>
+
+                     </table>
+                 </obsgroup>
+             </section>
+
+             <section headerLabel="ANAMNESE">
+                 <obsgroup groupingConceptId="13578">
+                     <table  border="1" cellspacing="0" cellpadding="6" width="100%">
+                         <tr class="strong">
+                              <th>Month</th>
+                             <th> New FP Method</th>
+                             <th>HIV Status</th>
+                         </tr><tr><td>
+                          <tr> <td><obs conceptId="106876" style=""/></td>
+                           <table>  <tr><td><obs conceptId="13544" answerConceptId="9412" style="checkbox" /></td></tr>
+                                 <tr><td><obs conceptId="13544" answerConceptId="1721" style="checkbox" /></td></tr>
+                                     <tr><td><obs conceptId="13544" answerConceptId="1719" style="checkbox" /></td></tr>
+                                         <tr><td><obs conceptId="13544" answerConceptId="106997" style="checkbox" /></td></tr>
+                                             <tr><td><obs conceptId="13544" answerConceptId="106996" style="checkbox" /></td></tr>
+                                                 <tr><td><obs conceptId="13544" answerConceptId="190" style="checkbox" /></td></tr>
+                                                     <tr><td><obs conceptId="13544" answerConceptId="5275" style="checkbox" /></td></tr>
+                                                         <tr><td><obs conceptId="13544" answerConceptId="13538" style="checkbox" /></td></tr>
+                                                             <tr><td><obs conceptId="13544" answerConceptId="106784" style="checkbox" /></td></tr>
+                                                             <tr><td><obs conceptId="13544" answerConceptId="106783" style="checkbox" /></td></tr>
+                                                             <tr><td><obs conceptId="13544" answerConceptId="106998" style="checkbox" /></td></tr>
+                                                             <tr><td><obs conceptId="13544" answerConceptId="106781" style="checkbox" /></td></tr>
+
+                                  <br/><obs conceptId="13568" answerConceptId="" style="checkbox" /></td>
+                             <td><obs conceptId="7251" /></td> -
+                         </table></td><td><obs conceptId="7251" answerCodes="Positive,Negative" answerConceptIds="664,703" style="radio"/></td></tr>
+
+                     </table>
+                 </obsgroup>
+             </section>
+         </section>
+     </div> -->
+
+    <div class="pageHead"><h2 id="page3id">MEDICAL ACTS</h2></div>
+    <div id="page3" class="pages">
+        <!-- This is the section where we use JQuery -->
+
+        <section headerLabel="SURGICAL ACTS">
+            <table cellspacing="0" cellpadding="6" width="100%" style="background-color:AliceBlue">
+
+                <tr>
+                    <td>
+                        <obs conceptId="5015d413-ab08-48a1-aa7e-53cd6b21a377" labelText="Treads removal"/>
+                    </td>
+                    <td>
+                        <obs conceptId="ba8402d7-8940-47c9-aa3e-5338e9f7a582" labelText="Infusion act"/>
+                    </td>
+                    <td>
+                        <obs conceptId="9fa95f58-26fa-44d9-bfe9-9c9a92716aaa" labelText="Circumcision"/>
+                    </td>
+                    <td>
+                        <obs conceptId="8d73e8bd-48d2-4e6d-9bd6-95f55d8f0a09" labelText="Dental decalcification"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="6ca939c5-bc4d-4828-9b8c-ff873ec6be11" labelText="Devitalization "/>
+                    </td>
+                    <td>
+                        <obs conceptId="8ffad151-5ad7-4e35-8e71-d6bb8dd1da56" labelText="Simple removal of a foreign body"/>
+                    </td>
+                    <td>
+                        <obs conceptId="e46101e7-3d28-451b-abef-934ae200122d" labelText="Extraction of a milk tooth "/>
+                    </td>
+                    <td>
+                        <obs conceptId="77e41e4a-026d-47a7-9840-a0f3ec49eb71" labelText="Extraction of a permanent tooth"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="aa6f69ee-bdb3-4742-9d76-389368b4b0e6" labelText="Frenectomy "/>
+                    </td>
+                    <td>
+                        <obs conceptId="ef49ff61-0adc-48b1-a2e4-356a73f73e21" labelText="Superficial abscess incision"/>
+                    </td>
+                    <td>
+                        <obs conceptId="9a3e44c6-b0fc-46cb-a107-978b14fc39d6" labelText="IM Injection"/>
+                    </td>
+                    <td>
+                        <obs conceptId="bf6d8584-5232-4f8d-9002-3476a7471821" labelText="IV Injection "/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="0a39713a-867a-49f6-8ca9-beddd2607a8d" labelText="Permanent dental filling"/>
+                    </td>
+                    <td>
+                        <obs conceptId="95e02e16-e2e0-4ef8-bf6e-12b80bf503bf" labelText="Temporally dental filling"/>
+                    </td>
+                    <td>
+                        <obs conceptId="583c01ca-4117-4105-9760-8eed22ef20d7" labelText="Complicated dressing"/>
+                    </td>
+                    <td>
+                        <obs conceptId="e6d0ada1-99bf-4320-8b7e-99cbf863bf85" labelText="Simple dressing "/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="943bdfa1-e56d-4b6b-8d84-932726265591" labelText="Reduction of TMJ"/>
+                    </td>
+                    <td>
+                        <obs conceptId="ed0e6759-e40f-4b80-bbec-9a9f71cb6efb" labelText="Ear syringe"/>
+                    </td>
+                    <td>
+                        <obs conceptId="4a3a52ed-1496-4816-82dc-4aff58a6eaa4" labelText="Complicated suture"/>
+                    </td>
+                    <td>
+                        <obs conceptId="d8ed83cb-4d86-4696-ab52-7ca8318de09a" labelText="Simple suture "/>
+                    </td>	</tr>
+
+            </table>
+        </section>
+
+        <section headerLabel="SOINS INFIRMIERS ACTS">
+            <table cellspacing="0" cellpadding="6" width="100%" style="background-color:AliceBlue">
+
+                <tr>
+                    <td>
+                        <obs conceptId="fd752a01-852b-4695-8dec-59c61300c725" labelText="IUD removal"/>
+                    </td>
+                    <td>
+                        <obs conceptId="12beda35-0274-454f-955c-83e36140a166" labelText="Implant removal"/>
+                    </td>
+                    <td>
+                        <obs conceptId="aa11932f-7669-4af8-8f4b-9ed3f6dae1b7" labelText="Delivery after 4  ANC"/>
+                    </td>
+                    <td>
+                        <obs conceptId="d1241acf-9165-4925-b624-f9b493542900" labelText="Dystocic delivery"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="232c0cdf-31c4-4acd-bdea-a9bc0acce1e9" labelText="Eutocic delivery with episiotomy "/>
+                    </td>
+                    <td>
+                        <obs conceptId="fe875944-a91a-4cfb-83e7-2a501b4ad639" labelText="Eutocic delivery without episiotomy "/>
+                    </td>
+                    <td>
+                        <obs conceptId="0f49b6fb-a41a-45a8-a411-94026a5b5fb3" labelText="Delivery/stillbirth"/>
+                    </td>
+                    <td>
+                        <obs conceptId="b7ae7145-1c1c-4141-bad4-a66302c7d827" labelText="Curage"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="9bf3a549-cc55-4da8-bc3c-3b8ae2224899" labelText="Curettage"/>
+                    </td>
+                    <td>
+                        <obs conceptId="fe82bd86-be4c-40a6-9823-799a08a620b5" labelText="Delivery after 4 ANC visits without Episiotomy"/>
+                    </td>
+                    <td>
+                        <obs conceptId="07e5275a-7acf-413d-b4a1-d46b0e364f44" labelText="Depo Provera Injection"/>
+                    </td>
+                    <td>
+                        <obs conceptId="e26ec6ee-b177-4c2b-bbdd-7aacc79f9904" labelText="DMPA Injection"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="a4ff7212-d383-4068-bf7f-0d429efcaa3c" labelText="Implant Removal"/>
+                    </td>
+                    <td>
+                        <obs conceptId="e32bef4c-6dfc-4014-9ab4-80f0231eb3f4" labelText="IUD Insertion "/>
+                    </td>
+                    <td>
+                        <obs conceptId="9d62c339-b22b-4175-8f36-ee5a17fe7753" labelText="Insertion Norplan "/>
+                    </td>
+                    <td>
+                        <obs conceptId="4fe73529-826c-42a8-8468-d3b6d94e6b02" labelText="IUD insertion"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="59b7ac9e-496f-47c8-b40b-eac578951043" labelText="IUD removal"/>
+                    </td>
+                    <td>
+                        <obs conceptId="44f2a88d-487f-4c49-9595-56b1b5b74b85" labelText="Norplan or jadelle Insertion"/>
+                    </td>
+                    <td>
+                        <obs conceptId="d012bbb4-150d-4951-85dd-6c6c37a7cee4" labelText="Norplan or jadelle Removal"/>
+                    </td>
+                    <td>
+
+                    </td>	</tr>
+
+
+            </table>
+        </section>
+    </div>
+
+
+
+    <!-- This div adds diagnosis part -->
+
+
+    <div class="pageHead"><h2 id="page4id">DECISIONS</h2></div>
+    <div id="page4" class="pages">
+        <section>
+            <!-- <div class="sectionheader">Decisions</div> -->
+            <div class="sectionbody">
+                <table class="baseline-aligned">
+                    <th></th>
+                    <th>Modern</th>
+                    <th>Natural</th>
+                    <tr>
+                        <td class="lblcolor">Methods for which the client is eligible</td>
+                        <td>
+                            <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" answerConceptId="3cce7a20-26fe-102b-80cb-0017a47871b2" style="checkbox"/><br/>
+                            <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" answerConceptId="eb2e8c9b-937b-4ce5-8442-538d82c95b60" style="checkbox"/><br/>
+                            <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" answerConceptId="9df1a683-3704-47eb-af6c-d593d2903e2d" style="checkbox"/><br/>
+                            <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" answerConceptId="956a1da0-b131-446c-912d-76b70d276acb" style="checkbox"/><br/>
+                            <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" answerConceptId="b0e449e1-3fcc-4ee1-8b97-4f8085033730" style="checkbox"/><br/>
+                            <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" answerConceptId="f51fdf04-a058-4cb0-a08b-7d54d1fb45c2" style="checkbox"/><br/>
+                            <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" answerConceptId="4affd19a-ebcd-4289-8ff0-92d02682f296" style="checkbox"/><br/>
+                            <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" answerConceptId="10705427-d245-4f8a-88a9-495fad44925b" style="checkbox"/><br/>
+                            <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" answerConceptId="3ceb4d4e-26fe-102b-80cb-0017a47871b2" style="checkbox"/><br/>
+                            <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" answerConceptId="f63baf33-e227-44a0-8260-c566528949df" style="checkbox"/><br/>
+                            <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" answerConceptId="3cdcf44c-26fe-102b-80cb-0017a47871b2" style="checkbox"/><br/>
+                            <obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" answerConceptId="3cdcf74e-26fe-102b-80cb-0017a47871b2" style="checkbox"/><br/>
+                        </td>
+                        <td>
+                            <obs conceptId="b54777dc-538c-44d4-ad0b-baa38b707592" answerConceptId="2352f5b8-d1b1-4ec2-b006-6e1c4e943c6e" style="checkbox"/><br/>
+                            <obs conceptId="b54777dc-538c-44d4-ad0b-baa38b707592" answerConceptId="812ece10-bf0c-4a84-8a35-3f59006f2f30" style="checkbox"/><br/>
+                            <obs conceptId="b54777dc-538c-44d4-ad0b-baa38b707592" answerConceptId="0cfdd38f-13b0-4dfb-b2e3-ecba96463961" style="checkbox"/><br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lblcolor">Choosen method by the client </td>
+                        <!--td><obs conceptId="106051"/> </td-->
+                        <td><obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" labelText="Modern"/></td>
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        <td><obs conceptId="b54777dc-538c-44d4-ad0b-baa38b707592" labelText="Natural"/></td>
+                    </tr>
+
+                    <!--tr>
+                        <td><obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" labelText="Modern"/></td>
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        <td><obs conceptId="b54777dc-538c-44d4-ad0b-baa38b707592" labelText="Natural"/></td>
+                    </tr-->
+                    <tr>
+                        <td class="lblcolor">Method offered</td>
+                        <!--td><obs conceptId="106053"/> </td-->
+                        <td><obs conceptId="cd3e9923-a3d3-4309-be05-9e7f604afcd4" labelText="Modern"/></td>
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        <td><obs conceptId="b54777dc-538c-44d4-ad0b-baa38b707592" labelText="Natural"/></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm">
+                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                            style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+    <!-- </includeIf>
+    <includeIf velocityTest="$patient.gender == 'M' ">
+        <section headerLabel="Invalid Patient Message">
+            <table border="0" width="100%">
+                <tr><td class="lblcolor">This Form Is Only Filled For Female Patients:</td>
+                </tr>
+            </table>
+        </section>
+    </includeIf> -->
+</htmlform>

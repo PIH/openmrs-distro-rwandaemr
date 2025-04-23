@@ -1,0 +1,309 @@
+<htmlform formEncounterType="13703c92-58d2-4d04-a320-8d4699380676" formName="IPD Discharge"
+          formUuid="01167552-7e28-44fc-848b-317b00fb8087" formVersion="1.0">
+    <style>
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        $(function () {
+        $('#location-container select').focus();
+        });
+    </script>
+
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CloseGlobalBillOnHtmlFormSubmissionAction" />
+    <h2>
+        <label>
+            <uimessage code="Discharge and End Active Visit" />
+        </label>
+    </h2>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Discharge info">
+        <div class="section-container">
+            <p>
+                <label>
+                    <uimessage code="referenceapplication.simpleDischarge.dischargeDate" />
+                </label>
+                <encounterDate default="now" id="encounterDate" showTime="false" />
+            </p>
+
+            <p>
+                <label>
+                    <uimessage code="referenceapplication.simpleDischarge.dischargingClinician" />
+                </label>
+                <encounterProviderAndRole default="currentUser" encounterRole="a0b03050-c99b-11e0-9572-0800200c9a66"
+                                          required="true" />
+            </p>
+
+            <p id="location-container">
+                <label>
+                    <uimessage code="referenceapplication.simpleDischarge.dischargedFrom" />
+                </label>
+                <encounterLocation required="true" tags="Admission Location,Transfer Location" />
+            </p>
+        </div>
+
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Other Discharge info">
+        <div class="section-container">
+
+            <p class="flexView">
+                Admssion date:
+                <font color="blue"><b><lookup expression="fn.latestObs('a6098f48-7340-4665-957c-d4af0a3a7f0f').getValueDatetime()" /></b></font>
+            </p>
+            <p>
+                <label>
+                    <uimessage code="The reason for admission:" />
+                </label>
+                <obs conceptId="b53e4d45-fb1f-4f8d-bf66-5b3641bd031b" style="text" rows="2" cols="30" />
+            </p>
+            <p>
+                <label>
+                    <uimessage code="Significant findings or Clinical summary:" />
+                </label>
+                <obs conceptId="3cd9d956-26fe-102b-80cb-0017a47871b2" style="text" rows="2" cols="30" />
+            </p>
+            <p>
+                <label>
+                    <uimessage code="Investigation summary:" />
+                </label>
+                <obs conceptId="e92593d3-67b7-45dd-b616-3dd579ca5ce9" style="text" rows="2" cols="30" />
+            </p>
+            <p>
+                <label>
+                    <uimessage code="Diagnosis at admission:" />
+                </label>
+                <obs answerClasses="ICD-11" conceptId="2dce81f9-3874-4247-b441-6369ca0725c2" id="primary_digno"
+                     size="80" style="autocomplete" />
+            </p>
+            <p>
+                <label>
+                    <uimessage code="Other diagnosis not listed:" />
+                </label>
+                <obs conceptId="a72c0d52-f25c-40f9-a2c1-1cbef67e2731" style="text" rows="2" cols="30" />
+            </p>
+            <p>
+                <label>
+                    <uimessage code="Procedures performed:" />
+                </label>
+                <obs conceptId="1007cf71-99b4-4f28-8017-31d9b6ebc857" style="text" rows="2" cols="30" />
+            </p>
+            <p>
+                <label>
+                    <uimessage code="Treatment or medications:" />
+                </label>
+                <obs conceptId="3cda0160-26fe-102b-80cb-0017a47871b2" style="text" rows="2" cols="30" />
+            </p>
+            <p class="side-by-side">
+                <obs conceptId="56eb354e-a4e5-455a-a2b9-4748306aaeb8"
+                     answerConceptIds="acd8772e-8346-4c7d-9ad3-b677479b511c,5a465297-2ae7-466f-8352-c7f878c2e4c0,bcf502c3-f937-4e7a-9b42-06499d7bd2af,e9672094-f38c-44e7-affd-a12c44cb45e5,77462de6-c450-43e2-a941-ec83f830ede5,5269c451-2a5a-4a54-ac8b-bae388e58a82"
+                     style="radio" id="patStat" labelCode="Patient Status:" >
+                    <controls>
+                        <when value="e9672094-f38c-44e7-affd-a12c44cb45e5" thenDisplay="#autoP" />
+                        <when value="77462de6-c450-43e2-a941-ec83f830ede5" thenDisplay="#autoP" />
+                        <when value="5269c451-2a5a-4a54-ac8b-bae388e58a82" thenDisplay="#ref" />
+
+                    </controls>
+                </obs>
+            </p>
+            <p id="autoP" class="side-by-side">
+                <obs conceptId="3ce1367e-26fe-102b-80cb-0017a47871b2" labelText="Was an autopsy requested" noLabel="No"
+                     style="no_yes" yesLabel="Yes" />
+            </p>
+            <p id="ref">
+                <obs conceptId="5269c451-2a5a-4a54-ac8b-bae388e58a82" labelText="Where?:" style="text"/>
+            </p>
+            <p>
+                <label>
+                    <uimessage code="Medications to take following the discharge:" />
+                </label>
+                <obs conceptId="82db7a8c-01d9-45da-bafc-9db380482664" style="text" rows="2" cols="30" />
+            </p>
+            <p>
+                <label>
+                    <uimessage code="Followup instructions and reason of discharge:" />
+                </label>
+                <obs conceptId="295e31f7-18ba-4de0-9471-a9b8f7caecde" style="text" rows="2" cols="30" />
+            </p>
+        </div>
+    </section>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="PATIENT EDUCATION">
+        <div class="section-container">
+            <div class="two-columns">
+
+                <p>
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="24cfc469-04c3-4f13-825f-7feac8bd06e6" style="radio" />
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="032b54ab-af0f-4f04-aac5-bcb1290473e1" style="radio" />
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="c2e1ee03-3326-4ae1-99df-48e0a789a952" style="radio" />
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="e50aebf0-96df-4902-ae62-5be424bf25e8" style="radio" />
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="980004f2-ac2b-4b90-9999-feca3f62009b" style="radio" />
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="3ceb46fa-26fe-102b-80cb-0017a47871b2" answerLabel="PF" style="radio" />
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="910162c5-62db-43f7-a50e-625a1458eb4c" style="radio" />
+
+
+                </p>
+                <p>
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="2b5c6cf7-1906-44a8-b6a4-19c1869e65f8" style="radio" />
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="e3760cd8-07e7-4b66-a7d9-da49b9efe978" style="radio" />
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="1a0e384c-bb43-475a-9a6e-a7b205c7d9f7" style="radio" />
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="e86eab39-5d98-4f68-86e8-6d595bbd047c" style="radio" />
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="272d0388-f717-4738-b3e0-9cb7a7f5632d" answerLabel="CPON" style="radio" />
+
+                    <obs conceptId="58cb5e4c-fb3c-4be6-9817-97fcf85911bc"
+                         answerConceptId="480bf084-80fe-42f2-8952-015b56dcb9ad" style="radio" />
+
+                </p>
+            </div>
+        </div>
+
+
+    </section>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Evaluation of effectiveness for patient education">
+        <div class="section-container">
+            <p>
+                <obs conceptId="76da94a3-8eb5-44e4-b690-0e2e0f814fa2" style="textarea" rows="4" cols="40"/>
+            </p>
+        </div>
+    </section>
+
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm right">
+                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                            style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+
+</htmlform>

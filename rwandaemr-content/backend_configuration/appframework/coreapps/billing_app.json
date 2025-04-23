@@ -1,0 +1,20 @@
+[
+  {
+    "id": "rwandaemr.billingApp",
+    "description": "Opening Billing window in legacy UI",
+    "order": 6,
+    "extensions": [
+      {
+        "id": "rwandaemr.billingApp",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Billing",
+        "url": "module/mohbilling/insurancePolicySearch.form",
+        "icon": "icon-money",
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Billing Location')",
+        "requiredPrivilege": "App: coreapps.billingAdmin",
+        "order": 5
+      }
+    ]
+  }
+  ]

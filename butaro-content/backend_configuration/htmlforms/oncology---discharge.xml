@@ -1,0 +1,381 @@
+<htmlform 
+	htmlformUuid="7025bfde-76ce-47df-9487-50adf928ee84" 
+	formUuid="c9c10924-2e65-4470-b6a7-a0c776c8dfbc" 
+	formName="Oncology - Discharge" 
+	formDescription="Oncology Discharge" 
+	formVersion="0.1" 
+	formEncounterType="0b3925f9-0336-47a6-931e-5c356e9cc82f" 
+	formPublished="true"
+	formRetired="false"
+> <!--
+	   Oncology Discharge Form
+	    Pilot_4July_v1.3NT
+		Author:  
+		Builder: Jberchmas 
+		started on Aug 28, 2012		
+	-->
+<style>
+.formName {
+	background-color: #e0e0ff;
+}
+
+.section {
+	border: 1px solid #8FABC7;
+	width: 99%;
+	padding: 2px;
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.disabled {
+	color: #D8D8D8;
+}
+
+.sectionHeader {
+	background-color:#3333cc;
+	color: white;
+	display: block;
+	padding: 2px;
+	font-weight: bold;
+}
+
+table.symptoms th {
+	text-align: right;
+}
+
+th.subheader {
+	background-color: #8FABC7;
+	color: white
+}
+
+.note {
+	color: red;
+}
+
+td {
+	vertical-align: top;
+}
+
+table.labTable td {
+	color: red;
+}
+
+table.labTable
+		td.dateField {
+	text-align: right;
+}
+
+table.identifierTable td {
+	padding-right: 10px;
+}
+
+div.paddedTable span {
+	padding-right: 20px;
+}
+
+.indented {
+	padding-left: 20pt;
+	padding-right: 20pt;
+}
+
+.bigIndent {
+	padding-left: 40pt;
+	padding-right: 10pt;
+}
+
+.newpage {
+	color: #8FABC7;
+	font-weight: bold;
+}
+
+table{
+border-collapse: collapse;
+}
+
+.disdiv{
+background-color: grey;
+}
+
+#completed 
+{ 
+DISPLAY: none; 
+} 
+</style>
+
+<script type="text/javascript">
+beforeSubmit.push(function() {
+      $j(function() {
+var str=getValue('summaryNotes.value'); 
+var n=str.search("Summary notes on Hospital Discharge. "); 
+if(n==-1){
+     setValue('summaryNotes.value', "Summary notes on Hospital Discharge. "+getValue('summaryNotes.value'));
+}
+if((getValue('surgerydate.value')).length>9){
+document.getElementById("completed").style.display = "block";   
+}
+ });    
+    return true;
+});
+</script>
+<script>
+ $j(function() {     
+        $j('.disdiv').find('input').attr('disabled','true');
+ }); 
+</script>
+
+
+<section>
+
+<table border="0" cellspacing="0" cellpadding="6" width="100%">
+	<tr>
+		<td><b> 
+			IMB ID: 
+			<lookup class="value" expression="patientIdentifiers.get(&quot;IMB ID&quot;)" /> 
+			<lookup class="value" expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" />
+		</b></td>
+		<td><!-- Date: <encounterDate default="today" disallowMultipleEncountersOnDate ="block" /> --> </td>
+	</tr>
+	<tr>
+		<td>Nom / Last name: <lookup class="value"
+				expression="patient.personName.familyName" /></td>
+		<td>Prénom/ First name: <lookup class="value"
+				expression="patient.personName.givenName" /></td>
+	</tr>
+
+	<tr>
+		<td><img src="/openmrs/images/emr_hands.gif" align="left" height="75" width="56"></img>
+			<h2>
+				Inshuti Mu Buzima <br /> PIH Rwanda
+			</h2></td>
+		<td><strong> Oncology Program / Programme d'oncologie <br />
+				Discharge Form </strong> <br /> Pilot_4July_v1.3NT</td>
+	</tr>
+	<tr>
+		<td>Clinique / Clinic: <encounterLocation order="Butaro Hospital" default="Butaro Hospital" /></td>
+		<td><!-- Clinicien/Provider:<encounterProvider
+				role="Oncology Provider" /> --></td>
+	</tr>
+</table>
+</section> 
+
+<section headerLabel="DISCHARGE SUMMARY">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	<tr>
+		<td colspan="2"><br />
+		<b>Discharge diagnosis:</b> <obs
+				conceptId="c6b2fb94-4d09-484f-b9e2-f7a2757aef7c" /></td>
+	</tr>
+	<tr>
+		<td><b>Did the patient experience new allergies during this admission?</b><br /><table><tr><td>If yes, medication causing allergy: &#160;&#160;&#160; &#160;&#160;&#160;</td><td>reaction:</td></tr>
+<tr><obsgroup groupingConceptId="3cd95d5a-26fe-102b-80cb-0017a47871b2"><td>1.<obs conceptId="2c62cce0-8b88-4b9e-8b22-c99c7ccc3e27" /></td><td><obs conceptId="3cdd0c48-26fe-102b-80cb-0017a47871b2" /></td></obsgroup></tr>
+<tr><obsgroup groupingConceptId="3cd95d5a-26fe-102b-80cb-0017a47871b2"><td>2.<obs conceptId="2c62cce0-8b88-4b9e-8b22-c99c7ccc3e27" /></td><td><obs conceptId="3cdd0c48-26fe-102b-80cb-0017a47871b2" /></td></obsgroup></tr>
+</table></td>
+                <td class="disabled">Yes&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; No</td>
+	</tr>
+        <tr>
+		<td><b>Did the patient receive transfusion(s) during this admission?</b><br /><br /><table><tr><td rowspan="2">If yes: &#160;&#160;&#160; &#160;&#160;&#160;</td><td>
+<obs conceptId="28e4d8cc-59f4-46e0-b689-5bad4bd259e1" answerConceptId="3cd3d038-26fe-102b-80cb-0017a47871b2" answerLabel="platelets" />
+<br />units: <obs conceptId="25a75a71-edef-42e3-b728-d20f39e6b596" /></td><td> <obs conceptId="28e4d8cc-59f4-46e0-b689-5bad4bd259e1" answerConceptId="3cd2ab40-26fe-102b-80cb-0017a47871b2" answerLabel="red blood cells" /><br />units: <obs conceptId="38856a93-f22d-475d-8250-6cdaf75cec24" /><br /><br /></td><td> <obs conceptId="28e4d8cc-59f4-46e0-b689-5bad4bd259e1" answerConceptId="3cd68300-26fe-102b-80cb-0017a47871b2" answerLabel="whole blood" /><br />units: <obs conceptId="b8144f00-c11d-4bfc-9771-db49025e6439" /></td></tr>
+<tr><obsgroup groupingConceptId="19c92547-98d3-40b4-997e-65b000671cf7"><td colspan="3"><obs conceptId="28e4d8cc-59f4-46e0-b689-5bad4bd259e1" answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2" answerLabel="other: " /> <obs conceptId="d059d431-a36c-4140-9e4f-faf3e429543a" /> units: <obs conceptId="69a7144c-e89a-4499-95e5-57a33b0a97a8" /></td></obsgroup></tr>
+
+</table></td>
+               <td class="disabled">Yes&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; No</td>
+	</tr>
+</table>
+<br />
+<div class="disabled">
+&#160;&#160;&#160; &#160;&#160;&#160; BP: / 
+&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;
+Temperature:  <sup>0</sup>C
+&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;
+Pulse:  b/min
+<br /><br />
+</div>
+
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	
+	
+	<tr>
+		<td>Hematology</td>
+		<td>Hb: <obs conceptId="3ccc7158-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>Hct: <obs conceptId="3cd69a98-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>WBC: <obs conceptId="3cd2a906-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>Neutro(%): <obs
+				conceptId="3cd6a592-26fe-102b-80cb-0017a47871b2" showDate="true" />
+		</td>
+		<td>Lymph (%):<obs
+				conceptId="3cd6a402-26fe-102b-80cb-0017a47871b2" showDate="true" />
+		</td>
+		<td>Plts: <obs conceptId="3cd3d038-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>ESR: <obs conceptId="3cdb2c48-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>ANC: <obs conceptId="48348ce0-af6a-47a9-8671-1bbeb37dd500"
+				showDate="true" />
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="2">Biochemistry</td>
+		<td>Na: <obs conceptId="3cd76b58-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>K: <obs conceptId="3cd76ce8-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>Cl: <obs conceptId="3cd76e82-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>CO2: <obs conceptId="3cd77012-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>Urea:<obs conceptId="3cd4aa12-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>Cr: <obs conceptId="3cd4374e-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>Glu: <obs conceptId="3cd4e194-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>Ca: <obs conceptId="01765cd1-8fd6-4783-b053-190b1f6ed5bd"
+				showDate="true" />
+		</td>
+	</tr>
+	<tr>
+		<td>SGOT: <obs conceptId="3cd275d0-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>SGPT: <obs conceptId="3cd27760-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>Tbili: <obs conceptId="3cd278fa-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>Dbili: <obs conceptId="b01f4fd2-7632-4c94-9481-9ed0d1da1f9a"
+				showDate="true" />
+		</td>
+		<td>AlkPhos:<obs conceptId="3cd42f4c-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td>Uric acid: <obs
+				conceptId="d6e20676-e800-4f26-a8b2-96a2127201dd" showDate="true" />
+		</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<obsgroup groupingConceptId="4cc65e50-8e32-4b1b-b07f-c8e34c0e5521">
+		<td>Other: <obs conceptId="3cd9b714-26fe-102b-80cb-0017a47871b2"
+				showDate="true" />
+		</td>
+		<td colspan="8">test:  <obs
+				conceptId="3cd9b714-26fe-102b-80cb-0017a47871b2" showDate="true" /> &#160;&#160;&#160; &#160;&#160;&#160; results: <obs
+				conceptId="c963d117-f6eb-4e98-aa64-0d52a3476c20" showDate="true" /> <br /><br />test:  <obs
+				conceptId="3cd9b714-26fe-102b-80cb-0017a47871b2" showDate="true" /> &#160;&#160;&#160; &#160;&#160;&#160; results: <obs
+				conceptId="c963d117-f6eb-4e98-aa64-0d52a3476c20" showDate="true" /> 
+		</td>
+		</obsgroup>
+	</tr>
+
+<tr><td colspan="9"><b>Surgery details </b>(if applicable)<br /><br />
+&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; <obs conceptId="48e392bb-0685-4ab3-a217-fd23502a5635" labelText="Surgery date: " id="surgerydate" />  &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;
+<obs conceptId="f2dc764c-255b-4959-beec-b2a14b597cd3" labelText="Type of surgery: " /> <br /><br />
+
+
+<div class="disabled">
+&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; Surgeon name: ___________________________________, phone # ___________________________ </div><br /><br />
+
+ &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; Surgery notes (include any complications):<br />
+&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;<obs conceptId="4669bd44-7073-4685-9313-154f3e5646fb" style="textarea" cols="80" /> <br /><br />
+<div class="disabled">&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; Was this the final scheduled treatment? 	 	   &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;Yes		 &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;No
+</div></td></tr>
+
+<tr><td colspan="9">  <b>Summary notes:</b> <br /> <obs conceptId="6602a73b-b8d3-40bc-bae8-f00ff3b9cceb" style="textarea" cols="100" rows="10" id="summaryNotes"/>  </td></tr>
+
+	
+</table>
+
+</section> 
+
+
+<section headerLabel="DISCHARGE PLAN">
+<b>Discharge date:</b>    <encounterDate default="today" disallowMultipleEncountersOnDate ="block" /><br /><br />
+
+<b>Discharging clinician: </b> <encounterProvider role="Oncology Provider" /><br /><br />
+
+<b>Disposition at discharge: </b><br /><br />
+<obsgroup groupingConceptId="8a62cf12-cd13-4624-ae80-4046912c1dda">
+<obs conceptId="d3c8c5f8-9ebb-4622-98ca-c55ca41d3d44" answerConceptId="3ce0d472-26fe-102b-80cb-0017a47871b2" answerLabel="Hospital admission date &amp; site: " /> <obs conceptId="3ce94df0-26fe-102b-80cb-0017a47871b2" /> admission reason: <obs conceptId="1d642160-089f-49d3-98ce-68885cb5f893" />
+<br /><br />
+  &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;<span class="disabled"> Rwinkwavu DH    Butaro DH    Kirehe DH    other: _______________  </span>
+<br /><br />
+<obs conceptId="d3c8c5f8-9ebb-4622-98ca-c55ca41d3d44" answerConceptId="072af2d3-e735-4cce-8e43-1f3b60c48519" answerLabel="Follow-up in NCD clinic, next visit date &amp;, site: " /> <obs conceptId="3ce94df0-26fe-102b-80cb-0017a47871b2" />  visit reason: <obs conceptId="a52ef56e-d62b-42d9-9830-9682c1651885" />
+<br /><br />
+  &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;<span class="disabled"> Rwinkwavu DH    Butaro DH    Kirehe DH    other: _______________  </span>
+<br /><br />
+</obsgroup>
+
+<div class="disabled">Temporary external referal for: ______________________________________________at___________________ </div>
+<br /><br />
+<span id="openmrs_msg">For this section please end oncology program using the appropriate program end reason</span>
+<br /><br />
+<div class="disdiv">
+<obs conceptId="3cde5ef4-26fe-102b-80cb-0017a47871b2" answerConceptId="3cdd5c02-26fe-102b-80cb-0017a47871b2" answerLabel="Referred for further cancer care at: " />  <obs conceptId="5269c451-2a5a-4a54-ac8b-bae388e58a82" />  referral reason: <obs conceptId="fedc5ada-3a15-4513-b3db-c29d12c7e3e3" />
+
+<br /><br />
+<obs conceptId="3cde5ef4-26fe-102b-80cb-0017a47871b2" answerConceptId="efab937b-853e-47da-b97e-220f1bdff97d" answerLabel="Refused all further cancer treatment and care " />
+ <br /><br />
+
+ Biopsy negative for cancer
+<br /><br />
+<span class="disdiv"> Other: _________________________________________________________________________</span>
+<br /><br />
+</div>
+<br /><br />
+<span id="openmrs_msg">For this section please exit patient from care using the appropriate cause of death</span>
+<br /><br />
+<div class="disdiv">
+<br /><br />
+<obs conceptId="3cde5ef4-26fe-102b-80cb-0017a47871b2" answerConceptId="3cdd446a-26fe-102b-80cb-0017a47871b2" answerLabel=" " /><b>Patient died</b> (date of discharge should be the same as date of death)
+
+<table><tr><td>&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;Cause of death:</td><td>&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;<span class="disdiv">Cancer-related: ______________________________________________________</span><br />&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;<span class="disdiv">Treatment-related: ____________________________________________________</span><br />&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;<span class="disdiv">other: ______________________________________________________________</span></td></tr></table>
+</div>
+
+<br />
+<span id="openmrs_msg">For this section clinician should update patient medications using the regimen tab on the patient dashboard</span>
+<br /><br />
+
+<div class="disdiv">
+<table border="1" style="border-collapse: collapse;" width="100%" class="disdiv">
+<tr><td>Discharge medications</td><td>Dose</td><td>Frequency</td><td>Duration</td><td>Medicine change?</td><td>Reason for Change</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>NO change<br />
+ Change in dose/freq <br />   
+ New medication</td><td></td></tr>
+</table>
+<br />
+&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;
+<span class="disdiv">Has Cancer Nurse Coordinator been informed of discharge? &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;	       Yes       &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;  No  
+							        &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; (if No, specify reason: ________________)</span>
+
+</div>
+</section>
+
+
+
+<div id="completed"><workflowState workflowId="f213cee1-df80-4a6d-a3eb-44e4581c3479" stateId="d7025030-5b45-469d-8e08-45527d55d626" type="hidden" /></div>
+ 
+<div align="left">
+	<submit />
+</div>
+
+</htmlform>
+

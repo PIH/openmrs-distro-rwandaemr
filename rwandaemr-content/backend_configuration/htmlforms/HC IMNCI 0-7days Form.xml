@@ -1,0 +1,1721 @@
+<htmlform
+        htmlformUuid="96ca3eae-3431-46a6-be46-fb87cad1c707"
+        formUuid="8d539482-b119-4a26-9855-9070aaaa6693"
+        formName="HC IMNCI 0-7Days Examination"
+        formDescription="HC IMNCI 0-7Days Examination"
+        formVersion="1.0"
+        formEncounterType="462e7e66-8d01-4d43-af1f-b80c1a5239c8"
+        formPublished="true"
+        formRetired="false"
+>
+    <macros>
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+    </macros>
+
+    <style>
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        var $j = jQuery.noConflict();
+
+        $j(document).ready(function () {
+        $j('#cough1').hide();
+        $j('#cough2').hide();
+        $j('#cough3').hide();
+        $j('#cough4').hide();
+        $j('#cough5').hide();
+        $j('#cough6').hide();
+        $j('#classbreathid').hide();
+        $j('#nosifDrug').hide();
+
+        $j('#diarrh1').hide();
+        $j('#diarrh2').hide();
+        $j('#diarrh3').hide();
+        $j('#diarrh4').hide();
+        $j('#diarrh5').hide();
+        $j('#diarrh6').hide();
+        $j('#diarrh7').hide();
+        $j('#diarrh8').hide();
+        $j('#diarrh9').hide();
+        $j('#diarrh10').hide();
+        $j('#diarrh11').hide();
+
+        $j('#classdiarrhid').hide();
+
+        $j('#fever0').hide();
+        $j('#fever1').hide();
+        $j('#fever2').hide();
+        $j('#fever3').hide();
+        $j('#fever4').hide();
+        $j('#fever5').hide();
+        $j('#fever6').hide();
+        $j('#fever7').hide();
+        $j('#fever8').hide();
+        $j('#fever9').hide();
+        $j('#fever10').hide();
+        $j('#fever11').hide();
+        $j('#fever12').hide();
+        $j('#fever13').hide();
+        $j('#fever14').hide();
+        $j('#fever15').hide();
+
+
+        $j('#classfeverid').hide();
+        $j('.eartr').hide();
+        $j('.tb').hide();
+
+        // var today = new Date();
+        //var dated = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        //setValue('encdateId.value',dated);
+        // end of encounter date
+
+
+        $j("#coughid").change(function () {
+        //var isCheckedNormal = $j('#w18_0').attr('checked')?true:false;
+        //var isCheckedAbdnormal = $j('#w18_1').attr('checked')?true:false;
+        var isCheckedYes = $j('#coughid input[value="1066"]').attr('checked') ? true : false;
+        var isCheckedNo = $j('#coughid input[value="1065"]').attr('checked') ? true : false;
+
+        if (isCheckedYes == true) {
+        $j('#cough1').show();
+        $j('#cough2').show();
+        $j('#cough3').show();
+        $j('#cough4').show();
+        $j('#cough5').show();
+        $j('#cough6').show();
+        $j('#classbreathid').show();
+        } else {
+        $j('#cough1').hide();
+        $j('#cough2').hide();
+        $j('#cough3').hide();
+        $j('#cough4').hide();
+        $j('#cough5').hide();
+        $j('#cough6').hide();
+        $j('#classbreathid').hide();
+        }
+        });
+
+        $j("#diarrhoeaid").change(function () {
+        //var isCheckedNormal = $j('#w18_0').attr('checked')?true:false;
+        //var isCheckedAbdnormal = $j('#w18_1').attr('checked')?true:false;
+        var isCheckedYes = $j('#diarrhoeaid input[value="1066"]').attr('checked') ? true : false;
+        var isCheckedNo = $j('#diarrhoeaid input[value="1065"]').attr('checked') ? true : false;
+
+        if (isCheckedYes == true) {
+        $j('#diarrh1').show();
+        $j('#diarrh2').show();
+        $j('#diarrh3').show();
+        $j('#diarrh4').show();
+        $j('#diarrh5').show();
+        $j('#diarrh6').show();
+        $j('#diarrh7').show();
+        $j('#diarrh8').show();
+        $j('#diarrh9').show();
+        $j('#diarrh10').show();
+        $j('#diarrh11').show();
+        $j('#classdiarrhid').show();
+        } else {
+        $j('#diarrh1').hide();
+        $j('#diarrh2').hide();
+        $j('#diarrh3').hide();
+        $j('#diarrh4').hide();
+        $j('#diarrh5').hide();
+        $j('#diarrh6').hide();
+        $j('#diarrh7').hide();
+        $j('#diarrh8').hide();
+        $j('#diarrh9').hide();
+        $j('#diarrh10').hide();
+        $j('#diarrh11').hide();
+        $j('#classdiarrhid').hide();
+        }
+        });
+
+
+        $j("#feverid").change(function () {
+        var isCheckedYes = $j('#feverid input[value="1066"]').attr('checked') ? true : false;
+        var isCheckedNo = $j('#feverid input[value="1065"]').attr('checked') ? true : false;
+
+        if (isCheckedYes == true) {
+        $j('#fever0').show();
+        $j('#fever1').show();
+        $j('#fever2').show();
+        $j('#fever3').show();
+        $j('#fever4').show();
+        $j('#fever5').show();
+        $j('#fever6').show();
+        $j('#fever7').show();
+        $j('#fever8').show();
+        $j('#fever9').show();
+        $j('#fever10').show();
+        $j('#fever11').show();
+        $j('#fever12').show();
+        $j('#fever13').show();
+        $j('#fever14').show();
+        $j('#fever15').show();
+
+        $j('#classfeverid').show();
+        } else {
+        $j('#fever0').hide();
+        $j('#fever1').hide();
+        $j('#fever2').hide();
+        $j('#fever3').hide();
+        $j('#fever4').hide();
+        $j('#fever5').hide();
+        $j('#fever6').hide();
+        $j('#fever7').hide();
+        $j('#fever8').hide();
+        $j('#fever9').hide();
+        $j('#fever10').hide();
+        $j('#fever11').hide();
+        $j('#fever12').hide();
+        $j('#fever13').hide();
+        $j('#fever14').hide();
+        $j('#fever15').hide();
+
+        $j('#classfeverid').hide();
+        }
+        });
+
+        $j("#earid").change(function () {
+        var isCheckedYes = $j('#earid input[value="1066"]').attr('checked') ? true : false;
+        var isCheckedNo = $j('#earid input[value="1065"]').attr('checked') ? true : false;
+
+        if (isCheckedYes == true) {
+        $j('.eartr').show();
+
+        } else {
+        $j('.eartr').hide();
+        }
+        });
+
+        $j("#tbrisk").change(function () {
+        var isCheckedYes = $j('#tbrisk input[value="112257"]').attr('checked') ? true : false;
+        var isCheckedNo = $j('#tbrisk input[value="112258"]').attr('checked') ? true : false;
+
+        if (isCheckedYes == true) {
+        $j('.tb').show();
+
+        } else {
+        $j('.tb').hide();
+        }
+        });
+
+        $j('#page1').click(function () {
+        $j('#tb1').toggle();
+        });
+
+        $j('#page2').click(function () {
+        $j('#tb2').toggle();
+        });
+        $j('#page3').click(function () {
+        $j('#tb3').toggle();
+        });
+
+        $j('#page4').click(function () {
+        $j('#tb4').toggle();
+        });
+        $j('#page5').click(function () {
+        $j('#tb5').toggle();
+        });
+        $j('#page6').click(function () {
+        $j('#tb6').toggle();
+        });
+        $j('#page7').click(function () {
+        $j('#tb7').toggle();
+        });
+        $j('#page8').click(function () {
+        $j('#tb8').toggle();
+        });
+        $j('#page9').click(function () {
+        $j('#tb9').toggle();
+        });
+        $j('#page10').click(function () {
+        $j('#tb10').toggle();
+        });
+        $j('#page11').click(function () {
+        $j('#tb11').toggle();
+        });
+        $j('#page12').click(function () {
+        $j('#tb12').toggle();
+        });
+        $j('#page13').click(function () {
+        $j('#tb13').toggle();
+        });
+        $j('#page14').click(function () {
+        $j('#tb14').toggle();
+        });
+        $j('#page15').click(function () {
+        $j('#tb15').toggle();
+        });
+        $j('#page16').click(function () {
+        $j('#tb16').toggle();
+        });
+        $j('#page17').click(function () {
+        $j('#tb17').toggle();
+        });
+        $j('#page18').click(function () {
+        $j('#tb18').toggle();
+        });
+        $j('#page19').click(function () {
+        $j('#tb19').toggle();
+        });
+        $j('#pagejo').click(function () {
+        $j('#tbjo').toggle();
+        });
+
+        pagejo
+
+        $j('#anemia1').click(function () {
+        var valChecked = $j('#anemia1 input[value="111005"]').attr('checked') ? true : false;
+        if (valChecked == true) {
+        $j('#anemia4 input[value="8618"]').attr("checked", true);
+        } else {
+        $j('#anemia4 input[value="8618"]').attr("checked", false);
+        }
+        });
+        $j('#anemia2').click(function () {
+        var valChecked = $j('#anemia2 input[value="112235"]').attr('checked') ? true : false;
+        if (valChecked == true) {
+        $j('#anemia5 input[value="10988"]').attr("checked", true);
+        } else {
+        $j('#anemia5 input[value="10988"]').attr("checked", false);
+        }
+        });
+
+        $j('#anemia3').click(function () {
+        var valChecked = $j('#anemia3 input[value="112113"]').attr('checked') ? true : false;
+        if (valChecked == true) {
+        $j('#anemia6 input[value="110883"]').attr("checked", true);
+        } else {
+        $j('#anemia6 input[value="110883"]').attr("checked", false);
+        }
+        });
+
+        $j('.riskid').click(function () {
+        // var ttleId = $j(this).attr('id');
+        // var subTtleId = ttleId.substring(4,);
+        // $j('#tb'+subTtleId).toggle();
+
+        var valChecked1 = $j('.riskid input[value="112257"]').attr('checked') ? true : false;
+        var valChecked2 = $j('.riskid input[value="112118"]').attr('checked') ? true : false;
+        var valChecked3 = $j('.riskid input[value="2133"]').attr('checked') ? true : false;
+        var valChecked4 = $j('.riskid input[value="106406"]').attr('checked') ? true : false;
+
+        if (valChecked1 == true || valChecked1 == true || valChecked1 == true || valChecked1 == true) {
+
+
+        $j('#tbrisk input[value="112258"]').attr("checked", true);
+        } else {
+
+        $j('#tbrisk input[value="112257"]').attr("checked", true);
+        }
+
+        });
+
+        $j('#harmful input[value="1065"').change(function () {
+        $j('#nosifDrug').show();
+        });
+        $j('#harmful input[value="1066"').change(function () {
+        $j('#nosifDrug').hide();
+        });
+
+        });
+    </script>
+    <h1>EXAMINATION 0-7 DAYS</h1>
+
+    <!-- <includeIf velocityTest="$patient.gender == 'F' "> -->
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="ENCOUNTER INFORMATION">
+        <div class="section-container">
+            <table border="2" cellpadding="6" cellspacing="0" width="100%" style="table-layout: fixed;">
+
+                <tr>
+                    <td>
+                        Date:
+                        <encounterDate default="today" />
+                    </td>
+                    <td>
+                        Health Facility:
+                        <encounterLocation default="GlobalProperty:billing.defaultLocation" />
+                    </td>
+                    <td>
+                        Provider:
+                        <encounterProvider default="currentUser" />
+                    </td>
+                    <td colspan="3">
+                        Coming From:
+                        <obs conceptId="924763f9-7557-41aa-811e-12ec77b5a9a8" />
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </section>
+    <div class="section-container">
+
+        <section>
+            <div class="pages" id="page1">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">A. CURRENT
+                        COMPLAINTS</a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb1" style="display:none">
+                <tr>
+                    <td>
+                        <p class="flexView">
+                            Complaint:
+                            <obs cols="30" conceptId="3ce2b170-26fe-102b-80cb-0017a47871b2" rows="3" style="textarea" />
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <div class="pages" id="page2">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">B. Check for very
+                        severe disease or severe bacterial infection, low body temperature and local bacterial infection
+                    </a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb2" style="display:none">
+                <tr>
+                    <td>
+                        <p class="radio">
+                            <obs answerConceptId="3cce938e-26fe-102b-80cb-0017a47871b2"
+                                 conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                            <br />
+                            <obs answerConceptId="76ca8035-faeb-494d-9cbb-b152abf40768" answerLabel="Not able to feed"
+                                 conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                            <br />
+
+                            <obs answerConceptId="3cd44f04-26fe-102b-80cb-0017a47871b2"
+                                 answerLabel="Fast breathing ( &gt;= 60 breaths per minute or more)"
+                                 conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                            <br />
+
+                            <obs answerConceptId="a3883c11-6ad9-497d-be33-9fec8ede1064"
+                                 conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                            <br />
+                            <obs answerConceptId="57a0030d-7dd3-4ce5-99b5-3c886959acbc"
+                                 conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                            <br />
+                            <obs answerConceptId="4ab5d0dc-596a-4f3b-a9b6-5946fb491365"
+                                 conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                            <br />
+                            <obs answerConceptId="39086ea3-7669-4234-bf5f-6efbdfe26aa1"
+                                 conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                            <br />
+                            <obs answerConceptId="0e3f8c98-a356-4c33-94f3-8abd04307d67"
+                                 conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                            <br />
+                            <obs answerConceptId="b50ae2e7-c789-4a15-ab57-5fae14d3b40c"
+                                 conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                            <br />
+                            <obs answerConceptId="e8c1d8c1-3332-48a4-9aef-8507f2308e4f"
+                                 conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                            <br />
+                            <obs answerConceptId="0427f451-de3b-4bad-86d6-843df4822b5b"
+                                 conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                            <br />
+                            <obs answerConceptId="0bd649de-f1d3-42a8-a032-5112366ee759"
+                                 conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="checkbox" />
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>
+                                Classification
+                            </legend>
+                            <p class="side-by-side">
+                                <obs answerConceptIds="255d9b87-2083-4245-8fc5-a0e7ca7c03f3,6cc38d5f-dd33-43d3-b091-7b27f3ede447,0f727d01-ec38-412d-a121-04979496c3e1,3bf8f78a-5fc9-4a81-af91-8f4c5622174d"
+                                     conceptId="8823eb86-8234-4d06-9a53-180276f23be3" style="radio" />
+                            </p>
+                        </fieldset>
+
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <!-- <section headerCode="C. CHECK FOR GENERAL DANGER SIGN">
+
+                <table class="baseline-aligned">
+                    <tr>
+                        <td><span id="checkboxAll"><obs conceptId='d5efc056-1c14-44bd-8b28-09ad4c742ec0' id="breastid" answerConceptId="6cad120e-6fc3-4f17-8e08-87aa26130a34"  style="checkbox"/></span></td>
+                        <td><span id="checkboxAll1"><obs conceptId='d5efc056-1c14-44bd-8b28-09ad4c742ec0' id="vomitsid" answerConceptId="a992d1d1-c9cf-4ba8-b091-c02c90ddd4d7"  style="checkbox"/></span></td>
+                       </tr>
+                    <tr>
+                        <td><span id="checkboxAll2"><obs conceptId='d5efc056-1c14-44bd-8b28-09ad4c742ec0' id="lethargicid" answerConceptId="8d059f47-50c0-4d22-8ddb-f40398c840b1"  style="checkbox"/></span></td>
+                        <td><span id="checkboxAll3"><obs conceptId='d5efc056-1c14-44bd-8b28-09ad4c742ec0' id="convulsingid" answerConceptId="165661fd-89ed-4084-99dc-e86a1f9b8c1c"  style="checkbox"/></span></td>
+                    </tr>
+                    <tr>
+                            <td><span id="checkboxAll4"><obs conceptId='d5efc056-1c14-44bd-8b28-09ad4c742ec0' id="seizuresid" answerConceptId="	f0664f26-fbaf-40e0-a818-55c5ccd7424a"  style="checkbox"/></span></td>
+                    </tr>
+                </table>
+                <section headerCode="CLASSIFICATION">
+                        <table class="baseline-aligned">
+                            <tr>
+                                <td class="lblcolor">Is danger sign present ?</td>
+                                <td><obs conceptId='9b1570e8-ea9e-4420-b0cc-708761f4c2b8'  answerCodes="Yes,No"  style="radio"/></td>
+                            </tr>
+                        </table>
+                </section>
+            </section>  -->
+        <!-- <section headerCode="C. COUGH OR DIFFICULT BREATHING">
+
+                    <table class="baseline-aligned">
+                        <tr>
+                            <td class="lblcolor">does the child have cough or difficult breathing?</td>
+                            <td><obs id="coughid" conceptId="5a585c75-eabc-4cec-9480-a78435432387" answerCodes="Yes,No" style="radio" /></td>
+                        </tr>
+                        <tr id="cough1">
+                            <td class="lblcolor">For how long (Days) </td>
+                            <td><obs conceptId="9b526620-8499-491d-a2be-adbae37ba445" style="text" /></td>
+                        </tr>
+                        <tr id="cough2">
+                            <td class="lblcolor">How many Breaths per minute </td>
+                            <td><obs conceptId="d1013917-6fff-4ae4-b380-cda7c8bc73b6" style="text"/></td>
+                        </tr>
+
+                        <tr id="cough3">
+                            <td class="lblcolor">Fast breathing?</td>
+                            <td><obs conceptId="5f231a6e-6ba1-4325-bc75-8b2961754999" answerCodes="Yes,No" style="radio" /></td>
+                        </tr>
+                        <tr id="cough4">
+                            <td class="lblcolor">Chest indrawing </td>
+                            <td><obs conceptId="8bcd2142-3df0-45da-8e67-99838f183628" answerCodes="Yes,No" style="radio" /></td>
+                        </tr>
+                        <tr id="cough5">
+                            <td class="lblcolor">Stridor</td>
+                            <td><obs conceptId="5b8bc3ef-b2c2-4acc-aac0-6cfce814f8b4" answerCodes="Yes,No" style="radio" /></td>
+                        </tr>
+                        <tr id="cough6">
+                            <td class="lblcolor">wheezing</td>
+                            <td><obs conceptId="cf7300d4-d38a-11e8-b6e2-0c5b8f279a64" answerCodes="Yes,No" style="radio" /></td>
+                        </tr>
+                    </table>
+                    <section headerCode="Classification" id="classbreathid">
+                            <table class="baseline-aligned">
+                                <tr>
+                                    <td class="lblcolor">Is danger sign present ?</td>
+                                    <td><obs conceptId='4b1bbcf3-afed-44ff-a3f0-5c30be1fdf7e'  style="checkbox" /></td>
+                                </tr>
+                                <tr>
+                                <td><obs conceptId="0ae23a5a-15f5-102d-96e4-000c29c2a5d7" answerConceptId="4b1bbcf3-afed-44ff-a3f0-5c30be1fdf7e" style="checkbox" /></td>
+                            </tr>
+                            <tr>
+                                <td><obs conceptId="0ae23a5a-15f5-102d-96e4-000c29c2a5d7" answerConceptId="f2888a49-a7ac-440b-ac1c-ec6922b0ad26" style="checkbox" /></td>
+                            </tr>
+                            <tr>
+                                <td><obs conceptId="0ae23a5a-15f5-102d-96e4-000c29c2a5d7" answerConceptId="3ccc91c4-26fe-102b-80cb-0017a47871b2" style="checkbox" /></td>
+                            </tr>
+                            <tr>
+                                <td><obs conceptId="0ae23a5a-15f5-102d-96e4-000c29c2a5d7" answerConceptId="406e206e-66b5-4a87-99d9-60073d5a2536" style="checkbox" /></td>
+                            </tr>
+                            </table>
+                    </section>
+                </section> -->
+
+        <section>
+            <div class="pages" id="page3">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">C.Check for low
+                        birth
+                        weight</a>
+                </li>
+            </div>
+
+            <table class="baseline-aligned" id="tb3" style="display:none">
+                <!-- <table class="baseline-aligned"> -->
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>
+                                Current weight
+                            </legend>
+                            <p class="side-by-side">
+                                <obs answerConceptIds="47a1f1e4-60fb-401d-9b0f-18352f8dc66f,de50a616-39a0-4fca-937e-5fed2e320478,41c7334c-0e25-4fac-9fb4-2aed05ef0640,335120db-ccab-4799-9d60-7fa85a210502"
+                                     conceptId="16e526b5-1dfa-49ba-97b9-97620c58b1e8" id="weight" style="radio">
+                                    <controls>
+                                        <when value="47a1f1e4-60fb-401d-9b0f-18352f8dc66f" thenDisplay="#veryLow" />
+                                        <when value="de50a616-39a0-4fca-937e-5fed2e320478" thenDisplay="#veryLow" />
+                                        <when value="41c7334c-0e25-4fac-9fb4-2aed05ef0640" thenDisplay="#low" />
+                                        <when value="335120db-ccab-4799-9d60-7fa85a210502" thenDisplay="#normal" />
+                                    </controls>
+                                </obs>
+                            </p>
+                        </fieldset>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>
+                                Classification
+                            </legend>
+                            <p>
+                                <p class="radio">
+                                    <obs answerConceptId="d22beeb8-e72d-455f-8489-c850031db7aa"
+                                         conceptId="16e526b5-1dfa-49ba-97b9-97620c58b1e8" style="radio"
+                                         id="veryLow" />
+                                    <obs answerConceptId="1718b203-57e9-4a87-b01d-6ca0e660c73d"
+                                         conceptId="16e526b5-1dfa-49ba-97b9-97620c58b1e8" style="radio"
+                                         id="low" />
+                                    <obs answerConceptId="3cdbecfa-26fe-102b-80cb-0017a47871b2"
+                                         conceptId="16e526b5-1dfa-49ba-97b9-97620c58b1e8" style="radio"
+                                         id="normal" />
+                                </p>
+                            </p>
+                        </fieldset>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <!-- <section headerCode="E. FEVER">
+                    <table class="baseline-aligned">
+                            <tr>
+                                    <td class="lblcolor" >Does the child have Fever? </td>
+                                    <td><obs id="feverid" conceptId="3cf1898e-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td>
+                                </tr>
+                        <tr id="fever0">
+                            <td class="lblcolor">If more than 7 days, has fever been present every day?</td>
+                            <td><obs  conceptId="df0616c4-b022-4ad7-a5f4-b10009c23508" answerCodes="Yes,No" style="radio" /></td>
+                        </tr>
+                        <tr id="fever1">
+                                <td class="lblcolor">Moderate diarrhea</td>
+                                <td><obs  conceptId="e1124323-d027-49dc-b7f7-69cd60ff3ef7" answerCodes="Yes,No" style="radio" /></td>
+                            </tr>
+                         <tr id="fever2">
+                                    <td class="lblcolor">Minor vomiting</td>
+                                    <td><obs  conceptId="ff6b5d32-1a43-4a7c-a960-a0958126b8b3" answerCodes="Yes,No" style="radio" /></td>
+                                </tr>
+                        <tr id="fever3"><td class="lblcolor">Neck stiffness</td>
+                                        <td><obs  conceptId="3cea18ac-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td>
+                                    </tr>
+                        <tr id="fever4" ><td class="lblcolor">Malaria Test Result</td>
+                                            <td><obs conceptId="1bcce0cd-5a65-425a-bad2-740f28530ece" answerCodes="Positive,Negative" style="radio" /></td>
+                                        </tr>
+                        <tr id="fever5"><td class="lblcolor">Has child had measles within the last 3 months</td>
+                                            <td><obs conceptId="2e38e71e-c47e-4a1d-94b2-a68cd9785ba6" answerCodes="Yes,No" style="radio" /></td>
+                                        </tr>
+                        <tr id="fever6"><td class="lblcolor">Generalized rash</td>
+                                            <td><obs conceptId="966b2beb-13c4-49dd-bb12-7f94c704d643" answerCodes="Yes,No" style="radio" /></td>
+                                        </tr>
+                        <tr id="fever7"><td class="lblcolor">COUGHING</td>
+                                            <td><obs conceptId="b9fad97b-be00-487d-a617-e245ef70cdc9" answerCodes="Yes,No" style="radio" /></td>
+                                        </tr>
+                        <tr id="fever8"><td class="lblcolor">Redness of eyes</td>
+                                            <td><obs conceptId="ce11a9a3-c405-44ae-8cfb-d5e79cec0fe3" answerCodes="Yes,No" style="radio" /></td>
+                                        </tr>
+                        <tr id="fever9"><td class="lblcolor">NASAL DISCHARGE</td>
+                                            <td><obs conceptId="3cf29630-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td>
+                                        </tr>
+                        <tr id="fever10"><td class="lblcolor">MEASLES?</td>
+                                            <td><obs conceptId="3cccaf06-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td>
+                                        </tr>
+                        <tr id="fever11">
+                            <td class="lblcolor">Ulceration in the mouth</td>
+                            <td><obs conceptId="6d02c40d-23a9-4f34-af65-935666c63c4d" answerCodes="Yes,No" style="radio" /></td>
+                        </tr>
+                        <tr id="fever12">
+                                <td class="lblcolor">If ulcerations</td>
+                        </tr>
+                        <tr id="fever13">
+                                <td><obs conceptId="8ced7dbd-c5b4-4286-9a47-a6a2c566ac05" answerConceptId="95a3ebfa-487c-48d5-8295-d1c2131fcaeb" style="checkbox" /></td>
+                                <td><obs conceptId="8ced7dbd-c5b4-4286-9a47-a6a2c566ac05" answerConceptId="78e48aec-310e-4012-ac8a-52189f0ed5c4" style="checkbox" /></td>
+                            </tr>
+                        <tr id="fever14">
+                                    <td><obs conceptId="8ced7dbd-c5b4-4286-9a47-a6a2c566ac05" answerConceptId="f48d3e5a-36cf-4cc5-8357-82a62d9173ac" style="checkbox" /></td>
+                                    <td><obs conceptId="8ced7dbd-c5b4-4286-9a47-a6a2c566ac05" answerConceptId="694c3939-cab1-43d7-a405-f6ebe5810c9d" style="checkbox" /></td>
+                                </tr>
+                        <tr id="fever15">
+                                        <td><obs conceptId="8ced7dbd-c5b4-4286-9a47-a6a2c566ac05" answerConceptId="b5371b41-c269-4be9-a2ba-61d683be052e" style="checkbox" /></td>
+                                        <td><obs conceptId="8ced7dbd-c5b4-4286-9a47-a6a2c566ac05" answerConceptId="3cccaf06-26fe-102b-80cb-0017a47871b2" style="checkbox" /></td>
+                                    </tr>
+                       </table>
+                       <section headerCode="Classification " id="classfeverid">
+
+                            <table class="baseline-aligned">
+                             <tr>
+                                    <td><obs conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" answerConceptId="e402c1e6-2539-422f-94af-b17385263c5f" style="checkbox" /></td>
+                                    <td><obs conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" answerConceptId="d198883c-3451-42ff-9be1-75fc4d2ce92e" style="checkbox" /></td>
+                                </tr>
+                                <tr>
+                                    <td><obs conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" answerConceptId="ea752515-0c65-49c4-bcca-5a364647f68f" style="checkbox" /></td>
+                                    <td><obs conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" answerConceptId="f45c6da0-9e41-4dd5-a347-4c2ca47a61de" style="checkbox" /></td>
+                                </tr>
+                                <tr>
+                                    <td><obs conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" answerConceptId="5de1c39b-084f-4204-9d3a-dde5385d587d" style="checkbox" /></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+
+                        </section>
+                </section> -->
+        <!-- <section headerCode="F. EAR PROBLEM? ">
+                        <table class="baseline-aligned">
+                                <tr>
+                                        <td class="lblcolor">Does the child have Ear Problem?  </td>
+                                        <td><obs id="earid"  conceptId="d970ed93-9fa5-4a7e-b425-f3016459ad48" answerCodes="Yes,No" style="radio" /></td>
+                                    </tr>
+                            <tr class="eartr">
+                                <td class="lblcolor">Is there ear pain? </td>
+                                <td><obs conceptId="202d0f58-b2fb-425f-9f85-a0e892d134a1" answerCodes="Yes,No" style="radio" /></td>
+                            </tr>
+                            <tr class="eartr">
+                                <td class="lblcolor">Is there ear discharge?  </td>
+                                <td><obs conceptId="836ea504-bacc-472a-b827-0aef3d35107e" answerCodes="Yes,No" style="radio" /></td>
+                            </tr>
+
+                            <tr class="eartr">
+                                    <td class="lblcolor">For how long (Days)  </td>
+                                    <td><obs conceptId="9b526620-8499-491d-a2be-adbae37ba445"  style="text" /></td>
+                                </tr>
+
+                             <tr class="eartr">
+                                    <td class="lblcolor">Pain on tragus pressure</td>
+                                    <td><obs conceptId="4cd0956c-56ce-4f45-b801-697249843694" answerCodes="Yes,No" style="radio" /></td>
+                                </tr>
+                            <tr class="eartr">
+                                    <td class="lblcolor">Painful swelling behind the ear</td>
+                                    <td><obs conceptId="e9322c04-0af0-44ca-a008-c687965289f6" answerCodes="Yes,No" style="radio" /></td>
+                                </tr>
+
+                            <tr class="eartr">
+                                <td class="lblcolor"><strong>Classification</strong></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td><obs conceptId="d434e553-ef90-4c96-bf38-92af79ecb617" answerConceptId="0d07e87a-8bd4-4c28-86f8-3eef2d074e92" style="checkbox" /></td>
+                                <td><obs conceptId="d434e553-ef90-4c96-bf38-92af79ecb617" answerConceptId="7fe9aa2b-a8b6-4de9-8583-e18f00c29ed3" style="checkbox" /></td>
+                            </tr>
+                            <tr class="eartr">
+                                <td><obs conceptId="d434e553-ef90-4c96-bf38-92af79ecb617" answerConceptId="7f7f328c-0a6b-414a-942e-d0658b903602" style="checkbox" /></td>
+                                <td><obs conceptId="d434e553-ef90-4c96-bf38-92af79ecb617" answerConceptId="ecfcf660-ee7a-48c3-bd7c-0f9798effcf8" style="checkbox" /></td>
+                            </tr>
+                            <tr class="eartr">
+                                <td><obs conceptId="d434e553-ef90-4c96-bf38-92af79ecb617" answerConceptId="dfd779df-8148-40d9-880e-449350bd13cb" style="checkbox" /></td>
+                                <td><obs conceptId="d434e553-ef90-4c96-bf38-92af79ecb617" answerConceptId="d8904a4f-3795-411f-bf71-148376f39dbb" style="checkbox" /></td>
+                            </tr>
+
+                        </table>
+                    </section> -->
+
+
+        <!-- <section>
+                    <div id="page4" class="pages">
+                            <li><a class="gn-icon gn-icon-cog"  style="text-decoration: none; font-weight: bold;">G. ANAEMIA</a></li> </div>
+                            <table id="tb4" class="baseline-aligned"  style="display:none">
+                    <tr>
+                     <table class="baseline-aligned"> <tr>
+                            <td class="lblcolor"><strong>Palmar pallor</strong></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><obs id="anemia1" conceptId="bcc664a3-94d6-4c55-aa86-9300261b874c" answerConceptId="e6eb6601-810f-4e03-a04f-b268ab079e71" style="checkbox" /></td>
+                             <td><obs conceptId="bcc664a3-94d6-4c55-aa86-9300261b874c" answerConceptId="fd9e96da-5299-4d86-a357-6215d9735f9e" style="checkbox" /></td>
+                        </tr>
+                        <tr>
+                                <td><obs conceptId="bcc664a3-94d6-4c55-aa86-9300261b874c" answerConceptId="e6eb6601-810f-4e03-a04f-b268ab079e71" style="checkbox" /></td>
+                                <td><obs id="anemia2"  conceptId="bcc664a3-94d6-4c55-aa86-9300261b874c" answerConceptId="fd9e96da-5299-4d86-a357-6215d9735f9e" style="checkbox" /></td>
+                            </tr>
+                        <tr>
+                            <td><obs id="anemia3"  conceptId="bcc664a3-94d6-4c55-aa86-9300261b874c" answerConceptId="36d8ccbd-bf75-46c9-91d9-05e4bb3a3ee2" style="checkbox" /></td>
+                             <td><obs conceptId="bcc664a3-94d6-4c55-aa86-9300261b874c" answerConceptId="249b4b7f-525b-4404-ae15-eca5ef1dff1b" style="checkbox" /></td>
+                        </tr>
+                        <tr>
+                            <td><obs conceptId="bcc664a3-94d6-4c55-aa86-9300261b874c" answerConceptId="309d6cb5-20b0-4d74-a6df-3a2ea49c4aa3" style="checkbox" /></td>
+                            <td><obs conceptId="bcc664a3-94d6-4c55-aa86-9300261b874c" answerConceptId="b183ad4c-1c11-4ec6-944e-650f74917ca4" style="checkbox" /></td>
+                        </tr><tr><td>
+
+
+                    <section headerCode="Classification " id="classanemeaid">
+
+                            <table class="baseline-aligned">
+                             <tr>
+                                    <td><obs id="anemia4"  conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" answerConceptId="249b4b7f-525b-4404-ae15-eca5ef1dff1b" style="checkbox" /></td>
+                                   <td><obs conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" answerConceptId="50252fc3-3baa-4238-9785-e2d5a07bb442" style="checkbox" /></td>
+                                </tr>
+                                <tr>
+                                         <td><obs conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" answerConceptId="249b4b7f-525b-4404-ae15-eca5ef1dff1b" style="checkbox" /></td>
+                                        <td><obs id="anemia5" conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" answerConceptId="50252fc3-3baa-4238-9785-e2d5a07bb442" style="checkbox" /></td>
+                                    </tr>
+                                <tr>
+                                    <td><obs id="anemia6" conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" answerConceptId="b183ad4c-1c11-4ec6-944e-650f74917ca4" style="checkbox" /></td>
+                                    <td><obs conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" answerConceptId="f45c6da0-9e41-4dd5-a347-4c2ca47a61de" style="checkbox" /></td>
+                                </tr>
+                                <tr>
+                                    <td><obs conceptId="29b97f17-e494-4799-85e5-d2f6b8eb6a4e" answerConceptId="5de1c39b-084f-4204-9d3a-dde5385d587d" style="checkbox" /></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+
+                        </section> </td></tr> </table>
+                </section> -->
+
+        <!-- <section>
+
+                        <div id="page8" class="pages">
+                                <li><a class="gn-icon gn-icon-cog"  style="text-decoration: none; font-weight: bold;">H. Nutrition status</a></li> </div>
+                                <table id="tb8" class="baseline-aligned"  style="display:none">
+                                <tr>
+                                    <td class="lblcolor">Bilateral pitting oedema</td>
+                                <td><obs conceptId="cde659df-7b85-4045-aeef-70139e50d3cb" answerCodes="Yes,No" style="radio" /></td>
+                            </tr>
+                            <tr>
+                                <td class="lblcolor">Sign of Gravity? </td>
+                                <td><obs conceptId="d1be93fb-97d6-42ea-8b46-2e5e254870d5" answerCodes="Yes,No" style="radio" /></td>
+                            </tr>
+                            <tr>
+                                <td class="lblcolor">MUAC (mm):</td>
+                                <td><obs conceptId="4326b04b-3158-417a-bb8d-ad022295b0f4" style="text" size="25" /></td>
+                            </tr>
+                            <tr>
+                                    <td class="lblcolor">SD (Z-SCORE):</td>
+                                    <td><lookup expression="fn.latestObs(6385).valueNumeric"/></td>
+                                     <td><obs conceptId="c9d8c9db-518c-4a00-985d-d2fc8ac1f739" style="text" size="25" /></td>
+                                </tr>
+                            <tr>
+                                <td class="lblcolor">MUAC for children with TB or HIV (&#60;120mm)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><obs conceptId="5ff620e9-85e1-46b1-8b57-227beecd26ca" /></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="lblcolor">Signs of complications (un conscious, prostration, vomiting, lack of apetite, convulsions, severe diarrhoea, hypothermia, dehyderation, signs of shoc,severe pallor)</td>
+                                <td></td>
+                            </tr>
+
+
+                             <tr>
+
+                                <td>Chronic Malnutrition Moderate</td>
+                                <td >No malnutrition</td>
+                            </tr>
+
+                        <tr><td>
+                        <section headerCode="Classification " id="classdietid">
+
+                                <table class="baseline-aligned">
+                                        <tr>
+                                                <td><obs conceptId="2dd038bc-813b-4a10-bbad-697c190dad42" answerConceptId="417db8fa-cc4c-4895-a5ea-23f273259ef4" style="checkbox" /></td>
+                                                <td><obs conceptId="2dd038bc-813b-4a10-bbad-697c190dad42" answerConceptId="239107c1-5815-4b51-bbb8-365aec6e8774" style="checkbox" /></td>
+                                            </tr>
+                                            <tr>
+
+                                                <td><obs conceptId="2dd038bc-813b-4a10-bbad-697c190dad42" answerConceptId="b6c655d3-ecd4-47ef-aceb-062d32399550" style="checkbox" /></td>
+                                                <td><obs conceptId="2dd038bc-813b-4a10-bbad-697c190dad42" answerConceptId="025c7f23-456a-43be-93d6-1dbb00e851d5" style="checkbox" /></td>
+                                            </tr>
+                                            <tr>
+
+                                                <td><obs conceptId="2dd038bc-813b-4a10-bbad-697c190dad42" answerConceptId="de98184d-4af7-4f71-937b-33dd706979bd" style="checkbox" /></td>
+                                                <td><obs conceptId="2dd038bc-813b-4a10-bbad-697c190dad42" answerConceptId="899420d9-66d4-4bf9-abcb-1841d4636874" style="checkbox" /></td>
+                                            </tr>
+                                </table>
+
+                            </section> </td></tr> </table>
+                    </section> -->
+
+        <section>
+            <div class="pages" id="page4">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">D.Check for eye
+                        infection</a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb4" style="display:none">
+                <!-- <table class="baseline-aligned"> -->
+
+                <tr>
+                    <td>
+                        <p class="radio">
+                            <obs answerConceptId="13120165-1261-4b50-8776-6fedf5675b97"
+                                 conceptId="f152b4b1-4522-443f-89d0-c8b7485ceda6" style="radio" /><br />
+                            <obs answerConceptId="fa072740-1c1e-4756-a614-816378812ba6"
+                                 conceptId="f152b4b1-4522-443f-89d0-c8b7485ceda6" style="radio" /><br />
+                            <obs answerConceptId="2126300b-4bf3-409a-bbb2-4086829bf12b"
+                                 conceptId="f152b4b1-4522-443f-89d0-c8b7485ceda6" style="radio" />
+                        </p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>
+                                Classification
+                            </legend>
+                            <p class="side-by-side">
+                                <obs answerConceptIds="ca33cab9-c175-4590-b9fe-aecfd1a4a539,57e044e4-6c2b-41c5-9b15-8105932e34c5,ae93aa91-7969-417d-acaf-17e33ee6642b"
+                                     conceptId="f152b4b1-4522-443f-89d0-c8b7485ceda6" style="radio" />
+                            </p>
+                        </fieldset>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <div class="pages" id="pagejo">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">E. Check for
+                        jaundice</a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tbjo" style="display:none">
+                <!-- <table class="baseline-aligned"> -->
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>When has the jaundice appeared?</legend>
+                            <p>
+                                <obs answerConceptId="80ad84a4-202c-4bae-8773-1142db218c78"
+                                     conceptId="76ba0af8-2bc2-46a1-877c-efc8f7000250" style="radio" /><br />
+                                <obs answerConceptId="98603d0f-2f25-493b-aa66-6692266d8892"
+                                     conceptId="76ba0af8-2bc2-46a1-877c-efc8f7000250" style="radio" /><br />
+                                <obs answerConceptId="485fc482-255f-454f-a659-5ff550a38bc5"
+                                     conceptId="76ba0af8-2bc2-46a1-877c-efc8f7000250" style="radio" />
+                            </p>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>
+                                Classification
+                            </legend>
+                            <p class="side-by-side">
+                                <obs conceptId="cfca9539-884f-4a06-b366-10f8581862fe"
+                                     answerConceptIds="1f1bba5b-c257-4e7e-baca-bf2493086e57,3ccea1bc-26fe-102b-80cb-0017a47871b2,410ea8d6-f15d-4a5a-a1af-3720a20be11d"
+                                     style="radio" />
+                            </p>
+                        </fieldset>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <div class="pages" id="page6">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">F. HIV /AIDS </a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb6" style="display:none">
+                <tr>
+                    <td>
+                        <p class="radio">
+                            <obs answerConceptId="7791cfc8-cfd1-4492-a900-74336d72dcf3"
+                                 conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" /><br />
+                            <obs answerConceptId="c1a7689b-f5fe-4425-aab9-65b0cf5204b4"
+                                 conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" /><br />
+                            <obs answerConceptId="93a1bfb8-1fd8-4b9f-b820-6b19678b6b2d"
+                                 conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" /><br />
+                            <obs answerConceptId="aee3b421-6bd8-46e5-b1d3-75555f467c7b"
+                                 answerLabel="Negative HIV serology test for 2 parents"
+                                 conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                        </p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <section headerCode="Classification">
+                            <table class="baseline-aligned">
+                                <tr>
+                                    <td>
+                                        <p class="side-by-side">
+                                            <obs answerConceptIds="cccb8535-79bf-4202-8c9c-b4b6256e4b06,1e1eaca6-7c42-44f1-b0ad-d7431ee8cec0,13a47b71-37b3-4f70-a765-952fdf87c3f1"
+                                                 conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="radio" />
+                                        </p>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                    </td>
+                </tr>
+            </table>
+
+        </section>
+        <section>
+            <div class="pages" id="page10">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">G. Feeding
+                        Problems</a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb10" style="display:none">
+                <tr>
+                    <td>
+                        <p class="radio">
+                            <obs answerConceptId="59492d1a-0aa5-46ac-b045-bb3724ae1e30" answerLabel="Not able to feed"
+                                 conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" /><br />
+                            <obs answerConceptId="e79a330d-9dcb-475e-b8f2-5602d8786bc7"
+                                 answerLabel="Not able to breastfeed" conceptId="4135357d-dff1-450b-b239-b7fa7cae8575"
+                                 style="checkbox" /><br />
+                            <obs answerConceptId="fb1d3a22-7fe6-4030-a34f-c504bcae387c"
+                                 answerLabel="Poor attachment to breast" conceptId="4135357d-dff1-450b-b239-b7fa7cae8575"
+                                 style="checkbox" /><br />
+                            <obs answerConceptId="fb1d3a22-7fe6-4030-a34f-c504bcae387c" answerLabel="No Suckling"
+                                 conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" /><br />
+                            <obs answerConceptId="b2bc962e-42a2-4f05-ba47-699dc85df86a"
+                                 answerLabel="no effective suckling" conceptId="4135357d-dff1-450b-b239-b7fa7cae8575"
+                                 style="checkbox" /><br />
+                            <obs answerConceptId="0fdd553f-c800-4c67-8f9c-2815241b583a"
+                                 answerLabel="Receives other food or drinks"
+                                 conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" /><br />
+
+                            <obs conceptId="395d9e20-14ab-4ef6-a349-d23cb1ff8415" style="text"
+                                 labelText="Number of feeds in 24 h:" />
+                        </p>
+                        <fieldset>
+                            <legend>
+                                Check in the mouth
+                            </legend>
+                            <p>
+                                <obs answerConceptId="3cebb5fe-26fe-102b-80cb-0017a47871b2" answerLabel="Thrush"
+                                     conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" /><br />
+                                <obs answerConceptId="6fcde40c-ec65-4210-a921-60df88b4df30"
+                                     answerLabel="Malformation in the mouth(cleft palate, …..) "
+                                     conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="checkbox" />
+                            </p>
+                        </fieldset>
+                        <fieldset>
+                            <legend>
+                                Assess breastfeeding
+                            </legend>
+                            <p class="radio">
+                                <obs answerConceptId="9cfa66f2-c148-4929-8c8a-83173136d42d"
+                                     conceptId="e40d4ac8-5578-44a7-b354-99b5f22c8bb0" style="radio" /><br />
+                                <obs answerConceptId="a5395915-ab22-4f3d-b19d-0c006bc5a7c3"
+                                     conceptId="e40d4ac8-5578-44a7-b354-99b5f22c8bb0" style="radio" /><br />
+                                <obs answerConceptId="2bcd64c0-ace3-44c4-b04a-99e95e3d9ebf"
+                                     conceptId="e40d4ac8-5578-44a7-b354-99b5f22c8bb0" style="radio" /><br />
+                                <obs answerConceptId="63953307-a9a5-4d69-b642-432e2a090ff7"
+                                     conceptId="e40d4ac8-5578-44a7-b354-99b5f22c8bb0" style="radio" />
+                            </p>
+                            <fieldset>
+                                <legend>
+                                    Conclusion
+                                </legend>
+                                <p class="radio">
+                                    <obs answerConceptIds="3cdef3d2-26fe-102b-80cb-0017a47871b2,a13676ea-13e7-47ff-b426-a52681c0c219,ee8b8b89-eacc-4b9d-a885-9c10c5c1a63b"
+                                         conceptId="9c2237f6-c6d7-4c0f-b438-869842c8b6b9" style="radio"
+                                         labelText="Breast attachment:" /><br />
+                                    <obs answerConceptIds="418be0d5-94fd-4595-abcd-0380504243b1,b2bc962e-42a2-4f05-ba47-699dc85df86a,fb1d3a22-7fe6-4030-a34f-c504bcae387c"
+                                         conceptId="b365a38a-c528-4933-924e-cb57550f5fc1" style="radio"
+                                         labelText="Sucking:" />
+                                </p>
+                            </fieldset>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>
+                                Classification
+                            </legend>
+                            <p class="side-by-side">
+                                <obs answerConceptIds="255d9b87-2083-4245-8fc5-a0e7ca7c03f3,63f7b285-5bdd-4580-ac67-008d99d3f9e3,9c75669f-f57d-4c5f-8e38-351e55fcd2e6"
+                                     answerLabels="Disease or severe bacterial infection,Feeding problems,No Feeding problems"
+                                     conceptId="4135357d-dff1-450b-b239-b7fa7cae8575" style="radio" />
+                            </p>
+                        </fieldset>
+                    </td>
+
+                </tr>
+            </table>
+
+        </section>
+
+
+
+        <section>
+            <div class="pages" id="page11">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">H. Child's
+                        immunization
+                        status</a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb11" style="display:none">
+                <tr>
+                    <td>
+                        <p>
+                            <obs answerCode="BCG" answerConceptId="3cd4e004-26fe-102b-80cb-0017a47871b2"
+                                 conceptId="63953307-a9a5-4d69-b642-432e2a090ff7" style="radio" /><br/>
+                            <obs answerCode="Polio 0" answerConceptId="3ce1a3ca-26fe-102b-80cb-0017a47871b2"
+                                 conceptId="b7f12bef-f2d7-428d-953f-f5ce9d217831" style="radio" />
+                        </p>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>
+                                Classification
+                            </legend>
+                            <p class="side-by-side">
+                                <obs answerConceptId="27655cb2-1b62-4432-aa5f-911508352bfd"
+                                     answerLabel="Vaccination updated"
+                                     conceptId="b7f12bef-f2d7-428d-953f-f5ce9d217831" style="radio" />
+                            </p>
+                        </fieldset>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <!-- <section>
+                                <div id="page19" class="pages">
+                                        <li><a class="gn-icon gn-icon-cog"  style="text-decoration: none; font-weight: bold;">H.
+                                           Young Infant Developmental Care (1 week to 2 months) If infant does not require transfer</a></li> </div>
+                                        <table id="tb19" class="baseline-aligned"  style="display:none">
+
+
+
+                                                    <tr>
+                                                        <td class="lblcolor"> Ask and test if the young infant suckles, look and listen?:</td>
+                                                            <td><obs conceptId="eefc7b14-7fca-44e4-a229-4096824b4f40" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="lblcolor">Parent/Young Infant Interaction: </td>
+                                                           <td> <obs conceptId="c7d32246-b592-48f6-867d-19a2e2a5865b" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="lblcolor"> Spontaneous limb movements:</td>
+                                                           <td> <obs conceptId="bf24d9bf-e660-4c8d-a5c3-c19c36853520" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><b>Risk Factors</b></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="lblcolor">Number of prenatal visits: </td>
+                                                           <td> <obs conceptId="3eb7e679-81ba-47a5-8b02-61cce925a9c5" style="text"/></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="lblcolor">Problem on pregnancy: </td>
+                                                          <td>  <obs conceptId="310501b7-9b1c-470e-9fba-458c6df9ac91"
+                                                            answerConceptIds="7128a217-1c71-488a-bb0f-8c4b54a9c163,bc145d7f-57a7-49f1-bfe8-18092f9ade3b,a028142c-2ca3-450e-880c-e01449546654"
+                                                            answerCodes="During the pregnancy,During delivery, After delivery" style="radio" /></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="lblcolor">Consumption of harmful products during pregnancy: </td>
+                                                           <td> <obs conceptId="2fdf1ef5-9ba7-4436-9e71-ffaaa1e9af5c" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="lblcolor"> Specify if yes:</td>
+                                                          <td><obs conceptId="e7daa364-924a-4494-92b7-0b0186919398" style="text" cols="30" rows="2"/> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="lblcolor">
+                                                            <obs conceptId="5d6ec679-7108-419f-b6d8-42b00e11c470" answerConceptIds="6000bb8f-1dce-4c75-a6df-150f13e79c11,ca850b96-ff75-11ec-a786-0050568ccf0c" answerCodes="Term Delivery,Preterm Delivery" style="radio" /> </td>
+                                                                <br/>
+                                                    </tr>
+                                                    <tr><td class="lblcolor">Young Infant health problem</td><td><obs conceptId="3981d0b0-dc00-4ef6-8b2b-fc55a9cf0637" answerConceptIds="bc145d7f-57a7-49f1-bfe8-18092f9ade3b,a028142c-2ca3-450e-880c-e01449546654" answerCodes="During Delivery,After Delivery" style="radio" /></td></tr>
+                                                    <tr><td class="lblcolor"><b>Social and environmental factors</b></td></tr>
+                                                    <tr><td class="lblcolor">HEAD CIRCUMFERENCE: </td><td><obs conceptId="3ceb96b4-26fe-102b-80cb-0017a47871b2" style="text" /></td></tr>
+                                                    <tr><td class="lblcolor">Observation on bond between responsible parent/adult and Young infant:</td><td><obs conceptId="4e96640a-0e6a-4869-8d5c-ebc7e6bc7aa6" style="text" cols="30" rows="2"/></td></tr>
+                                                    <tr><td class="lblcolor">Observation on attachment between young infant and responsible parent/adult:</td><td><obs conceptId="6f46a3e2-2387-41da-aba0-b09bda261d37" style="text" cols="30" rows="2"/></td></tr>
+                                                    <tr><td class="lblcolor">Observation on young infant reflexes:</td><td><obs conceptId="5a75537a-2916-4cca-9155-27413b5bcc75" style="text" cols="30" rows="2"/></td></tr>
+                                                    <tr><td class="lblcolor">Observation on the developmental status of the infant:</td><td> <obs conceptId="7f74a863-e348-468d-821b-b5d09c9b9a44" style="text" cols="30" rows="2"/></td></tr>
+
+                                            </table>
+
+
+                </section> -->
+
+        <!-- <section headerCode="Vaccination Status ">
+
+                    <workflowState id="adminage" workflowId="859cabca-c956-41bb-aa91-f836718a3ba2" labelText="Vaccines : "  stateIds="d392d97b-b326-426c-b3c6-0507eeee71e3,37a402b6-a88e-4f57-a1f0-7d8f9827f4bd,a20fd4e3-0421-4478-8cb4-b8f7a87853db,4d89ec19-22a1-46c1-9ad4-360a905624eb,31a2e0f5-0f93-41f6-bda2-8514e85fe1f4,670d24a4-69e0-480d-abea-0730db6d74dd" type="radio" />
+
+                                    <table class="baseline-aligned">
+                                        <tr class="atBirth vaccine">
+                                            <td>
+                                                <obs conceptId="cf8f37af-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="3ce1a24e-26fe-102b-80cb-0017a47871b2" answerLabel="BCG" style="checkbox" />
+                                                <obs conceptId="cf8f37af-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="cf8f35a3-d38a-11e8-b6e2-0c5b8f279a64" answerLabel="Polio 0" style="checkbox" />
+                                            </td>
+                                        </tr>
+                                        <tr class="sixWeeks vaccine">
+                                            <td>
+                                                <obs conceptId="cf8f37c8-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="cf8f35a3-d38a-11e8-b6e2-0c5b8f279a64" answerLabel="Polio 1" style="checkbox" />
+                                                <obs conceptId="cf8f37c8-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="34d075a4-ac89-4eeb-81fa-6f23b7bd77bb" answerLabel="DPT-HepB-Hib 1" style="checkbox" />
+                                                <obs conceptId="cf8f37c8-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="e4bd9111-8ba3-4a70-9510-878d5db98187" answerLabel="PCV13-1" style="checkbox" />
+                                                <obs conceptId="cf8f37c8-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="7a59414b-791e-4fb0-be44-e9c02e90b8dc" answerLabel="Rotavirus 1" style="checkbox" />
+                                            </td>
+                                        </tr>
+                                        <tr class="tenWeeks vaccine">
+                                            <td>
+                                                <obs conceptId="cf8f37e3-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="cf8f35a3-d38a-11e8-b6e2-0c5b8f279a64" answerLabel="Polio 2" style="checkbox" />
+                                                <obs conceptId="cf8f37e3-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="34d075a4-ac89-4eeb-81fa-6f23b7bd77bb" answerLabel="DPT-HepB-Hib 2" style="checkbox" />
+                                                <obs conceptId="cf8f37e3-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="847b5ae2-310e-45f3-a314-3bac5e0642b9" answerLabel="PCV13-2" style="checkbox" />
+                                                <obs conceptId="cf8f37e3-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="7a59414b-791e-4fb0-be44-e9c02e90b8dc" answerLabel="Rotavirus 2" style="checkbox" />
+                                            </td>
+                                        </tr>
+                                        <tr class="fourteenWeeks vaccine">
+                                            <td>
+                                                <obs conceptId="cf8f37fc-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="cf8f35a3-d38a-11e8-b6e2-0c5b8f279a64" answerLabel="Polio 3" style="checkbox" />
+                                                <obs conceptId="cf8f37fc-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="3cd42a9c-26fe-102b-80cb-0017a47871b2" answerLabel="Hepatitis B 1" style="checkbox" />
+                                                <obs conceptId="cf8f37fc-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="34d075a4-ac89-4eeb-81fa-6f23b7bd77bb" answerLabel="DPT-HepB-Hib 3" style="checkbox" />
+                                                <obs conceptId="cf8f37fc-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="e4bd9111-8ba3-4a70-9510-878d5db98187" answerLabel="PCV13-3" style="checkbox" />
+                                            </td>
+                                        </tr>
+                                        <tr class="nineMonths vaccine">
+                                            <td>
+                                                <obs conceptId="cf8f3817-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="cf8f2e93-d38a-11e8-b6e2-0c5b8f279a64" answerLabel="MR 1" style="checkbox" />
+                                            </td>
+                                        </tr>
+                                        <tr class="fifteenMonths vaccine">
+                                            <td>
+                                                <obs conceptId="cf8f3831-d38a-11e8-b6e2-0c5b8f279a64" answerConceptId="cf8f2e93-d38a-11e8-b6e2-0c5b8f279a64" answerLabel="MR 2" style="checkbox" />
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+                                </section> -->
+        <!-- <section>
+                                        <div id="page6" class="pages">
+                                                <li><a class="gn-icon gn-icon-cog"  style="text-decoration: none; font-weight: bold;">J. Evaluation of breastfeeding (infant below 2years or malnutrition )</a></li> </div>
+                                                <table id="tb6" class="baseline-aligned"  style="display:none">
+                                                <tr>
+
+
+                                        <table class="baseline-aligned">
+                                            <tr>
+                                              <td class="lblcolor">Breastfeeding: </td>
+                                                <td><obs conceptId="3d2d41e4-b56e-4b94-b8a1-9b4dd11f27b4" answerCodes="Yes,No" style="radio" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="lblcolor">If yes, the night?  </td>
+                                                <td><obs conceptId="d58457ae-39cb-4397-a84e-8ff1cc93f46a" answerCodes="Yes,No" style="radio" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="lblcolor">Number of times in 24h:</td>
+                                                <td><obs conceptId="9ed11168-67d3-471d-af52-020fcad5a583" style="text"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="lblcolor">For infants 6 months and above, other foods and liquids</td>
+                                                <td><obs conceptId="fb23fb36-799c-4abf-9287-b19cca7ebd3c" answerCodes="Yes,No" style="radio" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="lblcolor">If yes, which ones?</td>
+                                                <td><obs conceptId="7d85acbf-e29d-49f5-97dd-3eb828b484b3" style="text" size="25" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="lblcolor">Number of times in 24h:</td>
+                                                <td><obs conceptId="9ed11168-67d3-471d-af52-020fcad5a583" style="text" size="25" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="lblcolor">quantity per meal</td>
+                                                <td><obs conceptId="b6c3f003-78cd-4784-9fd9-7f38fff03697" style="text" size="25" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="lblcolor">Who makes the child eat?</td>
+                                                <td><obs conceptId="0cb81cd4-da72-4ca9-bb38-f8541bb93747" rows="1" cols="30" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="lblcolor">How?</td>
+                                                <td><obs conceptId="a78d5bdd-b2f2-40a4-99ca-9600ef68f67c" rows="2" cols="30" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="lblcolor"><strong>breastfeeding conclusion</strong></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr><td><obs conceptId="dc26ecd3-c94c-4075-ab88-e5b1aedd452c" answerConceptId="fae565b4-14b8-4bb2-b64b-1e88859a43f4" style="checkbox" /></td></tr>
+                                                <tr><td><obs conceptId="dc26ecd3-c94c-4075-ab88-e5b1aedd452c" answerConceptId="2b3e2917-7510-4a43-8140-38fef9340496" style="checkbox" /></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td ></td>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                    </section>   -->
+
+
+        <section>
+            <div class="pages" id="page8">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">I. Other
+                        problems</a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb8" style="display:none">
+
+                <!-- <tr><td>Physical Abuse: <obs conceptId="4742b5b3-f27a-4fe9-a86f-a0f8512a0100
+                                            " answerConceptIds="26b515bf-8cf1-4ca4-9d5e-ace545d57362,06869289-62cc-4a73-81cc-1de174cff813,2030606d-8795-48fa-a2da-371445c6cee5,f5a697de-9d41-411d-9ace-bf9374df898e,64e2bff0-f190-4173-8182-e31c55faca85
+                                            " answerCodes="Hitting,Beating,Shaking,Shocking,Poisoning" style="radio" /></td></tr>
+                                        <tr><td>Emotional Abuse: <obs conceptId="30660752-5ada-4250-a7b7-426b2aa07bda"
+                                            answerConceptIds="15be613f-7dd8-4272-b5a8-635bdb1e9b3c,2df85220-b850-4408-98a1-8cf33c77a5c2,c765c259-b15e-4ce4-a648-8ee68a844f1f,78ee4ebd-3748-40f8-98a2-39efc42e3ccf
+                                                " answerCodes="Rejection,Criticism,Isolation,Exposure to domestic or family violence" style="radio" /></td></tr>
+                                                <tr><td>Sexual Abuse:<obs conceptId="01141c22-614e-47fc-bfa6-fd49921e1f0e" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td></tr>
+                                                <tr><td>Neglect Abuse:<obs conceptId="026e25f4-6730-48af-ac9a-75174f54ce23" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio"/></td></tr> -->
+
+                <tr>
+                    <td>Congenital malformation:
+                        <obs cols="30" conceptId="8190007d-85b6-4e1d-947f-a319a8580c85" rows="5" style="textarea" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Medicine/Traditional practice:
+                        <obs cols="30" conceptId="8190007d-85b6-4e1d-947f-a319a8580c85" rows="5" style="textarea" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other problems:
+                        <obs cols="30" conceptId="8190007d-85b6-4e1d-947f-a319a8580c85" rows="5" style="textarea" />
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <!-- <section>
+                                    <div id="page16" class="pages">
+                                        <li><a class="gn-icon gn-icon-cog"  style="text-decoration: none; font-weight: bold;">J. Soins du development du nouveau-né (0 à 7 Jours) Si le nouveau-né ne nécessite pas un transfert
+                                           </a></li> </div>
+                                        <table id="tb16" class="baseline-aligned"  style="display:none">
+
+
+
+                                                    <tr>
+                                                        <td class="lblcolor"> Ask and test if the young infant suckles, look and listen?:</td>
+                                                            <td><obs conceptId="eefc7b14-7fca-44e4-a229-4096824b4f40" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="lblcolor">Parent/Young Infant Interaction: </td>
+                                                           <td> <obs conceptId="c7d32246-b592-48f6-867d-19a2e2a5865b" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="lblcolor"> Spontaneous limb movements:</td>
+                                                           <td> <obs conceptId="bf24d9bf-e660-4c8d-a5c3-c19c36853520" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><b>Risk Factors</b></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="lblcolor">Number of antenatal care visits: </td>
+                                                           <td> <obs conceptId="3eb7e679-81ba-47a5-8b02-61cce925a9c5" style="text"/></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="lblcolor">Problem on pregnancy: </td>
+                                                          <td>  <obs conceptId="310501b7-9b1c-470e-9fba-458c6df9ac91"
+                                                            answerConceptIds="7128a217-1c71-488a-bb0f-8c4b54a9c163,bc145d7f-57a7-49f1-bfe8-18092f9ade3b,a028142c-2ca3-450e-880c-e01449546654"
+                                                            answerCodes="During the pregnancy,During delivery, After delivery" style="radio" /></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="lblcolor">Consumption of harmful products during pregnancy: </td>
+                                                           <td> <obs id="harmful" conceptId="2fdf1ef5-9ba7-4436-9e71-ffaaa1e9af5c" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerCodes="Yes,No" style="radio" /></td>
+
+                                                    </tr>
+
+                                                    <tr id="nosifDrug">
+                                                        <td class="lblcolor"> Specify if yes:</td>
+                                                          <td><obs conceptId="e7daa364-924a-4494-92b7-0b0186919398" style="text" cols="30" rows="2"/> </td>
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="lblcolor">
+                                                            <obs conceptId="5d6ec679-7108-419f-b6d8-42b00e11c470" answerConceptIds="6000bb8f-1dce-4c75-a6df-150f13e79c11,ca850b96-ff75-11ec-a786-0050568ccf0c" answerCodes="Term Delivery,Preterm Delivery" style="radio" /> </td>
+                                                                <br/>
+                                                    </tr>
+                                                    <tr><td class="lblcolor">Young Infant health problem</td><td><obs conceptId="3981d0b0-dc00-4ef6-8b2b-fc55a9cf0637" answerConceptIds="bc145d7f-57a7-49f1-bfe8-18092f9ade3b,a028142c-2ca3-450e-880c-e01449546654" answerCodes="During Delivery,After Delivery" style="radio" /></td></tr>
+                                                    <tr><td class="lblcolor"><b>Social and environmental factors</b></td></tr>
+                                                    <tr><td class="lblcolor">HEAD CIRCUMFERENCE: </td><td><obs conceptId="3ceb96b4-26fe-102b-80cb-0017a47871b2" style="text" /></td></tr>
+                                                    <tr><td class="lblcolor">Observation on bond between responsible parent/adult and Young infant:</td><td><obs conceptId="4e96640a-0e6a-4869-8d5c-ebc7e6bc7aa6" style="text" cols="30" rows="2"/></td></tr>
+                                                    <tr><td class="lblcolor">Observation on attachment between young infant and responsible parent/adult:</td><td><obs conceptId="6f46a3e2-2387-41da-aba0-b09bda261d37" style="text" cols="30" rows="2"/></td></tr>
+                                                    <tr><td class="lblcolor">Observation on young infant reflexes:</td><td><obs conceptId="5a75537a-2916-4cca-9155-27413b5bcc75" style="text" cols="30" rows="2"/></td></tr>
+                                                    <tr><td class="lblcolor">Observation on the developmental status of the infant:</td><td> <obs conceptId="7f74a863-e348-468d-821b-b5d09c9b9a44" style="text" cols="30" rows="2"/></td></tr>
+                                                    <tr>
+                                                        <td>
+                                                            <tr><td><section headerCode="Classification breastfeeding">
+                                                                <table class="baseline-aligned">
+                                                                 <tr><td><obs conceptId="ebba63ef-51af-490e-b456-07a409afa0ba" answerConceptId="e0ff3a51-0813-4b7e-b744-ccb4e5eb6e5e" style="checkbox" /></td></tr>
+                                                                <tr><td><obs conceptId="ebba63ef-51af-490e-b456-07a409afa0ba" answerConceptId="d5fdbcff-9df2-4730-9bff-68b81c789950"  style="checkbox" /></td></tr>
+                                                                <tr><td><obs conceptId="ebba63ef-51af-490e-b456-07a409afa0ba" answerConceptId="77744917-15ae-4a51-bc68-190d082202ba" style="checkbox" /></td></tr>
+                                                                <tr><td><obs conceptId="ebba63ef-51af-490e-b456-07a409afa0ba" answerConceptId="0377f837-2ba5-4c5e-8eec-012dcabf039b"  style="checkbox" /></td></tr>
+
+                                                                </table></section></td></tr>
+
+                                                        </td>
+                                                    </tr>
+
+                                            </table>
+
+                                </section> -->
+        <section>
+            <div class="pages" id="page12">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">K. Treatment</a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb12" style="display:none">
+                <tr>
+                    <td>
+                        <obs cols="30" conceptId="c28bc221-065e-4716-a9b0-b959239bc102" rows="3" style="textarea" />
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <div class="pages" id="page13">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">L. Counsel the
+                        Mother</a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb13" style="display:none">
+                <tr>
+                    <td>
+                        <p class="radio">
+                            <obs answerCode="Breast feeding" answerConceptId="217205d3-20ee-40e1-9394-e91a2bd9adab"
+                                 conceptId="57af67f1-fc3c-4c8d-bd0e-f5da5f5e424a" style="radio" /><br/>
+                            <obs answerCode="How to keep the newborn warm"
+                                 answerConceptId="cbd8027b-98e4-41d9-8942-81ddb448c964"
+                                 conceptId="57af67f1-fc3c-4c8d-bd0e-f5da5f5e424a" style="radio" /><br/>
+                            <obs answerCode="Birth spacing" answerConceptId="3cdc5618-26fe-102b-80cb-0017a47871b2"
+                                 conceptId="57af67f1-fc3c-4c8d-bd0e-f5da5f5e424a" style="radio" /><br/>
+                            <obs answerCode="Newborn care at home" answerConceptId="7d3e89bb-a2c7-4f43-8eb6-dd2a728a8d62"
+                                 conceptId="57af67f1-fc3c-4c8d-bd0e-f5da5f5e424a" style="radio" /><br/>
+                            <obs answerCode="When to return immediately"
+                                 answerConceptId="7bf40d80-e2fd-483d-bb4b-5a0c6e42d0b6"
+                                 conceptId="57af67f1-fc3c-4c8d-bd0e-f5da5f5e424a" style="radio" />
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <div class="pages" id="page14">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">M. Transfer
+                        from/to</a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb14" style="display:none">
+                <tr>
+                    <td>
+                        <obs cols="30" conceptId="6cf3d521-9035-4301-bbf9-baa4e87251cb" rows="3" style="textarea" />
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <div class="pages" id="page15">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">N. When to return
+                        back
+                        immediately</a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb15" style="display:none">
+                <tr>
+                    <td>
+                        <p>
+                            <obs answerConceptId="1c50ac29-5af4-4598-a9dd-f177ee419a4f" answerLabel="Feeds difficulty"
+                                 conceptId="6585efb9-6432-4083-a535-9b575e8281c7" style="radio" /><br/>
+                            <obs answerConceptId="18e2599b-ee2f-43d3-939a-514b990ca511" answerLabel="New born becomes worse"
+                                 conceptId="6585efb9-6432-4083-a535-9b575e8281c7" style="radio" /><br/>
+                            <obs answerConceptId="b5c5929a-648f-4cbf-aa99-d5dc6887f384"
+                                 conceptId="6585efb9-6432-4083-a535-9b575e8281c7" style="radio" /><br/>
+                            <obs answerConceptId="5f231a6e-6ba1-4325-bc75-8b2961754999" answerLabel="Fast breathing"
+                                 conceptId="6585efb9-6432-4083-a535-9b575e8281c7" style="radio" /><br/>
+                            <obs answerConceptId="6de612e1-697a-4b46-906a-1e86ea76f345" answerLabel="Becomes lethargic"
+                                 conceptId="6585efb9-6432-4083-a535-9b575e8281c7" style="radio" /><br/>
+                            <obs answerConceptId="592a7b04-750f-4da5-ba81-ad9c766f3630"
+                                 conceptId="6585efb9-6432-4083-a535-9b575e8281c7" style="radio" /><br/>
+                            <obs answerConceptId="bfad3e92-08b7-47c0-b4c9-d345b2bc9e80"
+                                 conceptId="6585efb9-6432-4083-a535-9b575e8281c7" style="radio" />
+                        </p>
+                        <p class="date-one-line">
+                            <obs allowFutureDates="true" conceptId="7349eb39-4336-4d8c-a769-9b90e8746ea7" labelText="Date of follow-up:"/>
+                        </p>
+
+                    </td>
+                </tr>
+            </table>
+
+        </section>
+        <!-- <section>
+            <div id="page16" class="pages">
+                    <li><a class="gn-icon gn-icon-cog"  style="text-decoration: none; font-weight: bold;">N. Appointment for follow-up visit</a></li>
+                </div>
+                <table id="tb16" class="baseline-aligned"  style="display:none"> <tr>  <td>
+        <obs conceptId="3ce94df0-26fe-102b-80cb-0017a47871b2" id="nextvisitid" allowFutureDates="true" labelCode="Next Visit Date:"/></td></tr>  </table>
+    </section> -->
+        <section>
+            <div class="pages" id="page17">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">O. Follow-up
+                        visit</a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb17" style="display:none">
+                <tr>
+                    <td>
+                        <p class="date-one-line">
+                            <obs allowFutureDates="true" conceptId="7349eb39-4336-4d8c-a769-9b90e8746ea7" labelText="Done on:" />
+                        </p>
+                        <fieldset>
+                            <legend>
+                                Follow-up Findings
+                            </legend>
+                            <p class="radio">
+                                <obs answerCode="Improved" answerConceptId="5a465297-2ae7-466f-8352-c7f878c2e4c0"
+                                     conceptId="558bb96a-66ca-443c-8c56-c15667b0812c" style="radio" /><br/>
+                                <obs answerCode="Worsened" answerConceptId="30f5d9e7-292c-43a4-be96-8e750702694a"
+                                     conceptId="558bb96a-66ca-443c-8c56-c15667b0812c" style="radio" /><br/>
+                                <obs answerCode="Stationnary" answerConceptId="673f5588-8756-4464-bf97-79c18afc71ca"
+                                     conceptId="558bb96a-66ca-443c-8c56-c15667b0812c" style="radio" /><br/>
+                                <obs answerCode="Deceased" answerConceptId="3cce322c-26fe-102b-80cb-0017a47871b2"
+                                     conceptId="558bb96a-66ca-443c-8c56-c15667b0812c" style="radio" /><br/>
+                                <obs answerCode="Lost to follow up" answerConceptId="3ceb0ed8-26fe-102b-80cb-0017a47871b2"
+                                     conceptId="558bb96a-66ca-443c-8c56-c15667b0812c" style="radio" />
+                            </p>
+                        </fieldset>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <div class="pages" id="page18">
+                <li>
+                    <a class="gn-icon gn-icon-cog" style="text-decoration: none; font-weight: bold;">P. Observations</a>
+                </li>
+            </div>
+            <table class="baseline-aligned" id="tb18" style="display:none">
+                <tr>
+                    <td>
+                        <obs cols="30" conceptId="6602a73b-b8d3-40bc-bae8-f00ff3b9cceb" rows="3" style="textarea" />
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+    </div>
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm">
+                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                            style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+    <!-- </includeIf>
+    <includeIf velocityTest="$patient.gender == 'M' ">
+        <section headerLabel="Invalid Patient Message">
+            <table border="0" width="100%">
+                <tr><td class="lblcolor">This Form Is Only Filled For Female Patients:</td>
+                </tr>
+            </table>
+        </section>
+    </includeIf> -->
+</htmlform>

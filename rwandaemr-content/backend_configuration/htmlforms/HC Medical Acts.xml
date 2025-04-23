@@ -1,0 +1,1259 @@
+<htmlform
+        htmlformUuid="a6dd8cf5-899f-4429-925b-81221970edc4"
+        formUuid="ff12c205-d68d-4944-82d3-37fb067365f9"
+        formName="HC Medical Acts Form"
+        formDescription="HC Medical Acts Form"
+        formVersion="1.0"
+        formEncounterType="75caca4e-33ca-4b0a-aa63-5ed29f3000f0"
+        formPublished="true"
+        formRetired="false"
+>
+    <style>
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+    </style>
+
+    <script type="text/javascript">
+        if(jQuery){
+        jQuery(document).ready(function(){
+        if ( $j.browser.msie ) {
+        $j(":checkbox").click(function(){
+        $j(this).change();
+        });
+        }
+        var temp = getValue('tmp.value');
+        $j(".baseline-aligned").each(function(){
+        var group = $j(this);
+
+        $j(this).children("#trigger").find(":checkbox:first").change(function(){
+        var checked = $j(this).attr("checked");
+        if(checked == true){
+
+
+        }else{
+
+        }
+        });
+        });
+
+
+        $j(".baseline-aligned").each(function(){
+        var group = $j(this);
+        var uncheckAll = function(){
+        group.find("input[type$='checkbox']").attr("checked",false);
+        group.find("input[type$='checkbox']").change();
+        }
+
+
+        group.find("#checkboxAll").find("input").click(
+        /*  This was tricky... A number of things needed to happen
+        Basically, This is supposed to treat a group of inputs as if
+        were all one big checkbox. It is designed so that a checkbox
+        can be next to an input, and the user clicks the input, the
+        checkbox checks as well. But, when the user clicks the checkbox,
+        the browser marks the checkbox as checked. Therefore, when we check
+        if the checkbox is already checked, it always respondes true...
+        We needed to have 2 cases: when the clicking action is on the first checkbox
+        and when the action is on any other.  */
+
+
+        function(){
+
+        var flip;
+        var checked = $j(this).siblings(":checkbox:first").attr("checked");
+        if($j(this).attr("name") == $j(this).parents("#checkboxAll:first").find(":checkbox:first").attr("name")){
+        checked = $j(this).attr("checked");
+        flip = checked;
+        }else{
+        flip = !checked;
+        }
+
+        if($j(this).attr("type") == "text") if(flip == false) flip = !flip; // this is so the user doesn't go to check the checkbox, then uncheck it when they hit the input.
+
+
+
+
+
+        $j(this).parents("#checkboxAll:first").find(":checkbox").attr("checked",flip);
+        $j(this).parents("#checkboxAll:first").find(":checkbox").change();
+
+        var sbp1 = getValue('sbpid.value');
+        var dbp1 = getValue('dbpid.value');
+
+        var second =group.find("#checkboxCheckbox:first").find(":checkbox:first").attr("checked");
+        var thard =group.find("#checkboxCheckbox2:first").find(":checkbox:first").attr("checked");
+        var first =group.find("#checkboxAll:first").find(":checkbox:first").attr("checked");
+
+        if(first=='checked' || thard=='checked' || second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else if(thard=='checked'  &amp;&amp;( (sbp &gt; 139 ) || (dbp &gt; 89 ))) {
+
+        $j('#message').html('Shout for help to mobilize the team and call for emergency equipment. &lt;/br\&gt;  If you are alone, the family may be your team. &lt;/br\&gt; Airway: Turn woman onto her side to prevent aspiration. Ensure her airway is open. &lt;/br\&gt; If available, give oxygen at 4–6 L per minute by mask or cannula. &lt;/br\&gt; Breathing: If the woman is not breathing, begin ventilation with a bag and mask. &lt;/br\&gt; Circulation: If pulse is absent, begin cardiac massage6. Protect from injury, but do not actively restrain her. &lt;/br\&gt; Do not put anything in her mouth. &lt;/br\&gt;  Do not leave her alone. &lt;/br\&gt; While giving care, ask the family about her medical history and recent signs of illness including fever, chills, headache, and neck stiffness. &lt;/br\&gt; Put up an intravenous line and transfer urgently to hospital &lt;/br\&gt; ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+
+        group.find("#checkboxCheckbox").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#checkboxCheckbox:first").find(":checkbox:first").attr("checked");
+        var thard =group.find("#checkboxCheckbox2:first").find(":checkbox:first").attr("checked");
+        var first =group.find("#checkboxAll:first").find(":checkbox:first").attr("checked");
+
+        if(first=='checked'|| thard=='checked' ||second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        }else if(thard=='checked'  &amp;&amp;( (sbp &gt; 139 ) || (dbp &gt; 89 ))) {
+
+        $j('#message').html('Shout for help to mobilize the team and call for emergency equipment. &lt;/br\&gt;  If you are alone, the family may be your team. &lt;/br\&gt; Airway: Turn woman onto her side to prevent aspiration. Ensure her airway is open. &lt;/br\&gt; If available, give oxygen at 4–6 L per minute by mask or cannula. &lt;/br\&gt; Breathing: If the woman is not breathing, begin ventilation with a bag and mask. &lt;/br\&gt; Circulation: If pulse is absent, begin cardiac massage6. Protect from injury, but do not actively restrain her. &lt;/br\&gt; Do not put anything in her mouth. &lt;/br\&gt;  Do not leave her alone. &lt;/br\&gt; While giving care, ask the family about her medical history and recent signs of illness including fever, chills, headache, and neck stiffness. &lt;/br\&gt; Put up an intravenous line and transfer urgently to hospital &lt;/br\&gt; ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+
+
+        group.find("#checkboxCheckbox2").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#checkboxCheckbox:first").find(":checkbox:first").attr("checked");
+        var thard =group.find("#checkboxCheckbox2:first").find(":checkbox:first").attr("checked");
+        var first =group.find("#checkboxAll:first").find(":checkbox:first").attr("checked");
+
+        if(first=='checked' ||thard=='checked' ||second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else if(thard=='checked'  &amp;&amp;( (sbp &gt; 139 ) || (dbp &gt; 89 ))) {
+
+        $j('#message').html('Shout for help to mobilize the team and call for emergency equipment. &lt;/br\&gt;  If you are alone, the family may be your team. &lt;/br\&gt; Airway: Turn woman onto her side to prevent aspiration. Ensure her airway is open. &lt;/br\&gt; If available, give oxygen at 4–6 L per minute by mask or cannula. &lt;/br\&gt; Breathing: If the woman is not breathing, begin ventilation with a bag and mask. &lt;/br\&gt; Circulation: If pulse is absent, begin cardiac massage6. Protect from injury, but do not actively restrain her. &lt;/br\&gt; Do not put anything in her mouth. &lt;/br\&gt;  Do not leave her alone. &lt;/br\&gt; While giving care, ask the family about her medical history and recent signs of illness including fever, chills, headache, and neck stiffness. &lt;/br\&gt; Put up an intravenous line and transfer urgently to hospital &lt;/br\&gt; ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+        group.find("#4").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#4:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message').text('If the patient is not breathing Clear airway and ventilate with Ambu bag and mask until she starts to breath  again. If possible keep on oxygen high flow Keep the patient lying on her back, the head in a slight extension. Put up an intravenous line and transfer urgently Keep monitoring the vital signs (BP, pulse, breathing rate) till patient arrives in hospital').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+
+        group.find("#5").find("input[type$='checkbox']").click(function(){
+
+        $j(this).attr("checked",true);
+        $j(this).change();
+
+
+        var second =group.find("#5:first").find(":checkbox:first").attr("checked");
+        var first =group.find("#6:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'|| first=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+
+
+        group.find("#6").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#5:first").find(":checkbox:first").attr("checked");
+        var first =group.find("#6:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'|| first=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+
+        group.find("#7").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#7:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+        group.find("#8").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#8:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+        group.find("#9").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#9:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+        group.find("#10").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#10:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+        group.find("#11").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#11:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+        group.find("#12").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#12:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+        group.find("#13").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#13:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+        group.find("#14").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#14:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+        group.find("#15").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#15:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+        group.find("#16").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#16:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+        group.find("#16").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#16:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message').text('ORANGE Less than 10 min').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','orange');
+        } else{
+        $j('#message').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd').css('background-color','white');
+        }
+        });
+        group.find("#17").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#17:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#18").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#18:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#19").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#19:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#20").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#20:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#21").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#21:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#22").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#22:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#23").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#23:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#24").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#24:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#25").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#25:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#26").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#26:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#27").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#27:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#28").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#28:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#29").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#29:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#30").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#30:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#31").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#31:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#32").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#32:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#33").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#33:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#34").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#34:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#35").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#35:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#36").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        // $j(this).change();
+
+        var second =group.find("#36:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#37").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#37:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#38").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#38:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#39").find("input[type$='checkbox']").click(function(){
+
+        $j(this).attr("checked",true);
+        $j(this).change();
+
+        var second =group.find("#39:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#40").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#40:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message1').text('RED Immediate Resuscitation ALARM').css('color','black').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','red');
+        } else{
+        $j('#message1').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd1').css('background-color','white');
+        }
+        });
+        group.find("#41").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#41:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message3').text('YELLOW Within 60 min').css('color','black').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','yellow');
+        } else{
+        $j('#message3').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','white');
+        }
+        });
+        group.find("#42").find("input[type$='checkbox']").click(function(){
+
+        // $j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#42:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message3').text('YELLOW Within 60 min').css('color','black').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','yellow');
+        } else{
+        $j('#message3').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','white');
+        }
+        });
+
+        group.find("#43").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#43:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message3').text('YELLOW Within 60 min').css('color','black').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','yellow');
+        } else{
+        $j('#message3').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','white');
+        }
+        });
+        group.find("#44").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#44:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message3').text('YELLOW Within 60 min').css('color','black').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','yellow');
+        } else{
+        $j('#message3').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','white');
+        }
+        });
+        group.find("#45").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#45:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message3').text('YELLOW Within 60 min').css('color','black').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','yellow');
+        } else{
+        $j('#message3').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','white');
+        }
+        });
+        group.find("#46").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#46:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message3').text('YELLOW Within 60 min').css('color','black').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','yellow');
+        } else{
+        $j('#message3').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','white');
+        }
+        });
+        group.find("#47").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#47:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message3').text('YELLOW Within 60 min').css('color','black').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','yellow');
+        } else{
+        $j('#message3').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','white');
+        }
+        });
+        group.find("#48").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#48:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message3').text('YELLOW Within 60 min').css('color','black').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','yellow');
+        } else{
+        $j('#message3').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','white');
+        }
+        });
+        group.find("#49").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#49:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message3').text('YELLOW Within 60 min').css('color','black').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','yellow');
+        } else{
+        $j('#message3').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','white');
+        }
+        });
+        group.find("#50").find("input[type$='checkbox']").click(function(){
+
+        //$j(this).attr("checked",true);
+        //$j(this).change();
+
+        var second =group.find("#50:first").find(":checkbox:first").attr("checked");
+
+        if(second=='checked'){
+        $j('#message3').text('YELLOW Within 60 min').css('color','black').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','yellow');
+        } else{
+        $j('#message3').text(' ').css('color','red').css("font-weight","Bold");
+        $j('#dangertd3').css('background-color','white');
+        }
+        });
+        group.find("#all").find("input:checkbox[type='checkbox']").click(function(){
+        if ($j(this).is(":checked")){
+        var scr = $j(this).attr('value');
+        var tscr = $j('#score').html();
+        var setscr = parseInt(scr) + parseInt(tscr);
+        $j('#score').html(setscr);
+        var r=$j('#score').html(setscr);
+        $j('#score1').html(r);
+        }
+        else {
+        var scr = $j(this).attr('value');
+        var tscr = $j('#score').html();
+        var setscr = parseInt(tscr) - parseInt(scr);
+        $j('#score').html(setscr);
+        }
+        });
+        });
+        });
+        }
+    </script>
+
+
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateBillOnHtmlFormSubmissionAction"/>
+
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION">
+        <div class="section-container">
+
+
+            <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                <tr>
+                    <td>
+                        Date:
+                        <encounterDate default="today"/>
+                    </td>
+                    <td>
+                        Health Facility:
+                        <encounterLocation id="location" default="GlobalProperty:billing.defaultLocation" />
+                    </td>
+                    <td>
+                        Provider:
+                        <encounterProvider default="currentUser" />
+                    </td>
+                    <td>
+                        <b>Department:</b>
+                        <obs conceptId="c920931b-fa93-4e99-9e36-28e1e4c16cf7" required="true"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="SURGICAL ACTS">
+        <div class="section-container">
+
+            <table cellpadding="6" cellspacing="0" style="background-color:AliceBlue" width="100%">
+
+                <tr>
+                    <td>
+                        <obs conceptId="5015d413-ab08-48a1-aa7e-53cd6b21a377" labelText="Ablation des fils"/>
+                    </td>
+                    <td>
+                        <obs conceptId="ba8402d7-8940-47c9-aa3e-5338e9f7a582" labelText="Actes de perfusion "/>
+                    </td>
+                    <td>
+                        <obs conceptId="9fa95f58-26fa-44d9-bfe9-9c9a92716aaa" labelText="Circoncision"/>
+                    </td>
+                    <td>
+                        <obs conceptId="8d73e8bd-48d2-4e6d-9bd6-95f55d8f0a09" labelText="Detartrage"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="6ca939c5-bc4d-4828-9b8c-ff873ec6be11" labelText="Devitalisation"/>
+                    </td>
+                    <td>
+                        <obs conceptId="8ffad151-5ad7-4e35-8e71-d6bb8dd1da56" labelText="Exraction simple d'un corps étranger"/>
+                    </td>
+                    <td>
+                        <obs conceptId="e46101e7-3d28-451b-abef-934ae200122d" labelText="Extraction  d'une dent de lait"/>
+                    </td>
+                    <td>
+                        <obs conceptId="77e41e4a-026d-47a7-9840-a0f3ec49eb71" labelText="Extraction  d'une dent definitive"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="aa6f69ee-bdb3-4742-9d76-389368b4b0e6" labelText="Frein lingual"/>
+                    </td>
+                    <td>
+                        <obs conceptId="ef49ff61-0adc-48b1-a2e4-356a73f73e21" labelText="Incision d'abcès superficiel"/>
+                    </td>
+                    <td>
+                        <obs conceptId="9a3e44c6-b0fc-46cb-a107-978b14fc39d6" labelText="Injection IM"/>
+                    </td>
+                    <td>
+                        <obs conceptId="bf6d8584-5232-4f8d-9002-3476a7471821" labelText="Injection IV"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="0a39713a-867a-49f6-8ca9-beddd2607a8d" labelText="Obturation definitive"/>
+                    </td>
+                    <td>
+                        <obs conceptId="95e02e16-e2e0-4ef8-bf6e-12b80bf503bf" labelText="Obturation provisoire"/>
+                    </td>
+                    <td>
+                        <obs conceptId="583c01ca-4117-4105-9760-8eed22ef20d7" labelText="Pansement Compliqué"/>
+                    </td>
+                    <td>
+                        <obs conceptId="e6d0ada1-99bf-4320-8b7e-99cbf863bf85" labelText="Pansement simple"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="943bdfa1-e56d-4b6b-8d84-932726265591" labelText="Reduction de l'ATM"/>
+                    </td>
+                    <td>
+                        <obs conceptId="ed0e6759-e40f-4b80-bbec-9a9f71cb6efb" labelText="Séringuage"/>
+                    </td>
+                    <td>
+                        <obs conceptId="4a3a52ed-1496-4816-82dc-4aff58a6eaa4" labelText="Suture compliqué"/>
+                    </td>
+                    <td>
+                        <obs conceptId="d8ed83cb-4d86-4696-ab52-7ca8318de09a" labelText="Suture simple"/>
+                    </td>	</tr>
+
+            </table>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="SOINS INFIRMIERS ACTS">
+        <div class="section-container">
+
+            <table cellpadding="6" cellspacing="0" style="background-color:AliceBlue" width="100%">
+
+                <tr>
+                    <td>
+                        <obs conceptId="fd752a01-852b-4695-8dec-59c61300c725" labelText="Ablation DIU"/>
+                    </td>
+                    <td>
+                        <obs conceptId="12beda35-0274-454f-955c-83e36140a166" labelText="Ablation Norplan"/>
+                    </td>
+                    <td>
+                        <obs conceptId="aa11932f-7669-4af8-8f4b-9ed3f6dae1b7" labelText="Acc.Apres 4 CPN(Acte)"/>
+                    </td>
+                    <td>
+                        <obs conceptId="d1241acf-9165-4925-b624-f9b493542900" labelText="Acc.Dystocique"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="232c0cdf-31c4-4acd-bdea-a9bc0acce1e9" labelText="Acc.eutocique avec épisiotomie "/>
+                    </td>
+                    <td>
+                        <obs conceptId="fe875944-a91a-4cfb-83e7-2a501b4ad639" labelText="Acc.eutocique sans épisiotomie "/>
+                    </td>
+                    <td>
+                        <obs conceptId="0f49b6fb-a41a-45a8-a411-94026a5b5fb3" labelText="AMIU (Accouchement Mort In Utero)"/>
+                    </td>
+                    <td>
+                        <obs conceptId="b7ae7145-1c1c-4141-bad4-a66302c7d827" labelText="Curage"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="9bf3a549-cc55-4da8-bc3c-3b8ae2224899" labelText="Curetage"/>
+                    </td>
+                    <td>
+                        <obs conceptId="fe82bd86-be4c-40a6-9823-799a08a620b5" labelText="Delivery after 4 ANC visits without Episiotomy"/>
+                    </td>
+                    <td>
+                        <obs conceptId="07e5275a-7acf-413d-b4a1-d46b0e364f44" labelText="Depo Provera Injection"/>
+                    </td>
+                    <td>
+                        <obs conceptId="e26ec6ee-b177-4c2b-bbdd-7aacc79f9904" labelText="Implanon Insertion"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="a4ff7212-d383-4068-bf7f-0d429efcaa3c" labelText="Implanon Removal"/>
+                    </td>
+                    <td>
+                        <obs conceptId="e32bef4c-6dfc-4014-9ab4-80f0231eb3f4" labelText="Insertion DIU"/>
+                    </td>
+                    <td>
+                        <obs conceptId="9d62c339-b22b-4175-8f36-ee5a17fe7753" labelText="Insertion Norplan "/>
+                    </td>
+                    <td>
+                        <obs conceptId="4fe73529-826c-42a8-8468-d3b6d94e6b02" labelText="IUD insertion"/>
+                    </td>	</tr>
+                <tr>
+                    <td>
+                        <obs conceptId="59b7ac9e-496f-47c8-b40b-eac578951043" labelText="IUD removal"/>
+                    </td>
+                    <td>
+                        <obs conceptId="44f2a88d-487f-4c49-9595-56b1b5b74b85" labelText="Norplan or jadelle Insertion"/>
+                    </td>
+                    <td>
+                        <obs conceptId="d012bbb4-150d-4951-85dd-6c6c37a7cee4" labelText="Norplan or jadelle Removal"/>
+                    </td>
+                    <td>
+
+                    </td>	</tr>
+
+
+            </table>
+        </div>
+    </section>
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm">
+                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                            style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+</htmlform>

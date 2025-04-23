@@ -1,0 +1,15 @@
+key: "ipd_patients"
+uuid: "d10f3f18-ab46-11ef-9153-bc0ff38aa934"
+name: "Hospitalized Parients with Billing and Clinical admissions"
+description: "Hospitalized Parients with Billing and Clinical admissions"
+datasets:
+  - key: "ipd_patients"
+    type: "sql"
+    config: "sql/ipd_patients.sql"
+designs:
+  - type: "csv"
+    properties:
+      "filenameBase": "usersdateexport.{{ formatDate request.evaluateStartDatetime \"yyyyMMdd\" }}.{{ formatDate request.evaluateStartDatetime \"HHmm\" }}"
+      "characterEncoding": "ISO-8859-1"
+      "blacklistRegex": "[^\\p{InBasicLatin}\\p{L}]"
+      "dateFormat": "dd-MMM-yyyy HH:mm:ss"

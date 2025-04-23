@@ -1,0 +1,19 @@
+[
+  {
+    "id": "rwandaemr.primaryCareApp",
+    "description": "Registration of a patient through primary care",
+    "order": 11,
+    "extensions": [
+      {
+        "id": "rwandaemr.primaryCareApp",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Primary Care Registration",
+        "url": "module/rwandaprimarycare/chooseLocation.form",
+        "icon": "icon-pencil",
+        "requiredPrivilege": "App: coreapps.primarycare",
+        "order": 2
+      }
+    ]
+  }
+]

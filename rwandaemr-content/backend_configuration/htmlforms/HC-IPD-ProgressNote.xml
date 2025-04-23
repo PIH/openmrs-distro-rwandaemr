@@ -1,0 +1,198 @@
+<htmlform htmlformUuid="26590eb7-f47b-43c4-aaed-b98ccbb55519" formUuid="d9b46e19-c207-45fd-8236-5704c3752480"
+          formName="HC IPD Progress Note" formDescription="HC IPD Progress Note" formVersion="1.0"
+          formEncounterType="5117d944-9a73-4a09-a1ed-08d8407a38ba" formPublished="true" formRetired="false">
+
+    <macros>
+        paperFormId = Flow-DM-RW.V2.0.akb.15May09
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+
+    </macros>
+
+    <style>
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+        .flexView {
+        display: flex;
+        }
+    </style>
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateBillOnHtmlFormSubmissionAction" />
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="PROGRESS NOTE AND EVOLUTION">
+        <div class="section-container">
+
+            <p class="date-one-line">
+                <label>
+                    Date:
+                </label>
+                <encounterDate default="now" id="encounterDate" showTime="false" />
+            </p>
+
+            <p>
+                <label>
+                    Provider:
+                </label>
+                <encounterProviderAndRole default="currentUser" encounterRole="a0b03050-c99b-11e0-9572-0800200c9a66"
+                                          required="true" />
+            </p>
+
+            <p id="location-container">
+                <label>
+                    Location:
+                </label>
+                <encounterLocation default="GlobalProperty:billing.defaultLocation" />
+            </p>
+
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="MULTIDISCIPLINARY PROGRESS NOTE">
+        <div class="section-container">
+
+            <table cellspacing="0" cellpadding="6" width="100%">
+                <tr class="strong">
+                    <th>
+                        <label>DATE AND TIME</label></th>
+                    <th><label>PROGRESS NOTE, INVESTIGATION/TREATMENT</label></th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <!-- Frequancy -->
+                        <encounterDate showTime="true" default="now"/>
+                    </td>
+                    <td>
+                        <!-- Motif -->
+                        <obs conceptId="6a329c3c-b15f-418d-b3d6-74e9b95b5d85" style="textarea" rows="3" cols="100" required="true"/>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </section>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Bill Hospitalisation">
+        <div class="section-container">
+            <fieldset>
+                <legend>
+                    <b>
+                        Room
+                    </b>
+                </legend>
+                <p class="flexView">
+                    <label>DEPARTMENT: </label>
+
+                    <obs conceptId="aa7b8e25-f564-4d93-a262-93cd3d3a9e17" required="true" />
+                </p>
+                <p class="flexView">
+                    <label>HOSPITALISATION ROOM TYPE:</label>
+                    <obs conceptId="3168fee2-92aa-451b-b143-e46b56fe1e6f"
+                         answerConceptId="470f56f5-83a5-4cb2-a9ba-8714d585b63d"
+                         answerLabel="Hospitalisation salle commune/ Jour" />
+                </p>
+            </fieldset>
+        </div>
+    </section>
+
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm left">
+                <uimessage code="Save" />
+                <i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+
+</htmlform>

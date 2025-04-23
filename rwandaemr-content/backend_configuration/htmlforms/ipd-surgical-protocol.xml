@@ -1,0 +1,364 @@
+<htmlform
+        formDescription="Surgical Protocol form"
+        formEncounterType="1bcebba6-fca6-4568-a024-1ec575568b43"
+        formName="Surgical Protocol form"
+        formPublished="true"
+        formRetired="false"
+        formUuid="af71fab7-6a8e-43a0-99cc-d24a7b76c851"
+        formVersion="1.0"
+        htmlformUuid="b722a86a-1c85-4c84-9ba0-4e208b156b7d"
+>
+    <macros>
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+
+        @PRIMARY_CARE_SERVICE_REQUESTED@ = 2cda28df-2fe7-42e0-bb2f-376c9f803537
+        @SERVICE_REQUESTED@ =7055cf1f-1e06-4149-a99d-a2417208fec2
+        @Consultation@ = d6dafc4b-9ad8-4467-94a9-0eca78648254
+    </macros>
+
+    <style>
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+    </style>
+
+
+
+
+    <h1>DH - Post.OP Protocols Form</h1>
+
+    <!--<span style="float: right">Paper Form ID: $paperFormId</span>-->
+    <!-- <includeIf velocityTest="$patient.gender == 'F' "> -->
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION">
+        <div class="section-container">
+            <table style="table-layout: fixed;">
+                <tr>
+                    <td>
+                        Date:
+                        <encounterDate default="today" />
+                    </td>
+                    <td>
+                        Health Facility:
+                        <encounterLocation id="location" default="GlobalProperty:registration.defaultLocationCode" />
+                    </td>
+                    <td>
+                        Provider:
+                        <encounterProvider default="currentUser" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="POST OP Protocols">
+        <div class="section-container">
+
+            <p class="small-input flexView">
+                Type of Intervention:
+                <obs conceptId="624416cf-0066-4a28-a4b2-baaf96b9bcc2" style="text" />
+            </p>
+            <p class="date-one-line">
+                Date of Intervention:
+                <obs conceptId="877b19b5-619e-4df3-a310-28a7e827768e" /><br />
+            </p>
+            <p class="date-one-line">
+                Start of intervention:
+                <obs conceptId="6a5327ed-22fe-4f35-834a-0fe148f5d4cd" allowFutureDates="true" /><br />
+            </p>
+            <p class="date-one-line">
+                End of intervention:
+                <obs conceptId="4cc57da9-76ea-4275-bfd8-d5e9486926cf" allowFutureDates="true" /><br />
+
+            </p>
+            <p class="small-input flexView">
+                Surgeon:
+                <obs conceptId="4711b066-8465-4da2-910a-91192390ac43" style="text" /><br />
+
+            </p>
+            <p class="small-input flexView">
+                Internal Assistant:
+                <obs conceptId="c73f3dd7-789e-43b2-a795-869ecbcfa5ad" style="text" /><br />
+
+            </p>
+            <p class="small-input flexView">
+                External Assistant:
+                <obs conceptId="81fd294d-4243-41d3-8ff0-05ce4a8194aa" style="text" /><br />
+
+            </p>
+            <p class="small-input flexView">
+                Anesthetist:
+                <obs conceptId="ba2db825-bada-4ca5-8b95-9b23c52dfef2" style="text" /><br />
+
+            </p>
+            <p class="side-by-side">
+                Type of anesthesia:
+                <obs conceptId="d7a04a46-182c-444e-868c-a125af4f3a4a"
+                     answerConceptIds="f4b95a05-bdc5-4153-96d2-49a944586da6,d2959d61-ec90-49f5-87c8-66a656eeafed,79e40dad-603e-4d68-ac5d-7a38745130b5,2611cfa3-8d13-402d-9ceb-093d70761e02,9bb6e1fb-03bd-40ad-a5fc-970468aa72be,c5249e32-e6c1-4f5e-a9be-a65a8f285f46,f6a8c625-4726-487d-a7b3-b5bda940a333"
+                     style="radio" /><br />
+            </p>
+            <p class="side-by-side">
+                Estimated blood loss:
+                <obs conceptId="82c345b5-6812-4823-904f-be0795893416"
+                     answerConceptIds="7090eb7b-4857-423b-a787-f28798ff4d7f,61330c78-4546-4e1a-8825-8ba890644770" style="radio" />
+                <br />
+            </p>
+            <p class="side-by-side">
+                Any transfusion given:
+                <obs conceptId="	38b388b6-5ba7-41f5-a084-2887f5e4b297" answerConceptIds="1065,1066" style="radio" id="transfu">
+
+                    <controls>
+                        <when value="1065" thenDisplay="#ifYesTransfu" />
+                    </controls>
+
+                </obs>
+            </p>
+
+            <p id="ifYesTransfu" class="small-input flexView">
+                If Yes, please indicate the volume:<br />
+                <span class="flexView">
+                    <obs conceptId="2ca48a3a-ecb1-4078-a0ec-9c1ec8ba10f1" labelText="PRBS:" style="text"/>
+                    <obs conceptId="3cd3d038-26fe-102b-80cb-0017a47871b2" labelText="PLATELETS:" style="text"/>
+                    <obs conceptId="	8d777abf-edd2-4ede-862f-62fc78e708a5" labelText="FFP:" style="text"/>
+                    <obs conceptId="48c3db3b-5288-4489-adb3-8f275ffbdaff" labelText="Cryoprecipitate:" style="text"/>
+                </span>
+            </p>
+            <p class="small-input side-by-side">
+                <obs conceptId="a5865679-f9ce-43a0-90bb-de9ec9c6bfbb" labelText="Donnor's blood type:" style="radio"/><br/>
+                <obs conceptId="ed84af4b-90a4-4d7b-8f65-18da8a5fae07" labelText="Receiver's blood type:" style="radio" /><br/>
+            </p>
+            <p class="small-input flexView">
+                Diagnostic(indications) Pre-Operation:
+                <obs conceptId="78f9f275-f1ff-439e-8df3-7711560f2dc5" style="text" /><br />
+
+            </p>
+            <p class="small-input flexView">
+                Intra-Operative Diagnosis:
+                <obs conceptId="a8ff145b-f464-43e5-97bd-2d80c103e2ec" style="text" /><br />
+
+            </p>
+            <p class="small-input flexView">
+                Skin desinfection and product used :
+                <obs conceptId="0ab77c37-e619-49a6-8d46-2e24926be088" style="text" /><br />
+
+            </p>
+            <p>
+                Description of the procedure performed :
+                <obs conceptId="1007cf71-99b4-4f28-8017-31d9b6ebc857" style="textarea" rows="4" cols="40" /><br />
+
+            </p>
+            <p>
+                Observation(peri-op assessment):
+                <obs conceptId="dc08328a-3105-43cd-b85f-905328261ac7" style="textarea" rows="4" cols="40" /><br />
+
+            </p>
+            <p class="small-input flexView">
+                Type of sutures and number:
+                <obs conceptId="7e64db30-4542-4649-840c-572163b1061c" style="text" /><br />
+
+            </p>
+            <p>
+                Surgical specimens removed (pathology):
+                <obs conceptId="df5c33c1-b092-4e1a-87c2-57975c8a598c" style="textarea" rows="4" cols="40" /><br />
+
+            </p>
+            <p class="small-input flexView">
+                Post-operative diagnosis:
+                <obs conceptId="358f9c91-c17f-40b5-9df0-d3cb78a57ae8" style="text" /><br />
+
+            </p>
+            <p>
+                Post operative report:
+                <obs conceptId="18a3ddfd-f5fb-4d1f-b962-d2bb6a402422" style="textarea" rows="4" cols="40" /><br />
+
+            </p>
+            <p>
+                Post operative plan:
+                <obs conceptId="9a07f37c-eba2-42f6-9856-170277e6b8bf" style="textarea" rows="4" cols="40" /><br />
+
+            </p>
+        </div>
+    </section>
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm right">
+                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                            style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+
+</htmlform>

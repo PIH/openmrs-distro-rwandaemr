@@ -1,0 +1,317 @@
+[
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.currentEnrollment",
+    "order": 1,
+    "config": {
+      "widget": "programstatus",
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.currentEnrollmentDashboardWidget.label",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.currentEnrollment.extension",
+        "appId": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.currentEnrollment",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.previousEnrollment",
+    "order": 2,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.previousEnrollment.extension",
+        "appId": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.previousEnrollment",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "program/programHistory"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.recentEncounters",
+    "description": "coreapps.mostRecentVitals.app.description",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
+    "icon": "icon-calendar",
+    "order": 4,
+    "config": {
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false,
+      "limit": "5"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.recentEncounters.extension",
+        "appId": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.recentEncounters",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.secondColumnFragments",
+        "extensionParams": {
+          "provider": "rwandaemr",
+          "fragment": "patient/encountersSection"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.obsGraph.weight",
+    "order": 3,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "icon-bar-chart",
+      "conceptId": "3ce93cf2-26fe-102b-80cb-0017a47871b2,3ce93b62-26fe-102b-80cb-0017a47871b2",
+      "maxResults": "6",
+      "showLegend": true,
+      "function": "(bmi,3ce93b62-26fe-102b-80cb-0017a47871b2,3ce93cf2-26fe-102b-80cb-0017a47871b2);",
+      "label": "WEIGHT,HEIGHT AND BMI GRAPH",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.obsGraphWeight.extension",
+        "appId": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.obsGraph.weight",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.secondColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.Enrollment.Form",
+    "order": 2,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6dForm.Enrollment",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.overallActions",
+        "type": "link",
+        "label": "Enrollment Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-diabetes--enrollment-form.xml",
+        "icon": "icon-file",
+        "order": 2
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.vitals",
+    "order": 1,
+    "config": {
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.vitals",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.overallActions",
+        "type": "link",
+        "label": "referenceapplication.app.capturevitals.title",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/vitals.xml",
+        "order": 1,
+        "icon": "fas fa-fw fa-heartbeat",
+        "requiredPrivilege": "Task: referenceapplication.vitals"
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.ClinicalVisits.Form",
+    "order": 3,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.ClinicalVisits.Form",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.overallActions",
+        "type": "link",
+        "label": "Clinic Visits Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-diabetes--rendez-vous.xml",
+        "icon": "icon-file",
+        "order": 2
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.medicationList.Form",
+    "order": 3,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.medicationList.Form",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.overallActions",
+        "type": "link",
+        "label": "Medication List Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-diabetes--medication-list.xml",
+        "icon": "icon-file",
+        "order": 2
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.medicationExam.Form",
+    "order": 3,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.medicationExam.Form",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.overallActions",
+        "type": "link",
+        "label": "Medication Exam Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-diabetes--medicationexam.xml",
+        "icon": "icon-file",
+        "order": 2
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.problemList.Form",
+    "order": 3,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.problemList.Form",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.overallActions",
+        "type": "link",
+        "label": "Diagnostic and Problem List Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-diabetes--diagnosis-and-problems.xml",
+        "icon": "icon-file",
+        "order": 2
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.insulinList.Form",
+    "order": 3,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.insulinList.Form",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.overallActions",
+        "type": "link",
+        "label": "Insulin List Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-diabetes--insulin-list.xml",
+        "icon": "icon-file",
+        "order": 2
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.otherInvestigations.Form",
+    "order": 3,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.otherInvestigations.Form",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.overallActions",
+        "type": "link",
+        "label": "Other Investigations Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-diabetes--other-investigations.xml",
+        "icon": "icon-file",
+        "order": 2
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.exitFromCare.Form",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.exitFromCare.Form",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.overallActions",
+        "type": "link",
+        "label": "Exit From Care",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-diabetes--exit-from-care-information.xml",
+        "icon": "icon-file",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.regimens",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-briefcase-medical",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.exitFromCare.Form",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.overallActions",
+        "type": "link",
+        "label": "Regimens",
+        "url": "rwandaemr/patient/regimen.page?patientId={{patient.uuid}}",
+        "icon": "fas fa-fw fa-briefcase-medical",
+        "order": 15
+      }
+    ]
+  }
+]

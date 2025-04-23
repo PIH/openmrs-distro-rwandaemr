@@ -1,0 +1,776 @@
+<htmlform htmlformUuid="45e57c61-a22a-4564-ad2f-aa5e57b36583" formUuid="e19eecb3-32d1-4506-8e9a-1ba5093c140e"
+          formName="Auto Stomatology acts" formDescription="auto Stomatology acts" formVersion="1.0"
+          formEncounterType="dd0f8dd0-e8c6-44a1-9320-174fce0022ad" formPublished="true" formRetired="false">
+    <macros>
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+        @CELL_TELEPHONE@ = 3ce5fdb2-26fe-102b-80cb-0017a47871b2
+        @NAMES_AND_FIRSTNAMES_OF_CONTACT@ = 3cd997f2-26fe-102b-80cb-0017a47871b2
+        @SYMPTOM_PRESENT@ = 3cd95a58-26fe-102b-80cb-0017a47871b2
+        @FUNCTIONAL_REVIEW_OF_SYMPTOMS_NON-CODED@ = 3ce141c8-26fe-102b-80cb-0017a47871b2
+        @History_of_the_present_illness@ = 24aa74e0-a281-4031-8919-63f3eaf3a729
+        @PREVIOUS_MEDICAL_HISTORY@ = bc3862d8-6825-4878-8801-f1e7b0790071
+        @PHYSICAL_EXAMINATION@ = 3cd9ae0e-26fe-102b-80cb-0017a47871b2
+        @PULMONARY_SYSTEM@ = 3ce15384-26fe-102b-80cb-0017a47871b2
+        @CARDIOVASCULAR_SYSTEM@ = 3ce1567c-26fe-102b-80cb-0017a47871b2
+        @ABDOMINAL_SYSTEM@ = 3ce157ee-26fe-102b-80cb-0017a47871b2
+        @NEUROLOGIC_SYSTEM@ = 3ce1596a-26fe-102b-80cb-0017a47871b2
+        @MUSCULOSKELETAL_SYSTEM@ = 3ce15c58-26fe-102b-80cb-0017a47871b2
+        @UROGENITAL_SYSTEM@ = 3ce15f46-26fe-102b-80cb-0017a47871b2
+        @SKIN_GROWTHS_GANGLIONS@ =3ce1625c-26fe-102b-80cb-0017a47871b2
+        @PSYCHOMOTOR_SYSTEM@ = 00727a2a-821a-4d21-af08-581e04b7b279
+        @OTHER_PHYSICAL_SYSTEM@ = e2d3493a-9db0-4c2e-9254-db41db8b0807
+        @Syndromic_summary@ = c3998372-d45f-40a0-9369-366f321067a1
+        @OUTPATIENT_DIAGNOSIS@ = f0230f4a-1b20-4a47-bce9-c5a9c01367ec
+        @OUTPATIENT_DIAGNOSIS_NON-CODED@ = a72c0d52-f25c-40f9-a2c1-1cbef67e2731
+        @PREGNANCY_STATUS@ = 3ceb4880-26fe-102b-80cb-0017a47871b2
+        @HIV_STATUS@ = aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e
+        @SEXUALLY_TRANSMITTED_DISEASE_OTHER@ = 3cd9e838-26fe-102b-80cb-0017a47871b2
+        @Physiotheraphy_Assessment@ = d54a43f2-1049-49cf-beb3-e21c4c8a2823
+        @Traumatique@ = a616d68b-749a-49e0-af17-93a9947920a1
+        @Orthopedique@ = 62c43390-aa85-4350-980f-e5d210d2e7f8
+        @Rhumatisme@ = b465d7f2-24ec-4dfb-befd-6b0b28e4d4f3
+        @Systeme_Nerveux_Central@ = c5076a80-3e0a-4641-aa96-100a69838b63
+        @Systeme_Nerveux_Peripherique@ = 29395609-3205-4e90-9643-ec818d6e621c
+        @Affection_du_systeme_respiratoire@ = c1d8063f-a933-4de3-83fc-a3da12018aff
+        @Working_Environment@ = 32e98cd7-7eb7-4da4-9c2d-6bd99f572ecb
+        @Dizziness@ = f8df890b-3e19-4a5c-9fbc-8d1bf44a49b1
+        @Aggravating_factors@ = a20c19a1-007c-456f-a805-6fe9e1ec19d3
+        @Releasing_factors@ = 1a207968-710f-4768-ae0f-c6059940f027
+        @Joint_Status@ = a1635ebe-6d06-4a7c-841c-75156bd72d2b
+        @Sensation_Palpation@ = 791d7b76-169e-4979-a386-ed30cabf1e61
+        @Sensation_Palpation_deep@ = 4b994956-acd7-44f4-9733-224bf6027f14
+        @Sensation_Palpation_Superficial@ = 64e24208-3238-4041-8e82-13a1cbe7850b
+        @Muscle_status@ = 7f561e35-35f9-4b76-9200-d264451bafc8
+        @Relationship_with_the_aggressor@ = b5bf1081-0b67-49e7-8f11-62479e3f112f
+        @Date_of_Aggression_GBV@ = c1a7df03-60f5-41b8-acd1-a9c1cac7a00b
+        @CLINIC_LOCATION_OTHER@ = eec8df99-d1a9-4c50-ab9d-60a103b61788
+        @Name_of_referring_person_in_GBV_department@ = 9d68f990-8fae-4446-95fa-0db68a61fba4
+        @Violence_type@ = 8d3c2403-fc29-40e5-ad42-f7624feb3824
+        @Other_GBV_observations@ = d7e25226-f042-4acf-8e5f-5a822b0685f4
+        @Changements_d_habits_apres_agression@ = 7bf3b00b-c1a6-49e5-ac3d-74565e80c039
+        @Toilette_douche@ = 053e3801-04c0-446d-ac47-a1bf0c6463cf
+        @Utilisation_du_condom@ = 3cb679e8-2f5a-43e2-8500-c0b57781c583
+        @Recidive@ = 1f8ea249-2aef-4c3a-85cb-15f449184c03
+        @Surgical_antecedents_v2@ = d0256b30-56d4-497e-9f91-c6f6f7673fe6
+        @Psychiatric_history_v2@ = acabf02b-a514-419d-af95-76217d1dd97d
+        @DATE_OF_LAST_MENSTRUAL_PERIOD@ = 3cd653c6-26fe-102b-80cb-0017a47871b2
+        @Duree_Habituelle_du_cycle@ = 4d4fc8e0-26ff-485c-a927-9f083f71d8cd
+        @Use_of_contraception@ = 76f21f51-05ce-4c3e-877f-948c6b81592c
+        @YES@ = 3cd6f600-26fe-102b-80cb-0017a47871b2
+        @NO@ = 3cd6f86c-26fe-102b-80cb-0017a47871b2
+        @OTHER_CONTRACEPTION_METHOD_USED@ = d74d667c-dd62-474e-a2ad-ca142a029075
+        @Autres_antecedents_gynecologiques_et_obstetricaux@ = a9bee0e9-eef7-496b-8ed7-e32f74d67cb5
+        @ALLERGY_COMMENT@ = 38b0118c-1cf4-40a9-a508-15c48d9586ac
+        @NUMBER_OF_LIFETIME_SEXUAL_PARTNERS@ = 3cdca69a-26fe-102b-80cb-0017a47871b2
+        @Sex_of_partner_s@ = 4f6db897-3ceb-43be-a367-a7957dae4091
+        @MALE@ = 3ce84b1c-26fe-102b-80cb-0017a47871b2
+        @Male_and_Female@ = cde80290-207b-4b0b-9ac3-bcd7a30a5554
+        @FEMALE@ = 3ce84c8e-26fe-102b-80cb-0017a47871b2
+        @Last_date_of_volontary_sexual_relation@ = 6423a54b-b3b8-4d2a-9422-81669badaef3
+        @Past_sexual_history_related_to_STIs@ = ac9923ed-b077-4cb1-a8a0-ba628476cbd1
+        @History_related_to_violence@ = fcfe8870-41dd-45b3-bf4a-398bffe9634e
+        @Other_violences@ = 70df7e11-8662-4103-9d42-d3281dfab03a
+        @Gender_based_violence@ = c64a9be3-966f-4f0e-8be1-81cb12e2ccd8
+        @Situation_familiale_et_condition_de_vie@ = f5dc5e9d-d810-4449-9703-f7941f68bf73
+        @Contexte_de_la_crise@ = 344f8a74-b901-4c30-82e0-3ac294906cc1
+        @Breve_histoire_familiale@ = b4a2bf92-626c-4943-a949-5a86103980bc
+        @Breve_histoire_personnelle2@ = b5fe42a3-0116-48d9-b57e-2148c0e86d16
+        @Status_somatique@ = f4f0d818-1bc3-4b8d-953f-b117f0062cf2
+        @Status_psychiatrique_et_donnees_objectives@ = c58dd5cc-3d64-4294-8247-cd3f18133b5e
+        @Examen_de_Dentition_Primaire_construct@ = 72037af1-1540-4ca6-a8a3-0443b1864dd7
+        @Numero_d_une_dent@ = 87cfa842-03d1-497c-8c19-4ffed300329f
+        @Action_sur_une_dent@ = 0a24547e-36dc-426a-bb4a-fb3a93470022
+        @Examen_de_Dentition_Secondaire_construct@ = fe176631-0e46-4c9d-8267-94a44a4cc73b
+        @Numero_d_une_dent@ = 87cfa842-03d1-497c-8c19-4ffed300329f
+        @Action_sur_une_dent@ = 0a24547e-36dc-426a-bb4a-fb3a93470022
+        @Temporomandibular_joint_TMJ_disorders@ = 4c2292c9-6728-4235-a9a6-64a81b34bd5e
+        @LYMPHNODS@ = 099b0d7c-1bc2-424a-b26a-851679f98cc3
+        @FACIAL_SKIN@ = a0055c0e-eef0-457f-975b-55ce69505c9b
+        @FACIAL_ASYMETRY@ = db13ecb7-27de-4074-8557-29e3f9abe9f9
+        @ORAL_TEST_OF_SOFT_TISSUE@ = ecb66fa2-212f-4a6f-9244-c4594264af27
+        @ORAL_TEST_OF_hARD_TISSUE@ = d1c86386-3dd8-4562-877a-668aec5d2e21
+        @Acuite_visuelle_Oeil_Droit@ = a838e4b3-1e27-4b42-a118-fcc6f8fc4526
+        @Acuite_visuelle_Oeil_Gauche@ = ddf867f1-7e98-4bf6-a52e-a3dd179c8d5a
+        @Paupiere@ = 7dd8bdbb-8b79-42e0-95e3-c69761dc3b51
+        @Conjoctive@ = b5d85e29-cfd0-4d79-a067-80c16dc83d65
+        @Cornee@ = db986b47-a20e-439c-ae88-20dcd5a77c08
+        @Chambre_anterieure@ = e34689e3-6b6c-4af6-a7c7-5fde2ad67f15
+        @Iris@ = 8ed3374f-a500-4f93-92f8-c9887d2dd3df
+        @Pupille@ = 1346ff7a-cd97-4e67-b39e-319205ca8a00
+        @Cristallin@ = 64ec929e-662e-4330-a872-03591fb9b4a6
+        @Fond_d_oeil@ = 9350d545-827a-4156-a515-051586b367c1
+        @Test_de_vision_de_loin@ = 98f2afd3-ab5a-4f3a-9954-712c1e072c79
+        @Test_cylindrique_de_l_oeil_droit@ = d899a77d-4b9a-4d7c-91e9-e4b9a1db2cc3
+        @Axe_visuel_de_l_oeil_droit@ = 57828f2f-56f9-429a-93d8-42abce347119
+        @Test_spherique_de_l_oeil_gauche@ = a7bdea70-acca-45b1-a554-d5d0512194da
+        @Test_cylindrique_de_l_oeil_gauche@ = b7048443-541e-4622-99d8-9a6d6c53216f
+        @Axe_visuel_de_l_oeil_gauche@ = 93eeab43-88b9-4437-9740-46884a21da84
+        @Test_de_vision_de_pres@ = b69b7995-5d5d-4e0f-b9ea-7caeb9470ad8
+        @Test_spherique_de_l_oeil_droit@ = 941a7754-d43a-4b33-8ab8-9c49a76f470f
+        @Test_cylindrique_de_l_oeil_droit@ = d899a77d-4b9a-4d7c-91e9-e4b9a1db2cc3
+        @Axe_visuel_de_l_oeil_droit@ = 57828f2f-56f9-429a-93d8-42abce347119
+        @Test_spherique_de_l_oeil_gauche@ = a7bdea70-acca-45b1-a554-d5d0512194da
+        <!--@Test_cylindrique_de_l_oeil_gauche@ = b7048443-541e-4622-99d8-9a6d6c53216f-->
+        @Axe_visuel_de_l_oeil_gauche@ = 93eeab43-88b9-4437-9740-46884a21da84
+        @Echographie@ = c7d688e8-be58-4282-a428-7fb4341a9ea3
+        @Echographie_Abdominale@ = d36c1cc7-8876-4f22-8c72-d722fe804521
+        @Echographie_Abdomino-pelvienne_Gyneco-obstetricale@ = 94804134-5e97-4e34-9edc-85599a242ffd
+        @Stomatologie@ = e65de509-f9dc-4219-bba2-129e6dd65d01
+        @Extraction_dent_de_lait@ = 8506ba95-4cbb-4c5a-9e97-8d8ac7d1283e
+        @Extraction_dent_definitive@ = 6a926380-0ec1-4378-b825-c8d2ae349f7b
+        @Extraction_des_restes_radiculaires@ = 0d602c96-ba3d-4d4a-93e7-e2d52e3f067f
+        @Obturation_provisoire@ = 95e02e16-e2e0-4ef8-bf6e-12b80bf503bf
+        @Obturation_definitive@ = 0a39713a-867a-49f6-8ca9-beddd2607a8d
+        @Devitalisation@ = 6ca939c5-bc4d-4828-9b8c-ff873ec6be11
+        @Detartrage@ = 8d73e8bd-48d2-4e6d-9bd6-95f55d8f0a09
+        @Gingivectomie@ = e498d5ad-6ff5-48ce-9626-faa5e5081552
+        @Coiffage_direct@ = d8838cec-d862-42ae-bfb9-4e032b3e4bd8
+        @Coiffage_indirect@ = 9b204da3-5e47-41c0-9158-854436a8af4c
+        @Curetage_poche_parodontaire@ = 4f55c970-d24a-4c9d-91e0-031f252152f1
+        @Frenectomie_labiale@ = 373eedac-33bd-4585-ab8f-94d6639db7a0
+        @Deviation_d_incisive_et_canine@ = 22965f0c-9752-4473-9988-b319010f9c2e
+        @Reduction_de_l_ATM@ = 943bdfa1-e56d-4b6b-8d84-932726265591
+        @Operculectomie@ = 6b94afce-d442-4b51-8289-d6edeae7394e
+        @Extraction_chirurgicale_d_une_dent_incluse_ou_impacte@ = 9164deeb-3fbf-457d-94f4-62b111400eea
+        @RX_retro-alveolaire@ = be80e77c-faae-4307-9c26-79c2bde2c29c
+        @Ablation_du_calcul_salivaire@ = 3f6f6caa-ef2f-45c0-9876-cbc890f7eede
+        @Apicectomie@ = 30566ed3-fd04-4daa-afd2-aee976191ecc
+        @Reduction_dento-alveolaire_et_Fixation@ = cf64b864-1fc1-47ca-b2f4-385fb72f3615
+        @Kystectomie@ = c8633881-22f6-4b37-b299-9a8d384945a9
+        @Soins_infirmiers@ = a837de12-9005-4af4-b147-8ea7a169ca14
+        @Injection_IM@ = 9a3e44c6-b0fc-46cb-a107-978b14fc39d6
+        @Injection_IV@ = bf6d8584-5232-4f8d-9002-3476a7471821
+        @Injection_SC@ = 4b793d53-6e65-4129-a504-d3d1b59e4633
+        @Pose_perfusion_transfusion@ = ef33c214-95ee-4693-bfdc-99a6e3e3c99b
+        @Pansement_simple@ = e6d0ada1-99bf-4320-8b7e-99cbf863bf85
+        @Aspiration_naso-gastrique@ = 8a854914-0b9d-43b0-adcb-8337bea2d0f7
+        @Lavage_gastrique_vesicale@ = d21efe36-3c3b-42b2-9f89-9af253b4a92f
+        @Lavement_evacuateur@ = e878bf60-e1e7-4376-9887-33caae737a45
+        @Nebulisation@ = 2b221eb6-56f0-4079-af87-fc26791924fc
+        @Sondage_nasogastrique@ = a2dfaefb-c3bd-4450-9469-fd0cb64fb3e0
+        @Poll_bladder@ = d59086f7-b895-4231-b1fe-6326ee2d43f5
+        @SURGERY_ACTS@ = 67dc0083-a9ec-4179-b449-346ba15ba70d
+        @Curetage_evacuateur@ = 08a03975-d880-4dbf-bd22-b9ebbbe78f54
+        @Curage_digital@ = dd3a9114-98f7-4d4a-9544-54751c5d45a0
+        @Insertion_DIU@ = e32bef4c-6dfc-4014-9ab4-80f0231eb3f4
+        @Ablation_Norplan@ = 12beda35-0274-454f-955c-83e36140a166
+        @Hymenectomie@ = 7805da69-e158-45eb-9b2a-0c543d8da059
+        @Cauterization_of_warts@ = 215930c0-5a79-4964-bd6a-979a141eddd2
+        @Reparation_de_fisture_vesico-vaginale@ = d9a5a33d-e339-45d4-a595-8a5573bfc540
+        @Repair_of_rectovaginal_fistula@ = 57a2854d-7374-4d6f-811f-83c288c44bba
+        @Ligature_isolee_des_trompes@ = caf86d37-d97f-450a-889a-28ebb1d7f8cc
+        @Cerclage_du_col_uterin@ = 74847a7b-9273-465b-a2d6-83ae3734747c
+        @Laparotomie_pour_kyste_de_l'ovaire@ = b565e2c0-75c0-41e6-b9ca-23061deda729
+        @Hysterectomie@ = aee6a7b3-a3c8-4c28-b1e9-baaad8f48ecb
+        @Cesarienne_seule@ = e21e4595-9dae-493d-b245-9188603557ad
+        @Cesarienne_et_ligature_des_trompes@ = dd891308-aa5f-4f9e-8e61-f3f366962d18
+        @PREGNANCY_ECTOPIC@ = 3ccc9624-26fe-102b-80cb-0017a47871b2
+        @Salpingectomie@ = 38d5f940-9964-4c41-a2fa-2f0993b3bb20
+        @Reparation_de_dechirure_du_col@ = 7fae239d-1f6e-4f5d-bbd4-4e66e2bb97d9
+        @Reparation_de_dechirure_du_perine@ = 679b63fe-fc13-4064-9361-ff10cb8ea2ff
+        @Ablation_DIU@ = fd752a01-852b-4695-8dec-59c61300c725
+        @Insertion_Norplan@ = 9d62c339-b22b-4175-8f36-ee5a17fe7753
+        @Myomectomie@ = ea8201c8-6784-42ba-91af-e0e98fc009fb
+        @Hysterorrhaphie@ = 6118e01e-48af-4cec-b3ef-b4fc0eacb3c2
+        @Repair_of_rectovaginal_fistula@ = 57a2854d-7374-4d6f-811f-83c288c44bba
+        @RADIO_ACTS@ = 634df62b-fa5d-4500-927a-cfaf33249de6
+        @MATERNITY_ACTS@ = 27673555-f367-44d2-a4e4-a8271bb0b7c5
+        @OPHTALMOLOGY_ACTS@ = daeab686-b229-43fe-8bb7-3f757a835578
+        @KINESTHERAPY_ACTS@ = 5df6d146-67c1-4a88-8c20-2c41d0637af8
+        @OXYGENOTHERAPY_ACTS@ = 1f5599ce-106a-4b7e-b545-96adde63b581
+        @Is_Diagnosis_an_HIV_Opportunistic@ = 5f127358-7155-4e93-9a32-be7f71426e5a
+        @Case_status@ = 14183f94-59b2-4b62-bad7-2c788a21a422
+        @NEW_v2@ = f7b5bf49-cb07-4fca-8c15-93ba92249344
+        @Old@ = ae5ba489-9be2-4960-8e44-8d09071ab8ca
+        @PATIENT_PLAN_COMMENTS@ = 3ce88a32-26fe-102b-80cb-0017a47871b2
+        @Incision_d_abces_superficiel@ = ef49ff61-0adc-48b1-a2e4-356a73f73e21
+        @Incision_d_abces_profond@ = af0cef4e-66fa-4813-9389-d1ad7c6789bd
+        @Ponction_pleurale@ = ef937571-ddb4-4bd0-a7f3-4ec2a983b7b1
+        @Ponction_d_ascite@ = 3928cc0b-71be-438a-ae51-1b67edb5edb7
+        @Ponction_lombaire@ = ebb2cc91-3541-486f-94ba-79d662d43ce6
+        @Ponction_articulaire@ = 7504b970-204f-4ee7-a96d-a9b522d0ec67
+        @Drainage_thoracique@ = 8b9f75b9-91e4-4865-9b14-30800c5139c3
+        @Ingrown_toenail_removal@ = 76f3954d-a85e-4c65-811b-2307e36c527e
+        @Denudation_veineuse@ = 2c7309df-a83c-4c34-81a8-15dc4a3df2dd
+        @Tubage_gastrique@ = 88a3a6ad-3c86-4ea4-9a5d-ae4df5278daa
+        @Suture_simple@ = d8ed83cb-4d86-4696-ab52-7ca8318de09a
+        @Laparotomie_pour_kyste_de_l_ovaire@ = b565e2c0-75c0-41e6-b9ca-23061deda729
+        @Suture_profonde_ou_multiple@ = 13f11e41-b890-49e3-a2a0-3fc83205c872
+        @Ablation_des_fils@ = 5015d413-ab08-48a1-aa7e-53cd6b21a377
+        @Circoncision_therapeutique@ = 111a7201-74e3-4022-86c5-e0c644d92a33
+        @Exerese_de_petites_tumeures_lipomes_kystes@ = 31dc102a-a0aa-41d7-855e-ee5fd6799fc1
+        @Biopsie_Test@ = 96221ec6-23d9-4b66-91e8-1dc35ad511d3
+        @Platre@ = 3093d0cd-c83a-46dd-834d-20cc1e715605
+        @Corset_platre@ = 52436150-d82a-40ce-92e9-6270f86e6131
+        @Platre_de_correction_hanche_genou@ = 1f2605ab-59cb-49c8-94a6-48144b0847fd
+        @Strapping@ = 7cfd1cb3-1358-4665-85b3-0ab639ff51ae
+        @Extraction_corps_etranger@ = 987cb0fa-1577-4862-a95e-c9aeb052ef1f
+        @Amputation_d_un_doigt@ = 97686d0c-f97a-4fb2-a71f-ee3799dd74e3
+        @Decollement_des_petites_levres@ = 57d15936-73ea-4af2-812e-360cdee65ec3
+        @Injection_Intra_articulaire@ = 712ef7d1-febe-4c47-9914-947c7afe729d
+        @Pansement_complique@ = 583c01ca-4117-4105-9760-8eed22ef20d7
+        @Parage_Chirurgicale@ = 65b273db-31da-43f0-b6e5-3142ce2900b6
+        @Platre_pelvi-pedieux@ = 9bb2ba75-62fd-4d4f-aa89-f0f53e34c68c
+        @Platre_curo-pedieux@ = fc5129a1-302f-44d4-896b-f6f473d0f042
+        @Botte_platree@ = daab9e56-0d8e-4e9b-9f8f-8b1c73af2edd
+        @Cystostomie@ = b9c83bd9-6fdd-4875-b40e-32af869eb008
+        @Cheloidectomie@ = 0b371e96-0d58-43ca-818e-d1a40c7ddb8a
+        @Ablation_kyste_synovial_superficiel@ = 7ddea18a-2c99-4c85-9a9d-d122dcc441ad
+        @Herniorraphie@ = 4ca35574-f748-4873-a84e-9fb5ca53e4ef
+        @Greffe_cutanee@ = b52219cf-5440-4e5a-a280-6a0b6133d4f1
+        @Curetage_osseux@ = 820ca6e4-54bf-48f4-8a4e-70d236e47efb
+        @Appendicectomie@ = 2cf47db9-4d1f-42a5-aedf-558d49af9d8e
+        @Testicular_torsion@ = 65692d99-29a4-495b-9d4e-c3e2854d9666
+        @Reparation_de_fisture_vesico-vaginale@ = d9a5a33d-e339-45d4-a595-8a5573bfc540
+        @Reparation_de_fistule_recto-vaginale@ = 57a2854d-7374-4d6f-811f-83c288c44bba
+        @Cerclage_prolapsus_rectal@ = 8d3571e9-ad10-4499-8deb-e5a580904cbc
+        @Mise_à_plat_de_la_fistule_anale@ = 09840ec7-9a72-4463-9f96-39908fdf3263
+        @Laparotomie_exploratrice@ = 36662873-ef26-4d3c-b5c3-f912effba791
+        @Amygdalectomie@ = 8003f134-f35e-4d0b-987b-e3e93fafaab2
+        @Laminectomie@ = 29ab9928-512b-4069-9a4c-b842070b4b6c
+        @Trepanation@ = 03da02ef-6e04-4ea6-8a6a-cfaf4df34a18
+        @Nephrectomie@ = 5b7d1fbc-3a86-4cac-bcc0-34ab5ba98650
+        @Hemicolectomie@ = 80d4b634-e560-4f83-a41f-5a226d467a61
+        @Cholecystectomie@ = ccabc40a-bfbb-4b40-8c56-08e56bd175cd
+        @Debridement@ = 2ecc24c7-e19a-4bf9-8985-e036532c50eb
+        @Marsupialisation@ = 9978a024-81be-457d-939a-a10a19e8933d
+        @Cure_d_eventration@ = 05219ede-8055-4012-abed-a7c91a4759e0
+        @Resection_intestinale@ = 572f6d31-6365-476c-8c76-4a8b38e04323
+        @Fixateur_externe@ = c5334d44-9366-4109-b9a4-b5e55fa5187c
+        @Reduction_luxation@ = d7535a25-1b94-4f39-b5cb-835cfc384530
+        @Traction_de_fractures@ = a2aaae1c-4dcc-4058-9ddc-3826328af88a
+        @Osteosynthese@ = d15452e8-f3ad-439c-88cb-13d371276fa1
+        @Ablation_Kyste_de_Backel_Creux_poplite@ = b8b734ae-aa52-4413-bc32-c73cd046fc23
+        @Ablation_du_materiel_d_osteosynthese@ = d6d00cb5-766a-4048-a916-6d19f73511b1
+        @Splenectomie@ = d05fbe96-cd47-48bd-8752-1ca01927675f
+        @Thyroidectomie@ = 4ca81f70-68ed-40d9-9bba-eb04604755d8
+        @Gastrectomie_partielle@ = 7832d97a-6f19-424d-8ec2-a9265905b2ed
+        @Gastro-enterotomie@ = 03c33960-27f5-4917-bbbc-c8b709fb29f1
+        @Resection_intestinale@ = 572f6d31-6365-476c-8c76-4a8b38e04323
+        @Resection_de_la_saphere_interne@ = 0a1693d3-33df-49ce-808f-4d4076a7aa08
+        @Amputation_d_un_membre_inferieur@ = fd48b615-e0d5-4755-a8a1-914cab3268bb
+        @Amputation_d_un_membre_superieur@ = 186f98e2-8abb-4d37-9089-55339870f802
+        @Salpingectomie@ = 38d5f940-9964-4c41-a2fa-2f0993b3bb20
+        @Cerclage_prolapsus_rectal@ = 8d3571e9-ad10-4499-8deb-e5a580904cbc
+        @Mise_a_plat_de_la_fistule_anale@ = 09840ec7-9a72-4463-9f96-39908fdf3263
+        @Ingrown_toenail_removal@ = 76f3954d-a85e-4c65-811b-2307e36c527e
+        @Poll_bladder@ = d59086f7-b895-4231-b1fe-6326ee2d43f5
+        @Platre_de_correction_pieds@ = bd14381f-45e8-4e5c-8baf-37eece7d99c0
+        @Hydrocele@ = 24ce797d-849e-4eb7-9cb5-bf4a124a4f7d
+        @Sequestrectomie@ = be3416d0-8642-4efc-9f93-d57303313625
+        @Rachis_anesthesie_loco-Regionale_peridurale_generale@ = 1e203128-0b5e-4843-98a3-f870e7f6d244
+        @Doigt_F_et_P@ = 93c0e726-687d-4264-be9b-a35ba343b71c
+        @Main_F_et_P@ = 7764f9f6-d7d3-4b3d-bade-d5633247ac34
+        @Poignet_F_et_P@ = 50f65f2b-9ef8-40ca-aa5a-22fce561f54f
+        @Clavicule_F_et_P@ = 47598eb2-497c-4c24-8e4a-d784a5ee4e82
+        @Avant-bras_F_et_P@ = ea22e5a0-0479-4b17-a194-7e7b61cae2d7
+        @Coude_F_et_P@ = 786db9a4-e73b-4e92-934f-69d9822520cc
+        @Humerus_F_et_P@ = a96381ef-6750-44ea-8acf-b11370e9e2a5
+        @Epaule_F_et_P@ = a04d526d-4bde-4b7b-81ff-7c118fe614db
+        @Omoplate@ = 501d8859-e2a2-4b84-94ff-881481422bfa
+        @Orteils_F_et_P@ = 0db466b6-ac96-4827-ab71-89e74ea29937
+        @Pied_F_et_P@ = 9e76ebcc-c8d2-4338-ba75-65a4c4a48452
+        @Cheville_F_et_P@ = c92c38cb-05f3-40be-8442-a85827a94641
+        @Jambe_F_et_P@ = a693ac9a-bcd7-47d4-b5f7-8eb9ace3579a
+        @Genou_F_et_P@ = b1dbbe21-d680-448b-9f6e-550b57b85f72
+        @Femur_F_et_P@ = 221d6366-4f96-431a-8b10-415a472e89be
+        @Hanche_F_et_P@ = 3a05a519-fa9f-4c01-aaaa-f2ca632e6e46
+        @Bassin_F@ = e8dd851b-3102-45c7-b7c4-e5d8e0a03945
+        @Poumons_F@ = dd2e9452-8233-4de8-9f8b-138732a405b9
+        @Poumons_P@ = 2ab6721f-aa99-4519-8141-980442292460
+        @Gril_costal_F@ = 464e7c68-21b9-4416-8e68-ef05d3984543
+        @Crane_F_et_P@ = 6ddadad2-a213-4def-9668-4571bd701860
+        @Rachis_Cervical_F_et_P@ = 2dea5a49-0edc-4a29-979f-e613131780f8
+        @Rachis_dorsal_F_et_P@ = a21a0d70-5fee-4998-9e77-651f0b75e5b4
+        @Rachis_lombo-sacre_F_et_P@ = 94381601-8efd-4f62-9556-7a2cebadd83d
+        @Abdomen_sans_preparation_Asp@ = cc99bebc-a7ac-4ead-9d9f-2a5f0feb5c50
+        @Lav_baryte@ = 231e9d1b-5d9d-4103-94f0-117a35fac2e5
+        @Histerosalpingographie@ = 9052bbb8-c699-4623-aba0-f8714be41512
+        @Biopsie_Test@ = 96221ec6-23d9-4b66-91e8-1dc35ad511d3
+        @Blepharoraphie@ = ba56e3ba-9cdf-4263-a01c-ff9cf52b5743
+        @Cryo-thermo-coagulation@ = e9616acd-00f3-4bf0-b3bf-abd19b2332d5
+        @Curettage_chalazion@ = b1d81a19-03c3-423d-9621-a196cdf7591d
+        @Curettage_molluscum_contag@ = 756ba1ff-cdf7-4659-a60f-2700f6d111ea
+        @Extraction_corps_etranger@ = 987cb0fa-1577-4862-a95e-c9aeb052ef1f
+        @Incision_abces_A_Loc@ = 5aa4c867-f446-400a-b668-62acef5a6a96
+        @Sondage_voie_lacrymale@ = 9079e86c-8ffe-4b76-9a57-34d4109df65c
+        @Suture_paupiere_paupo-voie_lacry@ = 81df1154-1891-4259-a6a0-fb62910149a5
+        @Incision_abces@ = ee0a3fb9-354a-42b7-a462-e1e1d9576cf2
+        @Pansement@ = 69969bca-aed3-4728-a615-7c2f0dea3cdf
+        @Capsulotomie@ = 9b9dfcf7-9cb9-4d0b-8c39-ec693bd52237
+        @Excision_kyste@ = 38842937-312e-4129-a899-78c871e0bbe0
+        @Excision_pterygion_pinguecula@ = 206db77b-b7e5-4897-8473-7830f6ebefec
+        @Excision_tumeur_conjonctivale@ = 0d4e4312-19f0-4e17-9a20-a8bcb66049e0
+        @Biometrie@ = c260bc42-3061-4943-b0c2-830780314a60
+        @Angiographie_et_la_fluorescence@ = ee38c7a2-6814-4ff1-a4cd-1de457210df1
+        @Other_fundus@ = 217c5238-92fe-4587-8ff9-45d7780d9bca
+        @Champ_visuel_Goldmann@ = eafe13bb-db88-4673-9548-fd393493d4e0
+        @Fond_d_oeil_verre_contact@ = 6ce74c5b-c829-47fa-8fef-d79d1eddda98
+        @Test_de_lancaster@ = 526c6c1c-a525-43af-b922-968bb2a28626
+        @Vision_des_couleurs_refraction@ = 5b6fd6d0-3b02-42c0-a9ca-d04b05c0a4d7
+        @Cerclage_Coagulation_decollement@ = b24055d7-13c4-4b98-aa6e-f145b75dd9db
+        @Correction_ptosis@ = 47b914f0-c2bf-4848-af84-4acc0c46dcd7
+        @Correction_strabisme@ = ed91433b-dbfb-4d13-93e2-d903d6276afa
+        @Cure_ectropion@ = 950c5fca-5138-492d-b788-956d7bd47868
+        @Discision_capsulotomie@ = 498e99f3-937f-460e-ba3e-692932f8c2bb
+        @Enucleation_globe@ = 44005770-d061-4c7b-8727-26758614fc2d
+        @Evisceration_globe@ = 11ada1fe-5d88-4fed-905f-163a847ce337
+        @Exenteration_orbite@ = 1ff1ea95-925a-4a7a-bdbd-49f9b6119261
+        @Extraction_cataracte_in-extra@ = e43fb0a5-1c76-44f4-8fbc-0852b08d757e
+        @Fistulisation_glaucome@ = 5e64b75c-06cf-4823-a7da-d1ff8c2299c9
+        @Iridectomie@ = b2429a86-47a6-4d23-9f8b-b755691d0958
+        @Orbitotomie@ = 25f1b600-0d01-40b3-8a9c-39d985860dc6
+        @Plastie_palpebrale@ = a68593ea-d8c2-461c-9a50-c8c79f58578c
+        @Suture_plaie_perforante@ = d0f1b8d8-db28-47fe-b2af-918cd742d764
+        @Extraction_cataracte_implant@ = 9b51319f-59e2-4bb8-812c-92c890b349c3
+        @Extraction_cataracte_sans_implant@ = 6939266f-341f-462f-b8f5-7ef71fb9f239
+        @Iredectomie_Trabeculectomie@ = 6ab533f1-3f47-4533-82cb-0f1eb2c0b296
+        @Accouchement_par_ventouse_avec_4_CPN@ = 2bd3ad9c-adc9-4041-8808-110c4f532baa
+        @Acte_d_Accouchement_avec_4_CPN_sans_episiotomie@ = 03b1ca32-2511-422f-8cc3-2c7fdb70440b
+        @Acte_d_Accouchement_sans_4_CPN_sans_episiotomie@ = 713a7b4c-1274-47e6-b9f4-1c9241d0bb11
+        @Phototherapie_par_jour@ = f86e8039-9a20-4859-ad7c-cf0720f276b2
+        @Acte_d_Accouchement_avec_4_CPN_avec_episiotomie@ = abdcb2cc-549b-45dd-b6ea-5cfc3476e199
+        @Acte_d_Accouchement_sans_4_CPN_avec_episiotomie@ = cbcd3095-2302-4763-9791-268cd1e51125
+        @Craniotomie@ = dd982a97-712b-4bed-bb86-fe7a39757488
+        @Accouchement_par_ventouse_sans_4_CPN@ = 51c3c066-f870-4876-afbc-f5a94edd9077
+        @Massage_d_un_membre@ = 98ab2c9f-2f17-4c62-b51e-5911673ff302
+        @Back_Massage@ = 384a2142-240f-4045-abeb-9fd22a07cfca
+        @Plus_d_un_membre@ = bea3ea3a-a889-47ee-80f0-732107dc7c20
+        @Mobilisation_of_a_Joint@ = 0979c14d-09a4-4e8f-9784-98852c1995a4
+        @Plus_d_une_articulation@ = c6816463-6525-470e-ba56-35b263530824
+        @Simple_Stretching@ = 23430731-d522-43b5-969f-1e8a29aa3a1f
+        @Traction_Complex_Lombaire@ = d9bee796-8143-4ff8-9054-aa1f08bd3491
+        @Exercices_therapeutiques@ = 9ae63f45-243b-4390-92e2-f8313a7b0295
+        @Diadynamic@ = 3e38a5a8-ff7d-468e-b11f-4887073bb162
+        @Stimulation@ = 649a821a-43ff-4fe6-ae53-ef49abe77957
+        @TENS@ = 7cb1a784-ac36-4550-91d3-98a0a372ec48
+        @Ionisation@ = 30344782-fa93-4994-87c8-bcc2e7575b56
+        @Ultra_Violet@ = 2824aa34-0d67-4007-88de-9401e80a501d
+        @Infra_Rouge_Laser@ = d3961791-8db9-4aa5-a2f7-a01ae0587784
+        @Diathermie@ = 9b05f36b-d1b8-4ac2-b6f9-d85d4ffbddc4
+        @Ultra_Sons@ = 2c578536-5020-4b44-9ed0-7ce1f952cc38
+        @Kine_respiratoire@ = 4ddaa197-c353-4737-a3f2-c752bd89b20a
+        @Cryotherapy@ = e48bc8db-8f6e-4556-9083-0a000a136e95
+        @Wax_Bath@ = 71ba979c-adfb-4e19-bcf9-d1058c5d66d9
+        @Strapping@ = 7cfd1cb3-1358-4665-85b3-0ab639ff51ae
+        @Bandage_Elastique@ = 2396bc14-e467-474e-8612-629fb6787110
+        @Morgue_apres_les_1eres_24_heures_compartment_a_6_par_jour@ = 4c6ebd29-290b-496a-8b4e-da58d8b1b5bb
+        @Morgue_apres_les_1eres_24_heures_compartment_a_4_par_jour@ = 57a0bc93-7aef-4a09-866e-1c1039bf5729
+        @Morgue_apres_les_1eres_24_heures_compartment_a_3_par_jour@ = c05f630b-25cf-4953-9799-8180aed953ee
+        @Morgue_apres_les_1eres_24_heures_compartment_a_1_par_jour@ = d47bdeba-48f6-47b2-9d31-cb10438bbcdc
+        @Morgue_apres_les_1eres_24_heures_compartment_a_plusieurs@ = be918505-5555-424e-aa08-8047f98a8eb9
+        @Formolisation_du_corps_pour_les_morts_a_l_hopital@ = db6260bd-25ee-4993-97f9-b09184405466
+        @Formolisation_du_corps_pour_les_autres@ = f76c9262-dc14-4df1-be0d-ffda21746d0d
+        @Oxygenotherapie_par_heure@ = 88b60b71-74ca-4fa6-93af-0be2de43ba7b
+        @Incineration_par_m3@ = 087e74f6-d728-42b1-bcda-99be46d11a92
+        @Operation_cataracte_par_oeil@ = 9618acd2-f807-4e0a-ac4a-9e3f73c20fb9
+        @Hemorroidectomie@ = 7c98332d-fd75-410e-845c-63a5d791811a
+        @Reparation_de_fisture_vesico@ = d9a5a33d-e339-45d4-a595-8a5573bfc540
+        @Test_de_vision_de_loin@ = 98f2afd3-ab5a-4f3a-9954-712c1e072c79
+        @Rachis_anesthesie_loco-Regionale_peridurale_generale@ = 1e203128-0b5e-4843-98a3-f870e7f6d244
+        @Rwandese_by_Nationality@ = a50d36a5-3142-42f2-a051-cf7b3480063f
+        @SYMPTOM_COMMENT@ = 3cdd258e-26fe-102b-80cb-0017a47871b2
+        @Examen_Bio-Microscopique_AV_OD@ = 6d58c700-9482-4d57-a7c7-f9eaaca7b3a0
+        @Examen_Bio-Microscopique_AV_OG@ = 16d2cc60-9b46-4ba4-94d8-01df5ce4fa5b
+        @PRIMARY_CARE_SERVICE_REQUESTED@ = 2cda28df-2fe7-42e0-bb2f-376c9f803537
+        @Consultation@ = d6dafc4b-9ad8-4467-94a9-0eca78648254
+        @Presumptive_diagnosis_or_Hypothesis@ =08dd5ecf-b381-47ea-a0f1-cd91a65505f7
+        @Secondary_ICD_diagnosis@ = afb8006f-e7c4-45bd-82bd-16f6e4b4b51d
+        @Primary_ICD_diagnosis@ = 2dce81f9-3874-4247-b441-6369ca0725c2
+        @Extraction_dune_dent_impactee@= 656d0bde-c909-45dc-9976-c6bbaeace9d9
+
+    </macros>
+    <style>
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+    </style>
+    <span style="float:right">Paper Form ID: $paperFormId</span>
+    <h2>Stomatology Consultation</h2>
+
+    <ifMode mode="ENTER">
+        <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateBillOnHtmlFormSubmissionAction"/>
+    </ifMode>
+
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION">
+        <div class="section-container">
+
+            <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                <tr>
+                    <td>
+                        <b><u>Patient:</u></b>
+                        <lookup expression="patient.personName" /><br />
+                        <b>Id Number:</b>
+                        <lookup expression="patient.patientIdentifier.identifier" /><br />
+                        {
+                        <b>Sex:</b>
+                        <font color="blue">
+                            <lookup expression="patient.gender" />
+                        </font>&#160;&#160;&#160;&#160;&#160;&#160;
+                        <b>Age:</b>
+                        <font color="blue">
+                            <lookup expression="patient.age" />
+                        </font>&#160;&#160;&#160;&#160;&#160;&#160;
+                        <b>Education Level:</b>
+                        <font color="blue">
+                            <lookup expression="personAttributes.get('Education Level')" />
+                        </font>&#160;&#160;&#160;&#160;&#160;&#160;
+                        <b>Religion:</b>
+                        <font color="blue">
+                            <lookup expression="personAttributes.get('Religion')" />
+                        </font>&#160;&#160;&#160;&#160;&#160;&#160;
+                        <b>Profession:</b>
+                        <font color="blue">
+                            <lookup expression="personAttributes.get('Profession')" />
+                        </font>&#160;&#160;&#160;&#160;&#160;&#160;
+                        <b>Phone number:</b>
+                        <font color="blue">
+                            <lookup expression="personAttributes.get('Phone number')" />
+                        </font>
+                        }
+                    </td>
+                </tr>
+            </table>
+            <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                <tr>
+                    <td>
+                        Date:
+                        <encounterDate default="today" />
+                    </td>
+                    <td>
+                        Health Facility:
+                        <encounterLocation id="location" default="GlobalProperty:registration.defaultLocationCode" />
+                    </td>
+                    <td>
+                        Provider:
+                        <encounterProvider default="currentUser" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </section>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Stomatologie">
+        <div class="section-container">
+            <fieldset>
+                <legend>
+                    <b>Dentition Primaire</b>
+                </legend>
+                <p>
+                    <obs conceptId="$@Numero_d_une_dent@" labelText="Numero d'une Dent " />
+                    <obs conceptId="$@Action_sur_une_dent@" labelText="Action" />
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <b>Dentition Secondaire :</b>
+                </legend>
+                <p>
+                    <obs conceptId="$@Numero_d_une_dent@" labelText="Numero d'une Dent " />
+
+                    <obs conceptId="$@Action_sur_une_dent@" labelText="Action" />
+                </p>
+            </fieldset>
+        </div>
+    </section>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Extra oral exam">
+        <div class="section-container">
+            <p class="radio">
+                TMJ
+                <obs conceptId="$@Temporomandibular_joint_TMJ_disorders@" style="radio" />
+            </p>
+            <p>
+                Lymphnods
+                <obs conceptId="$@LYMPHNODS@" style="textarea" rows="3" cols="30" />
+            </p>
+            <p>
+                Facial skin
+                <obs conceptId="$@FACIAL_SKIN@" style="textarea" rows="3" cols="30" />
+            </p>
+            <p>
+                Facial Asymetry
+                <obs conceptId="$@FACIAL_ASYMETRY@" style="textarea" rows="3" cols="30" />
+            </p>
+            <p>
+                Soft Tissue
+                <obs conceptId="$@ORAL_TEST_OF_SOFT_TISSUE@" style="textarea" rows="3" cols="30" />
+            </p>
+            <p>
+                Hard Tissue
+                <obs conceptId="$@ORAL_TEST_OF_hARD_TISSUE@" style="textarea" rows="3" cols="30" />
+            </p>
+        </div>
+    </section>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="STOMATOLOGIE ACTS">
+        <div id="stomatologyId" class="section-container">
+            <div class="two-columns">
+                <p>
+                    <label>
+                        <b>Department</b>
+                    </label>
+                    <obs conceptId="a29f03ad-be6b-4958-b47e-eb9235d364a4" answerConceptId="e65de509-f9dc-4219-bba2-129e6dd65d01" required="true"/>
+                </p>
+
+                <p class="small-input flexView">
+                    <obs conceptId="$@Extraction_dent_de_lait@" labelText="Extraction_dent_de_lait:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Extraction_dent_definitive@" labelText="Extraction_dent_definitive:"
+                         style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Extraction_dune_dent_impactee@" labelText="Extraction_dent_impactee:"
+                         style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Extraction_des_restes_radiculaires@"
+                         labelText="Extraction_des_restes_radiculaires" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Obturation_provisoire@" labelText="Obturation_provisoire" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Obturation_definitive@" labelText="Obturation_definitive" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Devitalisation@" labelText="Devitalisation" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Detartrage@" labelText="Detartrage" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Gingivectomie@" labelText="Gingivectomie" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Coiffage_direct@" labelText="Coiffage_direct" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Coiffage_indirect@" labelText="Coiffage_indirect" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Curetage_poche_parodontaire@" labelText="Curetage_poche_parodontaire"
+                         style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Frenectomie_labiale@" labelText="Frenectomie_labiale" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Deviation_d_incisive_et_canine@"
+                         labelText="Deviation_d_incisive_et_canine" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Reduction_de_l_ATM@" labelText="Reduction_de_l_ATM" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Operculectomie@" labelText="Operculectomie" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Extraction_chirurgicale_d_une_dent_incluse_ou_impacte@"
+                         labelText="Extraction_chirurgicale_d_une_dent_incluse_ou_impacte" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@RX_retro-alveolaire@" labelText="RX_retro-alveolaire" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Ablation_du_calcul_salivaire@" labelText="Ablation_du_calcul_salivaire"
+                         style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Apicectomie@" labelText="Apicectomie" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Reduction_dento-alveolaire_et_Fixation@"
+                         labelText="Reduction_dento-alveolaire_et_Fixation" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="$@Kystectomie@" labelText="Kystectomie" style="" />
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm right">
+                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                            style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+
+</htmlform>

@@ -1,0 +1,295 @@
+[
+  {
+    "id": "rwandaemr.heartFaillureProgramDashboard.currentEnrollment",
+    "order": 1,
+    "config": {
+      "widget": "programstatus",
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.currentEnrollmentDashboardWidget.label",
+      "program": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.heartFaillureProgramDashboard.currentEnrollment.extension",
+        "appId": "rwandaemr.heartFaillureProgramDashboard.currentEnrollment",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.heartFaillureProgramDashboard.previousEnrollment",
+    "order": 2,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.heartFaillureProgramDashboard.previousEnrollment.extension",
+        "appId": "rwandaemr.heartFaillureProgramDashboard.previousEnrollment",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "program/programHistory"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.recentEncounters",
+    "description": "coreapps.mostRecentVitals.app.description",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
+    "icon": "icon-calendar",
+    "order": 4,
+    "config": {
+      "program": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "includeActive": false,
+      "limit": "5"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.recentEncounters.extension",
+        "appId": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.recentEncounters",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.secondColumnFragments",
+        "extensionParams": {
+          "provider": "rwandaemr",
+          "fragment": "patient/encountersSection"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.heartFaillureProgramDashboard.obsGraph.weight",
+    "order": 3,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "icon-bar-chart",
+      "conceptId": "3ce93cf2-26fe-102b-80cb-0017a47871b2,3ce93b62-26fe-102b-80cb-0017a47871b2",
+      "maxResults": "6",
+      "showLegend": true,
+      "function": "(bmi,3ce93b62-26fe-102b-80cb-0017a47871b2,3ce93cf2-26fe-102b-80cb-0017a47871b2);",
+      "label": "WEIGHT,HEIGHT AND BMI GRAPH",
+      "program": "",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.heartFaillureProgramDashboard.obsGraphWeight.extension",
+        "appId": "rwandaemr.heartFaillureProgramDashboard.obsGraph.weight",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.secondColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.Enrollment.Form",
+    "order": 1,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.Enrollment.Form",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
+        "type": "link",
+        "label": "Enrollment Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-heart-failure--enrollment-form.xml",
+        "icon": "icon-file",
+        "order": 1
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.vitals",
+    "order": 2,
+    "config": {
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.vitals",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
+        "type": "link",
+        "label": "referenceapplication.app.capturevitals.title",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithSimpleUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/vitals.xml",
+        "order": 2,
+        "icon": "fas fa-fw fa-heartbeat",
+        "requiredPrivilege": "Task: referenceapplication.vitals"
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.ClinicalVisits.Form",
+    "order": 3,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.ClinicalVisits.Form",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
+        "type": "link",
+        "label": "Clinic Visits Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-hf-htn-ckd-clinic-visits.xml",
+        "icon": "icon-file",
+        "order": 3
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.medicationlist.Form",
+    "order": 4,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.medicationlist.Form",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
+        "type": "link",
+        "label": "Medication List Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-hf-htn-ckd-medication-list.xml",
+        "icon": "icon-file",
+        "order": 4
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.echoCardiography.Form",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.echoCardiography.Form",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
+        "type": "link",
+        "label": "Echo-Cardiography Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-hf-htn-ckd-echochardiography.xml",
+        "icon": "icon-file",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.preliminaryEcho.Form",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.preliminaryEcho.Form",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
+        "type": "link",
+        "label": "Cardiology Preliminary Echo Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-hf_htn_ckd-cardiology-preliminary-echo-form.xml",
+        "icon": "icon-file",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.medicationExam.Form",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.medicationExam.Form",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
+        "type": "link",
+        "label": "Medication Exam",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-hf-htn-ckd-medicationexam.xml",
+        "icon": "icon-file",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.problemList.Form",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.problemList.Form",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
+        "type": "link",
+        "label": "Diagnosis and Problem List",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-hf-htn-ckd-diagnosis-and-problem-list.xml",
+        "icon": "icon-file",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.regimens",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-briefcase-medical",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "dashboard": "e60a89ad-de11-421a-b5bf-b489e264ffa6",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.e60a89ad-de11-421a-b5bf-b489e264ffa6.exitFromCare.Form",
+        "extensionPointId": "e60a89ad-de11-421a-b5bf-b489e264ffa6.overallActions",
+        "type": "link",
+        "label": "Regimens",
+        "url": "rwandaemr/patient/regimen.page?patientId={{patient.uuid}}",
+        "icon": "fas fa-fw fa-briefcase-medical",
+        "order": 15
+      }
+    ]
+  }
+]

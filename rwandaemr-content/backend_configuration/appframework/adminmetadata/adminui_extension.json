@@ -1,0 +1,21 @@
+[
+  {
+    "id": "org.openmrs.distro.rwandaemr.accounts",
+    "extensionPointId": "systemAdministration.apps",
+    "type": "link",
+    "label": "adminui.manageAccounts.label",
+    "requiredPrivilege": "Add Users",
+    "url": "adminui/systemadmin/accounts/manageAccounts.page",
+    "icon": "icon-group",
+    "order": 20
+  },
+  {
+    "id": "org.openmrs.distro.rwandaemr.globalProperties",
+    "extensionPointId": "systemAdministration.apps",
+    "type": "link",
+    "label": "adminui.manageGlobalProperties.label",
+    "url": "adminui/systemadmin/globalproperties/manageGlobalProperties.page",
+    "icon": "icon-cog",
+    "order": 19
+  }
+]

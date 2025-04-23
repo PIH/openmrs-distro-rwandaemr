@@ -1,0 +1,83 @@
+<config>
+    <globalProperties>
+
+        <!-- Rwanda EMR -->
+        <globalProperty>
+            <property>rwandaemr.autoCreateInsuranceType</property>
+            <value>${insurance.private.name}</value>
+        </globalProperty>
+
+        <!-- EMR API -->
+        <globalProperty>
+            <property>emrapi.visitExpireHours</property>
+            <value>24</value>
+        </globalProperty>
+        <globalProperty>
+            <property>emrapi.inpatientVisitExpireHours</property>
+            <value>48</value>
+        </globalProperty>
+        <globalProperty>
+            <property>emr.telephoneAttributeType</property>
+            <value>Phone number</value>
+        </globalProperty>
+        <globalProperty>
+            <property>emr.concept.diagnosisSetOfSets</property>
+            <value>f5ba47a8-c124-4fc9-9da7-598e7455efd6</value>
+        </globalProperty>
+
+        <!-- Core Apps -->
+        <globalProperty>
+            <property>coreapps.patientSearchHandler</property>
+            <value>rwandaemrPatientSearch</value>
+        </globalProperty>
+
+        <!-- Core -->
+        <globalProperty>
+            <property>patient.listingAttributeTypes</property>
+            <value>Health Facility,Phone number</value>
+        </globalProperty>
+        <globalProperty>
+            <property>default_locale</property>
+            <value>en</value>
+        </globalProperty>
+        <globalProperty>
+            <property>locale.allowed.list</property>
+            <value>en,fr,rw</value>
+        </globalProperty>
+
+        <!-- Registration Core -->
+        <globalProperty>
+            <property>registrationcore.identifierSourceId</property>
+            <value>08656d01-b429-43fb-957a-a1539e9128db</value>
+        </globalProperty>
+        <globalProperty>
+            <property>registrationcore.patientNameSearch</property>
+            <value>registrationcore.ExistingPatientNameSearch</value>
+        </globalProperty>
+        <globalProperty>
+            <property>registrationcore.fastSimilarPatientSearchAlgorithm</property>
+            <value>rwandaemr.RwandaFastPatientSearchAlgorithm</value>
+        </globalProperty>
+        <globalProperty>
+            <property>registrationcore.preciseSimilarPatientSearchAlgorithm</property>
+            <value>rwandaemr.RwandaPrecisePatientSearchAlgorithm</value>
+        </globalProperty>
+        <globalProperty>
+            <property>registrationcore.mpi.implementation</property>
+            <value></value>
+        </globalProperty>
+
+        <!-- HFE -->
+        <globalProperty>
+            <property>htmlformentry.timeWidgetHideSecondsDefault</property>
+            <value>true</value>
+        </globalProperty>
+
+        <!-- Sync -->
+        <globalProperty>
+            <property>sync.ignore_location_tags</property>
+            <value>true</value>
+        </globalProperty>
+
+    </globalProperties>
+</config>

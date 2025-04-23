@@ -1,2 +1,0 @@
-Uuid,Name,Description,Required,Format,Format description,Validator,Location behavior,Uniqueness behavior,Void/Retire
-ed52ec82-4b7c-411b-804a-13bd9651bb3e,Rwanda National ID,National ID card with photo distributed to all Rwandan adults by the Rwandan Government from 2008,false,[0-9]{16},16 numbers found on the ID card,,NOT_USED,,

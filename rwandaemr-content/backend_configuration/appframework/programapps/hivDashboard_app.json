@@ -1,0 +1,217 @@
+[
+  {
+    "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.currentEnrollment",
+    "order": 1,
+    "config": {
+      "widget": "programstatus",
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.currentEnrollmentDashboardWidget.label",
+      "program": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "dashboard": "cf7c0e30-2700-102b-80cb-0017a47871b2"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.currentEnrollment.extension",
+        "appId": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.currentEnrollment",
+        "extensionPointId": "cf7c0e30-2700-102b-80cb-0017a47871b2.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.previousEnrollment",
+    "order": 2,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "dashboard": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.previousEnrollment.extension",
+        "appId": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.previousEnrollment",
+        "extensionPointId": "cf7c0e30-2700-102b-80cb-0017a47871b2.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "program/programHistory"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.recentEncounters",
+    "description": "coreapps.mostRecentVitals.app.description",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
+    "icon": "icon-calendar",
+    "order": 10,
+    "config": {
+      "program": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "dashboard": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "includeActive": false,
+      "limit": "5"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.recentEncounters.extension",
+        "appId": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.recentEncounters",
+        "extensionPointId": "cf7c0e30-2700-102b-80cb-0017a47871b2.secondColumnFragments",
+        "extensionParams": {
+          "provider": "rwandaemr",
+          "fragment": "patient/encountersSection"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.obsGraph.weight",
+    "order": 3,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "icon-bar-chart",
+      "conceptId": "3ce93cf2-26fe-102b-80cb-0017a47871b2,3ce93b62-26fe-102b-80cb-0017a47871b2",
+      "maxResults": "6",
+      "showLegend": true,
+      "function": "(bmi,3ce93b62-26fe-102b-80cb-0017a47871b2,3ce93cf2-26fe-102b-80cb-0017a47871b2);",
+      "label": "WEIGHT,HEIGHT AND BMI GRAPH",
+      "program": "",
+      "dashboard": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.obsGraphWeight.extension",
+        "appId": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.obsGraph.weight",
+        "extensionPointId": "cf7c0e30-2700-102b-80cb-0017a47871b2.secondColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.obsGraph.cd4",
+    "order": 4,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "icon-bar-chart",
+      "conceptId": "3ceda710-26fe-102b-80cb-0017a47871b2",
+      "maxResults": "6",
+      "showLegend": true,
+      "label": "CD4 COUNT GRAPH",
+      "program": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "dashboard": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.obsGraphCD4.extension",
+        "appId": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.obsGraph.cd4",
+        "extensionPointId": "cf7c0e30-2700-102b-80cb-0017a47871b2.secondColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.obsGraph.viralLoad",
+    "order": 4,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "icon-bar-chart",
+      "conceptId": "5b1f9343-3298-4223-ae8e-5071cb07f5ad",
+      "maxResults": "6",
+      "showLegend": true,
+      "label": "VIRAL LOAD GRAPH",
+      "program": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "dashboard": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.obsGraphViralLoad.extension",
+        "appId": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.obsGraph.viralLoad",
+        "extensionPointId": "cf7c0e30-2700-102b-80cb-0017a47871b2.secondColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+
+  {
+  "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.flowsheet",
+  "order": 5,
+  "config": {
+    "icon": "fas fa-fw fa-stethoscope",
+    "label": "Adult HIV Flowsheet",
+    "program": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+    "dashboard": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+    "includeActive": false,
+    "detailsUrl":"module/rwandahivflowsheet/adulthivflowsheet.form?patientId={{patient.patientId}}"
+  },
+    "extensions": [
+      {
+        "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.flowsheet.extension",
+        "appId": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.flowsheet",
+        "extensionPointId": "cf7c0e30-2700-102b-80cb-0017a47871b2.secondColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+},
+  {
+    "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.flowsheetAction",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-briefcase-medical",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "dashboard": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.flowsheetAction",
+        "extensionPointId": "cf7c0e30-2700-102b-80cb-0017a47871b2.overallActions",
+        "type": "link",
+        "label": "Adult HIV Flowsheet",
+        "url": "module/rwandahivflowsheet/adulthivflowsheet.form?patientId={{patient.patientId}}",
+        "icon": "icon-file",
+        "order": 1
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.regimens",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-briefcase-medical",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "dashboard": "cf7c0e30-2700-102b-80cb-0017a47871b2",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.cf7c0e30-2700-102b-80cb-0017a47871b2.regimens",
+        "extensionPointId": "cf7c0e30-2700-102b-80cb-0017a47871b2.overallActions",
+        "type": "link",
+        "label": "Regimens",
+        "url": "rwandaemr/patient/regimen.page?patientId={{patient.uuid}}",
+        "icon": "fas fa-fw fa-briefcase-medical",
+        "order": 15
+      }
+    ]
+  }
+]

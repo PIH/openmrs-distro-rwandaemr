@@ -1,0 +1,114 @@
+UUID,Void/Retire,Name,Description
+4d912c22-26fe-102b-80cb-0017a47871b2,,ACCOMPAGNATEUR MED PICKUP,When the accompagnateur comes to pickup patients m
+2536a097-3411-41ee-afea-cd7341d5c13e,,Acute Care Registration,Hospital emergency room registration
+d867ca1c-0104-4768-87a7-14333d395da1,TRUE,Adherence Survey (Research),An adherence survey.
+e22e39fd-7db2-45e7-80f1-60fa0d5a4378,,Admission,"Indicates that the patient has been admitted for inpatient care, and is not expected to leave the hospital unless discharged."
+8e3c016e-cfca-407a-8214-2f071b3d8da2,,admission Clinical and Bill,admission Clinical and GBl
+4d912e98-26fe-102b-80cb-0017a47871b2,,ADULT 12 MONTH VISIT,More extensive 12 month visit for adults
+4d912d4e-26fe-102b-80cb-0017a47871b2,,ADULT 6 MONTH VISIT,"More extensive 6 month consult visit for adults"
+c1c39e98-2f2d-432b-8cc9-b2f273209c29,,Adult HIV,Encounter for the Adult HIV Flowsheet
+4d911d04-26fe-102b-80cb-0017a47871b2,,ADULT INITIAL VISIT,Outpatient Adult Initial Visit
+3caf2350-98f3-483e-9c99-bfb59f0198d3,TRUE,Adult Initial Visit (Research),"An initial visit encounter, entered for research p"
+4d911f5c-26fe-102b-80cb-0017a47871b2,,ADULT RETURN VISIT,Outpatient Adult Return Visit
+51513701-76d0-44cc-9f44-0bfdeaeda78b,TRUE,Adult Return Visit (Research),"An return visit encounter, entered for research pu"
+5fe002a9-a457-46e0-b938-221695a2a03e,,ANAESTHESIA VISIT,ANAESTHESIA VISIT
+a703372d-28b7-4831-9817-ee385c8c47d8,,ANC visit,ANC visit
+03c36ceb-d4c5-441f-aca5-d88fdd9b6964,,Anesthesia Record,Anesthesia Record
+d088d4ed-b51b-46fd-ae73-30a1669b60d6,,ASRH Visit,ASRH Visit
+820004cd-5f2b-40a9-bf26-bf6f5a945790,,ASTHMA VISIT,ASTHMA VISIT
+5021b1a1-e7f6-44b4-ba02-da2f2bcf8718,,Attachment Upload,Encounters used to record uploads of attachments.
+b5b00648-739a-40f8-a509-da2d03ce9dc0,,Cause of Death visit,Cause of Death visit
+66b9053c-c97d-4a6a-992f-0d9af3c17abd,,CheckIn visit,CheckIn visit
+710c8487-9831-4063-a79d-bf07f27653b2,,CHRONIC KIDNEY DISEASE VISIT,Chronic Kidney Disease Encounter Type
+75caca4e-33ca-4b0a-aa63-5ed29f3000f0,,Consultation encounter,Out/In patient Consultation encounter
+3c2a7c11-36b6-4593-85c5-be98713ae288,,Consumables,Consumables
+b3572d77-82af-48f7-bbe7-c9c06aa24a45,,Diabetes and Cardiovascular Screening,NCD Diabetes and Cardiovascular Screening
+d8327a41-a0cc-49c5-af0e-63f0ba960330,,DIABETES VISIT,Diabetes visit encounter type.
+e9355a6e-b2df-44b4-911c-104c6a41ed24,,Diagnosis,Diagnosis recorded
+13703c92-58d2-4d04-a320-8d4699380676,,Discharge Clinical and Bill,Discharge Clinical and Bill
+97de5563-b775-40ad-b72e-444eee8144d3,,Discharge From PACU,Discharge From PACU
+46212022-c447-462f-a85e-65f8d6fac788,,Drug administration,Drug administration
+a9ef19d1-8875-11ea-8c74-7a7919290ad6,,Drug Order Encounter,Encounter type used for recording drug orders in an encounter when no existing encounter is available
+7e51bf4c-1276-48e3-8b8c-eaa1dd0a6dca,,EPILEPSY VISIT,EPILEPSY VISIT
+f7776201-dfaa-4890-bf9d-080c1639f991,,Exposed Infant,Exposed Infant Encounter
+570556f2-7080-49f6-9ef3-301feb313896,,External Oncology,External Oncology
+36167d4a-2a8b-4de2-a392-5e365107856e,,Family Planning,Family Planning
+76162246-15d8-43b0-9666-5884ad1e2be4,,Findings,An encounter type representing discovery of findings/symptoms during an initial primary care visit.
+c34caa2c-5795-4d3c-9a1e-1a9f0ede5141,,Flowsheet,OPD/Inpatient department flowsheet
+83409460-3e78-420a-8e42-233ae4a02edb,,GBV encounter,GBV encounter
+03a36a73-ea74-4051-96b0-647e44862026,,General Followup,General Followup
+7ddfed03-0a3d-46ec-a079-05fa127ba229,,General OPD,General OPD
+d889bcb3-c99d-4648-a3ea-b373335b9efd,,HEART FAILURE VISIT,Encounter type to support Heart Failure encunters that are captured via HF flowsheet.
+735a3bd0-0daa-4ee7-8bea-dc4c99f9ec1b,,HF HTN CKD,"encounter type for Heart failure,Hypertension,Chronical Kidney Disease"
+2dc31190-cf0e-4ab0-a5a1-6ad601d6ecc0,,HIV VISIT,Encounter for the  HIV visit
+4d912fce-26fe-102b-80cb-0017a47871b2,,HOME VISIT,Visit that takes place at the patient's house.
+afa9251e-5d99-44dd-96d9-c0c8f54614d6,,HTC visit,HTC visit
+2f75f29f-454d-4e91-915c-ec3fd49532b1,,HYPERTENSION VISIT,Hypertension Visit
+462e7e66-8d01-4d43-af1f-b80c1a5239c8,,IMNCI VISIT,Encounter for IMNCI(PECIME) Visits
+0b3925f9-0336-47a6-931e-5c356e9cc82f,,Inpatient Oncology,Inpatient Oncology
+f3f15319-4d43-4720-8baf-499ece4fcf97,,investigation encounter,investigation encounter
+5117d944-9a73-4a09-a1ed-08d8407a38ba,,IPD auto Observation or general followup encounter,IPD auto Observation or general followup encounter
+b5d79036-f5ba-4274-b8ed-e1d0fe351064,,IPD Clinical Examination,IPD Clinical Examination
+5117d944-9a73-4a09-a1ed-08d8407a38ba,,IPD FollowUp Visit,IPD auto Observation or general followup encounter
+d8739592-adc2-4898-8eba-a396daa4d88c,,kinestherapy acts encounter,kinestherapy acts encounter
+4d912ae2-26fe-102b-80cb-0017a47871b2,,LAB TEST,Encounters based on tests done in the lab
+082e1261-cbd6-48a1-9300-51f0ab9ef489,,Laboratory Encounter,Laboratory Encounter
+1f3d532e-bab3-4801-a805-82096bc4c11f,,Male circumcision,Male circumcision Type
+4d912736-26fe-102b-80cb-0017a47871b2,,MALNUTRITION INITIAL VISIT,Malnutrition encounters
+9facd372-0d04-4d32-86b6-dab46a7315d5,,Maternity Visit,Maternity Visit
+57d9672b-872a-46d2-8ae9-2b85fd31c4f2,,Mental Health visit,Mental Health visit
+8b36f0c4-b32f-47f4-baba-406afe80b4ed,,NCD Screening,NCD Screening
+9d84927b-5ea1-494e-af2a-b3f31c8dc3c4,,Neo admission encounter,Neo admission encounter
+4a175174-eb15-4fec-b78c-819f7a5537ee,,Neo admission infant bellow 1 month encounter,Neo admission infant bellow 1 month encounter
+08f7a011-8755-41ae-b3e4-03bf8a592340,,Neo Care Plan Encounter,Neo Care Plan Encounter
+8e0bc5eb-ebab-4dc1-a33a-3cf25623b921,,Neo clinical examination,Neo clinical examination
+457ff7db-b160-4446-a922-23500b2fdc32,,Neo daily evaluation and orders encounter,Neo daily evaluation and orders encounter
+a8c2299f-bcfe-4786-925b-04fc716cfa6e,,Neo education encounter,Neo education encounter
+6c8255f8-d2a4-4b65-b752-f59bdef313e8,,Neo Progress note encounter,Neo Progress note encounter
+01b6a15c-1c82-47d1-a540-fad3cfa81ab6,,Neonatology Nursing Visit,Neonatology Nursing Visit
+609cd2f6-6acf-4a08-8557-16de80fb403c,,Non clinical encounter,Non clinical encounter are encounters that don't involve  clinician meeting with the patient
+b1c2d207-7221-4c23-b580-6c5de5385847,,Non Clinical Oncology,Non Clinical Oncology
+62935462-e0cd-4f0d-8de3-d6db8f058183,,Nutrition,Nutrition
+4d912876-26fe-102b-80cb-0017a47871b2,,NUTRITIONAL VISIT,Visit for nutritional assistnance.
+f0c136c8-e24d-4957-8072-7907275b4ea0,,OPD Discharge,OPD Discharge
+f060e157-6ce7-48b6-81c4-afa2be5664b5,,operation consent encounter,operation consent encounter
+002e0b8f-6b7d-4f0c-8375-fd77b17061e8,,Ophthalmology acts encounter,Ophthalmology acts encounter
+36d88e93-cba9-4421-964d-a574efe94f13,,ORAL ENDOCRINE REMOTE TREATMENT,ORAL ENDOCRINE REMOTE TREATMENT
+f85df61f-3469-41fc-997d-1d673d178c3e,,Ordonance,Ordonance
+ff319885-3f20-4ae5-8663-3ad5678cba41,,Outpatient Oncology,Outpatient Oncology
+b4149626-e393-497c-82dc-5c9f6578f42e,,Oxygen consumption encounter,Oxygen consumption encounter
+f0d3c07e-bb5a-4a99-9643-b49810e18981,,Partograph Labor Phase,Partograph Labor Phase
+fa8b9e67-3cad-4c52-afd3-95d808835bc8,,Patient Education,Patient Education
+70f18a24-92ec-4de5-acdc-7cae77414e32,,Pathology,Pathology requests and reports
+166da42f-4595-445c-8f8a-f815fe9a47ec,,Patient Follow-up,Patient Follow-up
+504ca1b7-ae18-434a-89d9-cf80f1ad3407,,Patient Transfer,Patient Transfer
+71826dd4-330d-4548-9fd8-6703682fbd3a,,PDC Visit,Pediatric development Visit encounter type
+5e8fecc0-0cae-43a2-896d-9f8477e16392,,Pediatric HIV,Encounter for the Pediatric HIV Flowsheet
+4d9120ba-26fe-102b-80cb-0017a47871b2,,PEDIATRIC INITIAL VISIT,Outpaitent Pediatric Initial Visit
+2a5a22ba-6253-44b5-b752-357bb84c8620,TRUE,Pediatric Initial Visit (Research),"A pediatric initial visit encounter, entered for r"
+4d91222c-26fe-102b-80cb-0017a47871b2,,PEDIATRIC RETURN VISIT,Outpatient Pediatric Return Visit
+5ed74300-e9df-49fe-a0cb-021cf36d55b0,,PHARMACY,pharmacy encounter
+172f299f-0ccd-40fd-ae0a-42784f204ca3,TRUE,Pill Count (Research),"A pill counting encounter, entered for research pu"
+6f75c231-240a-4a7d-a1c4-03a621be1867,,PIT Visit,PIT Visit
+3cecca87-1712-4912-90f5-ac5c90b18513,,PNC Visit,PNC Visit
+93c83fb3-52c8-462f-a9e7-58c463906ed5,,POST CARDIAC SURGERY VISIT,POST CARDIAC SURGERY VISIT
+d9fa18df-b2b4-45b3-be4a-cc2c29cfcc07,,Postpartum Assessment encounter,Postpartum Assessment encounter
+ab8ec832-dfae-478f-90e7-36070f495a59,,Postpartum Discharge summary encounter,Postpartum Discharge summary encounter
+e2e4acd8-c429-4ba4-930d-ac92a0f01e26,,PRE-OPERATIVE ANAESTHESIA encounter,PRE-OPERATIVE ANAESTHESIA encounter
+58e38c08-e88b-43fa-a799-9716d694f33f,,Progress Note,Progress Note
+4d9129b6-26fe-102b-80cb-0017a47871b2,TRUE,Psychosocial and Indirect Benefits (Research),For the Oracta Rwanda study (conducted at baseline
+02965343-bbe7-4c3c-83c5-c3d084e715b7,,Radiology request encounter,Radiology request encounter
+cd4f9f32-6eb6-4cad-986b-00449593e7e0,,Radiology results encounter,Radiology results encounter
+4d91236c-26fe-102b-80cb-0017a47871b2,,Regimen Change,Regimen Change
+cfe614d5-fa7e-4919-b76b-a66117f57e4c,,Registration,Patient seen at registration desk
+2955334b-f28d-45f9-b8b0-7c1fde76d325,TRUE,Retrospective data collection (Research),"This should not really be an encounter, but repres"
+b763e022-21b6-4b2e-aea6-252ba47dec22,,Scan,Scan
+95784751-9700-4372-9cc6-3679c029d44e,,SILICOSIS VISIT,SILICOSIS VISIT
+ae6f8132-39e6-4848-a3e3-6033bbadd1b1,,Special Case Monitoring,Special Case Monitoring
+dd0f8dd0-e8c6-44a1-9320-174fce0022ad,,Stomatology acts encounter,Stomatology acts encounter
+1bcebba6-fca6-4568-a024-1ec575568b43,,Surgery followup encounter,Surgery followup encounter
+df461d45-5074-4bb6-beb4-864ac5f69c06,,Temporary,Just for tests
+a363b0d4-d430-467d-810c-4a2ee9891430,,Transfer,Indicates that a patient is being transferred into a different department within the hospital. (Transfers out of the hospital should not use this encounter type.)
+b42ac53d-4817-4b58-a884-a76c946083be,,triage encounter,triage encounter
+a4b7b206-da96-4c54-83bf-6fb31551a993,,vital sings encounter,vital sings encounter
+daf32375-d293-4e27-a68d-2a58494c96e1,,Vitals,Patient vital signs taken before seeing clinician

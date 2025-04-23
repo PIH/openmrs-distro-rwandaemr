@@ -1,0 +1,559 @@
+[
+  {
+    "id": "rwandaemr.pdcProgramDashboard.currentEnrollment",
+    "order": 1,
+    "config": {
+      "widget": "programstatus",
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.currentEnrollmentDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.pdcProgramDashboard.currentEnrollment.extension",
+        "appId": "rwandaemr.pdcProgramDashboard.currentEnrollment",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.pdcProgramDashboard.previousEnrollment",
+    "order": 2,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.pdcProgramDashboard.previousEnrollment.extension",
+        "appId": "rwandaemr.pdcProgramDashboard.previousEnrollment",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "program/programHistory"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.pdcProgramDashboard.obsGraph.weight",
+    "order": 3,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "icon-bar-chart",
+      "conceptId": "3ce93cf2-26fe-102b-80cb-0017a47871b2,3ce93b62-26fe-102b-80cb-0017a47871b2",
+      "maxResults": "6",
+      "showLegend": true,
+      "function": "(bmi,3ce93b62-26fe-102b-80cb-0017a47871b2,3ce93cf2-26fe-102b-80cb-0017a47871b2);",
+      "label": "WEIGHT,HEIGHT AND BMI GRAPH",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.pdcProgramDashboard.obsGraphWeight.extension",
+        "appId": "rwandaemr.pdcProgramDashboard.obsGraph.weight",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.secondColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcIntakeVisit.Form",
+    "order": 1,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcIntakeVisit.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Intake Visit",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-intake-visit.xml",
+        "icon": "icon-file",
+        "order": 1
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcHomeVisit.Form",
+    "order": 2,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcHomeVisit.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Home Visit",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-home-visit.xml",
+        "icon": "icon-file",
+        "order": 2
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcExit.Form",
+    "order": 3,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcExit.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Exit Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/PDC exit form.xml",
+        "icon": "icon-file",
+        "order": 3
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcConditionSpecificTrisomy.Form",
+    "order": 4,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcConditionSpecificTrisomy.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Condition specific (Trisomy 21)",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-condition-specific--trisomy-21-.xml",
+        "icon": "icon-file",
+        "order": 4
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcConditionalSpecificCleft.Form",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcConditionalSpecificCleft.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Conditional Specific (Cleft Lip)",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-conditional-specific--cleft-lip-.xml",
+        "icon": "icon-file",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.ConditionalSpecificGDD.Form",
+    "order": 6,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.ConditionalSpecificGDD.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Conditional Specific (Global Developmental Delay)",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-conditional-specific--global-developmental-delay-.xml",
+        "icon": "icon-file",
+        "order": 6
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcECDIntervention.Form",
+    "order": 7,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcECDIntervention.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "ECD Intervention",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-ecd-intervention.xml",
+        "icon": "icon-file",
+        "order": 7
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcECDStrengths.Form",
+    "order": 8,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcECDStrengths.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "ECD Strengths",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-ecd-strengths.xml",
+        "icon": "icon-file",
+        "order": 8
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcFeedingDifficultyHistory.Form",
+    "order": 9,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcFeedingDifficultyHistory.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Feeding difficulty history",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-feeding-difficulty-history.xml",
+        "icon": "icon-file",
+        "order": 9
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcMalnutritionAcute.Form",
+    "order": 10,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcMalnutritionAcute.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Malnutrition Acute Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-malnutrition-acute-form.xml",
+        "icon": "icon-file",
+        "order": 10
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcMalnutritionGrowthFailure.Form",
+    "order": 11,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcMalnutritionGrowthFailure.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Malnutrition Growth Failure form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-malnutrition-growth-failure-form.xml",
+        "icon": "icon-file",
+        "order": 11
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.gmcd.Form",
+    "order": 11,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.gmcd.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "GMCD form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-gmcd.xml",
+        "icon": "icon-file",
+        "order": 11
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcProgressNote.Form",
+    "order": 12,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcProgressNote.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Progress note",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-progress-note.xml",
+        "icon": "icon-file",
+        "order": 12
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcReferral.Form",
+    "order": 13,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcReferral.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Referral Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-referral-form.xml",
+        "icon": "icon-file",
+        "order": 13
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcStandardVisit.Form",
+    "order": 14,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcStandardVisit.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Standard Visit Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-standard-visit-form.xml",
+        "icon": "icon-file",
+        "order": 14
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcSUMMARY.Form",
+    "order": 15,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcSUMMARY.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "SUMMARY",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-summary.xml",
+        "icon": "icon-file",
+        "order": 15
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcVaccines.Form",
+    "order": 16,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcVaccines.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Vaccines",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-vaccines.xml",
+        "icon": "icon-file",
+        "order": 16
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcVisit.Form",
+    "order": 17,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcVisit.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Visit Form",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-visit-form.xml",
+        "icon": "icon-file",
+        "order": 17
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcOccupationalAssessment.Form",
+    "order": 18,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcOccupationalAssessment.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Occupational Therapy Assessment",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-occupational-therapy-assessment.xml",
+        "icon": "icon-file",
+        "order": 18
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcOccupationalProgressNote.Form",
+    "order": 19,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.pdcOccupationalProgressNote.Form",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Occupational Therapy Progress Note",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/pdc-occupational-therapy-progress-note.xml",
+        "icon": "icon-file",
+        "order": 19
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.regimens",
+    "order": 20,
+    "config": {
+      "icon": "fas fa-fw fa-briefcase-medical",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.regimens",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.overallActions",
+        "type": "link",
+        "label": "Regimens",
+        "url": "rwandaemr/patient/regimen.page?patientId={{patient.uuid}}",
+        "icon": "fas fa-fw fa-briefcase-medical",
+        "order": 20
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.recentEncounters",
+    "description": "coreapps.mostRecentVitals.app.description",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
+    "icon": "icon-calendar",
+    "order": 4,
+    "config": {
+      "program": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "dashboard": "fbfbef74-4b99-4070-95b8-7023e3db51e1",
+      "includeActive": false,
+      "limit": "5"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.recentEncounters.extension",
+        "appId": "rwandaemr.fbfbef74-4b99-4070-95b8-7023e3db51e1.recentEncounters",
+        "extensionPointId": "fbfbef74-4b99-4070-95b8-7023e3db51e1.secondColumnFragments",
+        "extensionParams": {
+          "provider": "rwandaemr",
+          "fragment": "patient/encountersSection"
+        }
+      }
+    ]
+  }
+]

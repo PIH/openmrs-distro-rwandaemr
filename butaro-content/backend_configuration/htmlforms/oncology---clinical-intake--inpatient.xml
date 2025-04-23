@@ -1,0 +1,1917 @@
+<htmlform 
+	htmlformUuid="a77820b0-b55f-4850-b938-fe40e825f3b4" 
+	formUuid="ae626637-e19c-4c94-8189-32ef9d3ca739" 
+	formName="Oncology - Clinical Intake: InPatient" 
+	formDescription="Oncology Clinical Intake form InPatient form" 
+	formVersion="0.1" 
+	formEncounterType="0b3925f9-0336-47a6-931e-5c356e9cc82f" 
+	formPublished="false"
+	formRetired="false"
+> <!--
+	   Oncology Clinical Intake Form
+	   ClinicalIntake_ONCOLOGY_V1.3NT2012July4 copy
+		Author:  
+		Builder: Jberchmas 
+		started on Sept 22, 2012		
+	-->
+
+<macros>
+		@PATIENT_IDENTIFIER@=IMB ID
+    
+		@WEIGHT_KG@=3ce93b62-26fe-102b-80cb-0017a47871b2
+		@HEIGHT_CM@=5090
+		@BSA@= 	b7eb9d2f-0642-4984-8778-ba603e703a38
+    </macros>
+
+<style>
+.formName {
+	background-color: #e0e0ff;
+}
+
+.section {
+	border: 1px solid #8FABC7;
+	width: 99%;
+	padding: 2px;
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.disabled {
+	color: #D8D8D8;
+}
+
+.sectionHeader {
+	background-color: #3333cc;
+	color: white;
+	display: block;
+	padding: 2px;
+	font-weight: bold;
+}
+
+table.symptoms th {
+	text-align: right;
+}
+
+th.subheader {
+	background-color: #8FABC7;
+	color: white
+}
+
+.note {
+	color: red;
+}
+
+td {
+	vertical-align: top;
+}
+
+table.labTable td {
+	color: red;
+}
+
+table.labTable
+		td.dateField {
+	text-align: right;
+}
+
+table.identifierTable td {
+	padding-right: 10px;
+}
+
+div.paddedTable span {
+	padding-right: 20px;
+}
+
+.indented {
+	padding-left: 20pt;
+	padding-right: 20pt;
+}
+
+.bigIndent {
+	padding-left: 40pt;
+	padding-right: 10pt;
+}
+
+.newpage {
+	color: #8FABC7;
+	font-weight: bold;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+.disdiv {
+	/*background-color: grey;*/
+}
+</style>
+<script>
+	$j(document).ready(function() {
+		$j("#hideHIV").click(function() {
+			$j(".hiv").hide();
+			$j('.hiv input[type="text"]').val('');
+			$j('.hiv').find('input[type=checkbox]:checked').removeAttr('checked');
+                        $j(".hivstatus").hide();
+			$j('#checkthis3').find('input[type=checkbox]:checked').removeAttr('checked');
+                        $j('#checkthis2').find('input[type=checkbox]:checked').removeAttr('checked');
+                        $j("#checkthis1 input").attr('checked','checked');
+		});
+		$j("#showHIV").click(function() {
+			$j(".hiv").show();
+                        $j(".hivstatus").show();
+                        $j('#checkthis1').find('input[type=checkbox]:checked').removeAttr('checked'); 
+		});
+		$j("#showAllergies").click(function() {
+			$j(".allergies").show();
+		});
+		$j("#hideAllergies1").click(function() {
+			$j(".allergies").hide();
+		});
+		$j("#hideAllergies2").click(function() {
+			$j(".allergies").hide();
+		});
+
+               
+                getField('pastCancerDiagnosis.value').change(function() {
+                 var checkNonCoded= $j("#pastCancerDiagnosis  option:selected").text();
+              if( checkNonCoded == "OTHER NON-CODED") {
+			getField('otherNonCoded.value')[0].disabled = false;
+		} else {
+			getField('otherNonCoded.value')[0].disabled = true;
+		}
+    });
+getField('causeNonCoded1.value')[0].disabled = true;
+     getField('cause1.value').change(function() {
+                 var checkcauseNonCoded1= $j("#cause1  option:selected").text();
+              if( checkcauseNonCoded1 == "OTHER NON-CODED") {
+			getField('causeNonCoded1.value')[0].disabled = false;
+		} else {
+			getField('causeNonCoded1.value')[0].disabled = true;
+		}
+    });
+     getField('causeNonCoded2.value')[0].disabled = true;
+     getField('cause2.value').change(function() {
+                 var checkcauseNonCoded2= $j("#cause2  option:selected").text();
+              if( checkcauseNonCoded2 == "OTHER NON-CODED") {
+			getField('causeNonCoded2.value')[0].disabled = false;
+		} else {
+			getField('causeNonCoded2.value')[0].disabled = true;
+		}
+    });
+
+      getField('causeNonCoded3.value')[0].disabled = true;
+     getField('cause3.value').change(function() {
+                 var checkcauseNonCoded3= $j("#cause3  option:selected").text();
+              if( checkcauseNonCoded3 == "OTHER NON-CODED") {
+			getField('causeNonCoded3.value')[0].disabled = false;
+		} else {
+			getField('causeNonCoded3.value')[0].disabled = true;
+		}
+    });
+
+
+ getField('reactionNonCoded1.value')[0].disabled = true;
+     getField('reaction1.value').change(function() {
+                 var checkreactionNonCoded1= $j("#reaction1  option:selected").text();
+              if( checkreactionNonCoded1 == "OTHER NON-CODED") {
+			getField('reactionNonCoded1.value')[0].disabled = false;
+		} else {
+			getField('reactionNonCoded1.value')[0].disabled = true;
+		}
+    });
+
+getField('reactionNonCoded2.value')[0].disabled = true;
+     getField('reaction2.value').change(function() {
+                 var checkreactionNonCoded2= $j("#reaction2  option:selected").text();
+              if( checkreactionNonCoded2 == "OTHER NON-CODED") {
+			getField('reactionNonCoded2.value')[0].disabled = false;
+		} else {
+			getField('reactionNonCoded2.value')[0].disabled = true;
+		}
+    });
+
+getField('reactionNonCoded3.value')[0].disabled = true;
+     getField('reaction3.value').change(function() {
+                 var checkreactionNonCoded3= $j("#reaction3  option:selected").text();
+              if( checkreactionNonCoded3 == "OTHER NON-CODED") {
+			getField('reactionNonCoded3.value')[0].disabled = false;
+		} else {
+			getField('reactionNonCoded3.value')[0].disabled = true;
+		}
+    });
+
+	});
+
+
+
+
+
+</script> <script>
+	$j(function() {
+		$j('.disdiv').find('input').attr('disabled', 'true');
+		$j(".hiv").hide();
+                $j(".hivstatus").hide();
+		$j('#textareadisabled').find('input, textarea, button, select').attr('disabled','true');
+		$j('#disabledConcept').find('input, textarea, button, select').attr('disabled','true');
+		$j(".allergies").hide();
+                getField('otherNonCoded.value')[0].disabled = true;
+	});
+	
+</script> <script type="text/javascript">
+	if (jQuery) {
+		$j(document)
+				.ready(
+						function() {
+							if ($j.browser.msie) {
+								$j(":checkbox").click(function() {
+									$j(this).change();
+								});
+							}
+							$j(".enableDisable").each(
+									function() {
+										var group = $j(this);
+										function disableFn() {
+											group.children("#disabled").fadeTo(
+													250, 0.33);
+											group.children("#disabled").find(
+													":checkbox").attr(
+													"checked", false); //uncheck
+											group.children("#disabled").find(
+													"input[type$='text']").val(
+													"");
+											group.children("#disabled").find(
+													"input").attr("disabled",
+													true); //disable
+										}
+										function enableFn() {
+											group.children("#disabled").fadeTo(
+													250, 1);
+											group.children("#disabled").find(
+													"input").attr("disabled",
+													false);
+										}
+										disableFn();
+										$j(this).children("#trigger").find(
+												":checkbox:first").change(
+												function() {
+													var checked = $j(this)
+															.attr("checked");
+													if (checked == true) {
+														enableFn();
+													} else {
+														disableFn();
+													}
+												});
+									});
+
+							$j(".checkboxGroup")
+									.each(
+											function() {
+												var group = $j(this);
+												var uncheckAll = function() {
+													group
+															.find(
+																	"input[type$='checkbox']")
+															.attr("checked",
+																	false);
+													group
+															.find(
+																	"input[type$='checkbox']")
+															.change();
+												}
+												var uncheckRadioAndAll = function() {
+													group
+															.find(
+																	"#checkboxAll,#checkboxRadio")
+															.find(
+																	"input[type$='checkbox']")
+															.attr("checked",
+																	false);
+													group
+															.find(
+																	"#checkboxAll,#checkboxRadio")
+															.find(
+																	"input[type$='checkbox']")
+															.change();
+												}
+
+												group
+														.find("#checkboxAll")
+														.find("input")
+														.click(
+																function() {
+																	var flip;
+																	var checked = $j(
+																			this)
+																			.siblings(
+																					":checkbox:first")
+																			.attr(
+																					"checked");
+																	if ($j(this)
+																			.attr(
+																					"name") == $j(
+																			this)
+																			.parents(
+																					"#checkboxAll:first")
+																			.find(
+																					":checkbox:first")
+																			.attr(
+																					"name")) {
+																		checked = $j(
+																				this)
+																				.attr(
+																						"checked");
+																		flip = checked;
+																	} else {
+																		flip = !checked;
+																	}
+																	if ($j(this)
+																			.attr(
+																					"type") == "text")
+																		if (flip == false)
+																			flip = !filp; // this is so the user doesn't go to check the checkbox, then uncheck it when they hit the input.
+																	uncheckAll();
+																	$j(this)
+																			.parents(
+																					"#checkboxAll:first")
+																			.find(
+																					":checkbox")
+																			.attr(
+																					"checked",
+																					flip);
+																	$j(this)
+																			.parents(
+																					"#checkboxAll:first")
+																			.find(
+																					":checkbox")
+																			.change();
+																});
+
+												group
+														.find("#checkboxRadio")
+														.find(
+																"input[type$='checkbox']")
+														.click(
+																function() {
+																	uncheckAll();
+																	$j(this)
+																			.siblings(
+																					"input[type$='checkbox']")
+																			.attr(
+																					"checked",
+																					false);
+																	$j(this)
+																			.attr(
+																					"checked",
+																					true);
+																	$j(this)
+																			.change();
+																});
+
+												group
+														.find(
+																"#checkboxCheckbox")
+														.click(
+																function() {
+																	uncheckRadioAndAll();
+																});
+											});
+						});
+	}
+</script>
+
+
+
+ <section>
+<table border="0" cellspacing="0" cellpadding="6" width="100%">
+	<tr>
+		<td><b> 
+			IMB ID: 
+			<lookup class="value" expression="patientIdentifiers.get(&quot;IMB ID&quot;)" /> 
+			<lookup class="value" expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" />
+		</b></td>
+		<td>Date: <encounterDate default="today" id="encounter" />
+		</td>
+	</tr>
+	<tr>
+		<td>Last name/<span class="disabled">Nom: </span><lookup class="value"
+				expression="patient.personName.familyName" /></td>
+		<td>First name/<span class="disabled">Prenom: </span><lookup class="value"
+				expression="patient.personName.givenName" /></td>
+	</tr>
+
+	<tr>
+		<td><img src="/openmrs/moduleResources/rwandareports/images/pihHands.png" align="left"
+			height="65" ></img>
+			<h2>
+				&#160;&#160;Inshuti Mu Buzima <br />&#160;&#160;PIH Rwanda
+			</h2></td>
+		<td><strong> Oncology Program / Programme d'oncologie <br />
+				Clinical Intake </strong> <br /> ClinicalIntake_ONCOLOGY_V1.3NT2012July4
+			copy.doc</td>
+	</tr>
+</table>
+</section> <section headerLabel="INTAKE STATUS">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	<tr>
+		<td>Intake site</td>
+		<td><encounterLocation order="Butaro Hospital" default="Butaro Hospital" /></td>
+	</tr>
+	<tr class="disabled">
+		<td>Intake setting</td>
+		<td><span class="disabled disdiv"><input type="checkbox" class="disabled" />INpatient<input type="checkbox" class="disabled" />OUTpatient </span></td>
+	</tr>
+	<tr class="disabled">
+		<td>Managing Doctors</td>
+		<td class="disabled"><table width="100%" class="disdiv">
+				GP:__________________________&#160;&#160;&#160;&#160; Specialist:__________________________
+			<br/></table></td>
+	</tr>
+</table>
+</section> <section headerLabel="HISTORY OF PRESENT ILLNESS">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	<tr class="disabled">
+		<td colspan="2">Chief complaint: <span class="disdiv"><obs
+				conceptId="60887f45-dfbe-482a-8721-48c0a5f0ef7d" /></span></td>
+	</tr>
+	<tr class="disabled">
+		<td colspan="2">Duration of complaint:<span class="disdiv"><obs
+				conceptId="cbc7f5d4-c775-4328-ab63-a9aead3a0faf" /></span></td>
+	</tr>
+	<tr class="disabled">
+		<td colspan="2"><b>Symptoms</b> (circle all that apply):</td>
+	</tr>
+	<tr class="disabled">
+		<td width="5%">General</td>
+		<td>Weight loss/gain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; fatigue&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; fever/chills&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; weakness&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; trouble sleeping&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; other:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+	</tr>
+	<tr class="disabled">
+		<td width="2%">Skin</td>
+		<td>lumps&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; rashes&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; itching&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; color changes&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; hair and nail changes&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; other:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+	</tr>
+	<tr class="disabled">
+		<td width="2%">HEENT</td>
+		<td>mass&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; headache&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; hearing changes&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; vision loss/changes&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; blurry/double vision&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; nosebleeds&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; other:&#160;&#160;&#160;&#160;&#160;&#160;</td>
+	</tr>
+	<tr class="disabled">
+		<td width="2%">Neck</td>
+		<td>mass&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; pain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; stiffness&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; other:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+	</tr>
+	<tr class="disabled">
+		<td width="2%">Breast</td>
+		<td>mass&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; pain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; stiffness&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; other:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+	</tr>
+	<tr class="disabled">
+		<td width="2%">Chest</td>
+		<td>coughing up blood&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; shortness of breath&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; chest pain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; tightness&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; other:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+	</tr>
+	<tr class="disabled">
+		<td width="2%">Gastrointestial</td>
+		<td>swallowing difficulties&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; nausea&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; rectal bleeding&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; diarrhea&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; constipation:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; other:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+	</tr>
+	<tr class="disabled">
+		<td width="2%">Urinary</td>
+		<td>frequency&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; burning/pain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; blood in urine&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; incontinence&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; other:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+	</tr>
+	<tr class="disabled">
+		<td width="2%">Vascular/Musculoskeletal</td>
+		<td>muscle/joint pain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; stiffness&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; swelling of joints&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; trauma&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; other:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+	</tr>
+	<tr class="disabled">
+		<td width="2%">Hematologic/Endocrine</td>
+		<td>easy bruising&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; bleeding&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; heat/cold intolerance&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; other:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+	</tr>
+	<tr class="disabled">
+		<td width="2%">Neurologic/Psychiatric</td>
+		<td>diziness&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; seizures&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; weakness&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; tremor&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; depression&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;other:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+	</tr>
+	<tr class="disabled">
+		<td colspan="2">Symptom details:<br /> <br /> <br /> <br /> <br /> 
+			
+		</td>
+	</tr>
+	<tr>
+		<td>Pain score (0 to 5):</td>
+		<td><obs conceptId="9b461c8e-155a-481c-83a4-1de363f7301e"/>/5</td>
+	</tr>
+	<tr>
+		<td>Performance status (ECOG* 0 to 5):</td>
+		<td><obs conceptId="8ad685de-4f19-4b75-b3f1-ee3b06bf05a2" />/5</td>
+	</tr>
+</table>
+</section> <section headerLabel="PAST MEDICAL HISTORY">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	
+	<obsgroup groupingConceptId="3cdc20e4-26fe-102b-80cb-0017a47871b2">
+	<tr class="hiv" >
+	<td colspan="3"><table width="100%">
+		<tr >
+			<td width="20%"><strong>HIV history:</strong></td>
+			<td colspan="2">	<obs
+					conceptId="ab6fad23-f312-4ce2-b3fb-a94de1a001a5"
+					answerConceptId="7d846ae2-8f1c-4183-9313-af636d94027c"
+					answerLabel="Verified with records" style="checkbox" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+			<obs conceptId="ab6fad23-f312-4ce2-b3fb-a94de1a001a5"
+					answerConceptId="cb174bca-190d-4a61-a6c7-9ca4f46a7df8"
+					answerLabel="Patient self-report" style="checkbox" />
+					</td>
+		</tr>
+	</table></td>
+	</tr>
+	<tr class="hivstatus" >
+	<td colspan="3"><table width="100%">	
+		<tr >
+			<td width="20%"><b>Status:</b></td>
+
+			<td><obs
+					conceptId="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e"
+					answerConceptId="3cd3a7a2-26fe-102b-80cb-0017a47871b2"
+					answerLabel="Positive," style="checkbox"  id="checkthis1" /> <obs conceptId="3ceda710-26fe-102b-80cb-0017a47871b2"
+					labelText="last CD4:" showDate="true" dateLabel=", date: " />
+				<br/> <obs
+					conceptId="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e"
+					answerConceptId="3cd28732-26fe-102b-80cb-0017a47871b2"
+					answerLabel="Negative" style="checkbox" id="checkthis2" />
+			</td>
+			<td>	
+				 <obs
+					conceptId="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e"
+					answerConceptId="3cd6fac4-26fe-102b-80cb-0017a47871b2"
+					answerLabel="Unknown / never tested" style="checkbox" id="checkthis3" /></td>
+		</tr>
+	</table></td>
+	</tr>
+	</obsgroup>
+<tr>
+		<td colspan="3" class="checkboxGroup"><span id="checkboxRadio">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Enrolled
+				in the IMB HIV program?
+				&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+				
+				<input type="checkbox" id="hideHIV" />Yes
+				
+				<!-- <obs conceptId="12a1e676-7562-46bd-bc4d-23a4805f2393"
+					answerConceptId="3cd6f600-26fe-102b-80cb-0017a47871b2"
+					answerLabel="yes" style="checkbox" id="showHIV" /> -->
+				&#160;&#160;&#160;&#160; 
+				<input type="checkbox" id="showHIV" />No
+				<!-- <obs
+					conceptId="12a1e676-7562-46bd-bc4d-23a4805f2393"
+					answerConceptId="3cd6f86c-26fe-102b-80cb-0017a47871b2"
+					answerLabel="no" style="checkbox" id="hideHIV" /> --> </span>
+		</td>
+	</tr>
+	<tr>
+	<obsgroup groupingConceptId="3ce18ee4-26fe-102b-80cb-0017a47871b2">
+		<td colspan="3"><strong>TB history:</strong>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+		   <obs
+			    conceptId="ab6fad23-f312-4ce2-b3fb-a94de1a001a5"
+				answerConceptId="7d846ae2-8f1c-4183-9313-af636d94027c"
+				answerLabel="Verified with records" style="checkbox" />
+			<obs conceptId="ab6fad23-f312-4ce2-b3fb-a94de1a001a5"
+				answerConceptId="cb174bca-190d-4a61-a6c7-9ca4f46a7df8"
+				answerLabel="Patient self-report" style="checkbox" /><br/><br/><hr></hr>
+		&#160;&#160;&#160;&#160;&#160;&#160; Does patient have known past diagnosis of TB ?      &#160;&#160;&#160;&#160;&#160;&#160;<obs conceptId="3cdbd4f4-26fe-102b-80cb-0017a47871b2" style="yes_no" yesLabel="Yes" noLabel="No"/>,
+		&#160;&#160;<span class="disabled disdiv"><obs conceptId="3ce19060-26fe-102b-80cb-0017a47871b2" labelText="last tx completion date" /></span>
+		</td>
+	</obsgroup>
+	</tr>
+	 <!--<tr class="disabled">
+		<td colspan="3">&#160;&#160;&#160;&#160;&#160;&#160;<b>Does
+				the patient report or have:</b>
+		</td>
+	</tr>
+	<tr class="disabled">
+		<td colspan="2">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a.
+			chronic cough (more than 3 weeks)?</td>
+		<td width="20%">yes &#160;&#160;&#160;&#160; no</td>
+	</tr>
+	<tr class="disabled">
+		<td colspan="3">
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+			If yes:
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+			productive
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+			hemoptysis</td>
+	</tr>
+	 <tr class="disabled">
+		<td colspan="2">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;b.
+			night sweats that soak clothing?</td>
+		<td>yes &#160;&#160;&#160;&#160; no</td>
+	</tr>
+	<tr class="disabled">
+		<td colspan="2">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;c.
+			a large unintentional weight loss?</td>
+		<td>yes &#160;&#160;&#160;&#160; no</td>
+	</tr>  -->
+	<tr>
+		<td colspan="3">
+			<strong>Cancer history:</strong></td>
+	</tr> 
+	
+	<tr >
+		<td colspan="2"><strong>Has the patient ever been
+				treated for Cancer?</strong><br/>
+				<span class="disabled">
+		&#160;&#160;&#160;&#160;Are previous treatment records
+			available? &#160;&#160;&#160; Yes <i>(include in chart)</i> &#160;&#160;&#160; No 
+				<br /> &#160;&#160;&#160;&#160;If yes, fill out
+			the details below.</span></td>
+		<td width="40%" class="checkboxGroup"><span id="checkboxRadio"><obs
+					conceptId="902ccf5d-d71c-47be-a812-a685c4a383dc"
+					answerConceptId="3cd6f600-26fe-102b-80cb-0017a47871b2"
+					answerLabel="yes" style="checkbox" /> &#160;&#160;&#160;&#160; <obs
+					conceptId="902ccf5d-d71c-47be-a812-a685c4a383dc"
+					answerConceptId="3cd6f86c-26fe-102b-80cb-0017a47871b2"
+					answerLabel="no" style="checkbox" /> </span></td>
+	</tr>
+	
+	<tr class="disabled">
+		<td width="30%">&#160;&#160;&#160;&#160;Treating doctor, phone
+			number:</td>
+		<td colspan="2"></td>
+	</tr>
+	<tr >
+		<td>&#160;&#160;&#160;&#160;Diagnosis:</td>
+		<td colspan="2"><obs
+				conceptId="6b9413fd-c327-480e-82d8-1997002312e1" id="pastCancerDiagnosis" /> <obs
+				conceptId="2ec6b4ac-34b1-45bd-b2db-57f4346499b2" size="40" id="otherNonCoded" /></td>
+	</tr>
+
+	<tr>
+		<td>&#160;&#160;&#160;&#160;<obs conceptId="ed2bc968-d2c0-4fa1-99a3-1b8419bdbaa6"
+				answerConceptId="ce3c7128-197a-4305-aaba-3c7fc4345560"
+				answerLabel="Surgical treatment, date, facility:" /></td>
+		<td colspan="2" class="disabled">_______________________________, DD / MM / YYYY, ________________</td>
+	</tr>
+	<tr>
+		<td>&#160;&#160;&#160;&#160;<obs conceptId="ed2bc968-d2c0-4fa1-99a3-1b8419bdbaa6"
+				answerConceptId="9ce91aa5-1ce8-4939-a61c-df8265df990d"
+				answerLabel="Radiation treatment, date, facility:" /></td>
+		<td colspan="2" class="disabled">_______________________________, DD / MM / YYYY, ________________</td>
+	</tr>
+	<tr>
+		<td>&#160;&#160;&#160;&#160;<obs conceptId="ed2bc968-d2c0-4fa1-99a3-1b8419bdbaa6"
+				answerConceptId="17b5c7cc-f180-454a-aa33-f3383d6c5419"
+				answerLabel="Chemotherapy type, date started, date
+			ended, facility:" /></td>
+		<td colspan="2" class="disabled">__________________________, DD / MM / YYYY, DD / MM / YYYY, _______</td>
+	</tr>
+	<tr >
+		<td>&#160;&#160;&#160;&#160;Has the patient ever received
+			Doxorubicin? </td>
+		<td colspan="2">
+			<span class="disabled">Yes,</span> total dose to date: <obs conceptId="98709f1c-a667-4436-b6b1-29873d7115e7" labelText="Doxorubicin" /> mg/m<sup>2</sup> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="disabled">Unknown
+			<br />
+			No
+			</span>
+		</td>
+	</tr>
+	<tr >
+		<td>&#160;&#160;&#160;&#160;Has the patient ever received
+			Epirubicin? </td>
+		<td colspan="2">
+			<span class="disabled">Yes,</span> total dose to date: <obs conceptId="a8d06e6d-9b0d-411c-aabe-8628d67f0edd" labelText="Epirubicin" /> mg/m<sup>2</sup> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="disabled">Unknown
+			<br />
+			No
+			</span>
+		</td>
+	</tr>
+	
+	
+	<tr>
+		<td colspan="3"><table width="100%">
+				<tr >
+					<td><strong>Does the patient report other
+							co-morbidities such as:</strong></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><obs conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="edf4ecc4-44f6-457a-b561-179f4426b16a"
+							answerLabel="diabetes" /></td>
+					<td><obs conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="3ccc4bf6-26fe-102b-80cb-0017a47871b2"
+							answerLabel="asthma/COPD" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><obs conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="3cd50188-26fe-102b-80cb-0017a47871b2"
+							answerLabel="hypertension" /></td>
+					<td><obs conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="0670f6b9-5456-4bd3-86b1-846abc4fe2ba"
+							answerLabel="heart failure" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><obs conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="3cce0a90-26fe-102b-80cb-0017a47871b2"
+							answerLabel="epilepsy" /></td>
+					<td><obs conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="894f306e-a868-44b8-b580-93495e3cca4c"
+							answerLabel="renal failure" /></td>
+				</tr>
+				<tr>
+					<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="disabled disdiv"><obs
+							conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="3cd743f8-26fe-102b-80cb-0017a47871b2"
+							answerLabel="N/A (none
+						reported)" /></span></td>
+					<td><obs conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="3ccc7a0e-26fe-102b-80cb-0017a47871b2"
+							answerLabel="Hepatitis B" /></td>
+					<td><obs conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="3ccc7bbc-26fe-102b-80cb-0017a47871b2"
+							answerLabel="Hepatitis C" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><obs conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="3cd80b44-26fe-102b-80cb-0017a47871b2"
+							answerLabel="HPV" /></td>
+					<td><obs conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="883cc674-9495-49df-ad81-d071189dce06"
+							answerLabel="EBV" /></td>
+				</tr>
+				<tr>
+					<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<obs
+							conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2"
+							answerLabel="other:" /> <obs
+							conceptId="0814d34f-a6ab-408c-848b-c69c96b42f70" /></td>
+					<td colspan="2"><obs
+							conceptId="bb7e04d8-3355-4fe8-9c87-98642eafab93"
+							answerConceptId="3cccc34c-26fe-102b-80cb-0017a47871b2"
+							answerLabel="mental illness:" /> <obs
+							conceptId="b87c7e3f-a7a4-4548-958c-b22321097931" /></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" class="disabled"><strong>Other medical history:</strong><small>(include number of pregnancies, deliveries, if applicable)</small><br /> <!-- <obs
+				conceptId="bc3862d8-6825-4878-8801-f1e7b0790071" cols="170" rows="8" /> -->
+			<br /></td>
+	</tr>
+</table>
+</section> <section headerLabel="SOCIAL HISTORY">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	<tr>
+		<td><table width="100%"></table>
+		</td>
+
+	</tr>
+	<tr>
+		<td><table width="100%">
+				<tr>
+					<td width="40%"><strong>Does the patient smoke?</strong>
+					</td>
+					<td width="20%"><obs
+							conceptId="3cdbdca6-26fe-102b-80cb-0017a47871b2"
+							answerConceptId="3cdbdb2a-26fe-102b-80cb-0017a47871b2"
+							answerLabel="Current smoker" /></td>
+					<td width="20%"><obs
+							conceptId="3cdbdca6-26fe-102b-80cb-0017a47871b2"
+							answerConceptId="3cdbd832-26fe-102b-80cb-0017a47871b2"
+							answerLabel="Past smoker" /></td>
+					<td width="20%"><obs
+							conceptId="3cdbdca6-26fe-102b-80cb-0017a47871b2"
+							answerConceptId="3cd72968-26fe-102b-80cb-0017a47871b2"
+							answerLabel="Never" /></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td><table width="100%">
+				<tr>
+					<td width="40%"><strong>Does the patient drink
+							alcohol?</strong>
+					</td>
+					<td width="20%"><obs
+							conceptId="3cdbde18-26fe-102b-80cb-0017a47871b2"
+							answerConceptId="3cdbdb2a-26fe-102b-80cb-0017a47871b2"
+							answerLabel="Current drinker" />
+					</td>
+					<td width="20%"><obs
+							conceptId="3cdbde18-26fe-102b-80cb-0017a47871b2"
+							answerConceptId="3cdbd832-26fe-102b-80cb-0017a47871b2"
+							answerLabel="Past drinker" /></td>
+					<td width="20%"><obs
+							conceptId="3cdbde18-26fe-102b-80cb-0017a47871b2"
+							answerConceptId="3cd72968-26fe-102b-80cb-0017a47871b2"
+							answerLabel="Never" /></td>
+				</tr>
+			</table> <br /> <br />
+			<center>
+				<span class="disabled">If Current or Past drinker:
+				<!-- <obs conceptId="3ce1f550-26fe-102b-80cb-0017a47871b2" /> -->
+				____ drinks / day</span>
+			</center>
+		</td>
+	</tr>
+	<tr>
+		<td><strong>Did the patient use traditional treatments
+				for current illness?</strong><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<obs
+							conceptId="b381513d-3283-4235-a6b8-34badb7abfe8"
+							answerConceptId="36803dfa-0cfd-43ca-be4e-52597ec42417"
+							answerLabel="scarification" />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <obs
+							conceptId="b381513d-3283-4235-a6b8-34badb7abfe8"
+							answerConceptId="8821a0ff-934b-42ed-9de3-8f2af08fd7ec"
+							answerLabel="herbal medicine" />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<obs
+							conceptId="b381513d-3283-4235-a6b8-34badb7abfe8"
+							answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2"
+							answerLabel="other:" />
+			<obs conceptId="33441bcf-0e70-4035-a85e-ff8b207a10e3" />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <obs
+							conceptId="b381513d-3283-4235-a6b8-34badb7abfe8"
+							answerConceptId="3cd743f8-26fe-102b-80cb-0017a47871b2"
+							answerLabel="No" /></td>
+	</tr>
+	<tr>
+		<td class="disabled"><strong>Other social history: </strong><br />
+			<!-- <obs conceptId="400186a3-f94e-49fc-ae2d-dab9dda14ab9" cols="170"
+				rows="3" /> --> <br />
+		</td>
+
+	</tr>
+</table>
+</section> <section headerLabel="FAMILY HISTORY">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	<tr>
+		<td><strong>Has a family member had cancer?</strong></td>
+		<td><obs conceptId="f75eebc1-361e-47c7-bb61-9be3b0ebec3a"
+				answerConceptId="3cd6f600-26fe-102b-80cb-0017a47871b2"
+				answerLabel="yes" />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <obs
+				conceptId="f75eebc1-361e-47c7-bb61-9be3b0ebec3a"
+				answerConceptId="3cd6f86c-26fe-102b-80cb-0017a47871b2"
+				answerLabel="no" />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <obs
+				conceptId="f75eebc1-361e-47c7-bb61-9be3b0ebec3a"
+				answerConceptId="3cd6fac4-26fe-102b-80cb-0017a47871b2"
+				answerLabel="unknown" /></td>
+	</tr>
+	<obsgroup groupingConceptId="2925b722-49c4-4868-bd54-c96c40cf6521">
+	<tr>
+		<td colspan="3">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;If yes,
+			cancer diagnoses: <obs conceptId="2af763bf-2992-45e4-9c29-c8a58f66c42a" /></td>
+	</tr>
+	<tr>
+		<td colspan="3">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Relationship
+			to patient: <obs conceptId="3ce18156-26fe-102b-80cb-0017a47871b2"
+				answerConceptId="3ce185ca-26fe-102b-80cb-0017a47871b2"
+				answerLabel="Mother" /> <obs
+				conceptId="3ce18156-26fe-102b-80cb-0017a47871b2"
+				answerConceptId="3ce18444-26fe-102b-80cb-0017a47871b2"
+				answerLabel="Father" />
+			<obs conceptId="3ce18156-26fe-102b-80cb-0017a47871b2"
+				answerConceptId="3ce18a70-26fe-102b-80cb-0017a47871b2"
+				answerLabel="Sibling" />
+			<obs conceptId="3ce18156-26fe-102b-80cb-0017a47871b2"
+				answerConceptId="ece835f9-1512-44ae-b3a5-a55b1dd70890"
+				answerLabel="Child of patient" />
+			<obs conceptId="3ce18156-26fe-102b-80cb-0017a47871b2"
+				answerConceptId="3ce18bec-26fe-102b-80cb-0017a47871b2"
+				answerLabel="Other relative" /> <obs
+				conceptId="ff4a8e94-e1f7-4697-a172-25cc57766995" />
+		</td>		
+	</tr>
+	</obsgroup>
+</table>
+</section> <section headerLabel="CURRENT MEDICATIONS AND ALLERGIES">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	<tr class="disabled">
+		<td><strong>Medications taken in the past year:</strong>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+			yes &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;no</td>
+	</tr>
+	<tr class="disabled">
+		<td><table width="100%">
+				<tr>
+					<td>1. __________________________________________________</td>
+					<td><b>Still taking?</b></td>
+					<td width="20%">yes &#160;&#160;&#160;&#160;&#160;&#160;no</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr class="disabled">
+		<td><table width="100%">
+				<tr>
+					<td>2. __________________________________________________</td>
+					<td></td>
+					<td width="20%">yes &#160;&#160;&#160;&#160;&#160;&#160;no</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr class="disabled">
+		<td><table width="100%">
+				<tr>
+					<td>3. __________________________________________________</td>
+					<td></td>
+					<td width="20%">yes &#160;&#160;&#160;&#160;&#160;&#160;no</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr class="disabled">
+		<td><table width="100%">
+				<tr>
+					<td>4. __________________________________________________</td>
+					<td></td>
+					<td width="20%">yes &#160;&#160;&#160;&#160;&#160;&#160;no</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr class="disabled">
+		<td><table width="100%">
+				<tr>
+					<td>5. __________________________________________________</td>
+					<td></td>
+					<td width="20%">yes &#160;&#160;&#160;&#160;&#160;&#160;no</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr class="disabled">
+		<td><table width="100%">
+				<tr>
+					<td>If a female, she is:  &#160;&#160;&#160;&#160;Pre-menopausal, on family planning:  &#160;&#160;&#160;&#160;Yes &#160;&#160;&#160;&#160; No &#160;&#160;&#160;&#160;Abstinent &#160;&#160;&#160;&#160; N/A<br /> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;If
+						Yes: &#160;&#160;&#160;&#160;Hormonal &#160;&#160;&#160;&#160;Condoms &#160;&#160;&#160;&#160;IUD &#160;&#160;&#160;&#160;Tubal Ligation
+					<br/><br/>
+					&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Post-menopausal
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td class="checkboxGroup"><span class="disabled disdiv"><span id="checkboxRadio"><strong>Does patient have allergies ?:
+					&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+			</strong> <!-- <obs conceptId="2338f4b3-5788-479e-8df7-c84b3978a836"
+					answerConceptId="3cd6f600-26fe-102b-80cb-0017a47871b2"
+					answerLabel="yes" id="showAllergies" /> -->Yes
+				&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+				<!-- <obs conceptId="2338f4b3-5788-479e-8df7-c84b3978a836"
+					answerConceptId="3cd6f86c-26fe-102b-80cb-0017a47871b2"
+					answerLabel="no" id="hideAllergies1" /> -->no
+				&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+				<!-- <obs conceptId="2338f4b3-5788-479e-8df7-c84b3978a836" answerConceptId="3cd6fac4-26fe-102b-80cb-0017a47871b2" answerLabel="unknown" id="hideAllergies2" /> -->unknown</span></span></td>
+	</tr>
+	
+	<!-- <tr class="allergies"> -->
+	<tr>
+		<td>
+			<table border="1" cellspacing="0" cellpadding="6" width="100%">
+				<tr>
+
+					<td><b><center>Allergen(medication or other):</center>
+					</b>
+					</td>
+					<td><b><center>Reaction:</center>
+					</b>
+					</td>
+					<td><b><center>Year of reaction:</center>
+					</b>
+					</td>
+				</tr>
+				
+				<lookup
+			complexExpression="#set($obsGroupList = [])	
+						
+						#foreach($encounter in $fn.allEncounters(null)) 
+						                                         #foreach($obs in $encounter.obs)
+				                                                   #if( $obs.obsGroup.concept.uuid == '3cd95d5a-26fe-102b-80cb-0017a47871b2' )
+				                                                     #if( ($obsGroupList.contains($obs.obsGroup)) )			                                                
+				                                                     	
+				                                                     #else
+                                                                       #set($_usls =$obsGroupList.add($obs.obsGroup))	
+                                                                     #end		                                                     
+				                                                    #end				                                                   	
+				                                                   #end					                                                                                              
+				                                                 #end
+				                                      #foreach($obsGroup in $obsGroupList)
+				                                      &lt;tr class='existingAllergy'>
+                                                        #foreach($o in $obsGroup.groupMembers)
+                                                         #if( $o.concept.uuid == '3cd95ed6-26fe-102b-80cb-0017a47871b2' )
+                                                            #set($causes = $o.valueCoded.name)	                                                        
+                                                         #elseif( $o.concept.uuid == '3cd96052-26fe-102b-80cb-0017a47871b2' )
+                                                            #set($reaction = $o.valueCoded.name)
+                                                         #elseif( $o.concept.uuid == '3cd964bc-26fe-102b-80cb-0017a47871b2' )
+                                                          #set($year = $o.valueDatetime)
+                                                        #end      
+                                                      #end           
+                                                        &lt;td style='border: 1px solid black; border-collapse: collapse;'> $causes &lt;/td>  &lt;td style='border: 1px solid black; border-collapse: collapse;'> $reaction &lt;/td>  &lt;td style='border: 1px solid black; border-collapse: collapse;'> $year &lt;/td>                                            
+                                                      &lt;/tr>
+                                                    #end" />
+				
+				
+				
+				
+				<tr>
+			<obsgroup groupingConceptId="3cd95d5a-26fe-102b-80cb-0017a47871b2">
+			<td><obs id="cause1"
+					conceptId="3cd95ed6-26fe-102b-80cb-0017a47871b2" /><obs  id="causeNonCoded1" conceptId="2c62cce0-8b88-4b9e-8b22-c99c7ccc3e27" labelText="other:" /></td>
+			<td><obs id="reaction1"
+					conceptId="3cd96052-26fe-102b-80cb-0017a47871b2" />  <obs id="reactionNonCoded1" conceptId="3cdd0c48-26fe-102b-80cb-0017a47871b2"  labelText="other:" /></td>
+			<td><obs id="firstAllergyYear"
+					conceptId="3cd964bc-26fe-102b-80cb-0017a47871b2" />
+			</td>
+			</obsgroup>
+		</tr>
+		<tr>
+			<obsgroup groupingConceptId="3cd95d5a-26fe-102b-80cb-0017a47871b2">
+			<td><obs id="cause2"
+					conceptId="3cd95ed6-26fe-102b-80cb-0017a47871b2" /><obs id="causeNonCoded2" conceptId="2c62cce0-8b88-4b9e-8b22-c99c7ccc3e27" labelText="other:" /></td>
+			<td><obs id="reaction2"
+					conceptId="3cd96052-26fe-102b-80cb-0017a47871b2" />  <obs id="reactionNonCoded2" conceptId="3cdd0c48-26fe-102b-80cb-0017a47871b2"  labelText="other:" /></td>
+			<td><obs id="secondAllergyYear"
+					conceptId="3cd964bc-26fe-102b-80cb-0017a47871b2" />
+			</td>
+			</obsgroup>
+		</tr>
+		<tr>
+			<obsgroup groupingConceptId="3cd95d5a-26fe-102b-80cb-0017a47871b2">
+			<td><obs id="cause3"
+					conceptId="3cd95ed6-26fe-102b-80cb-0017a47871b2" /> <obs id="causeNonCoded3" conceptId="2c62cce0-8b88-4b9e-8b22-c99c7ccc3e27" labelText="other:" /></td>
+			<td><obs id="reaction3"
+					conceptId="3cd96052-26fe-102b-80cb-0017a47871b2" />  <obs id="reactionNonCoded3" conceptId="3cdd0c48-26fe-102b-80cb-0017a47871b2"  labelText="other:" /></td>
+			<td><obs id="thirdAllergyYear"
+					conceptId="3cd964bc-26fe-102b-80cb-0017a47871b2" />
+			</td>
+			</obsgroup>
+		</tr>
+			</table>
+		</td>
+	</tr>
+
+</table>
+</section>
+
+<section
+	headerLabel="INVESTIGATIONS TO DATE (please include the latest of each type of result, enter only if available) ">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	
+	<tr class="disabled">
+		<td><strong>Imaging:</strong></td>
+		<td colspan="9"><strong>Results:</strong></td>
+	</tr>
+	<tr class="disabled">
+		<td>CXR</td>
+		<td colspan="9">Normal <br /> Abnormal:</td>
+	</tr>
+	<tr class="disabled">
+		<td>Other:<br /> _______________</td>
+		<td colspan="9">Normal <br /> Abnormal:</td>
+	</tr>
+	<tr class="disabled">
+		<td>Other:<br /> _______________</td>
+		<td colspan="9">Normal <br /> Abnormal:</td>
+	</tr>
+	<tr class="disabled">
+		<td><strong>Special Tests:</strong>
+		</td>
+		<td colspan="9"><strong>Results:</strong>
+		</td>
+	</tr>
+
+	<tr class="disabled">
+		<td><strong>Special Tests:</strong>
+		</td>
+		<td colspan="9"><strong>Results:</strong>
+		</td>
+	</tr>
+	<obsgroup groupingConceptId="76e9b5d5-3533-44ee-a002-4a2120ac401e">
+	<tr class="disabled">
+		<td class="disdiv"><b>Tissue biopsy</b><br /> Site1:<br /> <obs
+				conceptId="5e1eca70-d380-492a-82c2-fa89c4924b7d" showDate="true"
+				dateLabel="date:" /><br /> Site2:<br /> <obs
+				conceptId="5e1eca70-d380-492a-82c2-fa89c4924b7d" showDate="true"
+				dateLabel="date:" /></td>
+		<td colspan="9"><br /> <br /> <br /> <br />
+		
+		<table width="100%" class="disdiv">
+		<tr><td>Results:<obs
+				conceptId="17b8c663-f867-46e1-854d-80f970563684" showDate="true"
+				dateLabel="date:" /> <obs
+				conceptId="cffa61ee-9058-4ba5-aece-8164517d6645"
+				answerConceptId="3485d286-4559-4294-b8a5-848a07f6790e"
+				answerLabel="Unable to obtain" /> <br /> <br /></td></tr>
+		<tr><td class="checkboxGroup"><span
+			id="checkboxRadio">From: <obs
+					conceptId="509a5a0f-c504-4ee0-bfe9-6473147f3920"
+					answerConceptId="68222ccb-71ee-418e-a4a4-b924b4e80108"
+					answerLabel="CHUK" />
+				&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <obs
+					conceptId="509a5a0f-c504-4ee0-bfe9-6473147f3920"
+					answerConceptId="55acdf7c-5027-4f01-90a2-ab9745f97dd3"
+					answerLabel="KFH" />
+				&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <obs
+				conceptId="509a5a0f-c504-4ee0-bfe9-6473147f3920"
+				answerConceptId="6c87ddb0-f8e9-4115-98cc-5e71903f2c04"
+				answerLabel="BWH" />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <obs
+				conceptId="509a5a0f-c504-4ee0-bfe9-6473147f3920"
+				answerConceptId="682754d6-cff2-4f2e-90a3-ea3b1e7fa230"
+				answerLabel="Butaro" />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <obs
+				conceptId="509a5a0f-c504-4ee0-bfe9-6473147f3920"
+				answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2"
+				answerLabel="Other: " /> <obs
+				conceptId="3ce17e68-26fe-102b-80cb-0017a47871b2" /></span></td></tr>
+		</table>		
+		</td>
+	</tr>
+	</obsgroup>
+	<obsgroup groupingConceptId="4cc65e50-8e32-4b1b-b07f-c8e34c0e5521">
+	<tr class="disabled">
+		<td><span class="disabled disdiv"><b>Other:</b><br /> <obs
+				conceptId="3cd9b714-26fe-102b-80cb-0017a47871b2" showDate="true"
+				dateLabel="date:" /></span></td>
+		<td colspan="9">
+		
+		<table width="100%" class="disdiv">
+		<tr><td>Results:<obs
+				conceptId="17b8c663-f867-46e1-854d-80f970563684" showDate="true"
+				dateLabel="date:" /> <obs
+				conceptId="cffa61ee-9058-4ba5-aece-8164517d6645"
+				answerConceptId="3485d286-4559-4294-b8a5-848a07f6790e"
+				answerLabel="Unable to obtain" /> <br /> <br /></td></tr>
+		<tr><td class="checkboxGroup"><span
+			id="checkboxRadio">From: <obs
+					conceptId="509a5a0f-c504-4ee0-bfe9-6473147f3920"
+					answerConceptId="68222ccb-71ee-418e-a4a4-b924b4e80108"
+					answerLabel="CHUK" />
+				&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <obs
+					conceptId="509a5a0f-c504-4ee0-bfe9-6473147f3920"
+					answerConceptId="55acdf7c-5027-4f01-90a2-ab9745f97dd3"
+					answerLabel="KFH" />
+				&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <obs
+				conceptId="509a5a0f-c504-4ee0-bfe9-6473147f3920"
+				answerConceptId="6c87ddb0-f8e9-4115-98cc-5e71903f2c04"
+				answerLabel="BWH" />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <obs
+				conceptId="509a5a0f-c504-4ee0-bfe9-6473147f3920"
+				answerConceptId="682754d6-cff2-4f2e-90a3-ea3b1e7fa230"
+				answerLabel="Butaro" />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <obs
+				conceptId="509a5a0f-c504-4ee0-bfe9-6473147f3920"
+				answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2"
+				answerLabel="Other: " /> <obs
+				conceptId="3ce17e68-26fe-102b-80cb-0017a47871b2" /></span></td></tr>
+		</table>		
+		</td>
+	</tr>
+	</obsgroup>
+</table>
+</section> 
+
+
+
+<section headerLabel="PHYSICAL EXAM">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	<tr>
+		<td colspan="3" width="100%"><table width="100%">
+				<tr>
+					<td><strong>Vital signs:</strong></td>
+					<td>Weight <br /> <obs
+							conceptId="3ce93b62-26fe-102b-80cb-0017a47871b2"  id="weight"/> kg</td>
+					<td>Height <br /> <obs
+							conceptId="3ce93cf2-26fe-102b-80cb-0017a47871b2" id="height"/> cm</td>
+                                        <td>
+
+ <span class="lastHeight"> Last Height: <lookup expression="fn.latestObs($@HEIGHT_CM@).valueNumeric"/> Date: <lookup expression="fn.latestObs($@HEIGHT_CM@).obsDatetime"/></span><br />
+
+
+<span class="bsa"><b>BSA</b>: 
+			
+					<span style="display: none">
+					<obs conceptId="$@BSA@" id="bsaVal"/> 
+					</span>
+					<span class="bsaValue"></span>
+				
+			</span>
+
+
+<br />
+	<span style="display: none"> 
+	<lookup expression="patient.birthdate" class="birthdate" id="birthdate"/>
+	<lookup expression="patient.gender" class="gender" id="gender"/>
+	</span>
+
+
+
+
+</td>
+					<td class="disabled">BMI<br /> _______</td>
+					<td class="disabled">BP <br /> ____/____</td>
+					<td class="disabled">Pulse <br /> ______</td>
+					<td class="disabled">Temp<br /> _____ °C</td>
+				</tr>
+			</table>
+		</td>
+
+	</tr>
+	<tr class="disabled">
+		<td colspan="2"><strong>Normal</strong>
+		</td>
+		<td><strong>Abnormal</strong>
+		</td>
+
+	</tr>
+	<tr class="disabled">
+		<td><b>GENERAL</b>
+		</td>
+		<td>Well appearing</td>
+		<td>Abnormal:</td>
+	</tr>
+	<tr class="disabled">
+		<td><b>Head and Neck</b>
+		</td>
+		<td>No abnormalities</td>
+		<td>Abnormal:</td>
+	</tr>
+	<tr class="disabled">
+		<td rowspan="3"><b>Chest</b><br />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;not done</td>
+		<td rowspan="3">No abnormalities</td>
+		<td>Abnormal Lungs:</td>
+	</tr>
+	<tr class="disabled">
+		<td>Abnormal Heart:</td>
+	</tr>
+	<tr class="disabled">
+		<td>Abnormal Breasts:<br /> left breast mass: _____x_____cm
+			mobile fixed<br /> right breast mass: _____x_____cm mobile fixed<br />
+			skin changes<br /> other:
+			____________________________________________</td>
+	</tr>
+	<tr class="disabled">
+		<td><b>Abdomen</b><br />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;not done</td>
+		<td>No abnormalities</td>
+		<td>splenomegaly: ______ cm hepatomegaly: ______ cm<br />
+			tenderness: RUQ LUQ RLQ LLQ<br /> ascites other:
+			___________________________________</td>
+	</tr>
+	<tr class="disabled">
+		<td><b>Extremities</b><br />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;not done</td>
+		<td>No peripheral edema</td>
+		<td>peripheral edema: 1+ 2+ 3+ <br /> other:
+			___________________________________</td>
+	</tr>
+	<tr class="disabled">
+		<td><b>Nervous system</b><br />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;not done</td>
+		<td>No abnormalities</td>
+		<td>Abnormal:</td>
+	</tr>
+	<tr class="disabled">
+		<td><b>Skin</b><br />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;not done</td>
+		<td>No abnormalities</td>
+		<td>Abnormal:<br />nodules, distribution &amp; size (cm):
+			_______________________________</td>
+	</tr>
+	<tr class="disabled">
+		<td><b>Lymph nodes</b><br />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;not done</td>
+		<td>No lymphadenopathy</td>
+		<td>Lymphadenopathy:<br /> cervical submandibular axillary
+			inguinal supraclavicular<br /> other:
+			__________________________________________________<br />
+
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Right ____x____cm
+			Left ____x____cm</td>
+	</tr>
+	<tr class="disabled">
+		<td><b>Internal genital exam</b><br />
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;not done</td>
+		<td>No abnormalities</td>
+		<td>Abnormal:</td>
+	</tr>
+	<tr class="disabled">
+		<td colspan="3"><b>Other exam findings</b> <small>(include location and size of mass,
+			if applicable)</small>: <br /> <br /> <br /> <br /></td>
+
+	</tr>
+</table>
+</section> <section headerLabel="CLINICAL IMPRESSION &amp; PLAN">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	<tr class="disabled">
+		<td><strong>Current diagnosis status: <i>(complete a DST form; only applies to KS or Cervical cancer)</i></strong><br /> 
+		&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Pathologically confirmed	&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Clinically confirmed    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;   Suspected	(not confirmed)
+		</td>
+	</tr>
+	<tr>
+		<td><strong>Current Diagnosis:</strong><br />
+			<table width="100%" >
+				<tr>
+					<td width="25%">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="c733a3d0-c89b-4d88-9d89-b590e9175297"
+							stateLabel="Breast cancer" type="checkbox" /></td>
+					<td width="25%"><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="441c3084-33d1-49a5-abd6-9e8b19ddf049"
+							stateLabel="Cervical cancer" type="checkbox" />
+						&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="9c9fdd7c-1903-4f90-90f1-50d0c794fe6a" stateLabel="KS"
+							type="checkbox" /></td>
+					<td width="25%"><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="3609c073-1b51-438d-849b-35d23f042484"
+							stateLabel="Gastric cancer" type="checkbox" /></td>
+					<td width="25%"><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="34e298a3-8ca4-470e-8e4f-f422af9feef9"
+							stateLabel="Colo-rectal" type="checkbox" /></td>
+				</tr>
+				<tr>
+					<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="9fb6150d-cd19-43fc-8da9-e6599fac9709"
+							stateLabel="Prostate cancer" type="checkbox" />
+					</td>
+					<td><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="4cef0cce-67b9-4cf5-860e-503ade7ff37a"
+							stateLabel="Nephroblastoma (Wilms’)" type="checkbox" /></td>
+					<td><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="b4cdfb5f-275b-4a76-893b-761ae302976d"
+							stateLabel="Lung cancer" type="checkbox" /></td>
+					<td><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="d84e31f8-ebe2-4f31-8655-b29dfe671be4"
+							stateLabel="H &#38; N cancer" type="checkbox" /></td>
+				</tr>
+				<tr>
+					<td colspan="4">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="8c3f2a38-eb43-4b13-87c2-4a85d66cafb1"
+							stateLabel="Other solid cancer :" type="checkbox" />
+						<obs conceptId="b9e23b4a-e714-4a55-a3d4-2e152ab4b2b8" /></td>
+
+				</tr>
+				<tr>
+					<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="ca083335-c209-4d50-8a40-26bd5ef3545e"
+							stateLabel="Hodgkin’s lymphoma" type="checkbox" /></td>
+					<td><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="890a3c62-ec89-41a0-8ffb-ca551dc36b18"
+							stateLabel="Burkitt’s lymphoma" type="checkbox" /></td>
+					<td><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="70d5c89b-657d-4e46-a7e6-62cf2c04a873"
+							stateLabel="Large B-cell lymphoma" type="checkbox" /></td>
+					<td><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="1bdce46f-62d3-4eb1-acfa-644cfd99993a"
+							stateLabel="Other NHL" type="checkbox" /></td>
+				</tr>
+				<tr>
+					<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="b2a69a8a-599f-405f-b11e-5b9f50267921" stateLabel="ALL"
+							type="checkbox" /></td>
+					<td><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="f4eb9f32-ddad-44a2-b8da-309bfd0549e4" stateLabel="CML"
+							type="checkbox" /></td>
+					<td><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="85f296a1-f196-4405-9dc6-1c36107e6df2"
+							stateLabel="Multiple myeloma" type="checkbox" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="4">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="cb041132-1c31-4580-aff3-3564e18b985b"
+							stateLabel="Other liquid cancer:" type="checkbox" />
+						<obs conceptId="5988cf36-80fb-46b9-bf19-93ec759c4bb6" /></td>
+
+				</tr>
+				<tr>
+					<td colspan="2">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="9b9af079-2ad0-4860-9844-48d020912dc2"
+							stateLabel="Metastatic cancer (unknown primary) " type="checkbox" />
+					</td>
+					<td><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="651f49b1-cead-434c-841b-2a4e2533ed3d"
+							stateLabel="Unknown type" type="checkbox" /></td>
+
+                                        <td><workflowState
+							workflowId="2e602550-4337-4ffa-90a2-7becc3f167b1"
+							stateId="0ec01a69-95d9-4319-8458-c71106893035"
+							stateLabel="Not cancer" type="checkbox" /></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td class="checkboxGroup"><span id="checkboxRadio"><strong>Current Disease Stage:</strong><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+			<obs conceptId="e9cf4aed-34be-4c0a-9004-4294d9bb2d74"
+				answerConceptId="3cd6fac4-26fe-102b-80cb-0017a47871b2"
+				answerLabel="Unknown" /> &#160;&#160;&#160;&#160; <obs
+				conceptId="e9cf4aed-34be-4c0a-9004-4294d9bb2d74"
+				answerConceptId="11ad3741-d3fe-48ff-8872-ce42c8764d34"
+				answerLabel="0" /> &#160;&#160;&#160;&#160; <obs
+				conceptId="e9cf4aed-34be-4c0a-9004-4294d9bb2d74"
+				answerConceptId="39c6497d-fe50-4dcf-86e4-5360e1d32f82"
+				answerLabel="I" /> &#160;&#160;&#160;&#160; <obs conceptId="e9cf4aed-34be-4c0a-9004-4294d9bb2d74" answerConceptId="c899d4c0-91a1-42f2-b395-114740f237fd" answerLabel="II" /> &#160;&#160;&#160;&#160; <obs conceptId="e9cf4aed-34be-4c0a-9004-4294d9bb2d74" answerConceptId="1d5896f3-2e0e-4bc2-aa6c-afe1911afa79" answerLabel="III" />
+			&#160;&#160;&#160;&#160; <obs conceptId="e9cf4aed-34be-4c0a-9004-4294d9bb2d74" answerConceptId="d2f21acb-9519-42ca-a72d-2fcb6bb15c5d" answerLabel="IV" /> &#160;&#160;&#160;&#160; <obs conceptId="e9cf4aed-34be-4c0a-9004-4294d9bb2d74" answerConceptId="afe0e350-6be0-4093-a701-923a446f1924" answerLabel="V" />
+			&#160;&#160;&#160;&#160; <obs conceptId="e9cf4aed-34be-4c0a-9004-4294d9bb2d74" answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2" answerLabel="Other:" /> <obs conceptId="c637d097-59dc-462d-9463-ef0df629e313" /></span></td>
+
+	</tr>
+	
+	<tr>
+		<td><div id="textareadisabled"><span class="disabled disdiv"><strong>Clinical Impression and plan details </strong>(include details
+			for staging disease):<br /><obs conceptId="826af985-d6b8-46a5-8773-92e53ee10d45" cols="75" rows="4" /> 
+		</span></div></td>
+
+	</tr>
+</table>
+
+</section>
+<section headerLabel="DIAGNOSTIC TESTS ORDERED AT INTAKE">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	<tr class="disabled">
+		<td width="15%"><strong>Tests:</strong></td>
+		<td colspan="9"><strong>Results:</strong></td>
+	</tr>
+	<tr class="disabled">
+		<td>HIV</td>
+		<td colspan="9" class="checkboxGroup"><span id="checkboxRadio"><span class="disabled disdiv"><obs
+					conceptId="3cd6c946-26fe-102b-80cb-0017a47871b2"
+					answerConceptId="3cd3a7a2-26fe-102b-80cb-0017a47871b2"
+					answerLabel="Positive " showDate="true" dateLabel="Date:" />&#160;&#160;&#160;
+				&#160;&#160;&#160; <obs
+					conceptId="3cd6c946-26fe-102b-80cb-0017a47871b2"
+					answerConceptId="3cd28732-26fe-102b-80cb-0017a47871b2"
+					answerLabel="Negative" showDate="true" dateLabel="Date:" />
+		</span></span></td>
+	</tr>
+    
+	<tr class="disabled">
+		<td>Hematology</td>
+		<td width="10%"><span class="disabled disdiv">Hb:<obs
+				conceptId="3ccc7158-26fe-102b-80cb-0017a47871b2" showDate="true"
+				dateLabel="Date:" /></span></td>
+		<td width="10%"><span class="disabled disdiv">Hct:<obs
+				conceptId="3cd69a98-26fe-102b-80cb-0017a47871b2" showDate="true"
+				dateLabel="Date:" /></span></td>
+		<td width="10%"><span class="disabled disdiv">WBC:<obs
+				conceptId="3cd2a906-26fe-102b-80cb-0017a47871b2" showDate="true"
+				dateLabel="Date:" /></span></td>
+		<td width="10%"><span class="disabled disdiv">Neutro(%):<obs
+				conceptId="3cd6a592-26fe-102b-80cb-0017a47871b2" showDate="true"
+				dateLabel="Date:" /></span></td>
+		<td width="10%"><span class="disabled disdiv">Lymph(%): <obs
+				conceptId="3cd6a402-26fe-102b-80cb-0017a47871b2" showDate="true"
+				dateLabel="Date:" /></span></td>
+		<td width="10%"><span class="disabled disdiv">plts:<obs
+				conceptId="3cd3d038-26fe-102b-80cb-0017a47871b2" showDate="true"
+				dateLabel="Date:" /></span></td>
+		<td width="10%"><span class="disabled disdiv">ESR:<obs
+				conceptId="3cdb2c48-26fe-102b-80cb-0017a47871b2" showDate="true"
+				dateLabel="Date:" /></span></td>
+		<td width="10%"><span class="disabled disdiv">ANC:<obs
+				conceptId="48348ce0-af6a-47a9-8671-1bbeb37dd500" showDate="true"
+				dateLabel="Date:" /></span></td>
+		<td></td>
+	</tr>
+	
+	<tr class="disabled">
+		<td rowspan="2">Biochemistry</td>
+		<td><span class="disabled disdiv">Na: <obs conceptId="3cd76b58-26fe-102b-80cb-0017a47871b2"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td><span class="disabled disdiv">K: <obs conceptId="3cd76ce8-26fe-102b-80cb-0017a47871b2"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td><span class="disabled disdiv">Cl: <obs conceptId="3cd76e82-26fe-102b-80cb-0017a47871b2"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td><span class="disabled disdiv">CO2: <obs conceptId="3cd77012-26fe-102b-80cb-0017a47871b2"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td><span class="disabled disdiv">Urea:<obs conceptId="3cd4aa12-26fe-102b-80cb-0017a47871b2"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td><span class="disabled disdiv">Cr: <obs conceptId="3cd4374e-26fe-102b-80cb-0017a47871b2"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td><span class="disabled disdiv">Glu: <obs conceptId="3cd4e194-26fe-102b-80cb-0017a47871b2"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td><span class="disabled disdiv">Ca: <obs conceptId="01765cd1-8fd6-4783-b053-190b1f6ed5bd"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><span class="disabled disdiv">SGOT: <obs conceptId="3cd275d0-26fe-102b-80cb-0017a47871b2"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td><span class="disabled disdiv">SGPT: <obs conceptId="3cd27760-26fe-102b-80cb-0017a47871b2"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td><span class="disabled disdiv">Tbili: <obs conceptId="3cd278fa-26fe-102b-80cb-0017a47871b2"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td><span class="disabled disdiv">Dbili: <obs conceptId="b01f4fd2-7632-4c94-9481-9ed0d1da1f9a"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td><span class="disabled disdiv">AlkPhos:<obs conceptId="3cd42f4c-26fe-102b-80cb-0017a47871b2"
+				showDate="true" dateLabel="Date:" />
+		</span></td>
+		<td><span class="disabled disdiv">Uric acid: <obs
+				conceptId="d6e20676-e800-4f26-a8b2-96a2127201dd" showDate="true"
+				dateLabel="Date:" />
+		</span></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<obsgroup groupingConceptId="4cc65e50-8e32-4b1b-b07f-c8e34c0e5521">
+		<td><span class="disabled disdiv">Other: <br /> <obs
+				conceptId="3cd9b714-26fe-102b-80cb-0017a47871b2" showDate="true"
+				dateLabel="Date:" /> <br /> <obs
+				conceptId="3cd9b714-26fe-102b-80cb-0017a47871b2" showDate="true"
+				dateLabel="Date:" />
+		</span></td>
+		<td colspan="9"><span class="disabled disdiv">results: <obs
+				conceptId="c963d117-f6eb-4e98-aa64-0d52a3476c20" showDate="true"
+				dateLabel="Date:" /><br /> <br /> <br /> <br />results: <obs
+				conceptId="c963d117-f6eb-4e98-aa64-0d52a3476c20" showDate="true"
+				dateLabel="Date:" />
+		</span></td>
+		</obsgroup>
+	</tr>
+	<tr class="disabled">
+		<td><strong>Imaging:</strong></td>
+		<td colspan="9"><strong>Results:</strong></td>
+	</tr>
+	<tr class="disabled">
+		<td>CXR:</td>
+		<td colspan="9" class="checkboxGroup"><span id="checkboxRadio"><span class="disabled disdiv"><obs
+					conceptId="3ccc6186-26fe-102b-80cb-0017a47871b2"
+					answerConceptId="3cd750a0-26fe-102b-80cb-0017a47871b2"
+					answerLabel="Normal" showDate="true" dateLabel="Date:" /><br /> <obs
+					conceptId="3ccc6186-26fe-102b-80cb-0017a47871b2"
+					answerConceptId="3cd75230-26fe-102b-80cb-0017a47871b2"
+					answerLabel="Abnormal: " showDate="true" dateLabel="Date:" />
+				Comment: <obs conceptId="4b62e9c1-b0a8-44fa-804e-986dbdc7dd09"
+					showDate="true" dateLabel="Date:" /> </span></span>
+		</td>
+	</tr>
+	<tr class="disabled">
+		<td>Liver Ultrasound:<br /></td>
+		<td colspan="9" class="checkboxGroup"><span id="checkboxRadio"><span class="disabled disdiv"><obs
+					conceptId="eae98945-8dd6-4679-b3f9-74402d6d05e4"
+					answerConceptId="3cd750a0-26fe-102b-80cb-0017a47871b2"
+					answerLabel="Normal" showDate="true" dateLabel="Date:" /><br /> <obs
+					conceptId="eae98945-8dd6-4679-b3f9-74402d6d05e4"
+					answerConceptId="3cd75230-26fe-102b-80cb-0017a47871b2"
+					answerLabel="Abnormal: " showDate="true" dateLabel="Date:" />
+				Comment: <obs conceptId="7e531f98-74bf-439c-ba44-ae4016124d10"
+					showDate="true" dateLabel="Date:" /> </span></span>
+		</td>
+	</tr>
+	<tr class="disabled">
+		<obsgroup groupingConceptId="24f1852b-8701-4e3c-b46e-0ccd0b0c9c70">
+		<td><span class="disabled disdiv">Other: <br /> <obs
+				conceptId="c637d097-59dc-462d-9463-ef0df629e313" showDate="true"
+				dateLabel="Date:" /></span>
+		</td>
+		<td colspan="9" class="checkboxGroup"><span id="checkboxRadio"><span class="disabled disdiv"><obs
+					conceptId="7f779262-de04-425b-97f7-9e5cc834eb55"
+					answerConceptId="3cd750a0-26fe-102b-80cb-0017a47871b2"
+					answerLabel="Normal" showDate="true" dateLabel="Date:" /><br /> <obs
+					conceptId="7f779262-de04-425b-97f7-9e5cc834eb55"
+					answerConceptId="3cd75230-26fe-102b-80cb-0017a47871b2"
+					answerLabel="Abnormal: " showDate="true" dateLabel="Date:" />
+				Comment: <obs conceptId="d817e568-312c-4ccf-8172-25a5ad17cb1b"
+					showDate="true" dateLabel="Date:" /> </span></span>
+		</td>
+		</obsgroup>
+	</tr>
+<tr>
+		<td colspan="15"><strong>Special Tests ordered:</strong>
+		</td>
+<!-- 		<td colspan="9"><span class="disabled disdiv"><strong>Results:</strong> -->
+<!-- 		</span></td> -->
+	</tr>
+	<tr>
+		<obsgroup groupingConceptId="76e9b5d5-3533-44ee-a002-4a2120ac401e">
+		<td colspan="15"><obs conceptId="3cd937e4-26fe-102b-80cb-0017a47871b2" answerLabel="Tissue biopsy" answerConceptId="cffa61ee-9058-4ba5-aece-8164517d6645"/><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Site1:  <obs
+				conceptId="5e1eca70-d380-492a-82c2-fa89c4924b7d" size="60" 
+				 /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Site2:  <obs
+				conceptId="5e1eca70-d380-492a-82c2-fa89c4924b7d" size="60" 
+				  />
+		</td>
+		</obsgroup>
+	</tr>
+	<tr>
+		<obsgroup groupingConceptId="56b7cea0-3aae-401b-8280-1639e0e46310">
+		<td colspan="15" width="100%"><table width="100%">Other:  <obs
+				conceptId="3ce1654a-26fe-102b-80cb-0017a47871b2" 
+				 /></table>
+		</td>
+		</obsgroup>
+	</tr>
+</table>
+</section> 
+<br />
+<span id="openmrs_msg">For this section update patient medications using the regimen tab on the patient dashboard</span>
+<br /><br />
+
+ <section headerLabel="OUTPATIENT MEDICATIONS">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+
+</table>
+</section> <section headerLabel="DISPOSITION">
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+	<tr>
+		<td class="checkboxGroup"><obsgroup groupingConceptId="8a62cf12-cd13-4624-ae80-4046912c1dda"><span id="checkboxRadio"><span class="disabled disdiv"><!-- <obsgroup groupingConceptId="8a62cf12-cd13-4624-ae80-4046912c1dda"> --> <obs conceptId="d3c8c5f8-9ebb-4622-98ca-c55ca41d3d44"
+				answerConceptId="3ce0d472-26fe-102b-80cb-0017a47871b2"
+				answerLabel="Hospital admission date &amp; site: " /> <obs
+				conceptId="3ce94df0-26fe-102b-80cb-0017a47871b2" /> admission
+			reason: <obs conceptId="1d642160-089f-49d3-98ce-68885cb5f893" /><br />
+
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Rwinkwavu
+			DH Butaro DH Kirehe DH other:_____________<!-- </obsgroup> --></span><br /> <br />
+		<span class="disabled disdiv"><obs conceptId="d3c8c5f8-9ebb-4622-98ca-c55ca41d3d44"
+				answerConceptId="072af2d3-e735-4cce-8e43-1f3b60c48519"
+				answerLabel="Follow-up in NCD clinic, Next outpatient visit date : DD / MM / YYYYY" /> Rwinkwavu
+			DH Butaro DH
+			
+
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;  other:_____________<br /></span>
+		<br /><!-- <obsgroup groupingConceptId="8a62cf12-cd13-4624-ae80-4046912c1dda"> -->
+		 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Visit reason:&#160;&#160;&#160;Perform Biopsy:<obs conceptId="ea843dde-d33b-4687-88cb-5cd76111b48b" allowFutureDates="true" />&#160;&#160;&#160;Communicate pathology results:<obs conceptId="56001c5f-1a8a-4d80-b255-d1de983a852e" allowFutureDates="true"/><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Special consultation:<obs conceptId="7ec61380-3cde-4b7a-a322-4678a0b460c4" allowFutureDates="true" />&#160;&#160;&#160;Routine follow up:<obs conceptId="a7aa7d20-3520-4d8a-9324-f7b8f6a3b109" allowFutureDates="true" /><br /><br /><br />
+			      </span></obsgroup>  
+			        
+
+		<br /><span class="disabled"> 
+		<br /> Other:
+			_________________________________________________________________________<br />
+		<br />
+		<br />
+		<i>Complete Exit Program form if patient is exiting from oncology program</i>
+		</span>
+		</td>
+
+	</tr>
+</table>
+</section> 	
+
+<script type="text/javascript">
+$j(document).ready(function() {
+	
+	$j('.heightForAge').hide();
+	$j('.weightForAge').hide();
+	$j('.heightWeight').hide();
+	$j('.lastHeight').hide();
+	
+	var lastHeight = "<lookup expression="fn.latestObs($@HEIGHT_CM@).valueNumeric"/>";
+	var lastHeightDate = "<lookup expression="fn.latestObs($@HEIGHT_CM@).obsDatetime"/>";
+	
+	var birthDate = $j('.birthdate').text();
+	var date = getValue('encounter.value');
+	
+	var months = monthDiff(birthDate, date);
+	
+	if(months &gt; 228)
+	{
+		$j('.lastHeight').show();
+	}
+	
+	getField('height.value').change(function() {
+		
+		var patientId = $j('[name=personId]').val();
+		var gender = $j('.gender').text();
+		
+		var length = getValue("height.value");
+		
+		if(date != null)
+		{ 
+			if(months &gt; 228)
+			{
+				var weight = getValue("weight.value");
+				if(length != null &amp;&amp; length &gt; 0 &amp;&amp; weight != null &amp;&amp; weight &gt; 0)
+				{
+					var bsa = calculateBSA(length, weight);
+					
+					setValue('bsaVal.value', bsa);
+					$j('.bsaValue').html(bsa);
+					$j('.bsa').show();
+				}
+				else if (lastHeight != null &amp;&amp; lastHeight &gt; 0 &amp;&amp; weight != null &amp;&amp; weight &gt; 0)
+				{
+					var monthsLastHeight = monthDiff(lastHeightDate, birthDate);
+					if(monthsLastHeight &gt; 228)
+					{
+						var bsa = calculateBSA(lastHeight, weight);
+						
+						setValue('bsaVal.value', bsa);
+						$j('.bsaValue').html(bsa);
+						$j('.bsa').show();	
+					}
+				}
+			}
+			else 
+			{
+				var weight = getValue("weight.value");
+				if(length != null &amp;&amp; length &gt; 0 &amp;&amp; weight != null &amp;&amp; weight &gt; 0)
+				{
+					var bsa = calculateBSA(length, weight);
+					
+					setValue('bsaVal.value', bsa);
+					$j('.bsaValue').html(bsa);
+					$j('.bsa').show();
+				}
+			}
+		}
+	});
+	
+	getField('weight.value').change(function() {
+		var patientId = $j('[name=personId]').val();
+
+		
+		var gender = $j('.gender').text();
+		var weight = getValue("weight.value");
+		
+		if(date != null)
+		{ 
+			if(months &gt; 228)
+			{
+				var length = getValue("height.value");
+				
+				if(length != null &amp;&amp; weight != null &amp;&amp; length &gt; 0 &amp;&amp; weight &gt; 0)
+				{
+					var bsa = calculateBSA(length, weight);
+					
+					setValue('bsaVal.value', bsa);
+					$j('.bsaValue').html(bsa);
+					$j('.bsa').show();
+				}
+				else if (weight != null &amp;&amp; lastHeight != null &amp;&amp; lastHeight &gt; 0 &amp;&amp; weight &gt; 0)
+				{
+					var monthsLastHeight = monthDiff(birthDate, lastHeightDate);
+					
+					if(monthsLastHeight &gt; 228)
+					{
+					
+						var bsa = calculateBSA(lastHeight, weight);
+						
+						setValue('bsaVal.value', bsa);
+						$j('.bsaValue').html(bsa);
+						$j('.bsa').show();	
+					}
+				}
+			}
+			else {
+				var length = getValue("height.value");
+				if(length != null &amp;&amp; weight != null &amp;&amp; length &gt; 0 &amp;&amp; weight &gt; 0)
+				{
+					var bsa = calculateBSA(length, weight);
+					
+					setValue('bsaVal.value', bsa);
+					$j('.bsaValue').html(bsa);
+					$j('.bsa').show();
+				}
+			}
+		}
+	});
+		
+		getField('encounter.value').change(function() {
+			
+			var patientId = $j('[name=personId]').val();
+			
+			var gender = $j('.gender').text();
+			
+			date = getValue("encounter.value");
+			var length = getValue("height.value");
+			var weight = getValue("weight.value");
+			
+			
+			months = monthDiff(birthDate, date);
+			if(months &lt; 229)
+			{
+				$j('.lastHeight').hide();
+			}
+			
+		
+			if(weight != null &amp;&amp; weight &gt; 0)
+			{ 			
+				if(months &gt; 228)
+				{
+					var length = getValue("height.value");
+					if(length != null)
+					{
+						var bsa = calculateBSA(length, weight);
+						
+						setValue('bsaVal.value', bsa);
+						$j('.bsaValue').html(bsa);
+						$j('.bsa').show();
+					}
+					else if (lastHeight != null)
+					{
+						var monthsLastHeight = monthDiff(lastHeightDate, birthDate);
+						if(monthsLastHeight &gt; 228)
+						{
+							var bsa = calculateBSA(lastHeight, weight);
+							
+							setValue('bsaVal.value', bsa);
+							$j('.bsaValue').html(bsa);
+							$j('.bsa').show();	
+						}
+					}
+				}
+				else {
+					var length = getValue("height.value");
+					if(length != null)
+					{
+						var bsa = calculateBSA(length, weight);
+						
+						setValue('bsaVal.value', bsa);
+						$j('.bsaValue').html(bsa);
+						$j('.bsa').show();
+					}
+				}
+			}
+		});
+	});
+	
+	
+	
+	function monthDiff(date1, date2) {
+	    var months;
+	    
+	    var d1 = new Date();
+	    d1.setTime(Date.parse(date1));
+	    
+	    var d2 = new Date();
+	    d2.setTime(Date.parse(date2));
+	   
+	    months = (d2.getFullYear() - d1.getFullYear()) * 12;
+	    if(d2.getMonth() > d1.getMonth())
+	    {
+	    	months = months + (d2.getMonth() - d1.getMonth());
+	    }
+	    else if(d1.getMonth() > d2.getMonth())
+	    {
+	    	months = months - (d1.getMonth() - d2.getMonth());
+	    }
+	   	if(d1.getDate() > d2.getDate())
+	   	{
+	   		months = months - 1;	
+	   	}
+	    
+	    return months;
+	}
+
+	function calculateBSA(length, weight) {
+	    var bsa;
+	    
+	    bsa = (length*weight)/3600
+	    bsa = Math.sqrt(bsa);
+
+	    bsa = parseFloat(bsa).toFixed(2);
+	    
+	    return bsa;
+	}
+
+</script>
+<workflowState workflowId="c8dea23e-c596-40d0-a4a4-08cb61b82d3b" stateId="98091177-b242-40ae-9a78-120e5cdadac0" type="hidden" />
+<br />
+Form filled in by:<encounterProvider
+				role="Oncology Provider" />
+<br />
+<br />
+<submit /> 
+<br/>
+<br/>
+<br/>
+<br/>
+<encounterVoided/>	
+</htmlform>
+

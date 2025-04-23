@@ -1,0 +1,19 @@
+[
+  {
+    "id": "rwandaemr.appointmentsApp",
+    "description": "Opening moh appointment provider dashboard window in legacy UI",
+    "order": 4,
+    "extensions": [
+      {
+        "id": "rwandaemr.appointmentsApp",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Appointments",
+        "url": "module/mohappointment/providerDashboard.form",
+        "icon": "icon-th-list",
+        "requiredPrivilege": "App: coreapps.getPatientQueue",
+        "order": 4
+      }
+    ]
+  }
+]

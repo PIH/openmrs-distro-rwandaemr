@@ -1,0 +1,386 @@
+<htmlform
+        formDescription="HC ANC Physical Examination Form"
+        formEncounterType="a703372d-28b7-4831-9817-ee385c8c47d8"
+        formName="HC ANC Physical Examination Form"
+        formPublished="true"
+        formRetired="false"
+        formUuid="6a9b5003-5104-4ace-a169-c900cd71382f"
+        formVersion="1.0"
+        htmlformUuid="e744444d-041a-44ec-8a3f-02962a1674b6"
+>
+    <macros> headerColor =#009d8e fontOnHeaderColor = white </macros>
+
+    <style>
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {
+        }
+
+        .past-medical-history-item input[type="checkbox"] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type="text"] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item > span,
+        .past-medical-history-item > label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio > * {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #f2f2f2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #f2f2f2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns > div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns > div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns > div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns > div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+    </style>
+
+    <includeIf velocityTest="$patient.gender == 'F' ">
+        <section
+                sectionTag="fieldset"
+                headerTag="legend"
+                headerStyle="title"
+                headerCode="GENERAL INFORMATION"
+        >
+            <div class="section-container">
+                <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                    <tr>
+                        <td>
+                            Date:
+                            <encounterDate default="today" />
+                        </td>
+                        <td>
+                            Health Facility:
+                            <encounterLocation
+                                    id="location"
+                                    default="GlobalProperty:billing.defaultLocation"
+                            />
+                        </td>
+                        <td>
+                            Provider:
+                            <encounterProvider default="currentUser" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section
+                sectionTag="fieldset"
+                headerTag="legend"
+                headerStyle="title"
+                headerCode="ANTENATAL CONSULTATION AND ULTRASOUND"
+        >
+            <div class="section-container">
+                <div class="two-columns">
+                    <p class="side-by-side">
+                        Cervical cancer screen
+                        <obs
+                                conceptId="e7c3ae9a-87a4-49f5-8d08-ffbce7ce5736"
+                                answerCodes="Normal,Abnormal"
+                                style="radio"
+                        />
+                    </p>
+                    <fieldset>
+                        <legend>
+                            <label>
+                                <b> Gestation age (weeks) By</b>
+                            </label>
+                        </legend>
+
+                        <p class="small-input flexView">
+                            LMP
+                            <obs conceptId="974d7f4b-4648-4bb5-8d32-397d27038a51" />
+                            Ultrasound
+                            <obs conceptId="b209fbaa-e240-472f-bb57-0efd2586c0ad" />
+                        </p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>
+                            <label for=""
+                            ><b>
+                                Vital signs,Anthropometric measurements and obstetrical
+                                physical exam
+                            </b></label
+                            >
+                        </legend>
+                        <p class="small-input flexView">
+                            <label for="">Temperature</label>
+                            <obs conceptId="3ce939d2-26fe-102b-80cb-0017a47871b2" id="tmp" />
+
+                            Heart Rate
+                            <obs conceptId="3ce93824-26fe-102b-80cb-0017a47871b2" />
+
+                            SBP/DBP
+                            <obs
+                                    conceptId="3ce934fa-26fe-102b-80cb-0017a47871b2"
+                                    id="sbpid"
+                            />
+                            /
+                            <obs
+                                    conceptId="3ce93694-26fe-102b-80cb-0017a47871b2"
+                                    id="dbpid"
+                            />
+
+                            O2 Saturation
+                            <obs conceptId="5092" />
+
+                            Respiratory Rate
+
+                            <obs
+                                    conceptId="3ceb11f8-26fe-102b-80cb-0017a47871b2"
+                                    id="resprateId"
+                            />
+
+                            Height(cm)
+                            <obs
+                                    id="height"
+                                    conceptId="3ce93cf2-26fe-102b-80cb-0017a47871b2"
+                            />
+
+                            Weight(Kg)
+
+                            <obs
+                                    conceptId="3ce93b62-26fe-102b-80cb-0017a47871b2"
+                                    id="crrtWeight"
+                                    required="*"
+                            />
+                            <lookup
+                                    id="latestWeight"
+                                    expression="fn.latestObs(5089).valueText"
+                            />
+
+                            MUAC(cm)
+                            <obs conceptId="4326b04b-3158-417a-bb8d-ad022295b0f4" id="muac" />
+                        </p>
+                        <p class="small-input flexView">
+                            <obs
+                                    conceptId="51d0c588-374f-4596-aab6-1f9ce8b4e88a"
+                                    style="text"
+                                    labelText="Fundal Height ( cm):"
+                            />
+                            <obs
+                                    conceptId="03970ffd-0748-4233-a75d-f16e4ac5f297"
+                                    labelText="Fetal heart beat:"
+                            />
+                        </p>
+                        <p class="side-by-side">
+                            <obs
+                                    conceptId="1b4c3aa2-3531-4657-8fcf-6bc6ef7497cd"
+                                    answerConceptIds="8147,8539,10060,1067"
+                                    answerLabels="Cephalic,Breech,Transverse,Unknown"
+                                    style="radio"
+                                    labelText="Fetal Presentation:"
+                            />
+                            <br/>
+                            <obs
+                                    conceptId="ff38e977-6a11-4026-9a20-4527325a243b"
+                                    answerLabels="Yes,No"
+                                    style="radio"
+                                    labelText="Fetal Movements:"
+                            />
+                        </p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>
+                            <label for=""><b> Ultrasound Results</b></label>
+                        </legend>
+                        <p class="small-input">
+                            Fetal heart rate (bpm)
+                            <obs conceptId="57c934dd-a086-4e73-a9b8-3b9c1abef1b1" />
+
+                            Estimated fetal weight
+                            <obs conceptId="76f7ba1f-b3d5-4bfa-a75f-d9ab2b7e59f8" />
+
+                            Amniotic fluid index
+                            <obs conceptId="ee891321-3066-41c4-8fb4-22a8c6d46b5d" />
+
+                            Number of Fetus
+                            <obs conceptId="f0b20606-a261-4da4-b138-0785399cc850" />
+                            <br />
+
+                            CLINICAL IMPRESSION COMMENTS
+                            <obs
+                                    conceptId="3cd9d956-26fe-102b-80cb-0017a47871b2"
+                                    style="textarea"
+                                    rows="3"
+                                    cols="30"
+                            />
+                        </p>
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+
+        <ifMode mode="VIEW" include="false">
+            <div id="buttons">
+
+                <button id="submit" class="submitButton confirm">
+                    <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                                style="display: none; margin-left: 10px;"></i>
+                </button>
+                <button id="cancel" type="button" class="cancel">
+                    <uimessage code="emr.cancel" />
+                </button>
+            </div>
+        </ifMode>
+    </includeIf>
+    <includeIf velocityTest="$patient.gender == 'M' ">
+        <section headerLabel="Invalid Patient Message">
+            <table border="0" width="100%">
+                <tr>
+                    <td>This Form Is Only Filled For Female Patients:</td>
+                </tr>
+            </table>
+        </section>
+    </includeIf>
+</htmlform>

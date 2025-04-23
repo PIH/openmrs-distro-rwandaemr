@@ -1,0 +1,828 @@
+<htmlform formDescription="HC ANC Contact Form" formEncounterType="a703372d-28b7-4831-9817-ee385c8c47d8"
+          formName="HC ANC Contact Form" formPublished="false" formRetired="false"
+          formUuid="2a9c2299-2e93-4698-a4dd-75ac3a23f508" formVersion="1.0">
+
+    <style>
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns>div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns>div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns>div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns>div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+
+        /* New styles for collapsible sections */
+        fieldset legend {
+        cursor: pointer;
+        font-weight: bold;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        display: block;
+        }
+
+        fieldset legend:hover {
+        background-color: #e0e0e0;
+        }
+
+        section.always-visible .section-container {
+        display: block !important;
+        /* Override the default hidden state */
+        }
+
+        fieldset .section-container {
+        display: none;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+        }
+
+        fieldset.open .section-container {
+        display: block;
+        }
+    </style>
+
+    <script>
+        function toggleSection(legendElement) {
+        const fieldset = legendElement.parentElement;
+        fieldset.classList.toggle("open");
+        }
+    </script>
+
+    <h2>HC ANC Contact Form</h2>
+
+    <includeIf velocityTest="$patient.gender == 'F' ">
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION">
+            <div class="always-visible">
+                <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                    <tr>
+                        <td>
+                            Date:
+                            <encounterDate default="today" />
+                        </td>
+                        <td>
+                            Health Facility:
+                            <encounterLocation id="location" default="GlobalProperty:billing.defaultLocation" />
+                        </td>
+                        <td>
+                            Provider:
+                            <encounterProvider default="currentUser" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title">
+            <fieldset>
+                <legend>CONTACTS</legend>
+                <div class="always-visible">
+                    <p class="small-input flexView">
+                        <obs conceptId="bbe69d90-984d-40b4-9ab5-7fe758a58aaf" required="true"
+                             labelText="ANC Contact:" />
+
+                    </p>
+                </div>
+            </fieldset>
+        </section>
+
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title"
+                 headerCode="ANTENATAL CONSULTATION AND ULTRASOUND">
+            <div class="always-visible">
+                <div class="two-columns">
+                    <p class="side-by-side">
+                        Cervical cancer screen
+                        <obs conceptId="e7c3ae9a-87a4-49f5-8d08-ffbce7ce5736" answerCodes="Normal,Abnormal"
+                             style="radio" />
+                    </p>
+                    <fieldset>
+                        <legend>
+                            <label>
+                                <b> Gestation age (weeks) By</b>
+                            </label>
+                        </legend>
+
+                        <p class="small-input flexView">
+                            LMP
+                            <obs conceptId="974d7f4b-4648-4bb5-8d32-397d27038a51" required="true"/>
+                            Ultrasound
+                            <obs conceptId="b209fbaa-e240-472f-bb57-0efd2586c0ad" />
+                        </p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>
+                            <label for=""><b>
+                                Vital signs,Anthropometric measurements and obstetrical
+                                physical exam
+                            </b></label>
+                        </legend>
+                        <p class="small-input flexView">
+                            <label for="">Temperature</label>
+                            <obs conceptId="3ce939d2-26fe-102b-80cb-0017a47871b2" id="tmp" />
+
+                            Heart Rate
+                            <obs conceptId="3ce93824-26fe-102b-80cb-0017a47871b2" />
+
+                            SBP/DBP
+                            <obs conceptId="3ce934fa-26fe-102b-80cb-0017a47871b2" id="sbpid" />
+                            /
+                            <obs conceptId="3ce93694-26fe-102b-80cb-0017a47871b2" id="dbpid" />
+
+                            O2 Saturation
+                            <obs conceptId="5092" />
+
+                            Respiratory Rate
+
+                            <obs conceptId="3ceb11f8-26fe-102b-80cb-0017a47871b2" id="resprateId" />
+
+                            Height(cm)
+                            <obs id="height" conceptId="3ce93cf2-26fe-102b-80cb-0017a47871b2" />
+
+                            Weight(Kg)
+
+                            <obs conceptId="3ce93b62-26fe-102b-80cb-0017a47871b2" id="crrtWeight" required="*" />
+                            <lookup id="latestWeight" expression="fn.latestObs(5089).valueText" />
+
+                            MUAC(cm)
+                            <obs conceptId="4326b04b-3158-417a-bb8d-ad022295b0f4" id="muac" required="true"/>
+                        </p>
+                        <p class="small-input flexView">
+                            <obs conceptId="51d0c588-374f-4596-aab6-1f9ce8b4e88a" style="text"
+                                 labelText="Fundal Height ( cm):" />
+                            <obs conceptId="03970ffd-0748-4233-a75d-f16e4ac5f297" labelText="Fetal heart beat:" />
+                        </p>
+                        <p class="side-by-side">
+                            <obs conceptId="1b4c3aa2-3531-4657-8fcf-6bc6ef7497cd"
+                                 answerConceptIds="8147,8539,10060,1067"
+                                 answerLabels="Cephalic,Breech,Transverse,Unknown" style="radio"
+                                 labelText="Fetal Presentation:" />
+                            <br />
+                            <obs conceptId="ff38e977-6a11-4026-9a20-4527325a243b" answerLabels="Yes,No" style="radio"
+                                 labelText="Fetal Movements:" />
+                        </p>
+                        <p class="side-by-side">
+                            Ultrasound done?
+                            <obs conceptId="2aa3197f-541e-4b52-8735-440560e77231" answerConceptIds="1065,1066" answerLabels="Yes,No" style="radio" id="echoDone" required="true">
+                                <controls>
+                                    <when value="1065" thenDisplay="#yesEchoDone"/>
+                                </controls>
+                            </obs>
+                        </p>
+                        <p class="small-input" id="yesEchoDone">
+                            Fetal heart rate (bpm)
+                            <obs conceptId="57c934dd-a086-4e73-a9b8-3b9c1abef1b1" />
+
+                            Estimated fetal weight
+                            <obs conceptId="76f7ba1f-b3d5-4bfa-a75f-d9ab2b7e59f8" />
+
+                            Amniotic fluid index
+                            <obs conceptId="ee891321-3066-41c4-8fb4-22a8c6d46b5d" />
+
+                            Number of Fetus
+                            <obs conceptId="f0b20606-a261-4da4-b138-0785399cc850" />
+                            <br />
+
+                            CLINICAL IMPRESSION COMMENTS
+                            <obs conceptId="3cd9d956-26fe-102b-80cb-0017a47871b2" style="textarea" rows="3" cols="30" />
+                        </p>
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title">
+            <legend onclick="toggleSection(this)">PREVENTIVE MEASURES</legend>
+            <div class="section-container">
+                <fieldset>
+                    <legend>
+                        <label><b>Prevention and treatment</b></label>
+                    </legend>
+                    <p class="radio">
+                        <obs conceptId='830919a3-dfda-4356-a7a0-80ea2e3cf35b'
+                             answerConceptId="1594849e-f8db-43ec-9294-645ac0ec6e7d" style="checkbox" /><br />
+                        <obs conceptId='830919a3-dfda-4356-a7a0-80ea2e3cf35b'
+                             answerConceptId="3cced6b4-26fe-102b-80cb-0017a47871b2" style="checkbox" /><br />
+                        <obs conceptId='830919a3-dfda-4356-a7a0-80ea2e3cf35b'
+                             answerConceptId="0bd8cc98-0aec-4fa4-89b2-68a0748a1c0e" style="checkbox" /><br />
+                        <obs conceptId='830919a3-dfda-4356-a7a0-80ea2e3cf35b'
+                             answerConceptId="a8bc4df0-1f87-4253-b0c8-f44f19e8cabd" style="checkbox" />
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <label><b>Tenanus and Diphteria Vaccines (TD)</b></label>
+                    </legend>
+                    <p>
+                        Tetanus and Diphteria Vaccines(TT1):
+                        <obs conceptId="1ee10434-7442-4c6a-9de7-fa06e3f61145" /><br />
+                        Tetanus and Diphteria Vaccines(TT2):
+                        <obs conceptId="5c95c913-2d15-4640-8ded-0a6a6aaaff01" /><br />
+                        Tetanus and Diphteria Vaccines(TT3):
+                        <obs conceptId="2344ec1b-1727-4350-849d-8c878dd4d3d7" /><br />
+                        Tetanus and Diphteria Vaccines(TT4):
+                        <obs conceptId="23e213d6-e7f9-4881-b0e3-950f8ae6de7c" /><br />
+                        Tetanus and Diphteria Vaccines(TT5):
+                        <obs conceptId="10cb2549-1b78-4483-9d30-01807b8e61e8" />
+                    </p>
+                </fieldset>
+            </div>
+        </section>
+
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title">
+            <legend onclick="toggleSection(this)">LABORATORY EXAMS</legend>
+            <div class="section-container">
+
+                <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Urinary test">
+                    <table class="baseline-aligned">
+                        <tr>
+                            <td class="lblcolor">Glucosuria</td>
+                            <td class="side-by-side">
+                                <obs conceptId="2b1261a0-7fd4-4211-bd8c-1880c99710d7"
+                                     answerConceptIds="6d0d2e97-deca-4b4d-97df-1c5d9c22d768,2f08b055-afff-48cb-a0f6-c34eb9080aca,8c1147d0-2dac-4a0b-9b58-56f0cead6ad3,664"
+                                     style="radio" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Proteinuria</td>
+                            <td class="side-by-side">
+                                <obs conceptId="7117a4ce-2bab-4162-bf63-cb7675b5d75d"
+                                     answerConceptIds="6d0d2e97-deca-4b4d-97df-1c5d9c22d768,2f08b055-afff-48cb-a0f6-c34eb9080aca,8c1147d0-2dac-4a0b-9b58-56f0cead6ad3,664"
+                                     style="radio" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Urinalysis(ECBU)</td>
+                            <td class="flexView">
+                                <obs conceptId="3ccf43b0-26fe-102b-80cb-0017a47871b2" />
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+                <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Blood analysis">
+                    <table class="baseline-aligned">
+                        <tr>
+                            <td><b> Full Blood Count</b></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">WBC</td>
+                            <td>
+                                <obs conceptId="3cd2a906-26fe-102b-80cb-0017a47871b2" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">RBC</td>
+                            <td>
+                                <obs conceptId="3cd2ab40-26fe-102b-80cb-0017a47871b2" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Hb</td>
+                            <td>
+                                <obs conceptId="3ccc7158-26fe-102b-80cb-0017a47871b2" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Plt</td>
+                            <td>
+                                <obs conceptId="3cd3d038-26fe-102b-80cb-0017a47871b2" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Blood type and Rhesus</b></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Blood group and Rhesus</td>
+                            <td class="side-by-side">
+                                <obs conceptId="3ccf4090-26fe-102b-80cb-0017a47871b2"
+                                     answerConceptIds="3cd392b2-26fe-102b-80cb-0017a47871b2,3cd39686-26fe-102b-80cb-0017a47871b2,3cd39988-26fe-102b-80cb-0017a47871b2,3cd39ca8-26fe-102b-80cb-0017a47871b2,3cd3a144-26fe-102b-80cb-0017a47871b2,3cd3a464-26fe-102b-80cb-0017a47871b2,3cd8f716-26fe-102b-80cb-0017a47871b2,3cd8f8b0-26fe-102b-80cb-0017a47871b2"
+                                     answerCodes="A+ ,A-, B+, B-,O+,O-,AB+,AB-" style="radio" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>RPR </b></td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">RPR Mother Results</td>
+                            <td class="side-by-side">
+                                <obs conceptId="3cdb36f2-26fe-102b-80cb-0017a47871b2" answerConceptIds="664,703,1118"
+                                     answerCodes="Negative(No-Reactive),Positive(Reactive),Not Done" style="radio" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">If Not done why?</td>
+                            <td>
+                                <obs conceptId="a332d896-b3d5-4987-b61d-f6fe1bfbcff8" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Partner RPR Result</td>
+                            <td class="side-by-side">
+                                <obs conceptId="2e6e3f3e-32ac-4919-b62a-d0e19708a3eb" answerConceptIds="664,703,1118"
+                                     answerCodes="Negative(No-Reactive),Positive(Reactive),Not Done" style="radio" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>HIV Test </b> </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Mother HIV Test results</td>
+                            <td class="side-by-side">
+                                <obs conceptId="3ce17cec-26fe-102b-80cb-0017a47871b2" answerConceptIds="664,703,3083"
+                                     answerCodes="Negative,Positive,No tested" style="radio" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">If No tested why?</td>
+                            <td>
+                                <obs conceptId="ec6d136f-3afa-422c-8cca-933d61ba5d61" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Partner HIV Test Results</td>
+                            <td class="side-by-side">
+                                <obs conceptId="34e08543-a000-4e8b-bd9c-435a1c15d1c2" answerConceptIds="664,703,3083"
+                                     answerCodes="Negative,Positive,No tested" style="radio" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">If No tested why?</td>
+                            <td>
+                                <obs conceptId="ec6d136f-3afa-422c-8cca-933d61ba5d61" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Malaria </b> </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Malaria Test Results</td>
+                            <td class="side-by-side">
+                                <obs conceptId="1bcce0cd-5a65-425a-bad2-740f28530ece" style="radio" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Hepatite B </b> </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Hepatite B Test Results</td>
+                            <td class="side-by-side">
+                                <obs conceptId="622e11d3-1055-4e12-b787-da6434a595aa" style="radio" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Hepatite C </b> </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Hepatite C Test Results</td>
+                            <td class="side-by-side">
+                                <obs conceptId="25fb16c5-3edd-4a4a-91cc-485064d64a50" style="radio" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Glycemia Result</b> </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Glycemia</td>
+                            <td>
+                                <obs conceptId="3cd4e194-26fe-102b-80cb-0017a47871b2" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lblcolor">Final Clinical impression</td>
+                            <td>
+                                <obs conceptId="6602a73b-b8d3-40bc-bae8-f00ff3b9cceb" style="textarea" rows="3"
+                                     cols="30" />
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+        </section>
+
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title">
+            <legend onclick="toggleSection(this)">HIV STATUS</legend>
+            <div class="section-container">
+
+                <fieldset>
+                    <p class="side-by-side">
+                        Previously known HIV status
+                        <obs conceptId="f8f56e75-96ad-4901-92c0-d3fe28d4ba1a" answerCodes="Positif,Negatif,Unknown"
+                             style="radio" />
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        <!-- Confirmatory test results<lookup expression="fn.latestObs(13239).valueText"/>-->
+                    </p>
+                    <p class="side-by-side">
+                        Under ARV ?
+                        <obs conceptId="30def0d0-0d41-4145-b13f-79399abc3eef" answerCodes="Yes,No" style="radio" /> Line
+                        Regiment
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        <!-- Confirmatory test results<lookup expression="fn.latestObs(11049).valueText"/>-->
+                    </p>
+                    <p class="side-by-side">
+                        <b>Last HIV test</b>
+                    </p>
+                    <p class="side-by-side">
+                        VIH Results
+                        <obs conceptId="a68be0f2-8a97-41e8-a15b-87ad2f5da1d3" answerCodes="Positif,Negatif"
+                             style="radio" />
+                    </p>
+                    <p class="flexView">
+                        HIV Test Date
+                        <obs conceptId="3cde8c9e-26fe-102b-80cb-0017a47871b2" style="text" size="25" />
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>
+                        <label><b>DISCORDANT COUPLE (line) </b></label>
+                    </legend>
+                    <label for="">A. 2nd HIV test</label>
+                    <p class="side-by-side">
+                        VIH Results
+                        <obs conceptId="d2f363bf-519d-4052-80ec-f4869153caaf" answerCodes="Positif,Negatif" style="radio" />
+                    </p>
+                    <p class="flexView">
+                        HIV Test Date
+                        <obs conceptId="3cde8c9e-26fe-102b-80cb-0017a47871b2" style="text" size="25" />
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>
+                        <label> <b>B. 3rd HIV test </b></label>
+                    </legend>
+                    <p class="side-by-side">
+                        VIH Results
+                        <obs conceptId="d2f363bf-519d-4052-80ec-f4869153caaf" answerCodes="Positif,Negatif" style="radio" />
+                    </p>
+                    <p class="flexView">
+                        HIV Test Date
+                        <obs conceptId="3cde8c9e-26fe-102b-80cb-0017a47871b2" style="text" size="25" />
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <label for=""><b>WOMAN WITH HIV POSITIVE</b></label>
+                    </legend>
+
+                    <p>
+                        Creatinine
+                        <obs conceptId="3cdc609a-26fe-102b-80cb-0017a47871b2" style="text" size="25" />
+                        <obs conceptId="8a71a1d7-0548-4c2e-b351-212a3ce021a9" style="text" size="25" />
+                    </p>
+                    <p>
+                        CD4
+                        <obs conceptId="3ceda710-26fe-102b-80cb-0017a47871b2" style="text" size="25" />
+                    </p>
+                    <p>
+                        Recent Viral load
+
+                        <obs conceptId="5b1f9343-3298-4223-ae8e-5071cb07f5ad" style="text" size="25" />
+                    </p>
+                    <p>
+                        WHO stage
+                        <lookup expression="fn.currentProgramWorkflowStatus(2).state.concept.name" />
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        <lookup
+                                complexExpression="#foreach($encounter in $fn.allEncounters(null)) $encounter.encounterDatetime #end" />
+                    </p>
+                    <p>
+                        ARV start date
+                        <obs conceptId="a0d26657-225c-4272-8814-cd9588b9ac36" style="text" size="25" />
+                    </p>
+                    <p class="side-by-side">
+                        prescribed ARV regimen
+                        <obs conceptId="fe145029-e2a2-4241-ada6-06632002bb0f"
+                             answerCodes="1a=TDF+3TC+ EFV,1b=TDF+3TC+NVP,1c=ABC+3TC+EFV,1d=AZT+3TC+ATV/r,1e=TDF+3TC+ATV/r"
+                             style="radio" />
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        <obs conceptId="a08ae436-a1c5-4672-9766-94eca8971981" style="text" size="20" /> 1f= others (specify)
+                    </p>
+                    <p>
+                        Cotrimoxazole start date
+                        <obs conceptId="0406c37b-ee93-4306-8dab-cd2f2273fa0e" style="text" size="25" />
+                    </p>
+                    <p>
+                        Screened for TB
+                        <obs conceptId="fe89d978-43a4-40bc-9d64-347e54f435a3"
+                             answerConceptIds="3cd3a7a2-26fe-102b-80cb-0017a47871b2,3cd28732-26fe-102b-80cb-0017a47871b2"
+                             answerCodes="Positif,Negatif" style="radio" />
+                    </p>
+                    <p class="side-by-side">
+                        Screening for STI
+                        <obs conceptId="56218090-7172-4b34-9c62-c9787e1545a8" answerCodes="Positif,Negatif,Unknown"
+                             style="radio" />
+                    </p>
+                    <p class="side-by-side">
+                        Referred to ART clinic
+                        <obs conceptId="655cc154-b4c0-4546-b7e2-bd8a35d2db63" answerCodes="Yes,No" style="radio" />
+                    </p>
+                    <p>
+                        Tracnet
+                        <obs conceptId="07baa855-325f-4e6c-ba6a-33b2903ab588" style="text" size="25" />
+                    </p>
+                    <p>
+                        <b>If woman not enrolled here </b>
+                    </p>
+                    <p class="side-by-side">
+                        Enrolled in other facility
+                        <obs conceptId="e3b427cc-b105-488d-9798-d61aae56053b" answerCodes="YES,NO" style="radio" />
+                    </p>
+                    <p class="side-by-side">
+                        Died
+                        <obs conceptId="e72f8827-60db-4f06-8afa-db5c934de0d4" answerCodes="YES,NO" style="radio" />
+                    </p>
+                    <p class="side-by-side">
+                        Transfer out
+                        <obs conceptId="a967a302-f059-45db-b6a5-8d897ea8ce57"
+                             answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+                             answerCodes="YES,NO" style="radio" />
+                    </p>
+                    <p class="side-by-side">
+                        HIV lost followup
+                        <obs conceptId="4e2bfddc-4125-4832-ad58-1ffc40fc1c3a" answerCodes="YES,NO" style="radio" />
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>
+                        <label for=""><b>TEST RPR Positive</b></label>
+                    </legend>
+                    <p class="side-by-side">
+                        <b>Test RPR Client</b>
+                    </p>
+                    <p class="side-by-side">
+                        Result
+                        <obs conceptId="3cdb36f2-26fe-102b-80cb-0017a47871b2" answerCodes="Positif,Negatif" style="radio" />
+                    </p>
+                    <p class="date-one-line">
+                        Test Date
+                        <obs conceptId="ec7c4e31-2188-4f4a-a8c1-c1423dfaa5c1" />
+                    </p>
+                    <p class="side-by-side">
+                        If positive Partner Treated?
+                        <obs conceptId="c63f9c05-00ab-427b-9a85-c3039674a6e7" answerCodes="Yes,No" style="radio" />
+                    </p>
+
+                    <p class="side-by-side">
+                        <b>Partner RPR Client</b>
+                    </p>
+                    <p class="side-by-side">
+                        Result
+                        <obs conceptId="0ed435d0-90e7-4e68-96c8-090fc0ff536a" answerCodes="Positif,Negatif" style="radio" />
+                    </p>
+                    <p class="side-by-side">
+                        Test Date
+                        <obs conceptId="21f97f7c-680a-44b2-8b15-c18412e7b0d0" style="text" size="25" />
+                    </p>
+                    <p class="side-by-side">
+                        If positive Treated?
+                        <obs conceptId="2d8abc47-77fe-4d13-a10b-4e02640d4634" answerCodes="Yes,No" style="radio" />
+                    </p>
+
+                    <!--tr>
+                         Partenaires VIH + des femmes VIH - qui ont commencés les ARV Oui/Non
+                        <obs conceptId="f4b0c753-60dd-4818-bc19-2cf1757b123b" answerCodes ="Yes,No" style="radio"/>
+                    </tr-->
+                    <p class="side-by-side">
+                        Shared results?
+                        <obs conceptId="841f3bab-94b6-4f47-a0c3-d04123dafb17" answerCodes="Yes,No" style="radio" />
+                    </p>
+                </fieldset>
+
+            </div>
+        </section>
+
+
+
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title">
+            <legend onclick="toggleSection(this)">HEALTH EDUCATION</legend>
+            <div class="section-container">
+                <obsgroup groupingConceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc">
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc"
+                         answerConceptId="458b21a5-0473-4398-ac00-d6102509db4a" answerCode="HIV prevention"
+                         style="radio" />
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc"
+                         answerConceptId="3efaa1e6-1b15-4984-9900-ae069a2ceb9c" style="radio" />
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc"
+                         answerConceptId="dbdc3e61-d842-4689-ba39-f09e0abbda8d" />
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc"
+                         answerConceptId="2bd9654e-3913-43d8-b629-2448c767bfbc" answerCode="Family Planning"
+                         style="radio" />
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc"
+                         answerConceptId="3f631de2-ff23-406b-a850-ae295dd1cc48" answerCode="Nutrition" style="radio" />
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc"
+                         answerConceptId="2f70d07e-69f7-44f2-8fe2-fe2cb72e2f79" answerCode="Hygiene" style="radio" />
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc"
+                         answerConceptId="613bb3f8-4d07-4703-8632-bb7aaae6032c" answerCode="danger Signs"
+                         style="radio" />
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc"
+                         answerConceptId="220cea37-a1dc-40ff-95e3-d68b41208994" style="radio" />
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc"
+                         answerConceptId="964aec0e-f296-428f-8164-7ec55400b730" style="radio" />
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc"
+                         answerConceptId="182d4bdd-4ae2-4e8e-9bea-c2ae1499af33" style="radio" />
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc"
+                         answerConceptId="70c4ef6d-af47-493c-8576-59d053cc10ff" style="radio" />
+                    <obs conceptId="9f6bd9a7-f266-4eb9-8e73-6ea0ca8bcacc"
+                         answerConceptId="3cd4860e-26fe-102b-80cb-0017a47871b2" style="radio" />
+                </obsgroup>
+            </div>
+        </section>
+
+
+        <section sectionTag="fieldset" headerTag="legend" headerStyle="title">
+            <fieldset>
+                <legend>RENDEZ-VOUS</legend>
+                <div class="always-visible">
+                    <p class="small-input flexView">
+                        <obs conceptId="3ce94df0-26fe-102b-80cb-0017a47871b2" required="true"
+                             labelText="Next contact date:" allowFutureDates="true"/>
+
+                    </p>
+                </div>
+            </fieldset>
+        </section>
+
+
+        <ifMode mode="VIEW" include="false">
+            <div id="buttons">
+
+                <button id="submit" class="submitButton confirm">
+                    <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                                style="display: none; margin-left: 10px;"></i>
+                </button>
+                <button id="cancel" type="button" class="cancel">
+                    <uimessage code="emr.cancel" />
+                </button>
+            </div>
+        </ifMode>
+
+    </includeIf>
+
+
+</htmlform>

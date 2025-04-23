@@ -1,0 +1,24 @@
+UUID,Void/Retire,Name,Description,Program concept,Outcomes concept
+cf7c0e30-2700-102b-80cb-0017a47871b2,,Adult HIV PROGRAM,PIH Adult HIV program,3cdb4962-26fe-102b-80cb-0017a47871b2,
+cf96655d-bcb8-4252-9db5-b7ac7bcf5f04,,ANC Program,ANC Program,0a48138e-f478-4ad7-bb10-d9efdbf9fe27,
+1b48afcc-347b-4419-b481-0a6a9db1e900,,Chronic Kidney Disease,Chronic Kidney Disease,37c267c6-fa16-46e6-a712-d92627eb8995,b1c014cb-a027-43b4-ba9a-9e791b9fe716
+6b825913-ab44-4e49-9ea0-c9e5919f94af,,Chronic respiratory disease program,Chronic respiratory disease program,880ee6e8-1685-41e4-9055-ba066c2cecb7,b1c014cb-a027-43b4-ba9a-9e791b9fe716
+${program.crownProject.uuid},,Crown Project Program,A program which is created to indicate patients remained with accompaniment,${concept.crownProgram.uuid},
+eff53c35-eaa8-4cae-9d68-78c2c21a5e6d,,Diabetes Program,Program for diabetes patients,db80904c-d893-42ea-9b56-9c4cdf77b2fd,b1c014cb-a027-43b4-ba9a-9e791b9fe716
+f5d23800-f4fc-486f-b174-ee2521f6192e,,Epilepsy program,Program for epilepsy patients,c1d7cd24-3d0d-4aab-ae72-5db1ec632816,b1c014cb-a027-43b4-ba9a-9e791b9fe716
+8f7db577-081e-47cd-b8e9-e7deabfeb9d2,,External HIV Program,External HIV Program,9b6d2233-4488-4930-a910-34e778d0b794,
+e60a89ad-de11-421a-b5bf-b489e264ffa6,,Heart Failure Program,Heart Failure Program,ab6b9e24-382d-4b6e-aed1-caaf239b5b53,b1c014cb-a027-43b4-ba9a-9e791b9fe716
+5ea0ebfb-cec3-4cce-9479-58cf2ac5b7fa,TRUE,HIV Care and treatment,The program for HIV Care and treatment,51556996-5c16-4694-8cd2-45ad35c63654,
+a39cb21d-5f5e-4013-9b6b-139453ab93ec,,Hypertension program,Program for hypertension patients,74b896da-9583-4f5e-88c9-7f76c71e84b3,b1c014cb-a027-43b4-ba9a-9e791b9fe716
+51304c8c-ecc2-4bed-818b-a5c785ad58a6,,Mental Health,Mental Health program,4a752676-ba56-413d-b179-9a69a3bef237,f90ac49f-2f68-46c3-a3ab-86eab56c90ea
+cf7c124a-2700-102b-80cb-0017a47871b2,,NUTRITION PROGRAM,Nutrition Program,3cde9842-26fe-102b-80cb-0017a47871b2,
+f02857cb-f894-42e9-b324-dcb8fea70f69,,Oncology Program,Oncology Program,3f189820-c20c-42b9-b898-355e00c168bd,c9ce6c9c-c189-4ac5-a1a8-d5cca9296d2c
+cf7c1560-2700-102b-80cb-0017a47871b2,TRUE,ORACTA STUDY,Oracta Study completed,3ce6990c-26fe-102b-80cb-0017a47871b2,
+fbfbef74-4b99-4070-95b8-7023e3db51e1,,PDC Program,Pediatric Development Clinic Program,574faa1e-36b3-442c-bb94-32a8fa3ee192,e56b7102-6d13-4853-a515-c8dcaedbac44
+cf7c16e6-2700-102b-80cb-0017a47871b2,,PEDIATRIC HIV PROGRAM,Pediatric program for HIV patients,3ce67698-26fe-102b-80cb-0017a47871b2,
+518a9a1a-c5a9-4ce7-9396-292aef46e817,,PMTCT Combined Clinic - Infant,PMTCT program for exposed infants,6f529b71-637e-47fb-86ef-4ecf00db1223,
+2f7506b4-21e6-445d-ba73-2c782a6ecbee,,PMTCT Combined Clinic - Mother,PMTCT Combined Clinic - Mother,b00f1d61-a37c-451c-ac7f-c5fc0f231091,
+cf7c13da-2700-102b-80cb-0017a47871b2,,PMTCT Pregnancy PROGRAM,PMTCT Pregnancy PROGRAM,3cdc8138-26fe-102b-80cb-0017a47871b2,
+38ffe579-f99f-469c-99fc-5f8c847c33eb,,PMTCT Program,The program for pmtct patients,3cdc8138-26fe-102b-80cb-0017a47871b2,
+326475d7-07f6-4357-ba1b-9098f8137849,,SILICOSIS PROGRAM,SILICOSIS PROGRAM,0a4a5ff3-3c0c-436b-a768-c87f5baa145c,b1c014cb-a027-43b4-ba9a-9e791b9fe716
+cf7c10a6-2700-102b-80cb-0017a47871b2,,TUBERCULOSIS PROGRAM,Tuberculosis Program,3cdc82b4-26fe-102b-80cb-0017a47871b2,
