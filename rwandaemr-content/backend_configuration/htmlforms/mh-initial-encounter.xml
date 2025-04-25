@@ -19,6 +19,8 @@
         @SINGLE_OR_A_CHILD@ = df488243-d1d5-4b50-ae04-40b4ffdcf934
         @WIDOWED@ = 3cd6e6f6-26fe-102b-80cb-0017a47871b2
         @DIVORCED@ = 3cd6e55c-26fe-102b-80cb-0017a47871b2
+        @Couple_cohabiting_partner@ = 8d234f0f-c299-42e5-8edf-f2460e64704e
+        @SEPARATED@ = 3cd6e246-26fe-102b-80cb-0017a47871b2
         @Religion@ = 902a48e6-b53d-4e29-9c25-670b0f76f417
         @address@ = ff7c0f51-c25c-4282-9a6e-e3b7f7d2e462
         @TELEPHONE_NUMBER@ = 3cda3d7e-26fe-102b-80cb-0017a47871b2
@@ -131,7 +133,7 @@
         @Lives_alone@ = 5c87ba02-85e5-448d-a59d-69c68c2bff9d
         @HOMELESS@ = d0d2bd10-5997-4e8a-9f33-4689e2b96cc8
         @other_living_situation@ = 59dd93e1-7abc-451c-b268-79b148507b33
-        @OCCUPATION@ = 3cd97286-26fe-102b-80cb-0017a47871b2
+        <!-- @OCCUPATION@ = 3cd97286-26fe-102b-80cb-0017a47871b2 -->
         @UNEMPLOYED@ = 3cd979de-26fe-102b-80cb-0017a47871b2
         @reason_of_unemployment@ = 04a71060-35b7-4e3f-9891-9c0291ff2c12
         @cultivating@ = fd4eb33b-200c-4360-b0c1-475e9a06aa7b
@@ -331,6 +333,49 @@
         @Quantity@ = e5cd76b5-0148-4188-a10a-29e8732e2ae3
         @today@ = 3b7a7e5c-3bab-43b1-b0f4-90b93b05e43a
         @ALLERGY@ = 3ccd369c-26fe-102b-80cb-0017a47871b2
+        @Head_of_family@ = 23679fcd-9c86-41cb-802b-1a8dec5ae1d6
+        @UBUDEHE_CATEGORY@ = b9016409-8ca6-4123-97a5-146dc93571e8
+        @1@ = 596daaf5-3d0b-4ddc-a848-1732d70b5962
+        @2@ = bff8b23f-0d4b-4606-9e72-88c9b401f4d2
+        @3@ = ed34b78a-e029-4711-a2a0-7cad6160c89c
+        @4@ = 772c4100-270c-49d4-873a-ffec0bbef3d3
+        @RWANDA_INSURANCE_TYPE@ = 8da67e73-776c-43f6-9758-79d1f6786db3
+        @NONE@ = 3cd743f8-26fe-102b-80cb-0017a47871b2
+        @RAMA@ = b20600d3-a818-47e7-be3d-d7bfef2acf9a
+        @MUTUELLE@ = 465d1588-a6f6-41ac-9b9c-cc4fdf140e78
+        @private_insurance@ = 78311887-b00c-4b77-8131-509f00b677bc
+        @OTHERS@ = 871b9b48-3613-49a7-b22b-41cb9e6ff6eb
+        @PATIENT_STATUS@ = f965dd1d-c4e1-481c-af19-3581c80fb81f
+        @New_case@ = 0c47054a-6681-48da-8477-53c8fa52ce44
+        @TRANSFER_IN@ = 3ce4f67e-26fe-102b-80cb-0017a47871b2
+        @RETRACED@ = 306ea727-b811-404f-ac2d-07bc86e3d62d
+        @TEMPERATURE_(C)@ = 3ce939d2-26fe-102b-80cb-0017a47871b2
+        @OCCUPATION@ = 3cd97286-26fe-102b-80cb-0017a47871b2
+        @NONE@ = 3cd743f8-26fe-102b-80cb-0017a47871b2
+        @Agriculture@ = 34c27a47-441c-4a6d-bf6f-b6cf56c196e2
+        @TRADING@ = 3cd9786c-26fe-102b-80cb-0017a47871b2
+        @HOUSEWORK@ = 3cda14e8-26fe-102b-80cb-0017a47871b2
+        @PROFESSIONAL@ = 907716b4-1852-404a-9ee1-beff998f9461
+        @OTHER_NON-CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
+        @STUDENT@ = 3cd976f0-26fe-102b-80cb-0017a47871b2
+        @Business@ = c89e406b-a7fd-4da9-b00b-57f077e82891
+        @main_source_of_household_income@ = a51ec9a7-1d84-44d8-af52-6350579b2561
+        @Business@ = c89e406b-a7fd-4da9-b00b-57f077e82891
+        @Monthly_salary@ = 3573cb94-cfb9-4903-884e-01b58cdfc18a
+        @Household_own_livestock@ = cd8b1581-1231-4d91-adca-713f1f7e0fd9
+        @relationship_to_the_relative_with_mental_health_history@ = 47291e77-86dc-4a6e-9c68-8a35f4011307
+        @Details_on_family_History_of_Mental_illness@ = 38c4726f-9263-41fe-bb57-d6153eda1422
+        @HISTORY_OF_ALCOHOL_USE_OR_SUBSTANCE_USE@ = 0cf097b9-3651-4aac-a0c3-740550e0ef6a
+        @IN_THE_PAST@ = 3cdbd832-26fe-102b-80cb-0017a47871b2
+        @CURRENTLY@ = 3cdbdb2a-26fe-102b-80cb-0017a47871b2
+        @NEVER@ = 3cd72968-26fe-102b-80cb-0017a47871b2
+        @Unable_to_self_care@ = 4132611a-999b-4a0a-812c-00e293a91f85
+        @unable_to_sleep@ = 2bb78063-3c39-411d-a1e1-0eb205c0ca40
+        @Inability_to_experience_sexual_desire@ = bc72adfa-1691-459f-9493-48c6b8a30139
+        @mental_orientation_in_person@ = 2c1d1dd2-6e86-4f5d-87ad-32a94e6df8fb
+        @mental_orientation_in_place@ = fb9148b5-d121-4c9e-b5ef-85de485f8a15
+        @mental_orientation_in_time@ = 2cd1b571-0d4b-4f98-9eb9-6c52234dfc54
+        @mental_orientation_on_reason_for_visit@ = e7d2c234-bc35-42ee-bb0e-24db74562e9c
 
 
         <!-- program -->
@@ -578,15 +623,15 @@
             <variant locale="rw" value="Telefoni:"/>
         </code>
         <code name="Emergency_contact">
-            <variant locale="en" value="Emergency contact:"/>
+            <variant locale="en" value="Emergency contact name:"/>
             <variant locale="rw" value="Uhagararira umuryango mu gihe akenewe:"/>
         </code>
         <code name="Insurance_information">
             <variant locale="en" value="Insurance information:"/>
             <variant locale="rw" value="ubwishingizi akoresha mu kwivuza:"/>
         </code>
-        <code name="Mutuelle_Category">
-            <variant locale="en" value="Mutuelle Category:"/>
+        <code name="Social_economic_status">
+            <variant locale="en" value="Social economic status:"/>
             <variant locale="rw" value="Icyiciro cy'ubudehe"/>
         </code>
         <code name="Other_info">
@@ -1150,10 +1195,11 @@
             <variant locale="en" value="Occupation "/>
             <variant locale="rw" value="Akazi,Icyo akora  "/>
         </code>
-        <code name="Unemployed">
-            <variant locale="en" value="Unemployed, Reason: "/>
-            <variant locale="rw" value="Nta kazi afite,Impamvu: "/>
-        </code>
+        <!--        <code name="Unemployed">
+                    <variant locale="en" value="Unemployed, Reason: "/>
+                    <variant locale="rw" value="Nta kazi afite,Impamvu: "/>
+                </code>
+        -->
         <code name="Farmer_or_cultivating">
             <variant locale="en" value="Cultivating "/>
             <variant locale="rw" value="Umuhinzi "/>
@@ -1216,7 +1262,7 @@
             <variant locale="rw" value="Babana ari bangahe mu rugo? "/>
         </code>
         <code name="How_many_parents_do_you_have_living">
-            <variant locale="en" value="How many parents do you have living"/>
+            <variant locale="en" value="How many living parents do you have"/>
             <variant locale="rw" value="Ababyeyi bakiriho ni bangahe? "/>
         </code>
         <code name="How_many_family_members_have_died_young">
@@ -1235,8 +1281,8 @@
             <variant locale="en" value="Substance Use History"/>
             <variant locale="rw" value="Amakuru ku ikoreshwa ry’ibiyobyabwenge "/>
         </code>
-        <code name="History_of_alcohol_of_drug_abuse">
-            <variant locale="en" value="(History of alcohol of drug abuse)"/>
+        <code name="History_of_alcohol_or_drug_use">
+            <variant locale="en" value="(History of alcohol or drug use)"/>
             <variant locale="rw" value="Amakuru ku ikoreshwa ry’inzoga n’ibiyobyabwenge) "/>
         </code>
         <code name="Alcohol">
@@ -1433,7 +1479,7 @@
             <variant locale="rw" value="(Akazi,Imibanire,Gushaka ibyo kurya,Imirimo y’ubuzima bwa buri munsi) "/>
         </code>
         <code name="Unable_to_work">
-            <variant locale="en" value="(Unable to work/go to school) "/>
+            <variant locale="en" value="unable to perform daily work (Unable to work/go to school) "/>
             <variant locale="rw" value="Ntashoboye gukora/Kujya ku ishuri "/>
         </code>
         <code name="Unable_to_eat">
@@ -1632,6 +1678,79 @@
             <variant locale="en" value="Specify the allergic reaction "/>
             <variant locale="rw" value="Garagaza ibishobora kuba bimugiraho ingaruka ku mubiri "/>
         </code>
+        <code name="The_main_occupation">
+            <variant locale="en" value=" The main occupation "/>
+            <variant locale="rw" value="Umwuga w' ibanze "/>
+        </code>
+
+        <code name="The_main_occupation">
+            <variant locale="en" value=" The main occupation "/>
+            <variant locale="rw" value="Umwuga w' ibanze "/>
+        </code>
+        <code name="Unemployed">
+            <variant locale="en" value="Unemployed "/>
+            <variant locale="rw" value="Ntakazi afite "/>
+        </code>
+        <code name="Agriculture">
+            <variant locale="en" value="Agriculture "/>
+            <variant locale="rw" value="Ubuhinzi n'ubworozi "/>
+        </code>
+        <code name="TRADING">
+            <variant locale="en" value="trader "/>
+            <variant locale="rw" value="Umucuruzi "/>
+        </code>
+        <code name="HOUSEWORK">
+            <variant locale="en" value="domestic service "/>
+            <variant locale="rw" value="Umukozi wo murugo "/>
+        </code>
+        <code name="PROFESSIONAL">
+            <variant locale="en" value="Professional job in public or private sector "/>
+            <variant locale="rw" value="Akorera leta cyangwa Abikorera "/>
+        </code>
+        <code name="Other_Occupation">
+            <variant locale="en" value="Other "/>
+            <variant locale="rw" value="Undi mwuga "/>
+        </code>
+        <code name="main_source_of_household_income">
+            <variant locale="en" value="Main source of the household income  "/>
+            <variant locale="rw" value="Aho umuryango ukura inyungu "/>
+        </code>
+        <code name="No_income">
+            <variant locale="en" value="No income "/>
+            <variant locale="rw" value="Ntaho "/>
+        </code>
+        <code name="Business">
+            <variant locale="en" value="Business "/>
+            <variant locale="rw" value="Ubushabitsi "/>
+        </code>
+        <code name="Monthly_salary">
+            <variant locale="en" value="monthly salary "/>
+            <variant locale="rw" value="Umushahara w'ukwezi "/>
+        </code>
+        <code name="Other_source">
+            <variant locale="en" value="Other "/>
+            <variant locale="rw" value="ahandi "/>
+        </code>
+        <code name="main_source_of_household_income">
+            <variant locale="en" value="Main source of the household income  "/>
+            <variant locale="rw" value="Aho umuryango ukura inyungu "/>
+        </code>
+        <code name="No_income">
+            <variant locale="en" value="No income "/>
+            <variant locale="rw" value="Ntaho "/>
+        </code>
+        <code name="Business">
+            <variant locale="en" value="Business "/>
+            <variant locale="rw" value="Ubushabitsi "/>
+        </code>
+        <code name="Monthly_salary">
+            <variant locale="en" value="monthly salary "/>
+            <variant locale="rw" value="Umushahara w'ukwezi "/>
+        </code>
+        <code name="Other_source">
+            <variant locale="en" value="Other "/>
+            <variant locale="rw" value="ahandi "/>
+        </code>
 
 
 
@@ -1668,8 +1787,8 @@
                 <td>
                     <p class="side-by-side">
                         <strong><lookup expression="fn.message('Marital_Status')"/></strong>
-                        <obs conceptId="$@Marital_Status@" answerConceptIds="$@MARRIED@,$@SINGLE_OR_A_CHILD@,$@WIDOWED@,
-                        $@DIVORCED@"  answerCodes="MARRIED,Single,Widowed,Divorced" style="radio"/>
+                        <obs conceptId="$@Marital_Status@" answerConceptIds="$@MARRIED@,$@SINGLE_OR_A_CHILD@,$@Couple_cohabiting_partner@,$@WIDOWED@,
+                        $@DIVORCED@,$@SEPARATED@"  answerCodes="MARRIED,Single,Cohabitation,Widowed,Divorced,Separated" style="radio"/>
                     </p>
                 </td>
                 <td>
@@ -1686,17 +1805,34 @@
                     <obs conceptId="$@TELEPHONE_NUMBER@"/>
                     <br/><br/>
 
-                    <strong><lookup expression="fn.message('Insurance_information')"/></strong>
-                    <strong><lookup expression="fn.message('Mutuelle_Category')"/></strong>
+                    <strong>Head of Family</strong>
+                    <obs conceptId="$@Head_of_family@"/>
+
+
+                    <br/><br/>
+                    <!-- <strong><lookup expression="fn.message('Insurance_information')"/></strong> -->
+                    <strong><lookup expression="fn.message('Social_economic_status')"/></strong>
                     <br/>
                     <p class="side-by-side">
-                        <obs conceptId="$@Mutuelle_level@"
-                             answerConceptIds="$@Mutuelle_level_I@,$@Mutuelle_level_II@,$@Mutuelle_level_III@,$@Mutuelle_level_IV@"
+                        <!--     <obs conceptId="$@Mutuelle_level@"
+                                  answerConceptIds="$@Mutuelle_level_I@,$@Mutuelle_level_II@,$@Mutuelle_level_III@,$@Mutuelle_level_IV@"
+                                  answerLabels="1,2,3,4" style="radio"/>
+     -->
+                        <obs conceptId="$@UBUDEHE_CATEGORY@"
+                             answerConceptIds="$@1@,$@2@,$@3@,$@4@"
                              answerLabels="1,2,3,4" style="radio"/>
                     </p>
                     <br/>
-                    <strong><lookup expression="fn.message('Other_info')"/></strong>
-                    <obs conceptId="$@OTHER_INSURANCE_TYPE_NON-CODED@"/>
+                    <strong>Insurance Type </strong>:
+                    <obs conceptId="$@RWANDA_INSURANCE_TYPE@" answerConceptIds="$@NONE@,$@RAMA@,$@MUTUELLE@,
+                        $@private_insurance@"  answerLabels="None,RAMA,Mutuelle,Private Insurance" style="radio"/>
+
+                    <br/>
+                    <strong>Specify</strong>
+                    <obs conceptId="$@private_insurance@"/>
+                    <!--                    <br/><br/>-->
+                    <!--                    <strong>Patient status</strong>:-->
+                    <!--                    <obs conceptId="$@PATIENT_STATUS@" answerConceptIds="$@New_case@,$@TRANSFER_IN@,$@RETRACED@"  answerLabels="New Case,Transfer in,Retraced" style="radio"/>-->
                 </td>
                 <td>
                     <strong><lookup expression="fn.message('Emergency_contact')"/></strong>
@@ -1737,6 +1873,8 @@
             <tr>
                 <td>
                     <p class="small-input">
+                        <strong> Temperature </strong>:
+                        <obs conceptId = "$@TEMPERATURE_(C)@"/>
                         <strong><lookup expression="fn.message('Blood_Pressure')"/></strong>
                         <obs conceptId="$@SYSTOLIC_BLOOD_PRESSURE@"/>/<obs conceptId="$@DIASTOLIC_BLOOD_PRESSURE@"/>
                         <strong><lookup expression="fn.message('Pulse')"/></strong>
@@ -1812,25 +1950,41 @@
                 <td>
                     <strong><lookup expression="fn.message('mental_orientation')"/></strong>
                 </td>
+
                 <td>
                     <p class="radio">
-                        <strong>
-                            <obs conceptId="$@mental_orientation@" answerConceptId="$@Person@"
-                                 answerCode="recognises_Person" style="checkbox"/></strong>
+                        <strong> Person: </strong>
+                        <obs conceptId="$@mental_orientation_in_person@" answerConceptIds="$@YES@,$@NO@"
+                             answerCodes="YES,NO" style="radio"/>
                         <br/>
-                        <strong>
-                            <obs conceptId="$@mental_orientation@" answerConceptId="$@Place@"
-                                 answerCode="recognises_place" style="checkbox"/></strong>
+                        <strong> Place: </strong>
+                        <obs conceptId="$@mental_orientation_in_place@" answerConceptIds="$@YES@,$@NO@"
+                             answerCodes="YES,NO" style="radio"/>
                         <br/>
-                        <strong>
-                            <obs conceptId="$@mental_orientation@" answerConceptId="$@Time@"
-                                 answerCode="recognises_time" style="checkbox"/>
-                        </strong>
+                        <strong> Time: </strong>
+                        <obs conceptId="$@mental_orientation_in_time@" answerConceptIds="$@YES@,$@NO@"
+                             answerCodes="YES,NO" style="radio"/>
                         <br/>
-                        <strong>
-                            <obs conceptId="$@mental_orientation@" answerConceptId="$@REASON_FOR_VISIT@"
-                                 answerCode="Reason_for_hospitalization" style="checkbox"/>
-                        </strong>
+                        <strong> Reason for visit: </strong>
+                        <obs conceptId="$@mental_orientation_on_reason_for_visit@" answerConceptIds="$@YES@,$@NO@"
+                             answerCodes="YES,NO" style="radio"/>
+
+
+
+
+                        <!--                        <strong>-->
+                        <!--                            <obs conceptId="$@mental_orientation@" answerConceptId="$@Place@"-->
+                        <!--                                 answerCode="recognises_place" style="checkbox"/></strong>-->
+                        <!--                        <br/>-->
+                        <!--                        <strong>-->
+                        <!--                            <obs conceptId="$@mental_orientation@" answerConceptId="$@Time@"-->
+                        <!--                                 answerCode="recognises_time" style="checkbox"/>-->
+                        <!--                        </strong>-->
+                        <!--                        <br/>-->
+                        <!--                        <strong>-->
+                        <!--                            <obs conceptId="$@mental_orientation@" answerConceptId="$@REASON_FOR_VISIT@"-->
+                        <!--                                 answerCode="Reason_for_hospitalization" style="checkbox"/>-->
+                        <!--                        </strong>-->
                     </p>
 
                 </td>
@@ -2501,27 +2655,38 @@
                 </td>
                 <td>
                     <p class="radio side-by-side">
-                        <obs conceptId="$@OCCUPATION@" answerConceptId="$@UNEMPLOYED@"
-                             answerCode="Unemployed"
-                             style="checkbox"/>
-                        <obs conceptId="$@reason_of_unemployment@" cols="100"/>
+                        <obs conceptId="$@OCCUPATION@" answerConceptId="$@NONE@" answerCode="Unemployed" style="checkbox"/>
                         <br/>
-                        <obs conceptId="$@OCCUPATION@" answerConceptId="$@cultivating@"
-                             answerCode="Farmer_or_cultivating"
-                             style="checkbox"/>
+                        <obs conceptId="$@OCCUPATION@" answerConceptId="$@Agriculture@" answerCode="Agriculture" style="checkbox"/>
                         <br/>
-                        <obs conceptId="$@OCCUPATION@" answerConceptId="$@HOUSEWORK@"
-                             answerCode="Housework" style="checkbox"/>
+                        <obs conceptId="$@OCCUPATION@" answerConceptId="$@Business@" answerLabel="Business" style="checkbox"/>
                         <br/>
-                        <obs conceptId="$@OCCUPATION@" answerConceptId="$@STUDENT@"
-                             answerCode="Student"
-                             style="checkbox"/>
+                        <obs conceptId="$@OCCUPATION@" answerConceptId="$@HOUSEWORK@" answerCode="HOUSEWORK" style="checkbox"/>
                         <br/>
-                        <obs conceptId="$@OCCUPATION@" answerConceptId="$@OTHER_NON-CODED@"
-                             answerCode="Other_Jobs"
-                             style="checkbox"/>
-                        <obs conceptId="$@MAIN_ACTIVITY_NON-CODED@" cols="100"/>
+                        <obs conceptId="$@OCCUPATION@" answerConceptId="$@PROFESSIONAL@" answerCode="PROFESSIONAL" style="checkbox"/>
+                        <br/>
+                        <obs conceptId="$@OCCUPATION@" answerConceptId="$@STUDENT@" answerLabel="Student" style="checkbox"/>
+                        <br/>
+                        <obs conceptId="$@OCCUPATION@" answerConceptId="$@OTHER_NON-CODED@" answerCode="Other_Occupation" style="checkbox"/>
                     </p>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong><lookup expression="fn.message('main_source_of_household_income')"/></strong>
+                </td>
+
+                <td>
+                    <obs conceptId="$@main_source_of_household_income@" answerConceptId="$@NONE@" answerCode="No_income" style="checkbox"/>
+                    <br/>
+                    <obs conceptId="$@main_source_of_household_income@" answerConceptId="$@Agriculture@" answerCode="Agriculture" style="checkbox"/>
+                    <br/>
+                    <obs conceptId="$@main_source_of_household_income@" answerConceptId="$@Business@" answerCode="Business" style="checkbox"/>
+                    <br/>
+                    <obs conceptId="$@main_source_of_household_income@" answerConceptId="$@Monthly_salary@" answerCode="Monthly_salary" style="checkbox"/>
+                    <br/>
+                    <obs conceptId="$@main_source_of_household_income@" answerConceptId="$@OTHER_NON-CODED@" answerCode="Other_source" style="checkbox"/>
 
                 </td>
             </tr>
@@ -2549,14 +2714,15 @@
                     <obs conceptId="$@How_many_parents_do_you_have_living@"/>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <strong><lookup expression="fn.message('How_many_family_members_have_died_young')"/></strong>
-                </td>
-                <td>
-                    <obs conceptId="$@How_many_family_members_have_died_young@"/>
-                </td>
-            </tr>
+            <!--  <tr>
+                  <td>
+                      <strong><lookup expression="fn.message('How_many_family_members_have_died_young')"/></strong>
+                  </td>
+                  <td>
+                      <obs conceptId="$@How_many_family_members_have_died_young@"/>
+                  </td>
+              </tr>
+  -->
             <tr>
                 <td>
                     <strong><lookup expression="fn.message('Any_family_members_who_have_a_history_of_mental_illness')"/></strong>
@@ -2568,11 +2734,17 @@
                 </td>
             </tr>
             <tr>
+                <td></td>
                 <td>
-                    <strong><lookup expression="fn.message('If_so_who_when_and_how_did_it_start?')"/></strong>
-                </td>
-                <td>
-                    <obs conceptId="$@who_when_and_how_did_it_start@" cols="100"/>
+                    <!--                    <strong><lookup expression="fn.message('If_so_who_when_and_how_did_it_start?')"/></strong> -->
+                    <strong>If yes, what is your relationship to them</strong>
+
+                    <obs conceptId= "$@relationship_to_the_relative_with_mental_health_history@"/>
+                    <br/><br/>
+                    <strong> Additional comment </strong>
+                    <obs conceptId="$@Details_on_family_History_of_Mental_illness@" cols="100"/>
+                    <br/>
+
                 </td>
             </tr>
         </table>
@@ -2632,13 +2804,17 @@
 
     <br/>
     <strong><lookup expression="fn.message('Substance_Use_History')"/></strong>
-    <lookup expression="fn.message('History_of_alcohol_of_drug_abuse')"/>
+    <lookup expression="fn.message('History_of_alcohol_or_drug_use')"/>
 
     <section headerLabel="Substance Use History/Amakuru ku ikoreshwa ry’ibiyobyabwenge">
         <table border="1" width="100%">
             <tr>
+                <td><strong>Patient has history of alcohol and substance use</strong></td>
+                <td><obs conceptId="$@HISTORY_OF_ALCOHOL_USE_OR_SUBSTANCE_USE@" answerConceptIds="$@IN_THE_PAST@,$@CURRENTLY@,$@NEVER@"  answerLabels="In the past,Currently,Never" style="radio"/></td>
+            </tr>
+            <tr>
                 <td>
-
+                    <strong>Type of substance used</strong>
                 </td>
                 <td>
                     <p class="side-by-side radio">
@@ -2650,13 +2826,14 @@
                              answerCode="tobacco"/>
                         <obs conceptId="$@substances_used@" answerConceptId="$@marijuana@"
                              answerCode="marijuana"/>
+                        <obs conceptId="$@substances_used@" answerConceptId="$@NONE@"
+                             answerCode="None_of_these"/>
                         <obs conceptId="$@substances_used@" answerConceptId="$@OTHER_NON-CODED@"
                              answerCode="Other"/>
                         <obs conceptId="$@other_substances_used@"/>
 
                         <!--<obs conceptId="$@illicit_drugs_used@"/>-->
-                        <obs conceptId="$@substances_used@" answerConceptId="$@NONE@"
-                             answerCode="None_of_these"/>
+
                         <br/>
                         <strong><lookup expression="fn.message('Quantity')"/></strong>
 
@@ -2796,12 +2973,12 @@
                 </td>
 
                 <td>
-                    <obs conceptId="$@ALLERGY@" cols="100"/>
+                    <obs conceptId="$@Allergic_reaction_non-coded@" cols="100"/>
                     <br/>
                     <obs conceptId="$@NO_ALLERGIES@" answerConceptId="$@NO@" answerCode="None" style="checkbox"/>
                     <br/><br/>
                     <strong><lookup expression="fn.message('Specify_the_allergic_reaction')"/></strong>
-                    <obs conceptId="$@Allergic_reaction_non-coded@"/>
+                    <obs conceptId="$@ALLERGY@"/>
                 </td>
             </tr>
         </table>
@@ -2820,15 +2997,31 @@
                         <strong> <obs conceptId="$@Functional_Impairments@" answerConceptId="$@unable_to_eat@"
                                       answerCode="Unable_to_eat" style="checkbox"/>
                         </strong>  <br/>
-                        <strong> <obs conceptId="$@Functional_Impairments@" answerConceptId="$@Unable_to_self_bathe@"
-                                      answerCode="Unable_to_bathe_self" style="checkbox"/>
-                        </strong> <br/>
+                        <strong>
+                            <obs conceptId="$@Functional_Impairments@" answerConceptId="$@unable_to_sleep@"
+                                 answerLabel="Unable to sleep" style="checkbox"/>
+                        </strong>
+                        <br/>
+                        <!--  <strong> <obs conceptId="$@Functional_Impairments@" answerConceptId="$@Unable_to_self_bathe@"
+                                        answerCode="Unable_to_bathe_self" style="checkbox"/>
+                          </strong> <br/> -->
+
                         <strong> <obs conceptId="$@Functional_Impairments@" answerConceptId="$@Unable_to_walk@"
                                       answerCode="Unable_to_walk" style="checkbox"/>
                         </strong> <br/>
+                        <strong>
+                            <obs conceptId="$@Functional_Impairments@" answerConceptId="$@Unable_to_self_care@"
+                                 answerLabel="Unable to self care" style="checkbox"/>
+                        </strong>
+                        <br/>
+                        <strong>
+                            <obs conceptId="$@Functional_Impairments@" answerConceptId="$@Inability_to_experience_sexual_desire@"
+                                 answerLabel="Inability to experience sexual desires" style="checkbox"/>
+                        </strong>
+                        <br/>
                         <strong> <obs conceptId="$@Functional_Impairments@" answerConceptId="$@OTHER_NON-CODED@"
                                       answerCode="Other_info" style="checkbox"/>
-                        </strong> :
+                        </strong>
                         <obs conceptId="$@Other_functional_Impairments@"/>
                     </p>
 
@@ -2913,7 +3106,7 @@
                         <br/>
 
 
-                        <obs conceptId="$@plan_to_referral@" answerConceptIds="$@NONE@,$@Caraes_Ndera_Hospital@,$@Butaro_Hospital@,$@GBV@,$@OTHER_NON-CODED@"
+                        <obs conceptId="$@plan_to_referral@" answerConceptIds="$@GBV@,$@NONE@,$@Caraes_Ndera_Hospital@,$@Butaro_Hospital@,$@OTHER_NON-CODED@"
                              answerCodes="Referrals_None,Ndera Hospital,Butaro Hospital,GBV,other_place" style="radio"/>
 
                         <obs conceptId="$@other_referrals_planned@"/>

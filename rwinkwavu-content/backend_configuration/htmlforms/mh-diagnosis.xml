@@ -76,6 +76,7 @@
         @Other_clinical_diagnosis@ = 135d1163-d50a-411c-9ea1-530ca2033e10
         @is_this_a_primary_diagnosis@ = a6c4a10e-0c00-43e8-bd60-c523d084de2a
         @YES@ = 3cd6f600-26fe-102b-80cb-0017a47871b2
+        @NO@ = 3cd6f86c-26fe-102b-80cb-0017a47871b2
         @Other_anxiety_disorders-F41@ = cf671994-d38a-11e8-b6e2-0c5b8f279a64
         @Attention-deficit_hyperactivity_disorders-F90@ = cf672d7b-d38a-11e8-b6e2-0c5b8f279a64
         @Bipolar_disorder-F31@ = cf66f134-d38a-11e8-b6e2-0c5b8f279a64
@@ -514,7 +515,7 @@
                     </td>
                     <td>
 
-                        <obs conceptId="$@is_this_a_primary_diagnosis@" answerConceptId="$@YES@" answerCode="Yes" style="radio"/>
+                        <obs conceptId="$@is_this_a_primary_diagnosis@" answerConceptIds="$@YES@,$@NO@" answerCodes="Yes,NO" style="radio"/>
 
                         <!--<workflowState workflowId="$@Primary_Diagnosis@"/>-->
                         <!--stateIds="$@ANXIETY_DISORDER@,$@Attention_Deficit_Hyperactivity_Disorder@,$@Bipolar_Disorder@,$@Conduct_Disorder_or_Childhood_Behavioral_Disorder@,$@Depression_unspecified@,$@Depression_due_to_other_medical_condition@,-->
