@@ -1,0 +1,17 @@
+Uuid,Fully specified name:en,Data class,Data type,Answers,Members
+f92a9d13-f548-11ef-bdcb-866a2ce1d8f0,Stock Management Dispensing Location ID,Question,Text,,
+01c8521d-f549-11ef-bdcb-866a2ce1d8f0,Stock Management Drug ID,Question,Text,,
+0c86f8e6-f549-11ef-bdcb-866a2ce1d8f0,Donation,Misc,N/A,,
+1288f782-f549-11ef-bdcb-866a2ce1d8f0,Local/Foreign Purchase,Misc,N/A,,
+add1466b-f54d-11ef-bdcb-866a2ce1d8f0,Warehouse delivery,Misc,N/A,,
+b1671409-f54d-11ef-bdcb-866a2ce1d8f0,Stock Transfer from another Facility,Misc,N/A,,
+059e29b6-f549-11ef-bdcb-866a2ce1d8f0,Stock Source Type,Question,Coded,Donation; Local/Foreign Purchase; Warehouse delivery; Stock Transfer from another Facility,
+a9a1a306-f54e-11ef-bdcb-866a2ce1d8f0,Drugs,Misc,N/A,,
+c28962f2-f54e-11ef-bdcb-866a2ce1d8f0,Non Drugs,Misc,N/A,,
+6a027f44-f54e-11ef-bdcb-866a2ce1d8f0,Stock Item Category,Question,Coded,Drugs; Non Drugs,
+6468f785-f54f-11ef-bdcb-866a2ce1d8f0,Packaging Units,Question,Coded,TABLET; CAPSULE; Units,
+24744fab-f551-11ef-bdcb-866a2ce1d8f0,Expiry,Misc,N/A,,
+26d73a1d-f551-11ef-bdcb-866a2ce1d8f0,Spillage,Misc,N/A,,
+29536fba-f551-11ef-bdcb-866a2ce1d8f0,Miscellaneous,Misc,N/A,,
+dbcc4e49-f550-11ef-bdcb-866a2ce1d8f0,Stock Adjustment Reason,Question,Coded,Expiry; Spillage; Miscellaneous,
+b798c638-f894-11ef-aa5e-0a03ba1f52ea,Dispensing Units,ConvSet,Coded,,TABLET; CAPSULE; Units

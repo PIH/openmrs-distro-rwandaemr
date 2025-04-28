@@ -1,0 +1,53 @@
+<config>
+    <globalProperties>
+
+        <!-- Stock Management -->
+
+        <!-- TODO: Change this, and figure out why it is needed -->
+        <globalProperty>
+            <property>stockmanagement.applicationRootUrl</property>
+            <value>http://localhost:8080/openmrs</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>stockmanagement.observationDispensingLocationConcept</property>
+            <value>f92a9d13-f548-11ef-bdcb-866a2ce1d8f0</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>stockmanagement.observationDrugConcept</property>
+            <value>01c8521d-f549-11ef-bdcb-866a2ce1d8f0</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>stockmanagement.dispensingUnitsConceptId</property>
+            <value>b798c638-f894-11ef-aa5e-0a03ba1f52ea</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>stockmanagement.unknownConceptId</property>
+            <value>3cd6fac4-26fe-102b-80cb-0017a47871b2</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>stockmanagement.stockSourceCodeConceptId</property>
+            <value>059e29b6-f549-11ef-bdcb-866a2ce1d8f0</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>stockmanagement.stockItemCategoryConceptId</property>
+            <value>6a027f44-f54e-11ef-bdcb-866a2ce1d8f0</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>stockmanagement.packagingUnitsConceptId</property>
+            <value>6468f785-f54f-11ef-bdcb-866a2ce1d8f0</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>stockmanagement.stockAdjustmentReasonCodeConceptId</property>
+            <value>dbcc4e49-f550-11ef-bdcb-866a2ce1d8f0</value>
+        </globalProperty>
+
+    </globalProperties>
+</config>
