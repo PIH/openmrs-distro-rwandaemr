@@ -167,60 +167,11 @@
     "careSettingUuid": "6f0c9a92-6f24-11e3-af88-005056821db0"
   },
   "@openmrs/esm-patient-forms-app": {
-    "customFormsUrl": "/ws/rest/v1/rwandaemr/patientforms",
     "htmlFormEntryForms": [
       {
-        "formUuid": "79e1d4a0-a747-4431-be7f-dbad463a5c82",
-        "formName": "Vitals",
-        "formUiResource": "file:configuration/htmlforms/auto-vital-signs.xml",
-        "formUiPage": "enterHtmlFormWithStandardUi"
-      },
-      {
-        "formUuid": "b248baa0-4093-4be7-8ef5-d542da648466",
-        "formName": "Clinical Examination",
-        "formUiResource": "file:configuration/htmlforms/ipd-clinical-examination.xml",
-        "formUiPage": "enterHtmlFormWithStandardUi"
-      },
-      {
-        "formUuid": "326aad65-e28a-41ca-b61e-76c6cc673f46",
-        "formName": "IPD FollowUp(SOAP)",
-        "formUiResource": "file:configuration/htmlforms/ipd-general-followup.xml",
-        "formUiPage": "enterHtmlFormWithStandardUi"
-      },
-      {
-        "formUuid": "88589514-deee-4e26-ad5a-512da2db9f05",
-        "formName": "Midwife Assessment",
-        "formUiResource": "file:configuration/htmlforms/ipd-maternity-admission-midwife.xml",
-        "formUiPage": "enterHtmlFormWithStandardUi"
-      },
-      {
-        "formUuid": "544a9be9-f1a1-467c-a62a-72b98a81da6b",
-        "formName": "Medical Assessment",
-        "formUiResource": "file:configuration/htmlforms/ipd-maternity-medical-assessment.xml",
-        "formUiPage": "enterHtmlFormWithStandardUi"
-      },
-      {
-        "formUuid": "544a9be9-f1a1-467c-a62a-72b98a81da6b",
-        "formName": "Maternity Clinical Examination",
-        "formUiResource": "file:configuration/htmlforms/ipd-maternity-clinical-examination.xml",
-        "formUiPage": "enterHtmlFormWithStandardUi"
-      },
-      {
-        "formUuid": "a9f70c7c-244d-450d-9285-429358254a0a",
-        "formName": "Nenonatal Triage",
-        "formUiResource": "file:configuration/htmlforms/ipd-neo-triage-form.xml",
-        "formUiPage": "enterHtmlFormWithStandardUi"
-      },
-      {
-        "formUuid": "10181c49-7050-4789-8ee3-a85f1c17e20b",
-        "formName": "Neonatal Admission",
-        "formUiResource": "file:configuration/htmlforms/ipd-neonatal-admission.xml",
-        "formUiPage": "enterHtmlFormWithStandardUi"
-      },
-      {
-        "formUuid": "d5294453-d3f6-482a-a568-e07ea459b3f0",
-        "formName": "Neonatal Clinical Examination",
-        "formUiResource": "file:configuration/htmlforms/ipd-neo-clinical-examination.xml",
+        "formUuid": "20316666-2ce5-462c-b4eb-1e728e2d8663",
+        "formName": "Adult HIV Flowsheet - New Lab",
+        "formUiResource": "file:htmlforms/common/adult-hiv-flowsheet---new-lab.xml",
         "formUiPage": "enterHtmlFormWithStandardUi"
       }
     ]
@@ -320,10 +271,8 @@
         "remove": [
           "o2-visit-summary-workspace-siderail-button",
           "ward-inpatient-notes-form-action-button",
-          "order-basket-action-menu"
-        ],
-        "add": [
-          "o2-visit-actions"
+          "order-basket-action-menu",
+          "clinical-forms-workspace-siderail-button"
         ]
       }
     }
