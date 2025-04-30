@@ -176,8 +176,6 @@
       }
     ]
   },
-
-  
   "@pih/esm-pathology-app": {
     "pathologyEncTypeUUID": "70f18a24-92ec-4de5-acdc-7cae77414e32",
     "healthCenterAttrTypeUUID": "8d87236c-c2cc-11de-8d13-0010c6dffd0f",
@@ -264,6 +262,18 @@
       },
       "substitutionType": {
         "uuid": "b9c5bca0-d026-4245-a4d2-e4c0a8999082"
+      }
+    }
+  },
+  "@pih/esm-commons-app": {
+    "extensionSlots": {
+      "action-menu-ward-patient-items-slot": {
+        "remove": [
+          "o2-visit-summary-workspace-siderail-button",
+          "ward-inpatient-notes-form-action-button",
+          "order-basket-action-menu",
+          "clinical-forms-workspace-siderail-button"
+        ]
       }
     }
   }
