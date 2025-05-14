@@ -471,6 +471,66 @@
         </table>
         <br/><br/>
 
+        <br/><br/>
+
+    Pain score: <label style="color:green;" >Green</label> = 0-mild
+                <label style="color:yellow;" >Yellow</label> = Moderate
+                <label style="color:red;" >red</label> = Severe
+
+    <br/><br/>
+    <section>
+        <table border="1">
+            <tr colspan="4">
+                <th colspan="7">Sedation Assessment</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th >Responsive</th>
+                <th >Speech</th>
+                <th >Scale</th>
+            </tr>
+            <tr >
+                <td style="background-color:red;">+3</td>
+                <td style="background-color:red;">Combative / violent</td>
+                <td style="background-color:red;">Cont.Loud outburst</td>
+                <td rowspan = '3'>+2 to +3 Agitated</td>
+            </tr>
+            <tr>
+                <td style="background-color:red;">+2</td>
+                <td style="background-color:red;">V anxious/ Agitation</td>
+                <td style="background-color:red;">Loud Outburst</td>
+            </tr>
+            <tr>
+                <td style="background-color:yellow;">+1</td>
+                <td style="background-color:yellow;">Anxious/ Restless</td>
+                <td style="background-color:yellow;">Talkative</td>
+            </tr>
+            <tr>
+                <td style="background-color:green;">0</td>
+                <td style="background-color:green;">Awake calm</td>
+                <td style="background-color:green;">Normal</td>
+                <td>ZERO</td>
+            </tr>
+            <tr >
+                <td style="background-color:yellow;">-1</td>
+                <td style="background-color:yellow;">Alert to Voice</td>
+                <td style="background-color:yellow;">Slowed Slurred</td>
+                <td>Calm</td>
+            </tr>
+            <tr>
+                <td style="background-color:red;">-2</td>
+                <td style="background-color:red;">Physical Stimulation</td>
+                <td style="background-color:red;  ">Few recognisable words</td>
+                <td rowspan="2">-2 to -3 Sedated</td>
+            </tr>
+            <tr>
+                <td style="background-color:red;">-3</td>
+                <td style="background-color:red;">No response</td>
+                <td style="background-color:red; ">Nil</td>
+            </tr>
+        </table>
+    </section>
+
 
     </section>
     <section>
@@ -599,63 +659,7 @@
     </section>
     <br/><br/>
 
-    Pain score: <label style="color:green;" >Green</label> = 0-mild
-                <label style="color:yellow;" >Yellow</label> = Moderate
-                <label style="color:red;" >red</label> = Severe
-
-    <br/><br/>
-    <section>
-        <table border="1">
-            <tr colspan="4">
-                <th colspan="7">Sedation Assessment</th>
-            </tr>
-            <tr>
-                <th></th>
-                <th >Responsive</th>
-                <th >Speech</th>
-                <th >Scale</th>
-            </tr>
-            <tr >
-                <td style="background-color:red;">+3</td>
-                <td style="background-color:red;">Combative / violent</td>
-                <td style="background-color:red;">Cont.Loud outburst</td>
-                <td rowspan = '3'>+2 to +3 Agitated</td>
-            </tr>
-            <tr>
-                <td style="background-color:red;">+2</td>
-                <td style="background-color:red;">V anxious/ Agitation</td>
-                <td style="background-color:red;">Loud Outburst</td>
-            </tr>
-            <tr>
-                <td style="background-color:yellow;">+1</td>
-                <td style="background-color:yellow;">Anxious/ Restless</td>
-                <td style="background-color:yellow;">Talkative</td>
-            </tr>
-            <tr>
-                <td style="background-color:green;">0</td>
-                <td style="background-color:green;">Awake calm</td>
-                <td style="background-color:green;">Normal</td>
-                <td>ZERO</td>
-            </tr>
-            <tr >
-                <td style="background-color:yellow;">-1</td>
-                <td style="background-color:yellow;">Alert to Voice</td>
-                <td style="background-color:yellow;">Slowed Slurred</td>
-                <td>Calm</td>
-            </tr>
-            <tr>
-                <td style="background-color:red;">-2</td>
-                <td style="background-color:red;">Physical Stimulation</td>
-                <td style="background-color:red;  ">Few recognisable words</td>
-                <td rowspan="2">-2 to -3 Sedated</td>
-            </tr>
-            <tr>
-                <td style="background-color:red;">-3</td>
-                <td style="background-color:red;">No response</td>
-                <td style="background-color:red; ">Nil</td>
-            </tr>
-        </table>
-    </section>
+    
 
 <!--    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Diagnosis/Indwara">-->
 <!--        <div class="section-container">-->
