@@ -32,7 +32,7 @@
         <bedmanagementVersion>6.1.0</bedmanagementVersion>
         <calculationVersion>1.3.0</calculationVersion>
         <coreappsVersion>2.1.0-SNAPSHOT</coreappsVersion>
-        <emrapiVersion>2.2.0</emrapiVersion>
+        <emrapiVersion>2.3.0</emrapiVersion>
         <eventVersion>2.10.0</eventVersion>
         <fhir2Version>2.3.0</fhir2Version>
         <formconceptsVersion>2.0.1</formconceptsVersion>
@@ -59,9 +59,11 @@
         <omodExportVersion>2.1.0</omodExportVersion>
         <orderextensionVersion>3.2.0</orderextensionVersion>
         <owaVersion>1.15.0</owaVersion>
+        <pacsintegrationVersion>1.13.0-SNAPSHOT</pacsintegrationVersion>
         <patientsummaryVersion>1.4.0</patientsummaryVersion>
         <pharmacymanagementVersion>2.0.0-SNAPSHOT</pharmacymanagementVersion>
         <providermanagementVersion>2.15.0</providermanagementVersion>
+        <radiologyappVersion>1.8.0-SNAPSHOT</radiologyappVersion>
         <registrationappVersion>1.27.0</registrationappVersion>
         <registrationcoreVersion>1.13.0</registrationcoreVersion>
         <reportingVersion>1.27.0</reportingVersion>
@@ -320,6 +322,12 @@
         </dependency>
         <dependency>
             <groupId>org.openmrs.module</groupId>
+            <artifactId>pacsintegration-api</artifactId>
+            <version>${pacsintegrationVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
             <artifactId>pharmacymanagement-omod</artifactId>
             <version>${pharmacymanagementVersion}</version>
             <scope>provided</scope>
@@ -328,6 +336,12 @@
             <groupId>org.openmrs.module</groupId>
             <artifactId>providermanagement-omod</artifactId>
             <version>${providermanagementVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>radiologyapp-api</artifactId>
+            <version>${radiologyappVersion}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

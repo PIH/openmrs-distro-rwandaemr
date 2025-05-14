@@ -1,0 +1,96 @@
+<config>
+    <globalProperties>
+        <globalProperty>
+            <property>emr.xrayOrderablesConcept</property>
+            <value>dde1782b-185a-42bf-be30-5c3da2d0a7f6</value>
+        </globalProperty>
+        <globalProperty>
+            <property>emr.ctScanOrderablesConcept</property>
+            <value>9ed71c4b-6002-46da-8e00-4c985651fa71</value>
+        </globalProperty>
+        <globalProperty>
+            <property>emr.ultrasoundOrderablesConcept</property>
+            <value>3e4fc57f-43a1-40ef-bbb7-6a704e9bb37b</value>
+        </globalProperty>
+        <globalProperty>
+            <property>emr.radiologyOrderEncounterType</property>
+            <value>02965343-bbe7-4c3c-83c5-c3d084e715b7</value> <!-- This uses an existing encounter type -->
+        </globalProperty>
+        <globalProperty>
+            <property>emr.radiologyStudyEncounterType</property>
+            <value>7d2fdd23-2cfc-11f0-bad6-56aa92787bc1</value>
+        </globalProperty>
+        <globalProperty>
+            <property>emr.radiologyReportEncounterType</property>
+            <value>cd4f9f32-6eb6-4cad-986b-00449593e7e0</value> <!-- This uses an existing encounter type -->
+        </globalProperty>
+        <globalProperty>
+            <property>emr.radiologyTechnicianEncounterRole</property>
+            <value>8f4d96e2-c97c-4285-9319-e56b9ba6029c</value>
+        </globalProperty>
+        <globalProperty>
+            <property>emr.principalResultsInterpreterEncounterRole</property>
+            <value>08f73be2-9452-44b5-801b-bdf7418c2f71</value>
+        </globalProperty>
+        <globalProperty>
+            <property>emr.radiologyTestOrderType</property>
+            <value>${orderType.radiologyOrder.uuid}</value>
+        </globalProperty>
+        <globalProperty>
+            <property>emr.radiologyCareSetting</property>
+            <value>${careSetting.outpatient.uuid}</value>
+        </globalProperty>
+
+        <!-- Not mandatory, enables constrast-related questions (eg creatinine level of the patient) -->
+        <globalProperty>
+            <property>emr.contrastOrderablesConcept</property>
+            <value></value>
+        </globalProperty>
+        <globalProperty>
+            <property>emr.creatinineLevelConcept</property>
+            <value></value>
+        </globalProperty>
+
+        <!-- not mandatory, only used to display contact info on some error messages -->
+        <globalProperty>
+            <property>emr.leadRadiologyTechName</property>
+            <value></value>
+        </globalProperty>
+        <globalProperty>
+            <property>emr.leadRadiologyTechContactInfo</property>
+            <value></value>
+        </globalProperty>
+
+        <!-- PACS Integration module -->
+        <globalProperty>
+            <property>pacsintegration.patientIdentifierTypeUuid</property>
+            <value>4e458867-9a68-4e55-9fe0-fb49fac4e6b0</value> <!-- IMB Primary Care Registration ID -->
+        </globalProperty>
+
+        <globalProperty>
+            <property>pacsintegration.defaultLocale</property>
+            <value>en</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>pacsintegration.sendingFacility</property>
+            <value>Rwanda</value>  <!-- TODO: Update this if needed, might not be used -->
+        </globalProperty>
+
+        <globalProperty>
+            <property>pacsintegration.procedureCodeConceptSourceUuid</property>
+            <value>3f65bb4a-26fe-102b-80cb-0017a47871b2</value>  <!-- Concept Source: LOINC -->
+        </globalProperty>
+
+        <globalProperty>
+            <property>pacsintegration.locationCodeAttributeTypeUuid</property>
+            <value>${locationAttribute.fosaId.uuid}</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>pacsintegration.hl7ListenerPort</property>
+            <value>6663</value>
+        </globalProperty>
+
+    </globalProperties>
+</config>

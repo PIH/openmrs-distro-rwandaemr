@@ -1,0 +1,5 @@
+Uuid,Name,Description,Java class name,Parent
+${orderType.drugOrder.uuid},Drug Order,Drug Order,org.openmrs.DrugOrder,
+${orderType.pharmacyDrugOrder.uuid},Pharmacy Drug Order,Pharmacy Drug Order,org.openmrs.DrugOrder,
+${orderType.testOrder.uuid},Lab Order,Lab Order,org.openmrs.TestOrder,
+${orderType.radiologyOrder.uuid},Radiology Test Order,A radiology test order,org.openmrs.module.radiologyapp.RadiologyOrder,${orderType.testOrder.uuid}
