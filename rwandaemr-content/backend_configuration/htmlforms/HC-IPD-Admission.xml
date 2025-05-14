@@ -1,13 +1,4 @@
-<htmlform
-        htmlformUuid="f1facab2-df46-486a-8665-f2ceb9a1aebb"
-        formUuid="df9bac4e-fc3c-4601-b845-9b8012e28830"
-        formName="HC IPD-Admission Form"
-        formDescription="HC IPD-Admission Form"
-        formVersion="1.0"
-        formEncounterType="8e3c016e-cfca-407a-8214-2f071b3d8da2"
-        formPublished="true"
-        formRetired="false"
->
+<htmlform formDescription="HC IPD-Admission Form" formEncounterType="8e3c016e-cfca-407a-8214-2f071b3d8da2" formName="HC IPD-Admission Form" formPublished="true" formRetired="false" formUuid="df9bac4e-fc3c-4601-b845-9b8012e28830" formVersion="1.0" htmlformUuid="f1facab2-df46-486a-8665-f2ceb9a1aebb">
     <macros>
         paperFormId = (Fill this in)
         headerColor =#009d8e
@@ -68,8 +59,8 @@
         padding: 1px 10px;
         }
 
-        .past-medical-history-item>span,
-        .past-medical-history-item>label {
+        .past-medical-history-item&gt;span,
+        .past-medical-history-item&gt;label {
         display: inline !important;
         vertical-align: middle;
         }
@@ -86,7 +77,7 @@
         -moz-column-count: 3;
         }
 
-        p.radio>* {
+        p.radio&gt;* {
         display: inline;
         float: none !important;
         min-width: initial;
@@ -173,22 +164,22 @@
         width: 100%;
         }
 
-        .two-columns>div {
+        .two-columns&gt;div {
         display: table-cell;
         width: 50%;
         }
 
-        .three-columns>div {
+        .three-columns&gt;div {
         display: table-cell;
         width: 33%;
         }
 
-        .four-columns>div {
+        .four-columns&gt;div {
         display: table-cell;
         width: 25%;
         }
 
-        .five-columns>div {
+        .five-columns&gt;div {
         display: table-cell;
         width: 20%;
         }
@@ -268,7 +259,7 @@
         }
 
     </style>
-    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateIPDAdmissionOnHtmlFormSubmissionAction" />
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateIPDAdmissionOnHtmlFormSubmissionAction"/>
 
     <ifMode mode="ENTER">
 
@@ -278,61 +269,61 @@
 
     <ifMode include="false" mode="VIEW">
         <h2>
-            <uimessage code="INPATIENT ADMISSION FORM" />
+            <uimessage code="INPATIENT ADMISSION FORM"/>
         </h2>
 
-        <div id="who-when-where" class="section-container">
+        <div class="section-container" id="who-when-where">
             <p id="who">
                 <label>
-                    <uimessage code="coreapps.patientDashBoard.provider" />
+                    <uimessage code="coreapps.patientDashBoard.provider"/>
                 </label>
                 <span>
-                    <encounterProvider default="currentUser" required="true" />
+                    <encounterProvider required="true" default="currentUser"/>
                 </span>
             </p>
             <p id="when">
                 <label>
-                    <uimessage code="coreapps.patientDashBoard.location" />
+                    <uimessage code="coreapps.patientDashBoard.location"/>
                 </label>
                 <span>
-                    <encounterLocation default="GlobalProperty:billing.defaultLocation" />
+                    <encounterLocation default="GlobalProperty:billing.defaultLocation"/>
                 </span>
             </p>
             <p id="where">
                 <label>
-                    <uimessage code="coreapps.patientDashBoard.date" />
+                    <uimessage code="coreapps.patientDashBoard.date"/>
                 </label>
                 <span class="date-on-line">
-                    <encounterDate default="now" id="encounterDate" />
+                    <encounterDate default="now" id="encounterDate"/>
                 </span>
             </p>
             <p class="flexView">
-                <b>Insurance:</b> <font color="green">
-                <lookup expression="fn.latestObs(6741).getValueText()"/>(Reg. Date:<lookup expression="fn.latestObs(6741).obsDatetime"/>)</font>
+                <b>Insurance:</b>
+                <font color="green">
+                    <lookup expression="fn.latestObs(6741).getValueText()"/>(Reg. Date:<lookup expression="fn.latestObs(6741).obsDatetime"/>)</font>
             </p>
         </div>
     </ifMode>
 
-    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="ADMISSION INFO">
+    <section headerCode="ADMISSION INFO" headerStyle="title" headerTag="legend" sectionTag="fieldset">
         <div class="section-container">
 
             <p class="date-one-line">
                 <label>
-                    <uimessage code="referenceapplication.simpleAdmission.admissionDate" />
+                    <uimessage code="referenceapplication.simpleAdmission.admissionDate"/>
                 </label>
-                <obs conceptId="a6098f48-7340-4665-957c-d4af0a3a7f0f" />
+                <obs conceptId="a6098f48-7340-4665-957c-d4af0a3a7f0f"/>
             </p>
 
             <p id="location-container">
                 <label>
-                    <uimessage code="referenceapplication.simpleAdmission.admittedTo" />
+                    <uimessage code="referenceapplication.simpleAdmission.admittedTo"/>
                 </label>
-                <encounterLocation required="true" tags="Admission Location" />
+                <encounterLocation required="true" tags="Admission Location"/>
             </p>
             <p class="flexView">
                 <b>Consultation Type:</b>
-                <obs conceptId="d6dafc4b-9ad8-4467-94a9-0eca78648254" answerConceptIds="50596903-9f01-4627-9911-6bbd178790cd,29ce8244-5251-4c76-8e99-bbad280be2ef
-            ,2554e8da-eed3-42c9-ada5-ae304b2b5587,b1ebf22b-1fa4-4538-8b07-abc33dd05ea8,433f21dc-c3be-4dc0-9e94-1ace7c8bcc66,8fee77af-6973-4e5b-b586-7a6c3ad5226b,59bb1a32-a36a-4766-b47c-eb9c580bb0ad,0d3517fd-891e-405d-b1d1-6669ad05aa9f,fecab067-fb65-4d0e-96bf-8c42dd123353,df54a8e3-cf9e-46c3-9efd-92bb5e4ef7f9,a9fc23ad-410a-4142-964b-21193ab1a8bd,50596903-9f01-4627-9911-6bbd178790cd,8bb801d8-48f8-4bbc-b3b0-3698ef1c03aa" required="true"/>
+                <obs answerConceptIds="50596903-9f01-4627-9911-6bbd178790cd,29ce8244-5251-4c76-8e99-bbad280be2ef             ,2554e8da-eed3-42c9-ada5-ae304b2b5587,b1ebf22b-1fa4-4538-8b07-abc33dd05ea8,433f21dc-c3be-4dc0-9e94-1ace7c8bcc66,8fee77af-6973-4e5b-b586-7a6c3ad5226b,59bb1a32-a36a-4766-b47c-eb9c580bb0ad,0d3517fd-891e-405d-b1d1-6669ad05aa9f,fecab067-fb65-4d0e-96bf-8c42dd123353,df54a8e3-cf9e-46c3-9efd-92bb5e4ef7f9,a9fc23ad-410a-4142-964b-21193ab1a8bd,50596903-9f01-4627-9911-6bbd178790cd,8bb801d8-48f8-4bbc-b3b0-3698ef1c03aa" conceptId="d6dafc4b-9ad8-4467-94a9-0eca78648254" required="true"/>
             </p>
             <p class="flexView">
                 <b>Department:</b>
@@ -340,22 +331,20 @@
             </p>
             <p>
                 <label>Provenance /Catchment Area Population</label>
-                <obs conceptId="f8c17ed2-38e4-4010-bd10-e27c99185eb4"
-                     answerConceptIds="1aa519c4-ce19-4c2f-baa4-fb9808164f47,94efe7f2-9b74-4c38-b017-f77b9874d88b,a5701f65-8a41-4904-aa9c-be0a0fabcc88" />
+                <obs answerConceptIds="1aa519c4-ce19-4c2f-baa4-fb9808164f47,94efe7f2-9b74-4c38-b017-f77b9874d88b,a5701f65-8a41-4904-aa9c-be0a0fabcc88" conceptId="f8c17ed2-38e4-4010-bd10-e27c99185eb4"/>
             </p>
             <p class="side-by-side">
                 <label>Mode of Admission</label>
-                <obs conceptId="3cdc85ac-26fe-102b-80cb-0017a47871b2"
-                     answerConceptIds="3cde418a-26fe-102b-80cb-0017a47871b2,2536"
-                     answerLabels="Voluntary(Self-refer),Transfer in" style="radio" id="modeAdm" answerSeparator="">
+                <obs answerConceptIds="3cde418a-26fe-102b-80cb-0017a47871b2,3ce4f67e-26fe-102b-80cb-0017a47871b2" answerLabels="Voluntary(Self-refer),Transfer in" answerSeparator="" conceptId="3cdc85ac-26fe-102b-80cb-0017a47871b2" id="modeAdm" style="radio">
                     <controls>
-                        <when value="2536" thenDisplay="#transIn" />
+                        <when thenDisplay="#transIn" value="2536"/>
                     </controls>
                 </obs>
             </p>
-            <p id="transIn" class="small-input flexView">
+            <p class="small-input flexView" id="transIn">
 
-                <obs conceptId="3cda3efa-26fe-102b-80cb-0017a47871b2" labelText="Transfer(CS)/Transfer From:" style="" size="10"/><br/>
+                <obs conceptId="3cda3efa-26fe-102b-80cb-0017a47871b2" labelText="Transfer(CS)/Transfer From:" size="10" style=""/>
+                <br/>
 
             </p>
 
@@ -363,109 +352,84 @@
         </div>
     </section>
 
-    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="EMMERGENCY CONTACT">
+    <section headerCode="EMMERGENCY CONTACT" headerStyle="title" headerTag="legend" sectionTag="fieldset">
         <div class="section-container">
 
             <p>
                 <label>Contact Person:</label>
-                <obs conceptId="a7da2d17-0fc9-478e-8de9-2291f38b0989" LabelCode="" />
+                <obs LabelCode="" conceptId="a7da2d17-0fc9-478e-8de9-2291f38b0989"/>
             </p>
             <p>
                 <label>Emergency contact phone number:</label>
-                <obs conceptId="bcddbe7e-04dc-4494-a330-d5b54c4a4dd0" LabelCode="" />
+                <obs LabelCode="" conceptId="bcddbe7e-04dc-4494-a330-d5b54c4a4dd0"/>
             </p>
         </div>
     </section>
-    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="HEALTH STATUS">
+    <section headerCode="HEALTH STATUS" headerStyle="title" headerTag="legend" sectionTag="fieldset">
         <div class="section-container">
 
             <p class="side-by-side">
                 <label>BLOOD GROUP:</label>
-                <obs conceptId="3ccf4090-26fe-102b-80cb-0017a47871b2"
-                     answerConceptIds="3cd392b2-26fe-102b-80cb-0017a47871b2,3cd39686-26fe-102b-80cb-0017a47871b2,3cd39988-26fe-102b-80cb-0017a47871b2,3cd39ca8-26fe-102b-80cb-0017a47871b2,3cd3a144-26fe-102b-80cb-0017a47871b2,3cd3a464-26fe-102b-80cb-0017a47871b2,3cd8f716-26fe-102b-80cb-0017a47871b2,3cd8f8b0-26fe-102b-80cb-0017a47871b2,3cd6fac4-26fe-102b-80cb-0017a47871b2"
-                     answerCodes="A+ ,A-, B+, B-,O+,O-,AB+,AB-, UNKNOWN" style="radio" answerSeparator="" />
+                <obs answerCodes="A+ ,A-, B+, B-,O+,O-,AB+,AB-, UNKNOWN" answerConceptIds="3cd392b2-26fe-102b-80cb-0017a47871b2,3cd39686-26fe-102b-80cb-0017a47871b2,3cd39988-26fe-102b-80cb-0017a47871b2,3cd39ca8-26fe-102b-80cb-0017a47871b2,3cd3a144-26fe-102b-80cb-0017a47871b2,3cd3a464-26fe-102b-80cb-0017a47871b2,3cd8f716-26fe-102b-80cb-0017a47871b2,3cd8f8b0-26fe-102b-80cb-0017a47871b2,3cd6fac4-26fe-102b-80cb-0017a47871b2" answerSeparator="" conceptId="3ccf4090-26fe-102b-80cb-0017a47871b2" style="radio"/>
             </p>
             <p class="radio">
                 <label>KNOWN CHRONIC DISEASES/CONDITIONS:</label>
-                <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@HEART_FAILURE@" answerLabel="HF"
-                     style="checkbox" />
-                <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@HYPERTENSION@" answerLabel="HTN"
-                     style="checkbox" />
-                <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@stroke@" answerLabel="stroke"
-                     style="checkbox" />
-                <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@ASTHMA@" answerLabel="asthma"
-                     style="checkbox" />
-                <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@COPD@" answerLabel="COPD"
-                     style="checkbox" />
-                <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@DIABETES_MELLITUS@"
-                     answerLabel="DM" style="checkbox" />
-                <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@chronical_kidney_disease@"
-                     answerLabel="CKD" style="checkbox" />
-                <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@TUBERCULOSIS@" answerLabel="TB"
-                     style="checkbox" />
-                <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@HIV@" answerLabel="HIV"
-                     style="checkbox" />
-                <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@LIVER_FAILURE@"
-                     answerLabel="liver" style="checkbox" />
-                <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@Cancer@" answerLabel="cancer"
-                     style="checkbox" />
-                <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@Dialysis@" answerLabel="dialysis"
-                     style="checkbox" />
-                <obs conceptId="$@Patient_Medical_History@" answerConceptId="$@OTHER_RELATIVE@"
-                     answerLabel="Autres(specifier)" style="checkbox" />
-                <obs conceptId="$@Patient_Medical_History@" answerConceptId="3cd743f8-26fe-102b-80cb-0017a47871b2"
-                     answerLabel="NONE" style="checkbox" />
+                <obs answerConceptId="$@HEART_FAILURE@" answerLabel="HF" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@HYPERTENSION@" answerLabel="HTN" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@stroke@" answerLabel="stroke" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@ASTHMA@" answerLabel="asthma" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@COPD@" answerLabel="COPD" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@DIABETES_MELLITUS@" answerLabel="DM" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@chronical_kidney_disease@" answerLabel="CKD" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@TUBERCULOSIS@" answerLabel="TB" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@HIV@" answerLabel="HIV" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@LIVER_FAILURE@" answerLabel="liver" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@Cancer@" answerLabel="cancer" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@Dialysis@" answerLabel="dialysis" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@OTHER_RELATIVE@" answerLabel="Autres(specifier)" conceptId="$@Patient_Medical_History@" style="checkbox"/>
+                <obs answerConceptId="3cd743f8-26fe-102b-80cb-0017a47871b2" answerLabel="NONE" conceptId="$@Patient_Medical_History@" style="checkbox"/>
             </p>
 
         </div>
     </section>
-    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="FIRST ADMISSION">
+    <section headerCode="FIRST ADMISSION" headerStyle="title" headerTag="legend" sectionTag="fieldset">
         <div class="section-container">
-
+            <p>
+                <label>Current Complaints or Symptoms:</label>
+                <obs LabelCode="Current Complaints or symptoms:" cols="80" conceptId="3ce2b170-26fe-102b-80cb-0017a47871b2" rows="3" style="textarea"/>
+            </p>
             <p>
                 <label>Clinical summary:</label>
-                <obs conceptId="6602a73b-b8d3-40bc-bae8-f00ff3b9cceb" LabelCode="CLINICAL SUMMARY:" style="textarea"
-                     rows="3" cols="80" />
+                <obs LabelCode="CLINICAL SUMMARY:" cols="80" conceptId="6602a73b-b8d3-40bc-bae8-f00ff3b9cceb" rows="3" style="textarea"/>
             </p>
             <p>
-                <label>INVESTIGATION SUMMARY:</label>
-                <obs conceptId="6a329c3c-b15f-418d-b3d6-74e9b95b5d85" LabelCode="INVESTIGATION:" style="textarea"
-                     rows="3" cols="80" />
+                <label>Investigation Summary:</label>
+                <obs LabelCode="INVESTIGATION:" cols="80" conceptId="6a329c3c-b15f-418d-b3d6-74e9b95b5d85" rows="3" style="textarea"/>
             </p>
 
         </div>
     </section>
-    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="DIAGNOSIS">
+    <section headerCode="DIAGNOSIS" headerStyle="title" headerTag="legend" sectionTag="fieldset">
         <div class="section-container">
 
-            <div id="data-collection">
+            <p>
+                <label>Primary reason for admission(diagnosis):</label>
+                <obs conceptId="b53e4d45-fb1f-4f8d-bf66-5b3641bd031b" style="text" required="true"/>
+            </p>
 
-                <encounterDiagnoses required="true" selectedDiagnosesTarget="#encounter-diagnoses-target" />
-
-                <p>
-                    <label>
-                        <uimessage code="coreapps.consult.freeTextComments" />
-                    </label>
-                    <obs conceptId="3cd9d956-26fe-102b-80cb-0017a47871b2" rows="5" style="textarea" />
-                </p>
-
-            </div>
-
-            <div id="encounter-diagnoses-target">
-            </div>
         </div>
     </section>
 
 
-    <ifMode mode="VIEW" include="false">
+    <ifMode include="false" mode="VIEW">
         <div id="buttons">
 
-            <button id="submit" class="submitButton confirm right">
-                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
-                                            style="display: none; margin-right: 10px;"></i>
+            <button class="submitButton confirm right" id="submit">
+                <uimessage code="Save"/>
+                <i class="icon-spinner icon-spin icon-2x" style="display: none; margin-right: 10px;"/>
             </button>
-            <button id="cancel" type="button" class="cancel">
-                <uimessage code="emr.cancel" />
+            <button class="cancel" id="cancel" type="button">
+                <uimessage code="emr.cancel"/>
             </button>
         </div>
     </ifMode>
