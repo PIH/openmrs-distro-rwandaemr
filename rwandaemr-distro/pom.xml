@@ -39,7 +39,7 @@
         <formentryappVersion>1.4.3</formentryappVersion>
         <groovyVersion>2.3.1</groovyVersion>
         <heightweighttrackerVersion>2.1.0</heightweighttrackerVersion>
-        <htmlformentryVersion>5.5.0-SNAPSHOT</htmlformentryVersion>
+        <htmlformentryVersion>6.0.0-SNAPSHOT</htmlformentryVersion>
         <htmlformentryuiVersion>3.0.0-SNAPSHOT</htmlformentryuiVersion>
         <htmlformflowsheetVersion>2.0.0</htmlformflowsheetVersion>
         <htmlwidgetsVersion>1.12.0-SNAPSHOT</htmlwidgetsVersion>
