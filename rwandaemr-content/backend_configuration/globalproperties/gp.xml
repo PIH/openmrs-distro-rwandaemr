@@ -7,6 +7,26 @@
             <value>${insurance.private.name}</value>
         </globalProperty>
 
+        <globalProperty>
+            <property>rwandaemr.radiology.supportedModalities</property>
+            <value>CR,CT,US</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>rwandaemr.radiology.orderables.CR</property>
+            <value>dde1782b-185a-42bf-be30-5c3da2d0a7f6</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>rwandaemr.radiology.orderables.CT</property>
+            <value>9ed71c4b-6002-46da-8e00-4c985651fa71</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>rwandaemr.radiology.orderables.US</property>
+            <value>3e4fc57f-43a1-40ef-bbb7-6a704e9bb37b</value>
+        </globalProperty>
+
         <!-- EMR API -->
         <globalProperty>
             <property>emrapi.visitExpireHours</property>
