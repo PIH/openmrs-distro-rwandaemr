@@ -40,5 +40,35 @@
     "require": "visit.active",
     "order": 20,
     "requiredPrivilege": "Task: coreapps.endVisit"
+  },
+  {
+    "id": "radiologyapp.orderXray",
+    "extensionPointId": "patientDashboard.visitActions",
+    "type": "link",
+    "label": "radiologyapp.task.order.CR.label",
+    "url": "radiologyapp/orderRadiology.page?patientId={{patient.uuid}}&visitId={{visit.id}}&modality=CR",
+    "icon": "fas fa-fw fa-x-ray",
+    "order": 50,
+    "requiredPrivilege": "Task: org.openmrs.module.radiologyapp.orderXray"
+  },
+  {
+    "id": "radiologyapp.orderCT",
+    "extensionPointId": "patientDashboard.visitActions",
+    "type": "link",
+    "label": "radiologyapp.task.order.CT.label",
+    "url": "radiologyapp/orderRadiology.page?patientId={{patient.uuid}}&visitId={{visit.id}}&modality=Ct",
+    "icon": "fas fa-fw fa-x-ray",
+    "order": 51,
+    "requiredPrivilege": "Task: org.openmrs.module.radiologyapp.orderCT"
+  },
+  {
+    "id": "radiologyapp.orderUS",
+    "extensionPointId": "patientDashboard.visitActions",
+    "type": "link",
+    "label": "radiologyapp.task.order.US.label",
+    "url": "radiologyapp/orderRadiology.page?patientId={{patient.uuid}}&visitId={{visit.id}}&modality=US",
+    "icon": "fas fa-fw fa-x-ray",
+    "order": 52,
+    "requiredPrivilege": "Task: org.openmrs.module.radiologyapp.orderUS"
   }
 ]
