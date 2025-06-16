@@ -14,17 +14,17 @@
 
         <globalProperty>
             <property>rwandaemr.radiology.orderables.CR</property>
-            <value>dde1782b-185a-42bf-be30-5c3da2d0a7f6</value>
+            <value>782ca68e-c0c8-40ac-8d08-d6c1f8c5cc00</value>
         </globalProperty>
 
         <globalProperty>
             <property>rwandaemr.radiology.orderables.CT</property>
-            <value>9ed71c4b-6002-46da-8e00-4c985651fa71</value>
+            <value>3893d388-e015-474b-bd28-6d85340daa0a</value>
         </globalProperty>
 
         <globalProperty>
             <property>rwandaemr.radiology.orderables.US</property>
-            <value>3e4fc57f-43a1-40ef-bbb7-6a704e9bb37b</value>
+            <value>5ae0e060-b332-415a-88f9-8bc4a37f8533</value>
         </globalProperty>
 
         <!-- EMR API -->

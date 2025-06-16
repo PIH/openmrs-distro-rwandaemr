@@ -116,3 +116,4 @@ b2c4d5e6-7f8a-4e9b-8c1d-2e3f8e4a3b8f,,Transfer Request,A stand-alone encounter t
 b42ac53d-4817-4b58-a884-a76c946083be,,triage encounter,triage encounter
 a4b7b206-da96-4c54-83bf-6fb31551a993,,vital sings encounter,vital sings encounter
 daf32375-d293-4e27-a68d-2a58494c96e1,,Vitals,Patient vital signs taken before seeing clinician
+7d2fdd23-2cfc-11f0-bad6-56aa92787bc1,,Radiology Study,Represents performance of a radiology study on a patient by a radiology technician
