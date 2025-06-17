@@ -38,41 +38,6 @@
 		Date: <encounterDate default="today"/> Location: <encounterLocation /> Provider: <encounterProvider role="Oncology Provider"/>
 	</section>
 
-	<section headerLabel="Radiology Orders">
-		<order orderType="52a447d3-a64a-11e3-9aeb-50e549534c5e" format="select" selectLabel="Choose test...">
-			<orderTemplate>
-				<div class="order-test-orderable">
-					<orderProperty name="concept" label="Type of Study" style="dropdown">
-						<optionGroup concept="dde1782b-185a-42bf-be30-5c3da2d0a7f6" sortAlphabetically="true"/>
-					</orderProperty>
-				</div>
-				<div class="order-test-urgency">
-					<orderProperty name="urgency" value="ROUTINE">
-						<option value="ROUTINE" label="Routine" />
-						<option value="STAT" label="STAT"/>
-						<option value="ON_SCHEDULED_DATE" label="On Scheduled Date"/>
-					</orderProperty>
-				</div>
-				<div class="order-test-scheduled-date">
-					<orderProperty name="scheduledDate"/>
-				</div>
-				<div class="order-test-history">
-					<orderProperty name="clinicalHistory" textArea="true" textAreaRows="10" textAreaColumns="20"/>
-				</div>
-				<div class="order-test-reason-non-coded">
-					<orderProperty name="orderReasonNonCoded" textArea="true" textAreaRows="10" textAreaColumns="20"/>
-				</div>
-				<div style="display:none;">
-					<orderProperty name="action" label="Action" value="NEW">
-						<option value="NEW" label="New Order"/>
-					</orderProperty>
-					<orderProperty name="previousOrder"/>
-					<orderProperty name="careSetting" value="OUTPATIENT"/>
-				</div>
-			</orderTemplate>
-		</order>
-	</section>
-
 	<section headerLabel="Note">
 		<table class="baseline-aligned">
 			<tr>
