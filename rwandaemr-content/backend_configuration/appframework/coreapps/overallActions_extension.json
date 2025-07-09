@@ -33,7 +33,8 @@
         "label": "Radiology Orders",
         "url": "rwandaemr/patient/radiologyOrders.page?patientId={{patient.uuid}}",
         "icon": "fas fa-fw fa-x-ray padded-icon",
-        "order": 2
+        "order": 2,
+        "requiredPrivilege": "Task: rwandaemr.radiologyorders"
     },
     {
         "id": "referenceapplication.realTime.medicalHistory",

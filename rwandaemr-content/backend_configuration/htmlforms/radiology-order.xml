@@ -28,7 +28,9 @@
 	</style>
 
 	<section headerLabel="Encounter Details">
-		Date: <encounterDate default="today"/> Location: <encounterLocation /> Provider: <encounterProvider role="Clinician" />
+		Date: <encounterDate default="today"/>
+		Location: <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+		Provider: <encounterProvider role="Clinician" default="currentUser" />
 	</section>
 
 	<repeat>
