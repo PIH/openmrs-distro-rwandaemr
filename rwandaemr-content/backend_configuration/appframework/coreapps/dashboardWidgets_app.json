@@ -194,7 +194,6 @@
           "provider": "coreapps",
           "fragment": "dashboardwidgets/dashboardWidget"
         },
-        "requiredPrivilege": "App: coreapps.partogramGrph",
         "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Maternity Location') && visit.admitted && patient.person.gender == 'F'"
       }
     ]
@@ -221,7 +220,6 @@
           "provider": "coreapps",
           "fragment": "dashboardwidgets/dashboardWidget"
         },
-        "requiredPrivilege": "App: coreapps.partogramGrph",
         "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Maternity Location') && visit.admitted && patient.person.gender == 'F'"
       }
     ]

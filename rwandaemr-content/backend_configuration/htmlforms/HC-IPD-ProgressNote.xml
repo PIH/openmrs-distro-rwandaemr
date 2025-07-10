@@ -173,9 +173,8 @@
                 </p>
                 <p class="flexView">
                     <label>HOSPITALISATION ROOM TYPE:</label>
-                    <obs conceptId="3168fee2-92aa-451b-b143-e46b56fe1e6f"
-                         answerConceptId="470f56f5-83a5-4cb2-a9ba-8714d585b63d"
-                         answerLabel="Hospitalisation salle commune/ Jour" />
+                    <obs conceptId="c80cf314-11e4-47ed-bd50-b98dec61f60e"
+                          />
                 </p>
             </fieldset>
         </div>
