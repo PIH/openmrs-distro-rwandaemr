@@ -50,11 +50,11 @@
     "order": 7
   },
   {
-    "id": "registrationSummary.overallActions.privateAdmission",
+    "id": "registrationSummary.realTime.manualBilling",
     "extensionPointId": "registrationSummary.overallActions",
     "type": "link",
-    "label": "Private Admission",
-    "url": "module/mohbilling/admissionSearch.form",
+    "label": "Ticket Moderateur",
+    "url": "rwandaemr/patient/manualBilling.page?patientId={{patient.uuid}}",
     "order": 1
   }
 ]
