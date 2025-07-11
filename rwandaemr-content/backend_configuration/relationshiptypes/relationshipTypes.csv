@@ -8,7 +8,7 @@ d283d536-2700-102b-80cb-0017a47871b2,,Doctor,Patient,Relationship from a primary
 dcdc30c6-5235-48c8-957b-445fdaf69363,,HBCP (Home Based Care Practitioner),Patient,Home Based Care Practitioners provide accompagnateur-like relationship for Heart Failure patients
 2293a1d2-6ec5-428c-8230-b78353952a13,,Managing DCA,Patient,Relationship from Managing DCA (District Clinical Advisor) to the patient
 ff98bcbf-1706-456e-bba6-77588f5f1b45,,Managing GP,Patient,Relationship from Managing GP (General Practitioner) to the patient
-91e67a44-688d-4374-b90d-a354b7917e01,,Mother_,Child,Mother Child relationship
+91e67a44-688d-4374-b90d-a354b7917e01,,Mothers,Child,Mother Child relationship
 2f94359d-b429-4b13-8e90-f09d19ba8059,,Mother,Child,Relationship from a mother to the child
 d283d838-2700-102b-80cb-0017a47871b2,,Parent,Child,Relationship from a mother/father to the child
 d283d6b2-2700-102b-80cb-0017a47871b2,,Sibling,Sibling,"Relationship between brother/sister, brother/brother, and sister/sister"
