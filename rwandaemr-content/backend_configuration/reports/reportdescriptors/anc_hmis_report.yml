@@ -1,0 +1,22 @@
+key: "anc_hmis_report"
+uuid: "96216190-58bd-11f0-aa1a-38f3aba8e35a"
+name: "ANC HMIS Indicator Report"
+description: "Hmis indicator report for ANC at HC Level"
+parameters:
+  - key: "startDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.startDate"
+  - key: "endDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.endDate"
+datasets:
+  - key: "anc_hmis_report"
+    type: "sql"
+    config: "sql/anc_hmis_report.sql"
+designs:
+  - type: "csv"
+    properties:
+      "filenameBase": "usersdateexport.{{ formatDate request.evaluateStartDatetime \"yyyyMMdd\" }}.{{ formatDate request.evaluateStartDatetime \"HHmm\" }}"
+      "characterEncoding": "ISO-8859-1"
+      "blacklistRegex": "[^\\p{InBasicLatin}\\p{L}]"
+      "dateFormat": "dd-MMM-yyyy HH:mm:ss"

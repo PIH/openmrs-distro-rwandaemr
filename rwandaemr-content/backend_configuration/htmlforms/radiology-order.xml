@@ -1,0 +1,80 @@
+<htmlform 
+	htmlformUuid="c5a6b9cb-4ba1-11f0-a5b6-d21e7ba45d33"
+	formUuid="ce1f0acc-4ba1-11f0-a5b6-d21e7ba45d33"
+	formName="Radiology Order"
+	formDescription="Radiology Order"
+	formVersion="1.0" 
+	formEncounterType="02965343-bbe7-4c3c-83c5-c3d084e715b7"
+	formPublished="false" 
+	formRetired="false"
+>
+	<style>
+		.section {
+			border: 1px solid #009d8e;
+			padding: 2px;
+			text-align: left;
+			margin-bottom: 1em;
+		}
+		.sectionHeader {
+			background-color: #009d8e;
+			color: white;
+			display: block;
+			padding: 2px;
+			font-weight: bold;
+		}
+		table.baseline-aligned td {
+            width: 100%;
+		}
+	</style>
+
+	<section headerLabel="Encounter Details">
+		Date: <encounterDate default="today"/>
+		Location: <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+		Provider: <encounterProvider role="Clinician" default="currentUser" />
+	</section>
+
+	<repeat>
+		<template>
+			<section headerLabel="{headerLabel}">
+				<order orderType="52a447d3-a64a-11e3-9aeb-50e549534c5e" onLoadFunction="renderOrderWidgetAsCheckboxes">
+					<orderTemplate>
+						<div class="order-test-orderable">
+							<orderProperty name="concept" label="Type of Study" style="dropdown">
+								<optionGroup concept="{orderableSet}" sortAlphabetically="true"/>
+							</orderProperty>
+						</div>
+						<div class="order-test-urgency">
+							<orderProperty name="urgency" value="ROUTINE">
+								<option value="ROUTINE" label="Routine" />
+								<option value="STAT" label="STAT"/>
+								<option value="ON_SCHEDULED_DATE" label="On Scheduled Date"/>
+							</orderProperty>
+						</div>
+						<div class="order-test-scheduled-date">
+							<orderProperty name="scheduledDate"/>
+						</div>
+						<div class="order-test-history">
+							<orderProperty name="clinicalHistory" textArea="true" textAreaRows="10" textAreaColumns="20"/>
+						</div>
+						<div class="order-test-reason-non-coded">
+							<orderProperty name="orderReasonNonCoded" textArea="true" textAreaRows="10" textAreaColumns="20"/>
+						</div>
+						<div style="display:none;">
+							<orderProperty name="action" label="Action" value="NEW">
+								<option value="NEW" label="New Order"/>
+							</orderProperty>
+							<orderProperty name="previousOrder"/>
+							<orderProperty name="careSetting" value="OUTPATIENT"/>
+						</div>
+					</orderTemplate>
+				</order>
+			</section>
+		</template>
+		<render headerLabel="X-Ray Orders" orderableSet="782ca68e-c0c8-40ac-8d08-d6c1f8c5cc00" />
+		<render headerLabel="CT Scan Orders" orderableSet="3893d388-e015-474b-bd28-6d85340daa0a" />
+		<render headerLabel="Ultrasound Orders" orderableSet="5ae0e060-b332-415a-88f9-8bc4a37f8533" />
+	</repeat>
+
+	<submit/>
+</htmlform>
+

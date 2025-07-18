@@ -1,0 +1,359 @@
+<htmlform
+        htmlformUuid="defd2b55-b192-4cad-a6c3-be9f6dd879e3"
+        formUuid="be14adb3-f641-4780-a03f-60f390cfeefa"
+        formName="HC Medical Acts New Form"
+        formDescription="Form for capturing medical acts by category"
+        formVersion="1.0"
+        formEncounterType="75caca4e-33ca-4b0a-aa63-5ed29f3000f0"
+        formPublished="true"
+        formRetired="false"
+>
+    <style>
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+        form fieldset {
+        display: block;
+        margin-bottom: 1em;
+        }
+        .section-header {
+        margin-top: 1.5em;
+        }
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 15px;
+        line-height: 1.5em;
+        }
+        .section-container input[type="checkbox"] {
+        margin: 0 5px;
+        vertical-align: middle;
+        }
+        .section-container label {
+        margin: 0;
+        display: inline-block;
+        vertical-align: middle;
+        }
+        .section {
+        width: 100%;
+        }
+        .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 10px;
+        background-color: AliceBlue;
+        padding: 10px;
+        }
+        .grid-item {
+        padding: 6px;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+    </style>
+
+    <script type="text/javascript">
+        if (jQuery) {
+        jQuery(document).ready(function () {
+        $j(".baseline-aligned").each(function () {
+        var group = $j(this);
+        group.find("input[type$='checkbox']").click(function () {
+        var anyChecked = group.find("input[type$='checkbox']:checked").length > 0;
+        if (anyChecked) {
+        $j('#message').text('Action Required: Review selected medical acts').css('color', 'red').css("font-weight", "Bold");
+        $j('#dangertd').css('background-color', 'orange');
+        } else {
+        $j('#message').text(' ').css('color', 'red').css("font-weight", "Bold");
+        $j('#dangertd').css('background-color', 'white');
+        }
+        });
+        });
+        });
+        }
+    </script>
+
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateBillOnHtmlFormSubmissionAction"/>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="GENERAL INFORMATION">
+        <div class="section-container">
+            <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                <tr>
+                    <td>
+                        Date:
+                        <encounterDate default="today"/>
+                    </td>
+                    <td>
+                        Health Facility:
+                        <encounterLocation id="location" default="GlobalProperty:billing.defaultLocation"/>
+                    </td>
+                    <td>
+                        Provider:
+                        <encounterProvider default="currentUser"/>
+                    </td>
+                    <td>
+                        <b>Department:</b>
+                        <obs conceptId="c920931b-fa93-4e99-9e36-28e1e4c16cf7" required="true"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="ANAESTHESIA">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="ccc48554-c61f-431e-a9f6-762f251f4c8a" labelText="Peripheral nerve block (single short)"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="25050dfe-be8a-41b0-834a-0ad52e7793d8" labelText="Sedation and analgesia"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="DENTISTRY">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="33468def-3510-4940-87a4-8bc87cd35176" labelText="External bleaching - full tray per arch"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="3bd0e061-c20f-4f19-804a-4e09a5394cff" labelText="External bleaching - chairside per arch"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="8624db41-bbea-4039-bce2-3c043a866cc7" labelText="Extraction adult"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="37f4b67e-a8f0-4b26-bae3-c67e7f37217c" labelText="Extraction of deciduous tooth"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="0e057639-a4d2-473a-b17e-d260dd8d5665" labelText="Extraction of retained root/s"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="645861fc-5b75-45a7-bbae-d1a6eb262343" labelText="Frenectomy"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="67de8ef5-48f0-4d3b-89df-bbabab395479" labelText="Gross scaling and polishing per quadrant"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="bd616029-b806-4269-8f9a-16b37464f2f1" labelText="Temporary filling with zoe"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="DERMATOLOGY">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="380119db-58bc-42b7-8992-ae28b8b29687" labelText="Ablation of ingrowing nail"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="b584bdb5-6ea8-4418-987d-dec4f6a84d61" labelText="Extraction of foreign body of skin and subcutaneous tissue"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="a1d5a908-e566-4b6f-a6ac-21f4b764d80b" labelText="Nail avulsion"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="ENT">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="34f5e84f-1dee-4302-a488-aea17065d784" labelText="Ear packing"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="820fe12b-79e2-4952-a080-d3207a8c20ca" labelText="Removal of foreign body from external ear"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="38c346f7-b6f3-452e-90ea-d5ff9d20d25b" labelText="Foreign body removal, nose"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="87f29f9e-73e6-4db9-8b09-2216319a4969" labelText="Foreign body removal, throat"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="EMERGENCY/CRITICAL CARE">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="8c294194-ce40-4908-afa2-e0de8aabea92" labelText="Trapped external device removal"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="ccf513e8-b751-4619-94af-32f1baa5d975" labelText="Basic life support (BLS) resuscitation"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="fb298917-f895-4b6f-808a-72020ab8ae4e" labelText="Bag-valve mask (BMV) ventilation"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="1fefe068-e16c-4966-b5f3-6661ce7f8f7e" labelText="Initial burn debridement and dressing"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="acaf85aa-c9ea-4355-b9c8-39c7645ed35d" labelText="Heimlich maneuver"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="a4e86beb-b4c7-48a9-84f8-5b6808608ff1" labelText="Compression bandage"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="MAXILLOFACIAL SURGERY">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="eca68103-1028-41f7-ace1-070d08afc550" labelText="Reduction of TMJ dislocation"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="MEDICAL PROCEDURES">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="e75ac6e1-6eb9-41e6-b81d-726dc0d731aa" labelText="Urine dipstick"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="MENTAL HEALTH">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="789b0183-e0c0-47d4-90e9-40108acd6cad" labelText="Psychologist evaluation and testing"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="c97d5f7a-aeca-454e-b738-18946e2b6d06" labelText="Individual counseling/therapy session"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="301cea37-2e34-44ab-a9a4-2ba61efb814d" labelText="Pediatric counseling/therapy session"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="1aff7af8-9401-4730-a05f-2ada95a44ae3" labelText="Group therapy session"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="1a6f95ac-4ace-4155-9fab-2744ac3a8418" labelText="Family therapy session"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="e9f7e29f-bc11-4de8-8470-df0492fd1e62" labelText="Couples therapy session"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="MINOR SURGERY">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="06440704-ba86-427b-8026-1ed767eea044" labelText="Pediatric circumcision"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="c9ee0ddd-31b2-4b97-bc21-15d7d61332d6" labelText="Adult circumcision"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="2a05bf79-1f7c-4af1-9601-3a9884ea84aa" labelText="Wound cleaning without dressing"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="9be9c058-063d-4a2e-b448-dc3290b97e82" labelText="Simple wound dressing"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="47d1a87e-123b-460c-80ec-e7d017aa1a10" labelText="Simple suture"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="59dc5739-aa5a-4472-9f2f-e93af57bdc55" labelText="Incision and drainage of superficial abscess"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="e90ed634-a5f2-4723-9e51-c33ea9f4d726" labelText="Complex dressing"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="6f6866e4-1b5d-4a1b-8269-39819218e171" labelText="Drain removal"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="d0e46b75-736c-49c8-b0c6-41245c631e15" labelText="Suture/staples removal + dressing"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="NURSING">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="3f922511-4e05-4156-b638-5129e2512e92" labelText="Anterior nasal packing"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="db54f5e6-9a83-4426-ab9a-8ea8f2396106" labelText="Bed bathing care"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="e1c8003b-59ac-4ba1-a971-5524fa6ef4a7" labelText="Bladder irrigation"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="3cd6f060-26fe-102b-80cb-0017a47871b2" labelText="BLOOD TRANSFUSION"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="c8a594ac-0f24-452f-8f58-21363d316326" labelText="Capillary blood sugar"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="d887f311-022c-4a70-8a51-7cfac83173a4" labelText="Change of perfusion"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="c5d89ba6-e02b-4bd7-8b13-9f7858b64004" labelText="Colostomy care /ileostomy change"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="249ead58-db36-4e14-8801-ba22b3179d42" labelText="Colostomy care /ileostomy care"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="ac783149-81c2-487f-b640-886f5f2eff10" labelText="Continuous enteral feeding"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="3946b9fb-d905-441e-9a63-0b0eabb14fbd" labelText="Ear irrigation"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="162357AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" labelText="Enema"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="08189468-1803-4ccb-994e-cbfa9d2f1e5a" labelText="Enteral feeding"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="903e7fa0-f664-4438-bbe4-9751568283c0" labelText="Gastric irrigation"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="c6218b75-0fa3-426f-b5ec-d74d2e254870" labelText="Non occupied bed making"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="782546ea-98f0-4ff1-8406-bf89117b0cdc" labelText="Occupied bed making"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="4a3eae2b-5892-46fc-a180-fcd3c97e2e00" labelText="Administration of Medication (IV, IM, SC, IR, ID) - Pediatric"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="08247534-e57e-4d55-8bc6-3659f32ae1a3" labelText="Administration of Medication (IV, IM, SC, IR, ID) - Adult"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="54858579-0793-4666-8f51-d9d8ae1e962c" labelText="Nasal douching"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="c26f196f-ae1a-400b-a80f-5483c525f1b6" labelText="Naso/orogastric tube insertion"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="49394ce5-8c9e-4c4b-9e87-c633758bac5f" labelText="Nebulization"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="c8366193-7d81-49a8-8d54-bd30fb21d0ae" labelText="Parenteral feeding"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="d2188e1e-653f-4bb0-985b-9868e24070fd" labelText="Patient external warming/cooling"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="98e566ff-1f42-4790-97ff-a28fb86f6d64" labelText="Peripheral line insertion - adult"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="33db3440-ed5c-4ad2-8451-3ba5052042e4" labelText="Peripheral line insertion - ped/neo"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="4bbd6d35-5fff-4d95-92ba-103fb53477cb" labelText="Post mortem care"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="e1e163ba-4e6d-44fb-a5c3-ed574440476b" labelText="Post mortem care and dead body formolization"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="80e475e7-a5f5-41b2-98c8-640f4cf6b8f8" labelText="Post partum care to the mother"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="675f8787-1fbd-4204-b43a-ff6b3ac54c00" labelText="Post partum care to the newborn"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="2b7c01ae-033b-4410-a8b6-b1e4ece2c3c9" labelText="Suctioning"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="fc0b1668-0db2-4dd7-8286-4b71647b45c3" labelText="Adult blood sampling"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="bb839df2-3e8e-4902-a33e-a7e5e5fd0e20" labelText="Pediatric blood sampling"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="2fb71871-d83d-4243-879d-dc8fe89d1b15" labelText="Swab taking"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="0e7e4100-3c5f-464f-adc3-84849af5da2b" labelText="Tracheostomy care"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="d70a9f47-161a-48b9-b342-8f6f02da2b41" labelText="Oxygen administration"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="38ade30a-45e2-4125-9c86-729531a0374a" labelText="Urinary catheter insertion"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="OB/GYN">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="d7608f66-1a01-4a37-901f-e5a898f01625" labelText="Neonatal resuscitation"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="d66b4172-6cb2-46f5-b8ef-9de5bfa1a4fe" labelText="Acute inversion of the uterus, vaginal correction"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="a11d9ab4-175e-4e4a-8fcf-a7bb789860c9" labelText="Assisted vaginal delivery"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="2d58dd4f-0259-4029-9a09-678d102c9064" labelText="Bartholin abscess incision"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="b9410659-e10f-46da-8f4b-74b254fd75d4" labelText="Care of newborn (delivered elsewhere)"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="27b00c1c-581d-4025-83ac-5d1f252e6cb6" labelText="Cervical tear repair"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="c6804a71-fc04-419c-bd69-ff02dcf2942a" labelText="Dilatation and curettage"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="c6984606-e983-4eeb-a440-eb9d8f833ae2" labelText="Episiotomy suture without perineal tear"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="d9759c7e-3208-40d8-a82d-abc7a144693a" labelText="First/second degree perineal tear suturing"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="b71403b5-79d7-4fa3-a014-87028f5393cd" labelText="Insertion of intrauterine contraceptive device"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="af951de9-277e-4895-a4bb-3287ce8c55ba" labelText="Removal of intrauterine contraceptive device"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="1c567078-5773-4f9f-8499-34a28e62df6b" labelText="Labor monitoring"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="f331a8af-94a5-4953-a5cd-2bed56ee86bb" labelText="Manual removal of retaining placenta"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="65135472-9050-4502-bda4-ee8fe15b2d37" labelText="Manual vacuum aspiration"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="8435a685-cc04-4106-99b7-2ac4fc60460e" labelText="Insertion of subdermal contraceptive implant"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="320e7212-3bd2-4000-86bb-b13b055f2ba8" labelText="Removal of subdermal contraceptive implant"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="d967d0a1-744b-457c-ab26-56f2941345dd" labelText="Resuscitation of newborn"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="3cd7af5a-26fe-102b-80cb-0017a47871b2" labelText="SPONTANEOUS VAGINAL DELIVERY"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="ONCOLOGY">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="956785f0-4d49-4ce3-9226-694811bd98c2" labelText="Loop electrosurgical excision procedure"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="4e3b656e-fb79-4eb2-9d6e-ba0ddc833485" labelText="Thermal ablation therapy"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="45bb117c-293b-408a-b629-22159fdc6c75" labelText="Visual inspection with acetic acid"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="OPHTHALMOLOGY">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="9affc03a-cba2-4f26-bb3d-0b30bf1b3988" labelText="Automatic perimetry"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="b1a93859-68dd-48be-b81f-2da494ba46e1" labelText="Chalazion drainage"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="f3305522-a9a3-4cef-b121-b44d1b1e9790" labelText="Colour vision testing"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="62357fbc-fcb1-4f32-9f82-da664ab03a3a" labelText="Epilation"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="0b52b6ff-a95e-4831-af4a-7b95e666150c" labelText="Removal of superficial foreign body from the eye"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="619897a3-99eb-4173-b07c-d67040528edd" labelText="Goldman visual field exam"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="79b1650e-e684-46ce-97a9-ee68b681e819" labelText="Low vision assessment"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="ce6782b4-1702-460a-aa0e-6a55611b1877" labelText="Probing and syringing"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="30e0e6fe-5083-4cab-a514-2ce7ea06a751" labelText="Refraction"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="PHYSIOTHERAPY">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="26fbc34a-f836-485d-a25f-a1059769ba76" labelText="Aerobic exercises"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="e48bc8db-8f6e-4556-9083-0a000a136e95" labelText="Cryotherapy"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="1a8d5a0f-4c8a-4be0-9351-9dc5ea8dd21f" labelText="Electrotherapy: electrical stimulation"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="2deb5531-3fc8-4677-b30d-7bb557179e46" labelText="Electrotherapy: infrared (ir)"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="52449e15-c41f-401c-a5eb-0157a001eac2" labelText="Electrotherapy: ionisation"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="17082d87-d65c-44c5-88cb-dbd1e4ebd8d7" labelText="Electrotherapy: tens/pain relief"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="4ddaa197-c353-4737-a3f2-c752bd89b20a" labelText="Chest physiotherapy"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="58565569-d23f-4226-94cb-7eed04806eb0" labelText="Soft tissue manipulation of 1 upper limb"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="46deb337-c2b4-4b11-963f-dc27453fe1f0" labelText="Soft tissue manipulation of 1 lower limb"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="ea4768cc-df32-4714-8904-7ccca94836da" labelText="Neck soft tissue manipulation"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="e3bcb8b2-dd4b-4004-99ce-c51572d6fdfa" labelText="Translatory mobilization (traction): one joint"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="48f4685a-7504-45c2-992b-80ae7a0f9e06" labelText="Translatory mobilization (traction): three or more joints"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="PLASTIC SURGERY">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="41404fdd-9a6c-4e6a-84bd-6d831d84ae3a" labelText="Ray amputation one finger"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="GENERAL SURGERY">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="e71d896c-a4ae-4f58-8230-f9a1fa33fa26" labelText="Excision of epidermoid/sebaceous cyst"/></div>
+            </div>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title section-header" headerCode="IMAGING - ULTRASOUND">
+        <div class="section-container baseline-aligned">
+            <div class="grid-container">
+                <div class="grid-item small-input flexView"><obs conceptId="bc9530ff-b160-4b84-bf6d-0ffc9193aeea" labelText="Obstetric ultrasound by midwife"/></div>
+                <div class="grid-item small-input flexView"><obs conceptId="e2ba49ea-7c24-471f-a89b-534bf7ee2cb6" labelText="Obstetric ultrasound by GP"/></div>
+            </div>
+        </div>
+    </section>
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+            <button id="submit" class="submitButton confirm">
+                <uimessage code="Save"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel"/>
+            </button>
+        </div>
+    </ifMode>
+</htmlform>

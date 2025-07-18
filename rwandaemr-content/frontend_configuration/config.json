@@ -167,7 +167,7 @@
     "careSettingUuid": "6f0c9a92-6f24-11e3-af88-005056821db0"
   },
   "@openmrs/esm-patient-forms-app": {
-    "customFormsUrl": "/ws/rest/v1/rwandaemr/patientforms"
+    "customFormsUrl": "/ws/rest/v1/rwandaemr/patientforms?patientUuid=${patientUuid}&visitUuid=${visitUuid}"
   },
   "@pih/esm-pathology-app": {
     "pathologyEncTypeUUID": "70f18a24-92ec-4de5-acdc-7cae77414e32",
