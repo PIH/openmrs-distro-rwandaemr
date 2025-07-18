@@ -359,25 +359,25 @@
                 <label>HIV Status: <span class="required">*</span> </label>
                 <br/>
                 <label class="font-normal">
-                    <input class="activate" id="obs.positiveHIVStatusHistory" name="HIVStatusHistory" type="radio"
+                    <input class="activate" id="positiveHIVStatusHistory" name="HIVStatusHistory" type="radio"
                            data-concept="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e^HIV STATUS^99DCT"
                            value="3cd3a7a2-26fe-102b-80cb-0017a47871b2^POSITIVE^99DCT" required="required">
                     Positive
                 </label>
                 <br/>
                 <label class="font-normal">
-                    <input class="deactivate" id="obs.negativeHIVStatusHistory" name="HIVStatusHistory" type="radio"
+                    <input class="deactivate" id="negativeHIVStatusHistory" name="HIVStatusHistory" type="radio"
                            data-concept="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e^HIV STATUS^99DCT"
                            value="3cd28732-26fe-102b-80cb-0017a47871b2^NEGATIVE^99DCT">
                     Negative
                 </label>
                 <br/>
-                <label class="font-normal">
+                <!-- <label class="font-normal">
                     <input class="deactivate" id="obs.unknownHIVStatusHistory" name="HIVStatusHistory" type="radio"
                            data-concept="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e^HIV STATUS^99DCT"
                            value="3cd6fac4-26fe-102b-80cb-0017a47871b2^UNKNOWN^99DCT">
                     Unknown
-                </label>
+                </label> -->
             </div>
             <div class="form-group HIVStatusHistory">
                 <label> If HIV positive on ARV: </label>
@@ -1723,6 +1723,53 @@
                    $("#healthFacility").prop("required",true);
                 }
             });
+
+        try {
+            HIVObsAutofill();
+        } catch (error) {
+            console.error("HIVObsAutofill error:", error);
+        }
+
+        function HIVObsAutofill() {
+            const patientuuid = $('#patient\\.uuid').val();
+            const conceptQuestionID = 3753;
+
+            if (!htmlDataStore || typeof htmlDataStore.getObsByConceptId !== 'function') return;
+
+            const rawObs = htmlDataStore.getObsByConceptId(patientuuid, conceptQuestionID);
+            if (!rawObs) return;
+
+            let obsList;
+            try {
+                obsList = JSON.parse(rawObs);
+            } catch (e) {
+                console.error("Failed to parse obs JSON:", e);
+                return;
+            }
+
+            if (!Array.isArray(obsList) || obsList.length === 0) return;
+
+            obsList.sort((a, b) => {
+                const dateA = new Date(a.obsDate.split('-').reverse().join('-'));
+                const dateB = new Date(b.obsDate.split('-').reverse().join('-'));
+                return dateB - dateA;
+            });
+
+            const latestObs = obsList[0];
+            const obsDate = new Date(latestObs.obsDate.split('-').reverse().join('-'));
+            const diffDays = Math.ceil((new Date() - obsDate) / (1000 * 60 * 60 * 24));
+
+            if (diffDays <= 1 && latestObs.valueCoded) {
+                const val = latestObs.valueCoded.name || latestObs.valueCoded;
+
+                if (val === "POSITIVE") {
+                    $('#positiveHIVStatusHistory').prop("checked", true);
+                } else if (val === "NEGATIVE") {
+                    $('#negativeHIVStatusHistory').prop("checked", true);
+                }
+            }
+        }
+            /* End */
             //Hide for Male
             if($("#patient\\.sex").val()=="M"){
             $(".hideForMale").hide();
