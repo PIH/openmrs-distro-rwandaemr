@@ -1,3 +1,4 @@
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -87,8 +88,6 @@
                 <input class="form-control" id="encounter.form_uuid" name="encounter.form_uuid"
                        type="hidden" required="required">
             </div>
-
-
         </fieldset>
     </div>
     <div class="section">
@@ -96,7 +95,7 @@
             <div class="form-group">
                 <label for="group" class="language en">Group name:</label>
                 <label for="group" class="language kiny">Izina ry'itsinda:</label>
-                <input class="form-control" type="text" name="selected-group" id="selected-group" readonly="readonly" data-concept="50963d2c-8918-4076-bb4c-89b74bd88467^PDC Baby Ubuntu Group^99DCT"/>
+                <input class="form-control" type="text" name="selected-group" id="selected-group" data-concept="50963d2c-8918-4076-bb4c-89b74bd88467^PDC Baby Ubuntu Group^99DCT"/>
             </div>
         </fieldset>
         <fieldset>
@@ -246,7 +245,7 @@
             <br/>
 
             <label class="font-normal">
-                <input id="family_attendance_yes" name="family_attendance_yes" type="radio"
+                <input id="family_attendance_yes" name="family_attendance_yes" type="checkbox"
                        data-concept="4e4ffa88-bc83-4e84-ae16-c3c3156bfce0^Did their family attend the session?^99DCT"
                        value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
                 <span class="language en">Yes </span>
@@ -255,7 +254,7 @@
             <br/>
             </label>
             <label class="font-normal">
-                <input id="family_attendance_no" name="family_attendance_no" type="radio"
+                <input id="family_attendance_no" name="family_attendance_no" type="checkbox"
                        data-concept="4e4ffa88-bc83-4e84-ae16-c3c3156bfce0^Did their family attend the session?^99DCT"
                        value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
                 <span class="language en">No</span>
@@ -265,7 +264,7 @@
 
         </fieldset>
     </div>
-    <div class="section" id="whoAttended">
+    <div class="section" class="whoAttended">
         <fieldset>
             <label for="who_attended_from_the_family" class="language en">If yes, who attended from the family? </label>
             <label for="who_attended_from_the_family" class="language kiny">Niba ari yego, ni inde muntu wo muryango witabiriye? </label>
@@ -322,14 +321,14 @@
             </label>
         </fieldset>
     </div>
-    <div class="section">
+    <div class="section" class="whoAttended">
         <fieldset>
             <label for="child_attendance" class="language en">If yes, did the child attend? </label>
             <label for="child_attendance" class="language kiny">Niba ari yego, umwana yaba yitabiriye? </label>
             <br/>
 
             <label class="font-normal">
-                <input id="child_attendance_yes" name="child_attendance_yes" type="radio"
+                <input id="child_attendance_yes" name="child_attendance_yes" type="checkbox"
                        data-concept="4dd7f7ae-ab68-44aa-b66c-5f4aeb5bd2f2^If yes, did the child attend^99DCT"
                        value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
                 <span class="language en">Yes </span>
@@ -338,7 +337,7 @@
             <br/>
             </label>
             <label class="font-normal">
-                <input id="child_attendance_no" name="child_attendance_no" type="radio"
+                <input id="child_attendance_no" name="child_attendance_no" type="checkbox"
                        data-concept="4dd7f7ae-ab68-44aa-b66c-5f4aeb5bd2f2^If yes, did the child attend^99DCT"
                        value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
                 <span class="language en">No</span>
@@ -468,9 +467,9 @@
                 <span class="language en">Start time of group session</span>
                 <span class="language kiny">Igihe itsinda ryatangiriye </span>
 
-                <input id="obs.members_accompanied_caregiver" class="form-control"
-                       name="obs.members_accompanied_caregiver" type="time" size="50"
-                       data-concept="9bba5a3b-0b55-46d2-8942-020cadaa1db5^If yes and if module 10 (Our Community), how many community members accompanied the primary caregiver^99DCT"/>
+                <input id="obs.start_time_group_session" class="form-control"
+                       name="obs.start_time_group_session" type="text" size="10"
+                       data-concept="72a0ddcf-db5d-4387-a80d-7bcab4383803^Start time of group session^99DCT"/>
 
             </label>
         </fieldset>
@@ -478,12 +477,12 @@
     <div class="section">
         <fieldset>
             <label>
-                <span class="language en">End time of group session </span>
+                <span class="language en">End time of group session</span>
                 <span class="language kiny">Igihe itsinda ryasorejweho</span>
 
-                <input id="obs.members_accompanied_caregiver" class="form-control"
-                       name="obs.members_accompanied_caregiver" type="time" size="50"
-                       data-concept="9bba5a3b-0b55-46d2-8942-020cadaa1db5^If yes and if module 10 (Our Community), how many community members accompanied the primary caregiver^99DCT"/>
+                <input id="obs.End_time_of_group_session" class="form-control"
+                       name="obs.End_time_of_group_session" type="text" size="10"
+                       data-concept="6c26f720-f33c-4ee5-bee9-8d9582b9fa80^End time of group session^99DCT"/>
 
             </label>
         </fieldset>
@@ -679,8 +678,8 @@
                 <br/>
                 <label id="next_group_session_date">
                     Date:
-                    <input id="obs.next_group_session_date" class="form-control datepicker future-or-today-date"
-                           name="obs.next_group_session_date" type="text" data-concept="3ce94df0-26fe-102b-80cb-0017a47871b2^RETURN VISIT DATE^99DCT"/>
+                    <input class="form-control datepicker future-or-today-date" id="obs.nextVisitDate" name="obs.BreastDispositionNextDate" type="text"
+                           data-concept="3ce94df0-26fe-102b-80cb-0017a47871b2^RETURN VISIT DATE^99DCT" readonly="readonly"/>
                 </label>
             </label>
             <br/>
@@ -741,11 +740,11 @@
          }
 
          /* auto-complete specimen code */
-         var patientuuid = $('#patient\\.uuid').val();
+/*         var patientuuid = $('#patient\\.uuid').val();
          var selectGroupID = 158496;
          var allGroupForPatient = htmlDataStore.getObsByConceptId(patientuuid,selectGroupID);
          $('#selected-group').val(allGroupForPatient[0].valueText);
-
+*/
 
 
             $('#why_family_not_attended_other').change(function () {
@@ -770,10 +769,188 @@
         // }
         // });
 
+        $('.whoAttended').hide();
+        $('#whyNotAttended').hide();
+
         $('#family_attendance_yes, #family_attendance_no').change(function () {
-        $('#whoAttended').toggle($('#family_attendance_yes').is(':checked'));
+        $('.whoAttended').toggle($('#family_attendance_yes').is(':checked'));
+        $('#whyNotAttended').toggle($('#family_attendance_no').is(':checked'));
           });
 
+
+
+    // Add checkboxes representing languages you want to involve in the form.
+    // Each checkbox needs to have an id represting the language it represent and name as "language".
+    // Each label needs to have different translation and a class ressembling the id of the checkbox representing the language.
+
+
+
+        $('.future-or-today-date').change(function () {
+            if ($(this).is(':visible') && $(this).val() != '') {
+                var errors = {};
+                var pattern = /(\d{2})-(\d{2})-(\d{4})/g;
+                var matches = pattern.exec($(this).val());
+                var enteredDate = new Date(matches[3], matches[2] - 1, matches[1]);
+                var today = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate());
+                if (enteredDate < today) {
+                    errors[$(this).attr('name')] = "Please enter present or future date.";
+                }
+                toggleValidationMessages(errors);
+            }
+        });
+        $(document).on("click", function(event){
+                var classOfClicked = event.target.className;
+                var nameOfClicked = event.target.name;
+                var idOfClicked = event.target.id;
+                var parentElement = $("input[id='"+idOfClicked+"']").parent().parent();
+                if(parentElement.hasClass("checkboxGroup")) {
+                    parentElement.children().each(function () {
+                        var nameOfElement = $(this).find("input").attr("name");
+                        var idOfElement = $(this).find("input").attr("id");
+                        if(idOfElement!=idOfClicked){
+                           $("input[id='"+idOfElement+"']").prop('checked', false)
+                        }
+                        $("."+nameOfElement).hide();
+                    })
+                }
+  });
+});
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        function updateInput(value) {
+        document.getElementById('selected-group').value = value;
+         }
+
+          $('#encounter\\.provider_id_select').change(function(){
+
+            //Get the Provider ID value
+             var provider_id = $('#encounter\\.provider_id').val();
+
+             //Generate patient identifier if the provider ID field is not empty
+             if(provider_id != ''){
+
+                 var providerIdwithoutSeparator = provider_id.replace('-', '');
+
+                 var currentTime = new Date();
+                 var baseDate = new Date( "01/01/2020 00:00:00" );
+
+
+                 var millisecondsSinceStartOfYear = currentTime - baseDate;
+                 var secondsElapsedSince2020 = Math.floor(millisecondsSinceStartOfYear/1000);
+                 var secondsElapsedSince2020With100SecBetween = Math.floor(secondsElapsedSince2020/100);
+                 var secNumberSize =[secondsElapsedSince2020With100SecBetween].toString().split('').length;
+
+                 if(secNumberSize<7){
+                    secondsElapsedSince2020With100SecBetween = "0" + secondsElapsedSince2020With100SecBetween;
+
+                 }
+
+
+                 var combinedVariables = providerIdwithoutSeparator + secondsElapsedSince2020With100SecBetween;
+                 var medicalRecordNumber;
+                 if(!isNaN(combinedVariables)){
+
+                    medicalRecordNumber= parseInt(combinedVariables).toString(16);
+                  }
+                  else{
+                     medicalRecordNumber= "z"+combinedVariables ;
+                  }
+
+
+               //Update medical record number field in the form with generated value
+               $("#identifier_value").val(medicalRecordNumber);
+             }
+          });
+        // End- version 2 of patient  identifier generation whenever provider ID is changed
+        var requireMedicalRecordNumber = true;
+        if(requireMedicalRecordNumber){
+          $(".require_medical_record_number_hint").show();
+          $("#identifier_value").attr("required","required");
+        } else {
+          $(".require_medical_record_number_hint").hide();
+          $("#identifier_value").removeAttr("required");
+        }
+        var dateFormat = "dd-mm-yy";
+        var currentDate = $.datepicker.formatDate(dateFormat, new Date());
+        var encounterDatetime = $('#encounter\\.encounter_datetime');
+        if ($(encounterDatetime).val() == "") {
+            $(encounterDatetime).val(currentDate);
+        }
+        var currentYear = new Date().getFullYear();
+        var birthdate_start_year = currentYear - 140;
+        $('.birth_date_picker').datepicker({
+            dateFormat: dateFormat,
+            changeMonth: true,
+            changeYear: true,
+            yearRange: birthdate_start_year + ':' + currentYear,
+        });
+        $('#save_draft').click(function () {
+            // pre process the medications
+            $(this).prop('disabled', true);
+            document.saveDraft(this);
+            $(this).prop('disabled', false);
+        });
+        $('#submit_form').click(function () {
+            // pre process the medications
+            $(this).prop('disabled', true);
+            document.submit();
+            $(this).prop('disabled', false);
+        });
+        $.fn.calculateFields = function () {
+            var tempAgeInYears = $.trim($("#tmp\\.age_in_years").val());
+            if (tempAgeInYears != '') {
+                $('#patient\\.birthdate_estimated').val('true');
+                $('#patient\\.birth_date').val($.fn.getTempBirthDate(tempAgeInYears));
+            }
+            return true;
+        };
+        $.fn.customValidationCheck = function () {
+            return $.fn.calculateFields();
+        };
+        var dobType = $('#tmp\\.birthdate_type');
+        dobType.change(function () {
+            var $show_birth_date = $('.show_birthdate');
+            var $show_age = $('.show_age');
+            if ($('#tmp\\.birthdate_type').val() == 'age') {
+                $show_age.show();
+                $show_birth_date.find('input').val('');
+                $show_birth_date.hide();
+            } else {
+                $show_age.hide();
+                $show_age.find('input').val('');
+                $show_birth_date.show();
+            }
+        });
+        dobType.trigger('change');
+
+
+      document.setupAutoCompleteData('encounter\\.location_id');
+
+	document.setupAutoCompleteDataForProvider('encounter\\.provider_id_select');
+	$('#registration_form').validate({rules: {
+            'tmp.age_in_years': {
+                range: [0, 120]
+            }
+        }
+    });
+   	document.setupValidationForProvider("$('#encounter\\.provider_id_select').val()","encounter\\.provider_id");
+    document.setupValidationForLocation("$('#encounter\\.location_id').val()","encounter\\.location_id");
+
+    //Function to set health facility whenever the encounter location is changed
+    $('#encounter\\.location_id').change(function(){
+      var selected_health_facility_id = $('input[name="encounter.location_id"]').val();
+      console.log("FFF: "+selected_health_facility_id);
+      $('#patient\\.health_facility').val(selected_health_facility_id);
+    });
+
+    //trigger a change event so as to set the initial value on form load
+
+    $('#encounter\\.location_id').trigger('change');
+
+    // Rwanda location hierarchy
 
 
     // Add checkboxes representing languages you want to involve in the form.
@@ -805,64 +982,26 @@
 
 
 });
+document.nextHierarchyArray = function(elementName, dataDictionary,nextDateDictionary) {
+    var label = $("#" + elementName).val();
+        var parentId = null;
+        var refinedArray = [];
 
-var dateFormat = "dd-mm-yy";
-        var currentDate = $.datepicker.formatDate(dateFormat, new Date());
-        var encounterDatetime = $('#encounter\\.encounter_datetime');
-        if ($(encounterDatetime).val() == "") {
-            $(encounterDatetime).val(currentDate);
+        $.each(dataDictionary, function(i, elem) {
+            if (elem.label == label) {
+                parentId = elem.id;
+                return false;
+            }
+        });
+        if(parentId !=null){
+            $.each(nextDateDictionary, function(i, elem) {
+                if (elem.parent_id == parentId) {
+                    refinedArray.push(elem);
+                }
+            });
         }
-
-        $('#save_draft').click(function () {
-        $(this).prop('disabled', true);
-        document.saveDraft(this);
-        $(this).prop('disabled', false);
-        });
-        $('#submit_form').click(function () {
-            $(this).prop('disabled', true);
-            document.submit();
-            $(this).prop('disabled', false);
-        });
-
-        document.setupAutoCompleteData('encounter\\.location_id');
-        document.setupValidationForLocation("$('#encounter\\.location_id').val()","encounter\\.location_id");
-        document.setupAutoCompleteDataForProvider('encounter\\.provider_id_select');
-        document.setupValidationForProvider("$('#encounter\\.provider_id_select').val()","encounter\\.provider_id");
-        $('#encounter\\.provider_id_select').change(function () {
-            if ($('#encounter\\.provider_id_select').val() === '') {
-                $('#encounter\\.provider_id').val('');
-                   $('.show_provider_id_text').show();
-            }
-        });
-        $('.future-or-today-date').change(function () {
-            if ($(this).is(':visible') && $(this).val() != '') {
-                var errors = {};
-                var pattern = /(\d{2})-(\d{2})-(\d{4})/g;
-                var matches = pattern.exec($(this).val());
-                var enteredDate = new Date(matches[3], matches[2] - 1, matches[1]);
-                var today = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate());
-                if (enteredDate < today) {
-                    errors[$(this).attr('name')] = "Please enter present or future date.";
-                }
-                toggleValidationMessages(errors);
-            }
-        });
-        $(document).on("click", function(event){
-                var classOfClicked = event.target.className;
-                var nameOfClicked = event.target.name;
-                var idOfClicked = event.target.id;
-                var parentElement = $("input[id='"+idOfClicked+"']").parent().parent();
-                if(parentElement.hasClass("checkboxGroup")) {
-                    parentElement.children().each(function () {
-                        var nameOfElement = $(this).find("input").attr("name");
-                        var idOfElement = $(this).find("input").attr("id");
-                        if(idOfElement!=idOfClicked){
-                           $("input[id='"+idOfElement+"']").prop('checked', false)
-                        }
-                        $("."+nameOfElement).hide();
-                    })
-                }
-  });
+        return refinedArray;
+    }
 </script>
 
 </html>

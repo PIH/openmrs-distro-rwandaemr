@@ -133,8 +133,8 @@
         @HPV_negative@ = 64c23192-54e4-4750-9155-2ed0b736a0db
         @VIA_performed@ = 68414f14-22c4-480d-b805-dc40252a461c
         @VIA_triage_Results@ = a37a937a-a2a6-4c22-975f-986fb3599ea3
-        @VIA+_Eligible_for_Thermal_ablation@ = 3fe69559-cc82-48cb-926e-5d925aca088b
-        @VIA+_Eligible_for_LEEP@ = 402f3951-420e-4c09-9a9a-955bc0cff140
+        @VIA_positive_Eligible_for_Thermal_ablation@ = 3fe69559-cc82-48cb-926e-5d925aca088b
+        @VIA_positive_Eligible_for_LEEP@ = 402f3951-420e-4c09-9a9a-955bc0cff140
         @VIA_Negative@ = a7b08a37-0380-49dd-8f12-c2c2c76c8b13
         @Suspected_cancer_diagnosis@ = 476123d7-54f1-4278-92f1-2de4f19ae951
         @colposcopy_performed@ = f29096a3-c692-4972-964e-bdf5c0b27681
@@ -218,6 +218,11 @@
         @RETURN_VISIT_DATE@ = 3ce94df0-26fe-102b-80cb-0017a47871b2
         @Hybrid_(VIA_and_HPV)@ = f4fd4966-1713-4de3-bffe-be22830f0a4a
         @previous_screening_type@ = 0f527dab-b769-42c9-bbd9-12bd714090ee
+        @Type_of_Transformation_zone@ = af1421bc-333e-449b-bab5-99a54a38490a
+        @Type_1@ = 7eeaa623-7dec-4a1f-9314-b97e886235e4
+        @Type_2@ = 6476e05e-4406-47f4-9025-1c95571e6f59
+        @Type_3@ = cc6497b1-8f5b-48be-ac95-d5e142e6e663
+        @Reason_for_not_treated@ = 31ea0598-0d80-4b6f-981f-59e6b8d228c9
 
 
 
@@ -505,17 +510,52 @@
             var val = getValue('HIVStatus.value');
             if (val == null || val == '') {
                 getField('HIVStatus.error').html('HIV status is required').show();
-                alert("HIV status is required")
+                alert("HIV status is required");
                 return false;
             }
             var specimenCodeValue = getValue('specimenCode.value');
             if(($j("#ScreeningTypeHybridVIAandHPV" ).children().prop("checked") || $j("#ScreeningTypeHPV" ).children().prop("checked")) &#38;&#38; (specimenCodeValue ==null || specimenCodeValue == '')){
                 getField('specimenCode.error').html('Specimen Code is required').show();
-                alert("Specimen Code is required")
+                alert("Specimen Code is required");
                 return false;
+            }
+            // var VIAScreen = $j("#VIAScreen" ).children().prop("checked");
+            // var VIAResults = $j("#VIAResults" ).children().prop("checked");
+
+            var VIAScreen = $j("#VIAScreen input[type=radio]:checked").length > 0;
+            var VIAResults = $j("#VIAResults input[type=radio]:checked").length > 0;
+
+            if (VIAScreen &#38;&#38; !VIAResults) {
+                alert("VIA results are required");
+                getField('VIAResults.error').html('VIA results are required').show();
+                return false;
+            }
+
+            var VIAResultsselectedInput = $j("#VIAResults input[type='radio']:checked");
+            var labelText = $j("label[for='" + VIAResultsselectedInput.attr("id") + "']").text();
+            var MTPYesselectedInput = $j("#ManagementTreatmentPerformedYes input[type='checkbox']:checked").length > 0;
+            var MTPNoselectedInput = $j("#ManagementTreatmentPerformedNo input[type='checkbox']:checked").length > 0;
+            var treatmentTypeSelected = $j("#treatmentType input[type='radio']:checked").length > 0;
+            
+
+            if(labelText == "VIA+ Eligible for Thermal ablation" || labelText == "VIA+ Eligible for LEEP"){
+                // $j("#ManagementTreatmentPerformedYes").find(":radio").attr("required",true);
+                // $j("#ManagementTreatmentPerformedNo").find(":radio").attr("required",true);
+                console.log("VIA is positive");
+                if(!MTPYesselectedInput &#38;&#38; !MTPNoselectedInput){
+                    alert("Treatment performed is required");
+                    getField('ManagementTreatmentPerformedYes.error').html('Treatment performed is required').show();
+                    return false;
+                }else if(MTPYesselectedInput &#38;&#38; !treatmentTypeSelected){
+                    alert("Treatment Type is required");
+                    return false;
+                }
             }
             return true;
         });
+
+
+
     </script>
 
 <script>
@@ -552,7 +592,7 @@
         
         var takeRef = $i('#refMode input[value="1427"]').attr('checked') ? true : false;
     
-        var takeTxt = getValue('nameOfReferring.value')
+        var takeTxt = getValue('nameOfReferring.value');
     
         if(takeRef == true){ //Check if the patient is transfered
     
@@ -564,11 +604,74 @@
             }
             
         }
+
+
         return true;
         });
+
     });
     </script>
+    <script>
+        /* new and orderly javascript */
 
+           jQuery(function() {
+                getField('VIAScreen.value').change(function() {
+                    if (getValue('VIAScreen.value') != null){
+                        $j("#VIAResults").find(":radio").attr("required",true);
+                        $j("#VIAResultsLabel").show();
+                    }
+                    else{
+                        $j("#VIAResults").find(":radio").attr("required",false);
+                        $j("#VIAResultsLabel").hide();
+                    }
+
+                });
+
+                $j(document).ready(function () {
+                    $j("#ManagementTreatmentPerformedNo input[type='checkbox']").change(function () {
+                        var selectedInput = $j("#ManagementTreatmentPerformedNo input[type='checkbox']:checked").length > 0;
+                        // var labelText = $j("label[for='" + selectedInput.attr("id") + "']").text();
+                        
+                        if(selectedInput){
+                            
+                            $j("#reasonForNotTreating").show(); 
+                            // $j("#reasonForNotTreating").find("input, select, textarea").attr("required", true);
+                        }
+                        else{
+                            $j("#reasonForNotTreating").hide(); 
+                        }
+                    });
+
+                   $j("#ScreeningTypeHPV input[type='checkbox']").change(function(){
+                        
+                        var hpvScreening = $j("#ScreeningTypeHPV input[type='checkbox']:checked").length > 0;
+                        if(hpvScreening){
+                            $j("#management").hide();
+                            $j("#otherScreeningQuestions").hide();
+                            $j("#Biopsy").hide();
+                            $j("#Colposcopy").hide();
+                            $j("#nextVisit").hide();
+                            
+                        }
+                        else{
+                            $j("#management").show();
+                            $j("#otherScreeningQuestions").show();
+                            $j("#Biopsy").show();
+                            $j("#Colposcopy").show();
+                            $j("#nextVisit").show();
+                        }
+                    });
+                });
+
+
+
+                
+
+           });
+
+
+
+    </script>
 
     <section>
         <table border="1" cellspacing="0" cellpadding="6" width="100%">
@@ -1273,21 +1376,23 @@
             <tr>
                 <td>Type of VIA performed: </td>
                 <td>
-                    <obs conceptId="$@type_of_VIA_Performed@" answerConceptId="$@VIA_Screen@" answerLabel="VIA Screen" style="radio" />
+                    <obs id ="VIAScreen" conceptId="$@type_of_VIA_Performed@" answerConceptId="$@VIA_Screen@" answerLabel="VIA Screen" style="radio" />
 
                     <!--                    <obs conceptId="$@type_of_VIA_Performed@" answerConceptIds="$@VIA_Screen@,$@VIA_Triage@" answerLabels="VIA Screen,VIA Triage" style="radio" />-->
                 </td>
             </tr>
             <tr>
 
-                <td><u>Result</u></td>
+                <td><u>Result</u> <span id="VIAResultsLabel" style="color:red;">*</span></td>
                 <td class="font-normal">
 <!--                    <input id="obs.VIATriageResultThermalablation" name="obs.VIATriageResults" type="checkbox"-->
 <!--                           data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA triage Results^99DCT"-->
 <!--                           value="3fe69559-cc82-48cb-926e-5d925aca088b^VIA+ Eligible for Thermal ablation^99DCT">-->
 
-                    <obs conceptId="$@VIA_Results@" answerConceptIds="$@VIA+_Eligible_for_Thermal_ablation@,$@VIA+_Eligible_for_LEEP@,$@VIA_Negative@,$@Suspected_cancer_diagnosis@"
-                         answerLabels="VIA+ Eligible for Thermal ablation,VIA+ Eligible for LEEP,VIA-,Suspected cancer" style="radio"/>
+                    <obs id="VIAResults" conceptId="$@VIA_Results@" 
+                    answerConceptIds="$@VIA_positive_Eligible_for_Thermal_ablation@,$@VIA_positive_Eligible_for_LEEP@,$@VIA_Negative@,$@Suspected_cancer_diagnosis@"
+                         answerLabels="VIA+ Eligible for Thermal ablation,VIA+ Eligible for LEEP,VIA-,Suspected cancer" 
+                         style="radio"/>
 
                     <!--                    <input id="obs.VIATriageResultLEEP" name="obs.VIATriageResults" type="checkbox"-->
 <!--                           data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA triage Results^99DCT"-->
@@ -1306,6 +1411,15 @@
 <!--                           value="476123d7-54f1-4278-92f1-2de4f19ae951^Suspected cancer diagnosis^99DCT">-->
 <!--                    <obs conceptId="$@VIA_Results@" answerConceptId="$@Suspected_cancer_diagnosis@" answerLabel="Suspected cancer" />-->
 
+                </td>
+            </tr>
+            <tr>
+                <td><u>Type of Transformation zone</u></td>
+                <td>
+
+                    <obs id="typeOneTypeOfTransformationZone" conceptId="$@Type_of_Transformation_zone@" 
+                        answerConceptIds="$@Type_1@,$@Type_2@,$@Type_3@,"
+                         answerLabels="Type 1,Type 2,Type 3" style="radio"/>
                 </td>
             </tr>
         </table>
@@ -1343,9 +1457,9 @@
 <!--            </tr>-->
 <!--        </table>-->
 <!--    </section>-->
-    <section headerLabel="Other screening questions">
-        <table border="1">
-            <tr class="section">
+    <section headerLabel="Other screening questions" >
+        <table border="1" id="otherScreeningQuestions">
+            <tr class="section" >
                 <td class="font-normal"> <strong> Suspicion of STIs:  </strong> </td>
                 <td class="font-normal checkboxGroup">
                     <!--                    <input id="obs.STIsSuspicionYes" name="obs.STIsSuspicion" type="radio"-->
@@ -1383,7 +1497,7 @@
         </table>
     </section>
     <section headerLabel="Colposcopy">
-        <table border="1" class="LevelOfCare">
+        <table border="1" class="LevelOfCare" id="Colposcopy">
             <tr class="section">
 
                 <td class="font-normal"> <strong> Colposcopy performed? </strong> </td>
@@ -1467,8 +1581,8 @@
             </tr>
         </table>
     </section>
-    <section headerLabel="Biopsy">
-        <table border="1" class="LevelOfCare">
+    <section headerLabel="Biopsy" >
+        <table border="1" class="LevelOfCare" id="Biopsy">
             <tr class="section">
                 <!--                <h3 class="font-normal">Biopsy</h3>-->
                 <td class="font-normal"> <strong> Biopsy performed? </strong> </td>
@@ -1572,7 +1686,7 @@
             </tr>
         </table>
     </section>
-    <section headerLabel="Management">
+    <section headerLabel="Management" id="management">
         <table border="1">
             <tr class="section">
                 <!--                <h3 class="font-normal">Management</h3>-->
@@ -1587,6 +1701,10 @@
                     </span>
                     <span class="deactivate" id="ManagementTreatmentPerformedNo" title="ManagementTreatmentPerformed">
                         <obs conceptId="$@Treatment_performed@" answerConceptId="$@NO@" answerLabel="No" style="checkbox" />
+                    </span>
+                    <span class="initialHide" id="reasonForNotTreating">
+                        Reason for not treating
+                        <obs conceptId="$@Reason_for_not_treated@"/>
                     </span>
                     <!--                Yes-->
                     <!--            </label>-->
@@ -1603,7 +1721,7 @@
                     <!--                <input id="obs.ManagementTypeOfTreatmentPerformedThermoAblation" name="obs.ManagementTypeOfTreatmentPerformed" type="checkbox"-->
                     <!--                       data-concept="f7719cd4-e591-4a39-8bfe-9dd93d3cab89^Type of Treatment performed^99DCT"-->
                     <!--                       value="ef4d5bd3-2c4e-4ac2-9b91-9d4ba12b44f8^thermo-ablation^99DCT">-->
-                    <obs conceptId="$@Type_of_Treatment_performed@" answerConceptIds="$@thermal-ablation@,$@Cryotherapy@,$@Loop_Electrosurgical_Excision_Procedure@" answerLabels="Thermal ablation,Cryotherapy(DH),LEEP(DH)" style="radio"/>
+                    <obs id="treatmentType" conceptId="$@Type_of_Treatment_performed@" answerConceptIds="$@thermal-ablation@,$@Cryotherapy@,$@Loop_Electrosurgical_Excision_Procedure@" answerLabels="Thermal ablation,Cryotherapy(DH),LEEP(DH)" style="radio"/>
                     <!--                Thermo ablation-->
 
                     <!--                <input id="obs.ManagementTypeOfTreatmentPerformedCryotherapy" name="obs.ManagementTypeOfTreatmentPerformed" type="checkbox"-->
@@ -1622,6 +1740,7 @@
                     <obs conceptId="$@Other_Treatment@"/>
                 </td>
             </tr>
+            
             <tr>
                 <td class="font-normal">Disposition: </td>
                 <td class="checkboxGroup">
@@ -1804,7 +1923,7 @@
     <!--    </section>-->
 
     <section headerLabel="Next visit">
-        <table border="1">
+        <table border="1" id = "nextVisit">
             <tr>
                 <td class="font-normal"> <strong> Date of next visit:  </strong> </td>
                 <td class="font-normal">

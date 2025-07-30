@@ -218,6 +218,20 @@
         @RETURN_VISIT_DATE@ = 3ce94df0-26fe-102b-80cb-0017a47871b2
         @Hybrid_(VIA_and_HPV)@ = f4fd4966-1713-4de3-bffe-be22830f0a4a
         @previous_screening_type@ = 0f527dab-b769-42c9-bbd9-12bd714090ee
+        @Private_clinic@ = c97a85fe-c77f-46ea-8c4f-85895a86f16b
+        @Follow_up_reason@ = 2e788aae-d93e-4d7c-bd3b-e1141f1915c7
+        @Triage@ = 4b6bed53-d2e8-4217-83c6-41b836df9a4e
+        @Post_treatment_follow_up@ = c96d377e-133d-4c4e-b1d7-f03a8621d5f8
+        @Follow_up_at_another_health_facility@ = 147b2af6-d789-416d-bfc0-42e2b717d582
+        @Rescreening@ = 9f77a776-4306-4a34-a42d-0a57808a90e9
+        @TRANSFER_IN@ = 031ea34b-f95b-4cf7-a3c6-026f6fd60f1f
+        @Transfer_to_internal_department_text@ = cce7ba7a-e0ab-4cb0-b4aa-d5a491a7020a
+        @Type_of_Transformation_zone@ = af1421bc-333e-449b-bab5-99a54a38490a
+        @Type_1@ = 7eeaa623-7dec-4a1f-9314-b97e886235e4
+        @Type_2@ = 6476e05e-4406-47f4-9025-1c95571e6f59
+        @Type_3@ = cc6497b1-8f5b-48be-ac95-d5e142e6e663
+        @HPV_Follow_up_at_2_years@ = e43a0fc4-b995-44f7-96cb-5af34b600f50
+        @Reason_for_not_treated@ = 31ea0598-0d80-4b6f-981f-59e6b8d228c9
 
 
 
@@ -516,6 +530,165 @@
         });
     });
     </script>
+    <script>
+        /* new and orderly javascript */
+
+           jQuery(function() {
+                    getField('VIAScreen.value').change(function() {
+                        if (getValue('VIAScreen.value') != null){
+                            $j("#VIAResults").find(":radio").attr("required",true);
+                            $j("#VIAResultsLabel").show();
+                            
+                        }
+                        else{
+                            $j("#VIAResults").find(":radio").attr("required",false);
+                            $j("#VIAResultsLabel").hide();
+                        }
+
+
+                    });
+                    $j('#DispositionReferredIn input[type="radio"], #DispositionReferredIn input[type="checkbox"]').change(function() {
+                        var isChecked = $j('#DispositionReferredIn input:checked').length > 0;
+
+                        if (!isChecked) {
+                            // Not selected
+                            $j("#transferToInternalDep").hide();
+                        } else {
+                            // Selected
+                            $j("#transferToInternalDep").show();
+                        }
+                    });
+                    
+                    // $j('#ScreeningTypeHPV input[type="radio"], #ScreeningTypeHPV input[type="checkbox"]').change(function() {
+                    //     var isChecked = $j('#ScreeningTypeHPV input:checked').length > 0;
+
+                    //     if (!isChecked) {
+                    //         // Not selected
+                    //         $j("#nextVisit").show();
+                    //          $j("#management").show();
+                    //     } else {
+                    //         // Selected
+                    //         $j("#nextVisit").hide();
+                    //         $j("#management").hide();
+                    //     }
+                    // });
+                    // $j(document).ready(function () {
+                        $j("#ManagementTreatmentPerformedNo input[type='checkbox']").change(function () {
+                            var selectedInput = $j("#ManagementTreatmentPerformedNo input[type='checkbox']:checked").length > 0;
+                            // var labelText = $j("label[for='" + selectedInput.attr("id") + "']").text();                            
+                            if(selectedInput){
+                                
+                                $j("#reasonForNotTreating").show(); 
+
+                                // $j("#reasonForNotTreating").find("input, select, textarea").attr("required", true);
+                            }
+                            else{
+                                $j("#reasonForNotTreating").hide(); 
+                                // $j("#reasonForNotTreating").find("input, select, textarea").attr("required", false);
+                            }
+                        });
+                    // });
+                    // getField('VIAResults.value').change(function(){
+                    $j("#VIAResults input[type='radio']").change(function () {
+                        
+                        
+                        var hpvPreviousResults = "<lookup expression="fn.latestObs('bfb3eb1e-db98-4846-9915-0168511c6298').getValueCoded().name"/>";
+                        var HIVStatus = "<lookup expression="fn.latestObs('aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e').getValueCoded().name"/>";
+                        var VIAResultsselectedInput = $j("#VIAResults input[type='radio']:checked");
+                        var labelText = $j("label[for='" + VIAResultsselectedInput.attr("id") + "']").text();
+                        var VIAScreenselectedInput = $j("#VIAScreen input[type='radio']:checked");
+                        var labelTextOfVIAScreenSelected = $j("label[for='" + VIAScreenselectedInput.attr("id") + "']").text();
+                        if(labelText == "VIA-" &#38;&#38; hpvPreviousResults == "HPV positive Type" 
+                                &#38;&#38; HIVStatus == "POSITIVE"){
+                        
+                            alert("This Patient is HPV+,HIV+,VIA-. Eligible for treatment");
+                        }
+                    });
+                    $j("#ScreeningTypeHPV input[type='checkbox']").change(function(){
+                        
+                        var hpvScreening = $j("#ScreeningTypeHPV input[type='checkbox']:checked").length > 0;
+                        if(hpvScreening){
+                            $j("#management").hide();
+                            $j("#otherScreeningQuestions").hide();
+                            $j("#Biopsy").hide();
+                            $j("#Colposcopy").hide();
+                            $j("#nextVisit").hide();
+                            
+                        }
+                        else{
+                            $j("#management").show();
+                            $j("#otherScreeningQuestions").show();
+                            $j("#Biopsy").show();
+                            $j("#Colposcopy").show();
+                            $j("#nextVisit").show();
+                        }
+                    });
+
+
+             });
+        beforeSubmit.push(function() {
+            // var val = getValue('HIVStatus.value');
+            // if (val == null || val == '') {
+            //     getField('HIVStatus.error').html('HIV status is required').show();
+            //     alert("HIV status is required");
+            //     return false;
+            // }
+            // var specimenCodeValue = getValue('specimenCode.value');
+            // if(($j("#ScreeningTypeHybridVIAandHPV" ).children().prop("checked") || $j("#ScreeningTypeHPV" ).children().prop("checked")) &#38;&#38; (specimenCodeValue == null || specimenCodeValue == '')){
+            //     getField('specimenCode.error').html('Specimen Code is required').show();
+            //     alert("Specimen Code is required");
+            //     return false;
+            // }
+            var VIAScreen = $j("#VIAScreen" ).children().prop("checked");
+            var VIAResults = $j("#VIAResults" ).children().prop("checked");
+            if (VIAScreen &#38;&#38; !VIAResults) {
+                alert("VIA results are required");
+                getField('VIAResults.error').html('VIA results are required').show();
+                return false;
+            }
+            var VIAResultsselectedInput = $j("#VIAResults input[type='radio']:checked");
+            var labelText = $j("label[for='" + VIAResultsselectedInput.attr("id") + "']").text();
+            var VIAScreenselectedInput = $j("#VIAScreen input[type='radio']:checked");
+            var labelTextOfVIAScreenSelected = $j("label[for='" + VIAScreenselectedInput.attr("id") + "']").text();
+            var MTPYesselectedInput = $j("#ManagementTreatmentPerformedYes input[type='checkbox']:checked").length > 0;
+            var MTPNoselectedInput = $j("#ManagementTreatmentPerformedNo input[type='checkbox']:checked").length > 0;
+            var treatmentTypeSelected = $j("#treatmentType input[type='radio']:checked").length > 0;
+            var hpvPreviousResults = "<lookup expression="fn.latestObs('bfb3eb1e-db98-4846-9915-0168511c6298').getValueCoded().name"/>";
+            var HIVStatus = "<lookup expression="fn.latestObs('aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e').getValueCoded().name"/>";
+            var reasonForNotTreating = $j("#reasonForNotTreating").find("input, select, textarea").val().trim();
+            console.log("reasonnnn: " + reasonForNotTreating);
+            if(labelText == "VIA+ Eligible for Thermal ablation" || labelText == "VIA+ Eligible for LEEP"){
+                
+                if(!MTPYesselectedInput &#38;&#38; !MTPNoselectedInput){
+                    alert("Treatment performed is required");
+                    getField('ManagementTreatmentPerformedYes.error').html('Treatment performed is required').show();
+                    return false;
+                }else if(MTPYesselectedInput &#38;&#38; !treatmentTypeSelected){
+                    alert("Treatment Type is required");
+                    return false;
+                }else if(MTPNoselectedInput &#38;&#38; reasonForNotTreating == ""){
+                    alert("Reason for not treating is required");
+                    return false;
+                }
+            }
+            else if(labelText == "VIA-" &#38;&#38; hpvPreviousResults == "HPV positive Type" 
+                &#38;&#38; HIVStatus == "POSITIVE"){
+               
+                if(!MTPYesselectedInput &#38;&#38; !MTPNoselectedInput){
+                    alert("Treatment performed is required");
+                    getField('ManagementTreatmentPerformedYes.error').html('Treatment performed is required').show();
+                    return false;
+                }else if(MTPYesselectedInput &#38;&#38; !treatmentTypeSelected){
+                    alert("Treatment Type is required");
+                    return false;
+                }
+            }
+
+
+            return true;
+        });
+
+    </script>
 
     <section>
         <table border="1" cellspacing="0" cellpadding="6" width="100%">
@@ -580,7 +753,6 @@
             </tr>
         </table>
     </section>
-
     <section >
         <table class="form-group">
             <tr>
@@ -589,37 +761,40 @@
                 </td>
                 <td class="checkboxGroup">
                     <span class="deactivate" id="LevelOfCareHealthCenter" title="LevelOfCare">
-                        <obs conceptId="$@Level_of_Care@" answerConceptId="$@HEALTH_CENTER@" answerLabel="Health center" style="checkbox" />
+                        <obs conceptId="$@Level_of_Care@" answerConceptId="$@HEALTH_CENTER@" answerLabel="Health center/ Health Post" style="checkbox" />
                     </span>
                     <span class="activate" id="LevelOfCareHospital" title="LevelOfCare">
                         <obs conceptId="$@Level_of_Care@" answerConceptId="$@HOSPITAL@" answerLabel="Hospital" style="checkbox" />
                     </span>
+                    <span class="activate" id="LevelOfCarePrivate" title="LevelOfCare">
+                        <obs conceptId="$@Level_of_Care@" answerConceptId="$@Private_clinic@" answerLabel="Private Clinic" style="checkbox" />
+                    </span>
 
 
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <label>Entry mode:</label>
-                </td>
-                <td>
-                    <obs id="volMode" conceptId="$@Entry_mode@" answerConceptId="$@Voluntary@" answerLabel="Voluntary check-up/screening" style="checkbox" />
-                 </td>
-                 <td>
-                    <obs id="refMode" conceptId="$@Entry_mode@" answerConceptId="$@TRANSFER_IN_FROM@" answerLabel="Referred from Health Facility" style="checkbox" />
-                    <obs id="nameOfReferring" conceptId="$@TRANSFER_IN_FROM@"/>
-                 </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>Reason for referral In:</label>
-                </td>
-                <td>
-                    <obs conceptId="$@Reasons_for_Referral_In@" answerConceptIds="$@Suspected_cancer_diagnosis@,$@thermal-ablation@,$@Cryotherapy@,$@Loop_Electrosurgical_Excision_Procedure@,$@OTHER_NON-CODED@"
-                         answerLabels="Suspected cancer,Thermal ablation,Cryotherapy,LEEP,Other reasons" />
-                    Other reasons: <obs conceptId="$@Other_reason_for_referral_in@"/>
-                </td>
-            </tr>
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    <label>Entry mode:</label>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <obs id="volMode" conceptId="$@Entry_mode@" answerConceptId="$@Voluntary@" answerLabel="Voluntary check-up/screening" style="checkbox" />-->
+<!--                 </td>-->
+<!--                 <td>-->
+<!--                    <obs id="refMode" conceptId="$@Entry_mode@" answerConceptId="$@TRANSFER_IN_FROM@" answerLabel="Referred from Health Facility" style="checkbox" />-->
+<!--                    <obs id="nameOfReferring" conceptId="$@TRANSFER_IN_FROM@"/>-->
+<!--                 </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    <label>Reason for referral In:</label>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <obs conceptId="$@Reasons_for_Referral_In@" answerConceptIds="$@Suspected_cancer_diagnosis@,$@thermal-ablation@,$@Cryotherapy@,$@Loop_Electrosurgical_Excision_Procedure@,$@OTHER_NON-CODED@"-->
+<!--                         answerLabels="Suspected cancer,Thermal ablation,Cryotherapy,LEEP,Other reasons" />-->
+<!--                    Other reasons: <obs conceptId="$@Other_reason_for_referral_in@"/>-->
+<!--                </td>-->
+<!--            </tr>-->
 <!--            <tr class="form-group">-->
 <!--                <td> Service/unit: </td>-->
 <!--                <td class="font-normal checkboxGroup">-->
@@ -918,10 +1093,10 @@
 <!--                    &lt;!&ndash;                <input id="obs.positiveHIVStatusHistory" name="obs.HIVStatusHistory" type="radio"&ndash;&gt;-->
 <!--                    &lt;!&ndash;                       data-concept="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e^HIV STATUS^99DCT"&ndash;&gt;-->
 <!--                    &lt;!&ndash;                       value="3cd3a7a2-26fe-102b-80cb-0017a47871b2^POSITIVE^99DCT">&ndash;&gt;-->
-<!--                    <span class="activate" id="obs.positiveHIVStatusHistory" title="HIVStatusHistory">-->
+<!--                    <span class="activate" id="positiveHIVStatusHistory" title="HIVStatusHistory">-->
 <!--                        <obs conceptId="$@HIV_STATUS@" answerConceptIds="$@POSITIVE@" answerLabels="Positive" style="checkbox"/>-->
 <!--                    </span>-->
-<!--                    <span class="deactivate" id="obs.negativeHIVStatusHistory" title="HIVStatusHistory">-->
+<!--                    <span class="deactivate" id="negativeHIVStatusHistory" title="HIVStatusHistory">-->
 <!--                        <obs conceptId="$@HIV_STATUS@" answerConceptIds="$@NEGATIVE@" answerLabels="Negative" style="checkbox"/>-->
 <!--                    </span>-->
 <!--                    <span class="deactivate" id="obs.unknownHIVStatusHistory" title="HIVStatusHistory">-->
@@ -999,6 +1174,42 @@
 
 <!--            &lt;!&ndash;                </td>&ndash;&gt;-->
 <!--            &lt;!&ndash;            </tr>&ndash;&gt;-->
+
+    <tr>
+        <td class="font-normal">
+            <strong> Follow up reason: </strong>
+        </td>
+        <td>
+<!--            <label class="font-normal">-->
+<!--                <input class="activate" id="followUpReasonTriage" name="followUpReason" type="radio"-->
+<!--                       data-concept="2e788aae-d93e-4d7c-bd3b-e1141f1915c7^Follow up reason^99DCT"-->
+<!--                       value="4b6bed53-d2e8-4217-83c6-41b836df9a4e^Triage^99DCT">-->
+<!--                Triage-->
+
+
+<!--            </label>-->
+<!--            <label class="font-normal">-->
+
+
+            <span class="activate" id="followUpReasonTriage" title="followUpReason">
+                    <obs conceptId="$@Follow_up_reason@" answerConceptId="$@Triage@" answerLabel="Triage" />
+            </span>
+
+            <span class="activate" id="followUpReasonPostTreatmentFollowup" title="followUpReason">
+                    <obs conceptId="$@Follow_up_reason@" answerConceptId="$@Post_treatment_follow_up@" answerLabel="Post treatment follow up" />
+            </span>
+            <span class="activate" id="followUpReasonHPVPositiveFollowAtTwoYears" title="followUpReason">
+                <obs conceptId="$@Follow_up_reason@" answerConceptId="$@HPV_Follow_up_at_2_years@" answerLabel="HPV+ Follow up at 2 years" />
+            </span>
+
+            
+<!--                <input class="activate" id="followUpReasonPostTreatmentFollowup" name="followUpReason" type="radio"-->
+<!--                       data-concept="2e788aae-d93e-4d7c-bd3b-e1141f1915c7^Follow up reason^99DCT"-->
+<!--                       value="c96d377e-133d-4c4e-b1d7-f03a8621d5f8^Post treatment follow up^99DCT">-->
+<!--                Post treatment follow up-->
+<!--            </label>-->
+        </td>
+    </tr>
 <!--            <tr class="form-group">-->
 <!--                <td>Currently pregnant? </td>-->
 <!--                <td class="font-normal">-->
@@ -1215,18 +1426,18 @@
             <tr>
                 <td>Type of VIA performed: </td>
                 <td>
-                    <obs conceptId="$@type_of_VIA_Performed@" answerConceptIds="$@VIA_Screen@,$@VIA_Triage@" answerLabels="VIA Screen,VIA Triage" style="radio" />
+                    <obs id ="VIAScreen" conceptId="$@type_of_VIA_Performed@" answerConceptIds="$@VIA_Screen@,$@VIA_Triage@" answerLabels="VIA Screen,VIA Triage" style="radio" />
                 </td>
             </tr>
             <tr>
 
-                <td><u>Result</u></td>
+                <td><u>Result</u><span id="VIAResultsLabel" style="color:red;">*</span></td>
                 <td class="font-normal">
                     <!--                    <input id="obs.VIATriageResultThermalablation" name="obs.VIATriageResults" type="checkbox"-->
                     <!--                           data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA triage Results^99DCT"-->
                     <!--                           value="3fe69559-cc82-48cb-926e-5d925aca088b^VIA+ Eligible for Thermal ablation^99DCT">-->
 
-                    <obs conceptId="$@VIA_Results@" answerConceptIds="$@VIA+_Eligible_for_Thermal_ablation@,$@VIA+_Eligible_for_LEEP@,$@VIA_Negative@,$@Suspected_cancer_diagnosis@"
+                    <obs id="VIAResults" conceptId="$@VIA_Results@" answerConceptIds="$@VIA+_Eligible_for_Thermal_ablation@,$@VIA+_Eligible_for_LEEP@,$@VIA_Negative@,$@Suspected_cancer_diagnosis@"
                          answerLabels="VIA+ Eligible for Thermal ablation,VIA+ Eligible for LEEP,VIA-,Suspected cancer" style="radio"/>
 
                     <!--                    <input id="obs.VIATriageResultLEEP" name="obs.VIATriageResults" type="checkbox"-->
@@ -1246,6 +1457,15 @@
                     <!--                           value="476123d7-54f1-4278-92f1-2de4f19ae951^Suspected cancer diagnosis^99DCT">-->
 <!--                    <obs conceptId="$@VIA_Results@" answerConceptId="$@Suspected_cancer_diagnosis@" answerLabel="Suspected cancer" />-->
 
+                </td>
+            </tr>
+            <tr>
+                <td><u>Type of Transformation zone</u></td>
+                <td>
+
+                    <obs id="typeOneTypeOfTransformationZone" conceptId="$@Type_of_Transformation_zone@" 
+                        answerConceptIds="$@Type_1@,$@Type_2@,$@Type_3@,"
+                         answerLabels="Type 1,Type 2,Type 3" style="radio"/>
                 </td>
             </tr>
         </table>
@@ -1283,8 +1503,8 @@
     <!--            </tr>-->
     <!--        </table>-->
     <!--    </section>-->
-    <section headerLabel="Other screening questions">
-        <table border="1">
+    <section headerLabel="Other screening questions" >
+        <table border="1" id="otherScreeningQuestions">
             <tr class="section">
                 <td class="font-normal"> <strong> Suspicion of STIs:  </strong> </td>
                 <td class="font-normal checkboxGroup">
@@ -1323,7 +1543,7 @@
         </table>
     </section>
     <section headerLabel="Colposcopy">
-        <table border="1" class="LevelOfCare">
+        <table border="1" class="LevelOfCare" id="Colposcopy">
             <tr class="section">
 
                 <td class="font-normal"> <strong> Colposcopy performed? </strong> </td>
@@ -1408,7 +1628,7 @@
         </table>
     </section>
     <section headerLabel="Biopsy">
-        <table border="1" class="LevelOfCare">
+        <table border="1" class="LevelOfCare" id="Biopsy">
             <tr class="section">
                 <!--                <h3 class="font-normal">Biopsy</h3>-->
                 <td class="font-normal"> <strong> Biopsy performed? </strong> </td>
@@ -1440,82 +1660,82 @@
             <!--                    <obs conceptId="$@BIOPSY_DATE@"/>-->
             <!--                </td>-->
             <!--            </tr>-->
-            <tr class="BiopsyPerformed">
-                <td class="font-normal" colspan="2">
-                    <!--                <input id="obs.BiopsyResultsSquamousMetaplasia" name="obs.BiopsyResults" type="checkbox"-->
-                    <!--                       data-concept="89b01201-80c7-4690-93de-2e587d427bd5^BIOPSY RESULT coded^99DCT"-->
-                    <!--                       value="8303e328-bf92-4cbc-bb23-a81312de0cff^Squamous metaplasia^99DCT">-->
-                    <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@Squamous_metaplasia@" answerLabel="Squamous metaplasia" />
-                    <!--                Squamous metaplasia-->
-                    <!--                </label>-->
-                    <!--                <label class="font-normal">-->
-                    <!--                <input id="obs.BiopsyResultsCIN1" name="obs.BiopsyResults" type="checkbox"-->
-                    <!--                       data-concept="89b01201-80c7-4690-93de-2e587d427bd5^BIOPSY RESULT coded^99DCT"-->
-                    <!--                       value="56db2876-4469-4e2d-9f95-01972592d964^cervical intraepithelial neoplasia 1^99DCT">-->
-                    <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@cervical_intraepithelial_neoplasia_1@" answerLabel="CIN 1" />
-                    <!--                CIN 1-->
-                    <!--                </label>-->
-                    <!--                -->
-                    <!--                <label class="font-normal">-->
-                    <!--                <input id="obs.BiopsyResultsCIN2" name="obs.BiopsyResults" type="checkbox"-->
-                    <!--                       data-concept="89b01201-80c7-4690-93de-2e587d427bd5^BIOPSY RESULT coded^99DCT"-->
-                    <!--                       value="853dd92d-f9bc-4b4d-b806-c763c01e4378^cervical intraepithelial neoplasia 2^99DCT">-->
-                    <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@cervical_intraepithelial_neoplasia_2@" answerLabel="CIN 2" />
-                    <!--                CIN 2-->
-                    <!--                </label>-->
-                    <!--                <label class="font-normal">-->
-                    <!--                <input id="obs.BiopsyResultsCIN3" name="obs.BiopsyResults" type="checkbox"-->
-                    <!--                       data-concept="89b01201-80c7-4690-93de-2e587d427bd5^BIOPSY RESULT coded^99DCT"-->
-                    <!--                       value="d98f5c34-6158-42cd-b7bd-0934749dee25^cervical intraepithelial neoplasia 3^99DCT">-->
-                    <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@cervical_intraepithelial_neoplasia_3@" answerLabel="CIN 3" />
-                    <!--                CIN 3-->
-                    <!--                </label>-->
-                    <!--                <label class="font-normal">-->
-                    <!--                <input id="obs.BiopsyResultsCIS" name="obs.BiopsyResults" type="checkbox"-->
-                    <!--                       data-concept="89b01201-80c7-4690-93de-2e587d427bd5^BIOPSY RESULT coded^99DCT"-->
-                    <!--                       value="f8a41deb-0549-414e-abaa-cc20141b9d20^carcinoma in-situ^99DCT">-->
-                    <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@carcinoma_in-situ@" answerLabel="CIS" />
-                    <!--                CIS-->
-                    <!--                </label>-->
-                    <!--                <label class="font-normal">-->
-                    <!--                <input id="obs.BiopsyResultsInvasiveCancer" name="obs.BiopsyResults" type="checkbox"-->
-                    <!--                       data-concept="89b01201-80c7-4690-93de-2e587d427bd5^BIOPSY RESULT coded^99DCT"-->
-                    <!--                       value="3ce5d01c-26fe-102b-80cb-0017a47871b2^INVASIVE CERVICAL CARCINOMA^99DCT">-->
-                    <span class="activate" id="invasiveBiopsyResultCoded" title="biopsyResultCoded">
-                        <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@INVASIVE_CERVICAL_CARCINOMA@" answerLabel="Invasive cancer" />
-                    </span>
-                    <!--                Invasive cancer-->
+<!--            <tr class="BiopsyPerformed">-->
+<!--                <td class="font-normal" colspan="2">-->
+<!--                    &lt;!&ndash;                <input id="obs.BiopsyResultsSquamousMetaplasia" name="obs.BiopsyResults" type="checkbox"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       data-concept="89b01201-80c7-4690-93de-2e587d427bd5^BIOPSY RESULT coded^99DCT"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       value="8303e328-bf92-4cbc-bb23-a81312de0cff^Squamous metaplasia^99DCT">&ndash;&gt;-->
+<!--                    <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@Squamous_metaplasia@" answerLabel="Squamous metaplasia" />-->
+<!--                    &lt;!&ndash;                Squamous metaplasia&ndash;&gt;-->
+<!--                    &lt;!&ndash;                </label>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                <label class="font-normal">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                <input id="obs.BiopsyResultsCIN1" name="obs.BiopsyResults" type="checkbox"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       data-concept="89b01201-80c7-4690-93de-2e587d427bd5^BIOPSY RESULT coded^99DCT"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       value="56db2876-4469-4e2d-9f95-01972592d964^cervical intraepithelial neoplasia 1^99DCT">&ndash;&gt;-->
+<!--                    <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@cervical_intraepithelial_neoplasia_1@" answerLabel="CIN 1" />-->
+<!--                    &lt;!&ndash;                CIN 1&ndash;&gt;-->
+<!--                    &lt;!&ndash;                </label>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                &ndash;&gt;-->
+<!--                    &lt;!&ndash;                <label class="font-normal">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                <input id="obs.BiopsyResultsCIN2" name="obs.BiopsyResults" type="checkbox"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       data-concept="89b01201-80c7-4690-93de-2e587d427bd5^BIOPSY RESULT coded^99DCT"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       value="853dd92d-f9bc-4b4d-b806-c763c01e4378^cervical intraepithelial neoplasia 2^99DCT">&ndash;&gt;-->
+<!--                    <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@cervical_intraepithelial_neoplasia_2@" answerLabel="CIN 2" />-->
+<!--                    &lt;!&ndash;                CIN 2&ndash;&gt;-->
+<!--                    &lt;!&ndash;                </label>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                <label class="font-normal">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                <input id="obs.BiopsyResultsCIN3" name="obs.BiopsyResults" type="checkbox"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       data-concept="89b01201-80c7-4690-93de-2e587d427bd5^BIOPSY RESULT coded^99DCT"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       value="d98f5c34-6158-42cd-b7bd-0934749dee25^cervical intraepithelial neoplasia 3^99DCT">&ndash;&gt;-->
+<!--                    <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@cervical_intraepithelial_neoplasia_3@" answerLabel="CIN 3" />-->
+<!--                    &lt;!&ndash;                CIN 3&ndash;&gt;-->
+<!--                    &lt;!&ndash;                </label>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                <label class="font-normal">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                <input id="obs.BiopsyResultsCIS" name="obs.BiopsyResults" type="checkbox"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       data-concept="89b01201-80c7-4690-93de-2e587d427bd5^BIOPSY RESULT coded^99DCT"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       value="f8a41deb-0549-414e-abaa-cc20141b9d20^carcinoma in-situ^99DCT">&ndash;&gt;-->
+<!--                    <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@carcinoma_in-situ@" answerLabel="CIS" />-->
+<!--                    &lt;!&ndash;                CIS&ndash;&gt;-->
+<!--                    &lt;!&ndash;                </label>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                <label class="font-normal">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                <input id="obs.BiopsyResultsInvasiveCancer" name="obs.BiopsyResults" type="checkbox"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       data-concept="89b01201-80c7-4690-93de-2e587d427bd5^BIOPSY RESULT coded^99DCT"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       value="3ce5d01c-26fe-102b-80cb-0017a47871b2^INVASIVE CERVICAL CARCINOMA^99DCT">&ndash;&gt;-->
+<!--                    <span class="activate" id="invasiveBiopsyResultCoded" title="biopsyResultCoded">-->
+<!--                        <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@INVASIVE_CERVICAL_CARCINOMA@" answerLabel="Invasive cancer" />-->
+<!--                    </span>-->
+<!--                    &lt;!&ndash;                Invasive cancer&ndash;&gt;-->
 
-                    <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" />
+<!--                    <obs conceptId="$@BIOPSY_RESULT_coded@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" />-->
 
-                    <obs conceptId="$@BIOPSY_RESULT_Text@"/>
-                </td>
-                <br/>
+<!--                    <obs conceptId="$@BIOPSY_RESULT_Text@"/>-->
+<!--                </td>-->
+<!--                <br/>-->
 
-            </tr>
-            <tr class="initialHide biopsyResultCoded">
-                <td>
-                    Cancer Diagnosis
-                </td>
-                <td>
+<!--            </tr>-->
+<!--            <tr class="initialHide biopsyResultCoded">-->
+<!--                <td>-->
+<!--                    Cancer Diagnosis-->
+<!--                </td>-->
+<!--                <td>-->
 
-                    <obs conceptId="$@Confirmed_cancer_diagnosis@" answerConceptId="$@Breast_Cancer@" answerLabel="Breast cancer" style="checkbox"/>
-                    ,Histology
-                    <obs conceptId="$@Breast_Cancer_Histology@" cols="40"/>
-                    <br/>
-                    <obs conceptId="$@Confirmed_cancer_diagnosis@" answerConceptId="$@Cervical_cancer@" answerLabel="Cervical cancer" style="checkbox"/>
-                    ,Histology
-                    <obs conceptId="$@Cervical_cancer_Histology@" cols="40"/>
-                    <br/>
-                    <obs conceptId="$@Confirmed_cancer_diagnosis@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other cancer" style="checkbox"/>
-                    ,Histology
-                    <obs conceptId="$@Other_Histology@" cols="40"/>
-                </td>
-            </tr>
+<!--                    <obs conceptId="$@Confirmed_cancer_diagnosis@" answerConceptId="$@Breast_Cancer@" answerLabel="Breast cancer" style="checkbox"/>-->
+<!--                    ,Histology-->
+<!--                    <obs conceptId="$@Breast_Cancer_Histology@" cols="40"/>-->
+<!--                    <br/>-->
+<!--                    <obs conceptId="$@Confirmed_cancer_diagnosis@" answerConceptId="$@Cervical_cancer@" answerLabel="Cervical cancer" style="checkbox"/>-->
+<!--                    ,Histology-->
+<!--                    <obs conceptId="$@Cervical_cancer_Histology@" cols="40"/>-->
+<!--                    <br/>-->
+<!--                    <obs conceptId="$@Confirmed_cancer_diagnosis@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other cancer" style="checkbox"/>-->
+<!--                    ,Histology-->
+<!--                    <obs conceptId="$@Other_Histology@" cols="40"/>-->
+<!--                </td>-->
+<!--            </tr>-->
         </table>
     </section>
-    <section headerLabel="Management">
-        <table border="1">
+    <section headerLabel="Management" id="management">
+        <table border="1" id="management">
             <tr class="section">
                 <!--                <h3 class="font-normal">Management</h3>-->
                 <td class="font-normal"> <strong> Treatment performed: </strong> </td>
@@ -1530,6 +1750,13 @@
                     <span class="deactivate" id="ManagementTreatmentPerformedNo" title="ManagementTreatmentPerformed">
                         <obs conceptId="$@Treatment_performed@" answerConceptId="$@NO@" answerLabel="No" style="checkbox" />
                     </span>
+                    <br/><br/>
+                    <span class="initialHide" id="reasonForNotTreating">
+                        Reason for not treating
+                        <span id="VIAResultsLabel" style="color:red;">*</span>
+                        <obs conceptId="$@Reason_for_not_treated@"/>
+                    </span>
+                    <br/>
                     <!--                Yes-->
                     <!--            </label>-->
                     <!--            <label class="font-normal">-->
@@ -1545,7 +1772,7 @@
                     <!--                <input id="obs.ManagementTypeOfTreatmentPerformedThermoAblation" name="obs.ManagementTypeOfTreatmentPerformed" type="checkbox"-->
                     <!--                       data-concept="f7719cd4-e591-4a39-8bfe-9dd93d3cab89^Type of Treatment performed^99DCT"-->
                     <!--                       value="ef4d5bd3-2c4e-4ac2-9b91-9d4ba12b44f8^thermo-ablation^99DCT">-->
-                    <obs conceptId="$@Type_of_Treatment_performed@" answerConceptIds="$@thermal-ablation@,$@Cryotherapy@,$@Loop_Electrosurgical_Excision_Procedure@" answerLabels="Thermal ablation,Cryotherapy(DH),LEEP(DH)" style="radio"/>
+                    <obs id="treatmentType" conceptId="$@Type_of_Treatment_performed@" answerConceptIds="$@thermal-ablation@,$@Cryotherapy@,$@Loop_Electrosurgical_Excision_Procedure@" answerLabels="Thermal ablation,Cryotherapy(DH),LEEP(DH)" style="radio"/>
                     <!--                Thermo ablation-->
 
                     <!--                <input id="obs.ManagementTypeOfTreatmentPerformedCryotherapy" name="obs.ManagementTypeOfTreatmentPerformed" type="checkbox"-->
@@ -1573,11 +1800,52 @@
                     <span class="deactivate" id="DispositionFollowup" title="Disposition">
                         <obs conceptId="$@DISPOSITION@" answerConceptId="$@Follow-up_at_this_health_facility@" answerLabel="Follow-up at this health facility" />
                     </span>
+
+                    <span class="deactivate" id="DispositionFollowupAtAnotherHealthFacility" title="Disposition">
+                        <obs conceptId="$@DISPOSITION@" answerConceptId="$@Follow_up_at_another_health_facility@" answerLabel="Follow-up at another health facility" />
+                    </span>
+                    <span class="deactivate" id="DispositionRescreening" title="Disposition">
+                        <obs conceptId="$@DISPOSITION@" answerConceptId="$@Rescreening@" answerLabel="Rescreening" />
+                    </span>
+                    <span class="deactivate" id="DispositionReferredIn" title="Disposition">
+                        <obs conceptId="$@DISPOSITION@" answerConceptId="$@TRANSFER_IN@" answerLabel="transfer in:" />
+                    </span>
+                    <span class="initialHide" id ="transferToInternalDep">
+                        <obs conceptId = "$@Transfer_to_internal_department_text@" />
+                    </span>
+
                     <span class="activate" id="DispositionReferred" title="Disposition">
                         <obs conceptId="$@DISPOSITION@" answerConceptId="$@PATIENT_TRANSFERRED_OUT@" answerLabel="referred to (facility name)" />
                     </span>
                     <obs conceptId="$@referred_to_(coded)@"/>
                 </td>
+
+
+
+<!--                <label class="font-normal">-->
+<!--                    <input class="deactivate" id="DispositionFollowupAtAnotherHealthFacility" name="Disposition" type="radio"-->
+<!--                           data-concept="0af3dbde-15f5-102d-96e4-000c29c2a5d7^DISPOSITION^99DCT"-->
+<!--                           value="147b2af6-d789-416d-bfc0-42e2b717d582^Follow-up at another health facility^99DCT">-->
+<!--                    Follow-up at another health facility-->
+<!--                </label>-->
+<!--                <br/>-->
+<!--                <label class="font-normal">-->
+<!--                    <input class="deactivate" id="DispositionRescreening" name="Disposition" type="radio"-->
+<!--                           data-concept="0af3dbde-15f5-102d-96e4-000c29c2a5d7^DISPOSITION^99DCT"-->
+<!--                           value="9f77a776-4306-4a34-a42d-0a57808a90e9^Rescreening^99DCT">-->
+<!--                    Rescreening-->
+<!--                </label>-->
+<!--                <br/>-->
+<!--                <label class="font-normal">-->
+<!--                    <input class="deactivate" id="DispositionReferredIn" name="Disposition" type="radio"-->
+<!--                           data-concept="0af3dbde-15f5-102d-96e4-000c29c2a5d7^DISPOSITION^99DCT"-->
+<!--                           value="031ea34b-f95b-4cf7-a3c6-026f6fd60f1f^TRANSFER IN^99DCT">-->
+<!--                    transfer in:-->
+<!--                    <br/>-->
+<!--                    <input class="initialHide" id="serviceTransferredTo" name="serviceTransferredTo" type="text"-->
+<!--                           data-concept="0af3dbde-15f5-102d-96e4-000c29c2a5d7^Transfer to internal department text^99DCT"/>-->
+<!--                </label>-->
+<!--                <br/>-->
 
             </tr>
             <!--            <tr>-->
@@ -1650,15 +1918,15 @@
             <!--                    <obs conceptId="$@Date_of_Referring@"/>-->
             <!--                </td>-->
             <!--            </tr>-->
-            <tr class="Disposition">
-                <td class="font-normal"> <strong> Referred to (facility name):  </strong> </td>
-                <td class="font-normal">
-                    <!--                    <input id="obs.ManagementReferredTo" class="form-control" name="obs.ManagementReferredTo"-->
-                    <!--                           type="text" data-concept="25782f2c-074f-4834-b7d2-4668cd645a57^referred to^99DCT"/>-->
-                    <!--                    <obs conceptId="$@referred_to@"/>-->
-                    <obs conceptId="$@referred_to_(coded)@"/>
-                </td>
-            </tr>
+<!--            <tr class="Disposition">-->
+<!--                <td class="font-normal"> <strong> Referred to (facility name):  </strong> </td>-->
+<!--                <td class="font-normal">-->
+<!--                    &lt;!&ndash;                    <input id="obs.ManagementReferredTo" class="form-control" name="obs.ManagementReferredTo"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                           type="text" data-concept="25782f2c-074f-4834-b7d2-4668cd645a57^referred to^99DCT"/>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <obs conceptId="$@referred_to@"/>&ndash;&gt;-->
+<!--                    <obs conceptId="$@referred_to_(coded)@"/>-->
+<!--                </td>-->
+<!--            </tr>-->
             <!--            <tr>-->
             <!--                <td class="font-normal"> <strong> referral completion date: </strong> </td>-->
             <!--                <td class="font-normal">-->
@@ -1746,7 +2014,7 @@
     <!--    </section>-->
 
     <section headerLabel="Next visit">
-        <table border="1">
+        <table border="1" id = "nextVisit">
             <tr>
                 <td class="font-normal"> <strong> Date of next visit:  </strong> </td>
                 <td class="font-normal">

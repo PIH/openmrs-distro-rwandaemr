@@ -100,16 +100,22 @@
                 <label>Level of Care: <span class="required">*</span></label>
             </div>
             <label class="font-normal">
-                <input  class="deactivate" id="LevelOfCareHealthCenter" name="LevelOfCare" type="checkbox" required="required"
+                <input  class="deactivate" id="LevelOfCareHealthCenter" name="LevelOfCare" type="radio" required="required"
                         data-concept="4893bd7a-8943-4a75-82da-67ef0ed86db2^Level of Care^99DCT"
                         value="7e327a1a-c1df-4712-ab5d-e05dc0dac35d^HEALTH CENTER^99DCT" >
                 Health center/ Health Post
             </label>
             <label class="font-normal">
-                <input class="activate" id="LevelOfCareHospital" name="LevelOfCare" type="checkbox"
+                <input class="activate" id="LevelOfCareHospital" name="LevelOfCare" type="radio"
                        data-concept="4893bd7a-8943-4a75-82da-67ef0ed86db2^Level of Care^99DCT"
                        value="3ce0d472-26fe-102b-80cb-0017a47871b2^HOSPITAL^99DCT">
                 Hospital
+            </label>
+            <label class="font-normal">
+                <input class="activate" id="LevelOfCarePrivateClinic" name="LevelOfCare" type="radio"
+                       data-concept="4893bd7a-8943-4a75-82da-67ef0ed86db2^Level of Care^99DCT"
+                       value="c97a85fe-c77f-46ea-8c4f-85895a86f16b^Private clinic^99DCT">
+                Private clinic
             </label>
         </fieldset>
     </div>
@@ -413,6 +419,8 @@
                            value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
                     No
                 </label>
+                
+
             </div>
             <br/>
             <div class="PreviousCervicalScreening PastScreeningResult">
@@ -469,12 +477,12 @@
                 Negative
             </label>
             <br/>
-            <label class="font-normal">
-                <input class="deactivate" id="unknownHIVStatusHistory" name="HIVStatusHistory" type="checkbox"
-                       data-concept="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e^HIV STATUS^99DCT"
-                       value="3cd6fac4-26fe-102b-80cb-0017a47871b2^UNKNOWN^99DCT">
-                Unknown
-            </label>
+<!--            <label class="font-normal">-->
+<!--                <input class="deactivate" id="unknownHIVStatusHistory" name="HIVStatusHistory" type="checkbox"-->
+<!--                       data-concept="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e^HIV STATUS^99DCT"-->
+<!--                       value="3cd6fac4-26fe-102b-80cb-0017a47871b2^UNKNOWN^99DCT">-->
+<!--                Unknown-->
+<!--            </label>-->
         </div>
         <div class="form-group HIVStatusHistory">
             <label> If HIV positive on ARV: </label>
@@ -895,7 +903,8 @@
 <!--            </label>-->
             <br/>
             <label><u>Result</u></label>
-            <span class="required initialHide" id="VIAResultsrequirementIndicator">*</span></label>
+            <span class="required initialHide" id="VIAResultsrequirementIndicator">*</span>
+            </label>
             <br/>
             <label class="font-normal">
                 <input class="activate" id="VIATriageResultThermalablation" name="VIATriageResults" type="checkbox"
@@ -912,7 +921,7 @@
             </label>
             <br/>
             <label class="font-normal">
-                <input class="deactivate" id="VIATriageResultNegative" name="VIATriageResults" type="checkbox"
+                <input class="activate" id="VIATriageResultNegative" name="VIATriageResults" type="checkbox"
                        data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA Results^99DCT"
                        value="a7b08a37-0380-49dd-8f12-c2c2c76c8b13^VIA Negative^99DCT">
                 VIA-
@@ -923,6 +932,37 @@
                        data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA Results^99DCT"
                        value="476123d7-54f1-4278-92f1-2de4f19ae951^Suspected cancer diagnosis^99DCT">
                 Suspected cancer
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input class="deactivate" id="VIATriageResult" name="VIATriageResultsindeterminate" type="checkbox"
+                       data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA Results^99DCT"
+                       value="3cd774d6-26fe-102b-80cb-0017a47871b2^INDETERMINATE^99DCT">
+                Indeterminate
+            </label>
+        </div>
+        <div>
+            <label><u>Type of Transformation zone</u></label>
+            <br/>
+            <label class="font-normal">
+                <input id="typeOneTypeOfTransformationZone" name="TypeOfTransformationZone" type="radio"
+                       data-concept="af1421bc-333e-449b-bab5-99a54a38490a^Type ofTransformation zone^99DCT"
+                       value="7eeaa623-7dec-4a1f-9314-b97e886235e4^Type 1^99DCT">
+                    Type 1
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="typeTwoTypeOfTransformationZone" name="TypeOfTransformationZone" type="radio"
+                       data-concept="af1421bc-333e-449b-bab5-99a54a38490a^Type ofTransformation zone^99DCT"
+                       value="6476e05e-4406-47f4-9025-1c95571e6f59^Type 2^99DCT">
+                       Type 2
+            </label>
+            <br/>
+            <label class="font-normal">
+                <input id="typeThreeTypeOfTransformationZone" name="TypeOfTransformationZone" type="radio"
+                       data-concept="af1421bc-333e-449b-bab5-99a54a38490a^Type ofTransformation zone^99DCT"
+                       value="cc6497b1-8f5b-48be-ac95-d5e142e6e663^Type 3^99DCT">
+                       Type 3
             </label>
         </div>
     </fieldset>
@@ -1235,7 +1275,9 @@
             <div id="managementDiv">
                 <div class="VIATriageResults">
                     <h3 class="font-normal VIATriageResults">Management</h3>
-                    <label class="font-normal VIATriageResults"> <strong> Treatment performed: </strong> </label>
+                    <label class="font-normal VIATriageResults"> <strong> Treatment performed: </strong> 
+                        <span class="required initialHide" id="ManagementTreatmentPerformedRequired">*</span></label>
+                    </label>
                     <br/>
                     <label class="font-normal VIATriageResults">
                         <input class="activate" id="ManagementTreatmentPerformedYes" name="ManagementTreatmentPerformed" type="checkbox"
@@ -1250,10 +1292,25 @@
                                value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
                         No
                     </label>
+                    <br/>
+                    <label class="font-normal initialHide" id="reasonForNottreatingGroupLabel">
+                        <label>
+                            Reason for not treating
+                            <span class="required">*</span>
+                        </label>
+                        <br/>
+                        <input id="reasonForNottreating" name="reasonForNottreating" type="text"
+                            data-concept="31ea0598-0d80-4b6f-981f-59e6b8d228c9^Reason for not treated^99DCT">
+                    
+                    </label>
                 </div>
-                <br/>
+                
                 <div class="ManagementTreatmentPerformed VIATriageResults">
-                    <label class="font-normal">Treatment type: </label>
+                    <label class="font-normal">Treatment type: 
+
+                        <span class="required initialHide" id="ManagementTypeOfTreatmentPerformedRequired">*</span></label>
+                        
+                    </label>
                     <br/>
                     <label class="font-normal">
                         <input id="ManagementTypeOfTreatmentPerformedThermoAblation" name="ManagementTypeOfTreatmentPerformed" type="checkbox"
@@ -1552,9 +1609,9 @@
             }
 
             $('#save_draft').click(function () {
-            $(this).prop('disabled', true);
-            document.saveDraft(this);
-            $(this).prop('disabled', false);
+                $(this).prop('disabled', true);
+                document.saveDraft(this);
+                $(this).prop('disabled', false);
             });
             $('#submit_form').click(function () {
                 $(this).prop('disabled', true);
@@ -1586,7 +1643,7 @@
                 }
             });
 
-                        var WhereToRefer = [
+            var WhereToRefer = [
                 {"val": "64d4a6d9-8e71-4d80-83bc-fc5b5e44703f^Caraes Ndera Hospital^99DCT", "label": "Caraes Ndera Hospital "},
                 {"val": "682754d6-cff2-4f2e-90a3-ea3b1e7fa230^Butaro Hospital^99DCT", "label": "Butaro Hospital "},
                 {"val": "927be708-d8b3-4809-bd7e-c1bea7c821eb^Byumba Hospital^99DCT", "label": "Byumba Hospital "},
@@ -1655,7 +1712,7 @@
                            $("input[id='"+idOfElement+"']").prop('checked', false)
                         }
                         $("."+nameOfElement).hide();
-                    })
+                    });
                 }
                 if($("input[id='"+idOfClicked+"']").prop('checked')){
                     if(classOfClicked=="activate" ){
@@ -1689,24 +1746,28 @@
 
                     $("#nextVisitSpan").hide();
                     $("#managementDiv").hide();
+                    $("#colposcopy").hide();
+                    // $("BiopsyPerformed").hide();
                     $("#obs\\.specimenCode").prop("required",true);
                     specimenCodeAutofill();
                     $("#obs\\.BreastDispositionNextDate").prop("required",false);
                 }else{
-                    $("#managementDiv").show()
+                    $("#managementDiv").show();
+                    $("#colposcopy").show();
+                    // $("BiopsyPerformed").show();
                     $("#obs\\.specimenCode").prop("required",false);
                 }
             });
             $('#ScreeningTypePapSmear').change(function(){
                 if($("input[id='ScreeningTypePapSmear']").prop('checked')){
-                    $("#managementDiv").show()
+                    $("#managementDiv").show();
                     $("#nextVisitSpan").hide();
                     $("#obs\\.BreastDispositionNextDate").prop("required",false);
                 }
             });
             $('#ScreeningTypeVIA').change(function(){
                 if($("input[id='ScreeningTypeVIA']").prop('checked')){
-                    $("#managementDiv").show()
+                    $("#managementDiv").show();
                     $("#nextVisitSpan").show();
                     $("#obs\\.nextVisitDate").prop("required",true);
                 }
@@ -1726,53 +1787,53 @@
 
             $('#LevelOfCareHospital').change(function(){
                 if($("input[id='LevelOfCareHospital']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
-                    $(".referralReason").hide()
+                    $(".referralReason").hide();
                 }else{
-                    $(".referralReason").show()
+                    $(".referralReason").show();
                 }
             });
             $('#EntryModeVoluntary').change(function(){
                 if($("input[id='LevelOfCareHospital']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
-                    $(".referralReason").hide()
+                    $(".referralReason").hide();
                 }else{
-                    $(".referralReason").show()
+                    $(".referralReason").show();
                 }
             });
 
             $('#followUpReasonTriage').change(function(){
                 if($("input[id='followUpReasonTriage']").prop('checked') && $("input[id='TestResultsHPVPositive']").prop('checked')){
-                    $("#ScreenVIAPerformedTypeLabel").hide()
-                    $("#triageVIAPerformedTypeLabel").show()
+                    $("#ScreenVIAPerformedTypeLabel").hide();
+                    $("#triageVIAPerformedTypeLabel").show();
                 }else{
-                    $("ScreenVIAPerformedTypeLabel").show()
+                    $("ScreenVIAPerformedTypeLabel").show();
                 }
-            })
+            });
             $('#TestResultsHPVPositive').change(function(){
                 if($("input[id='followUpReasonTriage']").prop('checked') && $("input[id='TestResultsHPVPositive']").prop('checked')){
-                    $("#ScreenVIAPerformedTypeLabel").hide()
-                    $("#triageVIAPerformedTypeLabel").show()
+                    $("#ScreenVIAPerformedTypeLabel").hide();
+                    $("#triageVIAPerformedTypeLabel").show();
 
                 }else{
-                    $("#ScreenVIAPerformedTypeLabel").show()
+                    $("#ScreenVIAPerformedTypeLabel").show();
                 }
-            })
+            });
 
             $('#followUpReasonPostTreatmentFollowup').change(function(){
                 if($("input[id='followUpReasonPostTreatmentFollowup']").prop('checked') && $("input[id='TestResultsHPVPositive']").prop('checked')){
-                    $("#triageVIAPerformedTypeLabel").show()
-                    $("#ScreenVIAPerformedTypeLabel").hide()
+                    $("#triageVIAPerformedTypeLabel").show();
+                    $("#ScreenVIAPerformedTypeLabel").hide();
                 }else{
-                    $("triageVIAPerformedTypeLabel").hide()
+                    $("triageVIAPerformedTypeLabel").hide();
                 }
-            })
+            });
             $('#TestResultsHPVPositive').change(function(){
                 if($("input[id='followUpReasonPostTreatmentFollowup']").prop('checked') && $("input[id='TestResultsHPVPositive']").prop('checked')){
-                    $("#triageVIAPerformedTypeLabel").hide()
-                    $("#ScreenVIAPerformedTypeLabel").show()
+                    $("#triageVIAPerformedTypeLabel").hide();
+                    $("#ScreenVIAPerformedTypeLabel").show();
                 }else{
-                    $("#triageVIAPerformedTypeLabel").show()
+                    $("#triageVIAPerformedTypeLabel").show();
                 }
-            })
+            });
 
             if($("#patient\\.sex").val()=="M"){
                 alert("This form is not recommended for a male client");
@@ -1824,7 +1885,7 @@
                     $("#serviceTransferredTo").hide();
                     $("#serviceTransferredTo").prop("required",false);
                 }
-            })
+            });
 
             /* spacemen code auto-complete function */
             function specimenCodeAutofill(){
@@ -1839,18 +1900,115 @@
                     var AconvertedDate = Adatearray[1] + '-' + Adatearray[0] + '-' + Adatearray[2];
                     var Bdatearray = b.obsDate.split("-");
                     var BconvertedDate = Bdatearray[1] + '-' + Bdatearray[0] + '-' + Bdatearray[2];
-                    return new Date(BconvertedDate) - new Date(AconvertedDate)
+                    return new Date(BconvertedDate) - new Date(AconvertedDate);
                 });
 
                 var datearray = allSpecCodeForPatient[0].obsDate.split("-");
                 var convertedDate = datearray[1] + '-' + datearray[0] + '-' + datearray[2];
                 const diffTime = (new Date()) - new Date(convertedDate);
                 const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24) );
-                if(diffDays < 2){
+                if(diffDays <= 1){
                     $('#obs\\.specimenCode').val(allSpecCodeForPatient[0].valueText);
                 }
             }
             /* End */
+
+            // HIVObsAutofill();
+
+            // // /* coded obs auto-complete function */
+            // function HIVObsAutofill(){
+            //     var patientuuid = $('#patient\\.uuid').val();
+            //     var conceptQuestionID = 3753;
+            //     //var conceptQuestionID = "HIVStatusHistory";
+
+
+            //     var allobsForSpecificQuestionForPatientNonParsed = htmlDataStore.getObsByConceptId(patientuuid,conceptQuestionID);
+            //     allobsForSpecificQuestionForPatient = JSON.parse(allobsForSpecificQuestionForPatientNonParsed);
+            //     // sort the array desc based on obs date
+            //     allobsForSpecificQuestionForPatient.sort(function(a, b){
+
+            //         var Adatearray = a.obsDate.split("-");
+            //         var AconvertedDate = Adatearray[1] + '-' + Adatearray[0] + '-' + Adatearray[2];
+            //         var Bdatearray = b.obsDate.split("-");
+            //         var BconvertedDate = Bdatearray[1] + '-' + Bdatearray[0] + '-' + Bdatearray[2];
+            //         return new Date(BconvertedDate) - new Date(AconvertedDate);
+            //     });
+
+
+            //     var datearray = allobsForSpecificQuestionForPatient[0].obsDate.split("-");
+            //     var convertedDate = datearray[1] + '-' + datearray[0] + '-' + datearray[2];
+            //     const diffTime = (new Date()) - new Date(convertedDate);
+            //     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24) );
+
+            //     var previousValue = allobsForSpecificQuestionForPatient[0].valueCoded;
+
+            //     if(diffDays <= 1){
+            //         // $('#'+obsname).val(allobsForSpecificQuestionForPatient[0].valueCoded);
+
+            //         if(previousValue.name === "POSITIVE"){
+            //             // POSITIVE
+            //             $('#positiveHIVStatusHistory').prop("checked", true);
+            //         }
+            //         else if(previousValue.name === "NEGATIVE") {
+            //             // NEGATIVE
+            //             $('#negativeHIVStatusHistory').prop("checked", true);
+            //         }
+
+            //     }
+            // }
+
+
+        try {
+            HIVObsAutofill();
+        } catch (error) {
+            console.error("HIVObsAutofill error:", error);
+        }
+
+        function HIVObsAutofill() {
+            const patientuuid = $('#patient\\.uuid').val();
+            const conceptQuestionID = 3753;
+
+            if (!htmlDataStore || typeof htmlDataStore.getObsByConceptId !== 'function') return;
+
+            const rawObs = htmlDataStore.getObsByConceptId(patientuuid, conceptQuestionID);
+            if (!rawObs) return;
+
+            let obsList;
+            try {
+                obsList = JSON.parse(rawObs);
+            } catch (e) {
+                console.error("Failed to parse obs JSON:", e);
+                return;
+            }
+
+            if (!Array.isArray(obsList) || obsList.length === 0) return;
+
+            obsList.sort((a, b) => {
+                const dateA = new Date(a.obsDate.split('-').reverse().join('-'));
+                const dateB = new Date(b.obsDate.split('-').reverse().join('-'));
+                return dateB - dateA;
+            });
+
+            const latestObs = obsList[0];
+            const obsDate = new Date(latestObs.obsDate.split('-').reverse().join('-'));
+            const diffDays = Math.ceil((new Date() - obsDate) / (1000 * 60 * 60 * 24));
+
+            if (diffDays <= 1 && latestObs.valueCoded) {
+                const val = latestObs.valueCoded.name || latestObs.valueCoded;
+
+                if (val === "POSITIVE") {
+                    $('#positiveHIVStatusHistory').prop("checked", true);
+                } else if (val === "NEGATIVE") {
+                    $('#negativeHIVStatusHistory').prop("checked", true);
+                }
+            }
+        }
+            /* End */
+
+
+
+
+        
 
             /* Validate specimen code */
 
@@ -1885,6 +2043,7 @@
                 if(VIATypeChecked.length>=1){
                     $("#VIATriageResultThermalablation").prop("required",true);
                     $("#VIAResultsrequirementIndicator").show();
+
                 }
                 else{
                     $("#VIATriageResultThermalablation").prop("required",false);
@@ -1892,7 +2051,53 @@
                     $("#VIAResultsrequirementIndicator").hide();
                 }
 
-            })
+            });
+            /* End */
+            /* management treatment mandatory checks */
+            $('input[name="VIATriageResults"]').change(function(){
+
+                var VIAtriageResultsValue = $('input[name=VIATriageResults]:checked').val();
+                var VIAEligibleForLEEP = "3fe69559-cc82-48cb-926e-5d925aca088b";
+                var VIAEligibleForThermalAblation = "402f3951-420e-4c09-9a9a-955bc0cff140";
+                
+                var TreatmentPerformed = $('input[name=TreatmentPerformed]:checked');
+                
+                if(VIAtriageResultsValue.indexOf(VIAEligibleForLEEP) != -1 ||
+                    VIAtriageResultsValue.indexOf(VIAEligibleForThermalAblation) != -1){
+                    $("#ManagementTreatmentPerformedYes").prop("required",true);
+                    $("#ManagementTypeOfTreatmentPerformedThermoAblation").prop("required",true); 
+                    $("#ManagementTreatmentPerformedRequired").show();
+                    $("#ManagementTypeOfTreatmentPerformedRequired").show();
+                    
+                }else{
+                    $("#ManagementTreatmentPerformedYes").prop("required",false);
+                    $("#ManagementTypeOfTreatmentPerformedThermoAblation").prop("required",false); 
+                    $("#ManagementTreatmentPerformedRequired").hide();
+                    $("#ManagementTypeOfTreatmentPerformedRequired").hide();
+                }
+                
+            });
+            $('input[name="ManagementTreatmentPerformed"]').change(function(){
+                var TreatmentPerformedValue = $('input[name=ManagementTreatmentPerformed]:checked').val();
+                var managementTreatmentPerformedValueNoUUID = "3cd6f86c-26fe-102b-80cb-0017a47871b2";
+                
+                if(TreatmentPerformedValue.indexOf(managementTreatmentPerformedValueNoUUID) != -1){
+                    $("#reasonForNottreatingGroupLabel").show();
+                    $("#reasonForNottreating").prop("required",true);
+                    $("#ManagementTypeOfTreatmentPerformedThermoAblation").prop("required",false);
+                    $("#ManagementTypeOfTreatmentPerformedRequired").hide();
+                    
+                }else{
+                    $("#reasonForNottreating").prop("required",false);
+                    $("#reasonForNottreatingGroupLabel").hide();
+                    $("#ManagementTypeOfTreatmentPerformedThermoAblation").prop("required",true);  
+                    $("#ManagementTypeOfTreatmentPerformedRequired").show();
+                        
+                }
+            });
+
+
+
             /* End */
 
             $(".initialHide").hide();

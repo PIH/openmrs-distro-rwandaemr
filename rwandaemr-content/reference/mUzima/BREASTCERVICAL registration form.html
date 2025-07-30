@@ -67,16 +67,16 @@
             </div>
             <div class="form-group">
                 <label for="patient.family_name">Family Name: <span class="required">*</span> </label>
-                <input class="form-control" id="patient.family_name" name="patient.family_name" type="text" pattern="[A-Za-z]+"
+                <input class="form-control" id="patient.family_name" name="patient.family_name" type="text" pattern="[A-Za-zÀ-ÖØ-öø-ÿ\-\' ]+"
                        required="required">
             </div>
             <div class="form-group">
                 <label for="patient.middle_name">Middle Name:</label>
-                <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text" pattern="[A-Za-z]+"/>
+                <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text" pattern="[A-Za-zÀ-ÖØ-öø-ÿ\-\' ]+"/>
             </div>
             <div class="form-group">
                 <label for="patient.given_name">First Name: <span class="required">*</span></label>
-                <input class="form-control" id="patient.given_name" name="patient.given_name" type="text" pattern="[A-Za-z]+"
+                <input class="form-control" id="patient.given_name" name="patient.given_name" type="text" pattern="[A-Za-zÀ-ÖØ-öø-ÿ\-\' ]+"
                        required="required"/>
             </div>
         </fieldset>
@@ -126,33 +126,33 @@
         <fieldset>
             <h3>Address</h3>
             <div class="form-group">
-                <label for="country">Country: </label>
-                <input class="form-control" id="country"  type="text" >
-                <input class="form-control" name="country" type="hidden">
+                <label for="country">Country: <span class="required">*</span></label>
+                <input class="form-control" id="country" ame="countrya" type="text" required="required">
+                <input class="form-control" name="country" type="hidden" >
             </div>
             <div class="form-group">
-                <label for="stateProvince">Province: </label>
-                <input class="form-control" id="stateProvince"  type="text" >
+                <label for="stateProvince">Province: <span class="required">*</span></label>
+                <input class="form-control" id="stateProvince" name="stateProvincea" type="text" required="required">
                 <input class="form-control"  name="stateProvince" type="hidden">
             </div>
             <div class="form-group">
-                <label for="countyDistrict">District: </label>
-                <input class="form-control" id="countyDistrict"  type="text" >
-                <input class="form-control" name="countyDistrict" type="hidden">
+                <label for="countyDistrict">District: <span class="required">*</span></label>
+                <input class="form-control" id="countyDistrict" name="countyDistricta" type="text" required="required">
+                <input class="form-control" name="countyDistrict" type="hidden" >
             </div>
             <div class="form-group">
-                <label for="cityVillage">Sector: </label>
-                <input class="form-control" id="cityVillage" type="text" >
+                <label for="cityVillage">Sector: <span class="required">*</span></label>
+                <input class="form-control" id="cityVillage" name="cityVillagea"type="text" required="required">
                 <input class="form-control"  name="cityVillage" type="hidden">
             </div>
             <div class="form-group">
-                <label for="address3">Cell: </label>
-                <input class="form-control" id="address3"  type="text" >
+                <label for="address3">Cell: <span class="required">*</span></label>
+                <input class="form-control" id="address3"  name="addressa3" type="text" required="required">
                 <input class="form-control" name="address3" type="hidden">
             </div>
             <div class="form-group">
-                <label for="address1">Umudugudu: </label>
-                <input class="form-control" id="address1"  type="text" >
+                <label for="address1">Umudugudu: <span class="required">*</span></label>
+                <input class="form-control" id="address1" name="addressa1" type="text" required="required">
                 <input class="form-control" name="address1" type="hidden">
             </div>
         </fieldset>
@@ -319,8 +319,7 @@
                 $('#patient\\.contact_Person_phone_number').prop('required',false);
                 $(".contactPersonPhone").hide();
             }
-        })
-
+        });
         $('#noOwnPhoneNumber').change(function(){
             if($("input[id='noOwnPhoneNumber']").prop('checked')){
                 $('#patient\\.contact_Person_phone_number').prop('required',true);
@@ -17898,8 +17897,44 @@
         { "id":17452,"val" : "Ubukoroco" , "label" : "Ubukoroco / Kintambwe","parent_id":2617},
         { "id":17453,"val" : "Gasasa" , "label" : "Gasasa / Mazane","parent_id":2618},
         { "id":17454,"val" : "Rukira" , "label" : "Rukira / Mazane","parent_id":2618},
-        { "id":17455,"val" : "Rusenyi" , "label" : "Rusenyi / Mazane","parent_id":2618}
-
+        { "id":17455,"val" : "Rusenyi" , "label" : "Rusenyi / Mazane","parent_id":2618},
+        { "id":17456,"val" : "Kigina" , "label" : "Kigina / Nemba","parent_id":2619},
+        { "id":17457,"val" : "Rwibinyogote" , "label" : "Rwibinyogote / Nemba","parent_id":2619},
+        { "id":17458,"val" : "Muyoboro" , "label" : "Muyoboro / Nemba","parent_id":2619},
+        { "id":17459,"val" : "Rwiminazi" , "label" : "Rwiminazi / Nemba","parent_id":2619},
+        { "id":17460,"val" : "Nemba" , "label" : "Nemba / Nemba","parent_id":2619},
+        { "id":17461,"val" : "Kimvubu" , "label" : "Kimvubu / Nemba","parent_id":2619},
+        { "id":17462,"val" : "Rutete" , "label" : "Rutete / Nemba","parent_id":2619},
+        { "id":17463,"val" : "Kimpara" , "label" : "Kimpara / Nemba","parent_id":2619},
+        { "id":17464,"val" : "Nyakabingo" , "label" : "Nyakabingo / Nemba","parent_id":2619},
+        { "id":17465,"val" : "Ruzo" , "label" : "Ruzo / Nkanga","parent_id":2620},
+        { "id":17466,"val" : "Mujwiri" , "label" : "Mujwiri / Nkanga","parent_id":2620},
+        { "id":17467,"val" : "Nkanga" , "label" : "Nkanga / Nkanga","parent_id":2620},
+        { "id":17468,"val" : "Mishyoroti" , "label" : "Mishyoroti / Nkanga","parent_id":2620},
+        { "id":17469,"val" : "Kivusha" , "label" : "Kivusha / Nkanga","parent_id":2620},
+        { "id":17470,"val" : "Agashoro" , "label" : "Agashoro / Nkanga","parent_id":2620},
+        { "id":17471,"val" : "Sharita" , "label" : "Sharita / Sharita","parent_id":2621},
+        { "id":17472,"val" : "Karizinge" , "label" : "Karizinge / Sharita","parent_id":2621},
+        { "id":17473,"val" : "Kabagugu" , "label" : "Kabagugu / Kabagugu","parent_id":2622},
+        { "id":17474,"val" : "Rwamanyoni" , "label" : "Rwamanyoni / Kabagugu","parent_id":2622},
+        { "id":17475,"val" : "Kinteko" , "label" : "Kinteko / Kabagugu","parent_id":2622},
+        { "id":17476,"val" : "Ngaruye" , "label" : "Ngaruye / Kabagugu","parent_id":2622},
+        { "id":17477,"val" : "Rubwirwa" , "label" : "Rubwirwa / Kamabuye","parent_id":2623},
+        { "id":17478,"val" : "Nyabaguma" , "label" : "Nyabaguma / Kamabuye","parent_id":2623},
+        { "id":17479,"val" : "Gakoni" , "label" : "Gakoni / Kamabuye","parent_id":2623},
+        { "id":17480,"val" : "Gahosha" , "label" : "Gahosha / Nyiranziza","parent_id":2624},
+        { "id":17481,"val" : "Kagarama" , "label" : "Kagarama / Nyiranziza","parent_id":2624},
+        { "id":17482,"val" : "Ruli" , "label" : "Ruli / Nyiranziza","parent_id":2624},
+        { "id":17483,"val" : "Nziranziza" , "label" : "Nziranziza / Nyiranziza","parent_id":2624},
+        { "id":17484,"val" : "Nyamirama" , "label" : "Nyamirama / Rebero","parent_id":2625},
+        { "id":17485,"val" : "Rebero" , "label" : "Rebero / Rebero","parent_id":2625},
+        { "id":17486,"val" : "Rutebe" , "label" : "Rutebe / Rebero","parent_id":2625},
+        { "id":17487,"val" : "Gateko" , "label" : "Gateko / Rebero","parent_id":2625},
+        { "id":17488,"val" : "Ruhanga" , "label" : "Ruhanga / Rutare","parent_id":2626},
+        { "id":17489,"val" : "Kamweru" , "label" : "Kamweru / Rutare","parent_id":2626},
+        { "id":17490,"val" : "Shyara" , "label" : "Shyara / Rutare","parent_id":2626},
+        { "id":17491,"val" : "Rutare" , "label" : "Rutare / Rutare","parent_id":2626},
+        { "id":174892,"val" : "Gaseke" , "label" : "Gaseke / Rutare","parent_id":2626}
     ];
     //document.setupAutoComplete('address1', address1DataDictionary);
 
