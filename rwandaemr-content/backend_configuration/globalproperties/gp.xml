@@ -9,11 +9,11 @@
 
         <globalProperty>
             <property>rwandaemr.radiology.supportedModalities</property>
-            <value>CR,CT,US</value>
+            <value>DX,CT,US</value>
         </globalProperty>
 
         <globalProperty>
-            <property>rwandaemr.radiology.orderables.CR</property>
+            <property>rwandaemr.radiology.orderables.DX</property>
             <value>782ca68e-c0c8-40ac-8d08-d6c1f8c5cc00</value>
         </globalProperty>
 

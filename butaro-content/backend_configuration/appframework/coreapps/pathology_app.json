@@ -1,0 +1,19 @@
+[
+  {
+    "id": "rwandaemr.pathologyApp",
+    "description": "Home Page Link to Pathology Patient List App",
+    "order": 20,
+    "extensions": [
+      {
+        "id": "rwandaemr.pathologyApp",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Pathology Patient List",
+        "url": "spa/pathology",
+        "icon": "fas fa-fw fa-cubes",
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Oncology Location')",
+        "order": 7
+      }
+    ]
+  }
+]
