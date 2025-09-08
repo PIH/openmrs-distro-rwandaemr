@@ -62,6 +62,7 @@
         <owaVersion>1.15.0</owaVersion>
         <patientsummaryVersion>1.4.0</patientsummaryVersion>
         <pharmacymanagementVersion>2.0.0-SNAPSHOT</pharmacymanagementVersion>
+        <pihappsVersion>1.0.0-SNAPSHOT</pihappsVersion>
         <providermanagementVersion>2.15.0</providermanagementVersion>
         <registrationappVersion>1.28.1</registrationappVersion>
         <registrationcoreVersion>1.13.0</registrationcoreVersion>
@@ -323,6 +324,12 @@
             <groupId>org.openmrs.module</groupId>
             <artifactId>pharmacymanagement-omod</artifactId>
             <version>${pharmacymanagementVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>pihapps-omod</artifactId>
+            <version>${pihappsVersion}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
