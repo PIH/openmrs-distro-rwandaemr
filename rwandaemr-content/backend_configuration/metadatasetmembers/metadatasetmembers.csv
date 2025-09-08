@@ -1,0 +1,3 @@
+Uuid,Name,Metadata Set Uuid,Metadata Class,Metadata Uuid,Sort Weight
+e8bd1d4e-b549-4fbe-bbde-0e5df65a5667,IMB ID,f0ebcb99-7618-41b7-b0bf-8ff93de67b9e,org.openmrs.PatientIdentifierType,c147b1de-2700-102b-80cb-0017a47871b2,1
+781c4ff6-830f-11f0-9a8d-d880837ea3cd,TRACnet ID,f0ebcb99-7618-41b7-b0bf-8ff93de67b9e,org.openmrs.PatientIdentifierType,c147b01c-2700-102b-80cb-0017a47871b2,2
