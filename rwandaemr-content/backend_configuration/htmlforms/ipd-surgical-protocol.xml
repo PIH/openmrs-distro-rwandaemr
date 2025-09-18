@@ -302,7 +302,7 @@
             </p>
             <p class="small-input flexView">
                 Intra-Operative Diagnosis:
-                <obs conceptId="78f9f275-f1ff-439e-8df3-7711560f2dc5" style="text" /><br />
+                <obs conceptId="a8ff145b-f464-43e5-97bd-2d80c103e2ec" style="text" /><br />
 
             </p>
             <p class="small-input flexView">
@@ -333,6 +333,11 @@
             <p class="small-input flexView">
                 Post-operative diagnosis:
                 <obs conceptId="358f9c91-c17f-40b5-9df0-d3cb78a57ae8" style="text" /><br />
+
+            </p>
+            <p>
+                Post operative report:
+                <obs conceptId="18a3ddfd-f5fb-4d1f-b962-d2bb6a402422" style="textarea" rows="4" cols="40" /><br />
 
             </p>
             <p>

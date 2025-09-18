@@ -1,0 +1,915 @@
+<htmlform formDescription="New Radiology Order Form" formEncounterType="02965343-bbe7-4c3c-83c5-c3d084e715b7"
+          formName="New Radiology Order Form" formPublished="true" formRetired="false" formUuid="08119535-0061-4b8b-bb3c-0d843cf2d3f0"
+          formVersion="1.0" htmlformUuid="131ff540-49ec-44fb-bad2-2d0c3fb22ac5">
+    <macros>
+        @Type_of_Radiology@=a691882f-ad3b-48b3-80ed-b8609728a84a
+        @Radiology_report@=6d28e69f-e456-4721-b104-6c4ef4f8b911
+    </macros>
+    <style type="text/css">
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item>span,
+        .past-medical-history-item>label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        p.radio>* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        p input {
+        min-width: 5em;
+
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+    </style>
+    <ifMode mode="VIEW" include="false">
+        <script type="text/javascript">
+            $j(document).ready(function () {
+
+            $j(".before20240607changes").hide();
+
+            if (getValue("encounterDate.value") &#60;&#61; '2024-06-07'){
+            $j(".before20240607changes").show();
+            }else {
+            $j(".before20240607changes").hide();
+            }
+            getField('encounterDate.value').change(function () {
+            if (getValue("encounterDate.value") &#60;&#61; '2024-06-07'){
+            $j(".before20240607changes").show();
+            }else {
+            $j(".before20240607changes").hide();
+            }
+            });
+
+            });
+        </script>
+    </ifMode>
+    <!-- RADIOLOGY  FORM -->
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateBillOnHtmlFormSubmissionAction" />
+    <h1>RADIOLOGY REQUEST FORM</h1>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION">
+        <div class="section-container">
+
+
+            <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                <tr>
+                    <td>
+                        Date:
+                        <encounterDate default="today" />
+                    </td>
+                    <td>
+                        Health Facility:
+                        <encounterLocation id="location" default="GlobalProperty:billing.defaultLocation" />
+                    </td>
+                    <td>
+                        Provider:
+                        <encounterProvider default="currentUser" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lblcolor">
+                        <b>Department:
+                            <obs conceptId="a29f03ad-be6b-4958-b47e-eb9235d364a4" required="true" />
+                        </b>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="IMAGING - X RAY">
+        <div id="imagingXRayId" class="section-container">
+            <div class="two-columns">
+
+                <p class="small-input flexView">
+                    <obs conceptId="2f609e67-aef5-4ed3-84b7-975a92f46d59" labelText="Swallow - barium solution:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="68a091ea-a1ee-4b76-9031-783d5a0230a2" labelText="Swallow - gastrografin solution:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="57f5adce-171a-4c4d-87e2-e770dfb2afe9" labelText="Retrograde uretrography:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="29bc4ab2-560f-45ab-9a55-636adeab3aff" labelText="Mammography:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="6324c57a-7ae7-4a7a-903a-613994e9502c" labelText="Intravenous urography:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="c3371b46-438e-4870-b276-d17e9ddcc8b4" labelText="Hysterosalpingography:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="7a00938a-e456-4ce2-acd6-a6094e4a50b1" labelText="Follow through - barium solution:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="5f09e491-453f-4875-801a-0bc304c4a552" labelText="Follow through - gastrografin solution:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="bae41222-6878-42ef-b602-cd352d7311c8" labelText="Fistulography:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="d09cf4b2-6051-4933-8d26-ca752adde926" labelText="Enema - barium solution:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="c9fd9526-af4b-4ce5-aef3-69ed81c2be33" labelText="Enema - gastrografin solution:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="aa260743-4dba-4b5e-ac49-8308d9b4d979" labelText="Cysto-urethrogramm (CUG):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="b079406e-c729-4767-a41d-890841970004" labelText="Cholecystography:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="056df3da-1cc7-4665-b37d-d9205568762c" labelText="Cholangiography:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="bfa09034-b29d-448d-b9e9-1accba0b2f52" labelText="Bronchography:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="e7d31d09-a178-4ca5-8659-6eaedc0ca152" labelText="Breast tomosynthesis:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="fab233c7-9f25-43ef-b308-d697733ac5a7" labelText="Barium meal - barium solution:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="222d3020-f14e-4906-8144-569d8f30ab17" labelText="Barium meal - gastrografin solution:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="3be36024-fb91-4616-a39f-92c0c98de3c3" labelText="Antegrade uretrography:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="34a7479d-a2fc-4719-84b4-4049127d32ef" labelText="Clostogram - barium solution:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="e675994a-787f-404c-b171-9ba108502436" labelText="Clostogram - gastrografin solution:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="999e357e-20f9-4dd9-9599-f776df4b718f" labelText="Babygram:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="02b44323-d550-49f8-939b-5e3ccad41691" labelText="X-ray weight bearing: child under 5 years:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="7fd118f5-53e0-4b8c-ae2f-15e7dabbeb2c" labelText="X-ray weight bearing: child above 5years:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="f2481e66-7740-4cf8-83c0-30ba610d6924" labelText="X-ray weight bearing: adult:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="1f6d0e23-dd2c-4b60-acad-fde5aa857588" labelText="X-ray saccro-coccygeal spine ap and  lateral:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="22a3aec6-8872-4979-a3aa-3dd3a4caa1e5" labelText="X-ray pns - submental vertex view ( hirtz view):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="40cf2b4e-cad9-4dce-9c63-6bea50cfec29" labelText="X-ray plain abdomen (AP) - upright:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="4a1a9c6b-3727-44e3-b9fe-e1ca4b00d83c" labelText="X-ray plain abdomen (AP) - supine:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="3ea2bc20-b287-4352-90df-7439b39d7834" labelText="X-ray plain abdomen - lateral decubitus:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="afeefcad-73dd-45a3-bb8d-02c475596deb" labelText="X-ray of the wrist unilateral (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="c1732448-2e28-49de-a87c-0b0ef6049242" labelText="X-ray of the toe (AP  and  lateral ):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="140a8211-51d6-40ea-8fb6-f93813113dbd" labelText="X-ray of the thoracic spine (oblique ):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="f64455a0-cce5-49cc-9fa0-e62a4e76a3da" labelText="X-ray of the thoracic spine (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="562f6af4-9033-4071-926b-ccad1ee3fab0" labelText="X-ray of the temporo-mendibular joint - TMJ  (open mouth):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="b97ab022-771f-430d-877c-642e7ad7cc58" labelText="X-ray of the temporo-mendibular joint - TMJ  (closed mouth):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="0030f600-a74c-47af-9dd5-e2827f44811e" labelText="X-ray of the talus-calcaneus (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="f2844b03-6ec5-4c7e-a826-55201c99a5b2" labelText="X-ray of the sternum (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="5f3f1769-8ec5-4605-b068-562b15c19f5c" labelText="X-ray of the skull (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="401976a2-b306-4cf5-b4ca-be354e8ab008" labelText="X-ray of the shoulder unilateral (Y view):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="11b1ea0a-d0ab-4c86-8229-921432c52dda" labelText="X-ray of the shoulder unilateral (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="30218ad0-8762-4b0c-9ea8-ae08843a34c9" labelText="X-ray of the scapula (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="12b7c735-bc25-48d3-bba4-75ee6d019b55" labelText="X-ray of the pelvis (AP):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="adff4c06-afc4-443e-b723-466d16f40ff4" labelText="X-ray of the patella (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="5b6ac101-fcb0-425b-ae6f-dfad899b8e69" labelText="X-ray of the nasal bone (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="e5c5864c-16d7-4cba-ae25-85fcd84111a4" labelText="X-ray of the maxilla:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="eec375fe-d8d6-4979-8878-51e0ea24da12" labelText="X-ray of the mandible :" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="ab85061f-2b9c-417c-a2d2-49cce49e3e4b" labelText="X-ray of the leg (tibia and fibula) unilateral (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="3a869a88-9c8f-4334-9ca2-f91c65bc7331" labelText="X-ray of the knee unilateral (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="4987e9c2-c92f-4f5f-9a55-99cf612a7fcd" labelText="X-ray of the knee skyline view unilateral:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="4abda6d4-39bd-4740-acbb-54b954aec268" labelText="X-ray of the hip unilateral (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="7d0f0212-6711-4e37-9a8d-967312419db9" labelText="X-ray of the hand unilateral (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="a9341e21-fb36-4b0d-a270-26a1576f18b7" labelText="X-ray of the forearm unilateral (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="99699419-cc5f-4fb5-ae4a-68123de86037" labelText="X-ray of the foot unilateral (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="2ffbd44b-0f56-41b4-a9bf-b121e2ca204d" labelText="X-ray of the finger (PA  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="38f8e364-74b8-4d05-9964-6b4b9d941878" labelText="X-ray of the femur unilateral (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="c2416dd4-d99c-4364-a09b-decd57a1cb56" labelText="X-ray of the elbow unilateral (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="820d98cd-2f65-4f89-8ec3-c01ae43b76a5" labelText="X-ray of the clavicle (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="24192308-2bf7-45bd-b4b2-897f01ed917a" labelText="X-ray of the chest( AP|PA  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="4a3f0e40-fd82-4040-a713-62e90fd33fa3" labelText="X-ray of the chest (reverse lordotic view):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="d0794d55-d2a3-49d9-b8d5-8e6dcbd659d1" labelText="X-ray of the chest (lordotic view):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="b4c320d6-6b43-4ac6-8584-d38826a6e007" labelText="X-ray of the chest (lateral decubitus):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="9bb36dd8-6b95-4cb9-ad83-593ebb12e9f7" labelText="X-ray of the chest ( lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="97d0878e-5813-4625-ad46-8ce9f08a37cb" labelText="X-ray of the chest ( AP or PA ):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="9bfb0f08-337b-4141-973c-869bb2c57a64" labelText="X-ray of the cervical spine (swimmer's view):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="32fbeee1-8861-47d6-9b03-b152866d32ce" labelText="X-ray of the cervical spine (hyperflexion):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="48434255-9916-4744-95a4-06aae5ca871e" labelText="X-ray of the cervical spine (hyperextension):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="3ce21c33-63df-4717-82d9-55de85ec1508" labelText="X-ray of the cervical spine (flexion  and  extension):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="9c6a1b64-8967-4b47-914a-57d9c1055c7c" labelText="X-ray of the cervical spine (AP and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="eda6704f-7312-4106-a4f6-b455eb0d15f3" labelText="X-ray of the cervical spine - oblique (foramina view):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="408fc2ae-0b4f-4c62-8005-bbf38c0bfdb4" labelText="X-ray of the arm (humerus) unilateral (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="aa04f94a-7374-4ec0-8966-4f2ab8cb1f8e" labelText="X-ray of the ankle unilateral (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="736d0ad1-1967-478a-9433-5e19e37754f0" labelText="X-ray of the ankle mortise view unilateral:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="9f5846a8-b1ba-4dad-8320-bc1a299c3257" labelText="X-ray of sacrum AP and  lateral:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="63382583-61c7-415d-906c-8d8c7d5b5cd3" labelText="X-ray of rib cage:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="0f3c52f9-74c3-4326-9911-85b7a01618ba" labelText="X-ray of lumbosacral spine (AP and lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="ef4cc6ad-1a04-44fd-af5b-8e2424e9cfaa" labelText="X-ray of lumbar spine (oblique ):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="8967c38e-f0de-4a45-9288-9c7ce7f61ffc" labelText="X-ray of lumbar spine (hyperflexion ):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="27c825ec-e94c-4014-bfef-5fddb2416a0c" labelText="X-ray of lumbar spine (hyperextension):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="abeff3b0-854e-4d15-9d3b-d9add6d6ade6" labelText="X-ray of lumbar spine (AP and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="4a911659-c196-4a0f-8c81-14efb98fa4bd" labelText="X-ray of both hips (AP  and  lateral):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="867d7443-c411-4515-a814-fc92223e2827" labelText="X-ray invertogram:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="b22b749d-0e15-4a0b-a93d-631c2455a1e7" labelText="X-ray coccyx ap and  lateral:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="f35b0055-75e9-4fd9-8e40-f628fea54d9c" labelText="Cavum x-ray:" style="" />
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="IMAGING - CT SCAN">
+    <div id="imagingCTScanId" class="section-container">
+        <div class="two-columns">
+
+            <p class="small-input flexView">
+                <obs conceptId="9315b929-1f9e-4874-af4a-584888620a53" labelText="CT brain perfusion:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="65f430b4-bc77-4dc8-b905-d3fced979f4b" labelText="CT cardiac calcium score:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="34dd5784-7d1e-4507-b402-af786c8f5df9" labelText="CT enterography:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="f283e701-1df1-48a5-a537-8b09e7bb013d" labelText="CT intravenous urography:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="9e8498c4-75d1-47f3-93b2-42b355f805fa" labelText="CT myelogram:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="0020c2f4-f660-4c9a-8320-1a881a45dc25" labelText="CT of abdomen:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="306c8578-3a42-44f3-9a25-916bda10741f" labelText="CT of abdomen with contrast, multiphase:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="2378e46b-3011-4d08-b7a7-b1b60f71062c" labelText="CT of abdomen with contrast, single phase:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="9f427459-02bb-4600-b206-26297c588c32" labelText="CT of abdomen with contrast, triphasic:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="58954e98-1253-446c-bc79-3721a7af5367" labelText="CT of abdominal and pelvis:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="61afc977-b212-4ce8-94d2-f16bf777bf58" labelText="CT of abdominal and pelvis  with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="a4456aa7-f013-4609-ac4d-9ec6c05f6fa8" labelText="CT of ankle joint:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="17423306-d4e8-455f-8ae8-a1bc1f49f317" labelText="CT of ankle joint with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="d284a778-620d-4941-934c-60a49c117a1e" labelText="CT of brain:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="239656c6-c137-4d81-ae1a-2b1576c796ee" labelText="CT of brain with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="4098b3a6-3996-433c-8de0-308cb067fc9e" labelText="CT of cervical spine:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="7ea86c8f-6ff5-4921-9ac9-bf8e8d92cbb0" labelText="CT of cervical spine with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="bd1264a4-9546-4cdf-99ec-bd669b74f5a3" labelText="CT of colon:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="4576cb51-e9df-4f85-a354-ed138df4bf2b" labelText="CT of colon with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="008f4135-0414-4781-adc9-4637ccf26a41" labelText="CT of cranium:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="99f03e12-0a36-4076-bf0f-4d275da82d14" labelText="CT of cranium with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="778b6f03-b9c1-41a8-aad0-05778ef9c17f" labelText="CT of elbow joint:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="348e3e91-4441-427d-949a-4c2d57dad105" labelText="CT of elbow joint with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="7c545848-6488-4731-8f9f-b7533005b70a" labelText="CT of facial bone:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="1bbc08a7-9c9d-4b24-a27c-c388d776302e" labelText="CT of facial bone with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="bb953f0f-337b-49a7-b406-770c9c40fd29" labelText="CT of forearm:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="d23d157b-807a-4672-a161-d256e0748687" labelText="CT of forearm with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="dbb92993-502f-4c3f-8749-813698120242" labelText="CT of head or neck joint:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="1e41bccb-eefb-437a-bf19-b5c86c0b7704" labelText="CT of head or neck joint with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="851734e6-4ddf-4e7d-b5ee-0fdcaa690f54" labelText="CT of hip joint:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="028e1dd6-417b-4ca0-8ef0-b682f89aba79" labelText="CT of hip joint with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="d3a27be5-96d7-4449-a1fc-6d5778519882" labelText="CT of humerus:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="e49ca815-b3c0-4b6c-9d5c-8c1ad019e30a" labelText="CT of humerus with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="11bbc339-7ada-40e6-b950-331ae5ca5331" labelText="CT of joint of foot or toe:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="94f2bf13-f8f6-460f-b576-d7ae1e415690" labelText="CT of joint of foot or toe with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="dd7fb79d-57fe-4e84-a5d8-39197a184534" labelText="CT of joint of hand or finger:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="7dafceab-471c-4fe0-b8ef-15abc35019b1" labelText="CT of joint of hand or finger with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="118d80eb-4a16-4ef9-9051-62344e162023" labelText="CT of knee joint:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="950abccd-06e2-4cf5-87fe-90e99bf5fad6" labelText="CT of knee joint with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="d45cee57-0606-4de1-9796-bb66114a73bd" labelText="CT of larynx:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="68a96c08-0dae-46eb-8996-507043b4b0b9" labelText="CT of larynx with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="3bb11f2c-aeb7-48da-b8b5-2e952689e324" labelText="CT of lumbar spine:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="64f21214-ef2f-4a29-b61e-fbe63485ed59" labelText="CT of lumbar spine with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="70bef60b-bbd5-4496-b813-a7496bd67905" labelText="CT of lumbarsacral spine:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="dafc7c6b-8a18-4973-8327-0648245f8263" labelText="CT of lumbarsacral spine with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="0411c933-7cb3-4e51-9760-5ffb2de7efe8" labelText="CT of mandible:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="1219909f-4d0d-4c00-a72d-7affe0b94f3b" labelText="CT of mandible with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="225cbafb-df89-40eb-99ba-188dadbeafc7" labelText="CT of orbit:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="925baa06-7a4c-4972-b635-60b314ce2b88" labelText="CT of orbit with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="3510bde6-263e-485b-81d0-64086a92ba97" labelText="CT of paranasal sinuses:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="161afb10-e47a-4501-9790-5d9e6637f0b6" labelText="CT of paranasal sinuses with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="02145c11-a7dc-40f1-b728-f8ba8ea068bf" labelText="CT of parotid gland:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="82a2d2e5-4478-4c55-8b35-85b3fd3c6b09" labelText="CT of parotid gland with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="4db90e1b-ce7b-4016-a65d-959dd0e5a7d9" labelText="CT of pelvis:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="ee9f3f46-48ec-4b53-9ee1-65075a57d8c7" labelText="CT of pelvis with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="0381cc50-dfd8-4f04-a432-c59021d2ada6" labelText="CT of sacral spine:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="582b79f2-8fd6-4e83-85cb-e66977c9c828" labelText="CT of sacral spine with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="7f37fcb0-671a-40fe-a5ec-10d842902279" labelText="CT of shoulder joint:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="c25387b3-c3a1-4475-9b9b-70d5e6dc8745" labelText="CT of shoulder joint with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="b6145834-2a2a-42ae-a66c-0b0b3fb26e0d" labelText="CT of soft tissue of head or neck:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="4efa8444-5448-4b14-a618-9c7bce9f9c34" labelText="CT of soft tissue of head or neck with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="ad14e7ea-75d9-4ee5-9bdd-48931b611d38" labelText="CT of thigh:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="efdfe937-659f-49fb-aa9f-28fad8fdec54" labelText="CT of thigh with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="5dc25d28-4fd1-487f-84dc-52e1ce99e0fd" labelText="CT of whole spine:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="5db27489-4d85-41af-98f4-73deef3e4e88" labelText="CT of whole spine with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="067d3eba-1288-4c84-ad4e-09f10d7a6758" labelText="CT of whole body:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="3a7efb78-6c68-43b5-94c1-dc829343a616" labelText="CT of whole body with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="518f2abc-4c20-46aa-9c6a-aeb2b3e0e4d7" labelText="CT of thoracic spine:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="c3a54971-0f2b-476f-8ad7-e3df32618710" labelText="CT of thoracic spine with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="5c78373c-4828-4ea7-82e8-df56214650d6" labelText="CT of thoracolumbar spine:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="d1f8976a-6461-4cd4-b3bb-939f372013f6" labelText="CT of thoracolumbar spine with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="3a30d7d4-3d42-4b9e-99d6-67b57f39b932" labelText="CT of thorax:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="03760712-499a-4ddd-a657-0a83c62cd907" labelText="CT of thorax with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="1163877a-a733-4a7b-933a-0d0d5560ad2c" labelText="CT of tibia/fibula:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="a76c83b3-06b0-4468-96cb-8885cade47b5" labelText="CT of tibia/fibula with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="f162e0cd-03e0-4db5-8a77-ef2e29fc3373" labelText="CT perfusion pbv:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="06712e68-889c-41d2-bd62-595450497a7f" labelText="CT virtual bronchoscopy:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="39fefc4f-2240-4f84-95b7-104452d50d4d" labelText="CTA of abdominal aorta:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="5941990b-6856-4a15-b93f-a43d9be9a93a" labelText="CTA of abdominal aorta with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="3a7a90d9-1739-47be-bd8e-fd0fb356fdf2" labelText="CTA of abdominal or pelvic artery:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="f5d1cd75-479c-4e5b-a729-601debd0a48e" labelText="CTA of abdominal or pelvic artery with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="ffd86dff-9947-4008-b5b2-db2bd09e566f" labelText="CTA of abdominal or pelvic vein:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="b6adb45f-6968-4e1b-a42d-45744dbc228e" labelText="CTA of abdominal or pelvic vein with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="f30bab18-0d8b-4d68-9cc3-f8f99014d0b3" labelText="CTA of artery of head and neck:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="319527a4-081d-4a86-a85c-696aa06b2829" labelText="CTA of artery of head and neck with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="39a5a737-2226-417d-a623-bcfa211627f8" labelText="CTA of artery of lower limb:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="0d9eb6d8-8c12-4c63-ac0f-978639906cd3" labelText="CTA of artery of lower limb with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="a166c08f-eea1-4b47-83f2-c414e4527db6" labelText="CTA of artery of thorax:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="aedccf65-a83f-465d-a8e5-5911686f1ee4" labelText="CTA of artery of thorax with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="6c8cb839-f56f-41c0-9c91-2731c513f59f" labelText="CTA of artery of upper limb:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="bcfdfc05-871c-4547-a370-00d7e6fb6500" labelText="CTA of artery of upper limb with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="4cede5ce-aed1-467a-a7bd-83391852b5ae" labelText="CTA of carotid artery, extracranial:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="206bb07a-0b15-483a-a882-22607ff40a3f" labelText="CTA of carotid artery, extracranial, with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="752d09f5-4527-43ab-9adf-ed8c07644d91" labelText="CTA of coronary artery:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="e6c95c55-fa35-4fa3-b04c-8257f68681bd" labelText="CTA of coronary artery with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="92033013-1c63-4b73-8289-2aa7c10d4143" labelText="CTA of inferior vena cava:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="e24aaeed-6574-4754-bce1-fd2370791760" labelText="CTA of inferior vena cava with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="0c61dde1-24da-4c95-8984-12287b6ace4a" labelText="CTA of intracranial artery:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="151d2047-5fe6-417a-9934-8d8aaebc58ef" labelText="CTA of intracranial artery with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="a8582aae-d858-41f2-b533-e9dcd6d0508c" labelText="CTA of intracranial veins:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="16fb6ec4-1390-4f42-afe8-175c33be833f" labelText="CTA of intracranial veins with contrast:" style="" />
+            </p>
+            <p class="small-input flexរថ
+                <obs conceptId="8bd0f7b6-4bfc-4562-8fd1-ab2c21c13b65" labelText="CTA of pulmonary artery:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="a3087e74-ebee-478a-8b47-f5cb4be26c1e" labelText="CTA of pulmonary artery with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="0e8c9112-0fcd-464a-8059-f6d61b133091" labelText="CTA of superior vena cava:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="84c37bf1-3328-4429-8943-53e6182192a0" labelText="CTA of superior vena cava with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="916e1d39-35dc-4132-afaf-fdd2c5e61e0d" labelText="CTA of vein of lower limb:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="03e374f1-3614-4ae0-ab2f-4930dac73a0e" labelText="CTA of vein of lower limb with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="4d9a633b-eb03-4de8-84e9-4881a4c2d4f3" labelText="CTA of vein of thorax:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="a679672f-2229-46e9-882e-21736d0f5334" labelText="CTA of vein of thorax with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="a18f2dff-ddf4-44e5-9962-65deabc1f759" labelText="CTA of vein of upper limb:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="08f5ddf5-35ba-460d-a8c7-c7b5d5a9bb03" labelText="CTA of vein of upper limb with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="5d8cabd9-9919-49b2-a40f-d26a9f186010" labelText="CTA of veins of head and neck:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="8b5bef01-cae7-4adc-a2b0-9f19e76a3519" labelText="CTA of veins of head and neck with contrast:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="bb072c05-4b41-42ad-befc-69098243819c" labelText="High-resolution CT of the chest:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="a8236dfa-3f1f-42bb-a4f6-c678dcf4992e" labelText="High-resolution CT of the chest with contrast:" style="" />
+            </p>
+        </div>
+    </div>
+</section>
+    -->
+
+    <!--
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="IMAGING - INTERVENTIONAL">
+    <div id="imagingInterventionalId" class="section-container">
+        <div class="two-columns">
+
+            <p class="small-input flexView">
+                <obs conceptId="35390987-1bcf-4815-92ce-d259a3f4c063" labelText="Ct guided biopsies:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="edc42618-85bb-466c-a95f-8c273063e14d" labelText="Ct guided aspiration:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="2cb72d9d-6fbe-4b5e-8680-6047d2fde91f" labelText="Us guided biopsies:" style="" />
+            </p>
+            <p class="small-input flexView">
+                <obs conceptId="0a8cf451-ec65-4dde-b253-8a958fac9a8e" labelText="Us guided aspiration:" style="" />
+            </p>
+        </div>
+    </div>
+</section>
+    -->
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="IMAGING - ULTRASOUND">
+        <div id="imagingUltrasoundId" class="section-container">
+            <div class="two-columns">
+                <p class="small-input flexView">
+                    <obs conceptId="5f4a0636-9f9f-4fbf-9eaf-fd39eb70c313" labelText="Transvaginal ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="07de578a-aad2-4e8f-8605-6ee0fc5688f8" labelText="Transrectal prostate ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="e52453e8-180b-46bc-92be-d9f0e6389890" labelText="Transfrontanelle ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="b4a69957-53ec-466b-ba2a-46c367599695" labelText="Thyroid ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="f418384d-ba7a-46fd-afa3-4bb4db040405" labelText="Testicular ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="33e13c81-674f-4018-be70-90472e1b5048" labelText="Soft tissue ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="b84d375b-49d8-4ce2-9e74-6848ec820952" labelText="Scrotal ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="1cb386f3-24df-4201-bdc0-4cf5604114e0" labelText="Renal artery doppler:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="fb1ffdd9-b500-495a-af01-9f98bae15449" labelText="Prostate ultrasound with PVR:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="36071999-b4c0-4dc0-a263-0b7efb436fd9" labelText="Pelvic ultrasound with PVR:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="40713953-a24f-4f0a-81a3-1e979896c154" labelText="Pelvic ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="79ac84d0-e615-4d78-b1b3-5a2f955d1a3c" labelText="Orbital ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="d27f5ec8-5f73-499c-955b-ffc910d75378" labelText="Obstetric ultrasound by specialist:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="153a1cde-bbed-4095-b732-1c53ac75deb9" labelText="Obstetric ultrasound by midwife:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="7ddd4760-b12c-4273-8e23-92734f293b6a" labelText="Obstetric ultrasound by GP:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="c33c3c19-e5dd-4dfb-9667-1789d54e6318" labelText="Neck ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="cf8063ff-4c22-4b26-a35b-32d4b1eb23bb" labelText="Musculoskeletal ultrasound (muscles or joints):" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="c810b00b-6d61-4e9d-acd3-8ddc954289f5" labelText="Breast ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="8edf5350-d558-4503-8f5f-11b5bcbb5aef" labelText="Liver elastography ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="b3c4a3ae-0fab-4b0f-9a91-3287085861a9" labelText="Nuchal translucency scan:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="dde05ed9-1983-4c7b-842a-3853ca660810" labelText="Fetal anomaly scan:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="3599c6fd-e493-4377-b2ea-090c50176af1" labelText="Focused assessment with sonography in trauma:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="a4514de0-efd9-4bae-b61b-912561fe4845" labelText="Doppler ultrasound of lower limb:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="90f719b8-2e79-454f-a094-f6db7642984b" labelText="Doppler ultrasound of upper limb:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="975461cb-9faa-4ab8-8048-4bf6385e74f0" labelText="Chest ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="ddd6af3e-9eea-4b94-8caf-89b46d0dd2d6" labelText="Carotid doppler ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="0546ee82-c92c-4ef7-af3f-36f89af7884e" labelText="Abdominopelvic ultrasound:" style="" />
+                </p>
+                <p class="small-input flexView">
+                    <obs conceptId="66177c64-5867-41df-9add-ff9e05c8187d" labelText="Abdominal utrasound:" style="" />
+                </p>
+            </div>
+        </div>
+    </section>
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+
+            <button id="submit" class="submitButton confirm right">
+                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                            style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+        </div>
+    </ifMode>
+
+
+</htmlform>

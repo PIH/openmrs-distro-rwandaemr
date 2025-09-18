@@ -9,9 +9,6 @@ parameters:
   - key: "endDate"
     type: "java.util.Date"
     label: "reporting.parameter.endDate"
-  - key: "department"
-    type: "org.openmrs.Concept"
-    label: "Department"
 datasets:
   - key: "opd_report"
     type: "sql"

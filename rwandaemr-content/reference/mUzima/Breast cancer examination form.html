@@ -359,25 +359,25 @@
                 <label>HIV Status: <span class="required">*</span> </label>
                 <br/>
                 <label class="font-normal">
-                    <input class="activate" id="obs.positiveHIVStatusHistory" name="HIVStatusHistory" type="radio"
+                    <input class="activate" id="positiveHIVStatusHistory" name="HIVStatusHistory" type="radio"
                            data-concept="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e^HIV STATUS^99DCT"
                            value="3cd3a7a2-26fe-102b-80cb-0017a47871b2^POSITIVE^99DCT" required="required">
                     Positive
                 </label>
                 <br/>
                 <label class="font-normal">
-                    <input class="deactivate" id="obs.negativeHIVStatusHistory" name="HIVStatusHistory" type="radio"
+                    <input class="deactivate" id="negativeHIVStatusHistory" name="HIVStatusHistory" type="radio"
                            data-concept="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e^HIV STATUS^99DCT"
                            value="3cd28732-26fe-102b-80cb-0017a47871b2^NEGATIVE^99DCT">
                     Negative
                 </label>
                 <br/>
-                <label class="font-normal">
+                <!-- <label class="font-normal">
                     <input class="deactivate" id="obs.unknownHIVStatusHistory" name="HIVStatusHistory" type="radio"
                            data-concept="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e^HIV STATUS^99DCT"
                            value="3cd6fac4-26fe-102b-80cb-0017a47871b2^UNKNOWN^99DCT">
                     Unknown
-                </label>
+                </label> -->
             </div>
             <div class="form-group HIVStatusHistory">
                 <label> If HIV positive on ARV: </label>
@@ -1362,7 +1362,7 @@
             </label>
             <br/>
             <label class="font-normal">
-                <input class="deactivate" id="obs.BreastDispositionAtThisHealthFacility" name="BreastDisposition" type="radio"
+                <input class="activate" id="obs.BreastDispositionAtThisHealthFacility" name="BreastDisposition" type="radio"
                        data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
                        value="d0e94536-0b91-40a1-b994-04bb4f5cd15d^Follow-up at this health facility^99DCT">
                 Follow-up at this health facility
@@ -1372,21 +1372,21 @@
             </label>
             <br/>
             <label class="font-normal">
-                <input class="deactivate" id="DispositionFollowupAtAnotherHealthFacility" name="BreastDisposition" type="radio"
+                <input class="activate" id="DispositionFollowupAtAnotherHealthFacility" name="BreastDisposition" type="radio"
                        data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
                        value="147b2af6-d789-416d-bfc0-42e2b717d582^Follow-up at another health facility^99DCT">
                 Follow-up at another health facility
             </label>
             <br/>
             <label class="font-normal">
-                <input class="deactivate" id="DispositionRescreening" name="BreastDisposition" type="radio"
+                <input class="activate" id="DispositionRescreening" name="BreastDisposition" type="radio"
                        data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
                        value="9f77a776-4306-4a34-a42d-0a57808a90e9^Rescreening^99DCT">
                 Rescreening
             </label>
             <br/>
             <label class="font-normal">
-                <input class="deactivate" id="DispositionReferredIn" name="BreastDisposition" type="radio"
+                <input class="activate" id="DispositionReferredIn" name="BreastDisposition" type="radio"
                        data-concept="69b9671b-d8b1-461b-bb7d-adb151775a57^Next step^99DCT"
                        value="031ea34b-f95b-4cf7-a3c6-026f6fd60f1f^TRANSFER IN^99DCT">
                 transfer in:
@@ -1403,7 +1403,7 @@
                 <span class="required requirementReferralSymbol initialHide" >*</span>
             </label>
             <br/>
-            <div class="initialHide BreastDisposition">
+            <div class="initialHide healthFacility">
                 <label class="font-normal">
                     <!--                <input id="obs.healthFacility" name="obs.healthFacility"-->
                     <!--                       type="text" size="50" data-concept="3a84ab37-f75c-48ad-8bcf-322c927f36bb^referred to (coded)^99DCT"/>-->
@@ -1435,7 +1435,7 @@
             <!--                    </label>-->
             <!--                </li>-->
             <!--            </ul>-->
-            <div class="initialHide BreastDisposition">
+            <div class="initialHide reasonForReferral" id="reasonForReferral">
                 <label class="font-normal">
                     Reason for referral:
                     <span class="required requirementReferralSymbol initialHide" >*</span>
@@ -1618,73 +1618,158 @@
                     }
                 }
             });
-            $('#LevelOfCareHospital').change(function(){
+/*            $('#LevelOfCareHospital').change(function(){
                 if($("input[id='LevelOfCareHospital']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
                     $(".referralReason").hide()
                 }else{
                     $(".referralReason").show()
                 }
-            })
+            });
             $('#EntryModeVoluntary').change(function(){
                 if($("input[id='LevelOfCareHospital']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
                     $(".referralReason").hide()
                 }else{
                     $(".referralReason").show()
                 }
-            })
+            });
             $('#LevelOfCarePrivateClinic').change(function(){
                 if($("input[id='LevelOfCarePrivateClinic']").prop('checked') && $("input[id='EntryModeVoluntary']").prop('checked')){
                     $(".referralReason").hide()
                 }else{
                     $(".referralReason").show()
                 }
-            })
-            $('input[name="Disposition"]').change(function(){
+            }); */
+            $("input[name='BreastDisposition']").change(function(){
+
 
                 if($("input[id='DispositionDischarged']").prop('checked')){
                     $("#healthFacilityUuid").prop("required",false);
-                    $("#nextVisitSpan").hide();
-                    $("#obs\\.nextVisitDate").prop("required",false);
+                    $("#BreastDisposition").hide();
+                    $("#BreastDispositionNextDate").prop("required",false);
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
                 }
                 else if($("input[id='DispositionReferredOut']").prop('checked')){
                     $("#healthFacilityUuid").prop("required",true);
-                    $("#nextVisitSpan").show();
-                    $("#obs\\.nextVisitDate").prop("required",true);
+                    $("#BreastDisposition").show();
+                    $("#BreastDispositionNextDate").prop("required",true);
                     $("#ManagementReferralReasonSuspectedCancer").prop("required",true);
                     $(".requirementReferralSymbol").show();
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
                 }
                 else if($("input[id='DispositionFollowupAtThisHealthFacility']").prop('checked')){
                     $("#healthFacilityUuid").prop("required",false);
-                    $("#nextVisitSpan").show();
-                    $("#obs\\.nextVisitDate").prop("required",true);
+                    $("#BreastDisposition").show();
+                    $("#BreastDispositionNextDate").prop("required",true);
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
                 }
                 else if($("input[id='DispositionFollowupAtAnotherHealthFacility']").prop('checked')){
                     $("#healthFacilityUuid").prop("required",false);
-                    $("#nextVisitSpan").show();
-                    $("#obs\\.nextVisitDate").prop("required",true);
+                    $("#BreastDisposition").show();
+                    $("#BreastDispositionNextDate").prop("required",true);
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
                 }
                 else if($("input[id='DispositionRescreening']").prop('checked')){
                     $("#healthFacilityUuid").prop("required",false);
-                    $("#nextVisitSpan").show();
-                    $("#obs\\.nextVisitDate").prop("required",true);
+                    $("#BreastDisposition").show();
+                    $("#BreastDispositionNextDate").prop("required",true);
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
                 }
                 else{
                     $("#healthFacilityUuid").prop("required",false);
-                    $("#obs\\.nextVisitDate").prop("required",false);
-                    $("#nextVisitSpan").show();
+                    $("#BreastDispositionNextDate").prop("required",false);
+                    $("#BreastDisposition").show();
                     $("#ManagementReferralReasonSuspectedCancer").prop("required",false);
                     $(".requirementReferralSymbol").hide();
+                    $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
+                   $(".healthFacility").hide();
+                   $("#serviceTransferredTo").hide();
                 }
 
                 if($("input[id='DispositionReferredIn']").prop('checked')){
                    $("#serviceTransferredTo").show();
+                   $(".reasonForReferral").hide();
+                   $("#ReasonForReferralFurtherManagement").prop("required",false);
                     $("#serviceTransferredTo").prop("required",true);
+                    $(".healthFacility").hide();
                 }
                 else{
                     $("#serviceTransferredTo").hide();
-                    $("#serviceTransferredTo").prop("required",false);
+
+                    $(".healthFacility").hide();
                 }
-            })
+                if($("input[id='BreastDispositionReferralTo']").prop('checked')){
+
+                   $("#serviceTransferredTo").hide();
+                   $(".reasonForReferral").show();
+
+                   $("#ReasonForReferralFurtherManagement").prop("required",true);
+                   $(".healthFacility").show();
+                   $("#healthFacility").prop("required",true);
+                }
+            });
+
+        try {
+            HIVObsAutofill();
+        } catch (error) {
+            console.error("HIVObsAutofill error:", error);
+        }
+
+        function HIVObsAutofill() {
+            const patientuuid = $('#patient\\.uuid').val();
+            const conceptQuestionID = 3753;
+
+            if (!htmlDataStore || typeof htmlDataStore.getObsByConceptId !== 'function') return;
+
+            const rawObs = htmlDataStore.getObsByConceptId(patientuuid, conceptQuestionID);
+            if (!rawObs) return;
+
+            let obsList;
+            try {
+                obsList = JSON.parse(rawObs);
+            } catch (e) {
+                console.error("Failed to parse obs JSON:", e);
+                return;
+            }
+
+            if (!Array.isArray(obsList) || obsList.length === 0) return;
+
+            obsList.sort((a, b) => {
+                const dateA = new Date(a.obsDate.split('-').reverse().join('-'));
+                const dateB = new Date(b.obsDate.split('-').reverse().join('-'));
+                return dateB - dateA;
+            });
+
+            const latestObs = obsList[0];
+            const obsDate = new Date(latestObs.obsDate.split('-').reverse().join('-'));
+            const diffDays = Math.ceil((new Date() - obsDate) / (1000 * 60 * 60 * 24));
+
+            if (diffDays <= 1 && latestObs.valueCoded) {
+                const val = latestObs.valueCoded.name || latestObs.valueCoded;
+
+                if (val === "POSITIVE") {
+                    $('#positiveHIVStatusHistory').prop("checked", true);
+                } else if (val === "NEGATIVE") {
+                    $('#negativeHIVStatusHistory').prop("checked", true);
+                }
+            }
+        }
+            /* End */
             //Hide for Male
             if($("#patient\\.sex").val()=="M"){
             $(".hideForMale").hide();

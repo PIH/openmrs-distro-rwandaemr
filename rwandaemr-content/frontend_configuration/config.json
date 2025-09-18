@@ -167,17 +167,8 @@
     "careSettingUuid": "6f0c9a92-6f24-11e3-af88-005056821db0"
   },
   "@openmrs/esm-patient-forms-app": {
-    "htmlFormEntryForms": [
-      {
-        "formUuid": "20316666-2ce5-462c-b4eb-1e728e2d8663",
-        "formName": "Adult HIV Flowsheet - New Lab",
-        "formUiResource": "file:htmlforms/common/adult-hiv-flowsheet---new-lab.xml",
-        "formUiPage": "enterHtmlFormWithStandardUi"
-      }
-    ]
+    "customFormsUrl": "/ws/rest/v1/rwandaemr/patientforms?patientUuid=${patientUuid}&visitUuid=${visitUuid}"
   },
-
-  
   "@pih/esm-pathology-app": {
     "pathologyEncTypeUUID": "70f18a24-92ec-4de5-acdc-7cae77414e32",
     "healthCenterAttrTypeUUID": "8d87236c-c2cc-11de-8d13-0010c6dffd0f",
@@ -274,5 +265,16 @@
     "stockSourceTypeUUID": "059e29b6-f549-11ef-bdcb-866a2ce1d8f0",
     "dispensinUnitsUUID": "b798c638-f894-11ef-aa5e-0a03ba1f52ea",
     "stockItemCategoryUUID": "6a027f44-f54e-11ef-bdcb-866a2ce1d8f0"
+  },
+  "@pih/esm-commons-app": {
+    "extensionSlots": {
+      "action-menu-ward-patient-items-slot": {
+        "remove": [
+          "o2-visit-summary-workspace-siderail-button",
+          "ward-inpatient-notes-form-action-button",
+          "order-basket-action-menu"
+        ]
+      }
+    }
   }
 }

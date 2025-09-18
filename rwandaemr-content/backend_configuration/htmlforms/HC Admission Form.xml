@@ -250,8 +250,7 @@
             </p>
             <p class="flexView">
                 <b>Consultation Type:</b>
-                <obs conceptId="d6dafc4b-9ad8-4467-94a9-0eca78648254" answerConceptIds="50596903-9f01-4627-9911-6bbd178790cd,29ce8244-5251-4c76-8e99-bbad280be2ef
-          ,2554e8da-eed3-42c9-ada5-ae304b2b5587,b1ebf22b-1fa4-4538-8b07-abc33dd05ea8,433f21dc-c3be-4dc0-9e94-1ace7c8bcc66,8fee77af-6973-4e5b-b586-7a6c3ad5226b,59bb1a32-a36a-4766-b47c-eb9c580bb0ad,0d3517fd-891e-405d-b1d1-6669ad05aa9f,fecab067-fb65-4d0e-96bf-8c42dd123353,df54a8e3-cf9e-46c3-9efd-92bb5e4ef7f9,a9fc23ad-410a-4142-964b-21193ab1a8bd,50596903-9f01-4627-9911-6bbd178790cd,8bb801d8-48f8-4bbc-b3b0-3698ef1c03aa" required="true"/>
+                <obs conceptId="d37ac83a-4966-4e05-a12e-10ad63492379" required="true"/>
             </p>
             <p class="flexView">
                 <b>Department:</b>

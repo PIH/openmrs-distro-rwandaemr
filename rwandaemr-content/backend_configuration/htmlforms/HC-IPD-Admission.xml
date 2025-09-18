@@ -1,0 +1,436 @@
+<htmlform formDescription="HC IPD-Admission Form" formEncounterType="8e3c016e-cfca-407a-8214-2f071b3d8da2" formName="HC IPD-Admission Form" formPublished="true" formRetired="false" formUuid="df9bac4e-fc3c-4601-b845-9b8012e28830" formVersion="1.0" htmlformUuid="f1facab2-df46-486a-8665-f2ceb9a1aebb">
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+        @patient_chronic_disease_history@ = e20ab8c4-bd53-4f9f-b2e1-04fe7cb667ea
+        @HEART_FAILURE@ = 0670f6b9-5456-4bd3-86b1-846abc4fe2ba
+        @HYPERTENSION@ = 3cd50188-26fe-102b-80cb-0017a47871b2
+        @stroke@ = 111103AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        @ASTHMA@ = 3ccc4bf6-26fe-102b-80cb-0017a47871b2
+        @COPD@ = be7adab0-2ed5-44d7-972e-586911b08c8e
+        @DIABETES_MELLITUS@ = 3cce629c-26fe-102b-80cb-0017a47871b2
+        @TUBERCULOSIS@ = 3ccca7cc-26fe-102b-80cb-0017a47871b2
+        @HIV@ = 3cd4dca8-26fe-102b-80cb-0017a47871b2
+        @LIVER_FAILURE@ = 7018a636-4e28-4681-969d-9caf98178abb
+        @Cancer@ = 22e045f9-a880-416f-a6b2-0e0706d585bf
+        @Dialysis@ = 36200521-676e-48c8-a6f9-f101bf4a691b
+        @chronical_kidney_disease@ = 8611a721-9f01-484d-9405-5d88efdd9ce7
+        @Patient_Medical_History@ = 9090e8f8-54cd-4ed0-b994-1130afb384bd
+        @OTHER_RELATIVE@ = 3ce18bec-26fe-102b-80cb-0017a47871b2
+        @Other_disease_(text)@ = f9e8e946-d177-4ca9-8004-779ae6abe9df
+    </macros>
+    <style>
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+
+        form fieldset {
+        display: block;
+        }
+
+        .family-history-item .label {
+        display: inline-block;
+        width: 250px;
+        }
+
+        .family-history-item .relative {
+        display: inline-block;
+        width: 120px;
+        }
+
+        .section-header {
+        margin-top: 1.5em;
+        }
+
+        .past-medical-history-item {}
+
+        .past-medical-history-item input[type=checkbox] {
+        float: none;
+        vertical-align: middle;
+        }
+
+        .past-medical-history-item input[type=text] {
+        min-width: 200px;
+        display: inline !important;
+        vertical-align: middle;
+        padding: 1px 10px;
+        }
+
+        .past-medical-history-item&gt;span,
+        .past-medical-history-item&gt;label {
+        display: inline !important;
+        vertical-align: middle;
+        }
+
+        .two-columns {
+        column-count: 2;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        }
+
+        .three-columns {
+        column-count: 3;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        }
+
+        p.radio&gt;* {
+        display: inline;
+        float: none !important;
+        min-width: initial;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container-color {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        /*changed values to vertical, horizontal*/
+        top: 5px;
+        /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label {
+        /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        .div {
+        float: left;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .five-columns,
+        .four-columns,
+        .three-columns,
+        .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns&gt;div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns&gt;div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns&gt;div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns&gt;div {
+        display: table-cell;
+        width: 20%;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        }
+    </style>
+
+    <style type="text/css">
+        #who-when-where {
+        margin-bottom: 6px;
+        border-bottom: 1px solid #ccc;
+        }
+
+        #who-when-where p {
+        display: inline-block;
+        padding-right: 20px;
+        }
+
+        #where &gt;
+
+        input[type=text] {
+        display: inline-block;
+        }
+
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        #data-collection {
+        display: inline-block;
+        width: 58%;
+        vertical-align: top;
+        }
+
+        #encounter-diagnoses-target {
+        display: inline-block;
+        width: 40%;
+        vertical-align: top;
+        }
+
+        #encounter-diagnoses-app {
+        margin-bottom: 20px;
+        }
+
+    </style>
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateIPDAdmissionOnHtmlFormSubmissionAction"/>
+
+    <ifMode mode="ENTER">
+
+        <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateBillOnHtmlFormSubmissionAction"/>
+
+    </ifMode>
+
+    <ifMode include="false" mode="VIEW">
+        <h2>
+            <uimessage code="INPATIENT ADMISSION FORM"/>
+        </h2>
+
+        <div class="section-container" id="who-when-where">
+            <p id="who">
+                <label>
+                    <uimessage code="coreapps.patientDashBoard.provider"/>
+                </label>
+                <span>
+                    <encounterProvider required="true" default="currentUser"/>
+                </span>
+            </p>
+            <p id="when">
+                <label>
+                    <uimessage code="coreapps.patientDashBoard.location"/>
+                </label>
+                <span>
+                    <encounterLocation default="GlobalProperty:billing.defaultLocation"/>
+                </span>
+            </p>
+            <p id="where">
+                <label>
+                    <uimessage code="coreapps.patientDashBoard.date"/>
+                </label>
+                <span class="date-on-line">
+                    <encounterDate default="now" id="encounterDate"/>
+                </span>
+            </p>
+            <p class="flexView">
+                <b>Insurance:</b>
+                <font color="green">
+                    <lookup expression="fn.latestObs(6741).getValueText()"/>(Reg. Date:<lookup expression="fn.latestObs(6741).obsDatetime"/>)</font>
+            </p>
+        </div>
+    </ifMode>
+
+    <section headerCode="ADMISSION INFO" headerStyle="title" headerTag="legend" sectionTag="fieldset">
+        <div class="section-container">
+
+            <p class="date-one-line">
+                <label>
+                    <uimessage code="referenceapplication.simpleAdmission.admissionDate"/>
+                </label>
+                <obs conceptId="a6098f48-7340-4665-957c-d4af0a3a7f0f"/>
+            </p>
+
+            <p id="location-container">
+                <label>
+                    <uimessage code="referenceapplication.simpleAdmission.admittedTo"/>
+                </label>
+                <encounterLocation required="true" tags="Admission Location"/>
+            </p>
+            <p class="flexView">
+                <b>Consultation Type:</b>
+                <obs conceptId="d37ac83a-4966-4e05-a12e-10ad63492379" required="true"/>
+            </p>
+            <p class="flexView">
+                <b>Department:</b>
+                <obs conceptId="aa7b8e25-f564-4d93-a262-93cd3d3a9e17" required="true"/>
+            </p>
+            <p>
+                <label>Provenance /Catchment Area Population</label>
+                <obs answerConceptIds="1aa519c4-ce19-4c2f-baa4-fb9808164f47,94efe7f2-9b74-4c38-b017-f77b9874d88b,a5701f65-8a41-4904-aa9c-be0a0fabcc88" conceptId="f8c17ed2-38e4-4010-bd10-e27c99185eb4"/>
+            </p>
+            <p class="side-by-side">
+                <label>Mode of Admission</label>
+                <obs answerConceptIds="3cde418a-26fe-102b-80cb-0017a47871b2,3ce4f67e-26fe-102b-80cb-0017a47871b2" answerLabels="Voluntary(Self-refer),Transfer in" answerSeparator="" conceptId="3cdc85ac-26fe-102b-80cb-0017a47871b2" id="modeAdm" style="radio">
+                    <controls>
+                        <when thenDisplay="#transIn" value="2536"/>
+                    </controls>
+                </obs>
+            </p>
+            <p class="small-input flexView" id="transIn">
+
+                <obs conceptId="3cda3efa-26fe-102b-80cb-0017a47871b2" labelText="Transfer(CS)/Transfer From:" size="10" style=""/>
+                <br/>
+
+            </p>
+
+
+        </div>
+    </section>
+
+    <section headerCode="EMMERGENCY CONTACT" headerStyle="title" headerTag="legend" sectionTag="fieldset">
+        <div class="section-container">
+
+            <p>
+                <label>Contact Person:</label>
+                <obs LabelCode="" conceptId="a7da2d17-0fc9-478e-8de9-2291f38b0989"/>
+            </p>
+            <p>
+                <label>Emergency contact phone number:</label>
+                <obs LabelCode="" conceptId="bcddbe7e-04dc-4494-a330-d5b54c4a4dd0"/>
+            </p>
+        </div>
+    </section>
+    <section headerCode="HEALTH STATUS" headerStyle="title" headerTag="legend" sectionTag="fieldset">
+        <div class="section-container">
+
+            <p class="side-by-side">
+                <label>BLOOD GROUP:</label>
+                <obs answerCodes="A+ ,A-, B+, B-,O+,O-,AB+,AB-, UNKNOWN" answerConceptIds="3cd392b2-26fe-102b-80cb-0017a47871b2,3cd39686-26fe-102b-80cb-0017a47871b2,3cd39988-26fe-102b-80cb-0017a47871b2,3cd39ca8-26fe-102b-80cb-0017a47871b2,3cd3a144-26fe-102b-80cb-0017a47871b2,3cd3a464-26fe-102b-80cb-0017a47871b2,3cd8f716-26fe-102b-80cb-0017a47871b2,3cd8f8b0-26fe-102b-80cb-0017a47871b2,3cd6fac4-26fe-102b-80cb-0017a47871b2" answerSeparator="" conceptId="3ccf4090-26fe-102b-80cb-0017a47871b2" style="radio"/>
+            </p>
+            <p class="radio">
+                <label>KNOWN CHRONIC DISEASES/CONDITIONS:</label>
+                <obs answerConceptId="$@HEART_FAILURE@" answerLabel="HF" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@HYPERTENSION@" answerLabel="HTN" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@stroke@" answerLabel="stroke" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@ASTHMA@" answerLabel="asthma" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@COPD@" answerLabel="COPD" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@DIABETES_MELLITUS@" answerLabel="DM" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@chronical_kidney_disease@" answerLabel="CKD" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@TUBERCULOSIS@" answerLabel="TB" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@HIV@" answerLabel="HIV" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@LIVER_FAILURE@" answerLabel="liver" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@Cancer@" answerLabel="cancer" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@Dialysis@" answerLabel="dialysis" conceptId="$@patient_chronic_disease_history@" style="checkbox"/>
+                <obs answerConceptId="$@OTHER_RELATIVE@" answerLabel="Autres(specifier)" conceptId="$@Patient_Medical_History@" style="checkbox"/>
+                <obs answerConceptId="3cd743f8-26fe-102b-80cb-0017a47871b2" answerLabel="NONE" conceptId="$@Patient_Medical_History@" style="checkbox"/>
+            </p>
+
+        </div>
+    </section>
+    <section headerCode="FIRST ADMISSION" headerStyle="title" headerTag="legend" sectionTag="fieldset">
+        <div class="section-container">
+            <p>
+                <label>Current Complaints or Symptoms:</label>
+                <obs LabelCode="Current Complaints or symptoms:" cols="80" conceptId="3ce2b170-26fe-102b-80cb-0017a47871b2" rows="3" style="textarea"/>
+            </p>
+            <p>
+                <label>Clinical summary:</label>
+                <obs LabelCode="CLINICAL SUMMARY:" cols="80" conceptId="6602a73b-b8d3-40bc-bae8-f00ff3b9cceb" rows="3" style="textarea"/>
+            </p>
+            <p>
+                <label>Investigation Summary:</label>
+                <obs LabelCode="INVESTIGATION:" cols="80" conceptId="6a329c3c-b15f-418d-b3d6-74e9b95b5d85" rows="3" style="textarea"/>
+            </p>
+
+        </div>
+    </section>
+    <section headerCode="DIAGNOSIS" headerStyle="title" headerTag="legend" sectionTag="fieldset">
+        <div class="section-container">
+
+            <p>
+                <label>Primary reason for admission(diagnosis):</label>
+                <obs conceptId="b53e4d45-fb1f-4f8d-bf66-5b3641bd031b" style="text" required="true"/>
+            </p>
+
+        </div>
+    </section>
+
+
+    <ifMode include="false" mode="VIEW">
+        <div id="buttons">
+
+            <button class="submitButton confirm right" id="submit">
+                <uimessage code="Save"/>
+                <i class="icon-spinner icon-spin icon-2x" style="display: none; margin-right: 10px;"/>
+            </button>
+            <button class="cancel" id="cancel" type="button">
+                <uimessage code="emr.cancel"/>
+            </button>
+        </div>
+    </ifMode>
+</htmlform>

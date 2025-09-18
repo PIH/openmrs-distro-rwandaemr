@@ -343,6 +343,10 @@
         @session_4@ = 42432167-c5cf-4cb2-81fc-570efd260d69
         @session_5@ = a7628e45-ca8f-42f4-a820-6b903de8db6a
         @Other_number_of_session@ = 79cbb137-2700-4fee-83c5-ed55c89da374
+        @PATIENT_STATUS@ = f965dd1d-c4e1-481c-af19-3581c80fb81f
+        @New_case@ = 0c47054a-6681-48da-8477-53c8fa52ce44
+        @TRANSFER_IN@ = 3ce4f67e-26fe-102b-80cb-0017a47871b2
+        @RETRACED@ = 306ea727-b811-404f-ac2d-07bc86e3d62d
 
         <!--forms-->
         @MH_PHQ-9_Score@ = 442beac2-c6da-43e4-95a8-eca907610ccc
@@ -1218,6 +1222,17 @@
                 </tr>
             </table>
         </div>
+    </section>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="">
+        <table>
+            <tr>
+                <td>
+                    <br/><br/>
+                    <strong>Patient status</strong>:
+                    <obs conceptId="$@PATIENT_STATUS@" answerConceptIds="$@TRANSFER_IN@,$@RETRACED@"  answerLabels="Transfer in,Retraced" style="radio"/>
+                </td>
+            </tr>
+        </table>
     </section>
 
     <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="">

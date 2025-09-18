@@ -333,7 +333,15 @@
         @other_referred_to@ = 95bd9af9-fa91-4539-b13a-cd607210df1d
         @Reasons_for_Referral_non_coded@ = 9c140c92-44bb-4070-ad8f-ed22affc1d8d
         @dischargment/permanent_exit_from_program_clinic@ = ad4723da-029d-49af-a146-b50a0cba6f87
-
+        @PATIENT_STATUS@ = f965dd1d-c4e1-481c-af19-3581c80fb81f
+        @New_case@ = 0c47054a-6681-48da-8477-53c8fa52ce44
+        @TRANSFER_IN@ = 3ce4f67e-26fe-102b-80cb-0017a47871b2
+        @RETRACED@ = 306ea727-b811-404f-ac2d-07bc86e3d62d
+        @TEMPERATURE_(C)@ = 3ce939d2-26fe-102b-80cb-0017a47871b2
+        @mental_orientation_in_person@ = 2c1d1dd2-6e86-4f5d-87ad-32a94e6df8fb
+        @mental_orientation_in_place@ = fb9148b5-d121-4c9e-b5ef-85de485f8a15
+        @mental_orientation_in_time@ = 2cd1b571-0d4b-4f98-9eb9-6c52234dfc54
+        @mental_orientation_on_reason_for_visit@ = e7d2c234-bc35-42ee-bb0e-24db74562e9c
 
         <!-- forms -->
         @MH_Diagnosis@ = 79cae8d0-c799-4cbb-b0f3-36c04731b4cf
@@ -1158,7 +1166,17 @@
             </table>
         </div>
     </section>
-
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="">
+        <table>
+            <tr>
+                <td>
+                    <br/><br/>
+                    <strong>Patient status</strong>:
+                    <obs conceptId="$@PATIENT_STATUS@" answerConceptIds="$@TRANSFER_IN@,$@RETRACED@"  answerLabels="Transfer in,Retraced" style="radio"/>
+                </td>
+            </tr>
+        </table>
+    </section>
     <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Vital Signs / Ibipimo by’Ibanze">
         <table>
             <tr>
@@ -1175,6 +1193,10 @@
                         <br/>
                         <strong><lookup expression="fn.message('Weight')"/></strong>
                         <obs conceptId="$@WEIGHT_(KG)@"/>
+                        <br/>
+                        <strong>Temperature</strong>
+                        <obs conceptId="$@TEMPERATURE_(C)@"/>
+
                     </p>
 
                 </td>
@@ -1243,26 +1265,41 @@
                     <strong><lookup expression="fn.message('mental_orientation')"/></strong>
                 </td>
                 <td>
-                    <p class="radio side-by-side">
-                        <strong>
-                            <obs conceptId="$@mental_orientation@" answerConceptId="$@Person@"
-                                 answerCode="recognises_Person" style="checkbox"/></strong>
+                    <p class="radio">
+                        <strong> Person: </strong>
+                        <obs conceptId="$@mental_orientation_in_person@" answerConceptIds="$@YES@,$@NO@"
+                             answerCodes="YES,NO" style="radio"/>
                         <br/>
-                        <strong>
-                            <obs conceptId="$@mental_orientation@" answerConceptId="$@Place@"
-                                 answerCode="recognises_place" style="checkbox"/></strong>
+                        <strong> Place: </strong>
+                        <obs conceptId="$@mental_orientation_in_place@" answerConceptIds="$@YES@,$@NO@"
+                             answerCodes="YES,NO" style="radio"/>
                         <br/>
-                        <strong>
-                            <obs conceptId="$@mental_orientation@" answerConceptId="$@Time@"
-                                 answerCode="recognises_time" style="checkbox"/>
-                        </strong>
+                        <strong> Time: </strong>
+                        <obs conceptId="$@mental_orientation_in_time@" answerConceptIds="$@YES@,$@NO@"
+                             answerCodes="YES,NO" style="radio"/>
                         <br/>
-                        <strong>
-                            <obs conceptId="$@mental_orientation@" answerConceptId="$@REASON_FOR_VISIT@"
-                                 answerCode="Reason_for_hospitalization" style="checkbox"/>
-                        </strong>
+                        <strong> Reason for visit: </strong>
+                        <obs conceptId="$@mental_orientation_on_reason_for_visit@" answerConceptIds="$@YES@,$@NO@"
+                             answerCodes="YES,NO" style="radio"/>
 
+
+
+
+                        <!--                        <strong>-->
+                        <!--                            <obs conceptId="$@mental_orientation@" answerConceptId="$@Place@"-->
+                        <!--                                 answerCode="recognises_place" style="checkbox"/></strong>-->
+                        <!--                        <br/>-->
+                        <!--                        <strong>-->
+                        <!--                            <obs conceptId="$@mental_orientation@" answerConceptId="$@Time@"-->
+                        <!--                                 answerCode="recognises_time" style="checkbox"/>-->
+                        <!--                        </strong>-->
+                        <!--                        <br/>-->
+                        <!--                        <strong>-->
+                        <!--                            <obs conceptId="$@mental_orientation@" answerConceptId="$@REASON_FOR_VISIT@"-->
+                        <!--                                 answerCode="Reason_for_hospitalization" style="checkbox"/>-->
+                        <!--                        </strong>-->
                     </p>
+
                 </td>
             </tr>
             <tr>

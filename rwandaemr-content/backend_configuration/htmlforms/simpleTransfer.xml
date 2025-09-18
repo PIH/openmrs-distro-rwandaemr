@@ -43,9 +43,6 @@
 
     <ifMode mode="VIEW" include="false">
         <div id="buttons">
-            <includeIf velocityTest="$encounter.encounterType.uuid != 'e9355a6e-b2df-44b4-911c-104c6a41ed24'">
-                <button id="next" type="button" class="submitButton confirm right"><uimessage code="emr.next"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i></button>
-            </includeIf>
             <button id="submit" class="submitButton confirm right"><uimessage code="Save"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i></button>
             <button id="cancel" type="button" class="cancel"><uimessage code="emr.cancel"/></button>
         </div>

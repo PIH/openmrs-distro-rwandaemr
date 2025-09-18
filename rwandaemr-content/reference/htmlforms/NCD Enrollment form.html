@@ -1,0 +1,2191 @@
+<htmlform
+        htmlformUuid="d3445599-3db4-4fa4-8e6a-9fc51189acd2"
+        formUuid="642be66d-d7c0-4552-9688-373c317a04cf"
+        formName="NCD ASTHMA: Enrollment form"
+        formDescription="This is a flowsheet that was created primarily for NCD Enrollment flowsheet"
+        formVersion="1.0"
+        formEncounterType="820004cd-5f2b-40a9-bf26-bf6f5a945790"
+        formPublished="true"
+        formRetired="false"
+> <!--
+           NCD - Enrollment -PAST HISTORY
+            Pilot_4July_v1.3NT
+                Author:
+                Builder: Byiringiro Joshua
+                started on July 27, 2017
+        -->
+
+  <macros>
+
+    @Famil_Care_giver@ = 14a171cd-d8e6-4326-9f29-a5ee3f8055dd
+    @Family_Care_giver_Phone_Number@ = a20ccea2-8671-4bfa-9852-946266fe9ac7
+    @Home_Based_Care_Practionner@ = e44010bc-28a4-43b0-8a48-422c05170385
+    @Home_Base_Care_Practionner_Phone_Number@ = a1486c51-8763-4700-b307-22ed45f947b4
+    @TELEPHONE_NUMBER@ = 3cda3d7e-26fe-102b-80cb-0017a47871b2
+    @Patient's_Contact_Phone_Owner@ = d44faa5c-32e0-4715-b4af-f89664cde097
+    @Patient(generic__answer_to_aquestion)@ = 71213fa5-308b-4402-81d0-a65a14d771d1
+    @OTHER_NO_CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
+    @Other@ = c548a633-9931-496d-9ade-4b7c971e6600
+    @telephone_group@ = 5ab398c2-5185-4f66-9f18-6772e26e82ac
+
+    @Diagnosis_or_problem_construct@ = e9efefc3-065a-4fc9-991f-63255415b4f6
+    @Diagnosis_or_problem_non-coded@ = 970d41ce-5098-47a4-8872-4dd843c0df3f
+    @NAME_OF_HEALTH_CARE_PROVIDER@ = 3cda02e6-26fe-102b-80cb-0017a47871b2
+
+    @REASON_FOR_EXIT@=3cde5ef4-26fe-102b-80cb-0017a47871b2
+    @PATIENT_DIED@=3cdd446a-26fe-102b-80cb-0017a47871b2
+    @TRANSFERED@=3a296bb6-5fc8-40ee-84fc-97c13cacf8d8
+    @LTFU@=3ceb0ed8-26fe-102b-80cb-0017a47871b2
+    @DECLINED_CARE@=1b83f37a-df3a-42a5-b83b-ebc5237f2dbf
+    @FACILITY@=3c9331e3-d02c-4b7d-840e-59e2d8ab7dff
+    @planned_admission_reason@ = 1d642160-089f-49d3-98ce-68885cb5f893
+
+    @TYPE_OF_REFERRING_CLINIC_OR_HOSPITAL@ = c3e1d8d4-3040-49dd-ad66-c0928d912941
+    @PRIMARY_CARE_CLINIC@ = 3ce1e3e4-26fe-102b-80cb-0017a47871b2
+    @HOSPITAL@ = 3ce0d472-26fe-102b-80cb-0017a47871b2
+    @HEALTH_CLINIC@ = 3ce0d300-26fe-102b-80cb-0017a47871b2
+    @NAME_OF_REFERRING_SITE@ = 4c3bcdaa-0e22-4c19-9a31-5a05ad1b12d9
+    @CURRENT_COMPLAINTS_OR_SYMPTOMS@ = 3ce2b170-26fe-102b-80cb-0017a47871b2
+    @Duration@ = 222d802c-4306-4c4c-866f-c4ca5d46d4a7
+    @TIME_UNITS@ = f1904502-319d-4681-9030-e642111e7ce2
+    @DAYS@ = 3cd706b8-26fe-102b-80cb-0017a47871b2
+    @MONTHS@ = 3cd70b68-26fe-102b-80cb-0017a47871b2
+    @YEARS@ = 3ce28f4c-26fe-102b-80cb-0017a47871b2
+    @PREVIOUS_MEDICAL_HISTORY@ = bc3862d8-6825-4878-8801-f1e7b0790071
+    @Duration_With_Units@ = 2b6ac755-70a2-47a6-bba2-db1bc63457e3
+
+
+    @Surgical(history)@ = 6f035d26-aab4-4a54-ae3b-6c1db01cd120
+    @Obstestrical@ = 9ea8c0c8-9a4f-4c1d-9962-c31c7abc62dc
+    @Ubudehe@ = b9016409-8ca6-4123-97a5-146dc93571e8
+    @Other@ = c548a633-9931-496d-9ade-4b7c971e6600
+    @ALLERG_TO_DRUG@ = 3cd66cda-26fe-102b-80cb-0017a47871b2
+    @ALLERGY_COMMENT@ = 38b0118c-1cf4-40a9-a508-15c48d9586ac
+    @Patient_Medical_History@ = 9090e8f8-54cd-4ed0-b994-1130afb384bd
+    @Tonsilitis@ = 3cccfde4-26fe-102b-80cb-0017a47871b2
+    @Patient_Smokes@ = 3ce1ecd6-26fe-102b-80cb-0017a47871b2
+    @DOES_THE_PATIENT_DRINK_ALCOHOL@ = 3ce33c44-26fe-102b-80cb-0017a47871b2
+    @Under_Nutrition@ = ea2ae6c4-8a6a-4e76-ba6d-d0a4aa16a2c7
+    @Obesity@ = 115115AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    @OTHER_RELATIVE@ = 3ce18bec-26fe-102b-80cb-0017a47871b2
+    @previous_hospital_admission@ = 28f31d73-9f11-45ef-acc2-dfdfb039b0d0
+    @Chronic_Disease@ = 63025b7a-3216-4f7f-97fa-7b5e5984c326
+    @Other_disease_(text)@ = f9e8e946-d177-4ca9-8004-779ae6abe9df
+    @patient_chronic_disease_history@ = e20ab8c4-bd53-4f9f-b2e1-04fe7cb667ea
+    @HEART_FAILURE@ = 0670f6b9-5456-4bd3-86b1-846abc4fe2ba
+    @HYPERTENSION@ = 3cd50188-26fe-102b-80cb-0017a47871b2
+    @stroke@ = 111103AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    @ASTHMA@ = 3ccc4bf6-26fe-102b-80cb-0017a47871b2
+    @COPD@ = be7adab0-2ed5-44d7-972e-586911b08c8e
+    @DIABETES_MELLITUS@ = 3cce629c-26fe-102b-80cb-0017a47871b2
+    @TUBERCULOSIS@ = 3ccca7cc-26fe-102b-80cb-0017a47871b2
+    @HIV@ = 3cd4dca8-26fe-102b-80cb-0017a47871b2
+    @LIVER_FAILURE@ = 7018a636-4e28-4681-969d-9caf98178abb
+    @Cancer@ = 22e045f9-a880-416f-a6b2-0e0706d585bf
+    @Dialysis@ = 36200521-676e-48c8-a6f9-f101bf4a691b
+    @chronical_kidney_disease@ = 8611a721-9f01-484d-9405-5d88efdd9ce7
+    @Family_member_suffered_from_Chronic_disease@ = f6268042-d8b6-4814-8abe-c4a8023eb058
+    @YES@=3cd6f600-26fe-102b-80cb-0017a47871b2
+    @NO@=3cd6f86c-26fe-102b-80cb-0017a47871b2
+    @Family_Member_Chronic_Diseases@ = bb523be9-a82a-4d3b-82b9-30f00726848c
+    @MEDICATION_HISTORY@ = 3cd9478e-26fe-102b-80cb-0017a47871b2
+    @CARDIOVASCULAR_DISEASE_TREATMENT_DRUGS@ = 1dcace6e-3000-42aa-81a5-73d329ae8432
+    @Diabetes_Medications@ = fa9b8b64-7081-41ec-9018-a8ea51464d70
+    @Asthma_medications@ = 0c0ae909-30bf-4b06-85d0-49e08056b1ea
+    @TUBERCULOSIS_DRUGS@ = dfc510ca-40d3-49b7-ac83-9cb6f183a541
+    @HIV_Medications@ = d89e2877-2bf0-4e47-9fe4-0ec244fe0f8e
+    @Medical_contraceptives@ = 206dad95-7d57-464f-a8bb-12d6a32be771
+    @temperature@ = 3ce939d2-26fe-102b-80cb-0017a47871b2
+    @diastolicBloodPressure@ = 3ce93694-26fe-102b-80cb-0017a47871b2
+    @systolicBloodPressure@ = 3ce934fa-26fe-102b-80cb-0017a47871b2
+    @pulse@ = 3ce93824-26fe-102b-80cb-0017a47871b2
+    @RespiratoryRate@ = 3ceb11f8-26fe-102b-80cb-0017a47871b2
+    @Weight@ = 3ce93b62-26fe-102b-80cb-0017a47871b2
+    @SaO2@ = 3ce9401c-26fe-102b-80cb-0017a47871b2
+    @Height@ =	3ce93cf2-26fe-102b-80cb-0017a47871b2
+    @BMI@ = 3ce14da8-26fe-102b-80cb-0017a47871b2
+    @GENERAL_EXAM_FINDINGS@ = 0adeea3a-15f5-102d-96e4-000c29c2a5d7
+    @WELL_APPEARING@ = 85a1dd2f-f6ad-438a-b0f4-542b0390b633
+    @CACHECTIC@ = ecf0a08f-984a-4d5c-84b3-b51590f8a065
+    @ACCESSORY_MUSCLE_USE@ = cf32a51c-974f-4ad2-8dca-0f050c9cf9b6
+    @Dehydration@ = 7b11675c-2c20-4fd5-8ccd-a5547f330ebd
+    @OTHER_NON-CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
+    @OTHER_GENERAL_EXAM_FINDINGS@ = 8d8597b4-0b54-4bc1-a35c-fa06d80e7a2b
+    @HEENT_EXAM_FINDINGS@ = 3cd75b86-26fe-102b-80cb-0017a47871b2
+    @HIGH_JUGULAR_VENOUS_PRESSURE@ = baf187e4-ae92-4d53-80b5-bf8358a5a7f9
+    @Cervical_Mass@ = 6b99d1c3-7075-4822-9064-16f0f9397b60
+    @PALE_CONJUNCTIVA@ = 3cd1894a-26fe-102b-80cb-0017a47871b2
+    @cyanosis@ = 3cd20974-26fe-102b-80cb-0017a47871b2
+    @LYMPHADENOPATHY@ = 3cce4c76-26fe-102b-80cb-0017a47871b2
+    @Location_of_lymphadenopathy@ = 9da47553-eaf7-4c28-90b3-414f8eebffd9
+    @Chest_Thorax_Exam_Findings@ = d261d79b-71a1-42b5-9393-18dac01a5955
+    @NORMAL@ = 3cd750a0-26fe-102b-80cb-0017a47871b2
+    @Deformation@ = 5614fb19-a959-4cac-87ec-8f9321c1b449
+    @Scar_Location@ = 7faeb154-53fd-44f5-9cc1-e5552e9a3c07
+    @gynecomastia@ = baf519ef-c312-46c8-8ec9-fdebf11d0145
+    @kyphoscoliosis@ = eba246d3-3b9a-46b2-a52b-e2fbe762a435
+    @Buffalo_neck@ = d73da248-4cf0-45ab-b25f-e695e6831a67
+    @Chest_Expansion@ = e606fe8a-4bc3-442d-8395-ccc706c5c4a3
+    @Breast_Chest_Exam_Findings@ = 72c31f8f-6e7e-4b22-9088-9c5ffd177b75
+    @Asymmetry@ = 66dbe565-3f03-4fd3-8a83-d9a240058c60
+    @Discolouration@ = fc252bf8-41b4-4891-9ef1-2a36e2efb92b
+    @Mass@ = f148c08d-476c-4fa8-9be3-1c6befab28f3 <!-- lump -->
+    @SkinLesion@ = 19cd6cd1-3a3b-4245-b67a-aaf7b38a8b0f
+    @LUNG_EXAM_FINDINGS@ = 0aee5fba-15f5-102d-96e4-000c29c2a5d7
+    @CLEAR@ = c5c052f7-7288-4b6a-aafd-02ee7e1200e8
+    @DULLNESS_TO_PERCUSSION@ = 3ce99012-26fe-102b-80cb-0017a47871b2
+    @Hyperesonance@ = bba21348-35cb-4596-8e85-31e4d8ef1dc5
+    @CRACKLES@ = 2732b692-4c3d-44f6-a36b-a21c70e798f7
+    @LOCATION_OF_CRACKLES@ = ab9f3100-b576-498d-b9b7-798bdc0db774
+    @WHEEZE@ = 3ceade68-26fe-102b-80cb-0017a47871b2
+    @CARDIAC_EXAM_FINDINGS@ = 3cd75e9c-26fe-102b-80cb-0017a47871b2
+    @REGULAR_RHYTHM@ = cab375d4-ead3-478e-875a-4994078bb94a
+    @S1_AND_S2_NORMAL@ = 5eac612a-6ade-4741-a161-a98f23b71f71
+    @TACHYCARDIA@ = df858906-3d5b-4f40-b606-ac99315a27df
+    @IRREGULA_RHYTHM@ = 81ed223c-f7b9-4199-b4d8-a86d4eda319a
+    @PMI_DISPLACED@ = 3cea23c4-26fe-102b-80cb-0017a47871b2
+    @CARDIAC_MURMUR@ = 3cd1dec2-26fe-102b-80cb-0017a47871b2
+    @LOCATION_OF_CARDIAC_MURMUR@ = 14871ee0-0416-4f6c-b74e-09ef856adda0
+    @muffled@ = 007661ab-0f5c-4c2e-9e40-38fc8c3c3118
+    @Distant@ = 65b1d086-49b6-46a8-8802-0a123209b60f
+    @ABDOMINAL_EXAM_FINDINGS@ = 3cd76054-26fe-102b-80cb-0017a47871b2
+    @SOFT_ABDOMEN@ = 76dc65a7-d82e-4a35-8124-cc5d23439294
+    @NO_ABDOMINAL_TENDERNESS@ = 603e3e38-f09d-4d58-8d0e-aa08defea445
+    @NO_PRESENC_OF_HEPATOMEGALY@ = 875bdc20-f9d0-4eb0-a299-9e658e5d31e5
+    @NO_PRESENCE_OF_SPLENOMEGALY@ = 83dcd62c-0ffd-4946-a132-8ceef45279b7
+    @NO_PRESENCE_OF_ASCITES@ = 7be1da92-c70e-4201-8663-5057396ffe24
+    @SCAR@ = 3ce4143e-26fe-102b-80cb-0017a47871b2
+    @Abdominal_distention@ = 2262308e-7010-4518-ab76-e87bfb67b86d
+    @Collateral_circulation@ = b69c6696-7b12-4e12-8d49-ddefdd674196
+    @non_distention_swelling@ = 83d9c3b6-3e45-4646-87d5-45d2820c016d
+    @SPLENOMEGALY@ = 3ce8b2fa-26fe-102b-80cb-0017a47871b2
+    @SPLENOMEGALY_in_cm@ = 8c2e9d72-9afd-4eaf-beaa-1288f300d287
+    @HEPATOMEGALY@ = 3ce8b08e-26fe-102b-80cb-0017a47871b2
+    @HEPATOMEGALY_in_cm@ = b37ad72a-e747-444d-88ae-e1479360073a
+    @PULSATILE@ = 9db29faa-a707-4627-a7ca-548ad2ec5cc1
+    @ASCITES@ = 3cd1fce0-26fe-102b-80cb-0017a47871b2
+    @MILD@ = 3cdef9ae-26fe-102b-80cb-0017a47871b2
+    @MODERATE@ = 3cdef832-26fe-102b-80cb-0017a47871b2
+    @ABUNDANT@ = a6f440ec-1e4a-49a6-b601-2dce60187cbb
+    @ABDOMINAL_TENDERNESS@ = 3ce95c1e-26fe-102b-80cb-0017a47871b2
+    @RUQ@ = 3ce95f48-26fe-102b-80cb-0017a47871b2
+    @LUQ@ = 06b9caa3-907c-493e-bd33-be63c089376c
+    @RLQ@ = c7acf771-4959-4b56-aa66-a7a20abf6469
+    @LLQ@ = 3ce95a8e-26fe-102b-80cb-0017a47871b2
+    @ABDOMINAL_GUARDING@ = 3ce9544e-26fe-102b-80cb-0017a47871b2
+    @Abnormal_Auscultation@ = e7e814e8-f043-41a5-a33d-e9bedc498d7e
+    @UROGENITAL_EXAM_FINDINGS@ = 3cd761ee-26fe-102b-80cb-0017a47871b2
+    @NORMAL@ = 3cd750a0-26fe-102b-80cb-0017a47871b2
+    @Genital_Swelling@ = 2bb54134-bfb1-4b69-b285-d3a33b5d64f2
+    @genital_mass@ = 667840b0-328d-4674-905b-7f7edf16212a
+    @Genital_Bleeding@ = 1690fcb5-61b6-4a48-a8c0-7183188385f3
+    @Genital_Pain@ = 1f40e467-0609-4dcf-82ef-a05c00e1027a
+    @Genital_Lesion@ = dc28a2cf-3dd2-4c6e-a541-7704f1c5de57
+    @loss_of_pubic_hair@ = 71d171b9-2bc1-4c97-a11b-277d96e35f5e
+    @Genital_Assymetry@ = bf810b6d-d030-4f1e-a8bf-1ef496f0a4f4
+    @EXTREMITY_EXAM_FINDINGS@ = 3cd7637e-26fe-102b-80cb-0017a47871b2
+    @Normal_Without_Peripheral_Edema@ = 295588c3-8efc-42c9-be74-86feef5bf483
+    @NO_JOINT_PAIN_OR_SWELLING@ = 9d5a83f0-d39e-4465-b9a8-d7d6485e9424
+    @Pulse_Palpable@ = dd3d2ef8-52e2-491e-9461-8cba4a91dfd1
+    @COLD@ = d9580dba-b55e-4adc-8f90-c170f7976dfa
+    @HOT@ = edf82acd-4c6f-4223-826b-e1783b45353a
+    @EDEMA_PERIPHERAL@ = 26730440-eff8-484b-80da-b98e4783bc8f
+    @JOINT_PAIN@ = 3cccc7ac-26fe-102b-80cb-0017a47871b2
+    @JOINT_SWELLING@ = 3ceb9394-26fe-102b-80cb-0017a47871b2
+    @Radiofemoral_Pulse_Delay@ = b9bc42ad-e2cd-4a58-a4af-1f1bac0d599a
+    @Foot_sores@ = 4bb8cbb7-9c34-4424-aada-eda615ede91a
+    @NEUROLOGICAL_EXAM_FINDINGS@ = edd2cae1-99e7-4219-b5f9-fa512a69fed2
+    @No_Neuro_abnormalities@ = 14d78b81-4708-4228-8ab1-fce31c64633f
+    @exaggerated@ = 6f4ec31a-38b5-42a4-8a96-38648ed7beda
+    @Diminished@ = d7fb245d-e85e-4654-9791-40eafe322832
+    @Absent@ = 6014a179-c9eb-4342-ab45-3aaa189b88ac
+    @Sensation_in_the_Feet@ = 2727460f-506a-4180-83f7-7b21e3343216
+    @Sensation_in_right_foot@ = 62e72ad7-869e-4eae-909c-36ec4f2b7555
+    @Sensation_in_left_foot@ = 19afbd01-c1d0-4041-8cc8-e87a7922c1df
+    @FOCAL_NEUROLOGICAL_DEFICIT@ = 3cd659ac-26fe-102b-80cb-0017a47871b2
+    @PATIENTS_FLUID_MANAGEMENT@ = 5c5755df-3d1b-4ae2-a465-31dc05f49ddd
+    @EUVOLEMIC@ = a8ad2208-8dbf-4429-81fd-faea1ad3bf96
+    @HYPERVOLEMIC@ = 7c28e6fc-080d-4839-ad47-7eb7cd9a7973
+    @HYPOVOLEMIC@ = 7b11675c-2c20-4fd5-8ccd-a5547f330ebd
+    @other_medical_findings@ = b192c81d-5e89-40ed-a71d-ff03c1e380c0
+    @result_to_other_medical_findings@ = 2fd2f53e-85ea-4bc8-ae35-c4393d6907c1
+    @Predicted_PEF@ = d13bbf4e-f466-4a62-8651-d807f9a8a7cb
+    @PEF_before_salbutamol@ = e8fc0c7f-a37b-475f-ae46-73711842a66c
+    @PEF_after_salbutamol@ = e5e67313-b658-4118-9a71-5d5b60fc81d7
+    @Percen_PEF_change_post_salbutamol@ = 4e8e6cfc-406e-45de-a9bd-338c6021c706
+    @PEF_percent_best_effort_vs_PEF_predicted@ = 40728739-d17a-4f5e-af4b-f7bcd2172e51
+
+
+    @GLYCEMIA@ = 3cd4e194-26fe-102b-80cb-0017a47871b2
+    @HbA1c@ = 159644AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    @UREA@ = 3cd4aa12-26fe-102b-80cb-0017a47871b2
+    @CREATININE@ = 3cd4374e-26fe-102b-80cb-0017a47871b2
+    @TOTAL_CHOLESTEROL@ = 3cd68c7e-26fe-102b-80cb-0017a47871b2
+    @LDL@ = 3cd68fa8-26fe-102b-80cb-0017a47871b2
+    @HDL@ = 3cd68e18-26fe-102b-80cb-0017a47871b2
+    @TRIGLYCERIDES@ = 3cd69138-26fe-102b-80cb-0017a47871b2
+    @ASAT_RESULT@ = 68ba31fa-e2ae-45c1-8d6d-f116c27f190e
+    @ALAT_RESULT@ = fd826b26-0343-41d6-b51c-81f3b75e388c
+    @Gamma_GT@ = a01f58fa-0e27-474a-8975-f282f888a31d
+    @NA@ = 3cd76b58-26fe-102b-80cb-0017a47871b2
+    @K@ = 3cd76ce8-26fe-102b-80cb-0017a47871b2
+    @cal@ = 01765cd1-8fd6-4783-b053-190b1f6ed5bd
+    @TOTAL_PROTEIN@ = 3cd3bd5a-26fe-102b-80cb-0017a47871b2
+    @GLUCOSE@ = 3cd4e194-26fe-102b-80cb-0017a47871b2
+    @cetone@ = e8ebea1d-88c7-4e1d-aa9a-bccbe51dbb9b
+    @OTHER_LAB_TEST_NAME@ = 3ce1c90e-26fe-102b-80cb-0017a47871b2
+    @OTHER_LAB_TEST_RESULT@ = 3ce1ca8a-26fe-102b-80cb-0017a47871b2
+    @Xrays@ = 3723fd15-2e30-477d-9488-5cfd78bd790c
+    @fundoscopy@ = da4e608a-452f-4dfa-9540-6fd53c6adf33
+    @ECG_DIAGNOSIS_(text)@ = cdcbfe8b-5b1b-4522-91fb-24267c668ba0
+    @DDB_ECHOCARDIOGRAPH_RESULT@ = 75b3b477-a8ab-4eba-9912-c8bca53b0bbf
+    @NO_DONE@ = 3cd75550-26fe-102b-80cb-0017a47871b2
+    @NORMAL_EJECTION_FRACTION@ = 2b42eb94-7ac5-4d3e-aa65-68f071e05401
+    @MILDLY_DEPRESSED_EJECTION_FRACTION@ = caa533cb-2efd-434e-b187-4c3c644dba8e
+    @VERY_LOW_EJECTION_FRACTION@ = a746cfeb-958f-4569-8d84-7283636a4054
+    @NO_MITRAL_STENOSIS@ = 1e13f229-3c23-4994-a202-91007c8c56ec
+    @MITRAL_STENOSIS@ = d29a5578-15cd-419c-9d30-473e922c027d
+    @PERICARDIAL_EFFUSION@ = d7302f50-6cf4-46c9-9fa6-1f9031e22c95
+    @OTHER_NON-CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
+    @ECHOCARDIOGRAM_COMMENT@ = 5c052224-aeaf-4a17-8dca-8255eef79644
+    @Summary@ = 6602a73b-b8d3-40bc-bae8-f00ff3b9cceb
+    @CHRONIC_CARE_DIAGNOSIS@ = bb7e04d8-3355-4fe8-9c87-98642eafab93
+    @HEART_FAILURE@ = 0670f6b9-5456-4bd3-86b1-846abc4fe2ba
+    @HEART_FAILURE_DIAGNOSIS@ = e6bb1491-43b5-46b8-ba55-bd1ad188123c
+    @CARDIOMYOPATHY@ =3ce8c3d0-26fe-102b-80cb-0017a47871b2
+    @RHEUMATIC_HEART_DISEASE@ = 3cceab1c-26fe-102b-80cb-0017a47871b2
+    @MITRAL_STENOSIS@ = d29a5578-15cd-419c-9d30-473e922c027d
+    @HYPERTENSIVE_HEART_DISEASE@ = fe7787ea-59ba-4427-b3df-62e9dc74d4a3
+    @OTHER_NON-CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
+    @Other_Rheumatic_heart_disease_diagnosis@ = df3532da-64ed-4357-8319-fd1354b86fe8
+    @NYHA_CLASS@ = e90416ff-65d8-4ab3-9fc6-8e16ae5f2caf
+    @NYHA_CLASS_I@ = ef44dc83-7d6d-4e80-91c0-d9b447a689ff
+    @NYHA_CLASS_II@ = e10400f0-053f-48bb-9983-e52b6231ef41
+    @NYHA_CLASS_III@ = a2cb697a-a105-4d62-8f4a-7e2bcc942bb2
+    @NYHA_CLASS_IV@ = 33f45cc0-fe1c-4731-8877-1e6b44dca288
+    @DIABETES@ = edf4ecc4-44f6-457a-b561-179f4426b16a
+    @Type_of_diabetes_diagnosis@ = d66e5df3-bc91-41ea-9592-0f199fbc589e
+    @Type_1_diabetes@ = 105903f4-7b6d-496a-b613-37ab9d0f5450
+    @Type_2_diabetes@ = 8b26ecd3-8726-4c8e-b042-cbe71e44a863
+    @Gestational_diabetes@ = 932d395c-d509-4d42-bac4-5a3281efe149
+    @Patient_has_Hypertension@ = 52ad2ff3-3cd2-4383-be98-e067582ba674
+    @Hypertension_Stages@ = 5d31abca-d671-4e93-aaa0-5b383ff7d8ad
+    @Stage_1_Hypertension@ = b49bce96-d02b-4368-9abd-f3bba4dbf87d
+    @Stage_2_Hypertension@ = 8857d3aa-996c-4a80-b900-62cf04d4d17d
+    @stage_3_hypertension@ = 485bdf2a-552a-4654-9e5e-048429049801
+    @Emergency_HTN@ = 6eaf3d30-d18c-4cfb-90cb-654d0d346a39
+    @Chronic_Respiratory_diseases@ = 01370002-d714-4fb8-86cf-00e5652e30ea
+    @Clinical_diagnosis_for_asthma@ = e8f25c6e-9491-4ca3-9d31-7df9cb3d9ed9
+    @CONFIRMED_DIAGNOSIS@ = 3d762b82-f951-4d13-b147-6aaba63b25d1
+    @Probable_diagnosis@ = dfb8ba28-2255-4437-b649-fa0bf7bd2fa9
+    @Other_non-coded_pulmonary_disease@ = 0b8560c7-6eb9-4c92-a3b0-351f40fc12c0
+    @Other_pulmonar_disease_non-coded@ = fcd7265c-9811-4831-8dfa-73adb6ec3f63
+    @OI_OR_COMORBIDITY@ = 0ae23a5a-15f5-102d-96e4-000c29c2a5d7
+    @GASTROESOPHAGEAL_REFLUX@ = e99123ff-7906-4bf6-906e-cd0b1d555e27
+    @RHINITIS@ = 3cd4cf38-26fe-102b-80cb-0017a47871b2
+    @RENAL_FAILURE@ = 894f306e-a868-44b8-b580-93495e3cca4c
+    @Renal_Failure_Stages@ = 72d9b6c4-2368-49e2-81c9-8e8036d2232b
+    @Renal_Failure_Stage_1_and_2@ = bfc55cc1-2706-4132-ac19-1fbe8a821ab7
+    @Renal_Failure_Stage_3@ = 3364b7df-0245-42b3-8fda-77d361680cdd
+    @Renal_Failure_Stage_4and5@ = 9d0342ab-a9e0-49a9-b799-78c331549b3f
+    @OTHER_NON-CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
+    @Other_clinical_diagnosis_non-coded@ = 135d1163-d50a-411c-9ea1-530ca2033e10
+    @RESULT_OF_HIV_TEST@ = 3ce17cec-26fe-102b-80cb-0017a47871b2
+    @NEGATIVE@ = 3cd28732-26fe-102b-80cb-0017a47871b2
+    @POSITIVE@ = 3cd3a7a2-26fe-102b-80cb-0017a47871b2
+
+
+    @treatment_appoach@ = 0bbba919-97d0-496e-8b7d-787090773e3c
+    @Lifestyle_intervention_only@ = 9c192860-4473-4828-bf06-71ff0196fce1
+    @Medication@ = abd135e6-237a-4671-959b-39fec76ef9a7
+    @No_Medication@ = 2f5cfaaf-f29d-4a17-b5ef-d5dc61142939
+    @CARDIAC_MEDICATION_CONSTRUCT@ = cd0f1b4b-8045-4482-837d-448d51815d26
+    @CARDIOVASCULAR_AND_CHONIC_KIDNEY_MEDICATION@ = 4dde0454-edd2-4e61-b86b-4283b482f453
+    @FUROSEMIDE@ = 3ccce886-26fe-102b-80cb-0017a47871b2
+    @CAPTOPRIL@ = 4add1344-ec52-41e3-b5b9-267f19d99aa2
+    @LISINOPRIL@ = 44299055-6e5f-4548-af34-dcf5e13bb6a5
+    @ALDACTONE@ = 65d46f90-9352-41c9-9705-38f67f097fdd
+    @CARVEDILOL@ = b4307c45-16dc-428a-b194-e6ed6470b264
+    @ATENOLOL@ = d53d1bc4-1b19-4c03-9aae-61e7662acc0e
+    @AMLODIPINE@ = bc20d803-f368-4177-8b36-d1812a977ae2
+    @NIFEDIPINE@ = 3ccee00a-26fe-102b-80cb-0017a47871b2
+    @ISOSORBIDE_DINITRATE@ = 8e2949d5-10dc-4bde-afd2-3fcc6b6df00e
+    @HYDRALAZINE@ = 3cd52bfe-26fe-102b-80cb-0017a47871b2
+    @HYDROCHLOROTHIAZIDE@ = 3cd90ba2-26fe-102b-80cb-0017a47871b2
+    @POTASSIUM@ =08b04285-6378-408d-9906-b4982b34f755
+    @PREDNISOLONE@ = 3cd40850-26fe-102b-80cb-0017a47871b2
+    @AAS@ = 8ce279cf-997b-4c69-aefc-1e5f71ed78b7
+    @WARFARIN@ = 98649fa2-a68b-4bbd-b570-95a718a94924
+    @PENICILLIN@ = 3cd42dc6-26fe-102b-80cb-0017a47871b2
+    @BENZATHINE_PENICILLIN_600,000_IU_IM@ = 5acfcca3-4fa7-4267-a149-ce0de9c6c69f
+    @BENZATHINE_PENICILLI_POINT_2_M_IU_IM@ = 8140a4d3-3dac-4dca-9da2-17eb0f25e3ff
+    @MORNING_DOSE_IN_MILLIGRAMS@ = f032b306-4d4b-4b02-8335-3cce084f30a6
+    @NOON_DOSE_IN_MILLIGRAMS@ = 41abbe03-04da-4b5d-8223-0a249245dcf1
+    @NIGHT_DOSE_IN_MILLIGRAMS@ = 305c266e-2035-4ef2-ab44-b4e70756998d
+    @DRUG_ORDER_FREQUENCY@ = 71ffb8ee-382e-4ad0-9b42-0b665f81aaf9
+    @ONCE_A_MONTH@ = 421c0d57-3dff-44a2-b2d3-578d4986c35d
+    @TWICE_A_MONTH@ = 22299173-a836-44d4-9d0b-727d3983cf85
+    @Other_Cardiovascular_and_chronic_kidney_medication@ = 0e039736-b016-484d-8931-5ea5c0391995
+    @Diabetes_treatment_construct@ = 5511ae49-91c1-43ab-aa76-49e38ba02146
+    @Diabetes_Medications@ = fa9b8b64-7081-41ec-9018-a8ea51464d70
+    @CAPTOPRIL@ = 4add1344-ec52-41e3-b5b9-267f19d99aa2
+    @METFORMIN@ = 09c64c66-11d5-4fac-8848-9fd33206fefd
+    @INSULIN_Regular@ = 0ad8ceac-15f5-102d-96e4-000c29c2a5d7
+    @GLIBENCLAMIDE@ = 0084d7bd-a40f-44fb-bd18-2a1853d03ee8
+    @INSULIN_LENTE@ = 3ccf1c1e-26fe-102b-80cb-0017a47871b2
+    @Insulin_70_30@ = 9231cac4-8d3d-4bf5-97a3-81ec912b1899
+    @LISINOPRIL@ = 44299055-6e5f-4548-af34-dcf5e13bb6a5
+    @Morning_Dose_in_Units@ = 9325d70e-705a-45fd-bed2-31e815d6b2db
+    @Noon_Dose_in_Units@ = a260b953-ac39-4745-bbc9-9c6fb45f3821
+    @Evening_Dose_in_Units@ = 41a50d09-a434-41ee-ab3a-220367316056
+    @Bedtime_Dose_in_Units@ = f1ca287b-a329-4764-8ccb-a27927cef16c
+    @MORNING_DOSE_IN_MILLIGRAMS@ = f032b306-4d4b-4b02-8335-3cce084f30a6
+    @NOON_DOSE_IN_MILLIGRAMS@ = 41abbe03-04da-4b5d-8223-0a249245dcf1
+    @NIGHT_DOSE_IN_MILLIGRAMS@ = 305c266e-2035-4ef2-ab44-b4e70756998d
+    @CLOTRIMAZOLE@ = 3cd64782-26fe-102b-80cb-0017a47871b2
+    @Glucometer_recommended_for_treatment@ = 8bda1400-3d58-4c18-a1cd-2e8470276da5
+    @Other_Diabetes_Drug@ = 219d650a-3305-4f56-9613-147d213bc9c9
+    @Asthma_medications@ = 0c0ae909-30bf-4b06-85d0-49e08056b1ea
+    @Salbutamol_100_mcg_10_puffs_every_20min_with_spacer@ = 4d63ecf7-bc60-4657-8876-b13589fd7f9e
+    @Dexamethasone@ = 7203ef6c-6427-4ecb-8035-2d4a3c5e1b80
+    @Salbutamol_100_mcg_1-2_puffs_2-3x/day_as_needed@ = f90b3bac-5445-4627-99dc-3ab27f2716db
+    @BECLOMETHASONE@ = 3cd906e8-26fe-102b-80cb-0017a47871b2
+    @PREDNISOLONE@ = 3cd40850-26fe-102b-80cb-0017a47871b2
+    @AMINOPHYLLINE@ = 3cd52a78-26fe-102b-80cb-0017a47871b2
+    @CIMETIDINE@ = 3ce29820-26fe-102b-80cb-0017a47871b2
+    @CHLORPHENIRAMINE@ = 3cd512ae-26fe-102b-80cb-0017a47871b2
+    @DOXYCYCLINE@ = 3cccddbe-26fe-102b-80cb-0017a47871b2
+    @Aminophyilline_dose_in_milligrams@ = 0b2f9ddc-c714-4b73-8612-4aad26d4de75
+    @Doxycycline_Dose_in_milligrams@ = baceda88-64de-44e8-a42c-274793763ca1
+    @Number_or_days@ = 00f3e3f4-bd03-4cf1-a487-705b0acf0f4c
+    @Other_Asthma_drug@ = 16fae208-4dea-4e32-9233-238be6eac56c
+    @RED_BLOOD_CELLS@ = 3cd2ab40-26fe-102b-80cb-0017a47871b2
+    @HEMOGLOBIN@ = 3ccc7158-26fe-102b-80cb-0017a47871b2
+    @HEMATOCRIT@ = 3cd69a98-26fe-102b-80cb-0017a47871b2
+    @WHITE_BLOOD_CELLS@ = 3cd2a906-26fe-102b-80cb-0017a47871b2
+    @NEUTROPHILS@ = 3cd6a592-26fe-102b-80cb-0017a47871b2
+    @EOSINOPHILS@ = 3cd6a8b2-26fe-102b-80cb-0017a47871b2
+    @BASOPHILS@ = 3cd6aa38-26fe-102b-80cb-0017a47871b2
+    @LYMPHOCYTES@ = 3cd6a402-26fe-102b-80cb-0017a47871b2
+    @MONOCYTES@ = 3cd6a722-26fe-102b-80cb-0017a47871b2
+    @PLATELETS@ = 3cd3d038-26fe-102b-80cb-0017a47871b2
+    @Spiritual_pain_score@ = ef0c2cc9-0eb0-41f4-9a0d-34f1b3b17593
+    @Psychological_pain_score@ = 6e429c48-cdfa-4dfd-9267-90131c2b1e12
+    @Physical_pain_score@ = 8f0f2330-d296-4b7f-bc7e-561328227721
+    @Pain_score_comments@ = 7c4fb4d3-5e09-49ed-bd44-190ca9a75a55
+    @Pain_drugs@ = bd61e49a-2e71-4b12-af02-ee8e62c3db55
+    @Non_opioids@ = e9144e27-e5d4-48df-a0a9-2f329360bf7b
+    @Morphine@ = 80106AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    @other_pain_drugs@ = b20f4e61-94d3-4b31-955d-36e4df61a710
+    @OTHER_LAB_TEST_CONSTRUCT@ = 3ce1c792-26fe-102b-80cb-0017a47871b2
+    @drug_prescription_construct@ = f7505d6c-fa17-4279-822d-8914b2e9d352
+    @TWICE_A_DAY@ = 586f1146-8737-4827-8cfa-3b72d71ebd8b
+    @ONE_PER_DAY@ = 37328251-6759-4270-8a2e-8cab2c0b315b
+    @THREE_PER_DAY@ = 46a4d3d6-86d0-491f-be00-d151246caec3
+    @Four_times_a_day@ = bb025463-8631-4475-952d-1c5c83d8aa32
+    @per_need@ = f72f0403-cd94-4746-814d-717c687f63a2
+    @JAUNDICE@ = 3ccea1bc-26fe-102b-80cb-0017a47871b2
+    @NOT_APPLICABLE@ = 3cd7b72a-26fe-102b-80cb-0017a47871b2
+    @CHEST_XRAY@ = 3ccc6186-26fe-102b-80cb-0017a47871b2
+    @PULMONARY_EFFUSION@ = 3cd771ac-26fe-102b-80cb-0017a47871b2
+    @MILIARY_CHANGES@ = 3cd7733c-26fe-102b-80cb-0017a47871b2
+    @EVIDENCE_OF_CARDIAC_ENLARGEMENT@ = 3ce9d4be-26fe-102b-80cb-0017a47871b2
+    @INFILTRATE@ = 3cf2e4d2-26fe-102b-80cb-0017a47871b2
+    @DIFFUSE_NON-MILIARY_CHANGES@ = 3cf2e734-26fe-102b-80cb-0017a47871b2
+    @CAVITARY_LESION@ = 3cf2ebda-26fe-102b-80cb-0017a47871b2
+    @FIBROSIS@ = 3ce439be-26fe-102b-80cb-0017a47871b2
+    @LYMPHADENOPATHY@ = 3cce4c76-26fe-102b-80cb-0017a47871b2
+    @CAVITY@ = 3ce43842-26fe-102b-80cb-0017a47871b2
+    @PNEUMONOTHORAX@ = 3ce43b3a-26fe-102b-80cb-0017a47871b2
+    @INDETERMINATE@ = 3cd774d6-26fe-102b-80cb-0017a47871b2
+    @PNEUMOTHORAX@ = 3ce603a2-26fe-102b-80cb-0017a47871b2
+    @SEVERE@ = 3cdefc92-26fe-102b-80cb-0017a47871b2
+    @A_LITTLE_BIT@ = 3cdf0106-26fe-102b-80cb-0017a47871b2
+    @LARGE@ = 1b8d3cfc-1a36-4a8e-8dbd-47da53a54bee
+    @SMALL@ = c01fdf9e-b32b-4f18-b1ee-97db3e7dbd78
+    @UNKNOWN@ = 3cd6fac4-26fe-102b-80cb-0017a47871b2
+    @ELECTROCARDIOGRAM_DIAGNOSIS@ = 360c055f-e3e1-4553-b9c3-e79cda1632c5
+    @INFARCTION@ = 288c1a8c-0fe5-4556-a2ef-dcf87eefe7f1
+    @ATRIAL_FIBRILLATION@ = 70879652-fb88-4cf1-b11c-f2d081a0f6d1
+    @BRADYCARDIA@ = aa92ef78-73a6-4120-898e-eaae07867266
+    @SINUS_RHYTHM@ = 0eb2f50d-d4e3-4b8c-8a5a-9f969a736475
+    @LEFT_VENTRICULAR_HYPERTROPHY@ = 7bbb82c0-43b2-447d-af30-cb2a51ee7ca0
+    @COMPLETE_HEART_BLOCK@ = ab595f6d-2127-4a4e-9608-7ae25dd088f7
+    @RIGHT_BUNDLE_BRANCH_BLOCK@ = 31d12426-ecdc-4c01-8126-61b94bc4e84a
+    @SINUS_BRADYCARDIA@ = 04c6cbfc-cabf-41f1-993f-61268f87f4e0
+    @LATERAL_MYOCARDIAL_INFARCTION@ = 6662ec82-e830-4d87-bd15-a309e89dc000
+    @SUPRAVENTRICULAR_TACHYCARDIA@ = 5d090d8c-3492-40b5-b69c-0ea288af0f32
+    @MULTIFOCAL_ATRIAL_TACHYCARDIA@ = 9b3a3718-a535-461b-ad63-30663fd6b92c
+    @ATRIAL_TACHYCARDIA@ = e148b52c-e11a-4148-93da-efa269a64f14
+    @ANTERIOR_MYOCARDIAL_INFARCTION@ = 402f690d-4972-4fe2-a676-40264a76ebac
+    @SINUS_TACHYCARDIA@ = c45216d5-7e07-4dc8-a2a5-8c469227c7ce
+    @SECOND_DEGREE_ATRIOVENTRICULAR_BLOCK@ = f6c30480-643a-4301-bad7-6dc93373cf9b
+    @LEFT_BUNDLE_BRANCH_BLOCK@ = 35d49438-a414-44e8-aeec-a03494f77e89
+    @INFERIOR_MYOCARDIAL_INFARCTION@ = 727e1653-e451-4318-b8dc-c66cac9f0456
+    @Pre_diabetes@ = 968cf3be-8254-48f1-83af-b09504449183
+    @pre_Hypertension@ = d31fcdb1-ed29-4376-9bde-af798d1c0570
+    @Renal_Failure_Stage_1@ = f59c10df-f41a-4d02-8aee-1aaf32ec2c8c
+    @Renal_Failure_Stage_2@ = b9106a4a-e259-4c45-bad1-9d27fbd01bb4
+    @Renal_Failure_Stage_4@ = ff45866d-7807-4708-88d3-6d724e76a834
+    @Renal_Failure_Stage_5@ = 0a6c6ce1-46bc-438d-94a8-9838c9d19d44
+
+    <!-- Program ID -->
+    @Chronic_respiratory_disease_program@ = 6b825913-ab44-4e49-9ea0-c9e5919f94af
+
+    <!-- form -->
+    @NCD_RBC_Asthma_medication_List@ = 6c32a9b2-0552-428f-a1e5-4211a319e2fb
+    @NCDs_Diagnosis_HMIS@ = c30d9cfc-ef2c-46f1-88c9-eabb86f9fe58
+
+
+
+  </macros>
+
+
+  <style>
+    th.tableHeader {
+    background-color: #009d8e;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: left;
+    }
+    .sectionHeader { background-color: #009d8e;
+    color: white; display: block; padding: 2px; font-weight:bold; }
+    ul {
+    list-style-type: square;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    }
+
+    tr.spaceUnder>td {
+    padding-bottom: 1em;
+    }
+
+    td {
+    font-size: 15px;
+    }
+
+    #container {
+    position: relative;
+    margin: auto;
+    width: 1400px;
+    height: auto;
+    }
+
+    @media print {
+    #container {
+    display: none;
+    }
+
+    #printArea {
+    display: block;
+    }
+
+    #userBar {
+    display: none;
+    }
+
+    #banner {
+    display: none;
+    }
+
+    #footer {
+    display: none;
+    }
+
+    #htmlFormEntryBanner {
+    display: none;
+    }
+
+    .error {
+    display: none;
+    }
+
+    .lables {
+    width: 200px;
+    }
+
+    table {
+    width: 100%;
+    }
+
+    table,td,th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+
+    th {
+    text-align: left;
+    background-color: #D9D9D9;
+    font-size: 10px;
+    }
+
+    td {
+    font-size: 10px;
+    }
+
+    .selectedCancerStagingKeys {
+    page-break-before: always;
+    border: 0px;
+    }
+
+    table.selectedCancerStagingKeys td {
+    border: 0px;
+    }
+
+    #signature {
+    border: none;
+    }
+    #signature td {
+    border: none;
+    }
+    }
+
+    @media screen {
+    table {
+    border: 1px solid #DFDFDF;
+    width: 100%;
+    border-color: #009d8e;
+    }
+
+    #container {
+    display: block;
+    }
+
+    #printArea {
+    display: none;
+    }
+    }
+  </style>
+  <script type="text/javascript">
+    $j(document).ready(function() {
+
+        var bmi;
+        getField('height.value').change(function() {
+        var height = getValue("height.value");
+        var weight = getValue("weight.value");
+        heightInM = height/100
+        if(length!="" &amp;&amp; weight!=""){
+           bmi=weight/(heightInM*heightInM);
+           setValue('bmival.value',bmi);
+           $j('#bmival').html(bmi);
+           $j('#bmival').show();
+
+        }
+        });
+        getField('weight.value').change(function() {
+        var length = getValue("height.value");
+        var weight = getValue("weight.value");
+        heightInM = height/100
+        if(length!="" &amp;&amp; weight!=""){
+           bmi=weight/(heightInM*heightInM);
+           setValue('bmival.value',bmi);
+           $j('#bmival').html(bmi);
+           $j('#bmival').show();
+
+        }
+        });
+        $j('#diabetesDrugs').hide();
+         $j('#AsthmaAndCOPDDrugs').hide();
+
+        $j( "#diabetesDiagnosis" ).click(function() {
+            if($j("#diabetesDiagnosis" ).children().prop("checked")){
+
+                $j('#diabetesDrugs').show();
+            }
+            if(!$j("#diabetesDiagnosis" ).children().prop("checked")){
+
+                $j('#diabetesDrugs').hide();
+            }
+        });
+
+        $j( "#chronicrespDiseasDiagnosis" ).click(function() {
+            if($j("#chronicrespDiseasDiagnosis" ).children().prop("checked")){
+
+                $j('#AsthmaAndCOPDDrugs').show();
+            }
+            if(!$j("#chronicrespDiseasDiagnosis" ).children().prop("checked")){
+
+                $j('#AsthmaAndCOPDDrugs').hide();
+            }
+        });
+
+
+
+    });
+  </script>
+
+  <div id="container" style="width:100%">
+    <section>
+
+      <table cellspacing="0" cellpadding="6" width="100%">
+        <tr>
+          <td><img src="/openmrs/moduleResources/mohbilling/images/rwanda-logo.jpg" align="left"
+                   height="65" ></img>
+            <b>REPUBLIC OF RWANDA
+              <br />MINISTRY OF HEALTH</b>
+          </td>
+          <td><strong>Fiche d'enregistrement du patient/</strong> ASTHMA Enrollment form <br/>
+            <b> IMB ID: <lookup class="value"
+                                expression="patientIdentifiers.get(&quot;IMB ID&quot;)" /> <lookup class="value"
+                                                                                                   expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" /></b>
+            <br/>
+            Nom / Last name: <lookup class="value" expression="patient.personName.familyName" />
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+            Prénom/ First name: <lookup class="value" expression="patient.personName.givenName" />
+          </td>
+        </tr>
+        <tr>
+          <td>Clinique / Clinic: <encounterLocation />
+          </td>
+          <td>Date: <encounterDate id="encounterDate" default="today" /> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+            Provider:<encounterProvider id="encounterProvider"
+                                        role="Provider" default="currentUser"/>
+          </td>
+        </tr>
+      </table>
+      <table>
+
+        <tr>
+          <th class="tableHeader">EMR</th>
+          <th class="tableHeader">
+            <strong> 1. DONNES DEMOGRAPHIQUES/</strong> DEMOGRAPHICS
+          </th>
+          <th class="tableHeader">
+            <strong>RESIDENCE</strong>
+          </th>
+
+        </tr>
+        <tr>
+          <td class="tableHeader"></td>
+          <td class="tableHeader">
+            <strong> Date de naissance/</strong> Date of birth: <lookup expression="patient.birthdate"/>
+            &#160; &#160;  &#160;
+            <strong> Age: </strong> <lookup expression="patient.age"/>
+            <br/>
+            <br/>
+            <strong> Sexe/</strong>Sex: <lookup expression="patient.gender"/>
+            <br/>
+            <br/>
+            <strong> Family care-giver: </strong>
+            <obs conceptId="$@Famil_Care_giver@"/>
+            <br/>
+            <strong>Tel: </strong> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+            <obs conceptId="$@Family_Care_giver_Phone_Number@"/>
+            <br/>
+            <br/>
+            <relationship type="dcdc30c6-5235-48c8-957b-445fdaf69363" whoAmI="B" changeExistingRelationship="false"/>
+            <br/>
+            <strong>Tel: &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </strong> <obs conceptId="$@Home_Base_Care_Practionner_Phone_Number@"/>
+
+          </td>
+          <td >
+            <addressHierarchyRwanda />
+
+            <strong>Telephone:</strong>  <obs conceptId="$@TELEPHONE_NUMBER@" />
+            <obs conceptId="$@Patient's_Contact_Phone_Owner@" answerConceptIds="$@Patient(generic__answer_to_aquestion)@,$@OTHER_NO_CODED@" answerLabels="patient,autre/other"
+                 style="radio"/>
+            <obsgroup groupingConceptId="$@telephone_group@">
+              <obs conceptId="$@Other@"/>
+            </obsgroup>
+          </td>
+        </tr>
+      </table>
+      <table border="1">
+        <tr>
+          <th class="tableHeader" colspan="3">
+            <strong> DIAGNOSTIC ET LISTE DES PROBLEMES/</strong> DIAGNOSIS AND PROBLEM LIST
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <strong>EMR</strong>
+          </td>
+          <td class="tableHeader">
+            <strong> Diagnostique ou Probleme/</strong> Diagnosis or Problem
+          </td>
+          <td>
+            <strong>Provider/</strong> Provider
+          </td>
+        </tr>
+        <obsgroup groupingConceptId="$@Diagnosis_or_problem_construct@">
+          <tr>
+            <td></td>
+            <td>
+              <obs conceptId="$@Diagnosis_or_problem_non-coded@" cols="100" rows="2" placeholder="Type here your Text" showDate="true"/>
+            </td>
+            <td>
+              <obs conceptId="$@NAME_OF_HEALTH_CARE_PROVIDER@"/>
+            </td>
+          </tr>
+        </obsgroup>
+        <obsgroup groupingConceptId="$@Diagnosis_or_problem_construct@">
+          <tr>
+            <td></td>
+            <td>
+              <obs conceptId="$@Diagnosis_or_problem_non-coded@" cols="100" rows="2" placeholder="Type here your Text" showDate="true"/>
+            </td>
+            <td>
+              <obs conceptId="$@NAME_OF_HEALTH_CARE_PROVIDER@"/>
+            </td>
+          </tr>
+        </obsgroup>
+        <obsgroup groupingConceptId="$@Diagnosis_or_problem_construct@">
+          <tr>
+            <td></td>
+            <td>
+              <obs conceptId="$@Diagnosis_or_problem_non-coded@" cols="100" rows="2" placeholder="Type here your Text" showDate="true"/>
+            </td>
+            <td>
+              <obs conceptId="$@NAME_OF_HEALTH_CARE_PROVIDER@"/>
+            </td>
+          </tr>
+        </obsgroup>
+        <obsgroup groupingConceptId="$@Diagnosis_or_problem_construct@">
+          <tr>
+            <td></td>
+            <td>
+              <obs conceptId="$@Diagnosis_or_problem_non-coded@" cols="100" rows="2" placeholder="Type here your Text" showDate="true"/>
+            </td>
+            <td>
+              <obs conceptId="$@NAME_OF_HEALTH_CARE_PROVIDER@"/>
+            </td>
+          </tr>
+        </obsgroup>
+      </table>
+      <table border="1">
+        <tr >
+          <th class="tableHeader">
+            <strong>EMR</strong>
+          </th>
+          <th class="tableHeader" colspan="3"><strong>HISTOIRE ACTUELLE DU PATIENT/</strong> CURRENT PATIENT HISTORY</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td><strong>
+            A. Patient référé de/:</strong><br/>
+            <span class="english">Patient referred from</span>
+          </td>
+          <td colspan="2">
+            <obs conceptId="$@TYPE_OF_REFERRING_CLINIC_OR_HOSPITAL@" answerConceptId="$@PRIMARY_CARE_CLINIC@"
+                 answerLabel="" style="checkbox" /><strong>soins  primaires/</strong>primary care
+            <obs conceptId="$@TYPE_OF_REFERRING_CLINIC_OR_HOSPITAL@" answerConceptId="$@HOSPITAL@" answerLabel=""
+                 style="checkbox" /><strong>l'hôpital/</strong>hospital
+            <obs conceptId="$@TYPE_OF_REFERRING_CLINIC_OR_HOSPITAL@" answerConceptId="$@HEALTH_CLINIC@"
+                 answerLabel="" style="checkbox" /><strong>autre clinique/</strong>other clinic
+            <obs conceptId="$@TYPE_OF_REFERRING_CLINIC_OR_HOSPITAL@" answerConceptId="$@OTHER_NON-CODED@" answerLabel=""
+                 style="checkbox" /><strong>autre / </strong>other
+            <obs conceptId="$@NAME_OF_REFERRING_SITE@" size="15" />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><strong>
+            Motif de consultation + <br/> histoire de la maladie</strong><br/>
+            <span class="english">Chief complaint and history <br/> of current illness</span>
+          </td>
+          <td>
+            <obs conceptId="$@CURRENT_COMPLAINTS_OR_SYMPTOMS@" cols="90" rows="6"/>
+          </td>
+          <td>
+            <obsgroup groupingConceptId="$@Duration_With_Units@">
+              <strong>Duration:<obs conceptId="$@Duration@"/> </strong>
+              <br/>
+              <obs conceptId="$@TIME_UNITS@" answerConceptIds="$@DAYS@,$@MONTHS@,$@YEARS@" answerLabels="jours(days),Mois(months),Annees(years)" style="radio"/>
+            </obsgroup>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><strong>
+            Autres symptômes: </strong><br/>
+            <span class="english">Associated symptoms</span>
+          </td>
+          <td>
+            <obs conceptId="$@PREVIOUS_MEDICAL_HISTORY@" cols="90" rows="6"/>
+          </td>
+          <td>
+            <obsgroup groupingConceptId="$@Duration_With_Units@">
+              <strong>Duration:<obs conceptId="$@Duration@"/> </strong>
+              <br/>
+              <obs conceptId="$@TIME_UNITS@" answerConceptIds="$@DAYS@,$@MONTHS@,$@YEARS@" answerLabels="jours(days),Mois(months),Annees(years)" style="radio"/>
+            </obsgroup>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+
+      </table>
+      <table border="1">
+        <tr >
+          <th class="tableHeader" colspan="6">
+            <strong>ANTECENDENTS/</strong> PAST HISTORY
+          </th>
+        </tr>
+        <tr>
+          <td></td>
+          <td><u><strong>
+            Patient Medical history</strong></u>
+          </td>
+          <td colspan="4">
+            <obs conceptId="$@Patient_Medical_History@" answerConceptId="$@Tonsilitis@" answerLabel="Amygdalite/Tonsilitis" style="checkbox"/>
+            <obs conceptId="$@Patient_Medical_History@" answerConceptId="$@Chronic_Disease@" answerLabel="Chronic disease" style="checkbox"/>
+            ( <small> specify </small>
+            <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@HEART_FAILURE@" answerLabel="HF" style="checkbox"/>
+            <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@HYPERTENSION@" answerLabel="HTN" style="checkbox"/>
+            <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@stroke@" answerLabel="stroke" style="checkbox"/>
+            <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@ASTHMA@" answerLabel="asthma" style="checkbox"/>
+            <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@COPD@" answerLabel="COPD" style="checkbox"/>
+            <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@DIABETES_MELLITUS@" answerLabel="DM" style="checkbox"/>                    <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@OTHER_RELATIVE@" answerLabel="Autres(specifier)" style="checkbox"/>
+            <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@chronical_kidney_disease@" answerLabel="CKD" style="checkbox"/>
+            <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@TUBERCULOSIS@" answerLabel="TB" style="checkbox"/>
+            <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@HIV@" answerLabel="HIV" style="checkbox"/>
+            <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@LIVER_FAILURE@" answerLabel="liver" style="checkbox"/>
+            <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@Cancer@" answerLabel="cancer" style="checkbox"/>
+            <obs conceptId="$@patient_chronic_disease_history@" answerConceptId="$@Dialysis@" answerLabel="dialysis" style="checkbox"/>
+
+            )<br/>
+            <obs conceptId="$@Patient_Medical_History@" answerConceptId="$@previous_hospital_admission@" answerLabel="Previous hospital admisssion" style="checkbox"/>
+            <obs conceptId="$@Patient_Medical_History@" answerConceptId="$@OTHER_RELATIVE@" answerLabel="Autres(specifier)" style="checkbox"/>
+            <obs conceptId="$@Other_disease_(text)@" />
+            <obs conceptId="$@Patient_Medical_History@" answerConceptId="$@Patient_Smokes@" answerLabel="Former / Current smoker" style="checkbox"/>
+            <obs conceptId="$@Patient_Medical_History@" answerConceptId="$@DOES_THE_PATIENT_DRINK_ALCOHOL@" answerLabel="Former / current alcohol heavy consumption" style="checkbox"/>
+            <obs conceptId="$@Patient_Medical_History@" answerConceptId="$@Under_Nutrition@" answerLabel="HX undernutrition" style="checkbox"/>
+            <obs conceptId="$@Patient_Medical_History@" answerConceptId="$@Obesity@" answerLabel="overweight" style="checkbox"/>
+
+          </td>
+
+        </tr>
+        <tr>
+          <td>&#160;&#160;&#160;&#160;&#160;&#160;</td>
+          <td><strong><u>Surgical:</u></strong> <br/> (ex: cardiac, etc) </td>
+          <td colspan="4"><obs conceptId="$@Surgical(history)@" cols="90" rows="6"/> </td>
+        </tr>
+        <tr>
+          <td> &#160;&#160;&#160;&#160;&#160;&#160;</td>
+          <td><strong><u>Obstetrical:</u></strong> <br/> (including FP) </td>
+          <td colspan="4"><obs conceptId="$@Obstestrical@" cols="90" rows="6"/> </td>
+        </tr>
+        <tr>
+          <td> &#160;&#160;&#160;&#160;&#160;&#160;</td>
+          <td><strong><u>Family history:</u></strong> <br/>
+            Ubudehe class:<obs conceptId="$@Ubudehe@"/> <br/>
+          </td>
+          <td colspan="4">
+            <obs conceptId="$@Family_member_suffered_from_Chronic_disease@" answerConceptId="$@YES@" answerLabel="any member suffered from: " style="checkbox"/>
+            <obs conceptId="$@Family_Member_Chronic_Diseases@" answerConceptId="$@HEART_FAILURE@" answerLabel="HF" style="checkbox"/>
+            <obs conceptId="$@Family_Member_Chronic_Diseases@" answerConceptId="$@HYPERTENSION@" answerLabel="HTN" style="checkbox"/>
+            <obs conceptId="$@Family_Member_Chronic_Diseases@" answerConceptId="$@stroke@" answerLabel="stroke" style="checkbox"/>
+            <obs conceptId="$@Family_Member_Chronic_Diseases@" answerConceptId="$@Obesity@" answerLabel="obesity" style="checkbox"/>
+            <obs conceptId="$@Family_Member_Chronic_Diseases@" answerConceptId="$@ASTHMA@" answerLabel="asthma" style="checkbox"/>
+            <obs conceptId="$@Family_Member_Chronic_Diseases@" answerConceptId="$@DIABETES_MELLITUS@" answerLabel="DM" style="checkbox"/>
+            <obs conceptId="$@Family_Member_Chronic_Diseases@" answerConceptId="$@chronical_kidney_disease@" answerLabel="CKD" style="checkbox"/>
+            <obs conceptId="$@Family_Member_Chronic_Diseases@" answerConceptId="$@Cancer@" answerLabel="cancer" style="checkbox"/>
+
+          </td>
+        </tr>
+        <tr>
+          <td>&#160;&#160;&#160;&#160;&#160;&#160;</td>
+          <td><strong><u>Medications:</u></strong> <br/> including traditional medications / practices</td>
+          <td colspan="4">
+            <obs conceptId="$@MEDICATION_HISTORY@" answerConceptId="$@CARDIOVASCULAR_DISEASE_TREATMENT_DRUGS@" answerLabel="CVD" style="checkbox"/>
+            <obs conceptId="$@MEDICATION_HISTORY@" answerConceptId="$@Diabetes_Medications@" answerLabel="DM"/>
+            <obs conceptId="$@MEDICATION_HISTORY@" answerConceptId="$@Asthma_medications@" answerLabel="CRD"/>
+            <obs conceptId="$@MEDICATION_HISTORY@" answerConceptId="$@TUBERCULOSIS_DRUGS@" answerLabel="TB drugs"/>
+            <obs conceptId="$@MEDICATION_HISTORY@" answerConceptId="$@HIV_Medications@" answerLabel="HIV"/>
+            <obs conceptId="$@MEDICATION_HISTORY@" answerConceptId="$@Medical_contraceptives@" answerLabel="contraceptives"/>
+            <obs conceptId="$@MEDICATION_HISTORY@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Others(specify)"/>
+            <obs conceptId="$@Other@"/>
+            <obs conceptId="$@MEDICATION_HISTORY@" answerConceptId="$@NO@" answerLabel="NO"/>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><strong>Allergy to medication: (y/n </strong><br/> if <b> yes </b> specify) </td>
+          <td colspan="4">
+            <obs conceptId="$@ALLERG_TO_DRUG@" labelText="" style="no_yes" noLabel="No"
+                 yesLabel="yes(specify)" />
+            <obs conceptId="$@ALLERGY_COMMENT@" labelText="" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="6">
+            Autre histoire utile/ Document any other relevant history:<br/>
+            <obs conceptId="$@PREVIOUS_MEDICAL_HISTORY@" rows="7" cols="90" />
+
+          </td>
+        </tr>
+      </table>
+      <table border="1">
+        <tr>
+          <th class="tableHeader" colspan="6">
+            <strong>EXAMEN PHYSIQUE/PHYSICAL EXAM</strong>
+          </th>
+        </tr>
+        <tr>
+          <td >
+            <b>
+              Signes vitaux/
+              <span class='english'>vital signs</span>
+            </b>
+          </td>
+          <td>
+
+            <obs conceptId="$@systolicBloodPressure@" labelText="TA:" />
+            /
+            <obs conceptId="$@diastolicBloodPressure@" />
+            mmHg
+            <br/>
+            Temp:<obs conceptId="$@temperature@"/> <sup>o</sup>C
+          </td>
+          <td>
+            Pouls/Pulsse
+            <obs conceptId="$@pulse@"  />
+            bpm<br/>
+            <strong>FR/</strong>RR
+            <obs conceptId="$@RespiratoryRate@" /> nmbr/min
+          </td>
+          <td>
+            <obs conceptId="$@Weight@" labelText="Poids/weight:" id="weight"/>
+            kg
+            <br/>
+            <obs conceptId="$@SaO2@" labelText="SaO2" />
+            %
+          </td>
+          <td>
+            <obs conceptId="$@Height@" labelText="Taille/height:" id="height"/>
+            cm
+          </td>
+          <td>
+            <!--
+                <strong>BMI</strong><obs conceptId="$@BMI@" id="bmi" />Kg/m<sup>2</sup>
+                -->
+            BMI:
+            <span id="bmival">
+                            </span>
+            Kg/m<sup>2</sup>
+          </td>
+        </tr>
+        <tr>
+          <th class="tableHeader" colspan="6"><strong> Evaluation dela douleur</strong> /Pain evaluation</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td >Physical</td>
+          <td colspan="2">Psychological(If applicable)</td>
+          <td colspan="2">Spiritual (If applicable)</td>
+        </tr>
+        <tr>
+          <td>Score (circle as appropriate)</td>
+          <td> <obs conceptId="$@Physical_pain_score@"/> </td>
+          <td colspan="2"> <obs conceptId="$@Psychological_pain_score@" answerConceptIds="$@YES@,$@NO@" answerLabel="Yes,No" style="radio"/>  </td>
+          <td colspan="2"> <obs conceptId="$@Spiritual_pain_score@" answerConceptIds="$@YES@,$@NO@" answerLabel="Yes,No" style="radio"/> </td>
+
+        </tr>
+        <tr>
+          <td colspan="6">
+            Comments:
+            <obs conceptId="$@Pain_score_comments@" cols="60" />
+          </td>
+        </tr>
+      </table>
+      <table border="1">
+        <tr>
+          <th class="tableHeader" colspan="3">
+            <strong> Examen physique systematique/Systematic physical examination </strong>
+          </th>
+        </tr>
+        <tr>
+          <td></td>
+          <td> <center><strong> Normaux/Normal</strong></center> </td>
+          <td> <center><strong>Anormaux/ </strong> Abnormal</center> </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>E.G/</strong> General
+          </td>
+          <td>
+            <obs conceptId="$@GENERAL_EXAM_FINDINGS@" answerConceptId="$@WELL_APPEARING@" answerLabel="" style="checkbox"/>
+            <strong>bonne apparence/</strong> well-appearing
+          </td>
+          <td>
+            <obs conceptId="$@GENERAL_EXAM_FINDINGS@" answerConceptId="$@CACHECTIC@" answerLabel="" style="checkbox"/>
+            <strong>cachectique/</strong> cachectic
+            <obs conceptId="$@GENERAL_EXAM_FINDINGS@" answerConceptId="$@ACCESSORY_MUSCLE_USE@" answerLabel="" style="checkbox"/>
+            <strong>utilisation des muscles accessoires/</strong> use of accessory muscles
+            <obs conceptId="$@GENERAL_EXAM_FINDINGS@" answerConceptId="$@Dehydration@" answerLabel="" style="checkbox"/> <strong>Dehydrate</strong>/Dehydrated
+            <obs conceptId="$@GENERAL_EXAM_FINDINGS@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="" style="checkbox"/>
+            <strong>others:specify</strong>
+            <obs conceptId="$@OTHER_GENERAL_EXAM_FINDINGS@"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Tête et cou/</strong> HEENT
+          </td>
+          <td>
+            <obs conceptId="$@HEENT_EXAM_FINDINGS@" answerConceptId="$@NORMAL@" answerLabel="" style="checkbox"/>
+            <strong>normale/</strong> normal
+          </td>
+          <td>
+            <obs conceptId="$@HEENT_EXAM_FINDINGS@" answerConceptId="$@HIGH_JUGULAR_VENOUS_PRESSURE@" answerLabel="" style="checkbox"/>
+            <strong>Tension jugulaire haut/</strong> JVP high
+            <obs conceptId="$@HEENT_EXAM_FINDINGS@" answerConceptId="$@Cervical_Mass@" answerLabel="" style="checkbox"/>
+            <strong>Masse cervicale/</strong> cervical mass
+            <obs conceptId="$@HEENT_EXAM_FINDINGS@" answerConceptId="$@PALE_CONJUNCTIVA@" answerLabel="" style="checkbox"/>
+            <strong>conjoctives pales /</strong>pallor conjunctiva
+            <br/>
+            <obs conceptId="$@HEENT_EXAM_FINDINGS@" answerConceptId="$@JAUNDICE@" answerLabel="" style="checkbox"/>
+            <strong>icterique/</strong>JAUNDICE
+            <obs conceptId="$@HEENT_EXAM_FINDINGS@" answerConceptId="$@cyanosis@" answerLabel="" style="checkbox"/>
+            <strong>Cyanose centrale/</strong>Central cyanosis (bluish tongue)
+            <obs conceptId="$@HEENT_EXAM_FINDINGS@" answerConceptId="$@LYMPHADENOPATHY@" answerLabel="" style="checkbox"/>
+            <strong>lymphadénopathies/</strong> lumphadenopathy. <strong>(si oui,lieu/</strong> if yes, location:
+            <obs conceptId="$@Location_of_lymphadenopathy@"/> )
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Thorax/</strong> chest</td>
+          <td>
+            <obs conceptId="$@Chest_Thorax_Exam_Findings@" answerConceptId="$@NORMAL@" answerLabel=""/><strong> Normale/</strong> normal
+
+          </td>
+          <td>
+            <obs conceptId="$@Chest_Thorax_Exam_Findings@" answerConceptId="$@Deformation@" answerLabel=""/><strong> Deformation</strong>
+            <obs conceptId="$@Chest_Thorax_Exam_Findings@" answerConceptId="$@SCAR@" answerLabel=""/><strong> cicatrice:Location</strong>
+            <obs conceptId="$@Scar_Location@" />
+            <obs conceptId="$@Chest_Thorax_Exam_Findings@" answerConceptId="$@Collateral_circulation@" answerLabel=""/><strong> circulation collaterale</strong>
+            <obs conceptId="$@Chest_Thorax_Exam_Findings@" answerConceptId="$@gynecomastia@" answerLabel=""/><strong> Gynecomastie</strong>
+            <obs conceptId="$@Chest_Thorax_Exam_Findings@" answerConceptId="$@kyphoscoliosis@" answerLabel=""/><strong> Cyphoscoliose</strong>
+            <obs conceptId="$@Chest_Thorax_Exam_Findings@" answerConceptId="$@Buffalo_neck@" answerLabel=""/><strong> Buffalo neck</strong>
+            <obs conceptId="$@Chest_Thorax_Exam_Findings@" answerConceptId="$@Chest_Expansion@" answerLabel=""/>
+            <strong> Ampliation thoracique/</strong> Chest expansion
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Sein/</strong> breast</td>
+          <td>
+            <obs conceptId="$@Chest_Thorax_Exam_Findings@" answerConceptId="$@NORMAL@" answerLabel=""/><strong> Normale/</strong> normal
+
+          </td>
+          <td>
+            <obs conceptId="$@Breast_Chest_Exam_Findings@" answerConceptId="$@Asymmetry@" answerLabel=""/><strong> Assymetrie</strong>
+            <obs conceptId="$@Breast_Chest_Exam_Findings@" answerConceptId="$@Discolouration@" answerLabel=""/><strong> Discoloration</strong>
+
+            <obs conceptId="$@Breast_Chest_Exam_Findings@" answerConceptId="$@Mass@" answerLabel=""/><strong> Mass</strong>
+            <obs conceptId="$@Breast_Chest_Exam_Findings@" answerConceptId="$@SkinLesion@" answerLabel=""/><strong> Lesion</strong>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Poumons/</strong> Lungs</td>
+          <td>
+            <obs conceptId="$@LUNG_EXAM_FINDINGS@" answerConceptId="$@CLEAR@" answerLabel=""/><strong> clairs/</strong> clear
+
+          </td>
+
+          <td>
+            <obs conceptId="$@LUNG_EXAM_FINDINGS@" answerConceptId="$@DULLNESS_TO_PERCUSSION@" answerLabel=""/><strong> Matité/</strong> Dullness
+            <obs conceptId="$@LUNG_EXAM_FINDINGS@" answerConceptId="$@Hyperesonance@" answerLabel=""/><strong> Tempanisme/</strong> Hyperesonance
+
+            <obs conceptId="$@LUNG_EXAM_FINDINGS@" answerConceptId="$@CRACKLES@" answerLabel=""/><strong> crépitations/</strong> crackles
+            (<strong> Si oui, lieu/ </strong> If yes, location:
+            <obs conceptId="$@LOCATION_OF_CRACKLES@" />)
+            <br/>
+            <obs conceptId="$@LUNG_EXAM_FINDINGS@" answerConceptId="$@WHEEZE@" answerLabel=""/><strong> Sibilance/</strong> wheezing
+
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Coeur/</strong> Heart</td>
+          <td>
+            <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@NORMAL@" answerLabel=""/>
+            <strong> Pointe du Coeur norrnale/</strong> normal
+            <br/>
+            <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@REGULAR_RHYTHM@" answerLabel=""/>
+            <strong> rythme régulier/</strong> regular rhytm
+            <br/>
+            <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@S1_AND_S2_NORMAL@" answerLabel=""/>
+            <strong> S1 et S2 normaux/</strong> normaux S1 and S2
+
+          </td>
+
+          <td>
+            <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@TACHYCARDIA@" answerLabel=""/>
+            <strong> tachycardie/</strong> tachycardia
+            <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@IRREGULA_RHYTHM@" answerLabel=""/>
+            <strong> rythme irrégulie/</strong> irregular rhythm
+
+            <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@PMI_DISPLACED@" answerLabel=""/>
+            <strong> PC déplacé/</strong> PMI displaced
+            <br/>
+            <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@CARDIAC_MURMUR@" answerLabel=""/>
+            <strong> souffle/</strong> murmur
+            (<strong> Localisation/ </strong> location:
+            <obs conceptId="$@LOCATION_OF_CARDIAC_MURMUR@" />)
+            <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@muffled@" answerLabel=""/>
+            <strong> Assourdie/</strong> Muffied
+            <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@Distant@" answerLabel=""/>
+            <strong> Distant/</strong> Distant
+
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Abdomen</strong></td>
+          <td>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@SOFT_ABDOMEN@" answerLabel=""/>
+            <strong> souple/</strong> soft
+            <br/>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@NO_ABDOMINAL_TENDERNESS@" answerLabel=""/>
+            <strong> pas sensible/</strong> non-tender
+            <br/>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@NO_PRESENC_OF_HEPATOMEGALY@" answerLabel=""/>
+            <strong> pas d'hepatomegalie/</strong> no hepatomegalie
+            <br/>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@NO_PRESENCE_OF_SPLENOMEGALY@" answerLabel=""/>
+            <strong> pas de splenomegalie/</strong> no splenomegalie
+            <br/>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@NO_PRESENCE_OF_ASCITES@" answerLabel=""/>
+            <strong> pas d'ascite/</strong> no ascites
+          </td>
+          <td>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@Abdominal_distention@" answerLabel=""/>
+            <strong> Distention</strong>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@SCAR@" answerLabel=""/>
+            <strong> Cicatrice chirurgicale</strong>
+
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@Collateral_circulation@" answerLabel=""/>
+            <strong> Circulation collaterale</strong>
+            <br/>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@non_distention_swelling@" answerLabel=""/>
+            <strong> Voussure/</strong> swelling
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@SPLENOMEGALY@" answerLabel=""/>
+            <strong> splénomégalie/</strong> splenomegaly
+            <obs conceptId="$@SPLENOMEGALY_in_cm@" /> <strong>cm</strong>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@HEPATOMEGALY@" answerLabel=""/>
+            <strong> hépatomégalie/</strong> hepatomegaly
+            <obs conceptId="$@HEPATOMEGALY_in_cm@" /> <strong>cm</strong><br/>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@PULSATILE@" answerLabel=""/>
+            <strong> Foie pulsatile/</strong> pulsatile liver
+            <br/>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@ASCITES@" answerLabel=""/>
+            <strong> Ascites/</strong> ascites:
+            <obs conceptId="$@ASCITES@" answerConceptId="$@MILD@" answerLabel=""/>
+            <strong> légère/</strong> mild
+            <obs conceptId="$@ASCITES@" answerConceptId="$@MODERATE@" answerLabel=""/>
+            <strong> modérée/</strong> moderate
+            <obs conceptId="$@ASCITES@" answerConceptId="$@ABUNDANT@" answerLabel=""/>
+            <strong> abondante/</strong> abundant
+            <br/>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@ABDOMINAL_TENDERNESS@" answerLabel=""/>
+            <strong> sensibilité/</strong> tenderness:
+            <obs conceptId="$@ABDOMINAL_TENDERNESS@" answerConceptId="$@RUQ@" answerLabel=""/>
+            <strong> HCD/</strong> RUQ
+            <obs conceptId="$@ABDOMINAL_TENDERNESS@" answerConceptId="$@LUQ@" answerLabel=""/>
+            <strong> HCG/</strong> LUQ
+            <obs conceptId="$@ABDOMINAL_TENDERNESS@" answerConceptId="$@RLQ@" answerLabel=""/>
+            <strong> FID/</strong> RLQ
+            <obs conceptId="$@ABDOMINAL_TENDERNESS@" answerConceptId="$@LLQ@" answerLabel=""/>
+            <strong> FIG/</strong> LLQ
+            <obs conceptId="$@ABDOMINAL_TENDERNESS@" answerConceptId="$@ABDOMINAL_GUARDING@" answerLabel=""/>
+            <strong> Defense/</strong> Guarding
+            <br/>
+            <obs conceptId="$@ABDOMINAL_EXAM_FINDINGS@" answerConceptId="$@Abnormal_Auscultation@" answerLabel=""/>
+            <strong> Abnormal auscultation[renal arterry stenosis, abdominal aortic aneurysm(AAA)]</strong>
+
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Genital/Genital</strong></td>
+          <td>
+            <obs conceptId="$@UROGENITAL_EXAM_FINDINGS@" answerConceptId="$@NORMAL@" answerLabel=""/>
+            <strong> Normal</strong>
+          </td>
+          <td>
+            <obs conceptId="$@UROGENITAL_EXAM_FINDINGS@" answerConceptId="$@Genital_Swelling@" answerLabel=""/>
+            <strong> Swelling</strong>
+            <obs conceptId="$@UROGENITAL_EXAM_FINDINGS@" answerConceptId="$@genital_mass@" answerLabel=""/>
+            <strong> Mass</strong>
+            <obs conceptId="$@UROGENITAL_EXAM_FINDINGS@" answerConceptId="$@Genital_Bleeding@" answerLabel=""/>
+            <strong> Bleeding</strong>
+            <obs conceptId="$@UROGENITAL_EXAM_FINDINGS@" answerConceptId="$@Genital_Pain@" answerLabel=""/>
+            <strong> Pain</strong>
+            <obs conceptId="$@UROGENITAL_EXAM_FINDINGS@" answerConceptId="$@Genital_Lesion@" answerLabel=""/>
+            <strong> Lesion</strong>
+            <obs conceptId="$@UROGENITAL_EXAM_FINDINGS@" answerConceptId="$@loss_of_pubic_hair@" answerLabel=""/>
+            <strong> loss of pubic hair</strong>
+            <obs conceptId="$@UROGENITAL_EXAM_FINDINGS@" answerConceptId="$@Genital_Assymetry@" answerLabel=""/>
+            <strong> assymetry</strong>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Extrémités/</strong> Extremities</td>
+          <td>
+            <obs conceptId="$@EXTREMITY_EXAM_FINDINGS@" answerConceptId="$@Normal_Without_Peripheral_Edema@" answerLabel=""/>
+            <strong> pas d'OMI/</strong> no peripheral edema
+            <br/>
+            <obs conceptId="$@EXTREMITY_EXAM_FINDINGS@" answerConceptId="$@NO_JOINT_PAIN_OR_SWELLING@" answerLabel=""/>
+            <strong> pas de douleur ou gonflement articulaire/</strong> no joint pain or swelling
+            <br/>
+            <obs conceptId="$@EXTREMITY_EXAM_FINDINGS@" answerConceptId="$@Pulse_Palpable@" answerLabel=""/>
+            <strong> Pouls palpable(radial, huméral,fémoral,poplité, Tibial,pédieux)</strong>
+          </td>
+          <td>
+            <obs conceptId="$@EXTREMITY_EXAM_FINDINGS@" answerConceptId="$@COLD@" answerLabel=""/>
+            <strong> froids/</strong> cold
+            <obs conceptId="$@EXTREMITY_EXAM_FINDINGS@" answerConceptId="$@HOT@" answerLabel=""/>
+            <strong> Chaud/</strong> hot
+            <obs conceptId="$@EXTREMITY_EXAM_FINDINGS@" answerConceptId="$@EDEMA_PERIPHERAL@" answerLabel=""/>
+            <strong> oedème des MI /</strong>/peripheral edema/swelling
+            <br/>
+            <obs conceptId="$@EXTREMITY_EXAM_FINDINGS@" answerConceptId="$@JOINT_PAIN@" answerLabel=""/>
+            <strong> Articulations douloureuses/</strong> painful joints
+            <obs conceptId="$@EXTREMITY_EXAM_FINDINGS@" answerConceptId="$@JOINT_SWELLING@" answerLabel=""/>
+            <strong> articulations gonflèes/</strong> swollen joints
+            <br/>
+            <obs conceptId="$@EXTREMITY_EXAM_FINDINGS@" answerConceptId="$@Radiofemoral_Pulse_Delay@" answerLabel=""/>
+            <strong> Radiofemoral pulse delay</strong>
+            <obs conceptId="$@EXTREMITY_EXAM_FINDINGS@" answerConceptId="$@Foot_sores@" answerLabel=""/>
+            <strong> lésions/plaies des pieds/</strong> foot sores or wounds
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Neuro/</strong></td>
+          <td>
+            <obs conceptId="$@NEUROLOGICAL_EXAM_FINDINGS@" answerConceptId="$@No_Neuro_abnormalities@" answerLabel=""/>
+            <strong> pas d'abnormalitiés/</strong> no abnormalities
+          </td>
+          <td>
+            <obs conceptId="$@NEUROLOGICAL_EXAM_FINDINGS@" answerConceptId="$@FOCAL_NEUROLOGICAL_DEFICIT@" answerLabel=""/>
+            <strong> faiblesse focalisée/</strong> focal motor deficit
+            <br/>
+            <strong>Sensibilité: </strong>
+            <obs conceptId="$@NEUROLOGICAL_EXAM_FINDINGS@" answerConceptId="$@exaggerated@" answerLabel=""/>
+            <strong> Exageree</strong>
+            <obs conceptId="$@NEUROLOGICAL_EXAM_FINDINGS@" answerConceptId="$@Diminished@" answerLabel=""/>
+            <strong> Diminuee</strong>
+            <obs conceptId="$@NEUROLOGICAL_EXAM_FINDINGS@" answerConceptId="$@Absent@" answerLabel=""/>
+            <strong> Absente</strong>
+            <br/>
+            <obs conceptId="$@NEUROLOGICAL_EXAM_FINDINGS@" answerConceptId="$@Sensation_in_the_Feet@" answerLabel=""/>
+            <strong> Sensation de pieds/</strong>sensation in feet:<strong>D/</strong>R:
+            <obs conceptId="$@Sensation_in_right_foot@"/>
+            <strong>/6 G/</strong> L:
+            <obs conceptId="$@Sensation_in_left_foot@" />
+            <strong> 6/</strong>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Hémodynamie</strong>Fluid status</td>
+          <td>
+            <obs conceptId="$@PATIENTS_FLUID_MANAGEMENT@" answerConceptId="$@EUVOLEMIC@" answerLabel=""/>
+            <strong> Euvolemie</strong>
+          </td>
+          <td>
+            <obs conceptId="$@PATIENTS_FLUID_MANAGEMENT@" answerConceptId="$@HYPERVOLEMIC@" answerLabel=""/>
+            <strong> Hypervolémique/</strong> hypervolemic
+            <br/>
+            <obs conceptId="$@PATIENTS_FLUID_MANAGEMENT@" answerConceptId="$@HYPOVOLEMIC@" answerLabel=""/>
+            <strong> Hypovolemique/</strong> Hypovolemic
+
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Autre/</strong>Other</td>
+          <td>
+            <obs conceptId="$@other_medical_findings@" />
+
+          </td>
+          <td>
+            <strong> Décrire la voussure :</strong>
+            <obs conceptId="$@result_to_other_medical_findings@" />
+          </td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th class="tableHeader" colspan="2">
+            Chronic respiratory disease (Asthma and COPD) &#160;&#160;&#160;&#160;&#160;&#160;
+            <obs conceptId="$@Chronic_Respiratory_diseases@" answerConceptId="$@NOT_APPLICABLE@" answerLabel="Not Applicable" style="checkbox"/>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <strong> Débit de pointe (DDP) </strong>
+            <br/>
+            Peak flow (PEF):
+          </td>
+          <td>
+            <strong> 1) DDP prédit (voir tableau)/</strong>PEF predicted (see table):
+            <obs conceptId="$@Predicted_PEF@" />
+            <strong> L/min </strong>
+            <br/>
+            <strong>2) DDP avant salbutamol/</strong>PEF before salbutamol
+            <obs conceptId="$@PEF_before_salbutamol@" />
+            <strong>L/min</strong>
+
+            <br/>
+            <strong>3) DDP après salbutamol/</strong>PEF after salbutamol
+            <obs conceptId="$@PEF_after_salbutamol@"  />
+            <strong> L/min </strong>
+            <br/>
+            <strong>4) DDP % changement après salbutamol/</strong>PEF % change after salbutamol
+            <obs conceptId="$@Percen_PEF_change_post_salbutamol@" />
+            <strong> %</strong>
+            <br/>
+            <strong>
+              5) DDP % meillure effort vs DDP prédit/</strong>span>PEF % best effort vs PEF predicted
+            <obs conceptId="$@PEF_percent_best_effort_vs_PEF_predicted@" />
+
+            <strong> % </strong>
+          </td>
+        </tr>
+      </table>
+      <table border="1">
+        <tr>
+          <th class="tableHeader" colspan="5">
+            <center>
+              <strong> EXAMENS COMPLEMENTAIRES/</strong> PARACLINICAL INVESTIGATIONS
+            </center>
+          </th>
+        </tr>
+        <tr>
+          <td><strong> Test &#38; Results </strong></td>
+          <td><strong> Test &#38; Results</strong></td>
+          <td><strong> Test &#38; Results </strong></td>
+          <td><strong> Test &#38; Results </strong></td>
+          <td><strong> Test &#38; Results </strong> </td>
+        </tr>
+        <tr>
+          <td>2.Glycemie: <obs conceptId="$@GLYCEMIA@" col="100%"/> mg/dl</td>
+          <td>Triglycerides: <obs conceptId="$@TRIGLYCERIDES@"/></td>
+          <td><strong> Bandelette urinaire </strong></td>
+          <td><strong>FBC:Red Blood cells</strong> </td>
+          <td>Lymphocytes: <obs conceptId="$@LYMPHOCYTES@"/></td>
+        </tr>
+        <tr>
+          <td>HbA1C: <obs conceptId="$@HbA1c@"/> % </td>
+          <td>ASAT: <obs conceptId="$@ASAT_RESULT@"/></td>
+          <td>protein: <obs conceptId="$@TOTAL_PROTEIN@"/></td>
+          <td>Hemoglobin: <obs conceptId="$@HEMOGLOBIN@"/></td>
+          <td>Monocytes: <obs conceptId="$@MONOCYTES@"/></td>
+        </tr>
+        <tr>
+          <td>uree: <obs conceptId="$@UREA@"/></td>
+          <td>ALAT: <obs conceptId="$@ALAT_RESULT@"/></td>
+          <td>glucose: <obs conceptId="$@GLUCOSE@"/></td>
+          <td>Hematocrit: <obs conceptId="$@HEMATOCRIT@"/></td>
+          <td>Platelets: <obs conceptId="$@PLATELETS@"/></td>
+        </tr>
+        <tr>
+          <td>creatinine: <obs conceptId="$@CREATININE@"/> umol/l</td>
+          <td>GamaGT: <obs conceptId="$@Gamma_GT@"/></td>
+          <td>cetone: <obs conceptId="$@cetone@"/></td>
+          <td><strong>FBC: White Blood cells</strong> </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Total cholesterol: <obs conceptId="$@TOTAL_CHOLESTEROL@"/></td>
+          <td>Na<sup>+</sup>: <obs conceptId="$@NA@"/></td>
+          <td></td>
+          <td>Neutrophils: <obs conceptId="$@NEUTROPHILS@"/></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>LDL: <obs conceptId="$@LDL@"/></td>
+          <td>K<sup>+</sup>: <obs conceptId="$@K@"/></td>
+          <td></td>
+          <td>Eosinophil: <obs conceptId="$@EOSINOPHILS@"/></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>HDL: <obs conceptId="$@HDL@"/></td>
+          <td> HIV:
+            <obs conceptId="$@RESULT_OF_HIV_TEST@" answerConceptIds="$@NEGATIVE@,$@POSITIVE@" answerLabels="-ve,+ve" style="radio"/>
+          </td>
+          <td></td>
+          <td> Basophils: <obs conceptId="$@BASOPHILS@"/></td>
+        </tr>
+
+      </table>
+      <table border="1">
+        <tr>
+          <th class="tableHeader" colspan="4">
+            <center>
+              <strong> Other Investigations (xray,etc</strong>
+            </center>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            Xrays
+          </td>
+          <td>
+            <table border="1">
+              <tr>
+                <td>
+                  <obs conceptId="$@CHEST_XRAY@" answerConceptId="$@NORMAL@" answerLabel="NORMAL" style="radio"/>
+                </td>
+                <td>
+                  <obs conceptId="$@CHEST_XRAY@" answerConceptIds="$@PULMONARY_EFFUSION@,$@MILIARY_CHANGES@,
+                                            $@EVIDENCE_OF_CARDIAC_ENLARGEMENT@,$@INFILTRATE@,$@DIFFUSE_NON-MILIARY_CHANGES@,$@CAVITARY_LESION@,
+                                            $@FIBROSIS@,$@LYMPHADENOPATHY@,$@CAVITY@,$@PNEUMONOTHORAX@,$@INDETERMINATE@,$@PNEUMOTHORAX@,$@SEVERE@,
+                                            $@MODERATE@,$@A_LITTLE_BIT@,$@LARGE@,$@SMALL@,$@UNKNOWN@,$@OTHER_NON-CODED@" style="radio"/>
+                  <obs conceptId="$@Xrays@"/>
+                </td>
+
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Fundoscopy
+          </td>
+          <td>
+            <table border="1">
+              <tr>
+                <td>
+                  <obs conceptId="$@ELECTROCARDIOGRAM_DIAGNOSIS@" answerConceptId="$@NORMAL@" answerLabel="NORMAL" style="radio"/>
+                </td>
+                <td>
+                  <obs conceptId="$@ELECTROCARDIOGRAM_DIAGNOSIS@" answerConceptIds="$@INFARCTION@,$@ATRIAL_FIBRILLATION@,
+                                            $@BRADYCARDIA@,$@SINUS_RHYTHM@,$@LEFT_VENTRICULAR_HYPERTROPHY@,$@COMPLETE_HEART_BLOCK@,
+                                            $@RIGHT_BUNDLE_BRANCH_BLOCK@,$@SINUS_BRADYCARDIA@,$@LATERAL_MYOCARDIAL_INFARCTION@,$@SUPRAVENTRICULAR_TACHYCARDIA@,
+                                            $@MULTIFOCAL_ATRIAL_TACHYCARDIA@,$@ATRIAL_TACHYCARDIA@,$@ANTERIOR_MYOCARDIAL_INFARCTION@,
+                                            $@SINUS_TACHYCARDIA@,$@SECOND_DEGREE_ATRIOVENTRICULAR_BLOCK@,$@LEFT_BUNDLE_BRANCH_BLOCK@,$@INFERIOR_MYOCARDIAL_INFARCTION@,
+                                            $@OTHER_NON-CODED@" style="radio"/>
+                  <obs conceptId="$@ECG_DIAGNOSIS_(text)@" />
+                </td>
+
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ECG
+          </td>
+          <td>
+            <obs conceptId="$@ECG_DIAGNOSIS_(text)@" cols="80"/>
+          </td>
+        </tr>
+
+        <obsgroup groupingConceptId="$@OTHER_LAB_TEST_CONSTRUCT@">
+          <tr>
+            <td><obs conceptId="$@OTHER_LAB_TEST_NAME@"/></td>
+            <td><obs conceptId="$@OTHER_LAB_TEST_RESULT@"/></td>
+          </tr>
+        </obsgroup>
+        <obsgroup groupingConceptId="$@OTHER_LAB_TEST_CONSTRUCT@">
+          <tr>
+            <td><obs conceptId="$@OTHER_LAB_TEST_NAME@"/></td>
+            <td><obs conceptId="$@OTHER_LAB_TEST_RESULT@"/></td>
+          </tr>
+        </obsgroup>
+
+      </table>
+      <table border="1">
+        <tr>
+          <th class="tableHeader">
+            <strong>Résultat échocardiographique préliminaire/</strong>Preliminary echocardiographic result
+            <obs conceptId="$@DDB_ECHOCARDIOGRAPH_RESULT@" answerConceptId="$@NO_DONE@" answerLabel=""
+                 style="checkbox" /><strong>pas fait/</strong>Not done
+            <obs conceptId="$@DDB_ECHOCARDIOGRAPH_RESULT@" answerConceptId="$@NOT_APPLICABLE@" answerLabel="Not applcable"
+                 style="checkbox" />
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <obs conceptId="$@DDB_ECHOCARDIOGRAPH_RESULT@" answerConceptId="$@NORMAL_EJECTION_FRACTION@"
+                 answerLabel="" style="checkbox" /><strong>Fonction du ventricule gauche normale/</strong> Normal left ventricular function
+            <obs conceptId="$@DDB_ECHOCARDIOGRAPH_RESULT@" answerConceptId="$@MILDLY_DEPRESSED_EJECTION_FRACTION@" answerLabel="" style="checkbox" />
+            <strong>Fonction du ventricule gauche un peu faible/</strong> Left ventricular function mildly depressed
+            <br/>
+            <obs conceptId="$@DDB_ECHOCARDIOGRAPH_RESULT@" answerConceptId="$@VERY_LOW_EJECTION_FRACTION@" answerLabel="" style="checkbox" />
+            <strong>Fonction du ventricule gauche très faible/</strong> Left ventricular markedly depressed
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Estimation d'ejection fraction/</strong> Ejection franction estimate
+            <obs conceptId="3946" />
+            %
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <obs conceptId="$@DDB_ECHOCARDIOGRAPH_RESULT@" answerConceptId="$@NO_MITRAL_STENOSIS@" answerLabel="" style="checkbox" />
+            <strong>Pas de sténose mitrale/</strong> No miitral stenosis
+            <obs conceptId="$@DDB_ECHOCARDIOGRAPH_RESULT@" answerConceptId="$@MITRAL_STENOSIS@" answerLabel="" style="checkbox" />
+            <strong>Sténose mitrale/</strong> Mitral stenosis
+            <obs conceptId="$@DDB_ECHOCARDIOGRAPH_RESULT@" answerConceptId="$@PERICARDIAL_EFFUSION@" answerLabel="" style="checkbox" />
+            <strong>Epanchement pericardique/</strong> pericardial effusion
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <obs conceptId="$@DDB_ECHOCARDIOGRAPH_RESULT@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="" style="checkbox" />
+            <strong>Autres anormalies/</strong> Other abnormalities
+            <obs conceptId="$@ECHOCARDIOGRAM_COMMENT@" cols="60"/>
+          </td>
+        </tr>
+      </table>
+      <table border="1">
+        <tr>
+          <td><strong>RESUME/</strong> <br/> SUMMARY</td>
+          <td><obs conceptId="$@Summary@" cols="130"/></td>
+        </tr>
+      </table>
+      <table border="1">
+        <tr>
+          <th class="tableHeader" colspan="2">
+            DIAGNOSTIQUE/DIAGNOSIS
+          </th>
+        </tr>
+        <tr>
+          <td>EMR</td>
+          <td>
+            <ul>
+              <obs conceptId="$@CHRONIC_CARE_DIAGNOSIS@" answerConceptId="$@HEART_FAILURE@"
+                   answerLabel="" style="checkbox" /> <u> <strong>L'Insuffience Cardiaque/</strong> Heart Failure</u>
+              <br />
+
+              <ul>
+                <b>Type de l'insuffience cardiaque:</b>
+                <br/>
+                <obs conceptId="$@HEART_FAILURE_DIAGNOSIS@" answerConceptId="$@CARDIOMYOPATHY@" answerLabel=""
+                     style="checkbox" /> <strong>Cardiomyopathie/</strong> Cardiomyopathy
+                <br />
+                <obs conceptId="$@HEART_FAILURE_DIAGNOSIS@" answerConceptId="$@RHEUMATIC_HEART_DISEASE@"
+                     answerLabel="" style="checkbox" />
+                <strong>Maladie rheumatismale des valves/</strong> Rheumatic heart disease
+                <obs conceptId="$@HEART_FAILURE_DIAGNOSIS@" answerConceptId="$@MITRAL_STENOSIS@" answerLabel=""
+                     style="checkbox" /> <strong>Sténose mitrale/</strong> Mitral stenosis
+                <obs conceptId="$@HEART_FAILURE_DIAGNOSIS@" answerConceptId="$@Other_Rheumatic_heart_disease_diagnosis@" answerLabel=""
+                     style="checkbox" /> <strong>Autre/</strong> Other
+                <br />
+                <obs conceptId="$@HEART_FAILURE_DIAGNOSIS@" answerConceptId="$@HYPERTENSIVE_HEART_DISEASE@"
+                     answerLabel="" style="checkbox" /><strong>Maladie hypertensive du coeur/</strong> Hypertensive heart disease
+                <br />
+                <obs conceptId="$@HEART_FAILURE_DIAGNOSIS@" answerConceptId="$@OTHER_NON-CODED@"
+                     answerLabel="" style="checkbox" /> <strong>Autre type de l'insufficence cardiaque/</strong> Other type of Heart Failure:
+              </ul>
+              <b>Sévérité des symptômes/</b>
+              Severity of symptoms
+              <ul>
+                <obs conceptId="$@NYHA_CLASS@" answerConceptId="$@NYHA_CLASS_I@" answerLabel="" style="checkbox" />
+                <strong>NYHA classe I: (Asymptomatique) Pas de limitations d'activités/</strong> (Asymptomatic) No limitation on activity
+                <br />
+                <obs conceptId="$@NYHA_CLASS@" answerConceptId="$@NYHA_CLASS_II@"
+                     answerLabel=""
+                     style="checkbox" />
+                <strong>NYHA classe II: (Moins symptomatique) Limitation légère d'activités.  Symptômes seulement avec effort moderé comme en montant les collines/</strong>
+                (Mildly symptomatic) Symptoms only with moderate exertion. such as climbing a hill
+                <br />
+                <obs conceptId="$@NYHA_CLASS@" answerConceptId="$@NYHA_CLASS_III@"
+                     answerLabel=""
+                     style="checkbox" />
+                <strong>NYHA classe III: (Moderement symptomatique) Limitation marquée d'activités.  Symptômes avec effort légère mais confortable au repos/</strong>
+                (Moderately symptomatic) Symptoms with even light activity but comfortable at rest
+                <br />
+                <obs conceptId="$@NYHA_CLASS@" answerConceptId="$@NYHA_CLASS_IV@"
+                     answerLabel=""
+                     style="checkbox" />
+                <strong>NYHA classe IV: (Severement symptomatique) Symptômes avec toute activité, peut être symptomatique au repos/</strong>
+                (Severely symptomatic) symptoms with all activities. may be symptomatic at rest
+              </ul>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+
+            <b>  <obs id="diabetesDiagnosis" conceptId="$@CHRONIC_CARE_DIAGNOSIS@" answerConceptId="$@DIABETES@" answerLabel="" style="checkbox" /> <u>Diabetes</u> </b>
+            <obs conceptId="$@Type_of_diabetes_diagnosis@" answerConceptIds="$@Type_1_diabetes@,$@Type_2_diabetes@,$@Gestational_diabetes@,$@Pre_diabetes@"
+                 answerLabels="Type 1,Type 2,Diabète gestationnel/Gestational diabetes,Pre diabetes" style="radio" />
+
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <obs conceptId="$@CHRONIC_CARE_DIAGNOSIS@" answerConceptId="$@HYPERTENSION@" answerLabel="" style="checkbox"/>
+            <u><strong>Arterial Hypertension</strong></u>
+            <obs conceptId="$@Hypertension_Stages@"
+                 answerConceptIds="$@Stage_1_Hypertension@,$@Stage_2_Hypertension@,$@stage_3_hypertension@,$@Emergency_HTN@,$@pre_Hypertension@"
+                 answerLabels="stage 1,stage 2,stage 3,Emergency HTN,pre HTN" style="radio"/>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <th class="tableHeader">
+            <obs id = "chronicrespDiseasDiagnosis" conceptId="$@CHRONIC_CARE_DIAGNOSIS@" answerConceptId="$@Chronic_Respiratory_diseases@" answerLabel="" style="checkbox"/>
+            <u><strong>Chronic Respiratory Diseases</strong></u>
+          </th>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <obs conceptId="$@Clinical_diagnosis_for_asthma@" answerConceptIds="$@CONFIRMED_DIAGNOSIS@,$@Probable_diagnosis@"
+                 answerLabels="Asthme avéré/Confirmed Asthma,Asthme probable/Probable Asthma" style="radio" />
+
+            <br/>
+            <obs conceptId="$@Clinical_diagnosis_for_asthma@" answerConceptId="$@COPD@" answerLabel="" style="checkbox" />
+            <strong>BPCO/</strong> COPD
+            <br/>
+            <obs conceptId="$@Clinical_diagnosis_for_asthma@" answerConceptId="$@Other_non-coded_pulmonary_disease@" answerLabel="" style="checkbox" />
+            <strong>Autre maladie pulmonaire: </strong>
+
+            <obs conceptId="$@OI_OR_COMORBIDITY@" answerConceptIds="$@GASTROESOPHAGEAL_REFLUX@,$@RHINITIS@"
+                 answerLabels="Maladie reflux gastroesophageal (MRGO)/Gastroesophageal reflux disease (GERD),Rhinite allergique/Allergic rhinitis"
+                 style="radio" />
+            <br />
+
+            <!--
+            <obs conceptId="$@Other_pulmonar_disease_non-coded@"/>
+            -->
+          </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>
+
+            <obs conceptId="$@CHRONIC_CARE_DIAGNOSIS@" answerConceptId="$@RENAL_FAILURE@" answerLabel="" style="checkbox" />
+            <u><strong>L'Insufficence Rénale/</strong> Renal Failure</u>
+            <obs conceptId="$@Renal_Failure_Stages@"
+                 answerConceptIds="$@Renal_Failure_Stage_1@,$@Renal_Failure_Stage_2@,$@Renal_Failure_Stage_3@,$@Renal_Failure_Stage_4@,$@Renal_Failure_Stage_5@"
+                 answerLabels="Stage 1,Stage 2,Stage 3,Stage 4,Stage 5" style="radio" />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <obs conceptId="$@CHRONIC_CARE_DIAGNOSIS@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="" style=""/>
+            <strong>Autre/</strong> Other
+            <obs conceptId="$@Other_clinical_diagnosis_non-coded@"/>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            Diagnostique ou Probleme/ Diagnosis or Problem <strong>(HMIS)</strong> : <obs conceptId="$@NCDs_Diagnosis_HMIS@"/>
+          </td>
+        </tr>
+      </table>
+    </section>
+    <section >
+      <table border="1">
+        <tr>
+          <th class="tableHeader" colspan="4">
+            <strong>Plan final /</strong> Final plan
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <obs conceptId="$@treatment_appoach@" answerConceptId="$@No_Medication@" answerLabel=""/>
+            <strong>Pas de médicaments/</strong> No medications
+          </td>
+          <td><obs conceptId="$@treatment_appoach@" answerConceptId="$@Lifestyle_intervention_only@" answerLabel=""/>
+            <strong>Only lifestyle modification</strong>
+          </td>
+          <td colspan="2"><obs conceptId="$@treatment_appoach@" answerConceptId="$@Medication@" answerLabel=""/>
+            <strong>Medicaments</strong>
+          </td>
+        </tr>
+        <tr>
+          <th class="tableHeader" colspan="4">
+            <center><strong> Cardiovascular and chronic kidney drugs </strong></center>
+          </th>
+        </tr>
+        <tr>
+          <td><strong> MÉDICAMENTS/</strong> MEDICATIONS</td>
+          <td><strong> MATIN/</strong> MORNING</td>
+          <td><strong> MIDI/</strong> NOON</td>
+          <td><strong> SOIR/</strong> EVENING</td>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@CARDIAC_MEDICATION_CONSTRUCT@">
+            <td>
+              <obs conceptId="$@CARDIOVASCULAR_AND_CHONIC_KIDNEY_MEDICATION@" answerConceptIds="$@FUROSEMIDE@,$@CAPTOPRIL@,$@LISINOPRIL@,$@ALDACTONE@,$@CARVEDILOL@,$@ATENOLOL@,$@AMLODIPINE@,$@NIFEDIPINE@,
+                             $@ISOSORBIDE_DINITRATE@,$@HYDRALAZINE@,$@HYDROCHLOROTHIAZIDE@,$@POTASSIUM@,
+                             $@PREDNISOLONE@,$@AAS@,$@WARFARIN@,$@PENICILLIN@" />
+            </td>
+            <td>
+              <obs conceptId="$@MORNING_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+            <td>
+              <obs conceptId="$@NOON_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+            <td>
+              <obs conceptId="$@NIGHT_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@CARDIAC_MEDICATION_CONSTRUCT@">
+            <td>
+              <obs conceptId="$@CARDIOVASCULAR_AND_CHONIC_KIDNEY_MEDICATION@" answerConceptIds="$@FUROSEMIDE@,$@CAPTOPRIL@,$@LISINOPRIL@,$@ALDACTONE@,$@CARVEDILOL@,$@ATENOLOL@,$@AMLODIPINE@,$@NIFEDIPINE@,
+                             $@ISOSORBIDE_DINITRATE@,$@HYDRALAZINE@,$@HYDROCHLOROTHIAZIDE@,$@POTASSIUM@,
+                             $@PREDNISOLONE@,$@AAS@,$@WARFARIN@,$@PENICILLIN@" />
+
+            </td>
+            <td>
+              <obs conceptId="$@MORNING_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+            <td>
+              <obs conceptId="$@NOON_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+            <td>
+              <obs conceptId="$@NIGHT_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@CARDIAC_MEDICATION_CONSTRUCT@">
+            <td>
+              <obs conceptId="$@CARDIOVASCULAR_AND_CHONIC_KIDNEY_MEDICATION@" answerConceptIds="$@FUROSEMIDE@,$@CAPTOPRIL@,$@LISINOPRIL@,$@ALDACTONE@,$@CARVEDILOL@,$@ATENOLOL@,$@AMLODIPINE@,$@NIFEDIPINE@,
+                             $@ISOSORBIDE_DINITRATE@,$@HYDRALAZINE@,$@HYDROCHLOROTHIAZIDE@,$@POTASSIUM@,
+                             $@PREDNISOLONE@,$@AAS@,$@WARFARIN@,$@PENICILLIN@" />
+
+            </td>
+            <td>
+              <obs conceptId="$@MORNING_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+            <td>
+              <obs conceptId="$@NOON_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+            <td>
+              <obs conceptId="$@NIGHT_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@CARDIAC_MEDICATION_CONSTRUCT@">
+            <td>
+              <obs conceptId="$@CARDIOVASCULAR_AND_CHONIC_KIDNEY_MEDICATION@" answerConceptIds="$@FUROSEMIDE@,$@CAPTOPRIL@,$@LISINOPRIL@,$@ALDACTONE@,$@CARVEDILOL@,$@ATENOLOL@,$@AMLODIPINE@,$@NIFEDIPINE@,
+                             $@ISOSORBIDE_DINITRATE@,$@HYDRALAZINE@,$@HYDROCHLOROTHIAZIDE@,$@POTASSIUM@,
+                             $@PREDNISOLONE@,$@AAS@,$@WARFARIN@,$@PENICILLIN@" />
+
+            </td>
+            <td>
+              <obs conceptId="$@MORNING_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+            <td>
+              <obs conceptId="$@NOON_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+            <td>
+              <obs conceptId="$@NIGHT_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@CARDIAC_MEDICATION_CONSTRUCT@">
+            <td>
+              <obs conceptId="$@CARDIOVASCULAR_AND_CHONIC_KIDNEY_MEDICATION@" answerConceptIds="$@FUROSEMIDE@,$@CAPTOPRIL@,$@LISINOPRIL@,$@ALDACTONE@,$@CARVEDILOL@,$@ATENOLOL@,$@AMLODIPINE@,$@NIFEDIPINE@,
+                             $@ISOSORBIDE_DINITRATE@,$@HYDRALAZINE@,$@HYDROCHLOROTHIAZIDE@,$@POTASSIUM@,
+                             $@PREDNISOLONE@,$@AAS@,$@WARFARIN@,$@PENICILLIN@" />
+
+            </td>
+            <td>
+              <obs conceptId="$@MORNING_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+            <td>
+              <obs conceptId="$@NOON_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+            <td>
+              <obs conceptId="$@NIGHT_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@CARDIAC_MEDICATION_CONSTRUCT@">
+            <td>
+              <obs conceptId="$@CARDIOVASCULAR_AND_CHONIC_KIDNEY_MEDICATION@" answerConceptIds="$@FUROSEMIDE@,$@CAPTOPRIL@,$@LISINOPRIL@,$@ALDACTONE@,$@CARVEDILOL@,$@ATENOLOL@,$@AMLODIPINE@,$@NIFEDIPINE@,
+                             $@ISOSORBIDE_DINITRATE@,$@HYDRALAZINE@,$@HYDROCHLOROTHIAZIDE@,$@POTASSIUM@,
+                             $@PREDNISOLONE@,$@AAS@,$@WARFARIN@,$@PENICILLIN@" />
+
+            </td>
+            <td>
+              <obs conceptId="$@MORNING_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+            <td>
+              <obs conceptId="$@NOON_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+            <td>
+              <obs conceptId="$@NIGHT_DOSE_IN_MILLIGRAMS@"/> mg
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@CARDIAC_MEDICATION_CONSTRUCT@">
+            <td>
+              <obs conceptId="$@CARDIOVASCULAR_AND_CHONIC_KIDNEY_MEDICATION@" answerConceptId="$@BENZATHINE_PENICILLIN_600,000_IU_IM@" answerLabel="" style="checkbox"/>
+              Benzathine Pénicilline 600,000 UI IM
+            </td>
+            <td colspan="3">
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@ONCE_A_MONTH@" answerLabel=""/> <strong>1x/mois</strong> (month)
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@TWICE_A_MONTH@" answerLabel=""/> <strong>2x/mois</strong> (month)
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@CARDIAC_MEDICATION_CONSTRUCT@">
+            <td>
+              <obs conceptId="$@CARDIOVASCULAR_AND_CHONIC_KIDNEY_MEDICATION@" answerConceptId="$@BENZATHINE_PENICILLI_POINT_2_M_IU_IM@" answerLabel="" style="checkbox"/>
+              Benzthine Pénicilline 1.2 M UI IM
+            </td>
+            <td colspan="3">
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@ONCE_A_MONTH@" answerLabel=""/> <strong>1x/mois</strong> (month)
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@TWICE_A_MONTH@" answerLabel=""/> <strong>2x/mois</strong> (month)
+            </td>
+          </obsgroup>
+
+        </tr>
+        <tr>
+          <td colspan="4"> <strong>Autres/</strong> Other: <obs conceptId="$@Other_Cardiovascular_and_chronic_kidney_medication@" cols="70"/> </td>
+        </tr>
+      </table>
+      <table border="1" id="diabetesDrugs">
+        <tr>
+          <th class="tableHeader" colspan="5">
+            <center> <strong> Diabetes drugs</strong></center>
+          </th>
+        </tr>
+        <tr>
+          <th> <strong>Traitement/</strong> Treatment</th>
+          <th>
+            <strong>Matin/</strong> Morning
+            <br/>
+            <strong>avant le petit dejeuner/</strong>
+            <br/>
+            before breakfast
+          </th>
+          <th>
+            <strong>Midi/</strong> Noon
+            <br/>
+            <strong>avant le petit dejeuner/</strong>
+            <br/>
+            before lunch
+          </th>
+          <th>
+            <strong>Soir/</strong> Evening
+            <br/>
+            <strong>avant le dinner/</strong>
+            <br/>
+            before dinner
+          </th>
+          <th> <strong>Avant de coucher/</strong> Bedtime</th>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@Diabetes_treatment_construct@">
+            <td>
+              <obs conceptId="$@Diabetes_Medications@" answerConceptId="$@INSULIN_Regular@" answerLabel="" style="checkbox"/>
+              <strong>Insuline rapide/</strong> Regular insulin
+            </td>
+            <td>
+              <obs conceptId="$@Morning_Dose_in_Units@"/> <strong>units</strong>
+            </td>
+            <td>
+              <obs conceptId="$@Noon_Dose_in_Units@"/> <strong>units</strong>
+            </td>
+            <td>
+              <obs conceptId="$@Evening_Dose_in_Units@"/> <strong>units</strong>
+            </td>
+            <td>
+
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@Diabetes_treatment_construct@">
+            <td>
+              <obs conceptId="$@Diabetes_Medications@" answerConceptId="$@INSULIN_LENTE@" answerLabel="" style="checkbox"/>
+              <strong>Insuline lente/</strong> NPH
+            </td>
+            <td>
+              <obs conceptId="$@Morning_Dose_in_Units@"/> <strong>units</strong>
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+              <obs conceptId="$@Bedtime_Dose_in_Units@"/> <strong>units</strong>
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@Diabetes_treatment_construct@">
+            <td>
+              <obs conceptId="$@Diabetes_Medications@" answerConceptId="$@Insulin_70_30@" answerLabel="" style="checkbox"/>
+              <strong>Insulin 70/30 mixte</strong>
+            </td>
+            <td>
+              <obs conceptId="$@Morning_Dose_in_Units@"/> <strong>units</strong>
+            </td>
+            <td>
+
+            </td>
+            <td>
+              <obs conceptId="$@Evening_Dose_in_Units@"/> <strong>units</strong>
+            </td>
+            <td>
+
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@Diabetes_treatment_construct@">
+            <td>
+              <obs conceptId="$@Diabetes_Medications@" answerConceptId="$@METFORMIN@" answerLabel="" style="checkbox"/>
+              <strong>Metformin (500 mg) </strong>
+            </td>
+            <td>
+              <obs conceptId="$@MORNING_DOSE_IN_MILLIGRAMS@"/> <strong>mg</strong>
+            </td>
+            <td>
+              <obs conceptId="$@NOON_DOSE_IN_MILLIGRAMS@"/> <strong>mg</strong>
+            </td>
+            <td>
+              <obs conceptId="$@NIGHT_DOSE_IN_MILLIGRAMS@"/> <strong>mg</strong>
+            </td>
+            <td>
+
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@Diabetes_treatment_construct@">
+            <td>
+              <obs conceptId="$@Diabetes_Medications@" answerConceptId="$@GLIBENCLAMIDE@" answerLabel="" style="checkbox"/>
+              <strong>Glibenclamide (5 mg) </strong>
+            </td>
+            <td>
+              <obs conceptId="$@MORNING_DOSE_IN_MILLIGRAMS@"/> <strong>mg</strong>
+            </td>
+            <td>
+
+            </td>
+            <td>
+              <obs conceptId="$@NIGHT_DOSE_IN_MILLIGRAMS@"/> <strong>mg</strong>
+            </td>
+            <td>
+
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@Diabetes_treatment_construct@">
+            <td>
+              <obs conceptId="$@Diabetes_Medications@" answerConceptId="$@LISINOPRIL@" answerLabel="" style="checkbox"/>
+              <strong>Lisinopril (5,10mg) </strong>
+            </td>
+            <td>
+              <obs conceptId="$@MORNING_DOSE_IN_MILLIGRAMS@"/> <strong>mg</strong>
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@Diabetes_treatment_construct@">
+            <td>
+              <obs conceptId="$@Diabetes_Medications@" answerConceptId="$@CAPTOPRIL@" answerLabel="" style="checkbox"/>
+              <strong>captopril(25mg) </strong>
+            </td>
+            <td>
+              <obs conceptId="$@MORNING_DOSE_IN_MILLIGRAMS@"/> <strong>mg</strong>
+            </td>
+            <td>
+              <obs conceptId="$@NOON_DOSE_IN_MILLIGRAMS@"/> <strong>mg</strong>
+            </td>
+            <td>
+              <obs conceptId="$@NIGHT_DOSE_IN_MILLIGRAMS@"/> <strong>mg</strong>
+            </td>
+            <td>
+
+            </td>
+          </obsgroup>
+        </tr>
+        <tr>
+          <td colspan="5">
+            <obs conceptId="$@CLOTRIMAZOLE@" answerConceptId="$@YES@" answerLabel=" " style="checkbox"/> <strong>Clotrimazole pommade 2x/j x 21j/ </strong> Clotrimazole cream 2x/d x 21d
+          </td>
+        </tr>
+        <tr>
+          <td colspan="5">
+            <obs conceptId="$@Glucometer_recommended_for_treatment@" answerConceptId="$@YES@" answerLabel=" " style="checkbox"/> <strong>Glucométre/</strong> Glucometer
+          </td>
+        </tr>
+        <tr>
+          <obsgroup groupingConceptId="$@Diabetes_treatment_construct@">
+            <td colspan="5">
+              <obs conceptId="$@Diabetes_Medications@" answerConceptId="$@Other_Diabetes_Drug@" answerLabels="" style="checkbox"/> <strong>Autre/</strong> Other
+              <obs conceptId="$@Other_Diabetes_Drug@"/>
+            </td>
+          </obsgroup>
+        </tr>
+
+      </table>
+      <table border="1" id="AsthmaAndCOPDDrugs">
+        <tr>
+          <th class="tableHeader" colspan="2">
+            <center> <strong> Asthma and COPD drugs </strong></center>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <strong> Si le patient est en détresse respiratoire/</strong>
+            <br/>
+            If the patient is in respiratory distress
+          </td>
+          <td>
+            <obs conceptId="$@Asthma_medications@" answerConceptId="$@Salbutamol_100_mcg_10_puffs_every_20min_with_spacer@" answerLabel="" style="checkbox"/>
+            <strong>Salbutamol (100 mcg) 10 bouffées chaque 20min avec entretoise/</strong> 10 puffs every 20min with spacer
+            <br/>
+            <obs conceptId="$@Asthma_medications@" answerConceptId="$@Dexamethasone@" answerLabel="" style="checkbox"/>
+            Dexamethasone 10mg IV x1 dose<strong><u>ou</u></strong> hydrocortisone 100mg IV x1 dose
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <obs conceptId="$@Asthma_medications@" answerConceptId="$@Salbutamol_100_mcg_1-2_puffs_2-3x/day_as_needed@" answerLabel="" style="checkbox"/>
+            <strong>Salbutamol (100 mcg) 1-2 bouffées 2-3x/jour à besoin/</strong> 1-2 puffs 2-3x/day as needed
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <obs conceptId="$@Asthma_medications@" answerConceptId="$@BECLOMETHASONE@" answerLabel="" style="checkbox"/>
+            <strong>Beclomethasone(50 mcg) 5 bouffées 2x/jr <u>ou</u> (250 mcg) 1 bouffées 2x/jr (avec entreloise)/</strong> 50 mcg 5 puffs 2x/day <u> or </u> 250 mcg 1 puff 2x/day (with spacer)
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <obs conceptId="$@Asthma_medications@" answerConceptId="$@PREDNISOLONE@" answerLabel="" style="checkbox"/>
+            <strong>Prednisolone (5 mg) cours bréve/ </strong> short course: <strong>1 mg/kg (max 40 mg) 1x/jour x5 jours/</strong> 50 1 mg/kg (max 40 mg) daily x5 days
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <obs conceptId="$@Asthma_medications@" answerConceptId="$@AMINOPHYLLINE@" answerLabel="" style="checkbox"/>
+            <strong>aminophyilline(10mg)/
+              <obs conceptId="$@Aminophyilline_dose_in_milligrams@"/> mg (4mg/kg) 3x/jr
+            </strong>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <obs conceptId="$@Asthma_medications@" answerConceptId="$@Lifestyle_intervention_only@" answerLabel="" style="checkbox"/>
+            <strong>MRGO Légére-> changements du style de vie: (ne pas s'allonger pour 1 heure aprés manger,élever la tête du lit avec 2 briques sous les postes,
+              manger répas plus petits, éviter alcool,sodas,café,thé)/</strong> Mild GERD -> lifestyle changes:(do not lie down for 1 hour after eating,
+            elevate the head of the bed with 2 bricks under posts, eat smaller meals.avoid alcohol, sodas, coffee,tea)
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <obs conceptId="$@Asthma_medications@" answerConceptId="$@CIMETIDINE@" answerLabel="" style="checkbox"/>
+            <strong> MRGO sévére -> cimetidine 400 mg 2x/jourx30 jours/</strong> Severe GERD -> cimetidine 400 mg 2x/day x30 days
+            <strong>Si enfant &#60;30 kg/</strong> if child x30 kg:cimetidine 10mg/kg 2x/jour x30 jours
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <obs conceptId="$@Asthma_medications@" answerConceptId="$@CHLORPHENIRAMINE@" answerLabel="" style="checkbox"/>
+            <strong> Rhinite allergique/</strong> allergic rhinitis <strong>-> chlorpheniramine (4 mg): Adultes</strong>/Adults:
+            <strong>4 mg 1x/soir/</strong> 4mg befor bedtime;<strong>Enfants/</strong>children:<strong>1 dose/soir/</strong> before bedtime
+            <strong>Posologie pediatrique/</strong> Pediatric dosing: <strong>2-5 ans -> 1 mg chaque dose;5-10 ans -> 2 mg chaque dose;>10 ans ->dose  normale/</strong>
+            2-5 yo -> 1mg per dose: 5-10 yo-> 2 mg per dose; &#62;10 yo ->normal dose
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <obs conceptId="$@Asthma_medications@" answerConceptId="$@DOXYCYCLINE@" answerLabel="" style="checkbox"/>
+            <strong>
+              Doxycycline (100mg)
+              <obs conceptId="$@Doxycycline_Dose_in_milligrams@"/> mg x
+              <obs conceptId="$@Number_or_days@"/> jours/
+            </strong>
+            days
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <strong>Autre/</strong> Other:(Any other drug including pain or non pain)
+            <obs conceptId="$@Other_Asthma_drug@"/>
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th class="tableHeader" colspan="2">
+            <center> <strong> Pain drugs </strong></center>
+          </th>
+        </tr>
+        <obsgroup groupingConceptId="$@drug_prescription_construct@">
+          <tr>
+            <td>
+              <obs conceptId="$@Pain_drugs@" answerConceptId="$@Non_opioids@" answerLabel="Non opioids(Paracetamol, NAS)" style="checkbox"/>
+            </td>
+            <td>
+              Dose:
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@ONE_PER_DAY@" answerLabel="1x/day" style="checkbox"/>
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@TWICE_A_DAY@" answerLabel="2x/day" style="checkbox"/>
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@THREE_PER_DAY@" answerLabel="3x/day" style="checkbox"/>
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@Four_times_a_day@" answerLabel="4x/day" style="checkbox"/>
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@per_need@" answerLabel="per need" style="checkbox"/>
+
+            </td>
+          </tr>
+        </obsgroup>
+        <obsgroup groupingConceptId="$@drug_prescription_construct@">
+          <tr>
+            <td>
+              <obs conceptId="$@Pain_drugs@" answerConceptId="$@Morphine@" answerLabel="Morphine (Liquid, tablets)" style="checkbox"/>
+            </td>
+            <td> Dose:
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@ONE_PER_DAY@" answerLabel="1x/day" style="checkbox"/>
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@TWICE_A_DAY@" answerLabel="2x/day" style="checkbox"/>
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@THREE_PER_DAY@" answerLabel="3x/day" style="checkbox"/>
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@Four_times_a_day@" answerLabel="4x/day" style="checkbox"/>
+              <obs conceptId="$@DRUG_ORDER_FREQUENCY@" answerConceptId="$@per_need@" answerLabel="per need" style="checkbox"/>
+
+            </td>
+          </tr>
+        </obsgroup>
+        <tr>
+          <td>
+            <obs conceptId="$@Pain_drugs@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="" style="checkbox"/>
+            <obs conceptId="$@other_pain_drugs@"/>
+          </td>
+        </tr>
+      </table>
+    </section>
+    <br />
+    <div>
+      <section headerLabel="PRESCRIPTION">
+        <htmlformflowsheet formId="$@NCD_RBC_Asthma_medication_List@" sharedEncounter="true" />
+      </section>
+    </div>
+    <br />
+    <enrollInProgram programId="$@Chronic_respiratory_disease_program@"/>
+    <submit />
+    <br/>
+  </div>
+</htmlform>

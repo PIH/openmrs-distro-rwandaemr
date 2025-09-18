@@ -6,3 +6,8 @@ d6f6549f-6345-40c1-8469-e4bd9b037c13,org.openmrs.module.emrapi,emr.visitNoteEnco
 f4a395f1-cda9-470e-9991-0171dd54815b,org.openmrs.module.emrapi,emr.admissionEncounterType,org.openmrs.EncounterType,8e3c016e-cfca-407a-8214-2f071b3d8da2
 6bd40619-719e-4b3c-9b32-e01ccb233bde,org.openmrs.module.emrapi,emr.exitFromInpatientEncounterType,org.openmrs.EncounterType,13703c92-58d2-4d04-a320-8d4699380676
 bc976a45-1d9e-4193-a541-a689ba38cf69,org.openmrs.module.emrapi,emr.transferWithinHospitalEncounterType,org.openmrs.EncounterType,a363b0d4-d430-467d-810c-4a2ee9891430
+b4d5e6f7-g8h9-0123-4def-567890123456,org.openmrs.module.emrapi,emr.inpatientNoteEncounterType,org.openmrs.EncounterType,a1f5c3d2-4b6e-4e8a-9f2d-1b3e8e4a2d7f
+c5e6f7g8-h9i0-1234-5ef0-678901234567,org.openmrs.module.emrapi,emr.transferRequestEncounterType,org.openmrs.EncounterType,b2c4d5e6-7f8a-4e9b-8c1d-2e3f8e4a3b8f
+d039435f-233a-4d0b-a35a-75450b2e65b9,org.openmrs.module.emrapi,emr.bedAssignmentEncounterType,org.openmrs.EncounterType,f47ac10b-58cc-4372-a567-0e02b2c3d479
+e9ae298d-532c-4f72-93c1-a42495270662,org.openmrs.module.emrapi,emr.cancelADTRequestEncounterType,org.openmrs.EncounterType,550e8400-e29b-41d4-a716-446655440000
+c79524fc-13dc-11f0-9de4-cad2519db7b2,org.openmrs.module.emrapi,emr.clinicianEncounterRole,org.openmrs.EncounterRole,240b26f9-dd88-4172-823d-4a8bfeb7841f

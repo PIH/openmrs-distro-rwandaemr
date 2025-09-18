@@ -215,7 +215,7 @@
             var convertedDate = datearray[1] + '-' + datearray[0] + '-' + datearray[2];
             const diffTime = (new Date()) - new Date(convertedDate);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24) );
-            if(diffDays < 2){
+            if(diffDays < 1){
                 $('#obs\\.specimenCode').val(allSpecCodeForPatient[0].valueText);
             }
 

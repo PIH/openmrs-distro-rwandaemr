@@ -12,7 +12,6 @@
         @RWANDA_INSURANCE_TYPE@ = 8da67e73-776c-43f6-9758-79d1f6786db3
         @Insurance_Beneficiary_Names@ = b2783c61-6ff2-4964-bbb8-3440b30ed954
         @BENEFICIALY_INSURANCE_NUMBER@ = b4bf4d52-ae92-4d8f-b7f0-3c99c521a568
-        @GENERAL_DRUG_FREQUENCY@ = 5e152a81-8635-41d6-aef2-2527a5f584f3
         @Other_Drugs@ = aaa7aeff-c1cc-4c34-befc-0821c7f5e2e0
         @Date_of_Ordonance@ = 65ef339a-801c-4f43-ad3e-ef4913d23e70
 
@@ -230,11 +229,11 @@
                         <td class="small-input">
                             <!-- Drud -->
                             1. R/
-                            <obs conceptId="5e152a81-8635-41d6-aef2-2527a5f584f3" size="20" />
+                            <obs conceptId="ad38288b-26a9-4337-b777-a289334ed5b4" size="20" />
                         </td>
                         <td class="small-input">
                             <!-- Frequancy -->
-                            <obs conceptId="2ebd3f49-f4cc-4dc9-b5bc-cb71fec8e3ff" size="10" />
+                            <obs conceptId="5e152a81-8635-41d6-aef2-2527a5f584f3" size="10" />
                         </td>
                         <td class="date-one-line" colspan="3">
                             <!-- Date -->
@@ -252,11 +251,11 @@
                         <td class="small-input">
                             <!-- Drud -->
                             2. R/
-                            <obs conceptId="5e152a81-8635-41d6-aef2-2527a5f584f3" size="20" />
+                            <obs conceptId="ad38288b-26a9-4337-b777-a289334ed5b4" size="20" />
                         </td>
                         <td class="small-input">
                             <!-- Frequancy -->
-                            <obs conceptId="2ebd3f49-f4cc-4dc9-b5bc-cb71fec8e3ff" size="10" />
+                            <obs conceptId="5e152a81-8635-41d6-aef2-2527a5f584f3" size="10" />
                         </td>
                         <td class="date-one-line" colspan="3">
                             <obs conceptId="249b6f2a-3f58-45ca-8a8f-a758ebfc9682" allowFutureDates="true" />
@@ -273,11 +272,11 @@
                         <td class="small-input">
                             <!-- Drud -->
                             3. R/
-                            <obs conceptId="5e152a81-8635-41d6-aef2-2527a5f584f3" size="20" />
+                            <obs conceptId="ad38288b-26a9-4337-b777-a289334ed5b4" size="20" />
                         </td>
                         <td class="small-input">
                             <!-- Frequancy -->
-                            <obs conceptId="2ebd3f49-f4cc-4dc9-b5bc-cb71fec8e3ff" size="10" />
+                            <obs conceptId="5e152a81-8635-41d6-aef2-2527a5f584f3" size="10" />
                         </td>
                         <td class="date-one-line" colspan="3">
                             <!-- Date -->
@@ -295,11 +294,11 @@
                         <td class="small-input">
                             <!-- Drud -->
                             4. R/
-                            <obs conceptId="5e152a81-8635-41d6-aef2-2527a5f584f3" size="20" />
+                            <obs conceptId="ad38288b-26a9-4337-b777-a289334ed5b4" size="20" />
                         </td>
                         <td class="small-input">
                             <!-- Frequancy -->
-                            <obs conceptId="2ebd3f49-f4cc-4dc9-b5bc-cb71fec8e3ff" size="10" />
+                            <obs conceptId="5e152a81-8635-41d6-aef2-2527a5f584f3" size="10" />
                         </td>
                         <td class="date-one-line" colspan="3">
                             <!-- Date -->
@@ -317,11 +316,11 @@
                         <td class="small-input">
                             <!-- Drud -->
                             5. R/
-                            <obs conceptId="5e152a81-8635-41d6-aef2-2527a5f584f3" size="20" />
+                            <obs conceptId="ad38288b-26a9-4337-b777-a289334ed5b4" size="20" />
                         </td>
                         <td class="small-input">
                             <!-- Frequancy -->
-                            <obs conceptId="2ebd3f49-f4cc-4dc9-b5bc-cb71fec8e3ff" size="10" />
+                            <obs conceptId="5e152a81-8635-41d6-aef2-2527a5f584f3" size="10" />
                         </td>
                         <td class="date-one-line" colspan="3">
                             <!-- Date -->
@@ -339,11 +338,11 @@
                         <td class="small-input">
                             <!-- Drud -->
                             6. R/
-                            <obs conceptId="5e152a81-8635-41d6-aef2-2527a5f584f3" size="20" />
+                            <obs conceptId="ad38288b-26a9-4337-b777-a289334ed5b4" size="20" />
                         </td>
                         <td class="small-input">
                             <!-- Frequancy -->
-                            <obs conceptId="2ebd3f49-f4cc-4dc9-b5bc-cb71fec8e3ff" size="10" />
+                            <obs conceptId="5e152a81-8635-41d6-aef2-2527a5f584f3" size="10" />
                         </td>
                         <td class="date-one-line" colspan="3">
                             <!-- Date -->

@@ -1,7 +1,7 @@
 <htmlform
         htmlformUuid="fb0d1df9-ec45-41f0-bb6d-e6064317f213"
         formUuid="88589514-deee-4e26-ad5a-512da2db9f05"
-        formName="ADMISSION AND FOLLOW UP OF A WOMAN IN LATENT PHASE OF LABOR"
+        formName="MIDWIFE ASSESSMENT IN MATERNITY"
         formDescription="ADMISSION AND FOLLOW UP OF A WOMAN IN LATENT PHASE OF LABOR"
         formVersion="1.0"
         formEncounterType="9facd372-0d04-4d32-86b6-dab46a7315d5"
@@ -215,134 +215,67 @@
         var $j = jQuery.noConflict();
 
         $j(document).ready(function () {
+        // Listen for changes in the LMP field
+        getField('lmp.value').change(function () {
+        var mp = getValue('lmp.value'); // Get the LMP value
+        if (!mp) return; // Exit if no LMP is entered
 
+        var lmpDate = new Date(mp); // Convert LMP to a Date object
 
+        // Calculate EDD: Add 1 year, subtract 3 months, add 7 days
+        var eddDate = new Date(lmpDate);
+        eddDate.setFullYear(eddDate.getFullYear() + 1);
+        eddDate.setMonth(eddDate.getMonth() - 3);
+        eddDate.setDate(eddDate.getDate() + 7);
+
+        // Update the EDD field
+        var eddFormatted = eddDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+        setValue('dd.value', eddFormatted);
+
+        // Calculate gestational age (weeks and days)
         var today = new Date();
-        var dated = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        // setValue('encdateId.value',dated);
+        var diffInMs = today - lmpDate; // Difference in milliseconds
+        var diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24)); // Convert to days
 
-        // ============ visit date =========
-        var newDate = new Date(today.setMonth(today.getMonth()+1));
-        var dt = newDate.getFullYear()+'-'+(newDate.getMonth()+1)+'-'+newDate.getDate();
-        // setValue('nextvisitid.value',dt);
-        // ===================
-        getField('lmp.value').change(function() {
-        var mp = getValue('lmp.value');
-        //alert(mp);
-        var d = new Date(mp);
-
-        d.setFullYear (d.getFullYear() + 1);
-        d.setMonth(d.getMonth() - 3);
-
-        d.setDate(d.getDate() + 7);
-
-        var curr_date = d.getDate();
-
-        var curr_month = d.getMonth();
-        curr_month++;
-
-        var curr_year = d.getFullYear();
-
-        var duedate = curr_year + "-" + curr_month + "-" + curr_date;
-
-
-        setValue('dd.value',duedate);
-        //setValue('dd1.value',duedate);
-
-
-        <!-- Gets due date, current date, and format -->
-        todaysTime = new Date();
-        todaysHour = 0
-        todaysMinute = 0
-        todaysSecond = 0
-        todaysYear = todaysTime.getFullYear()
-        todaysMonth = todaysTime.getMonth()
-        todaysDate = todaysTime.getDate()
-        var dda = getValue('dd.value');
-        //var dda = getValue('dd1.value');
-        //alert(mp);
-        var birthTime = new Date(dda);
-
-        birthYear = birthTime.getFullYear()
-        birthMonth = birthTime.getMonth()
-        birthDate = birthTime.getDate()
-        birthHour = 0
-        birthMinute = 0
-        birthSecond = 0
-
-        <!-- Adjusts for Leap Year Info -->
-        if ((birthYear / 4) == (Math.round(birthYear / 4))) {
-        countLeap = 29}
-        else {
-        countLeap = 28}
-
-        <!-- Calculate the days in the month -->
-        if (birthMonth == 2) {
-        countMonth = countLeap}
-        else {
-        if (birthMonth == 4) {
-        countMonth = 30}
-        else {
-        if (birthMonth == 6) {
-        countMonth = 30}
-        else {
-        if (birthMonth == 9) {
-        countMonth = 30}
-        else {
-        if (birthMonth == 11) {
-        countMonth = 30}
-        else {
-        countMonth = 31}}}}}
-        <!-- Doing the subtactions -->
-        if (birthMinute > todaysMinute) {
-        diffMinute = birthMinute - todaysMinute
-        calcHour = 0}
-        else {
-        diffMinute = birthMinute + 60 - todaysMinute
-        calcHour = -1}
-        if (birthHour > todaysHour) {
-        diffHour = birthHour - todaysHour + calcHour
-        calcDate = 0}
-        else {
-        diffHour = birthHour + 24 - todaysHour  + calcHour
-        calcDate = -1}
-        if (birthDate > todaysDate) {
-        diffDate = birthDate - todaysDate + calcDate
-        calcMonth = 0}
-        else {
-        diffDate = birthDate + countMonth - todaysDate  + calcDate
-        calcMonth = -1}
-        if (todaysMonth > birthMonth ) {
-        calcMonth = calcMonth +12}
-        diffMonth = birthMonth - todaysMonth + calcMonth
-
-        <!-- Making sure it all adds up correctly -->
-        if (diffMinute == 60) {
-        diffMinute = 0
-        diffHour = diffHour + 1}
-        if (diffHour == 24) {
-        diffHour = 0
-        diffDate = diffDate + 1}
-        if (diffDate == countMonth) {
-        diffDate = 0
-        diffMonth = diffMonth + 1}
-
-
-        diffWeek = Math.floor(diffDate / 7)
-        weekd=diffWeek+(diffMonth*4)
-        var weekls=36-weekd;
-
-        if (weekls &lt; 0){
-        weekls=0;
+        if (diffInDays &lt; 0) {
+        setValue('wkId.value', 0);
+        setValue('dayId.value', 0);
+        return;
         }
-        setValue('wkId.value',weekls);
-        //setValue('wkId1.value',weekls);
-        // setValue('wkmsg.value',weekd);
-        // $j('#wkmsg').text(' weeks left  ').css('color','red').css("font-weight","Bold");
-        });
 
+        var weeks = Math.floor(diffInDays / 7); // Calculate completed weeks
+        var days = diffInDays % 7; // Remaining days
+
+        // Calculate remaining weeks until 36 weeks (if needed)
+        var remainingWeeks = 36 - weeks;
+        if (remainingWeeks &lt; 0) remainingWeeks = 0;
+
+        // Update gestational age fields
+        setValue('wkId.value', weeks); // Completed weeks
+        setValue('dayId.value', days); // Remaining days within the current week
+
+        // Optional: Display a message
+        var message = weeks + " weeks and " + days + " days gestational age.";
+        $j('#wkmsg').text(message).css('color', 'blue').css("font-weight", "Bold");
+        });
         });
     </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $('#submit').click(function(event) {
+        var lmpDate = $('#lmp input[type="date"]').val(); // Get the LMP date value
+        var isUnknownChecked = $('#unknown-lmp input[type="radio"]').is(':checked'); // Check if the Unknown radio button is selected
+
+        // Validation logic
+        if (!lmpDate &amp;&amp; !isUnknownChecked) {
+        event.preventDefault(); // Prevent form submission
+        alert('Please enter LMP date or select "Unknown".');
+        }
+        });
+        });
+    </script>
+
     <span style="float:right"></span>
     <h2>MIDWIFE ASSESSMENT</h2>
 
@@ -379,7 +312,7 @@
             <p class="date-one-line">
 
                 <obs conceptId="49b34934-55aa-44fe-9ff3-ae4d390da3aa" labelText="Date et heure/Date and Hour"
-                     allowFutureDates="true" default="now" />
+                     allowFutureDates="true" default="now" required="true"/>
             </p>
             <p class="side-by-side">
                 Origine/Origin :
@@ -404,11 +337,15 @@
 
             <p>
                 Chief complaint/ Motif de consultation:
-                <obs conceptId="3ce2b170-26fe-102b-80cb-0017a47871b2" style="textarea" rows="3" cols="30" />
+                <obs conceptId="3ce2b170-26fe-102b-80cb-0017a47871b2" style="textarea" rows="3" cols="30" required="true"/>
             </p>
             <p>
                 History of chief complaint/Histoire de la maladie:
-                <obs conceptId="24aa74e0-a281-4031-8919-63f3eaf3a729" style="textarea" rows="3" cols="30" />
+                <obs conceptId="24aa74e0-a281-4031-8919-63f3eaf3a729" style="textarea" rows="3" cols="30" required="true"/>
+            </p>
+            <p>
+                Medications taken:
+                <obs conceptId="765f5fd3-7abd-418e-b048-86f7e9ecb4fb" style="textarea" rows="3" cols="30"/>
             </p>
         </div>
 
@@ -417,9 +354,9 @@
         <div class="section-container">
 
             <p class="date-one-line">
-                <label>Last Menstrual period (LMP)</label>
+                <label>Last Menstrual Period (LMP)</label>
                 <obs conceptId="968" id="lmp" allowFutureDates="false" />
-                <obs conceptId="ea520c44-3dd0-4b37-8929-66e79e9c72d9" answerConceptId="3cd6fac4-26fe-102b-80cb-0017a47871b2"  style="radio" answerLabel="Unknown"/>
+                <obs conceptId="ea520c44-3dd0-4b37-8929-66e79e9c72d9" answerConceptId="3cd6fac4-26fe-102b-80cb-0017a47871b2" style="radio" answerLabel="Unknown" id="unknown-lmp"/>
             </p>
             <p class="date-one-line">
                 <label>Expected Date of Delivery (EDD)</label>
@@ -427,8 +364,8 @@
             </p>
             <p class="small-input flexView">
                 <label>Gestation Age (weeks)</label>
-                <obs conceptId="d616d705-6c11-4b7f-96ec-a8c7994a07bc" id="wkId" />
-                <!--         <obs conceptId="bc6a9982-a2ff-456c-be9f-571390f24c01" id="wkId" /> -->
+                <obs conceptId="d616d705-6c11-4b7f-96ec-a8c7994a07bc" id="wkId" />weeks
+                and  <obs conceptId="a646afa3-2984-4d25-963f-b3097d3c5e64" id="dayId" />days
             </p>
             <p class="small-input flexView radio">
                 Nombre des visites(CPN)/Number of Visits(ANC):
@@ -447,15 +384,15 @@
             </p>
             <p class="small-input flexView">
                 Gravida(G)
-                <obs conceptId="3cee82de-26fe-102b-80cb-0017a47871b2" id="gravidityid" size="5" />
+                <obs conceptId="3cee82de-26fe-102b-80cb-0017a47871b2" id="gravidityid" size="5" required="true"/>
             </p>
             <p class="small-input flexView">
                 Parity(P)
-                <obs conceptId="3cd6dda0-26fe-102b-80cb-0017a47871b2" id="parityid" size="5" />
+                <obs conceptId="3cd6dda0-26fe-102b-80cb-0017a47871b2" id="parityid" size="5" required="true"/>
             </p>
             <p class="small-input flexView">
                 Alive children(EV)
-                <obs conceptId="90178a9f-9870-4aae-bcaf-63e956736052" id="aliveid" size="5" />
+                <obs conceptId="90178a9f-9870-4aae-bcaf-63e956736052" id="aliveid" size="5" required="true"/>
             </p>
             <!--
                               <p class="small-input flexView">
@@ -478,7 +415,7 @@
             </p>
             <p class="date-one-line small-input">
                 Date of last C/section(DDC)
-                <obs conceptId="9ed0aedc-8a3d-4874-8feb-e81b3cb92f22" allowFutureDates="false" />
+                <obs conceptId="cb0e6770-a84b-4d87-becb-66a244ac62e8" allowFutureDates="false" allowTime="false" />
                 <obs conceptId="2e4edf10-65cb-45b0-8002-b806b41751dc" labelText="Motif of C/S:"/>
                 <obs conceptId="0d850a47-1174-4729-8b57-1577d399a790" answerConceptIds="3cd6fac4-26fe-102b-80cb-0017a47871b2,3cd7b72a-26fe-102b-80cb-0017a47871b2"  style="radio" answerLabels="Unknown,Not applicable"/>
             </p>
@@ -498,21 +435,67 @@
             -->
             <p class="side-by-side">
                 HIV TEST/Serologie:
-                <obs conceptId="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e" answerConceptIds="664,703" style="radio"
-                     id="hivPos">
-                    <controls>
-                        <when value="703" thenDisplay="#cd4" />
-                    </controls>
-                </obs>
+                <table border="1" width="40">
+                    <th>Client</th>
+                    <th>Spouse</th>
+                    <tr>
+                        <td>
+                            <p class="side-by-side">
+                                <obs conceptId="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e" answerConceptIds="664,703" style="radio" required="true"
+                                     id="hivPos">
+                                    <controls>
+                                        <when value="703" thenDisplay="#cd4" />
+                                    </controls>
+                                </obs>
+                            </p>
+
+                        </td>
+                        <td>
+                            <p class="side-by-side">
+                                <obs conceptId="cee6dfe4-fa1c-4cef-8acc-c35a4b2e8678" answerConceptIds="664,703" style="radio"
+                                     id="hivPos2">
+                                    <controls>
+                                        <when value="703" thenDisplay="#cd42" />
+                                    </controls>
+                                </obs>
+                            </p>
+
+                        </td>
+                    </tr>
+                </table>
+
+            </p>
+            <p id="cd4" class="small-input">
+                CD4 Client:
+                <obs conceptId="3ceda710-26fe-102b-80cb-0017a47871b2" />
+            </p>
+            <p id="cd42" class="small-input">
+                CD4 Spouse:
+                <obs conceptId="3ceda710-26fe-102b-80cb-0017a47871b2" />
             </p>
             <p class="side-by-side">
                 SYPHILLIS:
-                <obs conceptId="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e" answerConceptIds="664,703" style="radio"/>
+                <table border="1" width="40">
+                    <th>Client</th>
+                    <th>Spouse</th>
+                    <tr>
+                        <td>
+                            <p class="side-by-side">
+                                <obs conceptId="3d5ef803-a531-4747-99e4-62f0d72bed4c" answerConceptIds="664,703" style="radio"/>
+                            </p>
+
+                        </td>
+                        <td>
+                            <p class="side-by-side">
+                                <obs conceptId="3d5ef803-a531-4747-99e4-62f0d72bed4c" answerConceptIds="664,703" style="radio"/>
+                            </p>
+
+                        </td>
+                    </tr>
+                </table>
+
             </p>
-            <p id="cd4" class="small-input">
-                CD4:
-                <obs conceptId="3ceda710-26fe-102b-80cb-0017a47871b2" />
-            </p>
+
             <fieldset>
                 <legend>
                     <b>
@@ -540,7 +523,7 @@
              headerCode="EXAMEN CLINIQUE/CLINICAL EXAMINATION">
         <div class="section-container">
 
-            <p class="small-input flexView">
+            <!-- <p class="small-input flexView">
                 Temperature:
                 <obs conceptId="3ce939d2-26fe-102b-80cb-0017a47871b2" size="5" />
             </p>
@@ -575,6 +558,12 @@
             <p id="colorAbno">
                 <obs conceptId="77dfa633-92f2-40ee-b490-2ddb54cb5712" style="textarea" rows="2" cols="30"
                      labelText="Comment" />
+            </p> -->
+            <p>
+                <obs conceptId="9cd30679-6819-40a3-a33f-8765e3673528" labelText="Pelvis exam" style="textarea" rows="2" cols="30"/>
+            </p>
+            <p>
+                <obs conceptId="1252522a-eee6-4afa-9cea-3bcdfa7c4964" labelText="Other significant findings" style="textarea" rows="2" cols="30"/>
             </p>
 
         </div>
@@ -590,8 +579,8 @@
             </p>
             <p class="side-by-side small-input flexView">
                 FHR (BCF):
-                <obs conceptId="f83b2f0e-34bf-4ed2-9f2c-f53d81f7d27b" answerConceptIds="1175,8556,161309"
-                     answerCodes="Not Applicable,Absent,Present" style="radio" id="bcf">
+                <obs conceptId="f83b2f0e-34bf-4ed2-9f2c-f53d81f7d27b" answerConceptIds="1175,6014a179-c9eb-4342-ab45-3aaa189b88ac,2513ef12-49f0-43fb-9eb1-b2c9cdee65ad"
+                     answerCodes="Not Applicable,Absent,Present" style="radio" id="bcf" required="true">
 
                     <controls>
                         <when value="161309" thenDisplay="#fhrPres" />
@@ -604,23 +593,33 @@
             </p>
             <p class="side-by-side">
                 Presentation:
-                <obs conceptId="1b4c3aa2-3531-4657-8fcf-6bc6ef7497cd" answerConceptIds="8147,8539,10060,1067"
+                <obs conceptId="1b4c3aa2-3531-4657-8fcf-6bc6ef7497cd" answerConceptIds="625fdce5-9f5a-46f6-98db-b59ac799ad25,3cd7b27a-26fe-102b-80cb-0017a47871b2,6cb34f03-0b2b-4d31-b1bf-905364d89edc,1067"
                      answerLabels="Cephalic,Breech,Transverse,Unknown" style="radio" />
+            </p>
+            <p class="side-by-side">
+                Engagement:
+                <obs conceptId="c7bd1843-c4f3-4eb7-aa96-0a8a4da0111d"  answerConceptIds="1066,1065" answerCodes="No,Yes"
+                     style="radio"/>
             </p>
             <p class="side-by-side">
                 Uterine contractions:
                 <obs conceptId="e0a8a6ce-f037-4940-9677-53dfa1972c97" answerConceptIds="1066,1065" answerCodes="No,Yes"
                      style="radio" id="urineCont">
                     <controls>
-                        <when value="1065" thenDisplay="#yesContra" />
+                        <when value="1065" thenDisplay=".yesContra" />
+                        <!-- <when value="1065" thenDisplay="#intens" /> -->
                     </controls>
                 </obs>
             </p>
-            <p id="yesContra" class="small-input flexView">
+            <p id="yesContra" class="small-input flexView yesContra">
                 Number of contractions in 10 minutes:
                 <obs conceptId="5965b71c-4214-4780-a74e-2de09b06a552" size="5" /><br />
                 Duration in seconds:
                 <obs conceptId="33dddcf3-791b-4c20-a971-4d5c1ed4110c" size="5" />
+            </p>
+            <p class="side-by-side yesContra">
+                <obs conceptId="77ce1d2c-09ca-49a3-8e12-447fb04a9075" answerConceptIds="ea7c086e-0846-464d-8e3c-737137e7ea41,9d2b70a5-0d5c-4c37-9bfd-7cd6fa82782a,5d7a6764-a1b5-45d0-9a7e-cc8082600567"
+                     answerCodes="Weak,Strong,Very Strong" labelText="Contractions Intensity:" style="radio"/>
             </p>
             <p class="side-by-side">
                 Vulva:
@@ -697,6 +696,9 @@
                          answerConceptIds="3cd1b8de-26fe-102b-80cb-0017a47871b2,	f1566249-9895-496e-9aff-440c823a4226,3cd1bb5e-26fe-102b-80cb-0017a47871b2"
                          answerCodes="Anterior,Mid-Position,Posterior" style="radio" />
                 </p>
+                <p class="flexView small-input">
+                    <obs conceptId="372c7cc1-f323-4d1f-8d67-8395979d13b1" style="text" labelText="Cervical effacement:" size="10"/>
+                </p>
                 <p class="small-input flexView">
                     Cervical length:
                     <obs conceptId="3473a281-101a-4669-b724-2a6532ec8112" size="5" />
@@ -717,18 +719,35 @@
                          answerCodes="No,Yes" style="radio" id="areMembRup">
 
                         <controls>
-                            <when value="1065" thenDisplay="#membRuptu" />
+                            <when value="1065" thenDisplay=".membRuptu" />
                         </controls>
                     </obs>
                 </p>
-                <p class="side-by-side" id="membRuptu">
+
+                <p class="side-by-side date-one-line membRuptu">
                     Amniotic fluids aspect:
-                    <obs conceptId="1252cd2a-f1e2-498d-be0c-9ab3261c969f" answerCodes="Clear,Bloody,Meconial"
-                         style="radio" />
+                    <obs conceptId="1252cd2a-f1e2-498d-be0c-9ab3261c969f" answerCodes="Bloody,Clear,Meconial"
+                         style="radio" /><br/>
+
                 </p>
-                <p class="small-input flexView">
-                    Descent Present at:
-                    <obs conceptId="927948ed-8be0-4917-9199-9dc3fb776f86" />
+                <p class="date-one-line membRuptu">
+                    <span>
+                        <obs conceptId="d3cd0251-292a-4949-af8b-af75a4020a16" allowFutureDates="true" labelText="Membranes ruptured at"/>
+                    </span>
+                </p>
+                <p class="side-by-side">
+                    Steroids given:
+                    <obs conceptId="bfdc802e-9a86-48bc-8695-8b7f33c78061" answerConceptIds="1066,1065"
+                         answerCodes="No,Yes" style="radio" id="steroGiv">
+
+                        <controls>
+                            <when value="1065" thenDisplay="#steroTime" />
+                        </controls>
+                    </obs>
+                </p>
+                <p class="flexView" id="steroTime">
+                    Time:
+                    <obs conceptId="77c5041b-1d80-42f7-9740-de79671b0f31"/>
                 </p>
                 <p class="small-input flexView">
                     Moulding:
@@ -737,6 +756,31 @@
             </fieldset>
         </div>
 
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Patient Education">
+        <div class="section-container">
+            <fieldset>
+                <legend>
+                    <b>
+                        Education Information
+                    </b>
+                </legend>
+                <label>Identified Health Education needs</label>
+
+                <obs cols="30" conceptId="e8c8e2d7-2f28-4650-8759-ff0745f7db3d" id="past_medical" required="true"
+                     rows="3" style="textarea" />
+                <label>Education subject</label>
+                <obs cols="30" conceptId="a0c245fb-a639-4288-8919-cfcf051398ec" id="past_medical" required="true"
+                     rows="3" style="textarea" />
+            </fieldset>
+        </div>
+    </section>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Conclusion">
+        <div class="section-container">
+
+            <obs conceptId="3cdc5938-26fe-102b-80cb-0017a47871b2" style="textarea" rows="2" cols="30" required="true"/>
+        </div>
     </section>
 
     <ifMode mode="VIEW" include="false">

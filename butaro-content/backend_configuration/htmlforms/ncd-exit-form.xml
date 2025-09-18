@@ -861,8 +861,8 @@ td {
 				<obs conceptId="$@REASON_FOR_EXIT@" 
 					answerConceptId="$@TRANSFERED@" answerLabel="Transfert a l'autre centre (si oui, completer si-dessous) / Transfer to another facility (if yes, fill out below) " /> <br/>
 				
-				<obs conceptId="$@REASON_FOR_EXIT@" 
-					answerConceptId="$@NOT_NCD@" answerLabel="Patient n'a pas NCD apres consultation par specialiste / Patient does not have NCD after consultation by specialist" /> <br/>
+<!--				<obs conceptId="$@REASON_FOR_EXIT@" -->
+<!--					answerConceptId="$@NOT_NCD@" answerLabel="Patient n'a pas NCD apres consultation par specialiste / Patient does not have NCD after consultation by specialist" /> <br/>-->
 				<obs conceptId="$@REASON_FOR_EXIT@" 
 					answerConceptId="$@LTFU@" answerLabel="Perdu de vue / Lost to Follow-up" /> <br/>
 				<obs conceptId="$@REASON_FOR_EXIT@" 

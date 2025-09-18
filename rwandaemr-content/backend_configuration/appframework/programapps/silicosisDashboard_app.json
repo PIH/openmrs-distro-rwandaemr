@@ -154,7 +154,7 @@
         "extensionPointId": "326475d7-07f6-4357-ba1b-9098f8137849.overallActions",
         "type": "link",
         "label": "Exit From Care",
-        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-exit-form-169.xml",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-silicosis--exit-from-care.xml",
         "icon": "icon-file",
         "order": 3
       }

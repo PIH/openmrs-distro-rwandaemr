@@ -182,7 +182,7 @@
                 <label>
                     <uimessage code="Other diagnosis not listed:" />
                 </label>
-                <obs conceptId="b53e4d45-fb1f-4f8d-bf66-5b3641bd031b" style="text" rows="2" cols="30" />
+                <obs conceptId="a72c0d52-f25c-40f9-a2c1-1cbef67e2731" style="text" rows="2" cols="30" />
             </p>
             <p>
                 <label>

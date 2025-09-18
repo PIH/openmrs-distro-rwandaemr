@@ -1,0 +1,22 @@
+key: "clinicians_billing_report"
+uuid: "37b2cf7f-e91f-11ef-8bef-88a4c2c8ecf6"
+name: "Bills created during a certain period by clinicians"
+description: "Bills created during a certain period by clinicians"
+parameters:
+  - key: "startDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.startDate"
+  - key: "endDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.endDate"
+datasets:
+  - key: "clinicians_billing_report"
+    type: "sql"
+    config: "sql/clinicians_billing_report.sql"
+designs:
+  - type: "csv"
+    properties:
+      "filenameBase": "usersdateexport.{{ formatDate request.evaluateStartDatetime \"yyyyMMdd\" }}.{{ formatDate request.evaluateStartDatetime \"HHmm\" }}"
+      "characterEncoding": "ISO-8859-1"
+      "blacklistRegex": "[^\\p{InBasicLatin}\\p{L}]"
+      "dateFormat": "dd-MMM-yyyy HH:mm:ss"

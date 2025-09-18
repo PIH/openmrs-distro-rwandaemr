@@ -95,6 +95,32 @@
     ]
   },
   {
+    "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.obsGraph.glycemia",
+    "order": 2,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "icon-bar-chart",
+      "conceptId": "159644AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "maxResults": "6",
+      "showLegend": true,
+      "label": "HbA1C GRAPH",
+      "program": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "dashboard": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.obsGraphWeight.extension",
+        "appId": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.obsGraph.glycemia",
+        "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
     "id": "rwandaemr.eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.Enrollment.Form",
     "order": 2,
     "config": {
@@ -286,7 +312,7 @@
         "extensionPointId": "eff53c35-eaa8-4cae-9d68-78c2c21a5e6d.overallActions",
         "type": "link",
         "label": "Exit From Care",
-        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-exit-form-169.xml",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/ncd-diabetes--exit-from-care-information.xml",
         "icon": "icon-file",
         "order": 5
       }
