@@ -263,7 +263,7 @@
     "packagingUnitsUUID": "6468f785-f54f-11ef-bdcb-866a2ce1d8f0",
     "stockAdjustmentReasonUUID": "dbcc4e49-f550-11ef-bdcb-866a2ce1d8f0",
     "stockSourceTypeUUID": "059e29b6-f549-11ef-bdcb-866a2ce1d8f0",
-    "dispensinUnitsUUID": "b798c638-f894-11ef-aa5e-0a03ba1f52ea",
+    "dispensingUnitsUUID": "b798c638-f894-11ef-aa5e-0a03ba1f52ea",
     "stockItemCategoryUUID": "6a027f44-f54e-11ef-bdcb-866a2ce1d8f0"
   },
   "@pih/esm-commons-app": {
