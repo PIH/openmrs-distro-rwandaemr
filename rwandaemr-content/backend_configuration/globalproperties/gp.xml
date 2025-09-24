@@ -77,7 +77,7 @@
         <!-- Core -->
         <globalProperty>
             <property>patient.listingAttributeTypes</property>
-            <value>Health Facility,Phone number</value>
+            <value>Health Center,Phone number</value>
         </globalProperty>
         <globalProperty>
             <property>default_locale</property>
