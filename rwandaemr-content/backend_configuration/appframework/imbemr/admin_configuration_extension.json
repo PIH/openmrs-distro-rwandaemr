@@ -28,5 +28,25 @@
         "icon": "icon-hospital",
         "requiredPrivilege": "App: coreapps.systemAdministration",
         "order": 96
+    },
+    {
+        "id": "rwandaemr.appFrameworkExpressionTester",
+        "extensionPointId": "systemAdministration.apps",
+        "type": "link",
+        "label": "Require Expression Tester",
+        "url": "pihapps/admin/expressionTester.page",
+        "icon": "fas fa-fw fa-code",
+        "requiredPrivilege": "App: coreapps.systemAdministration",
+        "order": 97
+    },
+    {
+        "id": "rwandaemr.emailConfigurationTest",
+        "extensionPointId": "systemAdministration.apps",
+        "type": "link",
+        "label": "Email Settings",
+        "url": "pihapps/admin/emailTest.page",
+        "icon": "fas fa-fw fa-envelope",
+        "requiredPrivilege": "App: coreapps.systemAdministration",
+        "order": 98
     }
 ]
