@@ -30,6 +30,15 @@
         "order": 96
     },
     {
+        "id": "rwandaemr.adminConfigureLabTests",
+        "extensionPointId": "systemAdministration.apps",
+        "type": "link",
+        "label": "Configure Lab Tests",
+        "url": "rwandaemr/admin/configureLabTests.page",
+        "icon": "fas fa-fw fa-vials",
+        "order": 97
+    },
+    {
         "id": "rwandaemr.appFrameworkExpressionTester",
         "extensionPointId": "systemAdministration.apps",
         "type": "link",
@@ -37,7 +46,7 @@
         "url": "pihapps/admin/expressionTester.page",
         "icon": "fas fa-fw fa-code",
         "requiredPrivilege": "App: coreapps.systemAdministration",
-        "order": 97
+        "order": 200
     },
     {
         "id": "rwandaemr.emailConfigurationTest",
@@ -47,6 +56,6 @@
         "url": "pihapps/admin/emailTest.page",
         "icon": "fas fa-fw fa-envelope",
         "requiredPrivilege": "App: coreapps.systemAdministration",
-        "order": 98
+        "order": 201
     }
 ]
