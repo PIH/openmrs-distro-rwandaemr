@@ -23,8 +23,8 @@
         "id": "rwandaemr.adminConfigureLoginLocations",
         "extensionPointId": "systemAdministration.apps",
         "type": "link",
-        "label": "rwandaemr.admin.configureLoginLocations",
-        "url": "rwandaemr/admin/configureLoginLocations.page",
+        "label": "pihapps.admin.configureLoginLocations",
+        "url": "pihapps/admin/configureLoginLocations.page",
         "icon": "icon-hospital",
         "requiredPrivilege": "App: coreapps.systemAdministration",
         "order": 96
