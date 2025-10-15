@@ -4,7 +4,7 @@
         "extensionPointId": "org.openmrs.module.appui.header.config",
         "type": "config",
         "extensionParams": {
-            "custom-provider": "rwandaemr",
+            "custom-provider": "pihapps",
             "custom-fragment": "header",
             "logo-icon-url": "/ms/uiframework/resource/file/configuration/globalresources/images/rwandaLogo.png"
         }
