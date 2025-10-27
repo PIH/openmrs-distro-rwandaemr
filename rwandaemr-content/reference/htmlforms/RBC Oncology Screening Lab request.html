@@ -24,6 +24,11 @@
         @Provider_Collected_Sample@ = 37ad4306-50b9-4d4c-ab78-a1a77ddd7223
         @Self_Collected_Sample@ = 8b710fc4-efa6-4ee1-b9a8-e2608149d7ff
         @Other_Clinical_Information@ = f07791fa-de5d-4977-916c-35a433bfa280
+        @Other_Sample_ID_code_types@ = 4b7798cb-616d-4916-9c03-25f74b58a5f0
+        @TRACnet_Sample_ID_code@ = 8bfcdab8-3eb0-47c0-86ac-b6600d9f5821
+        @BGI_Sample_ID_code@ = e52e3314-89a1-4af8-907a-24de175a2843
+        @Other_Sample_ID_code@ = 90c2ef4d-e4f3-4ab1-80b8-856dbf1b90e2
+
 
     </macros>
 
@@ -505,10 +510,32 @@ getField('reactionNonCoded3.value')[0].disabled = true;
                 <td>
                     <!--                        <input id="obs.specimenCode" name="obs.specimenCode" type="text"-->
                     <!--                               data-concept="16cd65e3-45af-4291-88fd-fe4d91847e4f^Specimen Code^99DCT">-->
-                        <obs id="specimenCode" conceptId="$@Specimen_Code@" required="true" />
+                        <obs id="specimenCode" conceptId="$@Specimen_Code@"  required="true"/>
 
                     (Fosaid/year(e.g 23 0r 24)/patient number in register)
 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Other sample coder types
+
+                </td>
+                <td>
+                    <obs conceptId="$@Other_Sample_ID_code_types@" answerConceptIds="$@TRACnet_Sample_ID_code@,$@BGI_Sample_ID_code@" answerLabels="TRACnet Sample ID code,BGI Sample ID code" style="radio"/>
+
+                <br/> <br/>
+                    sample code:
+
+                    <obs conceptId="$@Other_Sample_ID_code@"/>
+
+                    <!-- <input id="obs.TRACnetSampleCodeType" name="obs.otherSampleIdCodeTypes" type="radio"
+                       data-concept="4b7798cb-616d-4916-9c03-25f74b58a5f0^Other Sample ID code types^99DCT"
+                       value="8bfcdab8-3eb0-47c0-86ac-b6600d9f5821^TRACnet Sample ID code^99DCT"> TRACnet Sample ID code
+                <br/>
+                <input id="obs.BGISampleCodeType" name="obs.otherSampleIdCodeTypes" type="radio"
+                       data-concept="4b7798cb-616d-4916-9c03-25f74b58a5f0^Other Sample ID code types^99DCT"
+                       value="e52e3314-89a1-4af8-907a-24de175a2843^BGI Sample ID code^99DCT"> BGI Sample ID code -->
                 </td>
             </tr>
 
@@ -529,6 +556,7 @@ getField('reactionNonCoded3.value')[0].disabled = true;
 
 
                     <obs conceptId="$@sampling_method@" answerConceptIds="$@Provider_Collected_Sample@,$@Self_Collected_Sample@" answerLabels="Provider collected sample,Self collected sample" style="radio"/>
+
                 </td>
             </tr>
             <tr>

@@ -38,6 +38,10 @@
         @HPV_73@ = 80ed3ab9-5989-429c-9754-9a1a691ff8bf
         @HPV_82@ = 4ad7e1b2-0444-4f97-9e73-f24b7298c990
         @Other_Sample_ID_code@ = 90c2ef4d-e4f3-4ab1-80b8-856dbf1b90e2
+       @Other_Sample_ID_code_types@ = 4b7798cb-616d-4916-9c03-25f74b58a5f0
+        @TRACnet_Sample_ID_code@ = 8bfcdab8-3eb0-47c0-86ac-b6600d9f5821
+        @BGI_Sample_ID_code@ = e52e3314-89a1-4af8-907a-24de175a2843
+        @Other_Sample_ID_code@ = 90c2ef4d-e4f3-4ab1-80b8-856dbf1b90e2
 
 
     </macros>
@@ -317,8 +321,8 @@
                     else if(!$j("#"+idOfTheClicked ).children().prop("checked")){
 
                         $j("."+titleOfTheClicked).find("input").attr("checked",false);
-                        $j("."+titleOfTheClicked).find("input").val("");
-                        $j("."+titleOfTheClicked).find("select").val("");
+                        // $j("."+titleOfTheClicked).find("input").val("");
+                        // $j("."+titleOfTheClicked).find("select").val("");
                         $j("."+titleOfTheClicked).hide();
                     }
                 });
@@ -331,8 +335,8 @@
                     if($j("#"+idOfTheClicked ).children().prop("checked")){
 
                         $j("."+titleOfTheClicked).find("input").attr("checked",false);
-                        $j("."+titleOfTheClicked).find("input").val("");
-                        $j("."+titleOfTheClicked).find("select").val("");
+                        // $j("."+titleOfTheClicked).find("input").val("");
+                        // $j("."+titleOfTheClicked).find("select").val("");
                         $j("."+titleOfTheClicked).hide();
 
                     }
@@ -349,7 +353,7 @@
     </script>
 
 
-    <postSubmissionAction class="org.openmrs.module.rbcmessaging.util.SendHPVResultMessageOnHtmlFormSubmissionAction"/>
+     <postSubmissionAction class="org.openmrs.module.rbcmessaging.util.SendHPVResultMessageOnHtmlFormSubmissionAction"/>
 
     <section>
         <table border="1" cellspacing="0" cellpadding="6" width="100%">
@@ -431,20 +435,26 @@
                     <br/>
                 </td>
             </tr>
-            <tr>
-                <td>Other sample code</td>
+<tr>
                 <td>
-                    <obs id="specimenCode" conceptId="$@Other_Sample_ID_code@" />
+                    Other sample coder types
 
-<!--                    <label>-->
-<!--                        Other sample code-->
-<!--                    </label>-->
-<!--                    <br/>-->
-<!--                    <label class="font-normal">-->
-<!--                        <input id="obs.OtherSampleIDCode" name="obs.OtherSampleIDCode" type="text"-->
-<!--                               data-concept="90c2ef4d-e4f3-4ab1-80b8-856dbf1b90e2^Other Sample ID code^99DCT">-->
-<!--                    </label>-->
+                </td>
+                <td>
+                    <obs conceptId="$@Other_Sample_ID_code_types@" answerConceptIds="$@TRACnet_Sample_ID_code@,$@BGI_Sample_ID_code@" answerLabels="TRACnet Sample ID code,BGI Sample ID code" style="radio"/>
 
+                <br/> <br/>
+                    sample code:
+
+                    <obs conceptId="$@Other_Sample_ID_code@"/>
+
+                    <!-- <input id="obs.TRACnetSampleCodeType" name="obs.otherSampleIdCodeTypes" type="radio"
+                       data-concept="4b7798cb-616d-4916-9c03-25f74b58a5f0^Other Sample ID code types^99DCT"
+                       value="8bfcdab8-3eb0-47c0-86ac-b6600d9f5821^TRACnet Sample ID code^99DCT"> TRACnet Sample ID code
+                <br/>
+                <input id="obs.BGISampleCodeType" name="obs.otherSampleIdCodeTypes" type="radio"
+                       data-concept="4b7798cb-616d-4916-9c03-25f74b58a5f0^Other Sample ID code types^99DCT"
+                       value="e52e3314-89a1-4af8-907a-24de175a2843^BGI Sample ID code^99DCT"> BGI Sample ID code -->
                 </td>
             </tr>
             <tr>

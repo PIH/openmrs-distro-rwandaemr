@@ -443,8 +443,8 @@
                         else if(!$j("#"+idOfTheClicked ).children().prop("checked")){
 
                             $j("."+titleOfTheClicked).find("input").attr("checked",false);
-                            $j("."+titleOfTheClicked).find("input").val("");
-                            $j("."+titleOfTheClicked).find("select").val("");
+                            // $j("."+titleOfTheClicked).find("input").val("");
+                            // $j("."+titleOfTheClicked).find("select").val("");
                             $j("."+titleOfTheClicked).hide();
                         }
                     });
@@ -463,8 +463,8 @@
                         if($j("#"+idOfTheClicked ).children().prop("checked")){
 
                             $j("."+titleOfTheClicked).find("input").attr("checked",false);
-                            $j("."+titleOfTheClicked).find("input").val("");
-                            $j("."+titleOfTheClicked).find("select").val("");
+                            // $j("."+titleOfTheClicked).find("input").val("");
+                            // $j("."+titleOfTheClicked).find("select").val("");
                             $j("."+titleOfTheClicked).hide();
 
                         }
@@ -639,8 +639,8 @@
             //     alert("Specimen Code is required");
             //     return false;
             // }
-            var VIAScreen = $j("#VIAScreen" ).children().prop("checked");
-            var VIAResults = $j("#VIAResults" ).children().prop("checked");
+            var VIAScreen = $j("#VIAScreen input:checked").length > 0;
+            var VIAResults = $j("#VIAResults input:checked").length > 0;
             if (VIAScreen &#38;&#38; !VIAResults) {
                 alert("VIA results are required");
                 getField('VIAResults.error').html('VIA results are required').show();

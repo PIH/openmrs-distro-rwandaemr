@@ -674,34 +674,40 @@
             <br/>
             <label>
                 Fosaid:
-                <input id = "fosaid" type="text" min="4" max="4" inputmode="numeric" pattern="[0-9]*">
+                <input id = "fosaid" type="text" min="4" max="4" inputmode="numeric" pattern="[0-9]*"/>
                 <br/><br/>
                 Annual patient registration number from the register;
-                <input id="APRNFTR" type="text" min="4" max="4" inputmode="numeric" pattern="[0-9]*">
+                <input id="APRNFTR" type="text" min="4" max="4" inputmode="numeric" pattern="[0-9]*"/>
             </label>
             <br/> <br/>
             <label >
                 Specimen code
                 <input id="obs.specimenCode" name="obs.specimenCode" type="text" disabled="disabled"
-                       data-concept="16cd65e3-45af-4291-88fd-fe4d91847e4f^Specimen Code^99DCT">
+                       data-concept="16cd65e3-45af-4291-88fd-fe4d91847e4f^Specimen Code^99DCT"/>
 
             </label>
             <br/>
             <br/>
             <label>
-                Other sample coder types
+                Other sample code types
             </label>
             <br/>
             <label>
-                <input id="obs.TRACnetSampleCodeType" name="obs.otherSampleIdCodeTypes" type="radio"
+                <input id="TRACnetSampleCodeType" name="otherSampleIdCodeTypes" type="radio"
                        data-concept="4b7798cb-616d-4916-9c03-25f74b58a5f0^Other Sample ID code types^99DCT"
-                       value="8bfcdab8-3eb0-47c0-86ac-b6600d9f5821^TRACnet Sample ID code^99DCT"> TRACnet Sample ID code
-                <br/>
-                <input id="obs.BGISampleCodeType" name="obs.otherSampleIdCodeTypes" type="radio"
+                       value="8bfcdab8-3eb0-47c0-86ac-b6600d9f5821^TRACnet Sample ID code^99DCT"/> 
+                       TRACnet Sample ID code
+                
+            </label>
+            <br/>
+            <label>
+                <input id="BGISampleCodeType" name="otherSampleIdCodeTypes" type="radio"
                        data-concept="4b7798cb-616d-4916-9c03-25f74b58a5f0^Other Sample ID code types^99DCT"
-                       value="e52e3314-89a1-4af8-907a-24de175a2843^BGI Sample ID code^99DCT"> BGI Sample ID code
+                       value="e52e3314-89a1-4af8-907a-24de175a2843^BGI Sample ID code^99DCT"/> 
+                       BGI Sample ID code
 
             </label>
+            
             <br/>
             <label>
                 Other sample code
@@ -941,7 +947,7 @@
                 Indeterminate
             </label>
         </div>
-        <div>
+        <div class="initialHide VIATriageResults">
             <label><u>Type of Transformation zone</u></label>
             <br/>
             <label class="font-normal">
@@ -997,7 +1003,7 @@
     <!--        </div>-->
     <!--    </fieldset>-->
     <fieldset>
-        <div class="section">
+        <div class="section VIATriageResults initialHide">
             <label class="font-normal"> <u><strong> Suspicion of STIs:  </strong> </u> </label>
             <br/>
             <label class="font-normal">
@@ -1033,7 +1039,7 @@
         </div>
     </fieldset>
     <fieldset>
-        <div class="section">
+        <div class="section initialHide VIATriageResults">
             <h3 class="font-normal"> <u>Colposcopy</u> </h3>
 
             <label class="font-normal"> <strong> Colposcopy performed? </strong> </label>
@@ -1117,7 +1123,7 @@
         </div>
     </fieldset>
     <fieldset>
-        <div class="section LevelOfCare VIATriageResults">
+        <div class="section LevelOfCare VIATriageResults initialHide">
             <h3 class="font-normal">Biopsy</h3>
             <br/>
             <label class="font-normal"> <strong> Biopsy performed ? </strong> </label>
