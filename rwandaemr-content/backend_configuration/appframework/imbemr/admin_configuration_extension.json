@@ -23,10 +23,39 @@
         "id": "rwandaemr.adminConfigureLoginLocations",
         "extensionPointId": "systemAdministration.apps",
         "type": "link",
-        "label": "rwandaemr.admin.configureLoginLocations",
-        "url": "rwandaemr/admin/configureLoginLocations.page",
+        "label": "pihapps.admin.configureLoginLocations",
+        "url": "pihapps/admin/configureLoginLocations.page",
         "icon": "icon-hospital",
         "requiredPrivilege": "App: coreapps.systemAdministration",
         "order": 96
+    },
+    {
+        "id": "rwandaemr.adminConfigureLabTests",
+        "extensionPointId": "systemAdministration.apps",
+        "type": "link",
+        "label": "Configure Lab Tests",
+        "url": "rwandaemr/admin/configureLabTests.page",
+        "icon": "fas fa-fw fa-vials",
+        "order": 97
+    },
+    {
+        "id": "rwandaemr.appFrameworkExpressionTester",
+        "extensionPointId": "systemAdministration.apps",
+        "type": "link",
+        "label": "Require Expression Tester",
+        "url": "pihapps/admin/expressionTester.page",
+        "icon": "fas fa-fw fa-code",
+        "requiredPrivilege": "App: coreapps.systemAdministration",
+        "order": 200
+    },
+    {
+        "id": "rwandaemr.emailConfigurationTest",
+        "extensionPointId": "systemAdministration.apps",
+        "type": "link",
+        "label": "Email Settings",
+        "url": "pihapps/admin/emailTest.page",
+        "icon": "fas fa-fw fa-envelope",
+        "requiredPrivilege": "App: coreapps.systemAdministration",
+        "order": 201
     }
 ]

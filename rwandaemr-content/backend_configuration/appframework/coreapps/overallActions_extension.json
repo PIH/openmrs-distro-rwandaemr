@@ -18,6 +18,15 @@
         "order": 1
     },
     {
+        "id": "pihapps.labOrder",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "Lab Orders (New)",
+        "url": "pihapps/labs/labOrders.page?patient={{patient.uuid}}",
+        "icon": "icon-beaker",
+        "order": 1
+    },
+    {
         "id": "referenceapplication.realTime.drugOrder",
         "extensionPointId": "patientDashboard.overallActions",
         "type": "link",
@@ -35,6 +44,15 @@
         "icon": "fas fa-fw fa-x-ray padded-icon",
         "order": 2,
         "requiredPrivilege": "Task: rwandaemr.radiologyorders"
+    },
+    {
+        "id": "rwandaemr.labourCareGuide",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "Labour Care Guide",
+        "url": "rwandaemr/patient/labourCareGuide.page?patientId={{patient.uuid}}",
+        "icon": "fas fa-fw fa-x-ray padded-icon",
+        "order": 2
     },
     {
         "id": "referenceapplication.realTime.medicalHistory",

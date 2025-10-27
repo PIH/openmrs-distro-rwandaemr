@@ -9,11 +9,11 @@
 
         <globalProperty>
             <property>rwandaemr.radiology.supportedModalities</property>
-            <value>CR,CT,US</value>
+            <value>DX,CT,US</value>
         </globalProperty>
 
         <globalProperty>
-            <property>rwandaemr.radiology.orderables.CR</property>
+            <property>rwandaemr.radiology.orderables.DX</property>
             <value>782ca68e-c0c8-40ac-8d08-d6c1f8c5cc00</value>
         </globalProperty>
 
@@ -26,6 +26,29 @@
             <property>rwandaemr.radiology.orderables.US</property>
             <value>5ae0e060-b332-415a-88f9-8bc4a37f8533</value>
         </globalProperty>
+
+        <!-- PIH Apps -->
+
+        <!-- Taken from configuration of laboratorymanagement.labExamCategory -->
+        <globalProperty>
+            <property>orderentryowa.labOrderablesConceptSet</property>
+            <!-- Concept: Rwanda laboratory orderable categories -->
+            <value>305ca264-8cc0-11f0-86e4-5a8274571689</value>
+        </globalProperty>
+
+        <!-- Taken from configuration of laboratorymanagement.labOrderEncounterTypeId -->
+        <globalProperty>
+            <property>orderentryowa.encounterType</property>
+            <value>LAB TEST</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>orderentryowa.encounterRole</property>
+            <value>Clinician</value>
+        </globalProperty>
+
+        <!-- orderentryowa.orderReasonsMap -->
+        <!-- orderentryowa.labOrderAutoExpireTimeInDays -->
 
         <!-- EMR API -->
         <globalProperty>
@@ -54,7 +77,7 @@
         <!-- Core -->
         <globalProperty>
             <property>patient.listingAttributeTypes</property>
-            <value>Health Facility,Phone number</value>
+            <value>Health Center,Phone number</value>
         </globalProperty>
         <globalProperty>
             <property>default_locale</property>

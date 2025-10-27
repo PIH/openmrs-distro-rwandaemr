@@ -11,3 +11,4 @@ c5e6f7g8-h9i0-1234-5ef0-678901234567,org.openmrs.module.emrapi,emr.transferReque
 d039435f-233a-4d0b-a35a-75450b2e65b9,org.openmrs.module.emrapi,emr.bedAssignmentEncounterType,org.openmrs.EncounterType,f47ac10b-58cc-4372-a567-0e02b2c3d479
 e9ae298d-532c-4f72-93c1-a42495270662,org.openmrs.module.emrapi,emr.cancelADTRequestEncounterType,org.openmrs.EncounterType,550e8400-e29b-41d4-a716-446655440000
 c79524fc-13dc-11f0-9de4-cad2519db7b2,org.openmrs.module.emrapi,emr.clinicianEncounterRole,org.openmrs.EncounterRole,240b26f9-dd88-4172-823d-4a8bfeb7841f
+9ee87790-827c-11f0-9a8d-d880837ea3cd,org.openmrs.module.emrapi,emr.extraPatientIdentifierTypes,org.openmrs.module.metadatamapping.MetadataSet,f0ebcb99-7618-41b7-b0bf-8ff93de67b9e

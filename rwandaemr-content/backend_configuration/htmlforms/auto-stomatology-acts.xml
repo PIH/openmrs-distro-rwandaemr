@@ -670,6 +670,7 @@
             </p>
         </div>
     </section>
+    <!--
     <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="STOMATOLOGIE ACTS">
         <div id="stomatologyId" class="section-container">
             <div class="two-columns">
@@ -754,6 +755,64 @@
                 <p class="small-input flexView">
                     <obs conceptId="$@Kystectomie@" labelText="Kystectomie" style="" />
                 </p>
+
+            </div>
+        </div>
+    </section>
+-->
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="STOMATOLOGIE ACTS">
+        <div id="stomatologyId" class="section-container">
+            <div class="two-columns">
+                <p>
+                    <label>
+                        <b>Department</b>
+                    </label>
+                    <obs conceptId="a29f03ad-be6b-4958-b47e-eb9235d364a4"
+                         answerConceptId="e65de509-f9dc-4219-bba2-129e6dd65d01"
+                         required="true"/>
+                </p>
+
+                <p class="small-input flexView"><obs conceptId="c739a6cf-050c-484f-977b-7193f2af8c3f" labelText="Apexification" /></p>
+                <p class="small-input flexView"><obs conceptId="bacd55ba-68c6-4ae9-97d5-2f458353c8e6" labelText="Apexinogenesis" /></p>
+                <p class="small-input flexView"><obs conceptId="9e5faac1-939b-4da8-9213-cd03600d97ae" labelText="Retentive post" /></p>
+                <p class="small-input flexView"><obs conceptId="946634fd-e2cf-41cc-9a3f-dcee17e51f1c" labelText="Core build up" /></p>
+                <p class="small-input flexView"><obs conceptId="8d5a3d3e-246d-4c55-91e6-6c53804fc057" labelText="Composite veneers" /></p>
+                <p class="small-input flexView"><obs conceptId="807ed17c-e5e0-4d91-b72c-1725a9e8608f" labelText="Crown and bridge (per unit)" /></p>
+                <p class="small-input flexView"><obs conceptId="33baf03c-62e3-42a6-99ad-e51f8b17fada" labelText="Curetage of periodontal pocket per quadrant" /></p>
+                <p class="small-input flexView"><obs conceptId="d59dd72a-3629-4e56-9b74-0eb3196def79" labelText="Curretage of alveolar socket per quadrant" /></p>
+                <p class="small-input flexView"><obs conceptId="026a25ab-5cb0-4f1a-879d-5bd7f7e13abe" labelText="Cyst enucleation per quadrant" /></p>
+                <p class="small-input flexView"><obs conceptId="166d3707-3689-4128-b2f1-a25638a6eeed" labelText="Debridement of dry sockets" /></p>
+                <p class="small-input flexView"><obs conceptId="e2109f98-6679-4c70-bce3-8f4f621695a4" labelText="Enameloplasty per tooth" /></p>
+                <p class="small-input flexView"><obs conceptId="464bf8a1-224d-40ba-a447-990f56eda106" labelText="External bleaching - full tray per arch" /></p>
+                <p class="small-input flexView"><obs conceptId="14b9af3f-aa36-48a3-a393-acdaf7b40470" labelText="External bleaching - chairside per arch" /></p>
+                <p class="small-input flexView"><obs conceptId="423ea229-4b3f-4c61-9911-3d9f263bbe4a" labelText="Extraction adult" /></p>
+                <p class="small-input flexView"><obs conceptId="deb299cf-0116-486a-ac6d-94024de54892" labelText="Extraction of an ectopic tooth" /></p>
+                <p class="small-input flexView"><obs conceptId="ab85fd88-c7f0-4c0b-a1cd-74476c4f9b94" labelText="Extraction of ankylosed tooth" /></p>
+                <p class="small-input flexView"><obs conceptId="d4522b08-069e-4064-b685-16bd5a391d27" labelText="Extraction of decidous tooth" /></p>
+                <p class="small-input flexView"><obs conceptId="c35f11dc-314d-46bd-9ed4-db2133a7a00a" labelText="Extraction of fully impacted tooth" /></p>
+                <p class="small-input flexView"><obs conceptId="763183c1-e327-4e6d-96c9-ef7f3330d308" labelText="Extraction of retained root/s" /></p>
+                <p class="small-input flexView"><obs conceptId="fed3dd23-d574-4771-ba89-ed415043c3db" labelText="Fixed orthodontic appliance per arch" /></p>
+                <p class="small-input flexView"><obs conceptId="c01c4e50-9eea-4e7c-a3dc-b7a4ee37443d" labelText="Flouride application" /></p>
+                <p class="small-input flexView"><obs conceptId="6bfa87fc-f556-4e51-a71f-685c2b1bd123" labelText="Frenectomy" /></p>
+                <p class="small-input flexView"><obs conceptId="891692b3-ee89-424d-a657-47db7ff5e37c" labelText="Gingivectomy per quadrant" /></p>
+                <p class="small-input flexView"><obs conceptId="e0e928be-831f-40ca-a4bd-106a066721a4" labelText="Gingivoplasty per quadrant" /></p>
+                <p class="small-input flexView"><obs conceptId="cce98bcc-867f-46e1-9da5-2d44e84ee929" labelText="Gross scaling and polishing per quadrant" /></p>
+                <p class="small-input flexView"><obs conceptId="e17c8b96-9471-4d7c-bd88-9842503c920c" labelText="Incision and drainage of dento alveolar abscess" /></p>
+                <p class="small-input flexView"><obs conceptId="b07a45d7-704c-444d-9607-e20ccd4973c3" labelText="Indirect pulp caping" /></p>
+                <p class="small-input flexView"><obs conceptId="51b29860-6084-459b-8279-eda97d923ddc" labelText="Internal bleaching" /></p>
+                <p class="small-input flexView"><obs conceptId="18a625a7-8b04-4b31-9eea-ff38e1cacb4b" labelText="Permanent filling with composite-large" /></p>
+                <p class="small-input flexView"><obs conceptId="67e91335-015f-47f3-9ed4-44c7ae7595bd" labelText="Permanent filling with composite-medium" /></p>
+                <p class="small-input flexView"><obs conceptId="1d2163ef-090f-42b4-a79f-1771902520ec" labelText="Permanent filling with composite-small" /></p>
+                <p class="small-input flexView"><obs conceptId="94585656-864b-4c81-b621-be24ee133118" labelText="Filling with glass ionomer cement (GIC)-large" /></p>
+                <p class="small-input flexView"><obs conceptId="c7a98ad2-4b89-4b6b-98cf-9c99803833cd" labelText="Filling with glass ionomer cement (GIC)-medium" /></p>
+                <p class="small-input flexView"><obs conceptId="bc7e082d-0f32-49a2-b85a-f8ed0e4695b9" labelText="Filling with glass ionomer cement (GIC)-small" /></p>
+                <p class="small-input flexView"><obs conceptId="d9039972-5653-439f-9336-7923c5088122" labelText="Reconstruction of fractured crown" /></p>
+                <p class="small-input flexView"><obs conceptId="7ee1c201-2312-4852-a9c0-1008c85f4283" labelText="Reimplantation of avulsed tooth" /></p>
+                <p class="small-input flexView"><obs conceptId="02c72226-3865-4170-9389-6170c26b21ec" labelText="Temporary filling with zoe" /></p>
+                <p class="small-input flexView"><obs conceptId="76bae842-6c4b-4be6-8b09-dd1d4a057437" labelText="Panoramic dental radiography" /></p>
+                <p class="small-input flexView"><obs conceptId="3de9d850-4456-49bc-8b82-f8ac55b84b28" labelText="CBCT" /></p>
+                <p class="small-input flexView"><obs conceptId="5a0766a6-ad3c-4e88-8476-252dd0e1209f" labelText="Intra oral peri apical x-ray" /></p>
 
             </div>
         </div>
