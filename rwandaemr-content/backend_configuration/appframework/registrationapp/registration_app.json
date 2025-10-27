@@ -273,7 +273,7 @@
                   "label": "rwandaemr.registration.healthCenter.label",
                   "uuid": "8d87236c-c2cc-11de-8d13-0010c6dffd0f",
                   "widget": {
-                    "providerName": "rwandaemr",
+                    "providerName": "pihapps",
                     "fragmentId": "field/location",
                     "config": {
                       "withTag": "Visit Location",
