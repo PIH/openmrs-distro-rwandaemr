@@ -76,7 +76,7 @@
         <rwandaprimarycareVersion>2.1.0-SNAPSHOT</rwandaprimarycareVersion>
         <rwandareportsVersion>3.0.0-SNAPSHOT</rwandareportsVersion>
         <serializationVersion>0.2.16</serializationVersion>
-        <spaVersion>2.1.0</spaVersion>
+        <spaVersion>2.1.0-SNAPSHOT</spaVersion>
         <syncVersion>3.1.0</syncVersion>
         <uicommonsVersion>2.26.0</uicommonsVersion>
         <uiframeworkVersion>4.0.0</uiframeworkVersion>
