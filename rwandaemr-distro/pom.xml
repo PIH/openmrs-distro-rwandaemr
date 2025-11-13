@@ -47,12 +47,12 @@
         <idgenVersion>4.14.0</idgenVersion>
         <imbpathologyrequestVersion>1.0.0-SNAPSHOT</imbpathologyrequestVersion>
         <initializerVersion>2.10.0-SNAPSHOT</initializerVersion>
-        <laboratorymanagementVersion>2.0.0-SNAPSHOT</laboratorymanagementVersion>
+        <laboratorymanagementVersion>2.1.0-SNAPSHOT</laboratorymanagementVersion>
         <legacyuiVersion>1.23.0</legacyuiVersion>
         <metadatamappingVersion>1.7.0</metadatamappingVersion>
         <metadatasharingVersion>1.10.0</metadatasharingVersion>
         <mohappointmentVersion>2.0.1-SNAPSHOT</mohappointmentVersion>
-        <mohbillingVersion>2.0.2-SNAPSHOT</mohbillingVersion>
+        <mohbillingVersion>2.2.0-SNAPSHOT</mohbillingVersion>
         <mohdataflowmoduleVersion>0.0.5-SNAPSHOT</mohdataflowmoduleVersion>
         <mohtracVersion>2.0.0-SNAPSHOT</mohtracVersion>
         <namephoneticsVersion>1.19.0</namephoneticsVersion>
@@ -60,7 +60,7 @@
         <omodExportVersion>2.1.0</omodExportVersion>
         <orderextensionVersion>3.2.0</orderextensionVersion>
         <owaVersion>1.15.0</owaVersion>
-        <pharmacymanagementVersion>2.0.0-SNAPSHOT</pharmacymanagementVersion>
+        <pharmacymanagementVersion>2.1.0-SNAPSHOT</pharmacymanagementVersion>
         <pihappsVersion>1.1.0-SNAPSHOT</pihappsVersion>
         <providermanagementVersion>2.15.0</providermanagementVersion>
         <registrationappVersion>1.28.1</registrationappVersion>
