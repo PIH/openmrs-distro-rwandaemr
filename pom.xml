@@ -18,6 +18,8 @@
         <module>kirehe-distro</module>
         <module>butaro-content</module>
         <module>butaro-distro</module>
+        <module>rwandamoh-content</module>
+        <module>rwandamoh-distro</module>
     </modules>
 
     <properties>
