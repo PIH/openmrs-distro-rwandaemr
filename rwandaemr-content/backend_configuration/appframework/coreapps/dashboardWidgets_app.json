@@ -124,8 +124,8 @@
         "appId": "coreapps.attachments",
         "extensionPointId": "patientDashboard.secondColumnFragments",
         "extensionParams": {
-          "provider": "attachments",
-          "fragment": "dashboardWidget"
+          "provider": "coreapps",
+          "fragment": "attachments/dashboardWidget"
         },
         "requiredPrivilege": "App: coreapps.attachments"
       }
