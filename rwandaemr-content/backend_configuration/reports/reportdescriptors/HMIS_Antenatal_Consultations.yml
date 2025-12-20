@@ -1,0 +1,25 @@
+key: "HMIS_Antenatal_Consultations"
+uuid: "32e84cf6-d4d6-11f0-9f15-e0db550a4d7c"
+name: "HMIS ANC/CPN Consultations"
+description: "HMIS Antenatal Consultations"
+parameters:
+  - key: "startDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.startDate"
+  - key: "endDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.endDate"
+datasets:
+  - key: "HMIS_Antenatal_Consultations"
+    type: "sql"
+    config: "sql/HMIS_Antenatal_Consultations.sql"
+designs:
+  - type: "excel"
+    template: "templates/HMIS_Antenatal_Consultations.xls"
+    properties:
+      repeatingSections: "sheet:1,dataset:HMIS_Antenatal_Consultations"
+config:
+  category: "dataExport"
+  order: 12
+  components:
+    - "dataExports"
