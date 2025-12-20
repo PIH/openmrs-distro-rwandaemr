@@ -12,7 +12,7 @@
         "id": "referenceapplication.realTime.labOrder",
         "extensionPointId": "patientDashboard.overallActions",
         "type": "link",
-        "label": "Lab Orders",
+        "label": "Lab Results",
         "url": "rwandaemr/patient/labOrders.page?patientId={{patient.uuid}}",
         "icon": "icon-beaker",
         "order": 1
@@ -21,7 +21,7 @@
         "id": "pihapps.labOrder",
         "extensionPointId": "patientDashboard.overallActions",
         "type": "link",
-        "label": "Lab Orders (New)",
+        "label": "Lab Orders",
         "url": "pihapps/labs/labOrders.page?patient={{patient.uuid}}",
         "icon": "icon-beaker",
         "order": 1
