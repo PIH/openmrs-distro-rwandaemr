@@ -143,6 +143,8 @@
 
             @Reasons_for_Referral_In@ = cc227602-a240-43fb-926d-b6ad3f42edab
             @Other_reason_for_referral_in@ = be706af6-f25d-4bfa-aec7-0f6b3ede600e
+            @Axilla_mass@ = fae86544-9032-48e7-accb-44719fad3b7a
+            @focal_breast_pain@ = 8b2ac6f1-1ec1-41b8-9b4c-57fdcf7363fb
 
 
         </macros>
@@ -1312,9 +1314,24 @@
                                     <!--                    <input id="obs.otherDignosis" name="obs.breastClinicalDiagnosis" type="checkbox"-->
                                     <!--                           data-concept="1ed543c7-36ff-4444-bc99-0f01eede9937^Breast diagnosis^99DCT"-->
                                     <!--                           value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">-->
+                                    <obs conceptId="$@Breast_diagnosis@" answerConceptId="$@Axilla_mass@" answerLabel="Axilla mass" />
+
+                                </label>
+                                <label class="font-normal breastClinicalDiagnosisNormal">
+                                    <!--                    <input id="obs.otherDignosis" name="obs.breastClinicalDiagnosis" type="checkbox"-->
+                                    <!--                           data-concept="1ed543c7-36ff-4444-bc99-0f01eede9937^Breast diagnosis^99DCT"-->
+                                    <!--                           value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">-->
+                                    <obs conceptId="$@Breast_diagnosis@" answerConceptId="$@focal_breast_pain@" answerLabel="Focal breast pain" />
+
+                                </label>
+                                <label class="font-normal breastClinicalDiagnosisNormal">
+                                    <!--                    <input id="obs.otherDignosis" name="obs.breastClinicalDiagnosis" type="checkbox"-->
+                                    <!--                           data-concept="1ed543c7-36ff-4444-bc99-0f01eede9937^Breast diagnosis^99DCT"-->
+                                    <!--                           value="3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT">-->
                                     <obs conceptId="$@Breast_diagnosis@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other (specify)" />
 
                                 </label>
+
                                 <!--                <textarea class="form-control" id="obs.otherDignosisText"-->
                                 <!--                          name="obs.otherDignosisText" type="text"  rows="5"-->
                                 <!--                          data-concept="135d1163-d50a-411c-9ea1-530ca2033e10^Other clinical diagnosis, non-coded^99DCT"></textarea>-->
