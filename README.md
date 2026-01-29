@@ -77,7 +77,7 @@ Within this folder, locate the `pom.xml` file and locate the Maven coordinates. 
     <parent>
       <groupId>org.pih.openmrs</groupId>
       <artifactId>rwandaemr</artifactId>
-      <version>3.1.0-SNAPSHOT</version>
+      <version>3.2.0-SNAPSHOT</version>
     </parent>
     
     <artifactId>rwinkwavu-distro</artifactId>
@@ -86,13 +86,13 @@ Within this folder, locate the `pom.xml` file and locate the Maven coordinates. 
 
 The identifier for the distribution is constructed from components of the above as `groupId:artifactId:version`.
 If no specific value for one of these is found, then the value from the `parent` element is used.  So for the example
-shown here, the distribution identifier is:  `org.pih.openmrs:rwinkwavu-distro:3.1.0-SNAPSHOT`
+shown here, the distribution identifier is:  `org.pih.openmrs:rwinkwavu-distro:3.2.0-SNAPSHOT`
 
 * Set up a server using this distribution identifier:  `mvn openmrs-sdk:setup -DserverId=<server_id> -Ddistro=<distro_identifier>`
 
 For example, to set up a distribution for Rwinwavu as shown above into an SDK server named `rwinktest`, you would run a command like:
 
-```mvn openmrs-sdk:setup -DserverId=rwinktest -Ddistro=org.pih.openmrs:rwinkwavu-distro:3.1.0-SNAPSHOT```
+```mvn openmrs-sdk:setup -DserverId=rwinktest -Ddistro=org.pih.openmrs:rwinkwavu-distro:3.2.0-SNAPSHOT```
 
 You would then follow the remaining prompts to set up the server with:
 * Appropriate Tomcat Port (8080 recommended)
