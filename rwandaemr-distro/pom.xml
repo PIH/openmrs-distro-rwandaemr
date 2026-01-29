@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.pih.openmrs</groupId>
         <artifactId>rwandaemr</artifactId>
-        <version>3.1.0-SNAPSHOT</version>
+        <version>3.2.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>rwandaemr-distro</artifactId>
@@ -61,7 +61,7 @@
         <orderextensionVersion>3.2.0</orderextensionVersion>
         <owaVersion>1.15.0</owaVersion>
         <pharmacymanagementVersion>2.1.0-SNAPSHOT</pharmacymanagementVersion>
-        <pihappsVersion>1.1.0-SNAPSHOT</pihappsVersion>
+        <pihappsVersion>1.2.0-SNAPSHOT</pihappsVersion>
         <providermanagementVersion>2.15.0</providermanagementVersion>
         <registrationappVersion>1.28.1</registrationappVersion>
         <registrationcoreVersion>1.13.0</registrationcoreVersion>
@@ -71,7 +71,7 @@
         <reportingrestVersion>1.15.0</reportingrestVersion>
         <reportinguiVersion>1.14.0</reportinguiVersion>
         <rowperpatientreportsVersion>2.0.0</rowperpatientreportsVersion>
-        <rwandaemrVersion>3.1.0-SNAPSHOT</rwandaemrVersion>
+        <rwandaemrVersion>3.2.0-SNAPSHOT</rwandaemrVersion>
         <rwandahivflowsheetVersion>2.1.0</rwandahivflowsheetVersion>
         <rwandaprimarycareVersion>2.1.0-SNAPSHOT</rwandaprimarycareVersion>
         <rwandareportsVersion>3.0.0-SNAPSHOT</rwandareportsVersion>
