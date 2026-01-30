@@ -24,6 +24,12 @@
 
     <properties>
         <sdkVersion>6.1.0</sdkVersion>
+
+        <pihMavenPluginVersion>1.6.0</pihMavenPluginVersion>
+        <dependencyReportClassifier>dependencies</dependencyReportClassifier>
+        <dependencyReportExtension>txt</dependencyReportExtension>
+        <dependenciesFile>${project.build.directory}/${project.artifactId}-${project.version}-${dependencyReportClassifier}.${dependencyReportExtension}</dependenciesFile>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -32,6 +38,19 @@
         <url>https://github.com/pih/openmrs-distro-rwandaemr</url>
         <tag>HEAD</tag>
     </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>openmrs-repo-modules-pih</id>
+            <name>Modules</name>
+            <url>https://openmrs.jfrog.io/artifactory/modules-pih/</url>
+        </repository>
+        <snapshotRepository>
+            <id>openmrs-repo-modules-pih</id>
+            <name>OpenMRS Snapshots</name>
+            <url>https://openmrs.jfrog.io/artifactory/modules-pih-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <repositories>
         <repository>
@@ -86,6 +105,23 @@
                     <configuration>
                         <generateBackupPoms>false</generateBackupPoms>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.pih.maven.plugin</groupId>
+                    <artifactId>pih-maven-plugin</artifactId>
+                    <version>${pihMavenPluginVersion}</version>
+                    <configuration>
+                        <outputFile>${dependenciesFile}</outputFile>
+                        <excludes>org.openmrs.module:pihapps-api</excludes>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>generate-resources</phase>
+                            <goals>
+                                <goal>dependency-report</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
