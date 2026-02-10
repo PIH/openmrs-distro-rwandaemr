@@ -1,0 +1,25 @@
+key: "HMIS_deliveries_at_health_facility"
+uuid: "fd2ea59a-cc3b-11f0-a94e-00410ed10de9"
+name: "HMIS deliveries at health center"
+description: "HMIS deliveries at health center"
+parameters:
+  - key: "startDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.startDate"
+  - key: "endDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.endDate"
+datasets:
+  - key: "HMIS_deliveries_at_health_facility"
+    type: "sql"
+    config: "sql/HMIS_deliveries_at_health_facility.sql"
+designs:
+  - type: "excel"
+    template: "templates/HMIS_deliveries_at_health_facility.xls"
+    properties:
+      repeatingSections: "sheet:1,dataset:HMIS_deliveries_at_health_facility"
+config:
+  category: "dataExport"
+  order: 12
+  components:
+    - "dataExports"

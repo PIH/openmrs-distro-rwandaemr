@@ -1,0 +1,25 @@
+key: "HMIS_hispitalisation"
+uuid: "9a69aa1e-da57-11f0-a932-00410ed10de9"
+name: "HMIS IPD including maternity"
+description: "HMIS Hospitalizations including maternity"
+parameters:
+  - key: "startDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.startDate"
+  - key: "endDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.endDate"
+datasets:
+  - key: "HMIS_hospitalisation"
+    type: "sql"
+    config: "sql/HMIS_hospitalisation.sql"
+designs:
+  - type: "excel"
+    template: "templates/HMIS_hospitalisation.xls"
+    properties:
+      repeatingSections: "sheet:1,dataset:HMIS_hospitalisation"
+config:
+  category: "dataExport"
+  order: 12
+  components:
+    - "dataExports"

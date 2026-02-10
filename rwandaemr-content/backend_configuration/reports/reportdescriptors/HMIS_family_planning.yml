@@ -1,0 +1,25 @@
+key: "HMIS_family_planning"
+uuid: "9a69aa1e-da57-11f0-a932-00410ed10de9"
+name: "HMIS Family Planning"
+description: "HMIS Family Planning"
+parameters:
+  - key: "startDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.startDate"
+  - key: "endDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.endDate"
+datasets:
+  - key: "HMIS_family_planning"
+    type: "sql"
+    config: "sql/HMIS_family_planning.sql"
+designs:
+  - type: "excel"
+    template: "templates/HMIS_family_planning.xls"
+    properties:
+      repeatingSections: "sheet:1,dataset:HMIS_family_planning"
+config:
+  category: "dataExport"
+  order: 12
+  components:
+    - "dataExports"

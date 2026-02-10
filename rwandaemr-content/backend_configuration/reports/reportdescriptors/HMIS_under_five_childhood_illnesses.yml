@@ -1,0 +1,25 @@
+key: "HMIS_under_five_childhood_illnesses"
+uuid: "edbd8a50-d161-11f0-bc18-00410ed10de9"
+name: "HMIS IMNCI/PCIME"
+description: "HMIS Integrated Management of Childhood Illnesses for children under 5"
+parameters:
+  - key: "startDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.startDate"
+  - key: "endDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.endDate"
+datasets:
+  - key: "HMIS_under_five_childhood_illnesses"
+    type: "sql"
+    config: "sql/HMIS_under_five_childhood_illnesses.sql"
+designs:
+  - type: "excel"
+    template: "templates/HMIS_under_five_childhood_illnesses.xls"
+    properties:
+      repeatingSections: "sheet:1,dataset:HMIS_under_five_childhood_illnesses"
+config:
+  category: "dataExport"
+  order: 12
+  components:
+    - "dataExports"
