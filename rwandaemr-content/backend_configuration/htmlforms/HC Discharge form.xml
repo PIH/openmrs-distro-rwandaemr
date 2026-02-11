@@ -232,7 +232,7 @@
                 <obs conceptId="3800" labelText="Date de sortie /Discharge date" />
             </p>
             <p>
-                <obs conceptId="c920931b-fa93-4e99-9e36-28e1e4c16cf7"  labelText="Discharging Service" />
+                <obs conceptId="c920931b-fa93-4e99-9e36-28e1e4c16cf7"  labelText="Discharging Service" required="true" />
             </p>
             <p class="side-by-side">
                 <obs id="patientStatus" conceptId="3627" answerConceptIds="1744,1490,1743,1742,1746,e3e2fb28-450b-4a65-b22f-6ec777c6edb7" labelText="Etat du patient a la sortie/ Patient Status" style="radio">
