@@ -17,5 +17,27 @@
         "requiredPrivilege": "App: registrationapp.registerPatient",
         "icon": "fas fa-fw fa-user",
         "order": 2
+    },
+    {
+        "id": "rwandaemr.labManageApp",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Laboratory Management",
+        "url": "module/laboratorymanagement/viewLabOrder.form",
+        "icon": "icon-beaker",
+        "requiredPrivilege": "App: coreapps.laboratory",
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Laboratory Location')",
+        "order": 7
+    },
+    {
+        "id": "rwandaemr.labPatientReception",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Laboratory Reception",
+        "url": "pihapps/labs/labPatientList.page",
+        "icon": "icon-beaker",
+        "requiredPrivilege": "App: coreapps.laboratory",
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Laboratory Location')",
+        "order": 7
     }
 ]
