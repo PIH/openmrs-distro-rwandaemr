@@ -1,965 +1,1453 @@
-<htmlform 
-	htmlformUuid="20f1eb06-398b-4a4e-b19e-1c860eb20e54" 
-	formUuid="d4142144-5fc4-48e5-a3ee-df2410abc094" 
-	formName="Oncology Outpatient - Clinic visits" 
-	formDescription="Oncology - Outpatient Flow section of Outpatient Clinic visits" 
-	formVersion="0.1" 
-	formEncounterType="ff319885-3f20-4ae5-8663-3ad5678cba41" 
-	formPublished="true" 
-	formRetired="false"
-> <!-- Oncology - Outpatient Flow: Clinic visits
-         Written by jberchmas
-           -->
-    <macros> paperFormId = OutPt
-        Flow_ONCOLOGY_V1.2NT2012June20 copy.doc headerColor =#3333cc;
+<htmlform
+        htmlformUuid="20f1eb06-398b-4a4e-b19e-1c860eb20e54"
+        formUuid="d4142144-5fc4-48e5-a3ee-df2410abc094"
+        formName="Oncology Outpatient - Clinic Visits"
+        formDescription="Oncology Outpatient Flow - Clinic Visits"
+        formVersion="2.0"
+        formEncounterType="ff319885-3f20-4ae5-8663-3ad5678cba41"
+        formPublished="true"
+        formRetired="false"
+>
+    <!--
+        Oncology - Outpatient Clinic Visits
+        Original Author: jberchmas
+        Reformatted: 2025
+    -->
+
+    <macros>
+        headerColor = #009d8e
         fontOnHeaderColor = white
+        cardBackground = #f8fffe
+        borderColor = #e0e0e0
+        labelColor = #555555
 
-
+        <!-- Vitals -->
         @DIASTOLIC_BLOOD_PRESSURE@ = 3ce93694-26fe-102b-80cb-0017a47871b2
         @SYSTOLIC_BLOOD_PRESSURE@ = 3ce934fa-26fe-102b-80cb-0017a47871b2
         @PULSE@ = 3ce93824-26fe-102b-80cb-0017a47871b2
         @TEMPERATURE_(C)@ = 3ce939d2-26fe-102b-80cb-0017a47871b2
+        @RESPIRATORY_RATE@ = 3ceb11f8-26fe-102b-80cb-0017a47871b2
+        @BLOOD_OXYGENATION@ = 3ce9401c-26fe-102b-80cb-0017a47871b2
         @Pain_score@ = 9b461c8e-155a-481c-83a4-1de363f7301e
+        @ECOG@ = 8ad685de-4f19-4b75-b3f1-ee3b06bf05a2
         @NEW_OR_ONGOING_SYMPTOMS@ = 7f3de9e8-7d34-43bf-99fb-ee0ffa42f815
+
+        <!-- Treatment -->
         @Treatment_Intent@ = 74bf3a55-6e92-4b91-86b0-a19345f22ad2
         @Curative@ = 3d996ff0-4990-42d4-a7cf-45ead911d7af
         @Palliative_systemic@ = 0d02a051-9196-4f89-883a-8a443989ed65
         @Palliation@ = 11fbb8e0-e069-4036-9095-56049540ab7c
-        @GENERAL_EXAM_FINDINGS@ = 0adeea3a-15f5-102d-96e4-000c29c2a5d7
-        @NO_DISTRESS@ =91091ccf-5bdb-4074-a68d-43f047e1b5fa
-        @OTHER_NON-CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
-        @OTHER_GENERAL_EXAM_FINDINGS@ = 8d8597b4-0b54-4bc1-a35c-fa06d80e7a2b
-        @CARDIAC_EXAM_FINDINGS@ = 3cd75e9c-26fe-102b-80cb-0017a47871b2
-        @NORMAL@ = 3cd750a0-26fe-102b-80cb-0017a47871b2
-        @ABNORMAL@ = 3cd75230-26fe-102b-80cb-0017a47871b2
-        @CARDIOVASCULA_SYSTEM_COMMENT@ = 3ce6c102-26fe-102b-80cb-0017a47871b2
-        @CHEST_EXAM_FINDINGS@ = 3cd75d0c-26fe-102b-80cb-0017a47871b2
-        @CHEST_EXAM_COMMENTS@ = b5c04602-cc56-4888-b8b5-3e6eebde98ba
-        @LYMPH_NODE_EXAM_FINDINGS@ = 3cd759f6-26fe-102b-80cb-0017a47871b2
-        @LYMPH_NODE_EXAM_COMMENTS@ = 1990ad61-360a-4420-b15b-eebb322b59c7
-        @OTHER_PHYSICAL_EXAMS@ = 29f22e0a-9772-425b-9da1-e5f528ad24d8
-        @RETURN_VISIT_DATE@ = 3ce94df0-26fe-102b-80cb-0017a47871b2
-        @Oncology_Return_visit_locatin@ = 43b71f0b-7012-4df5-b54e-d604b71cc9ab
-        @Oncology_Ward@ = 0161fa23-d8ac-4cc6-a7e5-ad1ae3284b6c
-        @Outpatient_Clinic@ = b0699525-ac50-44da-a1a3-3280beb472fa
-        @PATIENT_PLAN_COMMENTS@ = 3ce88a32-26fe-102b-80cb-0017a47871b2
+
+        <!-- Labs -->
+        @WBC@ = 3cd2a906-26fe-102b-80cb-0017a47871b2
+        @PERCENT_NEUTROPHIL@ = 3cd6a592-26fe-102b-80cb-0017a47871b2
+        @HEMOGLOBIN@ = 3ccc7158-26fe-102b-80cb-0017a47871b2
+        @PLATELETES@ = 3cd3d038-26fe-102b-80cb-0017a47871b2
+        @CREATININE@ = 3cd4374e-26fe-102b-80cb-0017a47871b2
         @ALANINE_AMINOTRANSFERASE@ = 3cd27760-26fe-102b-80cb-0017a47871b2
         @ASPARTATE_AMINOTRANSFERASE@ = 3cd275d0-26fe-102b-80cb-0017a47871b2
         @TOTAL_BILIRUBIN@ = 3cd278fa-26fe-102b-80cb-0017a47871b2
         @DIRECT_BILIRUBIN@ = b01f4fd2-7632-4c94-9481-9ed0d1da1f9a
-        @Chemotherapy_inpatient_ward_visit@=6de4e3ee-fe8d-427e-b38f-1703e80f8513
 
-        @GENERAL_EXAM_FINDINGS@=0adeea3a-15f5-102d-96e4-000c29c2a5d7
-        @WELL_APPEARING@=85a1dd2f-f6ad-438a-b0f4-542b0390b633
-        @ABNORMAL@=3cd75230-26fe-102b-80cb-0017a47871b2
+        <!-- General Exam -->
+        @GENERAL_EXAM_FINDINGS@ = 0adeea3a-15f5-102d-96e4-000c29c2a5d7
+        @NO_DISTRESS@ = 91091ccf-5bdb-4074-a68d-43f047e1b5fa
+        @OTHER_NON-CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
+        @OTHER_GENERAL_EXAM_FINDINGS@ = 8d8597b4-0b54-4bc1-a35c-fa06d80e7a2b
+        @NORMAL@ = 3cd750a0-26fe-102b-80cb-0017a47871b2
+        @ABNORMAL@ = 3cd75230-26fe-102b-80cb-0017a47871b2
+        @NOT_DONE@ = 3cd75550-26fe-102b-80cb-0017a47871b2
+        @NO_ABNORMALITIES@ = 215241b1-0304-4737-9371-b4daf08f6430
 
-        @HEAD_AND_NECK_EXAM@=2296711f-bd41-469b-a539-6d2e4ff6a4d4
-        @NO_ABNORMALITIES@=215241b1-0304-4737-9371-b4daf08f6430
-        @NOT_DONE@=3cd75550-26fe-102b-80cb-0017a47871b2
+        <!-- Head and Neck -->
+        @HEAD_AND_NECK_EXAM@ = 2296711f-bd41-469b-a539-6d2e4ff6a4d4
+        @HEAD_ABNORMAL@ = 3ce400c0-26fe-102b-80cb-0017a47871b2
+        @HEAD_MASS_LOCATION@ = 6223cc85-a8ac-4926-8042-106d89b6eeb4
+        @Head_and_neck_mass_size_(biggest_dimension)@ = aaed818b-4726-40ba-8f0d-56853b8c4ae0
+        @Head_and_neck_mass_size_(smallest_dimension)@ = 87d57fbb-c048-4bd5-a445-6bf57b2c0456
 
-        @CHEST_EXAM@=3cd75d0c-26fe-102b-80cb-0017a47871b2
-        @ABNORMAL_LUNGS@=50e9a27e-f3f0-4d34-9f58-d0ecbd8c5862
-        @ABNORMAL_HEART@=6eaf6ff8-7b76-45a0-9e3b-bae41034ccf2
+        <!-- Chest/Heart -->
+        @CHEST_EXAM_FINDINGS@ = 3cd75d0c-26fe-102b-80cb-0017a47871b2
+        @CHEST_EXAM@ = 3cd75d0c-26fe-102b-80cb-0017a47871b2
+        @CHEST_EXAM_COMMENTS@ = b5c04602-cc56-4888-b8b5-3e6eebde98ba
+        @CARDIAC_EXAM_FINDINGS@ = 3cd75e9c-26fe-102b-80cb-0017a47871b2
+        @CARDIOVASCULA_SYSTEM_COMMENT@ = 3ce6c102-26fe-102b-80cb-0017a47871b2
+        @LUNG_ABNORMALITY_TEXT@ = 617ab83a-11f0-4984-9768-0c89e7f14163
 
-        @BREAST_EXAM@=b46b6dbb-923c-4ede-9ea7-175b2389661f
-        @LEFT_BREAST_MASS@=db9025e0-8eb0-4a6e-b6c5-a27c4acc12df
-        @RIGHT_BREAST_MASS@=79a248a7-02ae-45cf-8764-e2927cba0e8c
-        @SKIN_CHANGES@=5b357578-179a-4ddf-996f-2eb760b092d7
+        <!-- Breast -->
+        @BREAST_EXAM@ = b46b6dbb-923c-4ede-9ea7-175b2389661f
+        @LEFT_BREAST_MASS@ = db9025e0-8eb0-4a6e-b6c5-a27c4acc12df
+        @RIGHT_BREAST_MASS@ = 79a248a7-02ae-45cf-8764-e2927cba0e8c
+        @SKIN_CHANGES@ = 5b357578-179a-4ddf-996f-2eb760b092d7
+        @RIGHT_BREAST_MASS_CONSTRUCT@ = e695754b-1c5f-41a8-9d08-5768b8202648
+        @LEFT_BREAST_MASS_CONSTRUCT@ = 7b9a2f55-d8dd-4e5f-8638-9e212032a14c
+        @MASS_SIZE@ = f174b027-79cf-4ebf-a103-d34b26eacafd
+        @BREAST_MASS_SIZE_2@ = 4946ce9d-11e6-45a6-921e-cfb8baf84458
+        @BREAST_MASS_MOBILITY@ = 13f2f074-3c53-4074-a690-6626220acbdf
+        @MOBILE@ = a0f3848e-5380-4f61-b679-558f881bb4b4
+        @FIXED@ = 5de8377b-6170-4328-895b-f4131b147af2
+        @BREAST_ABNORMALITY_TEXT@ = 2154d209-e4e7-41ce-806a-030d075102b9
 
-        @RIGHT_BREAST_MASS_CONSTRUCT@=e695754b-1c5f-41a8-9d08-5768b8202648
-        @LEFT_BREAST_MASS_CONSTRUCT@=7b9a2f55-d8dd-4e5f-8638-9e212032a14c
-        @MASS_SIZE@=f174b027-79cf-4ebf-a103-d34b26eacafd
-        @BREAST_MASS_SIZE_2@=4946ce9d-11e6-45a6-921e-cfb8baf84458
-        @BREAST_MASS_MOBILITY@=13f2f074-3c53-4074-a690-6626220acbdf
-        @MOBILE@=a0f3848e-5380-4f61-b679-558f881bb4b4
-        @FIXED@=5de8377b-6170-4328-895b-f4131b147af2
-        @BREAST_ABNORMALITY_TEXT@=2154d209-e4e7-41ce-806a-030d075102b9
-
-
-        @ABDOMINAL_EXAM@=3cd76054-26fe-102b-80cb-0017a47871b2
-        @ASCITES@=3cd1fce0-26fe-102b-80cb-0017a47871b2
-        @ABDOMINAL_TENDERNESS@=3ce95c1e-26fe-102b-80cb-0017a47871b2
-        @SPLENOMEGALY@=3ce8b2fa-26fe-102b-80cb-0017a47871b2
-        @HEPATOMEGALY@=3ce8b08e-26fe-102b-80cb-0017a47871b2
-        @ABDOMINAL_MASS@=3ce958fe-26fe-102b-80cb-0017a47871b2
-        @ABDOMINAL_TENDERNESS_LOCATION@=e0e59cba-eef9-409c-bb5e-c7731218a0ad
-        @LLQ@=3ce95a8e-26fe-102b-80cb-0017a47871b2
-        @RLQ@=c7acf771-4959-4b56-aa66-a7a20abf6469
-        @LUQ@=06b9caa3-907c-493e-bd33-be63c089376c
-        @RUQ@=3ce95f48-26fe-102b-80cb-0017a47871b2
-        @SPLENOMEGALY_SIZE@=43c0e966-ff43-4ca4-a666-a8fe3cc0d38d
-        @HEPATOMEGALY_SIZE@=ff3b71b6-9657-4eb1-a031-c3a8879a0601
-        @ABDOMINAL_MASS_LOCATION@=29074fef-9f6e-4015-a7d0-6a842e01a100
-        @ABDOMINAL_MASS_SIZE_(biggest_dimension)@=5252b973-e57a-4df6-bdfd-8c6c3c33f925
+        <!-- Abdomen -->
+        @ABDOMINAL_EXAM@ = 3cd76054-26fe-102b-80cb-0017a47871b2
+        @ASCITES@ = 3cd1fce0-26fe-102b-80cb-0017a47871b2
+        @ABDOMINAL_TENDERNESS@ = 3ce95c1e-26fe-102b-80cb-0017a47871b2
+        @SPLENOMEGALY@ = 3ce8b2fa-26fe-102b-80cb-0017a47871b2
+        @HEPATOMEGALY@ = 3ce8b08e-26fe-102b-80cb-0017a47871b2
+        @ABDOMINAL_MASS@ = 3ce958fe-26fe-102b-80cb-0017a47871b2
+        @ABDOMINAL_TENDERNESS_LOCATION@ = e0e59cba-eef9-409c-bb5e-c7731218a0ad
+        @LLQ@ = 3ce95a8e-26fe-102b-80cb-0017a47871b2
+        @RLQ@ = c7acf771-4959-4b56-aa66-a7a20abf6469
+        @LUQ@ = 06b9caa3-907c-493e-bd33-be63c089376c
+        @RUQ@ = 3ce95f48-26fe-102b-80cb-0017a47871b2
+        @SPLENOMEGALY_SIZE@ = 43c0e966-ff43-4ca4-a666-a8fe3cc0d38d
+        @HEPATOMEGALY_SIZE@ = ff3b71b6-9657-4eb1-a031-c3a8879a0601
+        @ABDOMINAL_MASS_LOCATION@ = 29074fef-9f6e-4015-a7d0-6a842e01a100
+        @ABDOMINAL_MASS_SIZE_(biggest_dimension)@ = 5252b973-e57a-4df6-bdfd-8c6c3c33f925
         @Abdominal_mass_size_(smallest_dimension)@ = db67763c-dc46-40b1-ac32-c116aa0dc7bc
 
-
-        @EXTREMITY_EXAM@=3cd7637e-26fe-102b-80cb-0017a47871b2
-        @NO_EDEMA@=824e8df3-27e9-4e2e-b61a-942b1fc9a48b
-        @EDEMA@=3cd12a04-26fe-102b-80cb-0017a47871b2
-        @1@=596daaf5-3d0b-4ddc-a848-1732d70b5962
-        @2@=bff8b23f-0d4b-4606-9e72-88c9b401f4d2
-        @3@=ed34b78a-e029-4711-a2a0-7cad6160c89c
-        @EXTREMITY_MASS_LOCATION@=2ff86957-70b5-4b97-9894-0abf03bce4fb
-        @Extremity_mass_size_(biggest_dimension)@=b17c406d-cb99-42d4-beb0-f9fc6b353bf8
+        <!-- Extremities -->
+        @EXTREMITY_EXAM@ = 3cd7637e-26fe-102b-80cb-0017a47871b2
+        @NO_EDEMA@ = 824e8df3-27e9-4e2e-b61a-942b1fc9a48b
+        @EDEMA@ = 3cd12a04-26fe-102b-80cb-0017a47871b2
+        @1@ = 596daaf5-3d0b-4ddc-a848-1732d70b5962
+        @2@ = bff8b23f-0d4b-4606-9e72-88c9b401f4d2
+        @3@ = ed34b78a-e029-4711-a2a0-7cad6160c89c
+        @EXTREMITY_MASS_LOCATION@ = 2ff86957-70b5-4b97-9894-0abf03bce4fb
+        @Extremity_mass_size_(biggest_dimension)@ = b17c406d-cb99-42d4-beb0-f9fc6b353bf8
         @Extremity_mass_size_(smallest_dimension)@ = 27544757-e406-4eb4-8420-1ed86f84e979
-        @EXTREMITY_ABNORMALITY_TEXT@=4385ef3f-a1f2-4571-aaf2-32fda622ec36
+        @EXTREMITY_ABNORMALITY_TEXT@ = 4385ef3f-a1f2-4571-aaf2-32fda622ec36
+        @GROWTH@ = f148c08d-476c-4fa8-9be3-1c6befab28f3
 
+        <!-- Nervous System -->
+        @NERVOUS_SYSTEM_EXAM@ = ab94b7c4-eeed-4f05-807c-8db9ab9bd0aa
+        @NERVOUS_ABNORMALITY@ = bebc7324-ab19-4297-8b87-a931c3bc4f42
 
-        @NERVOUS_SYSTEM_EXAM@=ab94b7c4-eeed-4f05-807c-8db9ab9bd0aa
-        @NERVOUS_ABNORMALITY@=bebc7324-ab19-4297-8b87-a931c3bc4f42
+        <!-- Skin -->
+        @SKIN_EXAM@ = 3cd75866-26fe-102b-80cb-0017a47871b2
+        @NODULES@ = 3adc1343-f0aa-4abb-b6ec-5d83f56893c0
+        @SKIN_ABNORMALITY_TEXT@ = bf745c5b-25c1-4fd9-ada7-aac9e9420d00
+        @NODULE_SIZE@ = 07799c93-0304-48da-a499-b57ef5655418
+        @NODULE_DISTRIBUTION@ = e28116b1-578c-49f5-afa7-40a8fdc8d9e6
 
-        @SKIN_EXAM@=3cd75866-26fe-102b-80cb-0017a47871b2
-        @NODULES@=3adc1343-f0aa-4abb-b6ec-5d83f56893c0
-        @SKIN_ABNORMALITY_TEXT@=bf745c5b-25c1-4fd9-ada7-aac9e9420d00
-        @NODULE_SIZE@=07799c93-0304-48da-a499-b57ef5655418
-        @NODULE_DISTRIBUTION@=e28116b1-578c-49f5-afa7-40a8fdc8d9e6
+        <!-- Lymph Nodes -->
+        @LYMPH_NODE_EXAM_FINDINGS@ = 3cd759f6-26fe-102b-80cb-0017a47871b2
+        @LYMPH_NODE_EXAM@ = 3cd759f6-26fe-102b-80cb-0017a47871b2
+        @NO_LYMPHADENOPATHY@ = a3635bdc-5606-40ed-ae3f-f5b36ffeea9a
+        @LYMPHADENOPATHY@ = 3cce4c76-26fe-102b-80cb-0017a47871b2
+        @LYMPHADENOPATHY_CODED@ = 2344488e-9a8f-4a16-9c2e-e6454e22dbc1
+        @CERVICAL@ = 3cd265f4-26fe-102b-80cb-0017a47871b2
+        @SUBMANDIBULAR@ = 3cd16f46-26fe-102b-80cb-0017a47871b2
+        @SUPRACLAVICULAR@ = 3cd170d6-26fe-102b-80cb-0017a47871b2
+        @INFRACLAVICULAR@ = 34434be6-bbd2-4809-bf34-5647d2b4885b
+        @AXILLARY@ = 3ce9672c-26fe-102b-80cb-0017a47871b2
+        @INGUINAL@ = 3cd17266-26fe-102b-80cb-0017a47871b2
+        @OTHER_LYMPHADENOPATHY@ = 631f80a0-4b9a-4c59-aec4-a8e67d55a1ec
+        @LYMPH_NODE_EXAM_COMMENTS@ = 1990ad61-360a-4420-b15b-eebb322b59c7
 
-        @LYMPH_NODE_EXAM@=3cd759f6-26fe-102b-80cb-0017a47871b2
-        @NO_LYMPHADENOPATHY@=a3635bdc-5606-40ed-ae3f-f5b36ffeea9a
-        @LYMPHADENOPATHY@=3cce4c76-26fe-102b-80cb-0017a47871b2
-        @LYMPHADENOPATHY_CODED@=2344488e-9a8f-4a16-9c2e-e6454e22dbc1
-        @CERVICAL@=3cd265f4-26fe-102b-80cb-0017a47871b2
-        @SUBMANDIBULAR@=3cd16f46-26fe-102b-80cb-0017a47871b2
-        @SUPRACLAVICULAR@=3cd170d6-26fe-102b-80cb-0017a47871b2
-        @INFRACLAVICULAR@=34434be6-bbd2-4809-bf34-5647d2b4885b
-        @AXILLARY@=3ce9672c-26fe-102b-80cb-0017a47871b2
-        @INGUINAL@=3cd17266-26fe-102b-80cb-0017a47871b2
-        @OTHER_LYMPHADENOPATHY@=631f80a0-4b9a-4c59-aec4-a8e67d55a1ec
-
-
-        @GENITAL_EXAM@=78f295bb-31d8-4bb1-9688-589acf7dfa7a
-        @GENITAL_ABNORMALITIES@=fe7a3ff3-420a-4713-a69c-daabd0b147b1
-        @GENITAL_ABNORMALITIES_TEXT@=0219e809-d3d2-462f-8418-9fef24c2438c
-        @CERVICAL_LESION@=c2cf5d33-5c73-4dff-a1d2-1ce023ce3e9f
-        @LESION_SIZE_(largest_dimension)@=566aec6e-5e60-4439-8864-5ef7a71cd700
-        @LESION_SIZE_(smallest_dimension)@ = 6bcaf7ea-ce45-4fb4-8951-1865c5a68533
-        @VAGINAL_INVOLVEMENT@=099d5db1-5c90-4717-86f0-189aa22944c6
-        @PARAMETRIAL_INVOLVEMENT@=e1c33276-d7ce-4dee-977e-a9927e9e8e0a
-        @PELVIC_INVOLVEMENT@=827c4a9f-639b-4593-aac9-68c8695d29b7
-        @RECTAL_INVOLVEMENT@=92e3d213-50a1-41a6-a8d5-e4661f77d0f7
-        @Body_surface_area@ = b7eb9d2f-0642-4984-8778-ba603e703a38
+        <!-- Genital -->
+        @GENITAL_EXAM@ = 78f295bb-31d8-4bb1-9688-589acf7dfa7a
+        @GENITAL_ABNORMALITIES@ = fe7a3ff3-420a-4713-a69c-daabd0b147b1
+        @GENITAL_ABNORMALITIES_TEXT@ = 0219e809-d3d2-462f-8418-9fef24c2438c
+        @CERVICAL_LESION@ = c2cf5d33-5c73-4dff-a1d2-1ce023ce3e9f
         @Visible_cervical_lesion@ = c2cf5d33-5c73-4dff-a1d2-1ce023ce3e9f
+        @LESION_SIZE_(largest_dimension)@ = 566aec6e-5e60-4439-8864-5ef7a71cd700
+        @LESION_SIZE_(smallest_dimension)@ = 6bcaf7ea-ce45-4fb4-8951-1865c5a68533
+        @VAGINAL_INVOLVEMENT@ = 099d5db1-5c90-4717-86f0-189aa22944c6
+        @PARAMETRIAL_INVOLVEMENT@ = e1c33276-d7ce-4dee-977e-a9927e9e8e0a
+        @PELVIC_INVOLVEMENT@ = 827c4a9f-639b-4593-aac9-68c8695d29b7
+        @RECTAL_INVOLVEMENT@ = 92e3d213-50a1-41a6-a8d5-e4661f77d0f7
 
-        @HEAD_ABNORMAL@=3ce400c0-26fe-102b-80cb-0017a47871b2
-        @HEAD_MASS_LOCATION@=6223cc85-a8ac-4926-8042-106d89b6eeb4
-        @Head_and_neck_mass_size_(biggest_dimension)@=aaed818b-4726-40ba-8f0d-56853b8c4ae0
-        @Head_and_neck_mass_size_(smallest_dimension)@ = 87d57fbb-c048-4bd5-a445-6bf57b2c0456
-        @LUNG_ABNORMALITY_TEXT@=617ab83a-11f0-4984-9768-0c89e7f14163
+        <!-- Other Exam -->
+        @OTHER_PHYSICAL_EXAMS@ = 29f22e0a-9772-425b-9da1-e5f528ad24d8
 
-        @GROWTH@=f148c08d-476c-4fa8-9be3-1c6befab28f3
-		
-		@RESPIRATORY_RATE@=3ceb11f8-26fe-102b-80cb-0017a47871b2
-		@BLOOD_OXYGENATION@=3ce9401c-26fe-102b-80cb-0017a47871b2
-		@ECOG@=8ad685de-4f19-4b75-b3f1-ee3b06bf05a2
-		@WBC@=3cd2a906-26fe-102b-80cb-0017a47871b2<!--WBC-->
-		@PERCENT_NEUTROPHIL@=3cd6a592-26fe-102b-80cb-0017a47871b2<!--%Neutrophil-->
-		@HEMOGLOBIN@=3ccc7158-26fe-102b-80cb-0017a47871b2<!--Hemoglobin-->
-		@PLATELETES@=3cd3d038-26fe-102b-80cb-0017a47871b2
-		@CREATININE@=3cd4374e-26fe-102b-80cb-0017a47871b2
+        <!-- Plan -->
+        @PATIENT_PLAN_COMMENTS@ = 3ce88a32-26fe-102b-80cb-0017a47871b2
 
-         <!--Drugs-->
+        <!-- Next Visit -->
+        @Outpatient_visit_Rwanda_Cancer_Center_Rwanda_Military_Hospital@ = 8eba01f9-2ea0-49d0-b61b-8d6001e2ff7b
+        @Peciatric_Non_chemotherapy@ = 8c3b045a-aa94-4361-b2e9-8a80c26ccede
+        @Pediatric_Chemotherapy@ = 5efb51db-4e71-497d-822c-91501ac167f6
+
+        <!-- Drugs -->
         @Imatinib_400mg@ = 230e3825-1cc3-42f2-83a6-435f66ab9bd2
-		@Tamoxifen_20mg@ = 3d1dad79-1669-4557-9a5c-a64ea9b36bcb
-		@Letrozole_2.5mg@ = aa620ddd-985c-440b-a162-edfb66971d89
-		@Methotrexate_0.4mg_kg@ = d61352d6-f7e6-4753-ab94-9df01303360d
-		@Chlorambucil_0.4_mg_kg@ = 6718feec-18b4-4b79-a63b-2427284114a6
-		@Melphalan_9mg_m2@ = 0ec660c3-acf9-449a-8f5e-b899cecfa979
-		@Prednisolone_60mg_m2@ = d33780db-3ef6-4d35-a1cb-5b072c9d20ed
-		@Capecitabine_1000_mg_m2@ = 4b79e0f1-e698-457c-83f9-a3d4ec3cd459
-		@Hydrea_500mg@ = 96acb9f5-2021-4d8b-8a08-434276ef4c4b
+        @Tamoxifen_20mg@ = 3d1dad79-1669-4557-9a5c-a64ea9b36bcb
+        @Letrozole_2.5mg@ = aa620ddd-985c-440b-a162-edfb66971d89
+        @Methotrexate_0.4mg_kg@ = d61352d6-f7e6-4753-ab94-9df01303360d
+        @Chlorambucil_0.4_mg_kg@ = 6718feec-18b4-4b79-a63b-2427284114a6
+        @Melphalan_9mg_m2@ = 0ec660c3-acf9-449a-8f5e-b899cecfa979
+        @Prednisolone_60mg_m2@ = d33780db-3ef6-4d35-a1cb-5b072c9d20ed
+        @Capecitabine_1000_mg_m2@ = 4b79e0f1-e698-457c-83f9-a3d4ec3cd459
+        @Hydrea_500mg@ = 96acb9f5-2021-4d8b-8a08-434276ef4c4b
         @Hydrea_1000mg@ = ae4ccd72-f6a3-47b3-bfd4-d92f6f18fb25
-		@Allopurinol_100mg@ = 09ae5248-a321-4438-9409-f471c0bc6f3a
-		@Allopurinol_300mg@ = cb1f48c9-0801-48f4-81b4-b96be6076a9f
-		@Methotrexate_20mg_m2@=c63a4426-a504-4f7c-917d-8b980cba6429
-		@6-Mercaptopurine_75mg_m2@=f9e4d4f1-8266-42ee-bd39-0d74e3bb4ada
-		@Dexamethasone_6mg_m2@=62108686-2f18-4e81-8b11-135784241d83
-		@REASON_ORDER_STOPPED@=3cde6070-26fe-102b-80cb-0017a47871b2
-@Outpatient_visit_Rwanda_Cancer_Center_Rwanda_Military_Hospital@ = 8eba01f9-2ea0-49d0-b61b-8d6001e2ff7b
-		@Peciatric_Non_chemotherapy@ = 8c3b045a-aa94-4361-b2e9-8a80c26ccede
-		@Pediatric_Chemotherapy@ = 5efb51db-4e71-497d-822c-91501ac167f6
-		@Intake_Visit@= 3ce49ada-26fe-102b-80cb-0017a47871b2
-
-
+        @Allopurinol_100mg@ = 09ae5248-a321-4438-9409-f471c0bc6f3a
+        @Allopurinol_300mg@ = cb1f48c9-0801-48f4-81b4-b96be6076a9f
+        @Methotrexate_20mg_m2@ = c63a4426-a504-4f7c-917d-8b980cba6429
+        @6-Mercaptopurine_75mg_m2@ = f9e4d4f1-8266-42ee-bd39-0d74e3bb4ada
+        @Dexamethasone_6mg_m2@ = 62108686-2f18-4e81-8b11-135784241d83
+        @REASON_ORDER_STOPPED@ = 3cde6070-26fe-102b-80cb-0017a47871b2
     </macros>
+
     <style>
-        .formName {
-        background-color: #009d8e;
+        /* ===== Base Reset and Typography ===== */
+        .htmlform {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #ffffff;
         }
 
-        .section {
-        border: 1px solid #3333cc;
-        width: 100%;
-        padding: 2px;
-        text-align: left;
+        /* ===== Header Section ===== */
+        .form-header {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: $fontOnHeaderColor;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+        }
+
+        .form-header-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        }
+
+        .form-header-logo {
+        width: 60px;
+        height: auto;
+        }
+
+        .form-header-title h1 {
+        margin: 0 0 4px 0;
+        font-size: 20px;
+        font-weight: 600;
+        }
+
+        .form-header-title h2 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+        opacity: 0.9;
+        }
+
+        .form-header-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        }
+
+        /* ===== Patient Info ===== */
+        .patient-info-bar {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        }
+
+        .patient-ids {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 12px;
+        margin-bottom: 12px;
+        }
+
+        .patient-id-item {
+        font-size: 12px;
+        }
+
+        .patient-id-label {
+        color: $labelColor;
+        font-weight: 500;
+        }
+
+        .patient-id-value {
+        font-weight: 600;
+        color: #333;
+        }
+
+        .patient-name-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding-top: 12px;
+        border-top: 1px solid $borderColor;
+        }
+
+        /* ===== Encounter Info ===== */
+        .encounter-info-bar {
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        }
+
+        .info-item {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .info-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: $labelColor;
+        margin-bottom: 4px;
+        }
+
+        .info-value {
+        font-size: 14px;
+        font-weight: 500;
+        }
+
+        /* ===== Section Cards ===== */
+        .section-card {
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-header {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: $fontOnHeaderColor;
+        padding: 14px 20px;
+        font-size: 15px;
+        font-weight: 600;
+        }
+
+        .section-content {
+        padding: 20px;
+        }
+
+        /* ===== Vitals Grid ===== */
+        .vitals-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 12px;
+        }
+
+        .vital-item {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 12px;
+        text-align: center;
+        }
+
+        .vital-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $labelColor;
+        margin-bottom: 8px;
+        }
+
+        .vital-input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        }
+
+        .vital-input input {
+        width: 60px;
+        padding: 6px;
+        border: 1px solid #d1d5db;
+        border-radius: 4px;
+        text-align: center;
+        font-size: 14px;
+        }
+
+        .vital-unit {
+        font-size: 12px;
+        color: $labelColor;
+        }
+
+        /* ===== Labs Grid ===== */
+        .labs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 12px;
+        margin-top: 16px;
+        }
+
+        .lab-item {
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        }
+
+        .lab-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: $headerColor;
+        margin-bottom: 6px;
+        }
+
+        /* ===== LFT Panel ===== */
+        .lft-panel {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 12px;
+        margin-top: 16px;
+        }
+
+        .lft-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: $headerColor;
         margin-bottom: 10px;
         }
 
-        .sectionHeader {
-        background-color: #009d8e;;
-        color: white;
-        display: block;
-        padding: 2px;
-        font-weight: bold;
+        .lft-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
         }
 
-        table.symptoms th {
-        text-align: right;
+        .lft-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
         }
 
-        .note {
-        color: red;
-        }
-        .disabled {
-        color: #D8D8D8;
+        .lft-item label {
+        min-width: 80px;
+        color: $labelColor;
         }
 
-        td {
-        vertical-align: top;
+        /* ===== Visit Type and Treatment Intent ===== */
+        .visit-type-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
         }
 
-        table.labTable td {
-        color: red;
+        .visit-type-label {
+        font-weight: 600;
+        min-width: 120px;
         }
 
-        table.labTable
-        td.dateField {
-        text-align: right;
+        .visit-type-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
         }
 
-        table.identifierTable td {
-        padding-right: 10px;
-        }
-
-        div.paddedTable span {
-        padding-right: 20px;
-        }
-
-        table {
+        /* ===== Physical Exam Table ===== */
+        .exam-table {
+        width: 100%;
         border-collapse: collapse;
         }
+
+        .exam-table th {
+        background: $headerColor;
+        color: white;
+        padding: 10px 12px;
+        text-align: left;
+        font-size: 13px;
+        font-weight: 600;
+        }
+
+        .exam-table td {
+        padding: 12px;
+        border-bottom: 1px solid $borderColor;
+        vertical-align: top;
+        font-size: 13px;
+        }
+
+        .exam-table tr:hover {
+        background: #f9fffe;
+        }
+
+        .exam-area {
+        font-weight: 600;
+        color: #333;
+        min-width: 120px;
+        }
+
+        .exam-not-done {
+        font-size: 12px;
+        color: $labelColor;
+        margin-top: 4px;
+        }
+
+        .exam-normal, .exam-abnormal {
+        min-width: 150px;
+        }
+
+        .exam-detail {
+        margin-top: 8px;
+        padding-left: 20px;
+        font-size: 12px;
+        }
+
+        .exam-detail-item {
+        margin-bottom: 6px;
+        }
+
+        .size-inputs {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-left: 8px;
+        }
+
+        .size-inputs input {
+        width: 50px;
+        padding: 4px;
+        border: 1px solid #d1d5db;
+        border-radius: 4px;
+        font-size: 12px;
+        }
+
+        /* ===== Cancer Progression ===== */
+        .progression-card {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 16px;
+        }
+
+        .progression-title {
+        font-weight: 600;
+        margin-bottom: 12px;
+        }
+
+        .progression-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        }
+
+        /* ===== Next Visit Cards ===== */
+        .next-visit-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 16px;
+        }
+
+        .next-visit-card {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 10px;
+        padding: 16px;
+        }
+
+        .next-visit-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: $headerColor;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid $headerColor;
+        }
+
+        .next-visit-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 13px;
+        }
+
+        .next-visit-item:last-child {
+        border-bottom: none;
+        }
+
+        /* ===== Drug Order ===== */
+        .drug-order-section {
+        background: #f9fafb;
+        border: 2px dashed #d1d5db;
+        border-radius: 10px;
+        padding: 20px;
+        }
+
+        .orderwidget-drug-section {
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px;
+        margin-top: 12px;
+        }
+
+        .order-field {
+        display: inline-block;
+        margin-right: 16px;
+        margin-bottom: 12px;
+        }
+
+        .order-field.action {
+        display: block;
+        margin-bottom: 16px;
+        }
+
+        .order-field-label {
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+        color: $labelColor;
+        margin-bottom: 4px;
+        }
+
+        /* ===== Notes ===== */
+        .note-box {
+        background: #fff8e6;
+        border: 1px solid #ffd666;
+        border-left: 4px solid #faad14;
+        border-radius: 6px;
+        padding: 12px 16px;
+        margin-top: 16px;
+        font-size: 13px;
+        }
+
+        /* ===== Submit ===== */
+        .submit-section {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid $borderColor;
+        text-align: center;
+        }
+
+        .submit-section input[type="submit"] {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: white;
+        border: none;
+        padding: 14px 48px;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-section input[type="submit"]:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 157, 142, 0.3);
+        }
+
+        /* ===== Utility ===== */
+        .hidden { display: none; }
+        .value { font-weight: 500; }
+        .divider { height: 1px; background: $borderColor; margin: 16px 0; }
+
+        /* ===== Print ===== */
+        @media print {
+        .form-header, .section-header, .exam-table th {
+        background: #009d8e !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        }
+        .submit-section { display: none; }
+        }
     </style>
+
     <script type="text/javascript">
-	if (jQuery) {
-		$j(document)
-				.ready(
-						function() {
-							if ($j.browser.msie) {
-								$j(":checkbox").click(function() {
-									$j(this).change();
-								});
-							}
-							$j(".enableDisable").each(
-									function() {
-										var group = $j(this);
-										function disableFn() {
-											group.children("#disabled").fadeTo(
-													250, 0.33);
-											group.children("#disabled").find(
-													":checkbox").attr(
-													"checked", false); //uncheck
-											group.children("#disabled").find(
-													"input[type$='text']").val(
-													"");
-											group.children("#disabled").find(
-													"input").attr("disabled",
-													true); //disable
-										}
-										function enableFn() {
-											group.children("#disabled").fadeTo(
-													250, 1);
-											group.children("#disabled").find(
-													"input").attr("disabled",
-													false);
-										}
-										disableFn();
-										$j(this).children("#trigger").find(
-												":checkbox:first").change(
-												function() {
-													var checked = $j(this)
-															.attr("checked");
-													if (checked == true) {
-														enableFn();
-													} else {
-														disableFn();
-													}
-												});
-									});
+        if (jQuery) {
+        $j(document).ready(function() {
+        // Enable/disable checkbox group functionality
+        $j(".enableDisable").each(function() {
+        var group = $j(this);
+        function disableFn() {
+        group.children("#disabled").fadeTo(250, 0.33);
+        group.children("#disabled").find(":checkbox").attr("checked", false);
+        group.children("#disabled").find("input[type$='text']").val("");
+        group.children("#disabled").find("input").attr("disabled", true);
+        }
+        function enableFn() {
+        group.children("#disabled").fadeTo(250, 1);
+        group.children("#disabled").find("input").attr("disabled", false);
+        }
+        disableFn();
+        $j(this).children("#trigger").find(":checkbox:first").change(function() {
+        var checked = $j(this).attr("checked");
+        if (checked == true) {
+        enableFn();
+        } else {
+        disableFn();
+        }
+        });
+        });
 
-							$j(".checkboxGroup")
-									.each(
-											function() {
-												var group = $j(this);
-												var uncheckAll = function() {
-													group
-															.find(
-																	"input[type$='checkbox']")
-															.attr("checked",
-																	false);
-													group
-															.find(
-																	"input[type$='checkbox']")
-															.change();
-												}
-												var uncheckRadioAndAll = function() {
-													group
-															.find(
-																	"#checkboxAll,#checkboxRadio")
-															.find(
-																	"input[type$='checkbox']")
-															.attr("checked",
-																	false);
-													group
-															.find(
-																	"#checkboxAll,#checkboxRadio")
-															.find(
-																	"input[type$='checkbox']")
-															.change();
-												}
+        // Checkbox group radio behavior
+        $j(".checkboxGroup").each(function() {
+        var group = $j(this);
+        var uncheckAll = function() {
+        group.find("input[type$='checkbox']").attr("checked", false);
+        group.find("input[type$='checkbox']").change();
+        }
+        group.find("#checkboxRadio").find("input[type$='checkbox']").click(function() {
+        uncheckAll();
+        $j(this).siblings("input[type$='checkbox']").attr("checked", false);
+        $j(this).attr("checked", true);
+        $j(this).change();
+        });
+        });
 
-												group
-														.find("#checkboxAll")
-														.find("input")
-														.click(
-																function() {
-																	var flip;
-																	var checked = $j(
-																			this)
-																			.siblings(
-																					":checkbox:first")
-																			.attr(
-																					"checked");
-																	if ($j(this)
-																			.attr(
-																					"name") == $j(
-																			this)
-																			.parents(
-																					"#checkboxAll:first")
-																			.find(
-																					":checkbox:first")
-																			.attr(
-																					"name")) {
-																		checked = $j(
-																				this)
-																				.attr(
-																						"checked");
-																		flip = checked;
-																	} else {
-																		flip = !checked;
-																	}
-																	if ($j(this)
-																			.attr(
-																					"type") == "text")
-																		if (flip == false)
-																			flip = !filp; // this is so the user doesn't go to check the checkbox, then uncheck it when they hit the input.
-																	uncheckAll();
-																	$j(this)
-																			.parents(
-																					"#checkboxAll:first")
-																			.find(
-																					":checkbox")
-																			.attr(
-																					"checked",
-																					flip);
-																	$j(this)
-																			.parents(
-																					"#checkboxAll:first")
-																			.find(
-																					":checkbox")
-																			.change();
-																});
+        $j('.disdiv').find('input').attr('disabled', 'true');
+        });
+        }
+    </script>
 
-												group
-														.find("#checkboxRadio")
-														.find(
-																"input[type$='checkbox']")
-														.click(
-																function() {
-																	uncheckAll();
-																	$j(this)
-																			.siblings(
-																					"input[type$='checkbox']")
-																			.attr(
-																					"checked",
-																					false);
-																	$j(this)
-																			.attr(
-																					"checked",
-																					true);
-																	$j(this)
-																			.change();
-																});
-
-												group
-														.find(
-																"#checkboxCheckbox")
-														.click(
-																function() {
-																	uncheckRadioAndAll();
-																});
-											});
-						});
-	}
-</script>
-    <script>
-	$j(function() {
-		$j('.disdiv').find('input').attr('disabled', 'true');
-	});
-</script>
-    <div id="container">
-        <!-- Generic Disease workup header  -->
-        <section>
-
-            <table border="1" cellspacing="0" cellpadding="6" width="100%">
-                <tr>
-                    <td>
-                        <b>
-                            IMB ID: <lookup class="value"
-                                            expression="patientIdentifiers.get(&quot;IMB ID&quot;)" />
-                            <br/>
-                            IMB Primary Care Registration ID:
-                            <lookup
-                                    class="value"
-                                    expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" />
-                            <br/>
-                            OpenClinic ID:
-                            <lookup class="value"
-                                    expression="patientIdentifiers.get(&quot;OpenClinic ID&quot;)" />
-                            <br/>
-                            ARCHIVING ID:
-                            <lookup class="value"
-                                    expression="patientIdentifiers.get(&quot;ARCHIVING ID&quot;)" />
-                            <br/>
-                            Rwanda National ID:
-                            <lookup class="value"
-                                    expression="patientIdentifiers.get(&quot;Rwanda National ID&quot;)" />
-                        </b>
-
-                    </td>
-                    <td>Date: <encounterDate id="encounterDate" default="today" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nom / Last name: <lookup class="value"
-                                                 expression="patient.personName.familyName" />
-                    </td>
-                    <td>Prénom/ First name: <lookup class="value"
-                                                    expression="patient.personName.givenName" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><img
-                            src="/openmrs/moduleResources/rwandareports/images/pihHands.png"
-                            align="left" height="65"></img>
-                        <h2>
-                            Inshuti Mu Buzima <br /> PIH Rwanda
-                        </h2></td>
-                    <td rowspan="2"><strong> Oncology Program / Programme d'oncologie
-                        <br /> Outpatient clinic visits
-                    </strong> <br /></td>
-                </tr>
-                <tr>
-                    <td>Clinique / Clinic: <encounterLocation
-                            id="encounterLocation"  />
-                    </td>
-
-                </tr>
-            </table>
-            <br />
-        </section>
-    </div>
-    <div style="width:100%">
-        <section headerLabel="OUTPATIENT CLINIC VISITS">
-
-            <table border="1" width="100%">
-                <tr>
-
-                    <td><b>Wt</b></td>
-                    <td  ><b>Ht</b></td>
-                    <td><b>BP</b></td>
-                    <td><b>Pulse</b></td>
-                    <td><b>T</b></td>
-					<td><b>Respiratory Rate</b></td>
-					<td><b>SpO2</b></td>
-					<td width="10%"   ><b>New / Ongoing
-                        symptoms</b></td>
-                    <td><b>Other tests(specify)</b></td>
-                </tr>
-
-                <tr>
-                    <td><obs conceptId="3ce93b62-26fe-102b-80cb-0017a47871b2" />kg</td>
-                    <td><obs conceptId="3ce93cf2-26fe-102b-80cb-0017a47871b2" />cm</td>
-                    <td>
-                        <obs conceptId="$@SYSTOLIC_BLOOD_PRESSURE@"/>/
-                        <obs conceptId="$@DIASTOLIC_BLOOD_PRESSURE@"/>
-
-                    </td>
-
-                    <td>
-                        <obs conceptId="$@PULSE@"/> /min
-                    </td>
-                    <td>
-                        <obs conceptId="$@TEMPERATURE_(C)@"/>
-                    </td>
-					<td>
-						<obs conceptId="$@RESPIRATORY_RATE@"/>
-					</td>
-					<td>
-						<obs conceptId="$@BLOOD_OXYGENATION@"/>
-					</td>
-					<td>
-                        <obs conceptId="$@NEW_OR_ONGOING_SYMPTOMS@" cols="15" rows="4"/>
-                    </td>
-					<td><obsgroup
-                            groupingConceptId="3ce1c792-26fe-102b-80cb-0017a47871b2">
-                        <obs conceptId="3ce1c90e-26fe-102b-80cb-0017a47871b2"
-                             labelText="Name" />
-                        <obs conceptId="3ce1ca8a-26fe-102b-80cb-0017a47871b2"
-                             labelText="Result" /></obsgroup>
-                    </td>
-				</tr>
-				<tr>
-					<td><b>Pain score</b></td>
-                    <td><b>ECOG score</b></td>
-                    <td><b>WBC</b></td>
-                    <td><b>% Neutro</b></td>
-                    <td><b>Hb</b></td>
-                    <td><b>Plt</b></td>
-                    <td><b>Cr</b></td>
-					<td><b>LFT</b></td>                   
-					
-				</tr>
-				<tr>
-                    <td ><obs conceptId="$@Pain_score@" />/5</td>
-                    <td><obs conceptId="$@ECOG@" />/5</td>
-					
-
-
-                    <td><obs conceptId="$@WBC@" />
-                    </td>
-                    <td><obs conceptId="$@PERCENT_NEUTROPHIL@" />
-                    </td>
-                    <td><obs conceptId="$@HEMOGLOBIN@" />
-                    </td>
-                    <td><obs conceptId="$@PLATELETES@" />
-                    </td>
-					<td><obs conceptId="$@CREATININE@" /> 
-                    </td>
-					<td>
-                        ALT:<obs conceptId="$@ALANINE_AMINOTRANSFERASE@"/> <br/>
-                        AST:<obs conceptId="$@ASPARTATE_AMINOTRANSFERASE@"/> <br/>
-                        Total Bilirubin: <obs conceptId="$@TOTAL_BILIRUBIN@"/> <br/>
-                        Direct Bilirubin:<obs conceptId="$@DIRECT_BILIRUBIN@"/> <br/>	
-                    </td>
-                    
-					
-                    
-                 
-
-
-                </tr>
-            </table>
-
-            <tr>
-                <td ><b>Visit type: </b>
-                </td>
-                <td colspan="2"><span ><obs
-                        conceptId="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346"
-                        answerConceptId="1989ac72-f2c4-404e-914e-36e83a51af9c"
-                        answerLabel="Scheduled (routine) follow-up" />
-			&#160;&#160;&#160;&#160;&#160;&#160; </span><obs
-                        conceptId="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346"
-                        answerConceptId="38a2913c-c261-4ed4-961c-9f02422ba436"
-                        answerLabel="Unscheduled visit" /> <span >
-			&#160;&#160;&#160;&#160;&#160;&#160; <obs
-                        conceptId="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346"
-                        answerConceptId="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346"
-                        answerLabel="Scheduled referred visit" />
-			&#160;&#160;&#160;&#160;&#160;&#160; <obs
-                        conceptId="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346"
-                        answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2"
-                        answerLabel="other:" />  <obs
-                        conceptId="11d84ecf-bb66-4ed9-9205-bdc5cc126365" cols="60" rows="1"/></span>
-                    <br/>
-                </td>
-            </tr>
-            <tr>
-                <td ><b>Treatment intent: </b>
-                </td>
-                <td colspan="2"><obs conceptId="$@Treatment_Intent@" answerConceptId="$@Curative@" answerLabel="Curative" style="checkbox"/>
-                    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-                    <obs conceptId="$@Treatment_Intent@" answerConceptId="$@Palliative_systemic@" answerLabel="Palliative systemic therapy" style="checkbox"/>
-                    &#160;&#160;&#160;&#160;&#160;&#160;
-                    <obs conceptId="$@Treatment_Intent@" answerConceptId="$@Palliation@" answerLabel="Palliation ONLY" style="checkbox"/>
-                </td>
-            </tr>
-
-            <!--
-            <tr>
-                <td colspan="3"><b>Physical exam:</b>
-                </td>
-                <td colspan="16">General:
-                    <obs conceptId="$@GENERAL_EXAM_FINDINGS@" answerConceptId="$@NO_DISTRESS@" answerLabel="No distress" style="checkbox"/>
-                    <obs conceptId="$@GENERAL_EXAM_FINDINGS@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" style="checkbox"/>:
-                    <obs  conceptId="$@OTHER_GENERAL_EXAM_FINDINGS@"/>
-                    Cardiovascular:
-                    <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptIds="$@NORMAL@,$@ABNORMAL@" answerLabels="Normal,Abnomal" style="radio"/>:
-                    <obs conceptId="$@CARDIOVASCULA_SYSTEM_COMMENT@" />
-                    <br/>
-                    Lungs:
-                    <obs conceptId="$@CHEST_EXAM_FINDINGS@" answerConceptIds="$@NORMAL@,$@ABNORMAL@" answerLabels="Normal,Abnomal" style="radio"/>:
-                    <obs conceptId="$@CHEST_EXAM_COMMENTS@" />
-
-                    <br />
-                    Lymph nodes:
-                    <obs conceptId="$@LYMPH_NODE_EXAM_FINDINGS@" answerConceptIds="$@NORMAL@,$@ABNORMAL@" answerLabels="Normal,Abnomal" style="radio"/>:
-                    <obs conceptId="$@LYMPH_NODE_EXAM_COMMENTS@" />
-                    <br />Other:
-                    <obs conceptId="$@OTHER_PHYSICAL_EXAMS@" />
-                </td>
-
-            </tr>
-            -->
-        </section>
-        <section headerLabel="PHYSICAL EXAM">
-            <table border="1" width="100%">
-                <tr >
-                    <td colspan="2"><strong>Normal</strong>
-                    </td>
-                    <td><strong>Abnormal</strong>
-                    </td>
-
-                </tr>
-
-                <tr >
-                    <td><b>GENERAL</b>
-                    </td>
-                    <td><obs conceptId="$@GENERAL_EXAM_FINDINGS@" answerConceptId="$@NO_DISTRESS@" answerLabel="No distress" style="checkbox"/></td>
-                    <td><obs conceptId="$@GENERAL_EXAM_FINDINGS@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" style="checkbox"/>
-                        <obs  conceptId="$@OTHER_GENERAL_EXAM_FINDINGS@" cols="60" rows="1"/>
-                    </td>
-                </tr>
-                <tr >
-                    <td><b>Head and Neck
-                        <br /><obs conceptId="$@HEAD_AND_NECK_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done"/></b>
-                    </td>
-
-                    <td><obs conceptId="$@HEAD_AND_NECK_EXAM@" answerConceptId="$@NO_ABNORMALITIES@" answerLabel="No Abnormalities"/></td>
-                    <td><obs conceptId="$@HEAD_AND_NECK_EXAM@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal"/>:<obs conceptId="$@HEAD_ABNORMAL@"/>
-                        Location:<obs conceptId="$@HEAD_MASS_LOCATION@"/>
-                        Size: <obs conceptId="$@Head_and_neck_mass_size_(biggest_dimension)@"/>cm x <obs conceptId="$@Head_and_neck_mass_size_(smallest_dimension)@"/>cm
-                    </td>
-                </tr>
-
-                <tr >
-                    <td><b>Lungs</b><br />
-                        <obs conceptId="$@CHEST_EXAM_FINDINGS@" answerConceptId="$@NOT_DONE@" answerLabel="Not done"/>
-                    </td>
-                    <td ><obs conceptId="$@CHEST_EXAM_FINDINGS@" answerConceptId="$@NORMAL@" answerLabel="Normal"/>		</td>
-                    <td><obs conceptId="$@CHEST_EXAM@" answerConceptId="$@ABNORMAL@" answerLabel="Abnomal"/>: <obs conceptId="$@CHEST_EXAM_COMMENTS@" /></td>
-                </tr>
-
-                <tr >
-                    <td><b>Heart</b><br />
-                        <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@NOT_DONE@" answerLabel="Not done"/>
-                    </td>
-                    <td><obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@NORMAL@" answerLabel="Normal"/>		</td>
-                    <td><obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@ABNORMAL@" answerLabel="Abnomal"/>: <obs conceptId="$@CARDIOVASCULA_SYSTEM_COMMENT@" /></td>
-                </tr>
-
-
-                <tr >
-                    <td> <strong> Breast </strong>
-                        <br /> <obs conceptId="$@BREAST_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done"/></td>
-                    <td><obs conceptId="$@BREAST_EXAM@" answerConceptId="$@NO_ABNORMALITIES@" answerLabel="No abnormalities"/></td>
-                    <td>
-                        <obs conceptId="$@BREAST_EXAM@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal breasts:"/>
-
-                        <br /><obs conceptId="$@BREAST_EXAM@" answerConceptId="$@LEFT_BREAST_MASS@" answerLabel="Left breast mass"/> :
-                        <obsgroup groupingConceptId="$@LEFT_BREAST_MASS_CONSTRUCT@">
-                            <obs conceptId="$@MASS_SIZE@"/> x <obs conceptId="$@BREAST_MASS_SIZE_2@"/>
-                            <obs conceptId="$@BREAST_MASS_MOBILITY@" answerConceptId="$@MOBILE@" answerLabel="mobile"/>
-                            <obs conceptId="$@BREAST_MASS_MOBILITY@" answerConceptId="$@MOBILE@" answerLabel="fixed"/>
-                        </obsgroup>
-                        <br /> <obs conceptId="$@BREAST_EXAM@" answerConceptId="$@RIGHT_BREAST_MASS@" answerLabel="Right breast mass"/>:
-                        <obsgroup groupingConceptId="$@RIGHT_BREAST_MASS_CONSTRUCT@">
-                            <obs conceptId="$@MASS_SIZE@"/> x <obs conceptId="$@BREAST_MASS_SIZE_2@"/>
-                            <obs conceptId="$@BREAST_MASS_MOBILITY@" answerConceptId="$@MOBILE@" answerLabel="mobile"/>
-                            <obs conceptId="$@BREAST_MASS_MOBILITY@" answerConceptId="$@MOBILE@" answerLabel="fixed"/>
-                        </obsgroup>
-                        <br /><obs conceptId="$@BREAST_EXAM@" answerConceptId="$@SKIN_CHANGES@" answerLabel="Skin changes:"/>
-                        <br /> <obs conceptId="$@BREAST_EXAM@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other:"/>	<obs conceptId="$@BREAST_ABNORMALITY_TEXT@" cols="60" rows="1"/>
-                    </td>
-                </tr>
-
-                <tr >
-                    <td><b>Abdomen/Pelvis</b><br />
-                        <obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done"/></td>
-                    <td><obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@NO_ABNORMALITIES@" answerLabel="No abnormalities"/></td>
-                    <td><obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@SPLENOMEGALY@" answerLabel="Splenomegaly"/>: <obs conceptId="$@SPLENOMEGALY_SIZE@"/>cm <br/>
-                        <obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@HEPATOMEGALY@" answerLabel="Hepatomegaly"/>: <obs conceptId="$@HEPATOMEGALY_SIZE@"/> cm<br />
-                        <obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@ABDOMINAL_TENDERNESS@" answerLabel="tenderness"/>:
-                        <obs conceptId="$@ABDOMINAL_TENDERNESS_LOCATION@" answerConceptId="$@RUQ@" answerLabel="RUQ"/>
-                        <obs conceptId="$@ABDOMINAL_TENDERNESS_LOCATION@" answerConceptId="$@LUQ@" answerLabel="LUQ"/>
-                        <obs conceptId="$@ABDOMINAL_TENDERNESS_LOCATION@" answerConceptId="$@RLQ@" answerLabel="RLQ"/>
-                        <obs conceptId="$@ABDOMINAL_TENDERNESS_LOCATION@" answerConceptId="$@LLQ@" answerLabel="LLQ"/>
-                        <br />
-                        <obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@ASCITES@" answerLabel="Ascites"/> <br />
-                        <obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@ABDOMINAL_MASS@" answerLabel="Mass"/>:
-                        location: 	<obs conceptId="$@ABDOMINAL_MASS_LOCATION@"/>
-                        size: <obs conceptId="$@ABDOMINAL_MASS_SIZE_(biggest_dimension)@"/>cm x <obs conceptId="$@Abdominal_mass_size_(smallest_dimension)@"/>cm
-                    </td>
-                </tr>
-
-                <tr >
-                    <td><b>Extremities</b><br />
-                        <obs conceptId="$@EXTREMITY_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done"/></td>
-                    <td><obs conceptId="$@EXTREMITY_EXAM@" answerConceptId="$@NO_EDEMA@" answerLabel="No Edema"/></td>
-                    <td><obs conceptId="$@EXTREMITY_EXAM@" answerConceptId="$@EDEMA@" answerLabel="Edema"/>
-                        <obs conceptId="$@EDEMA@" answerConceptId="$@1@" answerLabel="1+"/>
-                        <obs conceptId="$@EDEMA@" answerConceptId="$@2@" answerLabel="2+"/>
-                        <obs conceptId="$@EDEMA@" answerConceptId="$@3@" answerLabel="3+"/>
-                        <br /><obs conceptId="$@EXTREMITY_EXAM@" answerConceptId="$@GROWTH@" answerLabel="mass"/> location: <obs conceptId="$@EXTREMITY_MASS_LOCATION@"/>
-                        size: <obs conceptId="$@Extremity_mass_size_(biggest_dimension)@"/> cm x <obs conceptId="$@Extremity_mass_size_(smallest_dimension)@"/> cm
-                        <br /> other:<obs conceptId="$@EXTREMITY_ABNORMALITY_TEXT@" cols="60" rows="1"/>
-                    </td>
-                </tr>
-                <tr >
-                    <td><b>Nervous system</b><br />
-                        <obs conceptId="$@NERVOUS_SYSTEM_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done"/></td>
-                    <td><obs conceptId="$@NERVOUS_SYSTEM_EXAM@" answerConceptId="$@NO_ABNORMALITIES@" answerLabel="No abnormalities"/></td>
-                    <td><obs conceptId="$@NERVOUS_SYSTEM_EXAM@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal"/>:<obs conceptId="$@NERVOUS_ABNORMALITY@"/></td>
-                </tr>
-
-                <tr >
-                    <td><b>Skin</b><br />
-                        <obs conceptId="$@SKIN_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done"/></td>
-                    <td><obs conceptId="$@SKIN_EXAM@" answerConceptId="$@NO_ABNORMALITIES@" answerLabel="No abnormalities"/></td>
-                    <td><obs conceptId="$@SKIN_EXAM@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal"/>:<obs conceptId="$@SKIN_ABNORMALITY_TEXT@"/>
-                        <br /><obs conceptId="$@SKIN_EXAM@" answerConceptId="$@NODULES@" answerLabel="Nodules"/>
-                        <br />distribution:<obs conceptId="$@NODULE_DISTRIBUTION@"/>
-                        <br /> size (cm):		<obs conceptId="$@NODULE_SIZE@"/></td>
-                </tr>
-
-                <tr >
-                    <td><b>Lymph nodes</b><br />
-                        <obs conceptId="$@LYMPH_NODE_EXAM_FINDINGS@" answerConceptId="$@NOT_DONE@" answerLabel="Not done"/></td>
-                    <td><obs conceptId="$@LYMPH_NODE_EXAM_FINDINGS@" answerConceptId="$@NORMAL@" answerLabel="Normal"/></td>
-                    <td>
-                        <obs conceptId="$@LYMPH_NODE_EXAM_FINDINGS@" answerConceptId="$@ABNORMAL@" answerLabel="Abnomal"/>
-                        <br/><obs conceptId="$@LYMPH_NODE_EXAM@" answerConceptId="$@LYMPHADENOPATHY@" answerLabel="Lymphadenopathy"/>
-                        <br /> <obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@CERVICAL@" answerLabel="Cervical"/>
-                        <br /> <obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@SUBMANDIBULAR@" answerLabel="Submandibular"/>
-                        <br /> <obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@SUPRACLAVICULAR@" answerLabel="Supraclavicular"/>
-                        <br /> <obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@INFRACLAVICULAR@" answerLabel="Infraclavicular"/>
-                        <br /> <obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@AXILLARY@" answerLabel="Axillary"/>
-                        <br /> <obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@INGUINAL@" answerLabel="Inguinal"/>
-                        <br /> <obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other"/>
-                        <obs conceptId="$@LYMPH_NODE_EXAM_COMMENTS@" cols="60" rows="1"/>
-                    </td>
-                </tr>
-                <tr >
-                    <td><b>Genital exam</b><br />
-                        <obs conceptId="$@GENITAL_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done"/></td>
-                    <td><obs conceptId="$@GENITAL_EXAM@" answerConceptId="$@NO_ABNORMALITIES@" answerLabel="No abnormalities"/></td>
-                    <td><obs conceptId="$@GENITAL_EXAM@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal"/>:
-                        <br /> <obs conceptId="$@GENITAL_ABNORMALITIES@" answerConceptId="$@Visible_cervical_lesion@" answerLabel ="Visible cervical lesion"/>
-                        <br /> Size of lesion (largest dimension) <obs conceptId="$@LESION_SIZE_(largest_dimension)@" />cm x <obs conceptId="$@LESION_SIZE_(smallest_dimension)@" />cm
-                        <br /> <obs conceptId="$@GENITAL_ABNORMALITIES@" answerConceptId="$@VAGINAL_INVOLVEMENT@" answerLabel ="Vaginal involvement"/>
-                        <br /> <obs conceptId="$@GENITAL_ABNORMALITIES@" answerConceptId="$@PARAMETRIAL_INVOLVEMENT@" answerLabel ="Parametrial involvement"/>
-                        <br /> <obs conceptId="$@GENITAL_ABNORMALITIES@" answerConceptId="$@PELVIC_INVOLVEMENT@" answerLabel ="Pelvic side wall involvement"/>
-                        <br /> <obs conceptId="$@GENITAL_ABNORMALITIES@" answerConceptId="$@RECTAL_INVOLVEMENT@" answerLabel ="Rectal involvement"/>
-                        <br /> <obs conceptId="$@GENITAL_ABNORMALITIES@" answerConceptId="$@OTHER_NON-CODED@" answerLabel ="Other findings"/>
-                        <obs conceptId="$@GENITAL_ABNORMALITIES_TEXT@" cols="60" rows="1"/></td>
-
-                </tr>
-                <tr >
-                    <td colspan="3"><b>Other exam findings</b> <small>(include location and size of mass,
-                        if applicable)</small>: <obs conceptId="$@OTHER_PHYSICAL_EXAMS@" cols="110" rows="4"/></td>
-
-                </tr>
-            </table>
-        </section>
-        <section>
-            <table border="1">
-                <tr>
-                    <td ><b>Cancer progression:</b>
-                    </td>
-                    <td colspan="16">
-                        <table width="100%">
-                            <tr >
-                                <td class="checkboxGroup"><span id="checkboxRadio"><b>Mass location</b> <i>(if applicable)</i>:<obsgroup
-                                        groupingConceptId="2e775064-6ece-4546-9375-50480e8e0020">
-                                    <obs conceptId="e95848e2-f31c-485f-ba8b-8c9424840f92" /> <b>current
-                                    size:</b> <obs conceptId="f174b027-79cf-4ebf-a103-d34b26eacafd" /> X
-                                    <obs conceptId="f174b027-79cf-4ebf-a103-d34b26eacafd" /></obsgroup>
-                                <br/>
-                                <b>Mode of assessment:</b>
-						<obs conceptId="9ea0a07f-922d-4e61-82c9-dbc940b30783" answerConceptId="b50f4136-1f74-4288-869e-7bea6620ee25" answerLabel="Clinical ONLY" /> &#160;&#160;&#160;&#160;&#160;&#160;<obs conceptId="9ea0a07f-922d-4e61-82c9-dbc940b30783" answerConceptId="b63afdd3-55c5-4be8-897e-96ccd10deb66" answerLabel="Imaging" />
-						&#160;&#160;&#160;&#160;&#160;&#160; <obs conceptId="9ea0a07f-922d-4e61-82c9-dbc940b30783" answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2" answerLabel="other:" /> <obs conceptId="2de07f49-4b97-4037-b30a-bce98546d1cc" cols="60" rows="1"/></span></td>
-                            </tr>
-                            <tr>
-                                <td class="checkboxGroup"><span id="checkboxRadio"><obs
-                                        conceptId="05841055-295e-4313-ad3b-64b13be4118e"
-                                        answerConceptId="e377b4da-5fdc-40c1-ac2e-60071fac5e5f"
-                                        answerLabel="Progressing" /> &#160;&#160;&#160;&#160;&#160;&#160; <obs
-                                        conceptId="05841055-295e-4313-ad3b-64b13be4118e"
-                                        answerConceptId="5f9c4b32-37ff-48ae-86cb-685d6aae6129"
-                                        answerLabel="Improving" />
-						&#160;&#160;&#160;&#160;&#160;&#160; <obs
-                                            conceptId="05841055-295e-4313-ad3b-64b13be4118e"
-                                            answerConceptId="3cd921a0-26fe-102b-80cb-0017a47871b2"
-                                            answerLabel="Unchanged" />
-						&#160;&#160;&#160;&#160;&#160;&#160; <obs
-                                            conceptId="05841055-295e-4313-ad3b-64b13be4118e"
-                                            answerConceptId="e0a96aca-7768-42f9-bacd-eb4dbaf7fc3e"
-                                            answerLabel="No evidence of disease" />
-						&#160;&#160;&#160;&#160;&#160;&#160; <obs conceptId="05841055-295e-4313-ad3b-64b13be4118e"
-                                                                  answerConceptId="3edd5ca8-ef60-4c09-ad69-5215ec7d8a3a"
-                                                                  answerLabel="Unable to assesss" />
-                                <br/>
-						&#160;&#160;&#160;&#160;&#160;&#160; <obs
-                                            conceptId="05841055-295e-4313-ad3b-64b13be4118e"
-                                            answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2"
-                                            answerLabel="other: " />
-			<obs conceptId="3044bf81-beab-4c8c-a5b9-5af7dc98e4a7" cols="60" rows="1" /></span></td>
-                            </tr>
-                        </table></td>
-                </tr>
-
-                <tr>
-                    <td colspan="19">
-                        <table width="100%">
-                            <tr>
-                                <td colspan="3"><span><b>Plan</b></span><br />
-                                    <obs conceptId="$@PATIENT_PLAN_COMMENTS@" cols="150"/>
-
-                                    <br/>
-    </td>
-</tr>
-<tr>
-			
-				<td><b>Next Visit:</b> </td>
-			</tr>
-			<tr border="2">
-				<td><div class="itembox">
-                    <b>Outpatient Visit-Butaro Hospital</b><br/><br/>
-                    Routine follow up: <obs conceptId="a7aa7d20-3520-4d8a-9324-f7b8f6a3b109" allowFutureDates="true" /><br/><br/>
-                    Special consultation: <obs conceptId="7ec61380-3cde-4b7a-a322-4678a0b460c4" allowFutureDates="true" /><br/><br/>
-                    Communicate pathology results: <obs conceptId="56001c5f-1a8a-4d80-b255-d1de983a852e" allowFutureDates="true"/><br/><br/>
-                    Perform Biopsy: <obs conceptId="ea843dde-d33b-4687-88cb-5cd76111b48b" allowFutureDates="true" /><br/><br/>
-                    <hr/>
-                    <br/>
-                    Outpatient visit -Rwanda Cancer Center/Rwanda Military Hospital: <obs conceptId="$@Outpatient_visit_Rwanda_Cancer_Center_Rwanda_Military_Hospital@" allowFutureDates="true" /><br/><br/>
-                    <hr/>
-                    <br/>
-                    Chemotherapy – Adult Inpatient Ward: <obs conceptId="6de4e3ee-fe8d-427e-b38f-1703e80f8513" allowFutureDates="true" /><br/><br/>
-                    <hr/>
-                    <br/>
-                    <b>Pediatric Oncology Visit</b><br/><br/>
-                    Routine follow up: <obs conceptId="$@Peciatric_Non_chemotherapy@" allowFutureDates="true" /><br/><br/>
-                    Chemotherapy: <obs conceptId="$@Pediatric_Chemotherapy@ " allowFutureDates="true" /><br/><br/>
+    <!-- ===== FORM HEADER ===== -->
+    <div class="form-header">
+        <div class="form-header-content">
+            <div class="form-header-left">
+                <img src="/openmrs/moduleResources/rwandareports/images/pihHands.png"
+                     alt="PIH Rwanda" class="form-header-logo" />
+                <div class="form-header-title">
+                    <h1>Inshuti Mu Buzima / PIH Rwanda</h1>
+                    <h2>Oncology Program - Outpatient Clinic Visits</h2>
+                </div>
             </div>
-            </td>
-			</tr>
-<tr>
-<td>
-                                    <span >Complete ‘Exit Program’ form if patient is exiting from oncology program</span>
-                                    <br /><br /><span> **Complete another ‘DST’ form if there’s change in disease stage or tx intent</span>
-                                    <br /><br /><b>Clinician:</b><encounterProvider role="Oncology Provider" />
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
+            <div class="form-header-badge">Outpatient Flow</div>
+        </div>
+    </div>
 
-            </table>
+    <!-- ===== PATIENT INFORMATION ===== -->
+    <div class="patient-info-bar">
+        <div class="patient-ids">
+            <div class="patient-id-item">
+                <span class="patient-id-label">IMB ID: </span>
+                <span class="patient-id-value"><lookup class="value" expression="patientIdentifiers.get(&quot;IMB ID&quot;)" /></span>
+            </div>
+            <div class="patient-id-item">
+                <span class="patient-id-label">Primary Care ID: </span>
+                <span class="patient-id-value"><lookup class="value" expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" /></span>
+            </div>
+            <div class="patient-id-item">
+                <span class="patient-id-label">OpenClinic ID: </span>
+                <span class="patient-id-value"><lookup class="value" expression="patientIdentifiers.get(&quot;OpenClinic ID&quot;)" /></span>
+            </div>
+            <div class="patient-id-item">
+                <span class="patient-id-label">Archiving ID: </span>
+                <span class="patient-id-value"><lookup class="value" expression="patientIdentifiers.get(&quot;ARCHIVING ID&quot;)" /></span>
+            </div>
+            <div class="patient-id-item">
+                <span class="patient-id-label">National ID: </span>
+                <span class="patient-id-value"><lookup class="value" expression="patientIdentifiers.get(&quot;Rwanda National ID&quot;)" /></span>
+            </div>
+        </div>
+        <div class="patient-name-row">
+            <div class="info-item">
+                <span class="info-label">Last Name / Nom</span>
+                <span class="info-value"><lookup class="value" expression="patient.personName.familyName" /></span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">First Name / Prenom</span>
+                <span class="info-value"><lookup class="value" expression="patient.personName.givenName" /></span>
+            </div>
+        </div>
+    </div>
 
-        </section>
-        <section headerLabel="Drug Order">
-            <div class = "itembox">
-                <drugOrder orderType="131168f4-15f5-102d-96e4-000c29c2a5d7" selectLabel="Order Drug" >
-                    <orderTemplate>
-                        <div>
-                        <orderProperty name="drug" label="Drug*">
-                            
-                            <option value="$@Imatinib_400mg@" />
-                            <option value="$@Tamoxifen_20mg@" />
-                            <option value="$@Letrozole_2.5mg@" />
-                            <option value="$@Methotrexate_0.4mg_kg@" />
-                            <option value="$@Methotrexate_20mg_m2@" />
-                            <option value="$@Chlorambucil_0.4_mg_kg@" />
-                            <option value="$@Melphalan_9mg_m2@" />
-                            <option value="$@Prednisolone_60mg_m2@" />
-                            <option value="$@Capecitabine_1000_mg_m2@" />
-                            <option value="$@6-Mercaptopurine_75mg_m2@" />
-                            <option value="$@Dexamethasone_6mg_m2@" />
-                            <option value="$@Hydrea_500mg@" />
-                            <option value="$@Hydrea_1000mg@" />
-                            <option value="$@Allopurinol_100mg@" />
-                            <option value="$@Allopurinol_300mg@" />
-                                            
-                            
-                        </orderProperty>
+    <!-- ===== ENCOUNTER INFORMATION ===== -->
+    <div class="encounter-info-bar">
+        <div class="info-item">
+            <span class="info-label">Encounter Date</span>
+            <encounterDate id="encounterDate" default="today" />
+        </div>
+        <div class="info-item">
+            <span class="info-label">Clinic / Clinique</span>
+            <encounterLocation id="encounterLocation" />
+        </div>
+    </div>
+
+    <!-- ===== VITALS AND LABS ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            Vitals, Labs, and Assessment
+        </div>
+        <div class="section-content">
+            <!-- Vitals Row 1 -->
+            <div class="vitals-grid">
+                <div class="vital-item">
+                    <div class="vital-label">Weight</div>
+                    <div class="vital-input">
+                        <obs conceptId="3ce93b62-26fe-102b-80cb-0017a47871b2" />
+                        <span class="vital-unit">kg</span>
                     </div>
-                        <orderProperty name="action">
-                            <option value="NEW" label="Place a new Order"/>
-                            <option value="REVISE" label="Revise this Order"/>
-                            <option value="RENEW" label="Renew this Order"/>
-                            <option value="DISCONTINUE" label="Discontinue this Order"/>
-                        </orderProperty>
-                        <div style="padding:0px;">
-                        <orderProperty name="dose" label="Dose*"/>
-                        <orderProperty name="doseUnits" label="Units*">
-                            <option value="4020" label="tablets"/>
-                            <option value="05d778f0-6282-4eed-9c58-6b5d0703c5a7" label="milligrams"/>
-                            <option value="07b05a2a-87ff-44ce-bb5c-5d6855bf8b11" label="units"/>
-                        </orderProperty>
-               
-                            <orderProperty name="frequency" label="Frequency*">
-								<option value="707ad8b7-d902-11ea-80fb-0242ac110002" label="1 / day"/> 
-								<!-- <option value="60c10f8a-e888-449a-9a1a-1681c171b0d0" label="Once daily for 4 days repeated after every 6 weeks"/> -->
-							
-								<option value="bfc113ff-f21d-11ea-ba0d-0242ac110002" label="1 / day for days every 2 weeks"/>
-								<option value="41d3b6ea-eee1-11ea-b492-0242ac110002" label="1 / Week"/>
-							</orderProperty>
-                        
-                        </div>
-                           
-                        <orderProperty name="asNeeded"/>
-                        <div style="padding:0px;">
-                            <orderProperty name="dateActivated"/>
-                            <orderProperty name="duration" label="Duration in days (blank=no end)"/>
-            
-                        </div>
-                        <div style="display:none;">
-                            <orderProperty name="dateActivated"/>
-                            <orderProperty name="route" value="3327" />
-                            <orderProperty name="urgency" value="ROUTINE"/>
-                            <orderProperty name="dosingType" value="org.openmrs.SimpleDosingInstructions"/>
-                            <orderProperty name="instructions" textArea="true" textAreaRows="4" textAreaColumns="100"/>
-                            <orderProperty name="previousOrder"/>
-                            <orderProperty name="careSetting" value="OUTPATIENT"/>
-                            <orderProperty name="quantity" value="0"/>
-                            <orderProperty name="quantityUnits" value="6735094c-8416-43e3-8a3c-091332a08cb7"/> <!-- unspecified -->
-                            <orderProperty name="numRefills" value="0"/>
-                                            <orderProperty name="durationUnits" value="SNOMED CT:258703001">
-                                <option value="SNOMED CT:258703001" label="Days"/>
-                            </orderProperty>
-                        </div>
-                        <orderProperty name="discontinueReason" >
-                        <optionGroup concept="$@REASON_ORDER_STOPPED@"/>
-                        </orderProperty>
-            
-                    </orderTemplate>
-                </drugOrder>  
+                </div>
+                <div class="vital-item">
+                    <div class="vital-label">Height</div>
+                    <div class="vital-input">
+                        <obs conceptId="3ce93cf2-26fe-102b-80cb-0017a47871b2" />
+                        <span class="vital-unit">cm</span>
+                    </div>
+                </div>
+                <div class="vital-item">
+                    <div class="vital-label">Blood Pressure</div>
+                    <div class="vital-input">
+                        <obs conceptId="$@SYSTOLIC_BLOOD_PRESSURE@" /> / <obs conceptId="$@DIASTOLIC_BLOOD_PRESSURE@" />
+                    </div>
+                </div>
+                <div class="vital-item">
+                    <div class="vital-label">Pulse</div>
+                    <div class="vital-input">
+                        <obs conceptId="$@PULSE@" />
+                        <span class="vital-unit">/min</span>
+                    </div>
+                </div>
+                <div class="vital-item">
+                    <div class="vital-label">Temperature</div>
+                    <div class="vital-input">
+                        <obs conceptId="$@TEMPERATURE_(C)@" />
+                        <span class="vital-unit">C</span>
+                    </div>
+                </div>
+                <div class="vital-item">
+                    <div class="vital-label">Resp. Rate</div>
+                    <div class="vital-input">
+                        <obs conceptId="$@RESPIRATORY_RATE@" />
+                    </div>
+                </div>
+                <div class="vital-item">
+                    <div class="vital-label">SpO2</div>
+                    <div class="vital-input">
+                        <obs conceptId="$@BLOOD_OXYGENATION@" />
+                        <span class="vital-unit">%</span>
+                    </div>
+                </div>
+                <div class="vital-item">
+                    <div class="vital-label">Pain Score</div>
+                    <div class="vital-input">
+                        <obs conceptId="$@Pain_score@" />
+                        <span class="vital-unit">/5</span>
+                    </div>
+                </div>
+                <div class="vital-item">
+                    <div class="vital-label">ECOG Score</div>
+                    <div class="vital-input">
+                        <obs conceptId="$@ECOG@" />
+                        <span class="vital-unit">/5</span>
+                    </div>
+                </div>
             </div>
-        </section>
-    </div>
-    <submit /> 
 
-	<section headerLabel="summary Plans">
-<htmlformflowsheet formId="3bb5d087-81c9-431c-9df8-29762d0035f5" sharedEncounter="true"  />
-</section>
+            <!-- Labs -->
+            <div class="labs-grid">
+                <div class="lab-item">
+                    <div class="lab-label">WBC</div>
+                    <obs conceptId="$@WBC@" />
+                </div>
+                <div class="lab-item">
+                    <div class="lab-label">% Neutro</div>
+                    <obs conceptId="$@PERCENT_NEUTROPHIL@" />
+                </div>
+                <div class="lab-item">
+                    <div class="lab-label">Hemoglobin</div>
+                    <obs conceptId="$@HEMOGLOBIN@" />
+                </div>
+                <div class="lab-item">
+                    <div class="lab-label">Platelets</div>
+                    <obs conceptId="$@PLATELETES@" />
+                </div>
+                <div class="lab-item">
+                    <div class="lab-label">Creatinine</div>
+                    <obs conceptId="$@CREATININE@" />
+                </div>
+            </div>
+
+            <!-- LFT Panel -->
+            <div class="lft-panel">
+                <div class="lft-title">Liver Function Tests (LFT)</div>
+                <div class="lft-grid">
+                    <div class="lft-item">
+                        <label>ALT:</label>
+                        <obs conceptId="$@ALANINE_AMINOTRANSFERASE@" />
+                    </div>
+                    <div class="lft-item">
+                        <label>AST:</label>
+                        <obs conceptId="$@ASPARTATE_AMINOTRANSFERASE@" />
+                    </div>
+                    <div class="lft-item">
+                        <label>Total Bilirubin:</label>
+                        <obs conceptId="$@TOTAL_BILIRUBIN@" />
+                    </div>
+                    <div class="lft-item">
+                        <label>Direct Bilirubin:</label>
+                        <obs conceptId="$@DIRECT_BILIRUBIN@" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- New/Ongoing Symptoms -->
+            <div class="info-item">
+                <span class="info-label">New / Ongoing Symptoms</span>
+                <obs conceptId="$@NEW_OR_ONGOING_SYMPTOMS@" cols="60" rows="3" />
+            </div>
+
+            <!-- Other Tests -->
+            <div class="info-item" style="margin-top: 16px;">
+                <span class="info-label">Other Tests (specify)</span>
+                <obsgroup groupingConceptId="3ce1c792-26fe-102b-80cb-0017a47871b2">
+                    <span>Name: <obs conceptId="3ce1c90e-26fe-102b-80cb-0017a47871b2" /></span>
+                    <span style="margin-left: 20px;">Result: <obs conceptId="3ce1ca8a-26fe-102b-80cb-0017a47871b2" /></span>
+                </obsgroup>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Visit Type -->
+            <div class="visit-type-row">
+                <span class="visit-type-label">Visit Type:</span>
+                <div class="visit-type-options">
+                    <obs conceptId="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346" answerConceptId="1989ac72-f2c4-404e-914e-36e83a51af9c" answerLabel="Scheduled (routine) follow-up" />
+                    <obs conceptId="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346" answerConceptId="38a2913c-c261-4ed4-961c-9f02422ba436" answerLabel="Unscheduled visit" />
+                    <obs conceptId="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346" answerConceptId="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346" answerLabel="Scheduled referred visit" />
+                    <obs conceptId="86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346" answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2" answerLabel="Other:" />
+                    <obs conceptId="11d84ecf-bb66-4ed9-9205-bdc5cc126365" cols="30" rows="1" />
+                </div>
+            </div>
+
+            <!-- Treatment Intent -->
+            <div class="visit-type-row">
+                <span class="visit-type-label">Treatment Intent:</span>
+                <div class="visit-type-options">
+                    <obs conceptId="$@Treatment_Intent@" answerConceptId="$@Curative@" answerLabel="Curative" style="checkbox" />
+                    <obs conceptId="$@Treatment_Intent@" answerConceptId="$@Palliative_systemic@" answerLabel="Palliative systemic therapy" style="checkbox" />
+                    <obs conceptId="$@Treatment_Intent@" answerConceptId="$@Palliation@" answerLabel="Palliation ONLY" style="checkbox" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PHYSICAL EXAM ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            Physical Examination
+        </div>
+        <div class="section-content">
+            <table class="exam-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Area</th>
+                        <th style="width: 20%;">Normal</th>
+                        <th>Abnormal Findings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- General -->
+                    <tr>
+                        <td class="exam-area">General</td>
+                        <td class="exam-normal">
+                            <obs conceptId="$@GENERAL_EXAM_FINDINGS@" answerConceptId="$@NO_DISTRESS@" answerLabel="No distress" style="checkbox" />
+                        </td>
+                        <td class="exam-abnormal">
+                            <obs conceptId="$@GENERAL_EXAM_FINDINGS@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" style="checkbox" />
+                            <obs conceptId="$@OTHER_GENERAL_EXAM_FINDINGS@" cols="40" rows="1" />
+                        </td>
+                    </tr>
+
+                    <!-- Head and Neck -->
+                    <tr>
+                        <td class="exam-area">
+                            Head and Neck
+                            <div class="exam-not-done"><obs conceptId="$@HEAD_AND_NECK_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done" /></div>
+                        </td>
+                        <td class="exam-normal">
+                            <obs conceptId="$@HEAD_AND_NECK_EXAM@" answerConceptId="$@NO_ABNORMALITIES@" answerLabel="No Abnormalities" />
+                        </td>
+                        <td class="exam-abnormal">
+                            <obs conceptId="$@HEAD_AND_NECK_EXAM@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal" />: <obs conceptId="$@HEAD_ABNORMAL@" />
+                            <div class="exam-detail">
+                                Location: <obs conceptId="$@HEAD_MASS_LOCATION@" />
+                                <span class="size-inputs">Size: <obs conceptId="$@Head_and_neck_mass_size_(biggest_dimension)@" /> x <obs conceptId="$@Head_and_neck_mass_size_(smallest_dimension)@" /> cm</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Lungs -->
+                    <tr>
+                        <td class="exam-area">
+                            Lungs
+                            <div class="exam-not-done"><obs conceptId="$@CHEST_EXAM_FINDINGS@" answerConceptId="$@NOT_DONE@" answerLabel="Not done" /></div>
+                        </td>
+                        <td class="exam-normal">
+                            <obs conceptId="$@CHEST_EXAM_FINDINGS@" answerConceptId="$@NORMAL@" answerLabel="Normal" />
+                        </td>
+                        <td class="exam-abnormal">
+                            <obs conceptId="$@CHEST_EXAM@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal" />: <obs conceptId="$@CHEST_EXAM_COMMENTS@" />
+                        </td>
+                    </tr>
+
+                    <!-- Heart -->
+                    <tr>
+                        <td class="exam-area">
+                            Heart
+                            <div class="exam-not-done"><obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@NOT_DONE@" answerLabel="Not done" /></div>
+                        </td>
+                        <td class="exam-normal">
+                            <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@NORMAL@" answerLabel="Normal" />
+                        </td>
+                        <td class="exam-abnormal">
+                            <obs conceptId="$@CARDIAC_EXAM_FINDINGS@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal" />: <obs conceptId="$@CARDIOVASCULA_SYSTEM_COMMENT@" />
+                        </td>
+                    </tr>
+
+                    <!-- Breast -->
+                    <tr>
+                        <td class="exam-area">
+                            Breast
+                            <div class="exam-not-done"><obs conceptId="$@BREAST_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done" /></div>
+                        </td>
+                        <td class="exam-normal">
+                            <obs conceptId="$@BREAST_EXAM@" answerConceptId="$@NO_ABNORMALITIES@" answerLabel="No abnormalities" />
+                        </td>
+                        <td class="exam-abnormal">
+                            <obs conceptId="$@BREAST_EXAM@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal breasts" />
+                            <div class="exam-detail">
+                                <div class="exam-detail-item">
+                                    <obs conceptId="$@BREAST_EXAM@" answerConceptId="$@LEFT_BREAST_MASS@" answerLabel="Left breast mass" style="checkbox" />:
+                                    <obsgroup groupingConceptId="$@LEFT_BREAST_MASS_CONSTRUCT@">
+                                        <obs conceptId="$@MASS_SIZE@" /> x <obs conceptId="$@BREAST_MASS_SIZE_2@" /> cm
+                                        <obs conceptId="$@BREAST_MASS_MOBILITY@" answerConceptId="$@MOBILE@" answerLabel="mobile" />
+                                        <obs conceptId="$@BREAST_MASS_MOBILITY@" answerConceptId="$@FIXED@" answerLabel="fixed" />
+                                    </obsgroup>
+                                </div>
+                                <div class="exam-detail-item">
+                                    <obs conceptId="$@BREAST_EXAM@" answerConceptId="$@RIGHT_BREAST_MASS@" answerLabel="Right breast mass" style="checkbox" />:
+                                    <obsgroup groupingConceptId="$@RIGHT_BREAST_MASS_CONSTRUCT@">
+                                        <obs conceptId="$@MASS_SIZE@" /> x <obs conceptId="$@BREAST_MASS_SIZE_2@" /> cm
+                                        <obs conceptId="$@BREAST_MASS_MOBILITY@" answerConceptId="$@MOBILE@" answerLabel="mobile" />
+                                        <obs conceptId="$@BREAST_MASS_MOBILITY@" answerConceptId="$@FIXED@" answerLabel="fixed" />
+                                    </obsgroup>
+                                </div>
+                                <div class="exam-detail-item">
+                                    <obs conceptId="$@BREAST_EXAM@" answerConceptId="$@SKIN_CHANGES@" answerLabel="Skin changes" style="checkbox" />
+                                </div>
+                                <div class="exam-detail-item">
+                                    <obs conceptId="$@BREAST_EXAM@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" style="checkbox" />: <obs conceptId="$@BREAST_ABNORMALITY_TEXT@" cols="40" rows="1" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Abdomen/Pelvis -->
+                    <tr>
+                        <td class="exam-area">
+                            Abdomen/Pelvis
+                            <div class="exam-not-done"><obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done" /></div>
+                        </td>
+                        <td class="exam-normal">
+                            <obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@NO_ABNORMALITIES@" answerLabel="No abnormalities" />
+                        </td>
+                        <td class="exam-abnormal">
+                            <div class="exam-detail">
+                                <div class="exam-detail-item">
+                                    <obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@SPLENOMEGALY@" answerLabel="Splenomegaly" style="checkbox" />: <obs conceptId="$@SPLENOMEGALY_SIZE@" /> cm
+                                </div>
+                                <div class="exam-detail-item">
+                                    <obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@HEPATOMEGALY@" answerLabel="Hepatomegaly" style="checkbox" />: <obs conceptId="$@HEPATOMEGALY_SIZE@" /> cm
+                                </div>
+                                <div class="exam-detail-item">
+                                    <obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@ABDOMINAL_TENDERNESS@" answerLabel="Tenderness" style="checkbox" />:
+                                    <obs conceptId="$@ABDOMINAL_TENDERNESS_LOCATION@" answerConceptId="$@RUQ@" answerLabel="RUQ" />
+                                    <obs conceptId="$@ABDOMINAL_TENDERNESS_LOCATION@" answerConceptId="$@LUQ@" answerLabel="LUQ" />
+                                    <obs conceptId="$@ABDOMINAL_TENDERNESS_LOCATION@" answerConceptId="$@RLQ@" answerLabel="RLQ" />
+                                    <obs conceptId="$@ABDOMINAL_TENDERNESS_LOCATION@" answerConceptId="$@LLQ@" answerLabel="LLQ" />
+                                </div>
+                                <div class="exam-detail-item">
+                                    <obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@ASCITES@" answerLabel="Ascites" style="checkbox" />
+                                </div>
+                                <div class="exam-detail-item">
+                                    <obs conceptId="$@ABDOMINAL_EXAM@" answerConceptId="$@ABDOMINAL_MASS@" answerLabel="Mass" style="checkbox" />
+                                    Location: <obs conceptId="$@ABDOMINAL_MASS_LOCATION@" />
+                                    Size: <obs conceptId="$@ABDOMINAL_MASS_SIZE_(biggest_dimension)@" /> x <obs conceptId="$@Abdominal_mass_size_(smallest_dimension)@" /> cm
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Extremities -->
+                    <tr>
+                        <td class="exam-area">
+                            Extremities
+                            <div class="exam-not-done"><obs conceptId="$@EXTREMITY_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done" /></div>
+                        </td>
+                        <td class="exam-normal">
+                            <obs conceptId="$@EXTREMITY_EXAM@" answerConceptId="$@NO_EDEMA@" answerLabel="No Edema" />
+                        </td>
+                        <td class="exam-abnormal">
+                            <div class="exam-detail">
+                                <div class="exam-detail-item">
+                                    <obs conceptId="$@EXTREMITY_EXAM@" answerConceptId="$@EDEMA@" answerLabel="Edema" style="checkbox" />
+                                    <obs conceptId="$@EDEMA@" answerConceptId="$@1@" answerLabel="1+" />
+                                    <obs conceptId="$@EDEMA@" answerConceptId="$@2@" answerLabel="2+" />
+                                    <obs conceptId="$@EDEMA@" answerConceptId="$@3@" answerLabel="3+" />
+                                </div>
+                                <div class="exam-detail-item">
+                                    <obs conceptId="$@EXTREMITY_EXAM@" answerConceptId="$@GROWTH@" answerLabel="Mass" style="checkbox" />
+                                    Location: <obs conceptId="$@EXTREMITY_MASS_LOCATION@" />
+                                    Size: <obs conceptId="$@Extremity_mass_size_(biggest_dimension)@" /> x <obs conceptId="$@Extremity_mass_size_(smallest_dimension)@" /> cm
+                                </div>
+                                <div class="exam-detail-item">
+                                    Other: <obs conceptId="$@EXTREMITY_ABNORMALITY_TEXT@" cols="40" rows="1" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Nervous System -->
+                    <tr>
+                        <td class="exam-area">
+                            Nervous System
+                            <div class="exam-not-done"><obs conceptId="$@NERVOUS_SYSTEM_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done" /></div>
+                        </td>
+                        <td class="exam-normal">
+                            <obs conceptId="$@NERVOUS_SYSTEM_EXAM@" answerConceptId="$@NO_ABNORMALITIES@" answerLabel="No abnormalities" />
+                        </td>
+                        <td class="exam-abnormal">
+                            <obs conceptId="$@NERVOUS_SYSTEM_EXAM@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal" />: <obs conceptId="$@NERVOUS_ABNORMALITY@" />
+                        </td>
+                    </tr>
+
+                    <!-- Skin -->
+                    <tr>
+                        <td class="exam-area">
+                            Skin
+                            <div class="exam-not-done"><obs conceptId="$@SKIN_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done" /></div>
+                        </td>
+                        <td class="exam-normal">
+                            <obs conceptId="$@SKIN_EXAM@" answerConceptId="$@NO_ABNORMALITIES@" answerLabel="No abnormalities" />
+                        </td>
+                        <td class="exam-abnormal">
+                            <obs conceptId="$@SKIN_EXAM@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal" />: <obs conceptId="$@SKIN_ABNORMALITY_TEXT@" />
+                            <div class="exam-detail">
+                                <div class="exam-detail-item">
+                                    <obs conceptId="$@SKIN_EXAM@" answerConceptId="$@NODULES@" answerLabel="Nodules" style="checkbox" />
+                                    Distribution: <obs conceptId="$@NODULE_DISTRIBUTION@" />
+                                    Size: <obs conceptId="$@NODULE_SIZE@" /> cm
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Lymph Nodes -->
+                    <tr>
+                        <td class="exam-area">
+                            Lymph Nodes
+                            <div class="exam-not-done"><obs conceptId="$@LYMPH_NODE_EXAM_FINDINGS@" answerConceptId="$@NOT_DONE@" answerLabel="Not done" /></div>
+                        </td>
+                        <td class="exam-normal">
+                            <obs conceptId="$@LYMPH_NODE_EXAM_FINDINGS@" answerConceptId="$@NORMAL@" answerLabel="Normal" />
+                        </td>
+                        <td class="exam-abnormal">
+                            <obs conceptId="$@LYMPH_NODE_EXAM_FINDINGS@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal" />
+                            <div class="exam-detail">
+                                <div class="exam-detail-item"><obs conceptId="$@LYMPH_NODE_EXAM@" answerConceptId="$@LYMPHADENOPATHY@" answerLabel="Lymphadenopathy" style="checkbox" /></div>
+                                <div class="exam-detail-item"><obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@CERVICAL@" answerLabel="Cervical" style="checkbox" /></div>
+                                <div class="exam-detail-item"><obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@SUBMANDIBULAR@" answerLabel="Submandibular" style="checkbox" /></div>
+                                <div class="exam-detail-item"><obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@SUPRACLAVICULAR@" answerLabel="Supraclavicular" style="checkbox" /></div>
+                                <div class="exam-detail-item"><obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@INFRACLAVICULAR@" answerLabel="Infraclavicular" style="checkbox" /></div>
+                                <div class="exam-detail-item"><obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@AXILLARY@" answerLabel="Axillary" style="checkbox" /></div>
+                                <div class="exam-detail-item"><obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@INGUINAL@" answerLabel="Inguinal" style="checkbox" /></div>
+                                <div class="exam-detail-item"><obs conceptId="$@LYMPHADENOPATHY_CODED@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" style="checkbox" /> <obs conceptId="$@LYMPH_NODE_EXAM_COMMENTS@" cols="30" rows="1" /></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Genital -->
+                    <tr>
+                        <td class="exam-area">
+                            Genital Exam
+                            <div class="exam-not-done"><obs conceptId="$@GENITAL_EXAM@" answerConceptId="$@NOT_DONE@" answerLabel="Not done" /></div>
+                        </td>
+                        <td class="exam-normal">
+                            <obs conceptId="$@GENITAL_EXAM@" answerConceptId="$@NO_ABNORMALITIES@" answerLabel="No abnormalities" />
+                        </td>
+                        <td class="exam-abnormal">
+                            <obs conceptId="$@GENITAL_EXAM@" answerConceptId="$@ABNORMAL@" answerLabel="Abnormal" />
+                            <div class="exam-detail">
+                                <div class="exam-detail-item"><obs conceptId="$@GENITAL_ABNORMALITIES@" answerConceptId="$@Visible_cervical_lesion@" answerLabel="Visible cervical lesion" style="checkbox" /></div>
+                                <div class="exam-detail-item">Lesion size: <obs conceptId="$@LESION_SIZE_(largest_dimension)@" /> x <obs conceptId="$@LESION_SIZE_(smallest_dimension)@" /> cm</div>
+                                <div class="exam-detail-item"><obs conceptId="$@GENITAL_ABNORMALITIES@" answerConceptId="$@VAGINAL_INVOLVEMENT@" answerLabel="Vaginal involvement" style="checkbox" /></div>
+                                <div class="exam-detail-item"><obs conceptId="$@GENITAL_ABNORMALITIES@" answerConceptId="$@PARAMETRIAL_INVOLVEMENT@" answerLabel="Parametrial involvement" style="checkbox" /></div>
+                                <div class="exam-detail-item"><obs conceptId="$@GENITAL_ABNORMALITIES@" answerConceptId="$@PELVIC_INVOLVEMENT@" answerLabel="Pelvic side wall involvement" style="checkbox" /></div>
+                                <div class="exam-detail-item"><obs conceptId="$@GENITAL_ABNORMALITIES@" answerConceptId="$@RECTAL_INVOLVEMENT@" answerLabel="Rectal involvement" style="checkbox" /></div>
+                                <div class="exam-detail-item"><obs conceptId="$@GENITAL_ABNORMALITIES@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" style="checkbox" /> <obs conceptId="$@GENITAL_ABNORMALITIES_TEXT@" cols="30" rows="1" /></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Other -->
+                    <tr>
+                        <td class="exam-area" colspan="3">
+                            <strong>Other Exam Findings</strong> (include location and size of mass, if applicable):
+                            <obs conceptId="$@OTHER_PHYSICAL_EXAMS@" cols="80" rows="3" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== CANCER PROGRESSION ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            Cancer Progression Assessment
+        </div>
+        <div class="section-content">
+            <div class="progression-card">
+                <div class="progression-title">Mass Location (if applicable)</div>
+                <obsgroup groupingConceptId="2e775064-6ece-4546-9375-50480e8e0020">
+                    <span>Location: <obs conceptId="e95848e2-f31c-485f-ba8b-8c9424840f92" /></span>
+                    <span style="margin-left: 20px;">Current size: <obs conceptId="f174b027-79cf-4ebf-a103-d34b26eacafd" /> x <obs conceptId="f174b027-79cf-4ebf-a103-d34b26eacafd" /> cm</span>
+                </obsgroup>
+            </div>
+
+            <div class="progression-card">
+                <div class="progression-title">Mode of Assessment</div>
+                <div class="progression-options">
+                    <obs conceptId="9ea0a07f-922d-4e61-82c9-dbc940b30783" answerConceptId="b50f4136-1f74-4288-869e-7bea6620ee25" answerLabel="Clinical ONLY" />
+                    <obs conceptId="9ea0a07f-922d-4e61-82c9-dbc940b30783" answerConceptId="b63afdd3-55c5-4be8-897e-96ccd10deb66" answerLabel="Imaging" />
+                    <obs conceptId="9ea0a07f-922d-4e61-82c9-dbc940b30783" answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2" answerLabel="Other:" />
+                    <obs conceptId="2de07f49-4b97-4037-b30a-bce98546d1cc" cols="30" rows="1" />
+                </div>
+            </div>
+
+            <div class="progression-card">
+                <div class="progression-title">Disease Status</div>
+                <div class="progression-options checkboxGroup">
+                    <span id="checkboxRadio">
+                        <obs conceptId="05841055-295e-4313-ad3b-64b13be4118e" answerConceptId="e377b4da-5fdc-40c1-ac2e-60071fac5e5f" answerLabel="Progressing" />
+                        <obs conceptId="05841055-295e-4313-ad3b-64b13be4118e" answerConceptId="5f9c4b32-37ff-48ae-86cb-685d6aae6129" answerLabel="Improving" />
+                        <obs conceptId="05841055-295e-4313-ad3b-64b13be4118e" answerConceptId="3cd921a0-26fe-102b-80cb-0017a47871b2" answerLabel="Unchanged" />
+                        <obs conceptId="05841055-295e-4313-ad3b-64b13be4118e" answerConceptId="e0a96aca-7768-42f9-bacd-eb4dbaf7fc3e" answerLabel="No evidence of disease" />
+                        <obs conceptId="05841055-295e-4313-ad3b-64b13be4118e" answerConceptId="3edd5ca8-ef60-4c09-ad69-5215ec7d8a3a" answerLabel="Unable to assess" />
+                        <obs conceptId="05841055-295e-4313-ad3b-64b13be4118e" answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2" answerLabel="Other:" />
+                    </span>
+                    <obs conceptId="3044bf81-beab-4c8c-a5b9-5af7dc98e4a7" cols="40" rows="1" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PLAN AND NEXT VISIT ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            Plan and Next Visit
+        </div>
+        <div class="section-content">
+            <div class="info-item">
+                <span class="info-label">Plan</span>
+                <obs conceptId="$@PATIENT_PLAN_COMMENTS@" cols="100" rows="4" />
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="next-visit-grid">
+                <!-- Outpatient - Butaro -->
+                <div class="next-visit-card">
+                    <div class="next-visit-title">Outpatient Visit - Butaro Hospital</div>
+                    <div class="next-visit-item">
+                        <span>Routine follow-up:</span>
+                        <obs conceptId="a7aa7d20-3520-4d8a-9324-f7b8f6a3b109" allowFutureDates="true" />
+                    </div>
+                    <div class="next-visit-item">
+                        <span>Special consultation:</span>
+                        <obs conceptId="7ec61380-3cde-4b7a-a322-4678a0b460c4" allowFutureDates="true" />
+                    </div>
+                    <div class="next-visit-item">
+                        <span>Pathology results:</span>
+                        <obs conceptId="56001c5f-1a8a-4d80-b255-d1de983a852e" allowFutureDates="true" />
+                    </div>
+                    <div class="next-visit-item">
+                        <span>Perform Biopsy:</span>
+                        <obs conceptId="ea843dde-d33b-4687-88cb-5cd76111b48b" allowFutureDates="true" />
+                    </div>
+                </div>
+
+                <!-- Rwanda Cancer Center -->
+                <div class="next-visit-card">
+                    <div class="next-visit-title">Rwanda Cancer Center / Military Hospital</div>
+                    <div class="next-visit-item">
+                        <span>Outpatient visit:</span>
+                        <obs conceptId="$@Outpatient_visit_Rwanda_Cancer_Center_Rwanda_Military_Hospital@" allowFutureDates="true" />
+                    </div>
+                </div>
+
+                <!-- Adult Chemotherapy -->
+                <div class="next-visit-card">
+                    <div class="next-visit-title">Adult Chemotherapy</div>
+                    <div class="next-visit-item">
+                        <span>Inpatient Ward:</span>
+                        <obs conceptId="6de4e3ee-fe8d-427e-b38f-1703e80f8513" allowFutureDates="true" />
+                    </div>
+                </div>
+
+                <!-- Pediatric Oncology -->
+                <div class="next-visit-card">
+                    <div class="next-visit-title">Pediatric Oncology Visit</div>
+                    <div class="next-visit-item">
+                        <span>Routine follow-up:</span>
+                        <obs conceptId="$@Peciatric_Non_chemotherapy@" allowFutureDates="true" />
+                    </div>
+                    <div class="next-visit-item">
+                        <span>Chemotherapy:</span>
+                        <obs conceptId="$@Pediatric_Chemotherapy@" allowFutureDates="true" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <strong>Note:</strong> Complete 'Exit Program' form if patient is exiting from oncology program.
+                Complete another 'DST' form if there's change in disease stage or treatment intent.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="info-item">
+                <span class="info-label">Clinician</span>
+                <encounterProvider role="Oncology Provider" />
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== DRUG ORDER ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            Drug Orders
+        </div>
+        <div class="section-content">
+            <div class="drug-order-section">
+                <drugOrder orderType="131168f4-15f5-102d-96e4-000c29c2a5d7" selectLabel="+ Add Drug Order">
+                    <orderTemplate>
+                        <div class="orderwidget-drug-section">
+                            <div class="order-field action">
+                                <orderProperty name="action">
+                                    <option value="NEW" label="Place a new Order" />
+                                    <option value="REVISE" label="Revise this Order" />
+                                    <option value="RENEW" label="Renew this Order" />
+                                    <option value="DISCONTINUE" label="Discontinue this Order" />
+                                </orderProperty>
+                            </div>
+
+                            <div class="order-field">
+                                <orderProperty name="drug" label="Drug *">
+                                    <option value="$@Imatinib_400mg@" />
+                                    <option value="$@Tamoxifen_20mg@" />
+                                    <option value="$@Letrozole_2.5mg@" />
+                                    <option value="$@Methotrexate_0.4mg_kg@" />
+                                    <option value="$@Methotrexate_20mg_m2@" />
+                                    <option value="$@Chlorambucil_0.4_mg_kg@" />
+                                    <option value="$@Melphalan_9mg_m2@" />
+                                    <option value="$@Prednisolone_60mg_m2@" />
+                                    <option value="$@Capecitabine_1000_mg_m2@" />
+                                    <option value="$@6-Mercaptopurine_75mg_m2@" />
+                                    <option value="$@Dexamethasone_6mg_m2@" />
+                                    <option value="$@Hydrea_500mg@" />
+                                    <option value="$@Hydrea_1000mg@" />
+                                    <option value="$@Allopurinol_100mg@" />
+                                    <option value="$@Allopurinol_300mg@" />
+                                </orderProperty>
+                            </div>
+
+                            <div class="order-field">
+                                <orderProperty name="dose" label="Dose *" />
+                            </div>
+
+                            <div class="order-field">
+                                <orderProperty name="doseUnits" label="Units *">
+                                    <option value="4020" label="tablets" />
+                                    <option value="05d778f0-6282-4eed-9c58-6b5d0703c5a7" label="milligrams" />
+                                    <option value="07b05a2a-87ff-44ce-bb5c-5d6855bf8b11" label="units" />
+                                </orderProperty>
+                            </div>
+
+                            <div class="order-field">
+                                <orderProperty name="frequency" label="Frequency *">
+                                    <option value="707ad8b7-d902-11ea-80fb-0242ac110002" label="1 / day" />
+                                    <option value="bfc113ff-f21d-11ea-ba0d-0242ac110002" label="1 / day for days every 2 weeks" />
+                                    <option value="41d3b6ea-eee1-11ea-b492-0242ac110002" label="1 / Week" />
+                                </orderProperty>
+                            </div>
+
+                            <div class="order-field">
+                                <orderProperty name="dateActivated" label="Start Date" />
+                            </div>
+
+                            <div class="order-field">
+                                <orderProperty name="duration" label="Duration (days)" />
+                            </div>
+
+                            <div class="order-field">
+                                <orderProperty name="asNeeded" />
+                            </div>
+
+                            <div class="order-field">
+                                <orderProperty name="discontinueReason" label="Discontinue Reason">
+                                    <optionGroup concept="$@REASON_ORDER_STOPPED@" />
+                                </orderProperty>
+                            </div>
+
+                            <!-- Hidden defaults -->
+                            <div class="hidden">
+                                <orderProperty name="route" value="3327" />
+                                <orderProperty name="urgency" value="ROUTINE" />
+                                <orderProperty name="dosingType" value="org.openmrs.SimpleDosingInstructions" />
+                                <orderProperty name="instructions" textArea="true" textAreaRows="4" textAreaColumns="100" />
+                                <orderProperty name="previousOrder" />
+                                <orderProperty name="careSetting" value="OUTPATIENT" />
+                                <orderProperty name="quantity" value="0" />
+                                <orderProperty name="quantityUnits" value="6735094c-8416-43e3-8a3c-091332a08cb7" />
+                                <orderProperty name="numRefills" value="0" />
+                                <orderProperty name="durationUnits" value="SNOMED CT:258703001">
+                                    <option value="SNOMED CT:258703001" label="Days" />
+                                </orderProperty>
+                            </div>
+                        </div>
+                    </orderTemplate>
+                </drugOrder>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SUBMIT ===== -->
+    <div class="submit-section">
+        <submit submitLabel="Save Clinic Visit" />
+    </div>
+
+    <!-- ===== SUMMARY PLANS FLOWSHEET ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            Summary Plans
+        </div>
+        <div class="section-content">
+            <htmlformflowsheet formId="3bb5d087-81c9-431c-9df8-29762d0035f5" sharedEncounter="true" />
+        </div>
+    </div>
+
 </htmlform>
