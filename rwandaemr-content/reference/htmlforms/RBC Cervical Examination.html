@@ -223,6 +223,21 @@
         @Type_2@ = 6476e05e-4406-47f4-9025-1c95571e6f59
         @Type_3@ = cc6497b1-8f5b-48be-ac95-d5e142e6e663
         @Reason_for_not_treated@ = 31ea0598-0d80-4b6f-981f-59e6b8d228c9
+        @GRAVIDITY@ =  3cee82de-26fe-102b-80cb-0017a47871b2
+        @PARITY@ = 3cd6dda0-26fe-102b-80cb-0017a47871b2
+        @PATIENT_USING_FAMILY_PLANNING@ = 3cdcf172-26fe-102b-80cb-0017a47871b2
+        @not_eligible@ = d05d61ac-0c87-405c-ba92-f3164821c36d
+        @METHOD_OF_FAMILY_PLANNING@ = 3ccfbd0e-26fe-102b-80cb-0017a47871b2
+        @ORAL_CONTRACEPTION@ = 3cd42786-26fe-102b-80cb-0017a47871b2
+        @INJECTABLE_CONTRACEPTIVES@ = 3ceb5532-26fe-102b-80cb-0017a47871b2
+        @Implant@ = 99589123-20fc-4c54-9c49-d6679a506dd8
+        @INTRAUTERINE_DEVICE@ = 3ceb4d4e-26fe-102b-80cb-0017a47871b2
+        @CONDOMS@ = 3cce7a20-26fe-102b-80cb-0017a47871b2
+        @TUBAL_LIGATION@ = 3cdcf44c-26fe-102b-80cb-0017a47871b2
+        @counseled_and_accepted_to_use_FP_method@ = 100d7504-b134-4af3-a524-36a849b89009
+        @NATURAL_FAMILY_PLANNING@ = 3ceb5082-26fe-102b-80cb-0017a47871b2
+        @COMMUNITY_BASED_ORGANIZATION@ = 3cdd4230-26fe-102b-80cb-0017a47871b2
+
 
 
 
@@ -821,6 +836,9 @@
                     <span class="deactivate" id="WCEDEntryPoint" title="EntryPoint">
                         <obs conceptId="$@METHOD_OF_ENROLLMENT@" answerConceptId="$@woman_cancer_early_detection_CLINIC@" answerLabel="WCED Clinic" />
                     </span>
+                    <span class="deactivate" id="communityEntryPoint" title="EntryPoint">
+                        <obs conceptId="$@METHOD_OF_ENROLLMENT@" answerConceptId="$@COMMUNITY_BASED_ORGANIZATION@" answerLabel="Community(CBSS)" />
+                    </span>
                     <!--                    <label class="font-normal">-->
                     <!--                        <input id="obs.OtherEntryPoint" name="obs.EntryPoint" type="radio"-->
                     <!--                               data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"-->
@@ -1177,7 +1195,58 @@
                 <!--                No-->
                 <!--            </label>-->
             </tr>
-<!--            <tr class="form-group">-->
+
+            <tr class="form-group">
+                <td>Gravidity (G): </td>
+                <td class="font-normal">
+                    <obs conceptId="$@GRAVIDITY@"/>
+
+
+                </td>
+            </tr>
+
+            <tr class="form-group">
+                <td>Parity (P): </td>
+                <td class="font-normal">
+                    <obs conceptId="$@PARITY@" />
+
+
+                </td>
+            </tr>
+
+            <tr class="form-group">
+                <td>Currently using any family planning method </td>
+                <td class="font-normal">
+                    <obs conceptId="$@PATIENT_USING_FAMILY_PLANNING@" answerConceptIds="$@YES@,$@NO@,$@not_eligible@" answerLabels="Yes,No,Not eligible for FP" style="radio" />
+
+
+                </td>
+            </tr>
+
+            <tr class="form-group">
+                <td> If yes, type of method currently used</td>
+                <td class="font-normal">
+                    <obs conceptId="$@METHOD_OF_FAMILY_PLANNING@"
+                         answerConceptIds="$@ORAL_CONTRACEPTION@,$@INJECTABLE_CONTRACEPTIVES@,$@Implant@,$@INTRAUTERINE_DEVICE@,$@CONDOMS@,$@TUBAL_LIGATION@,$@NATURAL_FAMILY_PLANNING@"
+                         answerLabels="Oral contraceptive pills, injectable (Depo), Implant, IUD(Copper/Hormonal), Condom, Permanent method(tubal ligation), natural family planning" style="radio" />
+
+
+                </td>
+            </tr>
+
+            <tr class="form-group">
+                <td>If not using FP, women counseled and accepted to use FP Method </td>
+                <td class="font-normal">
+                    <obs conceptId="$@counseled_and_accepted_to_use_FP_method@" answerConceptIds="$@YES@,$@NO@" answerLabels="Yes,No" style="radio" />
+
+
+                </td>
+            </tr>
+
+
+
+
+            <!--            <tr class="form-group">-->
 <!--                <td>Currently breastfeeding? </td>-->
 <!--                <td class="font-normal">-->
 <!--                    &lt;!&ndash;                <input id="obs.breastfeedingYes" name="obs.breastfeeding" type="radio"&ndash;&gt;-->

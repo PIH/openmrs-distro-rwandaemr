@@ -224,6 +224,13 @@
     <!--                       value="e8e6a8fa-0aab-427d-9960-8501de238ad7^woman cancer early detection CLINIC^99DCT">-->
     <!--                WCED Clinic-->
     <!--            </label>-->
+
+<!--                <label class="font-normal">-->
+<!--                    <input class="activate"  id="communityEntryPoint" name="EntryPoint" type="checkbox"-->
+<!--                           data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"-->
+<!--                           value="3cdd4230-26fe-102b-80cb-0017a47871b2^COMMUNITY-BASED ORGANIZATION^99DCT">-->
+<!--                    Community(CBSS)-->
+<!--                </label>-->
     <!--            <label class="font-normal">-->
     <!--                <input class="activate"  id="obs.OtherEntryPoint" name="EntryPoint" type="radio"-->
     <!--                       data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"-->
@@ -490,6 +497,141 @@
     <!--                No-->
     <!--            </label>-->
     <!--        </div>-->
+
+            <div class="form-group">
+                <label>Currently pregnant? </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="pregnantYes" name="pregnant" type="checkbox"
+                           data-concept="3ceb4880-26fe-102b-80cb-0017a47871b2^PREGNANCY STATUS^99DCT"
+                           value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                    Yes
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="pregnantNo" name="pregnant" type="checkbox"
+                           data-concept="3ceb4880-26fe-102b-80cb-0017a47871b2^PREGNANCY STATUS^99DCT"
+                           value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                    No
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>GRAVIDITY </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="GRAVIDITY" name="GRAVIDITY" type="text" pattern="[0-9]*"
+                           data-concept="3cee82de-26fe-102b-80cb-0017a47871b2^GRAVIDITY^99DCT">
+                </label>
+            </div>
+
+
+            <div class="form-group">
+                <label>PARITY (P) </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="PARITY" name="PARITY" type="text" pattern="[0-9]*"
+                           data-concept="3cd6dda0-26fe-102b-80cb-0017a47871b2^PARITY^99DCT">
+                </label>
+            </div>
+
+
+            <div class="form-group">
+                <label>Currently using any family planning method? </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="PATIENT_USING_FAMILY_PLANNINGYes" name="PATIENT_USING_FAMILY_PLANNING" type="checkbox"
+                           data-concept="3cdcf172-26fe-102b-80cb-0017a47871b2^PATIENT USING FAMILY PLANNING^99DCT"
+                           value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                    Yes
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="PATIENT_USING_FAMILY_PLANNINGNo" name="PATIENT_USING_FAMILY_PLANNING" type="checkbox"
+                           data-concept="3cdcf172-26fe-102b-80cb-0017a47871b2^PATIENT USING FAMILY PLANNING^99DCT"
+                           value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                    No
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="PATIENT_USING_FAMILY_PLANNINGNotEligible" name="PATIENT_USING_FAMILY_PLANNING" type="checkbox"
+                           data-concept="3cdcf172-26fe-102b-80cb-0017a47871b2^PATIENT USING FAMILY PLANNING^99DCT"
+                           value="d05d61ac-0c87-405c-ba92-f3164821c36d^not eligible^99DCT">
+                    Not eligible for FP
+                </label>
+            </div>
+
+
+            <div class="form-group">
+                <label>If yes, type of method currently used </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="oralFP" name="FPMethod" type="checkbox"
+                           data-concept="3ccfbd0e-26fe-102b-80cb-0017a47871b2^METHOD OF FAMILY PLANNING^99DCT"
+                           value="3cd42786-26fe-102b-80cb-0017a47871b2^ORAL CONTRACEPTION^99DCT">
+                    Oral contraceptive pills
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="injectFP" name="FPMethod" type="checkbox"
+                           data-concept="3ccfbd0e-26fe-102b-80cb-0017a47871b2^METHOD OF FAMILY PLANNING^99DCT"
+                           value="3ceb5532-26fe-102b-80cb-0017a47871b2^INJECTABLE CONTRACEPTIVES^99DCT">
+                    Injectable
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="implantFP" name="FPMethod" type="checkbox"
+                           data-concept="3ccfbd0e-26fe-102b-80cb-0017a47871b2^METHOD OF FAMILY PLANNING^99DCT"
+                           value="99589123-20fc-4c54-9c49-d6679a506dd8^Implant^99DCT">
+                    Implant
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="IUDFP" name="FPMethod" type="checkbox"
+                           data-concept="3ccfbd0e-26fe-102b-80cb-0017a47871b2^METHOD OF FAMILY PLANNING^99DCT"
+                           value="3ceb4d4e-26fe-102b-80cb-0017a47871b2^INTRAUTERINE DEVICE^99DCT">
+                    IUD (Copper / Hormonal)
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="condomFP" name="FPMethod" type="checkbox"
+                           data-concept="3ccfbd0e-26fe-102b-80cb-0017a47871b2^METHOD OF FAMILY PLANNING^99DCT"
+                           value="3cce7a20-26fe-102b-80cb-0017a47871b2^CONDOMS^99DCT">
+                    Condom
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="tubalLigationFP" name="FPMethod" type="checkbox"
+                           data-concept="3ccfbd0e-26fe-102b-80cb-0017a47871b2^METHOD OF FAMILY PLANNING^99DCT"
+                           value="3cdcf44c-26fe-102b-80cb-0017a47871b2^TUBAL LIGATION^99DCT">
+                    Permanent method (tubal ligation)
+                </label>
+                <label class="font-normal">
+                    <input id="NaturalFP" name="FPMethod" type="checkbox"
+                           data-concept="3ccfbd0e-26fe-102b-80cb-0017a47871b2^METHOD OF FAMILY PLANNING^99DCT"
+                           value="3ceb5082-26fe-102b-80cb-0017a47871b2^NATURAL FAMILY PLANNING^99DCT">
+                    Natural Method
+                </label>
+            </div>
+
+
+            <div class="form-group">
+                <label>If not using FP, women counseled and accepted to use FP Method </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="acceptedFPYes" name="acceptedFP" type="checkbox"
+                           data-concept="100d7504-b134-4af3-a524-36a849b89009^counseled and accepted to use FP method^99DCT"
+                           value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">
+                    Yes
+                </label>
+                <br/>
+                <label class="font-normal">
+                    <input id="acceptedFPNo" name="acceptedFP" type="checkbox"
+                           data-concept="100d7504-b134-4af3-a524-36a849b89009^counseled and accepted to use FP method^99DCT"
+                           value="3cd6f86c-26fe-102b-80cb-0017a47871b2^NO^99DCT">
+                    No
+                </label>
+            </div>
     <!--        &lt;!&ndash;        <div class="form-group">&ndash;&gt;-->
     <!--        &lt;!&ndash;            <label> Entry point: </label>&ndash;&gt;-->
     <!--        &lt;!&ndash;            <label class="font-normal">&ndash;&gt;-->
