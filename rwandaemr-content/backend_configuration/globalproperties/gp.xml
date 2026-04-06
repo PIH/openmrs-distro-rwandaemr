@@ -82,6 +82,16 @@
             <value>6234d61b-4c77-4af6-9bbb-533e44c03f24</value>
         </globalProperty>
 
+        <globalProperty>
+            <property>pihapps.labs.resultsDateConcept</property>
+            <value>c19867c0-fec9-404c-bf25-6cf7a8c54eb7</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>pihapps.labs.didNotPerformReason</property>
+            <value>4e849126-304a-4fe8-b9c1-be276880335f</value>
+        </globalProperty>
+
         <!-- orderentryowa.orderReasonsMap -->
         <!-- orderentryowa.labOrderAutoExpireTimeInDays -->
 
