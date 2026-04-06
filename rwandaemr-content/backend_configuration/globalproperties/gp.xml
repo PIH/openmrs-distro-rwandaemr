@@ -36,6 +36,14 @@
             <value>305ca264-8cc0-11f0-86e4-5a8274571689</value>
         </globalProperty>
 
+        <globalProperty>
+            <property>pihapps.labs.labResultCategoriesConceptSet</property>
+            <!-- Concept: Rwanda laboratory orderable categories -->
+            <value>305ca264-8cc0-11f0-86e4-5a8274571689</value>
+        </globalProperty>
+
+
+
         <!-- Taken from configuration of laboratorymanagement.labOrderEncounterTypeId -->
         <globalProperty>
             <property>orderentryowa.encounterType</property>
