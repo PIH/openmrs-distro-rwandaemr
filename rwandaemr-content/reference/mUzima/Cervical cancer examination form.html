@@ -2209,11 +2209,13 @@
                 }
                 
             });
-            $('input[name="ManagementTreatmentPerformed"]').change(function(){
+            $('input[name="ManagementTreatmentPerformed"], input[name="VIAResults"]').change(function() {
                 var TreatmentPerformedValue = $('input[name=ManagementTreatmentPerformed]:checked').val();
+                var VIATriageResults = $('input[name=VIATriageResults]:checked').val();
                 var managementTreatmentPerformedValueNoUUID = "3cd6f86c-26fe-102b-80cb-0017a47871b2";
-                
-                if(TreatmentPerformedValue.indexOf(managementTreatmentPerformedValueNoUUID) != -1){
+                var VIANegativeUUID = "a7b08a37-0380-49dd-8f12-c2c2c76c8b13";
+
+                if(TreatmentPerformedValue.indexOf(managementTreatmentPerformedValueNoUUID) != -1 && VIATriageResults.indexOf(VIANegativeUUID) == -1){
                     $("#reasonForNottreatingGroupLabel").show();
                     $("#reasonForNottreating").prop("required",true);
                     $("#ManagementTypeOfTreatmentPerformedThermoAblation").prop("required",false);

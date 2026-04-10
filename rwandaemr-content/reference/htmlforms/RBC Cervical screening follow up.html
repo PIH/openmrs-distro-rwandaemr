@@ -246,6 +246,9 @@
             @counseled_and_accepted_to_use_FP_method@ = 100d7504-b134-4af3-a524-36a849b89009
             @NATURAL_FAMILY_PLANNING@ = 3ceb5082-26fe-102b-80cb-0017a47871b2
             @COMMUNITY_BASED_ORGANIZATION@ = 3cdd4230-26fe-102b-80cb-0017a47871b2
+            @INDETERMINATE@ = 3cd774d6-26fe-102b-80cb-0017a47871b2
+
+
 
 
 
@@ -438,6 +441,18 @@
                 if(jQuery){
                     $j(document).ready(function(){
 
+
+                    window.isObsAnswerChecked = function(obsId, targetValue) {
+                        // Find the currently selected value in that specific obs group
+                        var selectedValue = jq('#' + obsId + ' input:radio:checked').val();
+
+                        // Find the 'value' assigned by OpenMRS to your target macro/concept
+                        var targetInternalValue = jq('#' + obsId + ' input:radio[value="' + targetValue + '"]').val();
+
+                        // Return true only if they match and something is actually selected
+                        return (selectedValue !== undefined &amp;&amp; selectedValue === targetInternalValue);
+                    };
+
                         $j( ".activate" ).click(function() {
 
                             //var classesOfTheClicked = $j(this).prop('class');
@@ -542,6 +557,25 @@
             }
             return true;
             });
+
+            // This lists ALL your trigger objects in one single listener
+            $j('#VIAResults, #ManagementTreatmentPerformedNo, #ManagementTreatmentPerformedYes').find('input, select').change(function() {
+
+                // 1. Get current values
+                var viaResults = $j('#VIAResults input[type="radio"]:checked').val();
+                var treatmentPerformed = $j("#ManagementTreatmentPerformedYes input[type='checkbox']").is(':checked');
+
+                // 2. Run your shared logic
+                if(viaResults != 107148 &#38;&#38; !treatmentPerformed) {
+                    $j("#reasonForNotTreating").show();
+                    // $j("#reasonForNotTreating").find("input, select").prop("required", true);
+                } else {
+                    $j("#reasonForNotTreating").hide();
+                    // $j("#reasonForNotTreating").find("input, select").prop("required", false);
+                }
+            });
+
+
         });
         </script>
         <script>
@@ -587,20 +621,7 @@
                         //     }
                         // });
                         // $j(document).ready(function () {
-                            $j("#ManagementTreatmentPerformedNo input[type='checkbox']").change(function () {
-                                var selectedInput = $j("#ManagementTreatmentPerformedNo input[type='checkbox']:checked").length > 0;
-                                // var labelText = $j("label[for='" + selectedInput.attr("id") + "']").text();
-                                if(selectedInput){
 
-                                    $j("#reasonForNotTreating").show();
-
-                                    // $j("#reasonForNotTreating").find("input, select, textarea").attr("required", true);
-                                }
-                                else{
-                                    $j("#reasonForNotTreating").hide();
-                                    // $j("#reasonForNotTreating").find("input, select, textarea").attr("required", false);
-                                }
-                            });
                         // });
                         // getField('VIAResults.value').change(function(){
                         $j("#VIAResults input[type='radio']").change(function () {
@@ -799,16 +820,16 @@
     <!--                    <obs id="nameOfReferring" conceptId="$@TRANSFER_IN_FROM@"/>-->
     <!--                 </td>-->
     <!--            </tr>-->
-    <!--            <tr>-->
-    <!--                <td>-->
-    <!--                    <label>Reason for referral In:</label>-->
-    <!--                </td>-->
-    <!--                <td>-->
-    <!--                    <obs conceptId="$@Reasons_for_Referral_In@" answerConceptIds="$@Suspected_cancer_diagnosis@,$@thermal-ablation@,$@Cryotherapy@,$@Loop_Electrosurgical_Excision_Procedure@,$@OTHER_NON-CODED@"-->
-    <!--                         answerLabels="Suspected cancer,Thermal ablation,Cryotherapy,LEEP,Other reasons" />-->
-    <!--                    Other reasons: <obs conceptId="$@Other_reason_for_referral_in@"/>-->
-    <!--                </td>-->
-    <!--            </tr>-->
+                <tr>
+                    <td>
+                        <label>Reason for referral In:</label>
+                    </td>
+                    <td>
+                        <obs conceptId="$@Reasons_for_Referral_In@" answerConceptIds="$@Suspected_cancer_diagnosis@,$@thermal-ablation@,$@Cryotherapy@,$@Loop_Electrosurgical_Excision_Procedure@,$@OTHER_NON-CODED@"
+                             answerLabels="Suspected cancer,Thermal ablation,Cryotherapy,LEEP,Other reasons" />
+                        Other reasons: <obs conceptId="$@Other_reason_for_referral_in@"/>
+                    </td>
+                </tr>
     <!--            <tr class="form-group">-->
     <!--                <td> Service/unit: </td>-->
     <!--                <td class="font-normal checkboxGroup">-->
@@ -1506,9 +1527,9 @@
                         <!--                           data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA triage Results^99DCT"-->
                         <!--                           value="3fe69559-cc82-48cb-926e-5d925aca088b^VIA+ Eligible for Thermal ablation^99DCT">-->
 
-                        <obs id="VIAResults" conceptId="$@VIA_Results@" answerConceptIds="$@VIA+_Eligible_for_Thermal_ablation@,$@VIA+_Eligible_for_LEEP@,$@VIA_Negative@,$@Suspected_cancer_diagnosis@"
-                             answerLabels="VIA+ Eligible for Thermal ablation,VIA+ Eligible for LEEP,VIA-,Suspected cancer" style="radio"/>
-
+                        <obs id="VIAResults" conceptId="$@VIA_Results@" answerConceptIds="$@VIA+_Eligible_for_Thermal_ablation@,$@VIA+_Eligible_for_LEEP@,
+                        $@VIA_Negative@,$@Suspected_cancer_diagnosis@,$@INDETERMINATE@"
+                             answerLabels="VIA+ Eligible for Thermal ablation,VIA+ Eligible for LEEP,VIA-,Suspected cancer,INDETERMINATE" style="radio"/>
                         <!--                    <input id="obs.VIATriageResultLEEP" name="obs.VIATriageResults" type="checkbox"-->
                         <!--                           data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA triage Results^99DCT"-->
                         <!--                           value="402f3951-420e-4c09-9a9a-955bc0cff140^VIA+ Eligible for LEEP^99DCT">-->
@@ -1814,7 +1835,7 @@
                         <!--                       value="3cd6f600-26fe-102b-80cb-0017a47871b2^YES^99DCT">-->
                         <!--                    <obs conceptId="$@Treatment_performed@" answerConceptIds="$@YES@,$@NO@" answerLabels="Yes,No" style="radio" />-->
                         <span class="activate" id="ManagementTreatmentPerformedYes" title="ManagementTreatmentPerformed">
-                            <obs conceptId="$@Treatment_performed@" answerConceptId="$@YES@" answerLabel="Yes" style="checkbox" />
+                            <obs id="ManagementTreatmentPerformedYesobs" conceptId="$@Treatment_performed@" answerConceptId="$@YES@" answerLabel="Yes" style="checkbox" />
                         </span>
                         <span class="deactivate" id="ManagementTreatmentPerformedNo" title="ManagementTreatmentPerformed">
                             <obs conceptId="$@Treatment_performed@" answerConceptId="$@NO@" answerLabel="No" style="checkbox" />

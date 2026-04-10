@@ -189,69 +189,71 @@
 
 
         });
-        function autoFillChronologicalAndCorrectedAge(){
+
+        function autoFillChronologicalAndCorrectedAge() {
         var birthDate = $j('#birthdate span').text();
         var currentDate = getValue('encounterDate.value');
+
         var birthDateObj = new Date(birthDate);
         var currentDateObj = new Date(currentDate);
-        var ageInMilliseconds = currentDateObj - birthDateObj;
-        setValue('Chronological_Age.value', chronologicalAge(ageInMilliseconds));
-        //corrected age
-        var gestAgeInweeks = $j('#GestationalAge').text();
-        if (gestAgeInweeks &#60; 37 &#38;&#38; (1/gestAgeInweeks) &#33;&#61; "Infinity"){
-        var correctedAgeInMilliseconds = ageInMilliseconds - ((40-gestAgeInweeks) * 7 * 24 * 60 * 60 * 1000);
-        setValue('CORRECTED_AGE.value', chronologicalAge(correctedAgeInMilliseconds));
-        }
-        }
-        function chronologicalAge(ageInMilliseconds){
 
-        var signOfMilliseconds = Math.sign(ageInMilliseconds);
-        ageInMilliseconds = ageInMilliseconds * signOfMilliseconds;
+        // Calculate Chronological Age using actual calendar dates
+        setValue('Chronological_Age.value', chronologicalAge(birthDateObj, currentDateObj));
 
-        var years = 0;
-        var months = 0;
-        var weeks = 0;
-        var days = 0;
-        var pyears= Math.floor(ageInMilliseconds/(12*30*24*60*60*1000));
-        if( pyears >=1)
-        {
-        years = pyears;
-        ageInMilliseconds = ageInMilliseconds - (pyears* (12*30*24*60*60*1000));
-        };
-        var pmonths= Math.floor(ageInMilliseconds/(30*24*60*60*1000));
-        if( pmonths >=1)
-        {
-        months = pmonths;
-        ageInMilliseconds = ageInMilliseconds - (pmonths* (30*24*60*60*1000));
-        };
-        var pweeks= Math.floor(ageInMilliseconds/(7*24*60*60*1000));
-        if( pweeks >=1)
-        {
-        weeks = pweeks;
-        ageInMilliseconds = ageInMilliseconds - (pweeks* (7*24*60*60*1000));
-        };
-        var pdays= Math.floor(ageInMilliseconds/(7*24*60*60*1000));
-        if( pdays >=1)
-        {
-        days = pweeks;
-        };
+        // Corrected age logic
+        var gestAgeInweeks = parseFloat($j('#GestationalAge').text());
+        if (gestAgeInweeks &#60; 37 &#38;&#38; isFinite(gestAgeInweeks)) {
+        // Calculate the "due date" (40 weeks minus gestational age)
+        var weeksToSubtract = 40 - gestAgeInweeks;
+        var daysToSubtract = weeksToSubtract * 7;
 
-        if(years >= 1){
-        years = years * signOfMilliseconds
-        }
-        else if(months >= 1){
-        months = months * signOfMilliseconds
-        }
-        else if(weeks >= 1){
-        weeks = weeks * signOfMilliseconds
-        }
-        else if(days >= 1){
-        days = days * signOfMilliseconds
-        }
-        var chronologicalAge = years + " years " + months + " months " + weeks + " weeks "+ days + " days";
+        // Create a new date object for the "Corrected Birth Date"
+        var correctedBirthDateObj = new Date(birthDateObj);
+        correctedBirthDateObj.setDate(correctedBirthDateObj.getDate() + daysToSubtract);
 
-        return chronologicalAge;
+        setValue('CORRECTED_AGE.value', chronologicalAge(correctedBirthDateObj, currentDateObj));
         }
+        }
+
+        function chronologicalAge(startDate, endDate) {
+        // Handle cases where endDate might be before startDate (negative age)
+        var sign = endDate >= startDate ? 1 : -1;
+        var start = sign === 1 ? new Date(startDate) : new Date(endDate);
+        var end = sign === 1 ? new Date(endDate) : new Date(startDate);
+
+        var years = end.getFullYear() - start.getFullYear();
+        var months = end.getMonth() - start.getMonth();
+        var days = end.getDate() - start.getDate();
+
+        // 1. Borrow days from the previous month if needed
+        if (days &#60; 0) {
+        months--;
+        // Get the last day of the specific month prior to the 'end' date
+        var prevMonthLastDay = new Date(end.getFullYear(), end.getMonth(), 0).getDate();
+        days += prevMonthLastDay;
+        }
+
+        // 2. Borrow months from the year if needed
+        if (months &#60; 0) {
+        years--;
+        months += 12;
+        }
+
+        // 3. Split remaining days into weeks and days
+        var weeks = Math.floor(days / 7);
+        var remainingDays = days % 7;
+
+        // 4. Apply sign to the largest non-zero unit (matches your original logic)
+        if (years >= 1) years *= sign;
+        else if (months >= 1) months *= sign;
+        else if (weeks >= 1) weeks *= sign;
+        else if (remainingDays >= 1) remainingDays *= sign;
+
+        return years + " years " + months + " months " + weeks + " weeks " + remainingDays + " days";
+        }
+
+
+
 
     </script>
 
@@ -623,6 +625,7 @@
                     <td>
                         Date:
                         <encounterDate default="today" />
+                        <span class="hidden" id="birthdate"> <lookup class="value" expression="patient.birthdate" /></span>
                     </td>
                     <td>
                         Health Facility:
@@ -673,7 +676,7 @@
                             <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@SIBLING@" answerLabel="SIBLING" style="checkbox"/>
                             <br/>
                             <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@OTHER_NON_CODED@" answerLabel="Other" style="checkbox"/>
-                            <obs conceptId="@$who_attended_with_the_child_text@"/>
+                            <obs conceptId="$@who_attended_with_the_child_text@"/>
                         </p>
                     </td>
                 </tr>

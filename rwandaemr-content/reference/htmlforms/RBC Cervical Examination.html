@@ -237,6 +237,7 @@
         @counseled_and_accepted_to_use_FP_method@ = 100d7504-b134-4af3-a524-36a849b89009
         @NATURAL_FAMILY_PLANNING@ = 3ceb5082-26fe-102b-80cb-0017a47871b2
         @COMMUNITY_BASED_ORGANIZATION@ = 3cdd4230-26fe-102b-80cb-0017a47871b2
+        @INDETERMINATE@ = 3cd774d6-26fe-102b-80cb-0017a47871b2
 
 
 
@@ -624,6 +625,35 @@
         return true;
         });
 
+
+            getField('VIAResults.value').change(function() {
+
+                var viaResults = $j('#VIAResults input[type="radio"]:checked').val();
+                var treatmentperformed = $j("#ManagementTreatmentPerformedYes input[type='checkbox']:checked").length > 0;
+                alert(treatmentperformed);
+                if(viaResults != 107148 &#38;&#38; !treatmentperformed){
+
+                    $j("#reasonForNotTreating").show();
+                    // $j("#reasonForNotTreating").find("input, select, textarea").attr("required", true);
+                }
+                else{
+                    $j("#reasonForNotTreating").hide();
+                }
+            });
+        //    getField('ManagementTreatmentPerformedYes.value').change(function() {
+            $j('#ManagementTreatmentPerformedNo, #ManagementTreatmentPerformedYes').find('input, select, textarea').change(function() {
+                var viaResults = $j('#VIAResults input[type="radio"]:checked').val();
+                var treatmentperformed = $j("#ManagementTreatmentPerformedYes input[type='checkbox']:checked").length > 0;
+                if(viaResults != 107148 &#38;&#38; !treatmentperformed){
+
+                    $j("#reasonForNotTreating").show();
+                    // $j("#reasonForNotTreating").find("input, select, textarea").attr("required", true);
+                }
+                else{
+                    $j("#reasonForNotTreating").hide();
+                }
+            });
+
     });
     </script>
     <script>
@@ -643,19 +673,8 @@
                 });
 
                 $j(document).ready(function () {
-                    $j("#ManagementTreatmentPerformedNo input[type='checkbox']").change(function () {
-                        var selectedInput = $j("#ManagementTreatmentPerformedNo input[type='checkbox']:checked").length > 0;
-                        // var labelText = $j("label[for='" + selectedInput.attr("id") + "']").text();
-                        
-                        if(selectedInput){
-                            
-                            $j("#reasonForNotTreating").show(); 
-                            // $j("#reasonForNotTreating").find("input, select, textarea").attr("required", true);
-                        }
-                        else{
-                            $j("#reasonForNotTreating").hide(); 
-                        }
-                    });
+
+
 
                    $j("#ScreeningTypeHPV input[type='checkbox']").change(function(){
                         
@@ -1459,8 +1478,9 @@
 <!--                           value="3fe69559-cc82-48cb-926e-5d925aca088b^VIA+ Eligible for Thermal ablation^99DCT">-->
 
                     <obs id="VIAResults" conceptId="$@VIA_Results@" 
-                    answerConceptIds="$@VIA_positive_Eligible_for_Thermal_ablation@,$@VIA_positive_Eligible_for_LEEP@,$@VIA_Negative@,$@Suspected_cancer_diagnosis@"
-                         answerLabels="VIA+ Eligible for Thermal ablation,VIA+ Eligible for LEEP,VIA-,Suspected cancer" 
+                    answerConceptIds="$@VIA_positive_Eligible_for_Thermal_ablation@,$@VIA_positive_Eligible_for_LEEP@,$@VIA_Negative@,$@Suspected_cancer_diagnosis@,
+                    $@INDETERMINATE@"
+                         answerLabels="VIA+ Eligible for Thermal ablation,VIA+ Eligible for LEEP,VIA-,Suspected cancer,INDETERMINATE"
                          style="radio"/>
 
                     <!--                    <input id="obs.VIATriageResultLEEP" name="obs.VIATriageResults" type="checkbox"-->
@@ -1771,7 +1791,7 @@
                     <span class="deactivate" id="ManagementTreatmentPerformedNo" title="ManagementTreatmentPerformed">
                         <obs conceptId="$@Treatment_performed@" answerConceptId="$@NO@" answerLabel="No" style="checkbox" />
                     </span>
-                    <span class="initialHide" id="reasonForNotTreating">
+                    <span class="initialHide ManagementTreatmentPerformed" id="reasonForNotTreating">
                         Reason for not treating
                         <obs conceptId="$@Reason_for_not_treated@"/>
                     </span>

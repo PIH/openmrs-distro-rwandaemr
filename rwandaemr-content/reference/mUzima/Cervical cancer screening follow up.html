@@ -1035,6 +1035,13 @@
                        value="476123d7-54f1-4278-92f1-2de4f19ae951^Suspected cancer diagnosis^99DCT">
                 Suspected cancer
             </label>
+            <br/>
+            <label class="font-normal">
+                <input class="deactivate" id="VIATriageResult" name="VIATriageResults" type="radio"
+                       data-concept="a37a937a-a2a6-4c22-975f-986fb3599ea3^VIA Results^99DCT"
+                       value="3cd774d6-26fe-102b-80cb-0017a47871b2^INDETERMINATE^99DCT">
+                Indeterminate
+            </label>
         </div>
         <div>
             <label><u>Type of Transformation zone</u></label>
@@ -2093,11 +2100,13 @@
                 }
                 
             });
-            $('input[name="ManagementTreatmentPerformed"]').change(function(){
+            $('input[name="ManagementTreatmentPerformed"], input[name="VIAResults"]').change(function() {
                 var TreatmentPerformedValue = $('input[name=ManagementTreatmentPerformed]:checked').val();
+                var VIATriageResults = $('input[name=VIATriageResults]:checked').val();
                 var managementTreatmentPerformedValueNoUUID = "3cd6f86c-26fe-102b-80cb-0017a47871b2";
+                var VIANegativeUUID = "a7b08a37-0380-49dd-8f12-c2c2c76c8b13";
                 
-                if(TreatmentPerformedValue.indexOf(managementTreatmentPerformedValueNoUUID) != -1){
+                if(TreatmentPerformedValue.indexOf(managementTreatmentPerformedValueNoUUID) != -1 && VIATriageResults.indexOf(VIANegativeUUID) == -1){
                     $("#reasonForNottreatingGroupLabel").show();
                     $("#reasonForNottreating").prop("required",true);
                     $("#ManagementTypeOfTreatmentPerformedThermoAblation").prop("required",false);

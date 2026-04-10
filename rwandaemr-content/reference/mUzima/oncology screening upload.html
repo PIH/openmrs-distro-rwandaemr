@@ -1,0 +1,241 @@
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/muzima.css" rel="stylesheet">
+    <link href="css/ui-darkness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="js/jquery-autocomplete-min.js"></script>
+    <script src="js/muzima.js"></script>
+
+    <title>CLINICAL CERVICAL EXAMINATION</title>
+</head>
+<body class="col-md-10 col-md-offset-1">
+<div id="pre_populate_data"></div>
+<form id="DiabetesCardiovascularCheckup_form" name="DiabetesCardiovascularCheckup_form">
+    <div class="section">
+        <fieldset>
+            <h3>Encounter Details</h3>
+            <div class="form-group">
+                <label for="encounter.location_id">Location Name:<span class="required">*</span></label>
+                <input class="form-control valid-location-only" id="encounter.location_id" type="text" placeholder="Start typing something..."
+                       required="required">
+                <input class="form-control" name="encounter.location_id" type="hidden">
+            </div>
+            <div class="form-group">
+                <label for="encounter.provider_id_select">Provider:</label>
+                <input class="form-control valid-provider-only" id="encounter.provider_id_select" type="text" placeholder="Start typing something...">
+                <input class="form-control" name="encounter.provider_id_select" type="hidden">
+            </div>
+            <div class="form-group hidden">
+                <select id="select_providers"></select>
+            </div>
+            <div class="form-group show_provider_id_text">
+                <label for="encounter.provider_id">Provider's system-id:<span class="required">*</span></label>
+                <input class="form-control checkDigit" id="encounter.provider_id" name="encounter.provider_id"
+                       type="text" required="required" disabled="disabled">
+            </div>
+            <div class="form-group">
+                <label for="encounter.encounter_datetime">Encounter Date:<span class="required">*</span></label>
+                <input class="form-control datepicker nonFutureDate past-date" id="encounter.encounter_datetime"
+                       name="encounter.encounter_datetime" type="text" readonly="readonly"
+                       required="required">
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="encounter.form_uuid" name="encounter.form_uuid"
+                       type="hidden" required="required">
+            </div>
+        </fieldset>
+    </div>
+    <div class="section">
+        <fieldset>
+            <h3>DEMOGRAPHICS & CLINICAL MEASUREMENTS</h3>
+
+            <div class="form-group">
+                <input class="form-control" id="patient.uuid"
+                       name="patient.uuid" type="hidden" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.medical_record_number">Patient identifier:</label>
+                <input class="form-control" id="patient.medical_record_number"
+                       name="patient.medical_record_number" type="text" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.given_name">Given Name:</label>
+                <input class="form-control" id="patient.given_name" name="patient.given_name" type="text"
+                       readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.middle_name">Middle Name:</label>
+                <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text"
+                       readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.family_name">Family Name:</label>
+                <input class="form-control" id="patient.family_name" name="patient.family_name" type="text"
+                       readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="patient.sex">Gender:</label>
+                <select class="form-control" id="patient.sex" name="patient.sex" disabled="disabled">
+                    <option value="">...</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="patient.birth_date">Date Of Birth:</label>
+                <input class="form-control" id="patient.birth_date" name="patient.birth_date" type="text"
+                       readonly="readonly" disabled="disabled">
+            </div>
+        </fieldset>
+    </div>
+    <div class="section">
+        <h3>UPLOAD VIA IMAGE</h3>
+        <fieldset>
+            <div class="section concept-set initialHide ScreeningTypeVIA">
+
+
+                <!-- Image capture-->
+                <div class="section repeat consultation_image" id="consultation_image" data-name="consultation_image"
+                     data-concept="107464^VIA Image GroupSet^99DCT">
+                    <h4><b>Attach VIA Image</b></h4>
+
+                    <div class="form-group">
+                        <label for="obs.consultation_image">VIA Image:<span class="required">*</span></label>
+                        <input type="button" class='btn image_btn'>
+                        <input class="image_text form-control" id="obs.consultation_image" readonly="readonly"
+                               name="obs.consultation_image" type="hidden" data-concept="107462^VIA images^99DCT"/>
+                        <div class="form-group">
+                            <label for="obs.consultation_image_caption">Image Caption:</label>
+                            <input class="form-control" id="obs.consultation_image_caption" readonly="readonly"
+                                   name="obs.consultation_image_caption" type="text" required="required"
+                                   data-concept="107463^VIA Image Caption Free Text^99DCT">
+                        </div>
+                    </div>
+                </div>
+                <!--End Image Capture -->
+            </div>
+        </fieldset>
+        <div class="form-group">
+<!--            <label for="consultation.recipient">Consultant:<span class="required">*</span></label>-->
+            <input class="form-control" name="consultation.recipient" id="consultation.recipient" type="hidden" value="admin" readonly="readonly">
+        </div>
+        <!-- <label class="font-normal">
+            <input class="deactivate" id="OPDEntryPoint" name="EntryPoint" type="checkbox"
+                   data-concept="3cdc85ac-26fe-102b-80cb-0017a47871b2^METHOD OF ENROLLMENT^99DCT"
+                   value="9e5e7ffc-6eb8-4d0f-a1a8-319eed6399fb^OUTPATIENT Department^99DCT">
+            OPD
+        </label> -->
+    </div>
+</form>
+
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+       var dateFormat = "dd-mm-yy";
+        var currentDate = $.datepicker.formatDate(dateFormat, new Date());
+        var encounterDatetime = $('#encounter\\.encounter_datetime');
+        if ($(encounterDatetime).val() == "") {
+            $(encounterDatetime).val(currentDate);
+        }
+
+        $('#save_draft').click(function () {
+        $(this).prop('disabled', true);
+        document.saveDraft(this);
+        $(this).prop('disabled', false);
+        });
+        $('#submit_form').click(function () {
+            $(this).prop('disabled', true);
+            document.submit();
+            $(this).prop('disabled', false);
+        });
+
+        document.setupAutoCompleteData('encounter\\.location_id');
+        document.setupValidationForLocation("$('#encounter\\.location_id').val()","encounter\\.location_id");
+        document.setupAutoCompleteDataForProvider('encounter\\.provider_id_select');
+        document.setupValidationForProvider("$('#encounter\\.provider_id_select').val()","encounter\\.provider_id");
+        $('#encounter\\.provider_id_select').change(function () {
+            if ($('#encounter\\.provider_id_select').val() === '') {
+                $('#encounter\\.provider_id').val('');
+                   $('.show_provider_id_text').show();
+            }
+        });
+        $('.future-or-today-date').change(function () {
+            if ($(this).is(':visible') && $(this).val() != '') {
+                var errors = {};
+                var pattern = /(\d{2})-(\d{2})-(\d{4})/g;
+                var matches = pattern.exec($(this).val());
+                var enteredDate = new Date(matches[3], matches[2] - 1, matches[1]);
+                var today = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate());
+                if (enteredDate < today) {
+                    errors[$(this).attr('name')] = "Please enter present or future date.";
+                }
+                toggleValidationMessages(errors);
+            }
+        });
+
+                    var WhereToRefer = [
+            {"val": "64d4a6d9-8e71-4d80-83bc-fc5b5e44703f^Caraes Ndera Hospital^99DCT", "label": "Caraes Ndera Hospital "},
+            {"val": "682754d6-cff2-4f2e-90a3-ea3b1e7fa230^Butaro Hospital^99DCT", "label": "Butaro Hospital "},
+            {"val": "927be708-d8b3-4809-bd7e-c1bea7c821eb^Byumba Hospital^99DCT", "label": "Byumba Hospital "},
+            {"val": "c7e37519-bcea-4a6e-a29d-14cd972fc551^GAHINI HOSPITAL^99DCT", "label": "GAHINI HOSPITAL "},
+            {"val": "20b838ed-d624-4abf-9ae1-7fe2b90133e5^Gakoma Hospital^99DCT", "label": "Gakoma Hospital "},
+            {"val": "a810cdff-0221-425a-bde5-d33f1366a126^GIHUNDWE HOSPITAL^99DCT", "label": "GIHUNDWE HOSPITAL "},
+            {"val": "325e942f-c41d-4032-b86d-2cdff25b7b81^Gisenyi District Hospital^99DCT", "label": "Gisenyi District Hospital "},
+            {"val": "cc121d58-d969-4ae7-a4ba-0d04580fee56^Gitwe Hospital^99DCT", "label": "Gitwe Hospital "},
+            {"val": "74c27b34-2305-4384-ac94-4b3f24e1d98d^Kabaya Hospital^99DCT", "label": "Kabaya Hospital "},
+            {"val": "fbe11e25-c7dd-423c-823a-d62a8f2f7182^KABGAYI HOSPITAL^99DCT", "label": "KABGAYI HOSPITAL "},
+            {"val": "5eb665f3-06b6-4fa7-b111-a9470d15d2ba^KABUTARE^99DCT", "label": "KABUTARE HOSPITAL "},
+            {"val": "9b2d4d19-1e77-4ac7-9dc5-a3c02be14b1a^Kaduha Hospital^99DCT", "label": "Kaduha Hospital "},
+            {"val": "1ae17163-c8c9-44bd-b2eb-8c3f7771180b^KIBAGABAGA^99DCT", "label": "KIBAGABAGA Hospital "},
+            {"val": "eeac5a5c-1c33-4149-a0a5-3d7aef4fc673^Kibilizi Hospital^99DCT", "label": "Kibilizi Hospital "},
+            {"val": "697069e2-233d-44d4-a0fc-66557b01ef36^Kibogora Hospital^99DCT", "label": "Kibogora Hospital "},
+            {"val": "3aa054a5-8eca-4c4b-9d99-752c2ff86cc1^Kigeme Hospital^99DCT", "label": "Kigeme Hospital "},
+            {"val": "2dc4146e-cabd-4597-801b-5da3c2014a4a^Kirehe hospital^99DCT", "label": "Kirehe hospital "},
+            {"val": "6ecc713e-ced3-40ef-8638-5521cc867cff^Kirinda Hospital^99DCT", "label": "Kirinda Hospital "},
+            {"val": "b2f81d84-6c3e-4189-ba0e-f3897378bb93^Kiziguro District Hospital^99DCT", "label": "Kiziguro District Hospital "},
+            {"val": "5db13b6c-0706-4380-b645-db171a0ebd50^Mibilizi Hospital^99DCT", "label": "Mibilizi Hospital "},
+            {"val": "d14a8f85-2a68-4b27-9e4b-bc5364ff1508^Mugonero Hospital^99DCT", "label": "Mugonero Hospital "},
+            {"val": "94e1993c-e6cf-4e86-bb03-5e0912fccd24^Muhima Hospital^99DCT", "label": "Muhima Hospital "},
+            {"val": "a3cbcfd4-e362-4b59-a2de-6c43117b1a25^Muhororo Hospital^99DCT", "label": "Muhororo Hospital "},
+            {"val": "7364e504-c446-4144-9c13-57fca35d519e^Murunda Hospital^99DCT", "label": "Murunda Hospital "},
+            {"val": "62539c87-257a-45d3-ad98-1dfc469517d6^Nemba Hospital^99DCT", "label": "Nemba Hospital "},
+            {"val": "c2a42405-2be8-4a73-8250-c70ea8e643c3^Ngarama Hospital^99DCT", "label": "Ngarama Hospital "},
+            {"val": "8a75974a-67b6-4a57-8902-4217819dba4c^Nyagatare Hospital^99DCT", "label": "Nyagatare Hospital "},
+            {"val": "929e23c1-07c7-445e-8611-65a37e0f1aa5^Nyamata Hospital^99DCT", "label": "Nyamata Hospital "},
+            {"val": "e36e7e90-7d0e-44f9-80c9-529ee5356fb7^Nyanza Hospital^99DCT", "label": "Nyanza Hospital "},
+            {"val": "1a033e97-0411-4911-9183-a31d0ce3c750^Remera-Rukumo Hospital^99DCT", "label": "Remera-Rukumo Hospital "},
+            {"val": "d9c92270-44a1-4498-8a49-84d04f59cd48^Ruli Hospital^99DCT", "label": "Ruli Hospital "},
+            {"val": "12ad8530-0686-4559-be53-748de74caab2^Rutongo Hospital^99DCT", "label": "Rutongo Hospital "},
+            {"val": "83ee379e-1576-4401-9d37-687fb5bba296^SHYIRA HOSPITAL^99DCT", "label": "SHYIRA HOSPITAL "},
+            {"val": "9b04a9ee-60dd-46c6-8ce1-e3657ec55d67^Masaka Hospital^99DCT", "label": "Masaka Hospital "},
+            {"val": "2514bef8-5bc6-4657-bdf5-c5d82abc8e11^Munini Hospital^99DCT", "label": "Munini Hospital "},
+            {"val": "3cda8388-26fe-102b-80cb-0017a47871b2^RWINKWAVU^99DCT", "label": "RWINKWAVU Hospital "},
+            {"val": "bc64178d-d6a5-4289-88ec-debdd7a6f885^Bushenge Hospital^99DCT", "label": "Bushenge Hospital "},
+            {"val": "544547d4-dac5-49e3-9e0d-718a8fe324dc^Kinihira Hospital^99DCT", "label": "Kinihira Hospital "},
+            {"val": "f2e75b8c-b770-4019-a70e-7acec43c53ee^RWAMAGANA HOSPITAL^99DCT", "label": "Rwamagana HOSPITAL "},
+            {"val": "9020f09f-237f-4ccf-a3f9-8755044fbe29^Ruhango Hospital^99DCT", "label": "Ruhango Hospital "},
+            {"val": "3cb82e34-7ea2-44f6-af0b-f0ea4d995bf4^RUHENGERI HOSPITAL^99DCT", "label": "Ruhengeri Hospital "},
+            {"val": "3b49bab4-9e1f-425e-b597-47fa60606fc9^KIBUNGO HOSPITAL^99DCT", "label": "Kibungo Hospital "},
+            {"val": "b757c3c7-d259-419f-9fa8-56292c0d2d0d^Kibuye Hospital^99DCT", "label": "Kibuye Hospital "},
+            {"val": "68222ccb-71ee-418e-a4a4-b924b4e80108^Centre Hôspitalier Universitaire de Kigali (CHUK)^99DCT", "label": "CHUK Hospital "},
+            {"val": "2b472c6b-a0d4-44b1-bb2f-3d44289a19e5^Centre Hôspitalier Universitaire de Butare (CHUB)^99DCT", "label": "CHUB Hospital "},
+            {"val": "c8f88b6d-0781-4171-bf61-88f1681778d8^Rwanda Military Hospital^99DCT", "label": "Rwanda Military Hospital "},
+            {"val": "2072327c-1a6d-47b3-8a54-202d6b5d3036^Gatunda Hospital^99DCT", "label": "Gatunda Hospital "},
+            {"val": "3cee7fb4-26fe-102b-80cb-0017a47871b2^OTHER NON-CODED^99DCT", "label": "Other "}
+        ];
+        document.setupAutoComplete('obs\\.healthFacility', WhereToRefer);
+        // helps in hide and show. Just set name of checkbox/radio to equate
+        // the class on div to hide, set activate/deactive class on the checkbox/radio
+        // to be clicked
+
+    });
+</script>
+
+</html>
