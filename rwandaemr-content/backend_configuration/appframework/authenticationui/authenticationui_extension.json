@@ -20,7 +20,8 @@
       "show-locations": false,
       "require-location": false,
       "allow-password-reset": true,
-      "welcome-message": "Welcome to Rwanda EMR"
+      "welcome-message": "Welcome to Rwanda EMR",
+      "show-remember-me": true
     }
   }
 ]
