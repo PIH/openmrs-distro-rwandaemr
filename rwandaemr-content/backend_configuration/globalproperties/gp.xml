@@ -36,6 +36,14 @@
             <value>305ca264-8cc0-11f0-86e4-5a8274571689</value>
         </globalProperty>
 
+        <globalProperty>
+            <property>pihapps.labs.labResultCategoriesConceptSet</property>
+            <!-- Concept: Rwanda laboratory orderable categories -->
+            <value>305ca264-8cc0-11f0-86e4-5a8274571689</value>
+        </globalProperty>
+
+
+
         <!-- Taken from configuration of laboratorymanagement.labOrderEncounterTypeId -->
         <globalProperty>
             <property>orderentryowa.encounterType</property>
@@ -45,6 +53,51 @@
         <globalProperty>
             <property>orderentryowa.encounterRole</property>
             <value>Clinician</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>pihapps.labs.specimenCollectionEncounterType</property>
+            <value>Laboratory Encounter</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>pihapps.labs.estimatedCollectionDateQuestion</property>
+            <value>87f506e3-4433-40ec-b16c-b3c65e402989</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>pihapps.labs.estimatedCollectionDateAnswer</property>
+            <value>3cd6f600-26fe-102b-80cb-0017a47871b2</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>pihapps.labs.testOrderNumberConcept</property>
+            <value>393dec41-2fb5-428f-acfa-36ea85da6666</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>pihapps.labs.labIdentifierConcept</property>
+            <value>162086AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>pihapps.labs.locationOfLaboratory</property>
+            <value>7c7fdf2d-0c47-11f1-b478-5af8a6b3b75b</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>pihapps.labs.specimenReceivedDateConcept</property>
+            <value>6234d61b-4c77-4af6-9bbb-533e44c03f24</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>pihapps.labs.resultsDateConcept</property>
+            <value>c19867c0-fec9-404c-bf25-6cf7a8c54eb7</value>
+        </globalProperty>
+
+        <globalProperty>
+            <property>pihapps.labs.didNotPerformReason</property>
+            <value>4e849126-304a-4fe8-b9c1-be276880335f</value>
         </globalProperty>
 
         <!-- orderentryowa.orderReasonsMap -->

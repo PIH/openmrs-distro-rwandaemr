@@ -1,2 +1,7 @@
 UUID,Fully specified name:en,Data class,Data type,Members
 305ca264-8cc0-11f0-86e4-5a8274571689,Rwanda laboratory orderable categories,ConvSet,N/A,HEMATOLOGY;PARASITOLOGY;URINARY CHEMISTRY;BACTERIOLOGY;HEMOSTASIS;IMMUNOSEROLOGY;TUMOUR MARKERS;BLOOD CHEMISTRY;FERTILITY HORMONES;TOXICOLOGY;THYROID FUNCTION HORMONES
+87f506e3-4433-40ec-b16c-b3c65e402989,Estimated collection date,Question,Coded,
+393dec41-2fb5-428f-acfa-36ea85da6666,Test order number,Question,Text,
+162086AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,Specimen number,Question,Text,
+7c7fdf2d-0c47-11f1-b478-5af8a6b3b75b,Location of laboratory,Question,Coded,
+6234d61b-4c77-4af6-9bbb-533e44c03f24,Specimen received date,Question,Datetime,
