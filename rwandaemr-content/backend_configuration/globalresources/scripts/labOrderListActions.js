@@ -497,7 +497,29 @@ class LabOrderListActions {
         window.open(blobUrl, '_blank');
     }
 
+    static notifyPatient(patientWithOrders, extensionParams) {
+        const payload = {
+            patientUuid: patientWithOrders.patient.uuid,
+            orderUuids:  patientWithOrders.orders.map(function(o) { return o.uuid; })
+        };
+        jq.ajax({
+            url:         openmrsContextPath + '/ws/rest/v1/rwandaemr/lab/notify',
+            type:        'POST',
+            contentType: 'application/json',
+            data:        JSON.stringify(payload)
+        }).done(function() {
+            emr.successMessage('Patient notified successfully');
+        }).fail(function(xhr) {
+            var message = 'Failed to notify patient';
+            try {
+                var resp = JSON.parse(xhr.responseText);
+                if (resp.error) { message = resp.error; }
+            } catch (e) {}
+            emr.errorMessage(message);
+        });
+    }
 }
 
-// Register entry point expected by the extension framework
-window.labOrderListPrintResults = (p, e) => LabOrderListActions.printResults(p, e);
+// Register entry points expected by the extension framework
+window.labOrderListPrintResults  = (p, e) => LabOrderListActions.printResults(p, e);
+window.labOrderListNotifyPatient = (p, e) => LabOrderListActions.notifyPatient(p, e);
