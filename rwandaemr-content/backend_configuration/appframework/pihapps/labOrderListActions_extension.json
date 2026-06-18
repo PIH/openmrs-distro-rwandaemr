@@ -1,0 +1,24 @@
+[
+  {
+    "id": "rwandaemr.lab.printResults",
+    "extensionPointId": "org.openmrs.module.pihapps.labOrderList.patientGroupActions",
+    "type": "link",
+    "label": "Print Results",
+    "order": 10,
+    "extensionParams": {
+      "iconClass": "fas fa-fw fa-print",
+      "jsFunction": "labOrderListPrintResults"
+    }
+  },
+  {
+    "id": "rwandaemr.lab.notifyPatient",
+    "extensionPointId": "org.openmrs.module.pihapps.labOrderList.patientGroupActions",
+    "type": "link",
+    "label": "Notify Patient",
+    "order": 20,
+    "extensionParams": {
+      "iconClass": "fas fa-fw fa-bell",
+      "jsFunction": "labOrderListNotifyPatient"
+    }
+  }
+]
