@@ -497,11 +497,7 @@ class LabOrderListActions {
         window.open(blobUrl, '_blank');
     }
 
-    static notifyPatient(patientWithOrders, extensionParams) {
-        console.log('LabOrderListActions.notifyPatient called', patientWithOrders, extensionParams);
-    }
 }
 
-// Register entry points expected by the extension framework
-window.labOrderListPrintResults  = (p, e) => LabOrderListActions.printResults(p, e);
-window.labOrderListNotifyPatient = (p, e) => LabOrderListActions.notifyPatient(p, e);
+// Register entry point expected by the extension framework
+window.labOrderListPrintResults = (p, e) => LabOrderListActions.printResults(p, e);
