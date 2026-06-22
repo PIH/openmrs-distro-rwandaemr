@@ -137,21 +137,50 @@ class LabOrderListActions {
             return;
         }
 
-        LabOrderListActions.buildOrderResults(patientWithOrders.orders).then(function(enrichedOrders) {
-            return LabOrderListActions.generateLabPdf(patientWithOrders.patient, enrichedOrders);
+        var printConfigPromise = new Promise(function(resolve) {
+            jq.get(openmrsContextPath + '/ws/rest/v1/rwandaemr/lab/printConfig')
+                .done(function(data) { resolve(data); })
+                .fail(function() { resolve({}); });
+        });
+
+        Promise.all([
+            LabOrderListActions.buildOrderResults(patientWithOrders.orders),
+            printConfigPromise
+        ]).then(function(results) {
+            return LabOrderListActions.generateLabPdf(patientWithOrders.patient, results[0], results[1]);
         }).catch(function(err) {
             console.error('LabOrderListActions.printResults: failed to generate PDF', err);
             emr.errorMessage('Failed to generate PDF report');
         });
     }
 
-    static async generateLabPdf(patient, enrichedOrders) {
+    static async generateLabPdf(patient, enrichedOrders, printConfig) {
+        printConfig = printConfig || {};
         const { PDFDocument, StandardFonts, rgb } = PDFLib;
 
         const doc      = await PDFDocument.create();
         const fontReg  = await doc.embedFont(StandardFonts.Helvetica);
         const fontBold = await doc.embedFont(StandardFonts.HelveticaBold);
         const fontItal = await doc.embedFont(StandardFonts.HelveticaOblique);
+        const fontSig  = await doc.embedFont(StandardFonts.TimesRomanBoldItalic);
+
+        async function embedImage(imgData) {
+            if (!imgData || !imgData.data) return null;
+            try {
+                const binary = atob(imgData.data);
+                const bytes  = new Uint8Array(binary.length);
+                for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+                if (imgData.mimeType === 'image/png')  return await doc.embedPng(bytes);
+                if (imgData.mimeType === 'image/jpeg') return await doc.embedJpg(bytes);
+            } catch (e) {
+                console.warn('Lab PDF: failed to embed image', e);
+            }
+            return null;
+        }
+
+        const logoImg     = await embedImage(printConfig.facilityLogo);
+        const stampImg    = await embedImage(printConfig.labTechStamp);
+        const labTechName = printConfig.labTechName || '';
 
         // A4 portrait dimensions in points
         const W = 595.28, H = 841.89;
@@ -323,7 +352,12 @@ class LabOrderListActions {
 
         // ---- Document header ----
 
-        const facilityName = (typeof visitLocationName !== 'undefined') ? visitLocationName : '';
+        const facilityName = printConfig.facilityName ||
+            ((typeof visitLocationName !== 'undefined') ? visitLocationName : '');
+        const facilityAddress = printConfig.facilityAddress || '';
+        const facilityPhone   = printConfig.facilityPhone   || '';
+        const facilityEmail   = printConfig.facilityEmail   || '';
+
         const patientName  = patient.person.display;
         const emrId = (() => {
             if (!patient.identifiers) return '';
@@ -332,26 +366,55 @@ class LabOrderListActions {
         })();
         const generatedDate = formatDate(new Date());
 
-        if (facilityName) {
-            const fw = fontBold.widthOfTextAtSize(facilityName, FS_TITLE);
-            page.drawText(facilityName, { x: (W - fw) / 2, y, size: FS_TITLE, font: fontBold, color: cBlack });
-            y -= 20;
+        // Scale logo to fit (placed left of facility text)
+        const LOGO_MAX_H = 60, LOGO_MAX_W = 80;
+        let logoW = 0, logoH = 0;
+        if (logoImg) {
+            const dims  = logoImg.scale(1);
+            const scale = Math.min(LOGO_MAX_W / dims.width, LOGO_MAX_H / dims.height, 1);
+            logoW = dims.width  * scale;
+            logoH = dims.height * scale;
         }
 
+        // Right-side texts: "Laboratory Results" on the first line, generated date below
         const titleText = 'Laboratory Results';
         const titleW    = fontBold.widthOfTextAtSize(titleText, FS_TITLE);
-        page.drawText(titleText, { x: (W - titleW) / 2, y, size: FS_TITLE, font: fontBold, color: cBlack });
-        y -= 20;
+        const genText   = 'Generated: ' + generatedDate;
+        const genW      = fontReg.widthOfTextAtSize(genText, FS_SM);
 
-        page.drawText('Patient: ' + patientName, { x: ML, y, size: FS, font: fontBold, color: cBlack });
-        y -= 13;
+        const facilityLines = [facilityName, facilityAddress, facilityPhone, facilityEmail].filter(Boolean);
+        const facilityTextX = ML + (logoW > 0 ? logoW + 8 : 0);
+        const leftH  = Math.max(logoH, facilityLines.length > 0 ? FS_TITLE + (facilityLines.length - 1) * 13 : 0);
+        const rightH = FS_TITLE + 14; // title line + generated date line
+        const blockH = Math.max(leftH, rightH);
 
-        page.drawText('ID: ' + emrId, { x: ML, y, size: FS, font: fontBold, color: cBlack });
-        const genText = 'Generated: ' + generatedDate;
-        const genW    = fontReg.widthOfTextAtSize(genText, FS_SM);
-        page.drawText(genText, { x: W - MR - genW, y, size: FS_SM, font: fontReg, color: cGrey });
-        y -= 12;
+        // Draw logo
+        if (logoImg) {
+            page.drawImage(logoImg, { x: ML, y: y - logoH, width: logoW, height: logoH });
+        }
 
+        // Draw facility lines on the left
+        let textY = y - FS_TITLE;
+        facilityLines.forEach(function(line, i) {
+            const font = i === 0 ? fontBold : fontReg;
+            const size = i === 0 ? FS_TITLE  : FS;
+            page.drawText(line, { x: facilityTextX, y: textY, size, font, color: cBlack });
+            textY -= 13;
+        });
+
+        // Draw "Laboratory Results" right-aligned on the same line as the facility name
+        page.drawText(titleText, { x: W - MR - titleW, y: y - FS_TITLE, size: FS_TITLE, font: fontBold, color: cBlack });
+        // Draw generated date right-aligned on the line below
+        page.drawText(genText, { x: W - MR - genW, y: y - FS_TITLE - 14, size: FS_SM, font: fontReg, color: cGrey });
+
+        y -= blockH + 10;
+        page.drawLine({ start: { x: ML, y }, end: { x: W - MR, y }, thickness: 0.5, color: cBorder });
+        y -= 15;
+
+        page.drawText('Patient: ' + patientName, { x: ML, y, size: 11, font: fontBold, color: cBlack });
+        y -= 15;
+        page.drawText('ID: ' + emrId, { x: ML, y, size: 11, font: fontBold, color: cBlack });
+        y -= 15;
         page.drawLine({ start: { x: ML, y }, end: { x: W - MR, y }, thickness: 0.5, color: cBorder });
         y -= 6;
 
@@ -489,6 +552,62 @@ class LabOrderListActions {
         if (pendingOrders.length > 0) {
             drawSectionHeader('Pending');
             pendingOrders.forEach(renderOrderRows);
+        }
+
+        // ---- Footer: text signature then stamp stacked vertically on the last page ----
+
+        if (labTechName || stampImg) {
+            const SCRIPT_FS   = 18;
+            const SIG_LINE_W  = 240;
+            const STAMP_MAX_W = 80, STAMP_MAX_H = 80;
+
+            let stampW = 0, stampH = 0;
+            if (stampImg) {
+                const dims  = stampImg.scale(1);
+                const scale = Math.min(STAMP_MAX_W / dims.width, STAMP_MAX_H / dims.height, 1);
+                stampW = dims.width * scale; stampH = dims.height * scale;
+            }
+
+            // Height: gap + label+line row + script name row + typed name row + optional stamp
+            const footerH = 40
+                + (FS + 4)          // "Signed:" label line
+                + (SCRIPT_FS + 4)   // script name
+                + (FS + 4)          // typed name
+                + (stampImg ? 10 + stampH : 0);
+
+            if (y - MB < footerH) {
+                page = doc.addPage([W, H]);
+                y    = H - MT;
+            }
+
+            y -= 40;
+
+            if (labTechName) {
+                const labelText = 'Signed:  ';
+                const labelW    = fontReg.widthOfTextAtSize(labelText, FS);
+                const sigX      = ML + labelW;
+
+                // "Signed:  " label + signature line
+                page.drawText(labelText, { x: ML, y, size: FS, font: fontReg, color: cGrey });
+                page.drawLine({
+                    start: { x: sigX, y: y - 2 },
+                    end:   { x: sigX + SIG_LINE_W, y: y - 2 },
+                    thickness: 0.8, color: cBlack
+                });
+
+                // Script name on the line (shares baseline with label)
+                page.drawText(labTechName, { x: sigX + 2, y, size: SCRIPT_FS, font: fontSig, color: cBlack });
+                y -= SCRIPT_FS + 4;
+
+                // Typed name below, indented to align under script name
+                page.drawText(labTechName, { x: sigX + 2, y, size: FS, font: fontReg, color: cBlack });
+                y -= FS + 4;
+            }
+
+            if (stampImg) {
+                y -= 10;
+                page.drawImage(stampImg, { x: ML, y: y - stampH, width: stampW, height: stampH });
+            }
         }
 
         const bytes   = await doc.save();
