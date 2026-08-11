@@ -1,0 +1,92 @@
+[
+  {
+    "id": "rwandaemr.queueDashboard",
+    "description": "View and manage queue entries with location filtering",
+    "label": "Queue Dashboard",
+    "order": 3,
+    "extensions": [
+      {
+        "id": "rwandaemr.queueDashboard.homepageLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Queue Dashboard",
+        "url": "rwandaemr/queue/queueDashboard.page?app=rwandaemr.queueDashboard",
+        "icon": "icon-list-ul",
+        "order": 3,
+        "requiredPrivilege": "RwandaEMR Queue: View"
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.queueReports",
+    "description": "View queue report with location and date filtering",
+    "label": "Queue Reports",
+    "order": 6,
+    "extensions": [
+      {
+        "id": "rwandaemr.queueReports.homepageLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Queue Reports",
+        "url": "rwandaemr/queue/queueReports.page",
+        "icon": "icon-list-ul",
+        "order": 6,
+        "requiredPrivilege": "RwandaEMR Queue: Reports"
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.appointmentDashboard",
+    "description": "View appointment demand and capacity by date and service point",
+    "label": "Appointment Dashboard",
+    "order": 7,
+    "extensions": [
+      {
+        "id": "rwandaemr.appointmentDashboard.homepageLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Appointment Dashboard",
+        "url": "rwandaemr/appointment/appointmentDashboard.page",
+        "icon": "icon-bar-chart",
+        "order": 7,
+        "requiredPrivilege": "RwandaEMR Appointments: View"
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.appointmentTimetable",
+    "description": "Configure daily appointment capacity for service points",
+    "label": "Appointment Timetable",
+    "order": 5,
+    "extensions": [
+      {
+        "id": "rwandaemr.appointmentTimetable.homepageLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Appointment Timetable",
+        "url": "rwandaemr/appointment/appointmentTimetable.page",
+        "icon": "icon-calendar",
+        "order": 5,
+        "requiredPrivilege": "RwandaEMR Appointments: Manage Schedules"
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.requestAppointment",
+    "description": "Request an appointment for a patient on an available service-point date",
+    "label": "Request Appointment",
+    "order": 4,
+    "extensions": [
+      {
+        "id": "rwandaemr.requestAppointment.homepageLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Request Appointment",
+        "url": "rwandaemr/appointment/requestAppointment.page",
+        "icon": "icon-calendar",
+        "order": 4,
+        "requiredPrivilege": "RwandaEMR Appointments: Book"
+      }
+    ]
+  }
+]

@@ -30,6 +30,8 @@
 
     <properties>
         <sdkVersion>6.1.0</sdkVersion>
+        <rwandaemrVersion>4.1.0-SNAPSHOT</rwandaemrVersion>
+        <transferappVersion>1.0.0-SNAPSHOT</transferappVersion>
 
         <pihMavenPluginVersion>1.6.0</pihMavenPluginVersion>
         <dependencyReportClassifier>dependencies</dependencyReportClassifier>
