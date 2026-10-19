@@ -143,10 +143,29 @@ class LabOrderListActions {
                 .fail(function() { resolve({}); });
         });
 
+        // Only results that have been validated (COMPLETED) are reported
+        var completedOrders = patientWithOrders.orders.filter(function(order) {
+            return order.fulfillerStatus === 'COMPLETED';
+        });
+        if (completedOrders.length === 0) {
+            emr.errorMessage('There are no validated results to print');
+            return;
+        }
+
+        // Antibiograms of the culture orders, which are recorded as nested obs groups: see rwandaemr AntibiogramService
+        var antibiogramPromise = new Promise(function(resolve) {
+            jq.get(openmrsContextPath + '/ws/rest/v1/rwandaemr/lab/antibiogram?' +
+                    jq.param({ order: completedOrders.map(function(o) { return o.uuid; }) }, true))
+                .done(function(data) { resolve(data || {}); })
+                .fail(function() { resolve({}); });
+        });
+
         Promise.all([
-            LabOrderListActions.buildOrderResults(patientWithOrders.orders),
-            printConfigPromise
+            LabOrderListActions.buildOrderResults(completedOrders),
+            printConfigPromise,
+            antibiogramPromise
         ]).then(function(results) {
+            results[0].forEach(function(eo) { eo.antibiogram = results[2][eo.order.uuid] || []; });
             return LabOrderListActions.generateLabPdf(patientWithOrders.patient, results[0], results[1]);
         }).catch(function(err) {
             console.error('LabOrderListActions.printResults: failed to generate PDF', err);
@@ -477,6 +496,53 @@ class LabOrderListActions {
             return h;
         }
 
+        // Draws a label and a text wrapped across the result columns, for long lists such as antibiotics
+        function drawWrappedRow(label, text, color, indent) {
+            const width = W - MR - COL_X[1] - 6;
+            const words = text.split(' ');
+            const lines = [];
+            let line = '';
+            words.forEach(function(word) {
+                const candidate = line ? line + ' ' + word : word;
+                if (line && fontReg.widthOfTextAtSize(candidate, FS) > width) {
+                    lines.push(line);
+                    line = word;
+                } else {
+                    line = candidate;
+                }
+            });
+            if (line) lines.push(line);
+            lines.forEach(function(l, i) {
+                ensureSpace(RH);
+                const textY = y - RH + (RH - FS) / 2;
+                if (i === 0) {
+                    page.drawText(label, { x: COL_X[0] + 3 + indent, y: textY, size: FS, font: fontBold, color: color });
+                }
+                page.drawText(l, { x: COL_X[1] + 3, y: textY, size: FS, font: fontReg, color: cBlack });
+                page.drawLine({ start: {x: ML, y: y - RH}, end: {x: W - MR, y: y - RH}, thickness: 0.3, color: cBorder });
+                [ML, COL_X[1], W - MR].forEach(function(cx) {
+                    page.drawLine({ start: {x: cx, y}, end: {x: cx, y: y - RH}, thickness: 0.3, color: cBorder });
+                });
+                y -= RH;
+            });
+        }
+
+        function renderAntibiogram(isolates, indent) {
+            if (!isolates || isolates.length === 0) return;
+            drawRow([{ text: 'Antibiogram', bold: true, indent: indent }, {}, {}, {}, {}]);
+            const interpretations = [['S', 'Sensitive', rgb(0.18, 0.49, 0.2)], ['I', 'Intermediate', cOrange], ['R', 'Resistant', cRed]];
+            isolates.forEach(function(isolate) {
+                drawRow([{ text: isolate.organism.display, italic: true, indent: indent + 10 }, {}, {}, {}, {}]);
+                interpretations.forEach(function(interpretation) {
+                    const names = isolate.results.filter(function(r) { return r.code === interpretation[0]; })
+                        .map(function(r) { return r.antibiotic.display; }).sort();
+                    if (names.length > 0) {
+                        drawWrappedRow(interpretation[1], names.join(', '), interpretation[2], indent + 20);
+                    }
+                });
+            });
+        }
+
         function renderOrderRows(eo) {
             const { conceptName, isPanel, tests } = eo;
 
@@ -509,6 +575,7 @@ class LabOrderListActions {
                         });
                     }
                 });
+                renderAntibiogram(eo.antibiogram, 10);
 
             } else {
                 const test   = tests[0];
@@ -534,6 +601,7 @@ class LabOrderListActions {
                         }
                     });
                 }
+                renderAntibiogram(eo.antibiogram, 0);
             }
         }
 
