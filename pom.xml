@@ -29,7 +29,7 @@
     </modules>
 
     <properties>
-        <sdkVersion>6.1.0</sdkVersion>
+        <sdkVersion>6.9.0</sdkVersion>
 
         <pihMavenPluginVersion>1.6.0</pihMavenPluginVersion>
         <dependencyReportClassifier>dependencies</dependencyReportClassifier>
