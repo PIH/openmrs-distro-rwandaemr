@@ -13,11 +13,35 @@
     <name>Butaro OpenMRS Distribution</name>
     <description>Butaro Distribution of the Rwanda EMR</description>
 
+    <properties>
+        <!-- Modules Butaro runs that the base distribution doesn't (versions as in production, October 2026) -->
+        <growthchartVersion>2.2.0-SNAPSHOT</growthchartVersion>
+        <radiologyappVersion>1.8.0</radiologyappVersion>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>rwandaemr-distro</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>growthchart-omod</artifactId>
+            <version>${growthchartVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>imbpathologyrequest-omod</artifactId>
+            <version>${imbpathologyrequestVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>radiologyapp-omod</artifactId>
+            <version>${radiologyappVersion}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
