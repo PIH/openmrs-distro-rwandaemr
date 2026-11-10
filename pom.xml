@@ -35,7 +35,8 @@
         <mohbillingVersion>2.2.6-SNAPSHOT</mohbillingVersion>
         <!-- rwandaemr's RHIP-INTEGRATION branch requires the rbcmessaging module -->
         <rbcmessagingVersion>1.1-SNAPSHOT</rbcmessagingVersion>
-        <transferappVersion>1.0.0-SNAPSHOT</transferappVersion>
+        <!-- Butaro runs 1.4.0-SNAPSHOT built from main@2f159ab; main is now 1.4.2-SNAPSHOT -->
+        <transferappVersion>1.4.2-SNAPSHOT</transferappVersion>
 
         <pihMavenPluginVersion>1.6.0</pihMavenPluginVersion>
         <dependencyReportClassifier>dependencies</dependencyReportClassifier>
