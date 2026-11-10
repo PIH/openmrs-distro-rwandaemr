@@ -30,7 +30,11 @@
 
     <properties>
         <sdkVersion>6.9.0</sdkVersion>
-        <rwandaemrVersion>4.1.0-SNAPSHOT</rwandaemrVersion>
+        <!-- rwandaemr's RHIP-INTEGRATION branch is 4.1.1-SNAPSHOT and needs mohbilling's RHIP-INTEGRATION branch -->
+        <rwandaemrVersion>4.1.1-SNAPSHOT</rwandaemrVersion>
+        <mohbillingVersion>2.2.6-SNAPSHOT</mohbillingVersion>
+        <!-- rwandaemr's RHIP-INTEGRATION branch requires the rbcmessaging module -->
+        <rbcmessagingVersion>1.1-SNAPSHOT</rbcmessagingVersion>
         <transferappVersion>1.0.0-SNAPSHOT</transferappVersion>
 
         <pihMavenPluginVersion>1.6.0</pihMavenPluginVersion>

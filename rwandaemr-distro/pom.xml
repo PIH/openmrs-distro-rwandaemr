@@ -350,6 +350,12 @@
         </dependency>
         <dependency>
             <groupId>org.openmrs.module</groupId>
+            <artifactId>rbcmessaging-omod</artifactId>
+            <version>${rbcmessagingVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
             <artifactId>transferapp-omod</artifactId>
             <version>${transferappVersion}</version>
             <scope>provided</scope>
