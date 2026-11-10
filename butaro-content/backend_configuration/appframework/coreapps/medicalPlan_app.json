@@ -1,0 +1,25 @@
+[
+  {
+    "id": "rwandaemr.mostRecentMedicalPlan",
+    "instanceOf": "coreapps.template.dashboardWidget",
+    "description": "Most recent medical plan",
+    "order": 3,
+    "config": {
+      "widget": "latestobsforconceptlist",
+      "icon": "fas fa-fw fa-notes-medical",
+      "label": "Most Recent Medical Plan",
+      "concepts": "9c0a921e-ee2d-45ee-a448-a438d147392e,4044b850-32da-4689-bb59-107fdacfb470"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.mostRecentMedicalPlan.clinicianDashboardFirstColumn",
+        "appId": "rwandaemr.mostRecentMedicalPlan",
+        "extensionPointId": "patientDashboard.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  }
+]

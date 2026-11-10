@@ -1,0 +1,185 @@
+[
+  {
+    "id": "rwandaemr.wecdProgramDashboard.currentEnrollment",
+    "order": 1,
+    "config": {
+      "widget": "programstatus",
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.currentEnrollmentDashboardWidget.label",
+      "program": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "dashboard": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.wecdProgramDashboard.currentEnrollment.extension",
+        "appId": "rwandaemr.wecdProgramDashboard.currentEnrollment",
+        "extensionPointId": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.wecdProgramDashboard.previousEnrollment",
+    "order": 2,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "dashboard": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.wecdProgramDashboard.previousEnrollment.extension",
+        "appId": "rwandaemr.wecdProgramDashboard.previousEnrollment",
+        "extensionPointId": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "program/programHistory"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.recentEncounters",
+    "description": "coreapps.mostRecentVitals.app.description",
+    "label": "rwandaemr.clinicianfacing.recentEncounters",
+    "icon": "icon-calendar",
+    "order": 4,
+    "config": {
+      "program": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "dashboard": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "includeActive": false,
+      "limit": "5"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.recentEncounters.extension",
+        "appId": "rwandaemr.ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.recentEncounters",
+        "extensionPointId": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.secondColumnFragments",
+        "extensionParams": {
+          "provider": "rwandaemr",
+          "fragment": "patient/encountersSection"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.wecdProgramDashboard.obsGraph.weight",
+    "order": 3,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "icon-bar-chart",
+      "conceptId": "3ce93cf2-26fe-102b-80cb-0017a47871b2,3ce93b62-26fe-102b-80cb-0017a47871b2",
+      "maxResults": "6",
+      "showLegend": true,
+      "function": "(bmi,3ce93b62-26fe-102b-80cb-0017a47871b2,3ce93cf2-26fe-102b-80cb-0017a47871b2);",
+      "label": "WEIGHT,HEIGHT AND BMI GRAPH",
+      "program": "",
+      "dashboard": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.wecdProgramDashboard.obsGraphWeight.extension",
+        "appId": "rwandaemr.wecdProgramDashboard.obsGraph.weight",
+        "extensionPointId": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.secondColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.enrollment.Form",
+    "order": 1,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "dashboard": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.BreastCancerEarlyDetection.Form",
+        "extensionPointId": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.overallActions",
+        "type": "link",
+        "label": "Breast Cancer Early Detection",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/breast_cancer_early_detection1.xml",
+        "icon": "icon-file",
+        "order": 1
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.clinicVisits.Form",
+    "order": 2,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "dashboard": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.BreastUltrasoundRequest.Form",
+        "extensionPointId": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.overallActions",
+        "type": "link",
+        "label": "Breast Ultrasound Request",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/breast_ultrasound_request.xml",
+        "icon": "icon-file",
+        "order": 2
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.BreastUltrasoundReport.Form",
+    "order": 3,
+    "config": {
+      "icon": "fas fa-fw fa-stethoscope",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "dashboard": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.BreastUltrasoundReport.Form",
+        "extensionPointId": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.overallActions",
+        "type": "link",
+        "label": "Breast Ultrasound Report",
+        "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/breast_ultrasound_report.xml",
+        "icon": "icon-file",
+        "order": 3
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.regimens",
+    "order": 5,
+    "config": {
+      "icon": "fas fa-fw fa-briefcase-medical",
+      "label": "coreapps.programHistoryDashboardWidget.label",
+      "program": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "dashboard": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a",
+      "includeActive": false
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.exitFromCare.Form",
+        "extensionPointId": "ef5da1c2-11ad-4a99-a34d-c72aa1e96a4a.overallActions",
+        "type": "link",
+        "label": "Regimens",
+        "url": "rwandaemr/patient/regimen.page?patientId={{patient.uuid}}",
+        "icon": "fas fa-fw fa-briefcase-medical",
+        "order": 15
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "rwandaemr.pharmacyDepartmentStore",
+    "description": "SPA pharmacy department store app",
+    "order": 11,
+    "extensions": [
+      {
+        "id": "rwandapharmacymanagement.dashboard",
+        "label": "Pharmacy department store",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "order": 50,
+        "icon": "icon-medkit",
+        "url": "rwandapharmacymanagement/department/store.page",
+        "requiredPrivilege": "Task: rwandapharmacymanagement.departmentStore",
+        "require": "typeof sessionLocation !== 'undefined'"
+      }
+    ]
+  }
+]

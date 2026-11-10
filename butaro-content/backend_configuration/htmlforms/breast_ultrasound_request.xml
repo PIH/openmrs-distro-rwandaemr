@@ -1,0 +1,568 @@
+<htmlform
+  formUuid="7de71c89-4f31-5a78-b515-b577bbddf988"
+  formName="Breast Ultrasound Request Form"
+  formEncounterType="54eb2a6b-a3e1-4c9f-b865-ee74434c0aaa"
+  formVersion="1.0"
+>
+  <style>
+    #breadcrumbs {
+      display: none;
+    }
+
+    .burf {
+      width: 96%;
+      max-width: 1450px;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+    }
+
+    .burf h2 {
+      color: #009384;
+      font-weight: 500;
+    }
+
+    .burf fieldset {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 18px 0 28px;
+      padding: 22px 30px 26px;
+      border: 1px solid #aaa;
+      background: #f9f9f9;
+    }
+
+    .burf legend {
+      font-size: 22px;
+      font-weight: bold;
+      padding: 0 10px;
+      text-transform: uppercase;
+    }
+
+    .row {
+      margin: 12px 0;
+    }
+
+    .lbl {
+      display: inline-block;
+      min-width: 340px;
+      font-weight: bold;
+      vertical-align: top;
+    }
+
+    .grid {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    .grid td,
+    .grid th {
+      padding: 7px;
+      border: 1px solid #ddd;
+      vertical-align: middle;
+    }
+
+    .grid td:first-child {
+      width: 260px;
+    }
+
+    .burf select {
+      min-width: 300px;
+    }
+
+    .burf input[type="text"] {
+      min-width: 300px;
+    }
+
+    .encounter-inline {
+      display: flex !important;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px 32px;
+    }
+
+    .encounter-item {
+      display: flex !important;
+      align-items: center !important;
+      width: auto !important;
+      white-space: nowrap;
+    }
+
+    .encounter-item .lbl {
+      min-width: 0 !important;
+      margin-right: 10px;
+    }
+
+    .encounter-item select {
+      min-width: 210px !important;
+      width: 210px !important;
+    }
+
+    .encounter-item input[type="text"] {
+      min-width: 110px !important;
+      width: 110px !important;
+    }
+
+    .checkbox-options {
+      line-height: 30px;
+    }
+
+    .mass-size input[type="text"] {
+      min-width: 120px !important;
+      width: 120px !important;
+      margin: 0 6px;
+    }
+
+    .patient-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 35px;
+    }
+
+    .patient-info div {
+      min-width: 260px;
+    }
+
+    .subsection {
+      margin: 14px 0 14px 30px;
+      padding: 12px 18px;
+      border-left: 3px solid #bbb;
+    }
+
+    /* Normal checkbox appearance */
+    .burf input[type="checkbox"],
+    form .burf input[type="checkbox"],
+    .form .burf input[type="checkbox"] {
+      -webkit-appearance: checkbox !important;
+      appearance: checkbox !important;
+      float: none !important;
+      display: inline-block !important;
+      position: static !important;
+      width: 13px !important;
+      min-width: 13px !important;
+      height: 13px !important;
+      min-height: 13px !important;
+      padding: 0 !important;
+      margin: 0 5px 0 0 !important;
+      vertical-align: middle !important;
+      box-shadow: none !important;
+    }
+
+    .burf input[type="checkbox"] + label,
+    form .burf input[type="checkbox"] + label,
+    .form .burf input[type="checkbox"] + label {
+      display: inline-block !important;
+      float: none !important;
+      width: auto !important;
+      min-width: 0 !important;
+      margin: 0 16px 0 0 !important;
+      padding: 0 !important;
+      vertical-align: middle !important;
+    }
+
+    /* Precise radio-button alignment for OpenMRS Reference Application */
+    .burf input[type="radio"],
+    form .burf input[type="radio"],
+    .form .burf input[type="radio"] {
+      float: none !important;
+      display: inline-block !important;
+      position: static !important;
+      width: 13px !important;
+      min-width: 13px !important;
+      height: 13px !important;
+      min-height: 13px !important;
+      padding: 0 !important;
+      margin: 0 5px 0 0 !important;
+      vertical-align: middle !important;
+      box-shadow: none !important;
+    }
+
+    .burf input[type="radio"] + label,
+    form .burf input[type="radio"] + label,
+    .form .burf input[type="radio"] + label {
+      float: none !important;
+      display: inline-block !important;
+      width: auto !important;
+      min-width: 0 !important;
+      padding: 0 !important;
+      margin: 0 18px 0 0 !important;
+      line-height: 18px !important;
+      vertical-align: middle !important;
+    }
+
+    /* Keep checkbox choices together and align wrapped rows with the first choice. */
+    .burf .checkbox-options {
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr);
+      column-gap: 4px;
+      align-items: start;
+    }
+
+    .burf .checkbox-options &gt; .lbl {
+      min-width: 0;
+    }
+
+    .burf .choice-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      min-width: 0;
+    }
+
+    .burf .option-item {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .burf .option-item input[type="checkbox"] + label {
+      margin-right: 0 !important;
+    }
+
+    @media (max-width: 700px) {
+      .burf .checkbox-options {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+  <script type="text/javascript">
+    $j(document).ready(function () {
+      $j.each(["familyHistory", "medicalHistory"], function (index, history) {
+        var radios = $j("#" + history + "Question input[type='radio']");
+        var details = $j("#" + history + "DetailsSection");
+        var updateHistoryDetails = function () {
+          var hasHistory = radios.first().is(":checked");
+          details.toggle(hasHistory);
+          if (!hasHistory) {
+            details.find("input[type='text'], textarea").val("").change();
+          }
+        };
+        radios.change(updateHistoryDetails);
+        updateHistoryDetails();
+      });
+    });
+  </script>
+  <div class="burf">
+    <h2>Breast Ultrasound Request Form</h2>
+    <fieldset class="encounter-inline">
+      <legend>Encounter</legend>
+      <div class="row encounter-item">
+        <span class="lbl">Visit date *</span>
+        <encounterDate default="today" />
+      </div>
+      <div class="row encounter-item">
+        <span class="lbl">Health facility *</span>
+        <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+      </div>
+      <div class="row encounter-item">
+        <span class="lbl">Provider *</span>
+        <encounterProvider default="currentUser" />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>I. Patient Information</legend>
+      <div class="patient-info">
+        <div>
+          <b>Patient Name:</b>
+          <lookup expression="patient.personName" />
+        </div>
+        <div>
+          <b>Date of birth:</b>
+          <lookup expression="patient.birthdate" />
+        </div>
+        <div>
+          <b>Sex:</b>
+          <lookup expression="patient.gender" />
+        </div>
+      </div>
+      <div class="row" id="familyHistoryQuestion">
+        <span class="lbl">Family History</span>
+        <obs
+          id="familyHistory"
+          conceptId="4b47dc3e-f215-5ea6-b247-ef93b9d4e155"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+        />
+      </div>
+      <div class="row" id="familyHistoryDetailsSection" style="display:none">
+        <span class="lbl">Family History - If yes, specify</span>
+        <obs id="familyHistoryDetails" conceptId="0069c000-7d81-5bfd-8bb4-60b82d19133b" rows="3" cols="60" />
+      </div>
+      <div class="row" id="medicalHistoryQuestion">
+        <span class="lbl">Medical History</span>
+        <obs
+          id="medicalHistory"
+          conceptId="685a0cd0-1a7f-54aa-ac65-93a0c7fef703"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+        />
+      </div>
+      <div class="row" id="medicalHistoryDetailsSection" style="display:none">
+        <span class="lbl">Medical History - If yes, specify</span>
+        <obs id="medicalHistoryDetails" conceptId="80ba8ba2-f041-5eab-8ca1-53c97ffc7cbb" rows="3" cols="60" />
+      </div>
+      <div class="row">
+        <span class="lbl">Prior imaging exams</span>
+        <obs
+          conceptId="800bdd85-dfbc-54a9-a0aa-3cdb59c993d7"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+         />
+      </div>
+      <div class="row">
+        <span class="lbl">Prior imaging exam type</span>
+        <obs
+          conceptId="6f445f24-2b60-4e28-bd1f-98c842227077"
+          answerConceptIds="5b5a0786-57e4-5f41-b599-569d7312c1e1,103ecfe9-c957-5b0e-afe4-344481fa8403,4045f613-b34c-5dc7-9d68-cd36928eec9b,58eacedf-cb05-4a8f-a98d-cc5717348d74"
+          answerLabels="CT Scan,MRI,Mammography,Breast Ultrasound"
+         />
+      </div>
+      <div class="row">
+        <span class="lbl">Prior imaging exam date</span>
+        <obs conceptId="6bbe4bea-664d-51f1-9492-c00d9f5122da" />
+      </div>
+      <div class="row">
+        <span class="lbl">Results for prior imaging exams</span>
+        <obs conceptId="136d0522-4fc4-5aab-a99f-dc1212b76ce3" rows="3" cols="60" />
+      </div>
+      <div class="row">
+        <span class="lbl">Pregnant?</span>
+        <obs
+          conceptId="70f067e4-999c-5fa8-81fc-6527a36e623e"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+         />
+      </div>
+      <div class="row">
+        <span class="lbl">Lactating?</span>
+        <obs
+          conceptId="7984f360-575a-5372-b624-039ff21a5760"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+         />
+      </div>
+      <div class="row">
+        <span class="lbl">Confirmed current breast cancer diagnosis?</span>
+        <obs
+          conceptId="154e8bd9-514a-5c0a-b4f6-138cfce27a90"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+         />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>II. Indication for Ultrasound</legend>
+      <div class="row">
+        <span class="lbl">Laterality</span>
+        <obs
+          conceptId="e9eced89-c1ca-42bd-8f06-06ce86abe9e3"
+          answerConceptIds="3ce99198-26fe-102b-80cb-0017a47871b2,3ce9949a-26fe-102b-80cb-0017a47871b2,57ec1a86-4e5a-4402-b417-9cd14d294f79"
+          answerLabels="Left,Right,Bilateral"
+          style="radio"
+          answerSeparator=""
+         />
+      </div>
+      <div class="row checkbox-options">
+        <span class="lbl">Indication (choose all that apply)</span>
+        <span class="choice-options">
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="6ce98b16-3c86-446a-bace-a861ca023f17"
+              answerLabel="Breast mass"
+              style="checkbox"
+              toggle="breastMassDetailsSection"
+            />
+          </span>
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="ae4b69fe-51c6-4026-8e19-d2d61ac12a98"
+              answerLabel="Focal pain"
+              style="checkbox"
+              toggle="focalPainDetailsSection"
+            />
+          </span>
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="1d9561ca-ac25-406e-bd8b-81174ab68a26"
+              answerLabel="Nipple discharge"
+              style="checkbox"
+            />
+          </span>
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="f8d33fc5-248d-5cc9-957d-9d8e385c8189"
+              answerLabel="Follow-up of mass"
+              style="checkbox"
+            />
+          </span>
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="5b357578-179a-4ddf-996f-2eb760b092d7"
+              answerLabel="Skin changes"
+              style="checkbox"
+            />
+          </span>
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="1ba08456-4df8-5b26-918e-9492f47f5841"
+              answerLabel="Axillary lesion"
+              style="checkbox"
+            />
+          </span>
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="c548a633-9931-496d-9ade-4b7c971e6600"
+              answerLabel="Other"
+              style="checkbox"
+              toggle="otherIndicationDetailsSection"
+            />
+          </span>
+        </span>
+      </div>
+      <div class="subsection" id="breastMassDetailsSection">
+        <h4>Breast Mass/Lump</h4>
+        <p>Mass 1</p>
+        <obsgroup groupingConceptId="e983d1a0-7a86-5205-9f1e-d5ec6b554913">
+          <table class="grid mass-table">
+            <tr>
+              <td>Breast</td>
+              <td class="side-by-side">
+                <obs
+                  conceptId="c8e0ea78-d64a-505f-9b37-dc5681c8be2f"
+                  answerConceptIds="93330dcb-e5da-42d2-9130-fb8df3d37e6e,d3351e23-dacc-4184-9abb-18d577b07631"
+                  answerLabels="Left breast,Right breast"
+                  style="radio"
+                  answerSeparator=""
+                 />
+              </td>
+            </tr>
+            <tr>
+              <td>Location on clock face</td>
+              <td>
+                <obs conceptId="9e9e8baa-981c-5b7a-af4d-a978850ec147" />
+              </td>
+            </tr>
+            <tr>
+              <td>cm from nipple</td>
+              <td>
+                <obs conceptId="a86f29ad-31cb-5adc-9e8b-6c11ff241fe0" />
+              </td>
+            </tr>
+            <tr>
+              <td>Size in cm</td>
+              <td class="mass-size">
+                <obs conceptId="54ea21ab-c21b-594e-8aeb-9044bad448b8" />
+                <strong>X</strong>
+                <obs conceptId="56e1bba3-479f-58d9-958d-65633f4e00b9" />
+              </td>
+            </tr>
+          </table>
+        </obsgroup>
+        <p>Mass 2 (if needed)</p>
+        <obsgroup groupingConceptId="e983d1a0-7a86-5205-9f1e-d5ec6b554913">
+          <table class="grid mass-table">
+            <tr>
+              <td>Breast</td>
+              <td class="side-by-side">
+                <obs
+                  conceptId="c8e0ea78-d64a-505f-9b37-dc5681c8be2f"
+                  answerConceptIds="93330dcb-e5da-42d2-9130-fb8df3d37e6e,d3351e23-dacc-4184-9abb-18d577b07631"
+                  answerLabels="Left breast,Right breast"
+                  style="radio"
+                  answerSeparator=""
+                 />
+              </td>
+            </tr>
+            <tr>
+              <td>Location on clock face</td>
+              <td>
+                <obs conceptId="9e9e8baa-981c-5b7a-af4d-a978850ec147" />
+              </td>
+            </tr>
+            <tr>
+              <td>cm from nipple</td>
+              <td>
+                <obs conceptId="a86f29ad-31cb-5adc-9e8b-6c11ff241fe0" />
+              </td>
+            </tr>
+            <tr>
+              <td>Size in cm</td>
+              <td class="mass-size">
+                <obs conceptId="54ea21ab-c21b-594e-8aeb-9044bad448b8" />
+                <strong>X</strong>
+                <obs conceptId="56e1bba3-479f-58d9-958d-65633f4e00b9" />
+              </td>
+            </tr>
+          </table>
+        </obsgroup>
+        <p>Mass 3 (if needed)</p>
+        <obsgroup groupingConceptId="e983d1a0-7a86-5205-9f1e-d5ec6b554913">
+          <table class="grid mass-table">
+            <tr>
+              <td>Breast</td>
+              <td class="side-by-side">
+                <obs
+                  conceptId="c8e0ea78-d64a-505f-9b37-dc5681c8be2f"
+                  answerConceptIds="93330dcb-e5da-42d2-9130-fb8df3d37e6e,d3351e23-dacc-4184-9abb-18d577b07631"
+                  answerLabels="Left breast,Right breast"
+                  style="radio"
+                  answerSeparator=""
+                 />
+              </td>
+            </tr>
+            <tr>
+              <td>Location on clock face</td>
+              <td>
+                <obs conceptId="9e9e8baa-981c-5b7a-af4d-a978850ec147" />
+              </td>
+            </tr>
+            <tr>
+              <td>cm from nipple</td>
+              <td>
+                <obs conceptId="a86f29ad-31cb-5adc-9e8b-6c11ff241fe0" />
+              </td>
+            </tr>
+            <tr>
+              <td>Size in cm</td>
+              <td class="mass-size">
+                <obs conceptId="54ea21ab-c21b-594e-8aeb-9044bad448b8" />
+                <strong>X</strong>
+                <obs conceptId="56e1bba3-479f-58d9-958d-65633f4e00b9" />
+              </td>
+            </tr>
+          </table>
+        </obsgroup>
+      </div>
+      <div class="row" id="focalPainDetailsSection">
+        <span class="lbl">If focal pain - Pain location (clockwise)</span>
+        <obs conceptId="7d236c02-af14-57b8-ac64-d1e212947ff0" />
+      </div>
+      <div class="row" id="otherIndicationDetailsSection">
+        <span class="lbl">Other (specify)</span>
+        <obs conceptId="927080cc-dd6e-590a-a3cd-343e7aa06ae4" rows="2" cols="60" />
+      </div>
+    </fieldset>
+    <div style="text-align:center;margin:20px">
+      <submit />
+    </div>
+  </div>
+</htmlform>

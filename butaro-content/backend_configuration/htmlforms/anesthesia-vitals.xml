@@ -1,0 +1,124 @@
+<htmlform formName="Anesthesia Vital Signs"
+          formUuid="9b019e4f-37f6-42fa-97a6-5e1e6b064857"
+          formEncounterType="Anesthesia Record"
+          formVersion="2.2">
+
+    <style>
+        form fieldset {
+        display: block;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        fieldset legend {
+        font-weight: bold;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        display: block;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        }
+
+        .section-container label {
+        margin: 0px;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5em 1em;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .anesthesia-case-link {
+        display: none;
+        }
+    </style>
+
+    <div class="anesthesia-case-link"><anesthesiaCaseIdObs/></div>
+
+    <h2>Blood Pressure &amp; Pulse / Tension et pouls</h2>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION / CONSULTATION">
+        <div class="section-container">
+            <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                <tr>
+                    <td>
+                        Date / Time:
+                        <encounterDate default="now" showTime="true"/>
+                    </td>
+                    <td>
+                        Location:
+                        <encounterLocation default="GlobalProperty:billing.defaultLocation"/>
+                    </td>
+                    <td>
+                        Provider:
+                        <encounterProvider default="currentUser"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="VITAL SIGNS / SIGNES VITAUX">
+        <div class="section-container">
+            <p class="small-input flexView">
+                SBP/DBP / TA
+                <obs conceptId="3ce934fa-26fe-102b-80cb-0017a47871b2" required="true"/>
+                /
+                <obs conceptId="3ce93694-26fe-102b-80cb-0017a47871b2" required="true"/>
+
+                Pulse / Pouls
+                <obs conceptId="3ce93824-26fe-102b-80cb-0017a47871b2" required="true"/>
+            </p>
+            <p class="small-input flexView">
+                Respiratory rate / Frequence respiratoire
+                <obs conceptId="3ceb11f8-26fe-102b-80cb-0017a47871b2"/>
+
+                SpO2
+                <obs conceptId="3ce9401c-26fe-102b-80cb-0017a47871b2"/>
+
+                Temperature
+                <obs conceptId="3ce939d2-26fe-102b-80cb-0017a47871b2"/>
+            </p>
+        </div>
+    </section>
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+            <button id="submit" class="submitButton confirm">
+                <uimessage code="Save"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel"/>
+            </button>
+        </div>
+    </ifMode>
+</htmlform>

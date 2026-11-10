@@ -720,6 +720,11 @@
         }
     </script>
 
+
+     <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateOPDAdmissionOnHtmlFormSubmissionAction"/>
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateBillOnHtmlFormSubmissionAction"/>
+
+
     <!-- ===== FORM HEADER ===== -->
     <div class="form-header">
         <div class="form-header-content">
@@ -781,6 +786,60 @@
             <span class="info-label">Clinic / Clinique</span>
             <encounterLocation id="encounterLocation" />
         </div>
+    </div>
+
+
+<!-- ===== VITAL SIGN -->
+
+<section headerCode="Latest vital signs" sectionTag="fieldset" headerTag="legend">
+
+<tr>
+
+                <obsgroup groupingConceptId="3cd74ee8-26fe-102b-80cb-0017a47871b2">
+
+                    <td><b>Height: </b><font color="red"><lookup expression="fn.latestObs(5090).getValueNumeric()"/></font></td>
+                    <td><b>Weight:</b><font color="red"><lookup expression="fn.latestObs(5089).getValueNumeric()"/></font></td>
+                    <td><b>Heart Rate or Pulse:</b> <font color="red"><lookup expression="fn.latestObs(5087).getValueNumeric()"/></font></td>
+                    <td><b>SBP:</b><font color="red"><lookup expression="fn.latestObs(5085).getValueNumeric()"/></font></td>
+                    <td><b>DBP:</b><font color="red"><lookup expression="fn.latestObs(5086).getValueNumeric()"/></font></td>
+                    <td><b>Temperature:</b><font color="red"><lookup expression="fn.latestObs(5088).getValueNumeric()"/></font></td>
+                    <td><b>O2 Saturation:</b><font color="red"><lookup expression="fn.latestObs(5092).getValueNumeric()"/></font></td>
+                    <td><b>Respiratory Rate:</b><font color="red"><lookup expression="fn.latestObs(5242).getValueNumeric()"/></font></td>
+
+
+                </obsgroup>
+
+            </tr>
+
+
+</section>
+<BR />
+
+<!-- ===== ADMISSION ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            ADMISSION INFORMATION
+        </div>
+        <TABLE>
+        <tr>
+          <td class="lblcolor"><b>Desease Type:</b></td>
+          <td><obs conceptId="724415" required="true"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="lblcolor"><b>Consultation Type</b></td>
+          <td>
+            <obs conceptId="d6dafc4b-9ad8-4467-94a9-0eca78648254" required="true"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="lblcolor"><b>Department</b></td>
+          <td>
+            <obs conceptId="c920931b-fa93-4e99-9e36-28e1e4c16cf7" required="true"/>
+          </td>
+        </tr>
+        </TABLE>
+
     </div>
 
     <!-- ===== VITALS AND LABS ===== -->

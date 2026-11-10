@@ -791,7 +791,7 @@
 		</div>
 	</section>
 
-	<section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="CLINICAL IMPRESSION & PLAN">
+	<section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="CLINICAL IMPRESSION and  PLAN">
 		<div class="section-container">
 			<fieldset>
 				<legend><b>Current Diagnosis</b></legend>

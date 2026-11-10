@@ -1,0 +1,65 @@
+[
+  {
+    "id": "rwandaemr.myAccountHomePageLink",
+    "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+    "type": "link",
+    "label": "authenticationui.myAccount.title",
+    "url": "authenticationui/account/userAccount.page",
+    "icon": "icon-user",
+    "order": 100
+  },
+  {
+    "id": "rwandaemr.registration",
+    "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+    "type": "link",
+    "label": "registrationapp.app.registerPatient.label",
+    "url": "registrationapp/findPatient.page?appId=rwandaemr.registerPatient",
+    "requiredPrivilege": "App: registrationapp.registerPatient",
+    "icon": "fas fa-fw fa-user",
+    "order": 2
+  },
+  {
+    "id": "rwandaemr.labPatientReception",
+    "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+    "type": "link",
+    "label": "Laboratory Reception",
+    "url": "pihapps/labs/labPatientList.page",
+    "icon": "icon-beaker",
+    "requiredPrivilege": "App: coreapps.laboratory",
+    "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Laboratory Location')",
+    "order": 7
+  },
+  {
+    "id": "rwandaemr.labOrderList",
+    "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+    "type": "link",
+    "label": "Laboratory Orders",
+    "url": "pihapps/labs/labOrderList.page",
+    "icon": "icon-beaker",
+    "requiredPrivilege": "App: coreapps.laboratory",
+    "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Laboratory Location')",
+    "order": 7
+  },
+  {
+    "id": "rwandaemr.aggregateLabReport",
+    "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+    "type": "link",
+    "label": "Aggregate Lab Report",
+    "url": "rwandaemr/labreports/aggregate.page",
+    "icon": "icon-bar-chart",
+    "requiredPrivilege": "App: coreapps.laboratory",
+    "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Laboratory Location')",
+    "order": 7
+  },
+  {
+    "id": "rwandaemr.labTurnaroundTime",
+    "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+    "type": "link",
+    "label": "Laboratory Turnaround Time Dashboard",
+    "url": "rwandaemr/labreports/turnaroundTime.page",
+    "icon": "icon-time",
+    "requiredPrivilege": "App: coreapps.laboratory",
+    "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Laboratory Location')",
+    "order": 7
+  }
+]

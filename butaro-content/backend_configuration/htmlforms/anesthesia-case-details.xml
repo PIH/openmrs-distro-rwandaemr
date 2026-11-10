@@ -1,0 +1,157 @@
+<htmlform formName="Anesthesia Case Details"
+          formUuid="f2cecb64-fa9a-489d-a4a0-07d26e2072b1"
+          formEncounterType="Anesthesia Record"
+          formVersion="2.2">
+
+    <style>
+        form fieldset {
+        display: block;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        fieldset legend {
+        font-weight: bold;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        display: block;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        }
+
+        .section-container label {
+        margin: 0px;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5em 1em;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .anesthesia-case-link {
+        display: none;
+        }
+    </style>
+
+    <div class="anesthesia-case-link"><anesthesiaCaseIdObs/></div>
+
+    <h2>Anesthesia Case Details / Details du cas d'anesthesie</h2>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION / CONSULTATION">
+        <div class="section-container">
+            <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                <tr>
+                    <td>
+                        Date / Time:
+                        <encounterDate default="now" showTime="true"/>
+                    </td>
+                    <td>
+                        Location:
+                        <encounterLocation default="GlobalProperty:billing.defaultLocation"/>
+                    </td>
+                    <td>
+                        Provider:
+                        <encounterProvider default="currentUser"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="CASE INFORMATION / INFORMATIONS DU CAS">
+        <div class="section-container">
+            <p class="small-input flexView">
+                Service
+                <obs conceptId="21e73863-867c-4faa-8c4b-dc5b1c0319ac" size="40"/>
+                Procedure / Intervention
+                <obs conceptId="c3ecac79-8555-4588-a228-61c6d7f59892" size="60"/>
+            </p>
+            <p class="small-input flexView">
+                Surgeon / Chirurgien
+                <obs conceptId="f1fe45a0-70aa-4819-9543-e98002c80401" size="40"/>
+                Anesthetist / Anesthesiste
+                <obs conceptId="54c9c4db-428b-4579-9023-84d8db65223a" size="40"/>
+            </p>
+            <p class="side-by-side">
+                Urgency / Urgence
+                <obs conceptId="dedb6827-bd3f-4de1-9bc7-1cc63c8974e6"
+                     style="radio"
+                     answerConceptIds="c7d7e318-67ee-44d7-9b89-1a487d24c609,22e5350e-3b6b-4797-b3d4-184d354a5192"
+                     answerLabels="Emergency / Urgence,Elective / Electif"
+                     required="true"/>
+            </p>
+            <p class="side-by-side">
+                Anesthesia / Anesthesie
+                <obs conceptId="a6e87d58-bf18-4d6b-a7f6-8a17db7452a7"
+                     style="radio"
+                     answerConceptIds="5bf03345-65a8-4350-8c9d-a26cb93e38b5,e7deab8a-0223-4724-a5ab-322a698f7884"
+                     answerLabels="General / Generale,Regional / Loco-regionale"
+                     required="true"/>
+            </p>
+            <p class="side-by-side">
+                Premedication
+                <obs conceptId="6ac01def-4790-4e05-98a3-4cc3da667005"
+                     style="radio"
+                     answerConceptIds="82ed58d5-5797-4baa-bda3-f5e0a3ee7fba,9e620141-eb87-4185-ad54-a4310b33944b"
+                     answerLabels="Pre-op,On table / Sur table"/>
+            </p>
+            <p class="side-by-side">
+                Ventilation / Respiration
+                <obs conceptId="7a81095b-c2d2-48bb-9b2f-81fe4050d791"
+                     style="radio"
+                     answerConceptIds="0365d7cf-d727-4c66-8593-f7555b009fe4,78397c49-8b70-4598-8ab2-bde2b0ff3dfa,c88563b9-d30a-43ea-a600-19b139da38a1"
+                     answerLabels="Spontaneous / Spontanee,Assisted / Assistee,Controlled / Controlee"/>
+            </p>
+        </div>
+    </section>
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+            <button id="submit" class="submitButton confirm">
+                <uimessage code="Save"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel"/>
+            </button>
+        </div>
+    </ifMode>
+</htmlform>

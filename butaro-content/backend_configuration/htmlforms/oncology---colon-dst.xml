@@ -62,10 +62,10 @@
         </div>
     </section>
 
-    <!-- ================= FINAL DIAGNOSIS & STAGING ================= -->
+    <!-- ================= FINAL DIAGNOSIS and STAGING ================= -->
 
     <section sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="FINAL DIAGNOSIS & STAGING">
+             headerCode="FINAL DIAGNOSIS and STAGING">
         <div class="section-container">
 
             <fieldset>
