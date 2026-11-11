@@ -17,6 +17,12 @@
         <!-- Modules Butaro runs that the base distribution doesn't (versions as in production, October 2026) -->
         <growthchartVersion>2.2.0-SNAPSHOT</growthchartVersion>
         <radiologyappVersion>1.8.0</radiologyappVersion>
+        <!-- Not published: build from source. muzimacore: muzima/openmrs-module-muzimacore-enterprise master@b8910657;
+             rwandapharmacymanagement: rwanda-emr/openmrs-module-rwandapharmacymanagement main@93994f8;
+             patienthandover: rwanda-emr/openmrs-module-patienthandover main (production runs 1.1.18, built from uncommitted code) -->
+        <muzimacoreVersion>2.6.1-SNAPSHOT</muzimacoreVersion>
+        <patienthandoverVersion>1.1.5</patienthandoverVersion>
+        <rwandapharmacymanagementVersion>1.0.3-SNAPSHOT</rwandapharmacymanagementVersion>
     </properties>
 
     <dependencies>
@@ -41,6 +47,24 @@
             <groupId>org.openmrs.module</groupId>
             <artifactId>radiologyapp-omod</artifactId>
             <version>${radiologyappVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>muzimacore-omod</artifactId>
+            <version>${muzimacoreVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>patienthandover-omod</artifactId>
+            <version>${patienthandoverVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>rwandapharmacymanagement-omod</artifactId>
+            <version>${rwandapharmacymanagementVersion}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
