@@ -382,6 +382,45 @@
         });
         });
 
+        var pa = '<lookup expression="fn.latestObs(6385).valueNumeric"/>';
+        var ta = '<lookup expression="fn.latestObs(12691).valueNumeric"/>';
+
+        var weight='<lookup expression="fn.latestObs(5089).valueNumeric"/>';
+        var height='<lookup expression="fn.latestObs(5090).valueNumeric"/>';
+
+        var tp=weight / (height * height);
+
+        if(pa &lt; -2  &amp;&amp;  pa &gt; -3 ){
+        $j('#pa2').html(pa).css('color','black').css("font-weight","Bold").css("background-color", "yellow");
+        }
+        if(pa &lt; -3 ){
+        $j('#pa1').html(pa).css('color','white').css("font-weight","Bold").css("background-color", "green");
+        }
+        if(pa &gt; -2 ){
+        $j('#pa3').html(pa).css('color','white').css("font-weight","Bold").css("background-color", "red");
+        }
+
+        if(ta &lt; -2  &amp;&amp;  ta &gt; -3 ){
+        $j('#ta2').html(ta).css('color','black').css("font-weight","Bold").css("background-color", "yellow");
+        }
+        if(ta &lt; -3 ){
+        $j('#ta1').html(ta).css('color','white').css("font-weight","Bold").css("background-color", "green");
+        }
+        if(ta &gt; -2 ){
+        $j('#ta3').html(ta).css('color','white').css("font-weight","Bold").css("background-color", "red");
+        }
+
+        // pt3
+        if(tp &lt; -2  &amp;&amp;  tp &gt; -3 ){
+        $j('#pt2').html(tp.toFixed(3)).css('color','black').css("font-weight","Bold").css("background-color", "yellow");
+        }
+        if(tp &lt; -3 ){
+        $j('#pt1').html(tp.toFixed(3)).css('color','white').css("font-weight","Bold").css("background-color", "green");
+        }
+        if(tp &gt; -2 ){
+        $j('#pt3').html(tp.toFixed(3)).css('color','white').css("font-weight","Bold").css("background-color", "red");
+        }
+
         // Page toggle
         $('.pages').click(function () {
         $(`#tb${$(this).attr('id').substring(4)}`).toggle();
@@ -1084,12 +1123,7 @@
                     </table>
                 </td>
             </tr>
-            <!-- <tr>
 
-                                        <td>Chronic Malnutrition Moderate</td>
-                                        <td >No malnutrition</td>
-                                    </tr>
-                -->
             <tr>
                 <td>
                     <section headerCode="Classification " id="classdietid">

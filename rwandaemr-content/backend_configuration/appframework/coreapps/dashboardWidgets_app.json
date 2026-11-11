@@ -17,6 +17,71 @@
       }
     ]
   },
+ {
+    "id": "rwandaemr.iremboPayBillingInfo",
+    "description": "rwandaemr.mostRecentClinicalSummery.app.description",
+    "label": "rwandaemr.hie.recentClinicalSummary",
+    "icon": "icon-calendar",
+    "order": 1,
+    "config": {
+      "limit": "5",
+      "label": "Patient Billing Info"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.iremboPayUnpaidBills.clinicianDashboardSecondColumn",
+        "appId": "rwandaemr.iremboPayUnpaidBills",
+        "extensionPointId": "patientDashboard.secondColumnFragments",
+        "extensionParams": {
+          "provider": "rwandaemr",
+          "fragment": "patient/iremboPaySection"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rwandaemr.recentHieEncounters",
+    "description": "rwandaemr.mostRecentClinicalSummery.app.description",
+    "label": "rwandaemr.hie.recentClinicalSummary",
+    "icon": "icon-calendar",
+    "order": 2,
+    "config": {
+      "limit": "5",
+      "label": "HIE Clinical Summary"
+    },
+    "extensions": [
+      {
+        "id": "rwandaemr.recentHieEncounters.clinicianDashboardSecondColumn",
+        "appId": "rwandaemr.recentHieEncounters",
+        "extensionPointId": "patientDashboard.secondColumnFragments",
+        "extensionParams": {
+          "provider": "rwandaemr",
+          "fragment": "patient/hieEncountersSection"
+        }
+      }
+    ]
+  },
+  {
+    "id": "transferapp.patientTransfers",
+    "description": "transferapp.patient.transfers.description",
+    "label": "transferapp.patient.transfers.title",
+    "icon": "icon-retweet",
+    "order": 0,
+    "config": {
+      "label": "Transfer Information"
+    },
+    "extensions": [
+      {
+        "id": "transferapp.patientTransfers.clinicianDashboardFirstColumn",
+        "appId": "transferapp.patientTransfers",
+        "extensionPointId": "patientDashboard.firstColumnFragments",
+        "extensionParams": {
+          "provider": "transferapp",
+          "fragment": "patient/transfersSection"
+        }
+      }
+    ]
+  },
   {
     "id": "rwandaemr.recentEncounters",
     "description": "coreapps.mostRecentVitals.app.description",
@@ -171,84 +236,5 @@
           "requiredPrivilege": "App: coreapps.programsList"
         }
       ]
-    },
-  {
-    "id": "coreapps.partogramGrph.fetalHeartRate",
-    "instanceOf": "coreapps.template.dashboardWidget",
-    "description": "coreapps.obsGraph.app.description",
-    "order": 4,
-    "config": {
-      "widget": "obsgraph",
-      "icon": "fas fa-fw fa-chart-area",
-      "label": "Partograph:Fetal Heart Rate",
-      "conceptId": "57c934dd-a086-4e73-a9b8-3b9c1abef1b1",
-      "maxResults": "10",
-      "maxAge": "1y"
-    },
-    "extensions": [
-      {
-        "id": "coreapps.obsGraph.clinicianDashboardFirstColumn",
-        "appId": "coreapps.partogramGrph.fetalHeartRate",
-        "extensionPointId": "patientDashboard.firstColumnFragments",
-        "extensionParams": {
-          "provider": "coreapps",
-          "fragment": "dashboardwidgets/dashboardWidget"
-        },
-        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Maternity Location') && visit.admitted && patient.person.gender == 'F'"
-      }
-    ]
-  },
-  {
-    "id": "coreapps.partogramGrph.Descent",
-    "instanceOf": "coreapps.template.dashboardWidget",
-    "description": "coreapps.obsGraph.app.description",
-    "order": 4,
-    "config": {
-      "widget": "obsgraph",
-      "icon": "fas fa-fw fa-chart-area",
-      "label": "Partograph:Descent",
-      "conceptId": "927948ed-8be0-4917-9199-9dc3fb776f86",
-      "maxResults": "10",
-      "maxAge": "1y"
-    },
-    "extensions": [
-      {
-        "id": "coreapps.obsGraph.clinicianDashboardFirstColumn",
-        "appId": "coreapps.partogramGrph.Descent",
-        "extensionPointId": "patientDashboard.firstColumnFragments",
-        "extensionParams": {
-          "provider": "coreapps",
-          "fragment": "dashboardwidgets/dashboardWidget"
-        },
-        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Maternity Location') && visit.admitted && patient.person.gender == 'F'"
-      }
-    ]
-  },
-  {
-    "id": "coreapps.partogramGrph",
-    "instanceOf": "coreapps.template.dashboardWidget",
-    "description": "coreapps.obsGraph.app.description",
-    "order": 4,
-    "config": {
-      "widget": "obsgraph",
-      "icon": "fas fa-fw fa-chart-area",
-      "label": "Partograph:Uterine Contractions in 10min",
-      "conceptId": "5965b71c-4214-4780-a74e-2de09b06a552",
-      "maxResults": "10",
-      "maxAge": "1y"
-    },
-    "extensions": [
-      {
-        "id": "coreapps.obsGraph.clinicianDashboardFirstColumn",
-        "appId": "coreapps.partogramGrph",
-        "extensionPointId": "patientDashboard.firstColumnFragments",
-        "extensionParams": {
-          "provider": "coreapps",
-          "fragment": "dashboardwidgets/dashboardWidget"
-        },
-        "requiredPrivilege": "App: coreapps.partogramGrph",
-        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Maternity Location') && visit.admitted && patient.person.gender == 'F'"
-      }
-    ]
-  }
+    }
 ]

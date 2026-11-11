@@ -1,630 +1,760 @@
-<htmlform 
-	htmlformUuid="2d399c78-55cf-4b3f-ae2f-f73e800e4f07" 
-	formUuid="28a235b0-902d-400e-b39b-4543dc2e025b" 
-	formName="Oncology Outpatient - Demographics" 
-	formDescription="Oncology Demographics form" 
-	formVersion="0.1" 
-	formEncounterType="ff319885-3f20-4ae5-8663-3ad5678cba41" 
-	formPublished="true" 
-	formRetired="false"
-> <!--
-	   Oncology Demographic Form
-	   DemographicsIntake_ONCOLOGY_V1.2NT2012June20 copy.doc
-		Author:  
-		Builder: Jberchmas 
-		started on Sept 22, 2012		
-	-->
-	<macros>
-     @SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@ = 3ce169b4-26fe-102b-80cb-0017a47871b2
-     @OTHER_ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@ = 6a442017-86dc-4d83-a7d8-42df252a63a5
-     @PATIENT_HAS_ACCOMPAGNATEUR@ = 0b71ad30-e864-4c9d-bebc-a678fdbcbd45
-     @YES@ = 3cd6f600-26fe-102b-80cb-0017a47871b2
-     @RECOMMENDED@ = 339acef0-910f-4860-ba08-a716dabec364
-     @NOT_INDICATED@ = 3ce3fdbe-26fe-102b-80cb-0017a47871b2
-     @SOCIO-ECONOMIC_ASSISTANCE@ = 3cda0462-26fe-102b-80cb-0017a47871b2
-     @NO_SOCIO-ECONOMIC_ASSISTANCE_RECOMMENDED@ = ae866472-b781-44ee-be66-bb86c42057cc
-     @referral_hospital_construct@ = 0864bccf-ae0c-414e-9b08-7c05693b168b
-     @district_hospital_construct@ =59ec2c2c-f226-496e-8144-693326d1448d
-     @Health_center_construct@ =8f1f7d59-3b8d-4c6a-be2e-1e0069a1f8aa
-     @CHW_Phone_Number@=ae7c64db-bcbb-4438-8f55-0566d95b6366
- </macros>
- <style>
-     .formName {
-     background-color: #009d8e;
-     }
-     .section {
-     border: 1px solid #3333cc;
-     width: 100%;
-     padding: 2px;
-     text-align: left;
-     margin-bottom: 10px;
-     }
-     .sectionHeader {
-     background-color: #009d8e;
-     color: white;
-     display: block;
-     padding: 2px;
-     font-weight: bold;
-     }
-     table.symptoms th {
-     text-align: right;
-     }
-     .note {
-     color: red;
-     }
-     .disabled {
-     color: #D8D8D8;
-     }
-     td {
-     vertical-align: top;
-     }
-     table.labTable td {
-     color: red;
-     }
-     table.labTable
-     td.dateField {
-     text-align: right;
-     }
-     table.identifierTable td {
-     padding-right: 10px;
-     }
-     div.paddedTable span {
-     padding-right: 20px;
-     }
-     table {
-     border-collapse: collapse;
-     }
- </style>
- <script>
- $j(function() {
-     $j('.disdiv').find('input').attr('disabled', 'true');
- });
-</script> <script type="text/javascript">
- if (jQuery) {
-     $j(document)
-             .ready(
-                     function() {
-                         if ($j.browser.msie) {
-                             $j(":checkbox").click(function() {
-                                 $j(this).change();
-                             });
-                         }
-                         $j(".enableDisable").each(
-                                 function() {
-                                     var group = $j(this);
-                                     function disableFn() {
-                                         group.children("#disabled").fadeTo(
-                                                 250, 0.33);
-                                         group.children("#disabled").find(
-                                                 ":checkbox").attr(
-                                                 "checked", false); //uncheck
-                                         group.children("#disabled").find(
-                                                 "input[type$='text']").val(
-                                                 "");
-                                         group.children("#disabled").find(
-                                                 "input").attr("disabled",
-                                                 true); //disable
-                                     }
-                                     function enableFn() {
-                                         group.children("#disabled").fadeTo(
-                                                 250, 1);
-                                         group.children("#disabled").find(
-                                                 "input").attr("disabled",
-                                                 false);
-                                     }
-                                     disableFn();
-                                     $j(this).children("#trigger").find(
-                                             ":checkbox:first").change(
-                                             function() {
-                                                 var checked = $j(this)
-                                                         .attr("checked");
-                                                 if (checked == true) {
-                                                     enableFn();
-                                                 } else {
-                                                     disableFn();
-                                                 }
-                                             });
-                                 });
+<htmlform
+        htmlformUuid="2d399c78-55cf-4b3f-ae2f-f73e800e4f07"
+        formUuid="28a235b0-902d-400e-b39b-4543dc2e025b"
+        formName="Oncology Outpatient - Demographics"
+        formDescription="Oncology Demographics and Intake Form"
+        formVersion="2.0"
+        formEncounterType="ff319885-3f20-4ae5-8663-3ad5678cba41"
+        formPublished="true"
+        formRetired="false"
+>
+    <!--
+        Oncology Demographics Form
+        Original Author: Jberchmas
+        Original Date: Sept 22, 2012
+        Reformatted: 2025
+    -->
 
-                         $j(".checkboxGroup")
-                                 .each(
-                                         function() {
-                                             var group = $j(this);
-                                             var uncheckAll = function() {
-                                                 group
-                                                         .find(
-                                                                 "input[type$='checkbox']")
-                                                         .attr("checked",
-                                                                 false);
-                                                 group
-                                                         .find(
-                                                                 "input[type$='checkbox']")
-                                                         .change();
-                                             }
-                                             var uncheckRadioAndAll = function() {
-                                                 group
-                                                         .find(
-                                                                 "#checkboxAll,#checkboxRadio")
-                                                         .find(
-                                                                 "input[type$='checkbox']")
-                                                         .attr("checked",
-                                                                 false);
-                                                 group
-                                                         .find(
-                                                                 "#checkboxAll,#checkboxRadio")
-                                                         .find(
-                                                                 "input[type$='checkbox']")
-                                                         .change();
-                                             }
+    <macros>
+        headerColor = #009d8e
+        fontOnHeaderColor = white
+        cardBackground = #f8fffe
+        borderColor = #e0e0e0
+        labelColor = #555555
 
-                                             group
-                                                     .find("#checkboxAll")
-                                                     .find("input")
-                                                     .click(
-                                                             function() {
-                                                                 var flip;
-                                                                 var checked = $j(
-                                                                         this)
-                                                                         .siblings(
-                                                                                 ":checkbox:first")
-                                                                         .attr(
-                                                                                 "checked");
-                                                                 if ($j(this)
-                                                                         .attr(
-                                                                                 "name") == $j(
-                                                                         this)
-                                                                         .parents(
-                                                                                 "#checkboxAll:first")
-                                                                         .find(
-                                                                                 ":checkbox:first")
-                                                                         .attr(
-                                                                                 "name")) {
-                                                                     checked = $j(
-                                                                             this)
-                                                                             .attr(
-                                                                                     "checked");
-                                                                     flip = checked;
-                                                                 } else {
-                                                                     flip = !checked;
-                                                                 }
-                                                                 if ($j(this)
-                                                                         .attr(
-                                                                                 "type") == "text")
-                                                                     if (flip == false)
-                                                                         flip = !filp; // this is so the user doesn't go to check the checkbox, then uncheck it when they hit the input.
-                                                                 uncheckAll();
-                                                                 $j(this)
-                                                                         .parents(
-                                                                                 "#checkboxAll:first")
-                                                                         .find(
-                                                                                 ":checkbox")
-                                                                         .attr(
-                                                                                 "checked",
-                                                                                 flip);
-                                                                 $j(this)
-                                                                         .parents(
-                                                                                 "#checkboxAll:first")
-                                                                         .find(
-                                                                                 ":checkbox")
-                                                                         .change();
-                                                             });
+        <!-- Socioeconomic Assistance -->
+        @SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@ = 3ce169b4-26fe-102b-80cb-0017a47871b2
+        @OTHER_ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@ = 6a442017-86dc-4d83-a7d8-42df252a63a5
+        @SOCIO-ECONOMIC_ASSISTANCE@ = 3cda0462-26fe-102b-80cb-0017a47871b2
+        @NO_SOCIO-ECONOMIC_ASSISTANCE_RECOMMENDED@ = ae866472-b781-44ee-be66-bb86c42057cc
 
-                                             group
-                                                     .find("#checkboxRadio")
-                                                     .find(
-                                                             "input[type$='checkbox']")
-                                                     .click(
-                                                             function() {
-                                                                 uncheckAll();
-                                                                 $j(this)
-                                                                         .siblings(
-                                                                                 "input[type$='checkbox']")
-                                                                         .attr(
-                                                                                 "checked",
-                                                                                 false);
-                                                                 $j(this)
-                                                                         .attr(
-                                                                                 "checked",
-                                                                                 true);
-                                                                 $j(this)
-                                                                         .change();
-                                                             });
+        <!-- Accompagnateur -->
+        @PATIENT_HAS_ACCOMPAGNATEUR@ = 0b71ad30-e864-4c9d-bebc-a678fdbcbd45
+        @YES@ = 3cd6f600-26fe-102b-80cb-0017a47871b2
+        @RECOMMENDED@ = 339acef0-910f-4860-ba08-a716dabec364
+        @NOT_INDICATED@ = 3ce3fdbe-26fe-102b-80cb-0017a47871b2
 
-                                             group
-                                                     .find(
-                                                             "#checkboxCheckbox")
-                                                     .click(
-                                                             function() {
-                                                                 uncheckRadioAndAll();
-                                                             });
-                                         });
-                     
+        <!-- Referral Constructs -->
+        @referral_hospital_construct@ = 0864bccf-ae0c-414e-9b08-7c05693b168b
+        @district_hospital_construct@ = 59ec2c2c-f226-496e-8144-693326d1448d
+        @Health_center_construct@ = 8f1f7d59-3b8d-4c6a-be2e-1e0069a1f8aa
 
-                     $j(".checkboxGroupInner")
-                                 .each(
-                                         function() {
-                                             var group = $j(this);
-                                             var uncheckAll = function() {
-                                                 group
-                                                         .find(
-                                                                 "input[type$='checkbox']")
-                                                         .attr("checked",
-                                                                 false);
-                                                 group
-                                                         .find(
-                                                                 "input[type$='checkbox']")
-                                                         .change();
-                                             }
-                                             var uncheckRadioAndAll = function() {
-                                                 group
-                                                         .find(
-                                                                 "#checkboxAll,#checkboxRadioInner")
-                                                         .find(
-                                                                 "input[type$='checkbox']")
-                                                         .attr("checked",
-                                                                 false);
-                                                 group
-                                                         .find(
-                                                                 "#checkboxAll,#checkboxRadioInner")
-                                                         .find(
-                                                                 "input[type$='checkbox']")
-                                                         .change();
-                                             }
+        <!-- Contact -->
+        @CHW_Phone_Number@ = ae7c64db-bcbb-4438-8f55-0566d95b6366
+    </macros>
 
-                                             group
-                                                     .find("#checkboxAll")
-                                                     .find("input")
-                                                     .click(
-                                                             function() {
-                                                                 var flip;
-                                                                 var checked = $j(
-                                                                         this)
-                                                                         .siblings(
-                                                                                 ":checkbox:first")
-                                                                         .attr(
-                                                                                 "checked");
-                                                                 if ($j(this)
-                                                                         .attr(
-                                                                                 "name") == $j(
-                                                                         this)
-                                                                         .parents(
-                                                                                 "#checkboxAll:first")
-                                                                         .find(
-                                                                                 ":checkbox:first")
-                                                                         .attr(
-                                                                                 "name")) {
-                                                                     checked = $j(
-                                                                             this)
-                                                                             .attr(
-                                                                                     "checked");
-                                                                     flip = checked;
-                                                                 } else {
-                                                                     flip = !checked;
-                                                                 }
-                                                                 if ($j(this)
-                                                                         .attr(
-                                                                                 "type") == "text")
-                                                                     if (flip == false)
-                                                                         flip = !filp; // this is so the user doesn't go to check the checkbox, then uncheck it when they hit the input.
-                                                                 uncheckAll();
-                                                                 $j(this)
-                                                                         .parents(
-                                                                                 "#checkboxAll:first")
-                                                                         .find(
-                                                                                 ":checkbox")
-                                                                         .attr(
-                                                                                 "checked",
-                                                                                 flip);
-                                                                 $j(this)
-                                                                         .parents(
-                                                                                 "#checkboxAll:first")
-                                                                         .find(
-                                                                                 ":checkbox")
-                                                                         .change();
-                                                             });
+    <style>
+        /* ===== Base Reset and Typography ===== */
+        .htmlform {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #ffffff;
+        }
 
-                                             group
-                                                     .find("#checkboxRadioInner")
-                                                     .find(
-                                                             "input[type$='checkbox']")
-                                                     .click(
-                                                             function() {
-                                                                 uncheckAll();
-                                                                 $j(this)
-                                                                         .siblings(
-                                                                                 "input[type$='checkbox']")
-                                                                         .attr(
-                                                                                 "checked",
-                                                                                 false);
-                                                                 $j(this)
-                                                                         .attr(
-                                                                                 "checked",
-                                                                                 true);
-                                                                 $j(this)
-                                                                         .change();
-                                                             });
+        /* ===== Header Section ===== */
+        .form-header {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: $fontOnHeaderColor;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-                                             group
-                                                     .find(
-                                                             "#checkboxCheckbox")
-                                                     .click(
-                                                             function() {
-                                                                 uncheckRadioAndAll();
-                                                             });
-                                         });
-                     });
- }
-</script>
- <div id="container">
-     <!-- Generic Disease workup header  -->
-     <section>
+        .form-header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+        }
 
-         <table border="1" cellspacing="0" cellpadding="6" width="100%">
-             <tr>
-                 <td><b> IMB ID: <lookup class="value"
-                                         expression="patientIdentifiers.get(&quot;IMB ID&quot;)" /> <lookup
-                         class="value"
-                         expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" /></b>
-                 </td>
-                 <td>Date: <encounterDate id="encounterDate" default="today" />
-                 </td>
-             </tr>
-             <tr>
-                 <td>Nom / Last name: <lookup class="value"
-                                              expression="patient.personName.familyName" />
-                 </td>
-                 <td>Prénom/ First name: <lookup class="value"
-                                                 expression="patient.personName.givenName" />
-                 </td>
-             </tr>
+        .form-header-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        }
 
-             <tr>
-                 <td><img
-                         src="/openmrs/moduleResources/rwandareports/images/pihHands.png"
-                         align="left" height="65"></img>
-                     <h2>
-                         Inshuti Mu Buzima <br /> PIH Rwanda
-                     </h2></td>
-                 <td rowspan="2"><strong> Oncology Program / Programme d'oncologie
-                     <br /> Demographics
-                 </strong> <br /></td>
-             </tr>
-             <tr>
-                 <td>Clinique / Clinic: <encounterLocation
-                         id="encounterLocation" default="Butaro Hospital" />
-                 </td>
+        .form-header-logo {
+        width: 60px;
+        height: auto;
+        }
 
-             </tr>
-         </table>
-         <br />
-     </section>
- </div>
+        .form-header-title h1 {
+        margin: 0 0 4px 0;
+        font-size: 20px;
+        font-weight: 600;
+        }
 
- <section headerLabel="DEMOGRAPHICS AT INTAKE">
-     <table border="1" cellspacing="0" cellpadding="6" width="100%">
-         <tr>
-             <td width="20%"><b>Date of Birth</b></td>
-             <td><lookup expression="patient.birthdate"/> <!-- <patient field="birthDateOrAge" /> -->
-             </td>
-         </tr>
-         <tr>
-             <td><b>Sex</b></td>
-             <td><lookup expression="patient.gender" codePrefix="gender_"/><!-- <patient field="gender" /> -->
-             </td>
-         </tr>
-         <!--<tr>
-             <td><b>Rwanda National ID</b></td>
-             <td><patient field="identifier" identifierTypeId="ed52ec82-4b7c-411b-804a-13bd9651bb3e"/>
-             </td>
-         </tr>-->
-         <tr>
-             <td><b>Residence</b></td>
-             <td><addressHierarchyRwanda /><!-- <table>
-             <tr>
-                 <td><addressHierarchyRwanda />
-                 </td>
-                 <td><obs conceptId="3ce645a6-26fe-102b-80cb-0017a47871b2"
-                         answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2"
-                         answerLabel="Outside Rwanda:" />
-                     <obs conceptId="fd965cba-52d6-41b2-a81e-e23167d006d3" />
-                 </td>
-             </tr>
-         </table> --></td>
-         </tr>
-         <tr>
-             <td><b>Patient Telephone</b></td>
-             <td> Primary #:<obs conceptId="3cda3d7e-26fe-102b-80cb-0017a47871b2" /> &#160;&#160;&#160;&#160;&#160;&#160; Secondary #:<obs
-                     conceptId="55bd1ac5-d8aa-4fab-abb3-eb92c44e23e1" />
-             </td>
-         </tr>
-         <tr>
-             <td><b>Family care-giver</b></td>
-             <td> <obsgroup groupingConceptId="3cd9936a-26fe-102b-80cb-0017a47871b2">
-                 Name: <obs conceptId="3cd997f2-26fe-102b-80cb-0017a47871b2" /> &#160;&#160;&#160;&#160;&#160;&#160; Relationship: <obs conceptId="3cd99a68-26fe-102b-80cb-0017a47871b2" /> <br /><br />
-                 Telephone: <obs conceptId="276f8057-55a4-4b1c-8915-69ad090fcffb" />
-             </obsgroup>
-             </td>
-         </tr>
-         <tr>
-             <td><b>CHW Phone Number</b></td>
-             <td>
-                    Phone number : <obs conceptId = "$@CHW_Phone_Number@"/>
-             </td>
-         </tr>
-         <tr>
-             <td><b>Socioeconomic assistance</b></td>
-             <td><table>
-                 <tr>
-                     <td>Already receiving: <br />&#160;&#160;&#160;&#160;<obs
-                             conceptId="$@SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@"
-                             answerConceptId="3cda0eee-26fe-102b-80cb-0017a47871b2"
-                             answerLabel="Food supplementation" /> <br />
-                         &#160;&#160;&#160;&#160;<obs
-                                 conceptId="$@SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@"
-                                 answerConceptId="3cd67432-26fe-102b-80cb-0017a47871b2"
-                                 answerLabel="Transport" /> <br/>
-                         &#160;&#160;&#160;&#160;<obs
-                                 conceptId="$@SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@"
-                                 answerConceptId="262dba46-b8b0-4dd4-9edc-9bac0a7932cc"
-                                 answerLabel="Clinician home visits" /> <br/>
-                         &#160;&#160;&#160;&#160;<obs
-                                 conceptId="$@SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@"
-                                 answerConceptId="3cda05de-26fe-102b-80cb-0017a47871b2"
-                                 answerLabel="Education support" />
-                         <br />&#160;&#160;&#160;&#160;<obs
-                                 conceptId="$@SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@"
-                                 answerConceptId="3cda08d6-26fe-102b-80cb-0017a47871b2"
-                                 answerLabel="Home construction" /> <br />&#160;&#160;&#160;&#160;<obs
-                                 conceptId="$@SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@"
-                                 answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2"
-                                 answerLabel="Other:" />
-                         <obs conceptId="$@OTHER_ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@"/>
+        .form-header-title h2 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+        opacity: 0.9;
+        }
 
-                     </td>
-                     <td>Recommended:<br />&#160;&#160;&#160;&#160;<obs
-                             conceptId="3ce16b30-26fe-102b-80cb-0017a47871b2"
-                             answerConceptId="3cda0eee-26fe-102b-80cb-0017a47871b2"
-                             answerLabel="Food supplementation" /> <br />
-                         &#160;&#160;&#160;&#160;<obs
-                                 conceptId="3ce16b30-26fe-102b-80cb-0017a47871b2"
-                                 answerConceptId="3cd67432-26fe-102b-80cb-0017a47871b2"
-                                 answerLabel="Transport" /> <br/>
-                         &#160;&#160;&#160;&#160;<obs
-                                 conceptId="3ce16b30-26fe-102b-80cb-0017a47871b2"
-                                 answerConceptId="262dba46-b8b0-4dd4-9edc-9bac0a7932cc"
-                                 answerLabel="Clinician home visits" /> <br/>
-                         &#160;&#160;&#160;&#160;<obs
-                                 conceptId="3ce16b30-26fe-102b-80cb-0017a47871b2"
-                                 answerConceptId="3cda05de-26fe-102b-80cb-0017a47871b2"
-                                 answerLabel="Education support" />
-                         <br />&#160;&#160;&#160;&#160;<obs
-                                 conceptId="3ce16b30-26fe-102b-80cb-0017a47871b2"
-                                 answerConceptId="3cda08d6-26fe-102b-80cb-0017a47871b2"
-                                 answerLabel="Home construction" /> <br />&#160;&#160;&#160;&#160;<obs
-                                 conceptId="3ce16b30-26fe-102b-80cb-0017a47871b2"
-                                 answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2"
-                                 answerLabel="Other:" />
-                         <obs
-                                 conceptId="9710b133-7209-4e8f-af0b-fa32112230bc" /></td>
-                     <td>
-                         <obs conceptId="$@SOCIO-ECONOMIC_ASSISTANCE@"
-                              answerConceptId="$@NO_SOCIO-ECONOMIC_ASSISTANCE_RECOMMENDED@"
-                              answerLabel="Not Recommended" />
-                     </td>
+        .form-header-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        }
 
-                 </tr>
-             </table>
-             </td>
-         </tr>
-         <tr>
-             <td><b>IMB<br/>Accompagnateur</b></td>
-             <td><table
-                     width="100%">
-                 <tr>
-                     <td>
-                         <obs conceptId="$@PATIENT_HAS_ACCOMPAGNATEUR@"
-                              answerConceptId="$@YES@"
-                              answerLabel="Already assigned " />
-                     </td>
-                     <td>
-                         <obs conceptId="$@PATIENT_HAS_ACCOMPAGNATEUR@"
-                              answerConceptId="$@RECOMMENDED@"
-                              answerLabel="Recommended" />
-                     </td>
-                     <td><obs conceptId="$@PATIENT_HAS_ACCOMPAGNATEUR@"
-                              answerConceptId="3cd6f86c-26fe-102b-80cb-0017a47871b2"
-                              answerLabel="NOT Recommended " />
-                     </td>
+        /* ===== Patient Info Bar ===== */
+        .patient-info-bar {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        }
 
-                 </tr>
-             </table>
-                 <br/><relationship type="d283d13a-2700-102b-80cb-0017a47871b2" whoAmI="B"
-                                    required="false" changeExistingRelationship="false" />
-             </td>
-         </tr>
-         <tr>
-             <td><b>Name &amp; Type of referring facility</b></td>
-             <td class="checkboxGroup"><span id="checkboxRadio"><table
-                     width="100%">
-                 <tr>
-                     <td>
-                         <obsgroup groupingConceptId="$@Health_center_construct@">
-                             <obs conceptId="c3e1d8d4-3040-49dd-ad66-c0928d912941"
-                                  answerConceptId="3ce0d300-26fe-102b-80cb-0017a47871b2"
-                                  answerLabel="Health Center" />
+        .info-item {
+        display: flex;
+        flex-direction: column;
+        }
 
-                             <obs conceptId="4c3bcdaa-0e22-4c19-9a31-5a05ad1b12d9" />
-                         </obsgroup>
-                         <br />
-                         <obsgroup groupingConceptId="$@district_hospital_construct@">
-                             <obs conceptId="c3e1d8d4-3040-49dd-ad66-c0928d912941"
-                                  answerConceptId="e3f356b2-a340-47df-8b87-b70224437833"
-                                  answerLabel="District Hospital" />
+        .info-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: $labelColor;
+        margin-bottom: 4px;
+        }
 
-                             <obs conceptId="4c3bcdaa-0e22-4c19-9a31-5a05ad1b12d9" />
-                         </obsgroup>
-                         <br />
-                         <obs conceptId="c3e1d8d4-3040-49dd-ad66-c0928d912941"
-                              answerConceptId="f9875828-50ed-45ee-9c72-b4f81e270a8f"
-                              answerLabel="N/A (not referred)" />
-                     </td>
-                     <td>
-                         <obsgroup groupingConceptId="$@referral_hospital_construct@">
-                             <obs conceptId="c3e1d8d4-3040-49dd-ad66-c0928d912941"
-                                  answerConceptId="da32efc3-f18c-404c-bab2-acf68f42f85c"
-                                  answerLabel="Referral Hospital" />
-                             <obs conceptId="4c3bcdaa-0e22-4c19-9a31-5a05ad1b12d9" />
-                         </obsgroup>
-                         <br />
-                         <obs conceptId="c3e1d8d4-3040-49dd-ad66-c0928d912941"
-                              answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2"
-                              answerLabel="Other" />
+        .info-value {
+        font-size: 14px;
+        font-weight: 500;
+        }
 
-                         <obs conceptId="5fe2af49-b9c0-4c23-8d30-335a84b3c991" />
-                     </td>
-                 </tr>
-             </table>
-     </span></td>
-         </tr>
-         <tr>
-             <td><b>Location of referring facility</b></td>
-             <td class="checkboxGroup"><span id="checkboxRadio"><table
-                     width="100%">
-                 <tr>
-                     <td><obs conceptId="b1ead3f5-b7d1-4170-882b-5d4ab655cb90"
-                              answerConceptId="89a601af-7e2b-4842-9d13-20034ad4c909"
-                              answerLabel="Inside intake district" />
-                         <br />
-                     <span><obs conceptId="c3e1d8d4-3040-49dd-ad66-c0928d912941"
-                                answerConceptId="f9875828-50ed-45ee-9c72-b4f81e270a8f"
-                                answerLabel="N/A (not referred)" />
-                     </span>
-                     </td>
-                     <td><obs conceptId="b1ead3f5-b7d1-4170-882b-5d4ab655cb90"
-                              answerConceptId="6c5c17ac-04e0-45fe-9b11-20850c5eaff7"
-                              answerLabel="Outside intake district" />
-                     </td>
-                     <td>
-                         <obs conceptId="b1ead3f5-b7d1-4170-882b-5d4ab655cb90"
-                              answerConceptId="e189f0b5-a733-40e1-b138-7bb464be3032"
-                              answerLabel="Outside Rwanda" />
-                     </td>
-                 </tr>
+        /* ===== Encounter Info Bar ===== */
+        .encounter-info-bar {
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        }
 
-             </table>
-     </span></td>
-         </tr>
-         <tr>
-             <td><b>Form filled by<br/>(name) </b></td>
-             <td ><encounterProvider
-                     role="Oncology Provider" />
-             </td>
-         </tr>
-     </table>
- </section> <enrollInProgram programId="20"/><submit />
- <br/>
- <br/>
- <br/>
- <br/>
- <encounterVoided/>
+        /* ===== Section Cards ===== */
+        .section-card {
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-header {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: $fontOnHeaderColor;
+        padding: 14px 20px;
+        font-size: 15px;
+        font-weight: 600;
+        }
+
+        .section-content {
+        padding: 20px;
+        }
+
+        /* ===== Demographics Table ===== */
+        .demographics-table {
+        width: 100%;
+        border-collapse: collapse;
+        }
+
+        .demographics-table td {
+        padding: 16px;
+        border-bottom: 1px solid $borderColor;
+        vertical-align: top;
+        }
+
+        .demographics-table tr:last-child td {
+        border-bottom: none;
+        }
+
+        .demographics-table tr:hover {
+        background: #f9fffe;
+        }
+
+        .demo-label {
+        width: 200px;
+        font-weight: 600;
+        color: #333;
+        background: $cardBackground;
+        }
+
+        .demo-value {
+        color: #333;
+        }
+
+        /* ===== Form Fields ===== */
+        .field-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 8px;
+        }
+
+        .field-inline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        }
+
+        .field-inline label {
+        font-size: 13px;
+        color: $labelColor;
+        min-width: 80px;
+        }
+
+        .field-inline input {
+        padding: 8px 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 14px;
+        }
+
+        /* ===== Assistance Grid ===== */
+        .assistance-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        }
+
+        .assistance-column {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px;
+        }
+
+        .assistance-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: $headerColor;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid $headerColor;
+        }
+
+        .assistance-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 0;
+        font-size: 13px;
+        }
+
+        /* ===== Accompagnateur Options ===== */
+        .accompagnateur-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 16px;
+        }
+
+        .accompagnateur-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 6px;
+        font-size: 13px;
+        }
+
+        /* ===== Referral Grid ===== */
+        .referral-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        }
+
+        @media (max-width: 600px) {
+        .referral-grid {
+        grid-template-columns: 1fr;
+        }
+        }
+
+        .referral-item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px;
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 6px;
+        }
+
+        .referral-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        }
+
+        .referral-input {
+        margin-left: 24px;
+        }
+
+        /* ===== Location Options ===== */
+        .location-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        }
+
+        .location-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 6px;
+        font-size: 13px;
+        }
+
+        /* ===== Caregiver Section ===== */
+        .caregiver-fields {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        }
+
+        .caregiver-field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        }
+
+        .caregiver-field label {
+        font-size: 12px;
+        color: $labelColor;
+        font-weight: 500;
+        }
+
+        /* ===== Submit Section ===== */
+        .submit-section {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid $borderColor;
+        text-align: center;
+        }
+
+        .submit-section input[type="submit"] {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: white;
+        border: none;
+        padding: 14px 48px;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-section input[type="submit"]:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 157, 142, 0.3);
+        }
+
+        /* ===== Enroll Notice ===== */
+        .enroll-notice {
+        background: #e8f5f3;
+        border: 1px solid #b8e0d9;
+        border-left: 4px solid $headerColor;
+        border-radius: 6px;
+        padding: 12px 16px;
+        margin-bottom: 20px;
+        font-size: 13px;
+        color: #333;
+        }
+
+        /* ===== Voided Section ===== */
+        .voided-section {
+        margin-top: 16px;
+        text-align: center;
+        }
+
+        /* ===== Utility ===== */
+        .value { font-weight: 500; }
+        .divider { height: 1px; background: $borderColor; margin: 16px 0; }
+
+        /* ===== Print ===== */
+        @media print {
+        .form-header, .section-header {
+        background: #009d8e !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        }
+        .submit-section { display: none; }
+        }
+    </style>
+
+    <script type="text/javascript">
+        if (jQuery) {
+        $j(document).ready(function() {
+        // Disable inputs in disabled divs
+        $j('.disdiv').find('input').attr('disabled', 'true');
+
+        // Checkbox group radio behavior
+        $j(".checkboxGroup").each(function() {
+        var group = $j(this);
+        var uncheckAll = function() {
+        group.find("input[type$='checkbox']").attr("checked", false);
+        group.find("input[type$='checkbox']").change();
+        }
+
+        group.find("#checkboxRadio").find("input[type$='checkbox']").click(function() {
+        uncheckAll();
+        $j(this).siblings("input[type$='checkbox']").attr("checked", false);
+        $j(this).attr("checked", true);
+        $j(this).change();
+        });
+        });
+        });
+        }
+    </script>
+
+    <!-- ===== FORM HEADER ===== -->
+    <div class="form-header">
+        <div class="form-header-content">
+            <div class="form-header-left">
+                <img src="/openmrs/moduleResources/rwandareports/images/pihHands.png"
+                     alt="PIH Rwanda" class="form-header-logo" />
+                <div class="form-header-title">
+                    <h1>Inshuti Mu Buzima / PIH Rwanda</h1>
+                    <h2>Oncology Program - Demographics</h2>
+                </div>
+            </div>
+            <div class="form-header-badge">Intake Form</div>
+        </div>
+    </div>
+
+    <!-- ===== PATIENT INFORMATION ===== -->
+    <div class="patient-info-bar">
+        <div class="info-item">
+            <span class="info-label">IMB ID</span>
+            <span class="info-value">
+                <lookup class="value" expression="patientIdentifiers.get(&quot;IMB ID&quot;)" />
+                <lookup class="value" expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" />
+            </span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Last Name / Nom</span>
+            <span class="info-value">
+                <lookup class="value" expression="patient.personName.familyName" />
+            </span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">First Name / Prenom</span>
+            <span class="info-value">
+                <lookup class="value" expression="patient.personName.givenName" />
+            </span>
+        </div>
+    </div>
+
+    <!-- ===== ENCOUNTER INFORMATION ===== -->
+    <div class="encounter-info-bar">
+        <div class="info-item">
+            <span class="info-label">Encounter Date</span>
+            <encounterDate id="encounterDate" default="today" />
+        </div>
+        <div class="info-item">
+            <span class="info-label">Clinic / Clinique</span>
+            <encounterLocation id="encounterLocation" default="Butaro Hospital" />
+        </div>
+    </div>
+
+    <!-- ===== PROGRAM ENROLLMENT ===== -->
+    <div class="enroll-notice">
+        This form will enroll the patient in the Oncology Program upon submission.
+    </div>
+    <enrollInProgram programId="20" />
+
+    <!-- ===== DEMOGRAPHICS SECTION ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            Demographics at Intake
+        </div>
+        <div class="section-content">
+            <table class="demographics-table">
+                <!-- Date of Birth -->
+                <tr>
+                    <td class="demo-label">Date of Birth</td>
+                    <td class="demo-value">
+                        <lookup expression="patient.birthdate" />
+                    </td>
+                </tr>
+
+                <!-- Sex -->
+                <tr>
+                    <td class="demo-label">Sex</td>
+                    <td class="demo-value">
+                        <lookup expression="patient.gender" codePrefix="gender_" />
+                    </td>
+                </tr>
+
+                <!-- Residence -->
+                <tr>
+                    <td class="demo-label">Residence</td>
+                    <td class="demo-value">
+                        <addressHierarchyRwanda />
+                    </td>
+                </tr>
+
+                <!-- Patient Telephone -->
+                <tr>
+                    <td class="demo-label">Patient Telephone</td>
+                    <td class="demo-value">
+                        <div class="field-row">
+                            <span class="field-inline">
+                                <label>Primary #:</label>
+                                <obs conceptId="3cda3d7e-26fe-102b-80cb-0017a47871b2" />
+                            </span>
+                            <span class="field-inline">
+                                <label>Secondary #:</label>
+                                <obs conceptId="55bd1ac5-d8aa-4fab-abb3-eb92c44e23e1" />
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Family Care-giver -->
+                <tr>
+                    <td class="demo-label">Family Care-giver</td>
+                    <td class="demo-value">
+                        <obsgroup groupingConceptId="3cd9936a-26fe-102b-80cb-0017a47871b2">
+                            <div class="caregiver-fields">
+                                <div class="caregiver-field">
+                                    <label>Name:</label>
+                                    <obs conceptId="3cd997f2-26fe-102b-80cb-0017a47871b2" />
+                                </div>
+                                <div class="caregiver-field">
+                                    <label>Relationship:</label>
+                                    <obs conceptId="3cd99a68-26fe-102b-80cb-0017a47871b2" />
+                                </div>
+                                <div class="caregiver-field">
+                                    <label>Telephone:</label>
+                                    <obs conceptId="276f8057-55a4-4b1c-8915-69ad090fcffb" />
+                                </div>
+                            </div>
+                        </obsgroup>
+                    </td>
+                </tr>
+
+                <!-- CHW Phone Number -->
+                <tr>
+                    <td class="demo-label">CHW Phone Number</td>
+                    <td class="demo-value">
+                        <span class="field-inline">
+                            <label>Phone:</label>
+                            <obs conceptId="$@CHW_Phone_Number@" />
+                        </span>
+                    </td>
+                </tr>
+
+                <!-- Socioeconomic Assistance -->
+                <tr>
+                    <td class="demo-label">Socioeconomic Assistance</td>
+                    <td class="demo-value">
+                        <div class="assistance-grid">
+                            <!-- Already Receiving -->
+                            <div class="assistance-column">
+                                <div class="assistance-title">Already Receiving</div>
+                                <div class="assistance-item">
+                                    <obs conceptId="$@SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@" answerConceptId="3cda0eee-26fe-102b-80cb-0017a47871b2" answerLabel="Food supplementation" style="checkbox" />
+                                </div>
+                                <div class="assistance-item">
+                                    <obs conceptId="$@SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@" answerConceptId="3cd67432-26fe-102b-80cb-0017a47871b2" answerLabel="Transport" style="checkbox" />
+                                </div>
+                                <div class="assistance-item">
+                                    <obs conceptId="$@SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@" answerConceptId="262dba46-b8b0-4dd4-9edc-9bac0a7932cc" answerLabel="Clinician home visits" style="checkbox" />
+                                </div>
+                                <div class="assistance-item">
+                                    <obs conceptId="$@SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@" answerConceptId="3cda05de-26fe-102b-80cb-0017a47871b2" answerLabel="Education support" style="checkbox" />
+                                </div>
+                                <div class="assistance-item">
+                                    <obs conceptId="$@SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@" answerConceptId="3cda08d6-26fe-102b-80cb-0017a47871b2" answerLabel="Home construction" style="checkbox" />
+                                </div>
+                                <div class="assistance-item">
+                                    <obs conceptId="$@SOCIO-ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@" answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2" answerLabel="Other:" style="checkbox" />
+                                    <obs conceptId="$@OTHER_ECONOMIC_ASSISTANCE_ALREADY_RECEIVED@" size="15" />
+                                </div>
+                            </div>
+
+                            <!-- Recommended -->
+                            <div class="assistance-column">
+                                <div class="assistance-title">Recommended</div>
+                                <div class="assistance-item">
+                                    <obs conceptId="3ce16b30-26fe-102b-80cb-0017a47871b2" answerConceptId="3cda0eee-26fe-102b-80cb-0017a47871b2" answerLabel="Food supplementation" style="checkbox" />
+                                </div>
+                                <div class="assistance-item">
+                                    <obs conceptId="3ce16b30-26fe-102b-80cb-0017a47871b2" answerConceptId="3cd67432-26fe-102b-80cb-0017a47871b2" answerLabel="Transport" style="checkbox" />
+                                </div>
+                                <div class="assistance-item">
+                                    <obs conceptId="3ce16b30-26fe-102b-80cb-0017a47871b2" answerConceptId="262dba46-b8b0-4dd4-9edc-9bac0a7932cc" answerLabel="Clinician home visits" style="checkbox" />
+                                </div>
+                                <div class="assistance-item">
+                                    <obs conceptId="3ce16b30-26fe-102b-80cb-0017a47871b2" answerConceptId="3cda05de-26fe-102b-80cb-0017a47871b2" answerLabel="Education support" style="checkbox" />
+                                </div>
+                                <div class="assistance-item">
+                                    <obs conceptId="3ce16b30-26fe-102b-80cb-0017a47871b2" answerConceptId="3cda08d6-26fe-102b-80cb-0017a47871b2" answerLabel="Home construction" style="checkbox" />
+                                </div>
+                                <div class="assistance-item">
+                                    <obs conceptId="3ce16b30-26fe-102b-80cb-0017a47871b2" answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2" answerLabel="Other:" style="checkbox" />
+                                    <obs conceptId="9710b133-7209-4e8f-af0b-fa32112230bc" size="15" />
+                                </div>
+                            </div>
+
+                            <!-- Not Recommended -->
+                            <div class="assistance-column">
+                                <div class="assistance-title">Status</div>
+                                <div class="assistance-item">
+                                    <obs conceptId="$@SOCIO-ECONOMIC_ASSISTANCE@" answerConceptId="$@NO_SOCIO-ECONOMIC_ASSISTANCE_RECOMMENDED@" answerLabel="Not Recommended" style="checkbox" />
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- IMB Accompagnateur -->
+                <tr>
+                    <td class="demo-label">IMB Accompagnateur</td>
+                    <td class="demo-value">
+                        <div class="accompagnateur-options">
+                            <div class="accompagnateur-option">
+                                <obs conceptId="$@PATIENT_HAS_ACCOMPAGNATEUR@" answerConceptId="$@YES@" answerLabel="Already assigned" />
+                            </div>
+                            <div class="accompagnateur-option">
+                                <obs conceptId="$@PATIENT_HAS_ACCOMPAGNATEUR@" answerConceptId="$@RECOMMENDED@" answerLabel="Recommended" />
+                            </div>
+                            <div class="accompagnateur-option">
+                                <obs conceptId="$@PATIENT_HAS_ACCOMPAGNATEUR@" answerConceptId="3cd6f86c-26fe-102b-80cb-0017a47871b2" answerLabel="NOT Recommended" />
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <relationship type="d283d13a-2700-102b-80cb-0017a47871b2" whoAmI="B" required="false" changeExistingRelationship="false" />
+                    </td>
+                </tr>
+
+                <!-- Referring Facility -->
+                <tr>
+                    <td class="demo-label">Name and Type of Referring Facility</td>
+                    <td class="demo-value checkboxGroup">
+                        <span id="checkboxRadio">
+                            <div class="referral-grid">
+                                <div class="referral-item">
+                                    <obsgroup groupingConceptId="$@Health_center_construct@">
+                                        <div class="referral-checkbox">
+                                            <obs conceptId="c3e1d8d4-3040-49dd-ad66-c0928d912941" answerConceptId="3ce0d300-26fe-102b-80cb-0017a47871b2" answerLabel="Health Center" />
+                                        </div>
+                                        <div class="referral-input">
+                                            <obs conceptId="4c3bcdaa-0e22-4c19-9a31-5a05ad1b12d9" size="25" />
+                                        </div>
+                                    </obsgroup>
+                                </div>
+
+                                <div class="referral-item">
+                                    <obsgroup groupingConceptId="$@district_hospital_construct@">
+                                        <div class="referral-checkbox">
+                                            <obs conceptId="c3e1d8d4-3040-49dd-ad66-c0928d912941" answerConceptId="e3f356b2-a340-47df-8b87-b70224437833" answerLabel="District Hospital" />
+                                        </div>
+                                        <div class="referral-input">
+                                            <obs conceptId="4c3bcdaa-0e22-4c19-9a31-5a05ad1b12d9" size="25" />
+                                        </div>
+                                    </obsgroup>
+                                </div>
+
+                                <div class="referral-item">
+                                    <obsgroup groupingConceptId="$@referral_hospital_construct@">
+                                        <div class="referral-checkbox">
+                                            <obs conceptId="c3e1d8d4-3040-49dd-ad66-c0928d912941" answerConceptId="da32efc3-f18c-404c-bab2-acf68f42f85c" answerLabel="Referral Hospital" />
+                                        </div>
+                                        <div class="referral-input">
+                                            <obs conceptId="4c3bcdaa-0e22-4c19-9a31-5a05ad1b12d9" size="25" />
+                                        </div>
+                                    </obsgroup>
+                                </div>
+
+                                <div class="referral-item">
+                                    <div class="referral-checkbox">
+                                        <obs conceptId="c3e1d8d4-3040-49dd-ad66-c0928d912941" answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2" answerLabel="Other" />
+                                    </div>
+                                    <div class="referral-input">
+                                        <obs conceptId="5fe2af49-b9c0-4c23-8d30-335a84b3c991" size="25" />
+                                    </div>
+                                </div>
+
+                                <div class="referral-item">
+                                    <div class="referral-checkbox">
+                                        <obs conceptId="c3e1d8d4-3040-49dd-ad66-c0928d912941" answerConceptId="f9875828-50ed-45ee-9c72-b4f81e270a8f" answerLabel="N/A (not referred)" />
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                    </td>
+                </tr>
+
+                <!-- Location of Referring Facility -->
+                <tr>
+                    <td class="demo-label">Location of Referring Facility</td>
+                    <td class="demo-value checkboxGroup">
+                        <span id="checkboxRadio">
+                            <div class="location-options">
+                                <div class="location-option">
+                                    <obs conceptId="b1ead3f5-b7d1-4170-882b-5d4ab655cb90" answerConceptId="89a601af-7e2b-4842-9d13-20034ad4c909" answerLabel="Inside intake district" />
+                                </div>
+                                <div class="location-option">
+                                    <obs conceptId="b1ead3f5-b7d1-4170-882b-5d4ab655cb90" answerConceptId="6c5c17ac-04e0-45fe-9b11-20850c5eaff7" answerLabel="Outside intake district" />
+                                </div>
+                                <div class="location-option">
+                                    <obs conceptId="b1ead3f5-b7d1-4170-882b-5d4ab655cb90" answerConceptId="e189f0b5-a733-40e1-b138-7bb464be3032" answerLabel="Outside Rwanda" />
+                                </div>
+                                <div class="location-option">
+                                    <obs conceptId="c3e1d8d4-3040-49dd-ad66-c0928d912941" answerConceptId="f9875828-50ed-45ee-9c72-b4f81e270a8f" answerLabel="N/A (not referred)" />
+                                </div>
+                            </div>
+                        </span>
+                    </td>
+                </tr>
+
+                <!-- Form Filled By -->
+                <tr>
+                    <td class="demo-label">Form Filled By</td>
+                    <td class="demo-value">
+                        <encounterProvider role="Oncology Provider" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== SUBMIT ===== -->
+    <div class="submit-section">
+        <submit submitLabel="Save Demographics and Enroll Patient" />
+    </div>
+
+    <!-- ===== VOIDED STATUS ===== -->
+    <div class="voided-section">
+        <encounterVoided />
+    </div>
+
 </htmlform>

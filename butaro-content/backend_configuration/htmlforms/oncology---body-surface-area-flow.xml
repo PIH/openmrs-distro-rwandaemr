@@ -1,54 +1,119 @@
-<htmlform 
-	htmlformUuid="0b25f966-83fb-4804-b911-59d65abdb0ee" 
-	formUuid="c4f0aae9-096a-4c6d-8851-a704900be3dd" 
-	formName="Oncology - Body Surface Area Flow" 
-	formDescription="Oncology - Body Surface Area Flowsheet" 
-	formVersion="1.0" 
-	formEncounterType="daf32375-d293-4e27-a68d-2a58494c96e1" 
-	formPublished="false" 
-	formRetired="false"
+<htmlform
+		htmlformUuid="0b25f966-83fb-4804-b911-59d65abdb0ee"
+		formUuid="c4f0aae9-096a-4c6d-8851-a704900be3dd"
+		formName="Oncology - Body Surface Area Flow"
+		formDescription="Oncology - Body Surface Area Flowsheet"
+		formVersion="1.0"
+		formEncounterType="daf32375-d293-4e27-a68d-2a58494c96e1"
+		formPublished="false"
+		formRetired="false"
 >
-	
+
 	<macros>
-		headerColor =#009d8e
+		headerColor = #009d8e
 		fontOnHeaderColor = white
 	</macros>
 
 	<style>
+		form fieldset {
+		display: block;
+		}
+
+		.section-header {
+		margin-top: 1.5em;
+		}
+
+		p.radio>* {
+		display: inline;
+		float: none !important;
+		min-width: initial;
+		}
+
+		.section-container {
+		background: #F2F2F2;
+		box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+		padding: 10px 5px 10px 15px;
+		line-height: 1.5em;
+		}
+
+		.section-container input[type="checkbox"] {
+		margin: 0px 5px;
+		top: 5px;
+		}
+
+		.section-container label {
+		margin: 0px;
+		}
+
 		.section {
-			border: 1px solid $headerColor;
-			padding: 2px;
-			text-align: left;
-			margin-bottom: 1em;
+		width: 100%;
 		}
-		.sectionHeader {
-			background-color: $headerColor;
-			color: $fontOnHeaderColor;
-			display: block;
-			padding: 2px;
-			font-weight: bold;
+
+		form input[type="radio"],
+		.form input[type="radio"] {
+		float: none;
+		display: inline-block;
 		}
+
+		.side-by-side label {
+		display: inline-block;
+		}
+
+		.field-error {
+		color: #ff6666;
+		font-size: 1.1em;
+		display: block;
+		}
+
 		.baseline-aligned td {
-			vertical-align: baseline;
-                        width: 100%;
+		vertical-align: baseline;
+		width: 100%;
 		}
-        .flowsheet {
-                width: 100%;
-        }
 
-        #title .value {
-        	float: right;
-        	color: white;
-        	padding: 6px;
-        }
+		.flowsheet {
+		width: 100%;
+		}
 
-        #title {
-        	width: 100%;
-        }
-    </style>	
-	
-	<div id="title"><lookup class="value" expression="patient.personName"/></div>
-	<section headerLabel="BSA Form">
-		<htmlformflowsheet formId="7348b06a-a77d-4008-b2a0-389e0413789a" showHtmlForm="true" windowHeight="520" />	            
+		#patient-header {
+		background-color: $headerColor;
+		color: $fontOnHeaderColor;
+		padding: 10px 15px;
+		margin-bottom: 15px;
+		border-radius: 3px;
+		box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+		}
+
+		#patient-header .patient-name {
+		font-size: 1.2em;
+		font-weight: bold;
+		}
+	</style>
+
+	<div id="patient-header">
+		<span class="patient-name">
+			<lookup expression="patient.personName"/>
+		</span>
+	</div>
+
+	<h1>Body Surface Area Flowsheet</h1>
+
+	<section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="BSA FLOWSHEET">
+		<div class="section-container">
+			<htmlformflowsheet formId="7348b06a-a77d-4008-b2a0-389e0413789a"
+							   showHtmlForm="true"
+							   windowHeight="520" />
+		</div>
 	</section>
+
+	<ifMode mode="VIEW" include="false">
+		<div id="buttons">
+			<button id="submit" class="submitButton confirm right">
+				<uimessage code="Save" />
+				<i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i>
+			</button>
+			<button id="cancel" type="button" class="cancel">
+				<uimessage code="emr.cancel" />
+			</button>
+		</div>
+	</ifMode>
 </htmlform>

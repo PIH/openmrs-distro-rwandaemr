@@ -521,6 +521,36 @@
                     Main Complaints:
                     <obs conceptId="3ce2b170-26fe-102b-80cb-0017a47871b2" style="textarea" rows="3" cols="30"  />
                 </p>
+                <p class="small-input flexView">
+                    <label for="">Temperature</label>
+                    <obs conceptId="3ce939d2-26fe-102b-80cb-0017a47871b2" id="tmp" />
+
+                    Heart Rate
+                    <obs conceptId="3ce93824-26fe-102b-80cb-0017a47871b2" />
+
+                    SBP/DBP
+                    <obs conceptId="3ce934fa-26fe-102b-80cb-0017a47871b2" id="sbpid" />
+                    /
+                    <obs conceptId="3ce93694-26fe-102b-80cb-0017a47871b2" id="dbpid" />
+
+                    O2 Saturation
+                    <obs conceptId="5092" />
+
+                    Respiratory Rate
+
+                    <obs conceptId="3ceb11f8-26fe-102b-80cb-0017a47871b2" id="resprateId" />
+
+                    Height(cm)
+                    <obs id="height" conceptId="3ce93cf2-26fe-102b-80cb-0017a47871b2" />
+
+                    Weight(Kg)
+
+                    <obs conceptId="3ce93b62-26fe-102b-80cb-0017a47871b2" id="crrtWeight" required="*" />
+                    <lookup id="latestWeight" expression="fn.latestObs(5089).valueText" />
+
+                    MUAC(cm)
+                    <obs conceptId="4326b04b-3158-417a-bb8d-ad022295b0f4" id="muac" required="true"/>
+                </p>
             </div>
         </section>
 

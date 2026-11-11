@@ -94,6 +94,578 @@
       }
     ]
   },
+    {
+      "id": "rwandaemr.oncology.bodySurfaceArea.Form",
+      "order": 1,
+      "config": {
+        "icon": "fas fa-fw fa-calculator",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.bodySurfaceArea.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology - Body Surface Area",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology---body-surface-area-flow.xml",
+          "icon": "icon-file",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.inpatientDischarge.Form",
+      "order": 2,
+      "config": {
+        "icon": "fas fa-fw fa-hospital",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.inpatientDischarge.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology - Inpatient Discharge",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology - inpatient discharge.xml",
+          "icon": "icon-file",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.oralEndocrineTherapyDecentralizationIntake.Form",
+      "order": 3,
+      "config": {
+        "icon": "fas fa-fw fa-pills",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.oralEndocrineTherapyDecentralizationIntake.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology - Oral Endocrine Therapy Decentralization Intake Form",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/Oncology - Oral Endocrine Therapy Decentralization Intake Form.xml",
+          "icon": "icon-file",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.oralEndocrineTherapyDecentralizationVisit.Form",
+      "order": 4,
+      "config": {
+        "icon": "fas fa-fw fa-pills",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.oralEndocrineTherapyDecentralizationVisit.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology - Oral Endocrine Therapy Decentralization Visit Form",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/Oncology - Oral Endocrine Therapy Decentralization Visit Form.xml",
+          "icon": "icon-file",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.pathologyResultsNotified.Form",
+      "order": 5,
+      "config": {
+        "icon": "fas fa-fw fa-vial",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.pathologyResultsNotified.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology - Pathology Results Notified",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology---pathology-results-notified.xml",
+          "icon": "icon-file",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.pathologyResultsReceived.Form",
+      "order": 6,
+      "config": {
+        "icon": "fas fa-fw fa-vial",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.pathologyResultsReceived.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology - Pathology Results Received",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology---pathology-results-received.xml",
+          "icon": "icon-file",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.pathologySpecimenSubmission.Form",
+      "order": 7,
+      "config": {
+        "icon": "fas fa-fw fa-flask",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.pathologySpecimenSubmission.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology - Pathology Specimen Submission",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology---pathology-specimen-submission.xml",
+          "icon": "icon-file",
+          "order": 7
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.radiationTreatmentSummary.Form",
+      "order": 8,
+      "config": {
+        "icon": "fas fa-fw fa-radiation",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.radiationTreatmentSummary.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology - Radiation treatment summary",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/Oncology - Radiation treatment summary.xml",
+          "icon": "icon-file",
+          "order": 8
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.remoteVisitOralOncologyBreast.Form",
+      "order": 9,
+      "config": {
+        "icon": "fas fa-fw fa-video",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.remoteVisitOralOncologyBreast.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology - Remote Visit for Oral Oncology Treatment - Breast",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology---remote-visit-for-oral-oncology-treatment---breast.xml",
+          "icon": "icon-file",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.adultProgressNote.Form",
+      "order": 10,
+      "config": {
+        "icon": "fas fa-fw fa-notes-medical",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.adultProgressNote.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "oncology Adult Progress note",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/Oncology-Adult-progress-Note.xml",
+          "icon": "icon-file",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.dstShort.Form",
+      "order": 11,
+      "config": {
+        "icon": "fas fa-fw fa-file-medical",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.dstShort.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology DST - Short",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology-dst---short.xml",
+          "icon": "icon-file",
+          "order": 11
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.exitForm.Form",
+      "order": 12,
+      "config": {
+        "icon": "fas fa-fw fa-door-open",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.exitForm.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology Exit Form",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology-exit-form.xml",
+          "icon": "icon-file",
+          "order": 12
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.inpatientIntake.Form",
+      "order": 13,
+      "config": {
+        "icon": "fas fa-fw fa-hospital-user",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.inpatientIntake.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology Inpatient - Intake",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology-inpatient---intake.xml",
+          "icon": "icon-file",
+          "order": 13
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.outpatientAttachments.Form",
+      "order": 14,
+      "config": {
+        "icon": "fas fa-fw fa-paperclip",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.outpatientAttachments.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology Outpatient - Attachments",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology-outpatient---attachments.xml",
+          "icon": "icon-file",
+          "order": 14
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.outpatientBreastUltrasoundReport.Form",
+      "order": 15,
+      "config": {
+        "icon": "fas fa-fw fa-file-medical-alt",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.outpatientBreastUltrasoundReport.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology Outpatient - Breast Ultrasound Report",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology-outpatient---breast-ultrasound-report.xml",
+          "icon": "icon-file",
+          "order": 15
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.outpatientCa125AfpTrackingSheet.Form",
+      "order": 16,
+      "config": {
+        "icon": "fas fa-fw fa-chart-line",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.outpatientCa125AfpTrackingSheet.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology Outpatient - CA125 - AFP Tracking Sheet",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology-outpatient---ca125---afp-tracking-sheet.xml",
+          "icon": "icon-file",
+          "order": 16
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.outpatientCallbackForm.Form",
+      "order": 17,
+      "config": {
+        "icon": "fas fa-fw fa-phone",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.outpatientCallbackForm.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology Outpatient - Callback form",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology-outpatient---callback-form.xml",
+          "icon": "icon-file",
+          "order": 17
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.outpatientClinicVisits.Form",
+      "order": 18,
+      "config": {
+        "icon": "fas fa-fw fa-clinic-medical",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.outpatientClinicVisits.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology Outpatient - Clinic visits",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology-outpatient---clinic-visits.xml",
+          "icon": "icon-file",
+          "order": 18
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.outpatientDemographics.Form",
+      "order": 19,
+      "config": {
+        "icon": "fas fa-fw fa-user-circle",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.outpatientDemographics.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology Outpatient - Demographics",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology-outpatient---demographics.xml",
+          "icon": "icon-file",
+          "order": 19
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.outpatientGtdBetaHcgTrackingSheet.Form",
+      "order": 20,
+      "config": {
+        "icon": "fas fa-fw fa-chart-line",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.outpatientGtdBetaHcgTrackingSheet.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology Outpatient - GTD - Beta-HCG Tracking Sheet",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology-outpatient---gtd----beta-hcg-tracking-sheet.xml",
+          "icon": "icon-file",
+          "order": 20
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.outpatientIntake.Form",
+      "order": 21,
+      "config": {
+        "icon": "fas fa-fw fa-user-plus",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.outpatientIntake.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Oncology Outpatient - Intake",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology-outpatient---intake.xml",
+          "icon": "icon-file",
+          "order": 21
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.oncology.pediatricInpatientProgressNote.Form",
+      "order": 22,
+      "config": {
+        "icon": "fas fa-fw fa-child",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.oncology.pediatricInpatientProgressNote.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "oncology Pediatric Inpatient Progress note",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/oncology-pediatric-inpatient-progress-note.xml",
+          "icon": "icon-file",
+          "order": 22
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.palliativeCare.intake.Form",
+      "order": 23,
+      "config": {
+        "icon": "fas fa-fw fa-hand-holding-heart",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.palliativeCare.intake.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Palliative Care Intake",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/Palliative Care Intake.xml",
+          "icon": "icon-file",
+          "order": 23
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.palliativeCare.followUp.Form",
+      "order": 24,
+      "config": {
+        "icon": "fas fa-fw fa-heart",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.palliativeCare.followUp.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Palliative care_ follow up form",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/Palliative care_ follow up form.xml",
+          "icon": "icon-file",
+          "order": 24
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.pathology.pathologyReportSystem.Form",
+      "order": 25,
+      "config": {
+        "icon": "fas fa-fw fa-microscope",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.pathology.pathologyReportSystem.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Pathology Report for Pathology System",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/Pathology Report for Pathology System.xml",
+          "icon": "icon-file",
+          "order": 25
+        }
+      ]
+    },
+    {
+      "id": "rwandaemr.pathology.pathologyRequest.Form",
+      "order": 26,
+      "config": {
+        "icon": "fas fa-fw fa-file-medical",
+        "label": "coreapps.programHistoryDashboardWidget.label",
+        "program": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "dashboard": "f02857cb-f894-42e9-b324-dcb8fea70f69",
+        "includeActive": false
+      },
+      "extensions": [
+        {
+          "id": "rwandaemr.pathology.pathologyRequest.Form",
+          "extensionPointId": "f02857cb-f894-42e9-b324-dcb8fea70f69.overallActions",
+          "type": "link",
+          "label": "Pathology Request",
+          "url": "htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&definitionUiResource=file:configuration/htmlforms/Pathology Request.xml",
+          "icon": "icon-file",
+          "order": 26
+        }
+      ]
+    },
   {
     "id": "rwandaemr.f02857cb-f894-42e9-b324-dcb8fea70f69.regimens",
     "order": 5,

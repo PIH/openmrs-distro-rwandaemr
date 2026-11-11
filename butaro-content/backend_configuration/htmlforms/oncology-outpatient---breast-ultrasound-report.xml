@@ -1,22 +1,28 @@
-<htmlform 
-	htmlformUuid="5ac4e38d-3896-4059-bfd8-d885fd3e96a8" 
-	formUuid="9b164c91-3882-4dfa-83a8-ff75e88b2e0a" 
-	formName="Oncology Outpatient - Breast Ultrasound Report" 
-	formDescription="Breast Ultrasound Report" 
-	formVersion="1.0" 
-	formEncounterType="ff319885-3f20-4ae5-8663-3ad5678cba41" 
-	formPublished="true" 
-	formRetired="false"
-> <!--
-           Oncology - Inpatient progress note -Breast DST
-            Pilot_4July_v1.3NT
-                Author:
-                Builder: Byiringiro Joshua
-                started on Oct 23, 2017
-        -->
+<htmlform
+        htmlformUuid="5ac4e38d-3896-4059-bfd8-d885fd3e96a8"
+        formUuid="9b164c91-3882-4dfa-83a8-ff75e88b2e0a"
+        formName="Oncology Outpatient - Breast Ultrasound Report"
+        formDescription="Breast Ultrasound Report"
+        formVersion="2.0"
+        formEncounterType="ff319885-3f20-4ae5-8663-3ad5678cba41"
+        formPublished="true"
+        formRetired="false"
+>
+    <!--
+        Oncology - Breast Ultrasound Report
+        Original Author: Byiringiro Joshua
+        Original Date: Oct 23, 2017
+        Reformatted: 2025
+    -->
 
     <macros>
+        headerColor = #009d8e
+        fontOnHeaderColor = white
+        cardBackground = #f8fffe
+        borderColor = #e0e0e0
+        labelColor = #555555
 
+        <!-- Indication for Ultrasound -->
         @Indication_for_ultrasound@ = a6c288e1-3154-4065-9eff-deaea0c553c3
         @Self_palpated_lump@ = 3adbe7cf-a618-48f8-a1c2-a78ae0c2a9d4
         @Focal_Pain@ = ae4b69fe-51c6-4026-8e19-d2d61ac12a98
@@ -24,36 +30,49 @@
         @Follow-up_of_incidental_mass@ = dcb675a9-62d9-44ac-b1ae-8155c2262a66
         @OTHER_NON-CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
         @Other_indication_of_ultrasound@ = d140aae5-bcb5-4af4-9ffa-ce55e5da71a9
+
+        <!-- Patient History -->
         @Patient_Pregnant(coded)@ = e9afd55c-9e2f-4581-87e0-2d67d5981a92
         @YES@ = 3cd6f600-26fe-102b-80cb-0017a47871b2
         @NO@ = 3cd6f86c-26fe-102b-80cb-0017a47871b2
         @Patient_Lactating(coded)@ = a62723c9-caf3-46af-b81b-9a4625441ea3
         @Breast_Surgery_History_(coded)@ = 1afe400b-7b28-465e-8adf-a2fc0f4e6871
         @NONE@ = 3cd743f8-26fe-102b-80cb-0017a47871b2
-        @YES@ = 3cd6f600-26fe-102b-80cb-0017a47871b2
         @Breast_Surgery_History(non-coded)@ = 9e7f1829-fe08-4c77-a9de-c6ae84c9af0c
+
+        <!-- Side of Complaint -->
         @Side_of_complaint/ultrasound@ = e02ac47d-6712-4c18-bcd5-bb537f7c716f
         @Right_breast@ = d3351e23-dacc-4184-9abb-18d577b07631
         @Left_breast@ = 93330dcb-e5da-42d2-9130-fb8df3d37e6e
         @Right_axilla@ = 8caff895-c72e-4a67-81c5-4987761a640d
         @Left_axilla@ = cb75eff7-f3e6-4143-b9ac-fd75d786bc50
+
+        <!-- Mass Details -->
         @Mass_visible@ = c9069beb-f256-47b4-9e7a-5d7ebb4ee6fd
         @mass_felt_also_seen_in_ultrasound@ = 4c628f05-9f28-425a-b721-9316a3d7f991
         @clock_face@ = 5e60f6bc-5843-47d4-be7b-65cd76319e1e
         @location_of_mass_from_center_of_nipple@ = 5250fb6d-a04c-4cc5-8f20-68f0b4572423
         @surface_of_mass_form_skin_surface@ = 5b209599-75b0-4fcf-a388-aec24339b0e8
+
+        <!-- Dimensions -->
         @Long/Radial@ = da2cc710-879e-4263-95e5-dcbcdb758ec2
         @Transverse/Anti-radial@ = 2c6cdfa3-0d3b-417b-9dbd-3266b751848d
         @Anterior-posterior@ = 4145f81b-f171-4c83-9f8f-02ef52707434
+
+        <!-- Shape -->
         @Shape_of_mass@ = 6708cda2-19ce-4e46-b589-b1077797b664
         @Oval_or_round@ = dc3f4ec7-8754-43f0-9785-1b51b19d1948
         @Lobular@ = abb4e48c-a257-4561-9c0e-78f34cf9e1f7
         @irregular@ = 880c5fce-227e-4ba7-9831-eee5a59c0733
+
+        <!-- Margins -->
         @Margins@ = 7fcbfc7d-5e3e-4a39-9bb9-1a373d1911c7
         @Circumscribed/Smooth@ = 82079efc-3823-4988-9237-5b9e966fa08c
         @Indistinct@ = 3e986af3-5c68-4644-b93a-08678efcfabb
         @Microlobulated@ = e7d9b27f-b30b-4f58-ac4d-99bdffe29a19
         @Spiculated/Angular@ = 19bf8920-f2da-4250-9827-cec94b66ade3
+
+        <!-- Echo Texture -->
         @Internal_Echo_Texture@ = 33c5045c-a234-4cf3-930d-7e7c040cae74
         @Anechoeic@ = a8db18d3-eaf3-402b-9b66-6dd31b5275b2
         @Hypoechoeic@ = 27f1df1d-7ffa-4399-8bb3-3c627c942dca
@@ -61,13 +80,19 @@
         @Hyperechoic@ = 0752e33a-53db-499f-bc1d-3f66ada74088
         @Homogeneous@ = 04688cf5-7e3e-47d5-8a57-13b7c68137d4
         @Heterogeneous@ = 2a218650-c6ef-4fb2-b80c-aaa35b035a0e
+
+        <!-- Acoustic Transmission -->
         @Acoustic_Transmissioin@ = 126b19e9-4d43-4252-8c83-36dd13ad47de
         @Posterior_Enhancement@ = 6705d0f0-5743-4b8a-81ce-75f9de9305ef
         @Posterior_Shadowing@ = 38b5f840-3e0a-43dd-b7fc-2ef6d46f72f6
+
+        <!-- Orientation -->
         @Orientation@ = 411df084-cf38-4050-b9db-4d1442e65bb9
         @Parallel@ = 3cefdeae-38b2-4b03-adbb-2958aeeeba74
         @Anti-parallel@ = 271fa85a-d267-4ddc-9fef-18d9f5b2c034
         @Neither@ = d1fb3523-0876-44dc-86e9-5c49c0be68ad
+
+        <!-- Assessment -->
         @assessment(coded)@ = 4e6b4469-7880-4651-adb5-4b08b491ef7e
         @Negative_ultrasound@ = 9b6d1333-5c00-4a19-a086-87172f9243f6
         @Breast_mass@ = 6ce98b16-3c86-446a-bace-a861ca023f17
@@ -85,19 +110,23 @@
         @Normal_lymph_node@ = 5389611c-0924-4fde-94ab-3141a88c9de3
         @Heterotopic_tissue@ = 731f7bf5-9ea4-4a7f-9c4e-f53f54c59c6d
         @Skin_Lesion@ = 19cd6cd1-3a3b-4245-b67a-aaf7b38a8b0f
-        @Abnormal_palpable_lymph_node@ =adcf024f-7aa7-4fde-9eed-9573bbd22f07
+        @Abnormal_palpable_lymph_node@ = adcf024f-7aa7-4fde-9eed-9573bbd22f07
         @Abnormal_non-palpable_lymph_node@ = 2b415089-9c29-4c5a-aca3-dc5c4c7452f4
         @Unilateral@ = 090a7c0e-cf00-4afb-84da-6d36c3722b1f
         @Bilateral@ = 57ec1a86-4e5a-4402-b417-9cd14d294f79
         @Cortical_thickness@ = eda8c5a3-37ae-4492-a875-30205d5e1bb3
+
+        <!-- Follow-up -->
         @referred_to@ = 25782f2c-074f-4834-b7d2-4668cd645a57
         @Dates_of_Ultrasound_follow_up@ = 60666898-9d06-4e0c-86e0-bcddd1f1c124
         @Date_of_breast_Follow-up_exam@ = 02a8b744-6c42-4885-bacb-90921496786d
-        @Reason_of_ultrasound_follow-up@ =  137b790a-96c8-482c-8048-3ebe6e990ed7
+        @Reason_of_ultrasound_follow-up@ = 137b790a-96c8-482c-8048-3ebe6e990ed7
         @Aspiration_or_drainage@ = 3349e7c9-bd85-4e78-8e9c-5b48f86be06e
         @Core_needle_biopsy@ = e6535a3b-d39e-4591-a43c-80726c8fd4b5
         @Surgical_Biopsy@ = e2d7d933-4834-49b1-8f44-40c98d0ee8e0
         @Patient_discharged@ = 10e753fa-20e6-46bf-9347-c332c1452608
+
+        <!-- Pathology -->
         @Date_of_pathology_report@ = 926dd83d-5c6c-43d9-9fb8-a8c2e364d5f6
         @Pathologic_diagnosis@ = 21f54f50-b804-476e-a0dd-a3238cd556fb
         @Fibroadenoma@ = 8060c3fb-9bf5-45e2-97ff-9af9a02e1a69
@@ -106,457 +135,972 @@
         @Breast_carcinoma@ = 795deca9-e700-4d9f-8261-25e5c4d6d4ec
         @Other_Malignant@ = b30daea4-be47-4bce-8406-041f0d73ba33
         @Other_Benign@ = 9f45d563-0c5e-477b-8347-56f8cf67136d
-
     </macros>
 
-
     <style>
-        th.tableHeader {
-        background-color: #009d8e;
-        color: #FFFFFF;
-        font-size: 16px;
-        text-align: left;
+        /* ===== Base Reset & Typography ===== */
+        .htmlform {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333;
+        max-width: 950px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #ffffff;
         }
 
-        ul {
-        list-style-type: square;
-        font-family: Verdana, Arial, Helvetica, sans-serif;
-        font-size: 11px;
+        /* ===== Header Section ===== */
+        .form-header {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: $fontOnHeaderColor;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        tr.spaceUnder>td {
-        padding-bottom: 1em;
+        .form-header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
         }
 
-        td {
-        font-size: 15px;
+        .form-header-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
         }
 
-        #container {
-        
-        margin: auto;
-        
+        .form-header-logo {
+        width: 60px;
         height: auto;
         }
 
-        @media print {
-        #container {
-        display: block;
+        .form-header-title h1 {
+        margin: 0 0 4px 0;
+        font-size: 20px;
+        font-weight: 600;
         }
-        #printArea {
-        display: none;
+
+        .form-header-title h2 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+        opacity: 0.9;
         }
-        #userBar {
-        display: none;
+
+        .form-header-right {
+        text-align: right;
         }
-        #banner {
-        display: none;
+
+        .form-header-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        display: inline-block;
         }
-        #footer {
-        display: none;
+
+        /* ===== Patient Info Bar ===== */
+        .patient-info-bar {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
         }
-        #htmlFormEntryBanner {
-        display: none;
+
+        .patient-info-item {
+        display: flex;
+        flex-direction: column;
         }
-        .error {
-        display: none;
+
+        .patient-info-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: $labelColor;
+        margin-bottom: 4px;
         }
-        .lables {
-        width: 200px;
+
+        .patient-info-value {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
         }
-        table {
+
+        /* ===== Encounter Info Bar ===== */
+        .encounter-info-bar {
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        }
+
+        .form-field {
         width: 100%;
         }
-        table,td,th {
-        border: 1px solid black;
-        border-collapse: collapse;
+
+        /* ===== Section Cards ===== */
+        .section-card {
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
-        th {
-        text-align: left;
-        background-color: #D9D9D9;
-        font-size: 10px;
+
+        .section-header {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: $fontOnHeaderColor;
+        padding: 14px 20px;
+        font-size: 15px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
         }
-        td {
-        font-size: 10px;
+
+        .section-content {
+        padding: 20px;
         }
-        .value {
-        font-size: 20px;
-        font-weight: bold;
-        font-style: italic;
+
+        /* ===== Form Rows & Fields ===== */
+        .form-row {
+        margin-bottom: 20px;
         }
-        .selectedCancerStagingKeys {
-        page-break-before: always;
-        border: 0px;
+
+        .form-row:last-child {
+        margin-bottom: 0;
         }
-        table.selectedCancerStagingKeys td {
-        border: 0px;
+
+        .form-label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
         }
-        #signature {
-        border: none;
+
+        .form-sublabel {
+        font-size: 12px;
+        color: $labelColor;
+        font-weight: normal;
         }
-        #signature td {
-        border: none;
+
+        /* ===== Checkbox & Radio Groups ===== */
+        .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 8px;
+        }
+
+        .checkbox-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: $cardBackground;
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: 1px solid $borderColor;
+        transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .checkbox-item:hover {
+        background: #e8f5f3;
+        border-color: $headerColor;
+        }
+
+        .radio-group {
+        display: flex;
+        gap: 20px;
+        margin-top: 8px;
+        }
+
+        .radio-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        }
+
+        /* ===== Two/Three Column Layouts ===== */
+        .two-column {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        }
+
+        .three-column {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+        .two-column,
+        .three-column {
+        grid-template-columns: 1fr;
         }
         }
 
-        @media screen {
-        table {
-        border: 1px solid #DFDFDF;
-        width: 100%;
-        border-color: #009d8e;
+        /* ===== Inline Fields ===== */
+        .inline-field {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-right: 20px;
+        margin-bottom: 8px;
         }
-        #container {
-        display: block;
+
+        .inline-field label {
+        font-size: 13px;
+        color: #333;
         }
-        #printArea {
+
+        .inline-field input[type="text"],
+        .inline-field input[type="number"] {
+        width: 80px;
+        padding: 6px 10px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 13px;
+        }
+
+        .inline-field .unit {
+        font-size: 12px;
+        color: $labelColor;
+        }
+
+        /* ===== Findings Grid ===== */
+        .findings-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        }
+
+        .findings-card {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px;
+        }
+
+        .findings-card-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: $headerColor;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid $headerColor;
+        }
+
+        .findings-card-options {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        }
+
+        .findings-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        }
+
+        /* ===== Assessment Section ===== */
+        .assessment-group {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 12px;
+        }
+
+        .assessment-main {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        margin-bottom: 8px;
+        }
+
+        .assessment-sub {
+        margin-left: 24px;
+        padding-left: 16px;
+        border-left: 2px solid $borderColor;
+        }
+
+        .assessment-sub-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 0;
+        font-size: 13px;
+        }
+
+        /* ===== Follow-up Section ===== */
+        .followup-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+        }
+
+        .followup-row:last-child {
+        border-bottom: none;
+        }
+
+        .followup-label {
+        font-size: 13px;
+        color: #333;
+        min-width: 150px;
+        }
+
+        .followup-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        }
+
+        .note-text {
+        font-size: 12px;
+        color: $labelColor;
+        font-style: italic;
+        margin-top: 4px;
+        }
+
+        /* ===== Pathology Section ===== */
+        .pathology-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 12px;
+        }
+
+        .pathology-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: $cardBackground;
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: 1px solid $borderColor;
+        }
+
+        .pathology-specify {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: 8px;
+        }
+
+        /* ===== Submit Button ===== */
+        .submit-section {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid $borderColor;
+        text-align: center;
+        }
+
+        .submit-section input[type="submit"] {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: white;
+        border: none;
+        padding: 14px 48px;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-section input[type="submit"]:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 157, 142, 0.3);
+        }
+
+        .submit-section input[type="submit"]:active {
+        transform: translateY(0);
+        }
+
+        /* ===== Voided Section ===== */
+        .voided-section {
+        margin-top: 16px;
+        text-align: center;
+        }
+
+        /* ===== Utility Classes ===== */
+        .value {
+        font-weight: 500;
+        }
+
+        .divider {
+        height: 1px;
+        background: $borderColor;
+        margin: 16px 0;
+        }
+
+        /* ===== Print Styles ===== */
+        @media print {
+        .form-header {
+        background: #009d8e !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        }
+
+        .section-header {
+        background: #009d8e !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        }
+
+        .submit-section {
         display: none;
         }
         }
     </style>
+
     <script type="text/javascript">
-        $("#AssessmentCheckboxRadio").change(function() {
-    if( this.checked ) {
-        var checkname = $(this).attr("name");
-        $("input:checkbox[name='" + checkname + "']").removeAttr("checked");
+        $j(document).ready(function() {
+        // Make assessment checkboxes behave like radio buttons
+        $j("#AssessmentCheckboxRadio").change(function() {
+        if (this.checked) {
+        var checkname = $j(this).attr("name");
+        $j("input:checkbox[name='" + checkname + "']").removeAttr("checked");
         this.checked = true;
-    }
-});
+        }
+        });
+        });
     </script>
-    <div id="container" style="width:100%">
-        <section>
 
-            <table border="1" cellspacing="0" cellpadding="6" width="100%">
-                <tr>
-                    <td><b> IMB ID: <lookup class="value"
-                                            expression="patientIdentifiers.get(&quot;IMB ID&quot;)" /> <lookup
-                            class="value"
-                            expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" /></b>
-                    </td>
-                    <td>Date: <encounterDate id="encounterDate" default="today" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nom / Last name: <lookup class="value"
-                                                 expression="patient.personName.familyName" />
-                    </td>
-                    <td>Prénom/ First name: <lookup class="value"
-                                                    expression="patient.personName.givenName" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><img
-                            src="/openmrs/moduleResources/rwandareports/images/pihHands.png"
-                            align="left" height="65"></img>
-                        <h2>
-                            Inshuti Mu Buzima <br /> PIH Rwanda
-                        </h2></td>
-                    <td><strong> Oncology Program / Programme d'oncologie
-                        <br /> Breast Ultrasound Report
-                    </strong> <br /></td>
-                </tr>
-                <tr>
-                    <td>Clinique / Clinic: <encounterLocation
-                            id="encounterLocation" default="Butaro Hospital" />
-                    </td>
-                    <td>Provider:<encounterProvider id="encounterProvider"
-                                                    role="Oncology Provider"  />
-                    </td>
-                </tr>
-            </table>
-            <br />
-
-            <br />
-            <table >
-                <tr>
-                    <th class="tableHeader" colspan="3">
-                        Patient History and Exam
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        <strong>
-                            Indication for ultrasound (check all that apply):
-                        </strong>
-                        <br/>
-                        <obs conceptId="$@Indication_for_ultrasound@" answerConceptId="$@Self_palpated_lump@" answerLabel="Self palpated lump" style="checkbox"/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160;  &#160; &#160;  &#160;  &#160;  &#160; &#160;  &#160; &#160;  &#160;  &#160;  &#160; &#160;
-                        <obs conceptId="$@Indication_for_ultrasound@" answerConceptId="$@Focal_Pain@" answerLabel="Focal pain" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Indication_for_ultrasound@" answerConceptId="$@Doctor/Nurse_palpated_lump@" answerLabel="Doctor/Nurse palpated lump" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Indication_for_ultrasound@" answerConceptId="$@Follow-up_of_incidental_mass@"
-                             answerLabel="Follow-up of incidental mass(seen while doing US for other reason)" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Indication_for_ultrasound@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other (specify)" style="checkbox"/>
-                        <obs conceptId="$@Other_indication_of_ultrasound@" cols="40"/>
-
-                    </td>
-                    <td>
-                        <strong>Is the patient pregnant</strong>
-                        <obs conceptId="$@Patient_Pregnant(coded)@" answerConceptIds="$@YES@,$@NO@" answerLabels="Yes,No" style="radio"/>
-                        <br/>
-                        <strong>Is the patient lactating</strong>
-                        <obs conceptId="$@Patient_Lactating(coded)@" answerConceptIds="$@YES@,$@NO@" answerLabels="Yes,No" style="radio"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <strong>Breast Surgery history</strong>
-                        <obs conceptId="$@Breast_Surgery_History_(coded)@" answerConceptIds="$@NONE@,$@YES@" answerLabels="None,History of breast surgery or biopsy,please specify" style="radio"/>:
-                        <obs conceptId="$@Breast_Surgery_History(non-coded)@"/>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <strong>Side of complaint/ultrasound</strong>
-                        <obs conceptId="$@Side_of_complaint/ultrasound@" answerConceptId="$@Right_breast@" answerLabel="Right breast" style="checkbox"/>
-                        <obs conceptId="$@Side_of_complaint/ultrasound@" answerConceptId="$@Left_breast@" answerLabel="Left breast" style="checkbox"/>
-                        <obs conceptId="$@Side_of_complaint/ultrasound@" answerConceptId="$@Right_axilla@" answerLabel="Right axilla" style="checkbox"/>
-                        <obs conceptId="$@Side_of_complaint/ultrasound@" answerConceptId="$@Left_axilla@" answerLabel="Left axilla" style="checkbox"/>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="tableHeader" colspan="3">
-                        Ultrasound Findings
-                    </th>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        Mass visible?
-                        <obs conceptId="$@Mass_visible@" answerConceptIds="$@YES@,$@NO@" answerLabels="Yes,No" style="radio"/>
-                        <strong>If present, corresponds to the palpable findings?</strong>
-                        <obs conceptId="$@mass_felt_also_seen_in_ultrasound@" answerConceptIds="$@YES@,$@NO@"
-                             answerLabels="Yes,No (mass seen on ultrasound is not palpable" style="radio"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <strong>Mass location:</strong>
-
-                        Clock face:
-                        <obs conceptId="$@clock_face@"/>
-                        Center of mass in
-                        <obs conceptId="$@location_of_mass_from_center_of_nipple@"/>
-                        cm from center of nipple
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <strong>Depth:</strong>
-                        surface of mass is
-                        <obs conceptId="$@surface_of_mass_form_skin_surface@"/>
-                        mm from skin surface
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <strong>Long/Radial</strong>
-                        <obs conceptId="$@Long/Radial@"/> cm
-                        <strong>Transverse/Anti-radial</strong>
-                        <obs conceptId="$@Transverse/Anti-radial@"/> cm
-                        <strong>AP</strong>
-                        <obs conceptId="$@Anterior-posterior@"/> cm
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <strong> Shape: </strong>
-                        <obs conceptId="$@Shape_of_mass@" answerConceptId="$@Oval_or_round@" answerLabel="Oval or round" style="checkbox"/>
-                        <br/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160;&#160;
-                        <obs conceptId="$@Shape_of_mass@" answerConceptId="$@Lobular@" answerLabel="Lobular" style="checkbox"/>
-                        <br/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160;&#160;
-                        <obs conceptId="$@Shape_of_mass@" answerConceptId="$@irregular@" answerLabel="irregular" style="checkbox"/>
-                    </td>
-                    <td colspan="2">
-                        <strong>Margins:</strong>
-                        <obs conceptId="$@Margins@" answerConceptId="$@Circumscribed/Smooth@" answerLabel="Circumscribed/Smooth" style="checkbox"/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160; &#160;&#160;
-                        <obs conceptId="$@Margins@" answerConceptId="$@irregular@" answerLabel="irregular" style="checkbox"/>
-                        <br/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160; &#160; &#160;
-                        <obs conceptId="$@Margins@" answerConceptId="$@Indistinct@" answerLabel="Indistinct" style="checkbox"/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160; &#160;&#160; &#160; &#160;  &#160;  &#160;  &#160; &#160; &#160; &#160;
-                        &#160;  &#160;  &#160;
-                        <obs conceptId="$@Margins@" answerConceptId="$@Spiculated/Angular@" answerLabel="Spiculated/Angular" style="checkbox"/>
-                        <br/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160; &#160; &#160;
-                        <obs conceptId="$@Margins@" answerConceptId="$@Microlobulated@" answerLabel="Microlobulated" style="checkbox"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <strong>Internal Echo Texture</strong>
-                        <br/>
-                        <obs conceptId="$@Internal_Echo_Texture@" answerConceptId="$@Anechoeic@" answerLabel="Anechoeic" style="checkbox"/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160; &#160; &#160;
-                        <obs conceptId="$@Internal_Echo_Texture@" answerConceptId="$@Homogeneous@" answerLabel="Homogeneous" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Internal_Echo_Texture@" answerConceptId="$@Hypoechoeic@" answerLabel="Hypoechoeic" style="checkbox"/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160;&#160;
-                        <obs conceptId="$@Internal_Echo_Texture@" answerConceptId="$@Heterogeneous@" answerLabel="Heterogeneous" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Internal_Echo_Texture@" answerConceptId="$@Isoechoic@" answerLabel="Isoechoic" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Internal_Echo_Texture@" answerConceptId="$@Hyperechoic@" answerLabel="Hyperechoic" style="checkbox"/>
-                    </td>
-                    <td>
-                        <strong>Acoustic Transmition: </strong>
-                        <br/>
-                        <obs conceptId="$@Acoustic_Transmissioin@" answerConceptId="$@Posterior_Enhancement@" answerLabel="Posterior Enhancement" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Acoustic_Transmissioin@" answerConceptId="$@Posterior_Shadowing@" answerLabel="Posterior Shadowing" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Acoustic_Transmissioin@" answerConceptId="$@NONE@" answerLabel="None" style="checkbox"/>
-
-                    </td>
-                    <td>
-                        <strong>Orientation: </strong>
-                        <br/>
-                        <obs conceptId="$@Orientation@" answerConceptId="$@Parallel@" answerLabel="Parallel" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Orientation@" answerConceptId="$@Anti-parallel@" answerLabel="Anti-parallel" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Orientation@" answerConceptId="$@Neither@" answerLabel="Neither" style="checkbox"/>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="tableHeader" colspan="3">
-                        Assessment
-                    </th>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <obs id="AssessmentCheckboxRadio" conceptId="$@assessment(coded)@" answerConceptId="$@Negative_ultrasound@"
-                             answerLabel="Negative ultrasound-normal breast or axilla" style="checkbox"/>
-                        <br/>
-                        <obs  id="AssessmentCheckboxRadio" conceptId="$@assessment(coded)@" answerConceptId="$@Breast_mass@"
-                              answerLabel="Breast mass (choose one)" style="checkbox"/>
-                        <br/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160;&#160;
-                        <obs conceptId="$@Breast_mass@" answerConceptId="$@Normal_intramammary_lymph_node@"
-                             answerLabel="Normal intramammary lymph node" style="checkbox"/>
-                        <br/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160;&#160;
-                        <obs conceptId="$@Breast_mass@" answerConceptId="$@Simple_cyst@"
-                             answerLabel="Simple cyst" style="checkbox"/>
-                        <br/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160;&#160;
-                        <obs conceptId="$@Breast_mass@" answerConceptId="$@Probable_cyst@"
-                             answerLabel="Probable cyst" style="checkbox"/>
-                        <br/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160;&#160;
-                        <obs conceptId="$@Breast_mass@" answerConceptId="$@Complex_cystic/solid_mass@"
-                             answerLabel="Complex cystic/solid mass." style="checkbox"/>
-                        If yes, possible abscess?
-                        <obs conceptId="$@ABSCESS@" answerConceptIds="$@YES@,$@NO@"
-                             answerLabels="Yes,No" style="radio"/>
-                        <br/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160;&#160;
-                        <obs conceptId="$@Breast_mass@" answerConceptId="$@Solid_mass@"
-                             answerLabel="Solid mass" style="checkbox"/>
-
-                        <obs conceptId="$@Solid_mass@" answerConceptIds="$@low@,$@Intermediate@,$@High@"
-                             answerLabels="low,intermediate,high  suspicion for malignancy" style="radio"/>
-
-                        <br/>
-                        <obs id="AssessmentCheckboxRadio" conceptId="$@assessment(coded)@" answerConceptId="$@Axillary_mass@"
-                             answerLabel="Axillary mass" style="checkbox"/>
-                        <br/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160;&#160;
-                        <obs conceptId="$@Axillary_mass@" answerConceptId="$@Normal_lymph_node@"
-                             answerLabel="Normal lymph node" style="checkbox"/>
-                        &#160; &#160;
-                        <obs conceptId="$@Axillary_mass@" answerConceptId="$@Heterotopic_tissue@"
-                             answerLabel="Heterotopic tissue" style="checkbox"/>
-                        &#160; &#160;
-                        <obs conceptId="$@Axillary_mass@" answerConceptId="$@Skin_Lesion@"
-                             answerLabel="Skin Lesion" style="checkbox"/>
-                        <br/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160;&#160;
-                        <obs conceptId="$@Axillary_mass@" answerConceptId="$@Abnormal_palpable_lymph_node@"
-                             answerLabel="Abnormal palpable lymph node" style="checkbox"/>
-                        <br/>
-                        &#160; &#160;  &#160;  &#160;  &#160; &#160;&#160;
-                        <obs conceptId="$@Axillary_mass@" answerConceptId="$@Abnormal_non-palpable_lymph_node@"
-                             answerLabel="Abnormal non-palpable lymph node" style="checkbox"/>
-                        <obs conceptId="$@Abnormal_non-palpable_lymph_node@" answerConceptId="$@Unilateral@"
-                             answerLabel="unilateral" style="checkbox"/>
-                        <obs conceptId="$@Abnormal_non-palpable_lymph_node@" answerConceptId="$@Bilateral@"
-                             answerLabel="bilateral" style="checkbox"/>
-                        : maximum cortical thickness:
-                        <obs conceptId="$@Cortical_thickness@"/> mm
-
-                        <br/>
-                        <obs id="AssessmentCheckboxRadio" conceptId="$@assessment(coded)@" answerConceptId="$@OTHER_NON-CODED@"
-                             answerLabel="Other" style="checkbox"/>
-                        ,specify: <obs conceptId="$@Other_Assessment@"/>
-
-                    </td>
-                </tr>
-                <tr>
-                    <th class="tableHeader" colspan="3">
-                        Follow-up recommendation
-                    </th>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        Referral to another provider (please specify)
-                        <obs conceptId="$@referred_to@"/>
-                        <br/>
-                        U/S follow-up on
-                        <obs conceptId="$@Dates_of_Ultrasound_follow_up@" allowFutureDates="true"/>
-                        <obs conceptId="$@Reason_of_ultrasound_follow-up@" answerConceptId="$@Aspiration_or_drainage@"
-                             answerLabel="Aspiration or drainage" style="checkbox"/>
-                        <obs conceptId="$@Reason_of_ultrasound_follow-up@" answerConceptId="$@Core_needle_biopsy@"
-                             answerLabel="Core needle biopsy" style="checkbox"/>
-                        <obs conceptId="$@Reason_of_ultrasound_follow-up@" answerConceptId="$@Surgical_Biopsy@"
-                             answerLabel="Surgical Biopsy" style="checkbox"/>
-                        <obs conceptId="$@Reason_of_ultrasound_follow-up@" answerConceptId="$@Patient_discharged@"
-                             answerLabel="Patient discharged" style="checkbox"/>
-                        <br/>
-                        Follow-up breast exam on
-                        <obs conceptId="$@Date_of_breast_Follow-up_exam@" allowFutureDates="true"/>
-                        (Note: If patient notes change in breast exam she should return to clinic sooner)
-                    </td>
-                </tr>
-                <tr>
-                    <th class="tableHeader" colspan="3">
-                        For masses biopsied,pathologic diagnosis:
-                    </th>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        Date of report: <obs conceptId="$@Date_of_pathology_report@" allowFutureDates="true"/>
-                        <br/>
-                        <obs conceptId="$@Pathologic_diagnosis@" answerConceptId="$@Fibroadenoma@"
-                             answerLabel="Fibroadenoma" style="checkbox"/>
-                        <obs conceptId="$@Pathologic_diagnosis@" answerConceptId="$@Lactating_adenoma@"
-                             answerLabel="Lactating adenoma" style="checkbox"/>
-                        <obs conceptId="$@Pathologic_diagnosis@" answerConceptId="$@CYST@"
-                             answerLabel="Cyst" style="checkbox"/>
-                        <obs conceptId="$@Pathologic_diagnosis@" answerConceptId="$@Other_Benign@"
-                             answerLabel="Other Benign" style="checkbox"/>
-                        , specify:
-                        <obs conceptId="$@Other_Benign@"/>
-                        <br/>
-                        <obs conceptId="$@Pathologic_diagnosis@" answerConceptId="$@Breast_carcinoma@"
-                             answerLabel="Breast carcinoma (In Situ or Invasive)" style="checkbox"/>
-                        <obs conceptId="$@Pathologic_diagnosis@" answerConceptId="$@Other_Malignant@"
-                             answerLabel="Other Malignant" style="checkbox"/>
-                        ,specify:
-                        <obs conceptId="$@Other_Malignant@"/>
-                    </td>
-                </tr>
-            </table>
-        </section>
-        <br />
-
-        <submit />
-        <br/>
-        <encounterVoided/>
+    <!-- ===== FORM HEADER ===== -->
+    <div class="form-header">
+        <div class="form-header-content">
+            <div class="form-header-left">
+                <img src="/openmrs/moduleResources/rwandareports/images/pihHands.png"
+                     alt="PIH Rwanda" class="form-header-logo" />
+                <div class="form-header-title">
+                    <h1>Inshuti Mu Buzima / PIH Rwanda</h1>
+                    <h2>Oncology Program - Breast Ultrasound Report</h2>
+                </div>
+            </div>
+            <div class="form-header-right">
+                <div class="form-header-badge">Programme d'oncologie</div>
+            </div>
+        </div>
     </div>
+
+    <!-- ===== PATIENT INFORMATION ===== -->
+    <div class="patient-info-bar">
+        <div class="patient-info-item">
+            <span class="patient-info-label">IMB ID</span>
+            <span class="patient-info-value">
+                <lookup class="value" expression="patientIdentifiers.get(&quot;IMB ID&quot;)" />
+                <lookup class="value" expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" />
+            </span>
+        </div>
+        <div class="patient-info-item">
+            <span class="patient-info-label">Last Name / Nom</span>
+            <span class="patient-info-value">
+                <lookup class="value" expression="patient.personName.familyName" />
+            </span>
+        </div>
+        <div class="patient-info-item">
+            <span class="patient-info-label">First Name / Prénom</span>
+            <span class="patient-info-value">
+                <lookup class="value" expression="patient.personName.givenName" />
+            </span>
+        </div>
+    </div>
+
+    <!-- ===== ENCOUNTER INFORMATION ===== -->
+    <div class="encounter-info-bar">
+        <div class="patient-info-item">
+            <span class="patient-info-label">Encounter Date</span>
+            <span class="form-field">
+                <encounterDate id="encounterDate" default="today" />
+            </span>
+        </div>
+        <div class="patient-info-item">
+            <span class="patient-info-label">Clinic / Clinique</span>
+            <span class="form-field">
+                <encounterLocation id="encounterLocation" default="Butaro Hospital" />
+            </span>
+        </div>
+        <div class="patient-info-item">
+            <span class="patient-info-label">Provider</span>
+            <span class="form-field">
+                <encounterProvider id="encounterProvider" role="Oncology Provider" />
+            </span>
+        </div>
+    </div>
+
+    <!-- ===== PATIENT HISTORY AND EXAM ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            <span>📋</span>
+            Patient History and Exam
+        </div>
+        <div class="section-content">
+            <!-- Indication for Ultrasound -->
+            <div class="form-row">
+                <label class="form-label">Indication for Ultrasound <span class="form-sublabel">(check all that apply)</span></label>
+                <div class="checkbox-group">
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Indication_for_ultrasound@" answerConceptId="$@Self_palpated_lump@" answerLabel="Self palpated lump" style="checkbox"/>
+                    </span>
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Indication_for_ultrasound@" answerConceptId="$@Focal_Pain@" answerLabel="Focal pain" style="checkbox"/>
+                    </span>
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Indication_for_ultrasound@" answerConceptId="$@Doctor/Nurse_palpated_lump@" answerLabel="Doctor/Nurse palpated lump" style="checkbox"/>
+                    </span>
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Indication_for_ultrasound@" answerConceptId="$@Follow-up_of_incidental_mass@" answerLabel="Follow-up of incidental mass" style="checkbox"/>
+                    </span>
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Indication_for_ultrasound@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" style="checkbox"/>
+                        <obs conceptId="$@Other_indication_of_ultrasound@" size="30"/>
+                    </span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Patient Status -->
+            <div class="two-column">
+                <div class="form-row">
+                    <label class="form-label">Is the patient pregnant?</label>
+                    <div class="radio-group">
+                        <obs conceptId="$@Patient_Pregnant(coded)@" answerConceptIds="$@YES@,$@NO@" answerLabels="Yes,No" style="radio"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Is the patient lactating?</label>
+                    <div class="radio-group">
+                        <obs conceptId="$@Patient_Lactating(coded)@" answerConceptIds="$@YES@,$@NO@" answerLabels="Yes,No" style="radio"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Breast Surgery History -->
+            <div class="form-row">
+                <label class="form-label">Breast Surgery History</label>
+                <div class="radio-group">
+                    <obs conceptId="$@Breast_Surgery_History_(coded)@" answerConceptIds="$@NONE@,$@YES@" answerLabels="None,History of breast surgery or biopsy" style="radio"/>
+                </div>
+                <div style="margin-top: 8px;">
+                    <span class="inline-field">
+                        <label>Please specify:</label>
+                        <obs conceptId="$@Breast_Surgery_History(non-coded)@" size="40"/>
+                    </span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Side of Complaint -->
+            <div class="form-row">
+                <label class="form-label">Side of Complaint / Ultrasound</label>
+                <div class="checkbox-group">
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Side_of_complaint/ultrasound@" answerConceptId="$@Right_breast@" answerLabel="Right breast" style="checkbox"/>
+                    </span>
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Side_of_complaint/ultrasound@" answerConceptId="$@Left_breast@" answerLabel="Left breast" style="checkbox"/>
+                    </span>
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Side_of_complaint/ultrasound@" answerConceptId="$@Right_axilla@" answerLabel="Right axilla" style="checkbox"/>
+                    </span>
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Side_of_complaint/ultrasound@" answerConceptId="$@Left_axilla@" answerLabel="Left axilla" style="checkbox"/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ULTRASOUND FINDINGS ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            <span>🔬</span>
+            Ultrasound Findings
+        </div>
+        <div class="section-content">
+            <!-- Mass Visibility -->
+            <div class="two-column">
+                <div class="form-row">
+                    <label class="form-label">Mass Visible?</label>
+                    <div class="radio-group">
+                        <obs conceptId="$@Mass_visible@" answerConceptIds="$@YES@,$@NO@" answerLabels="Yes,No" style="radio"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">If present, corresponds to palpable findings?</label>
+                    <div class="radio-group">
+                        <obs conceptId="$@mass_felt_also_seen_in_ultrasound@" answerConceptIds="$@YES@,$@NO@" answerLabels="Yes,No (mass not palpable)" style="radio"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Mass Location -->
+            <div class="form-row">
+                <label class="form-label">Mass Location</label>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 8px;">
+                    <span class="inline-field">
+                        <label>Clock face:</label>
+                        <obs conceptId="$@clock_face@" size="10"/>
+                    </span>
+                    <span class="inline-field">
+                        <label>Distance from nipple center:</label>
+                        <obs conceptId="$@location_of_mass_from_center_of_nipple@" size="6"/>
+                        <span class="unit">cm</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Depth -->
+            <div class="form-row">
+                <label class="form-label">Depth</label>
+                <span class="inline-field">
+                    <label>Surface of mass from skin surface:</label>
+                    <obs conceptId="$@surface_of_mass_form_skin_surface@" size="6"/>
+                    <span class="unit">mm</span>
+                </span>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Dimensions -->
+            <div class="form-row">
+                <label class="form-label">Dimensions</label>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 8px;">
+                    <span class="inline-field">
+                        <label>Long/Radial:</label>
+                        <obs conceptId="$@Long/Radial@" size="6"/>
+                        <span class="unit">cm</span>
+                    </span>
+                    <span class="inline-field">
+                        <label>Transverse/Anti-radial:</label>
+                        <obs conceptId="$@Transverse/Anti-radial@" size="6"/>
+                        <span class="unit">cm</span>
+                    </span>
+                    <span class="inline-field">
+                        <label>AP:</label>
+                        <obs conceptId="$@Anterior-posterior@" size="6"/>
+                        <span class="unit">cm</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Characteristics Grid -->
+            <div class="findings-grid">
+                <!-- Shape -->
+                <div class="findings-card">
+                    <div class="findings-card-title">Shape</div>
+                    <div class="findings-card-options">
+                        <span class="findings-option">
+                            <obs conceptId="$@Shape_of_mass@" answerConceptId="$@Oval_or_round@" answerLabel="Oval or round" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Shape_of_mass@" answerConceptId="$@Lobular@" answerLabel="Lobular" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Shape_of_mass@" answerConceptId="$@irregular@" answerLabel="Irregular" style="checkbox"/>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Margins -->
+                <div class="findings-card">
+                    <div class="findings-card-title">Margins</div>
+                    <div class="findings-card-options">
+                        <span class="findings-option">
+                            <obs conceptId="$@Margins@" answerConceptId="$@Circumscribed/Smooth@" answerLabel="Circumscribed/Smooth" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Margins@" answerConceptId="$@Indistinct@" answerLabel="Indistinct" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Margins@" answerConceptId="$@Microlobulated@" answerLabel="Microlobulated" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Margins@" answerConceptId="$@irregular@" answerLabel="Irregular" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Margins@" answerConceptId="$@Spiculated/Angular@" answerLabel="Spiculated/Angular" style="checkbox"/>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Internal Echo Texture -->
+                <div class="findings-card">
+                    <div class="findings-card-title">Internal Echo Texture</div>
+                    <div class="findings-card-options">
+                        <span class="findings-option">
+                            <obs conceptId="$@Internal_Echo_Texture@" answerConceptId="$@Anechoeic@" answerLabel="Anechoeic" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Internal_Echo_Texture@" answerConceptId="$@Hypoechoeic@" answerLabel="Hypoechoeic" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Internal_Echo_Texture@" answerConceptId="$@Isoechoic@" answerLabel="Isoechoic" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Internal_Echo_Texture@" answerConceptId="$@Hyperechoic@" answerLabel="Hyperechoic" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Internal_Echo_Texture@" answerConceptId="$@Homogeneous@" answerLabel="Homogeneous" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Internal_Echo_Texture@" answerConceptId="$@Heterogeneous@" answerLabel="Heterogeneous" style="checkbox"/>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Acoustic Transmission -->
+                <div class="findings-card">
+                    <div class="findings-card-title">Acoustic Transmission</div>
+                    <div class="findings-card-options">
+                        <span class="findings-option">
+                            <obs conceptId="$@Acoustic_Transmissioin@" answerConceptId="$@Posterior_Enhancement@" answerLabel="Posterior Enhancement" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Acoustic_Transmissioin@" answerConceptId="$@Posterior_Shadowing@" answerLabel="Posterior Shadowing" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Acoustic_Transmissioin@" answerConceptId="$@NONE@" answerLabel="None" style="checkbox"/>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Orientation -->
+                <div class="findings-card">
+                    <div class="findings-card-title">Orientation</div>
+                    <div class="findings-card-options">
+                        <span class="findings-option">
+                            <obs conceptId="$@Orientation@" answerConceptId="$@Parallel@" answerLabel="Parallel" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Orientation@" answerConceptId="$@Anti-parallel@" answerLabel="Anti-parallel" style="checkbox"/>
+                        </span>
+                        <span class="findings-option">
+                            <obs conceptId="$@Orientation@" answerConceptId="$@Neither@" answerLabel="Neither" style="checkbox"/>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ASSESSMENT ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            <span>📊</span>
+            Assessment
+        </div>
+        <div class="section-content">
+            <!-- Negative Ultrasound -->
+            <div class="assessment-group">
+                <div class="assessment-main">
+                    <obs id="AssessmentCheckboxRadio" conceptId="$@assessment(coded)@" answerConceptId="$@Negative_ultrasound@" answerLabel="Negative ultrasound - normal breast or axilla" style="checkbox"/>
+                </div>
+            </div>
+
+            <!-- Breast Mass -->
+            <div class="assessment-group">
+                <div class="assessment-main">
+                    <obs id="AssessmentCheckboxRadio" conceptId="$@assessment(coded)@" answerConceptId="$@Breast_mass@" answerLabel="Breast mass (choose one)" style="checkbox"/>
+                </div>
+                <div class="assessment-sub">
+                    <div class="assessment-sub-item">
+                        <obs conceptId="$@Breast_mass@" answerConceptId="$@Normal_intramammary_lymph_node@" answerLabel="Normal intramammary lymph node" style="checkbox"/>
+                    </div>
+                    <div class="assessment-sub-item">
+                        <obs conceptId="$@Breast_mass@" answerConceptId="$@Simple_cyst@" answerLabel="Simple cyst" style="checkbox"/>
+                    </div>
+                    <div class="assessment-sub-item">
+                        <obs conceptId="$@Breast_mass@" answerConceptId="$@Probable_cyst@" answerLabel="Probable cyst" style="checkbox"/>
+                    </div>
+                    <div class="assessment-sub-item">
+                        <obs conceptId="$@Breast_mass@" answerConceptId="$@Complex_cystic/solid_mass@" answerLabel="Complex cystic/solid mass" style="checkbox"/>
+                        <span style="margin-left: 12px;">If yes, possible abscess?</span>
+                        <obs conceptId="$@ABSCESS@" answerConceptIds="$@YES@,$@NO@" answerLabels="Yes,No" style="radio"/>
+                    </div>
+                    <div class="assessment-sub-item">
+                        <obs conceptId="$@Breast_mass@" answerConceptId="$@Solid_mass@" answerLabel="Solid mass" style="checkbox"/>
+                        <span style="margin-left: 12px;">Suspicion for malignancy:</span>
+                        <obs conceptId="$@Solid_mass@" answerConceptIds="$@low@,$@Intermediate@,$@High@" answerLabels="Low,Intermediate,High" style="radio"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Axillary Mass -->
+            <div class="assessment-group">
+                <div class="assessment-main">
+                    <obs id="AssessmentCheckboxRadio" conceptId="$@assessment(coded)@" answerConceptId="$@Axillary_mass@" answerLabel="Axillary mass" style="checkbox"/>
+                </div>
+                <div class="assessment-sub">
+                    <div class="assessment-sub-item">
+                        <obs conceptId="$@Axillary_mass@" answerConceptId="$@Normal_lymph_node@" answerLabel="Normal lymph node" style="checkbox"/>
+                        <obs conceptId="$@Axillary_mass@" answerConceptId="$@Heterotopic_tissue@" answerLabel="Heterotopic tissue" style="checkbox"/>
+                        <obs conceptId="$@Axillary_mass@" answerConceptId="$@Skin_Lesion@" answerLabel="Skin lesion" style="checkbox"/>
+                    </div>
+                    <div class="assessment-sub-item">
+                        <obs conceptId="$@Axillary_mass@" answerConceptId="$@Abnormal_palpable_lymph_node@" answerLabel="Abnormal palpable lymph node" style="checkbox"/>
+                    </div>
+                    <div class="assessment-sub-item">
+                        <obs conceptId="$@Axillary_mass@" answerConceptId="$@Abnormal_non-palpable_lymph_node@" answerLabel="Abnormal non-palpable lymph node" style="checkbox"/>
+                        <obs conceptId="$@Abnormal_non-palpable_lymph_node@" answerConceptId="$@Unilateral@" answerLabel="Unilateral" style="checkbox"/>
+                        <obs conceptId="$@Abnormal_non-palpable_lymph_node@" answerConceptId="$@Bilateral@" answerLabel="Bilateral" style="checkbox"/>
+                    </div>
+                    <div class="assessment-sub-item">
+                        <span class="inline-field">
+                            <label>Maximum cortical thickness:</label>
+                            <obs conceptId="$@Cortical_thickness@" size="6"/>
+                            <span class="unit">mm</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other -->
+            <div class="assessment-group">
+                <div class="assessment-main">
+                    <obs id="AssessmentCheckboxRadio" conceptId="$@assessment(coded)@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" style="checkbox"/>
+                    <span style="margin-left: 8px;">Specify:</span>
+                    <obs conceptId="$@Other_Assessment@" size="40"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOLLOW-UP RECOMMENDATION ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            <span>📅</span>
+            Follow-up Recommendation
+        </div>
+        <div class="section-content">
+            <div class="followup-row">
+                <span class="followup-label">Referral to another provider:</span>
+                <obs conceptId="$@referred_to@" size="40"/>
+            </div>
+
+            <div class="followup-row">
+                <span class="followup-label">U/S follow-up on:</span>
+                <obs conceptId="$@Dates_of_Ultrasound_follow_up@" allowFutureDates="true"/>
+                <div class="followup-options">
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Reason_of_ultrasound_follow-up@" answerConceptId="$@Aspiration_or_drainage@" answerLabel="Aspiration or drainage" style="checkbox"/>
+                    </span>
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Reason_of_ultrasound_follow-up@" answerConceptId="$@Core_needle_biopsy@" answerLabel="Core needle biopsy" style="checkbox"/>
+                    </span>
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Reason_of_ultrasound_follow-up@" answerConceptId="$@Surgical_Biopsy@" answerLabel="Surgical biopsy" style="checkbox"/>
+                    </span>
+                    <span class="checkbox-item">
+                        <obs conceptId="$@Reason_of_ultrasound_follow-up@" answerConceptId="$@Patient_discharged@" answerLabel="Patient discharged" style="checkbox"/>
+                    </span>
+                </div>
+            </div>
+
+            <div class="followup-row">
+                <span class="followup-label">Follow-up breast exam on:</span>
+                <obs conceptId="$@Date_of_breast_Follow-up_exam@" allowFutureDates="true"/>
+                <p class="note-text">Note: If patient notes change in breast exam, she should return to clinic sooner.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PATHOLOGIC DIAGNOSIS ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            <span>🔬</span>
+            For Masses Biopsied - Pathologic Diagnosis
+        </div>
+        <div class="section-content">
+            <div class="form-row">
+                <span class="inline-field">
+                    <label class="form-label">Date of Report:</label>
+                    <obs conceptId="$@Date_of_pathology_report@" allowFutureDates="true"/>
+                </span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="form-row">
+                <label class="form-label">Benign Findings</label>
+                <div class="pathology-grid">
+                    <span class="pathology-item">
+                        <obs conceptId="$@Pathologic_diagnosis@" answerConceptId="$@Fibroadenoma@" answerLabel="Fibroadenoma" style="checkbox"/>
+                    </span>
+                    <span class="pathology-item">
+                        <obs conceptId="$@Pathologic_diagnosis@" answerConceptId="$@Lactating_adenoma@" answerLabel="Lactating adenoma" style="checkbox"/>
+                    </span>
+                    <span class="pathology-item">
+                        <obs conceptId="$@Pathologic_diagnosis@" answerConceptId="$@CYST@" answerLabel="Cyst" style="checkbox"/>
+                    </span>
+                    <span class="pathology-item">
+                        <obs conceptId="$@Pathologic_diagnosis@" answerConceptId="$@Other_Benign@" answerLabel="Other benign" style="checkbox"/>
+                        <span class="pathology-specify">
+                            <label>Specify:</label>
+                            <obs conceptId="$@Other_Benign@" size="20"/>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="form-row">
+                <label class="form-label">Malignant Findings</label>
+                <div class="pathology-grid">
+                    <span class="pathology-item">
+                        <obs conceptId="$@Pathologic_diagnosis@" answerConceptId="$@Breast_carcinoma@" answerLabel="Breast carcinoma (In Situ or Invasive)" style="checkbox"/>
+                    </span>
+                    <span class="pathology-item">
+                        <obs conceptId="$@Pathologic_diagnosis@" answerConceptId="$@Other_Malignant@" answerLabel="Other malignant" style="checkbox"/>
+                        <span class="pathology-specify">
+                            <label>Specify:</label>
+                            <obs conceptId="$@Other_Malignant@" size="20"/>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SUBMIT ===== -->
+    <div class="submit-section">
+        <submit submitLabel="Save Ultrasound Report" />
+    </div>
+
+    <!-- ===== VOIDED STATUS ===== -->
+    <div class="voided-section">
+        <encounterVoided />
+    </div>
+
 </htmlform>

@@ -1,124 +1,177 @@
-<htmlform 
-	htmlformUuid="0644ae61-2763-4cd4-9ddc-283b46a8f205" 
-	formUuid="6dddbe2f-88ab-47bf-95ba-71a7cfe3d762" 
-	formName="Oncology - Pathology Results Notified" 
-	formDescription="Oncology Pathology Results Notified" 
-	formVersion="1.0" 
-	formEncounterType="b1c2d207-7221-4c23-b580-6c5de5385847" 
-	formPublished="true" 
-	formRetired="false"
+<htmlform
+		htmlformUuid="0644ae61-2763-4cd4-9ddc-283b46a8f205"
+		formUuid="6dddbe2f-88ab-47bf-95ba-71a7cfe3d762"
+		formName="Oncology - Pathology Results Notified"
+		formDescription="Oncology Pathology Results Notified"
+		formVersion="1.0"
+		formEncounterType="b1c2d207-7221-4c23-b580-6c5de5385847"
+		formPublished="true"
+		formRetired="false"
 >
 
-<macros> paperFormId =
-Flow-DM-RW.V2.0.akb.15May09 headerColor =#009d8e fontOnHeaderColor =
-white </macros>
-<style>
-.formName {
-	background-color: #e0e0ff;
-}
+	<macros>
+		paperFormId = Flow-DM-RW.V2.0.akb.15May09
+		headerColor = #009d8e
+		fontOnHeaderColor = white
+	</macros>
 
-.section {
-	border: 1px solid #8FABC7;
-	width: 99%;
-	padding: 2px;
-	text-align: left;
-	margin-bottom: 10px;
-}
+	<style>
+		form fieldset {
+		display: block;
+		}
 
-.sectionHeader {
-	background-color: #8FABC7;
-	color: white;
-	display: block;
-	padding: 2px;
-	font-weight: bold;
-}
+		.section-header {
+		margin-top: 1.5em;
+		}
 
-table.symptoms th {
-	text-align: right;
-}
+		.two-columns {
+		column-count: 2;
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		}
 
-.note {
-	color: red;
-}
+		.three-columns {
+		column-count: 3;
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		}
 
-td {
-	vertical-align: top;
-}
+		p.radio>* {
+		display: inline;
+		float: none !important;
+		min-width: initial;
+		}
 
-table.labTable td {
-	color: red;
-}
+		.section-container {
+		background: #F2F2F2;
+		box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+		padding: 10px 5px 10px 15px;
+		line-height: 1.5em;
+		}
 
-table.labTable
-		td.dateField {
-	text-align: right;
-}
+		.section-container input[type="checkbox"] {
+		margin: 0px 5px;
+		top: 5px;
+		}
 
-table.identifierTable td {
-	padding-right: 10px;
-}
+		.section-container label {
+		margin: 0px;
+		}
 
-div.paddedTable span {
-	padding-right: 20px;
-}
+		.section {
+		width: 100%;
+		}
 
-.itembox {
-	border: 5px solid #3333cc;
-	border-radius: 10px;
-	padding: 20px;
-	
-}
+		form input[type="radio"],
+		.form input[type="radio"] {
+		float: none;
+		display: inline-block;
+		}
 
-.hide {
-    visibility:hidden;
-}
-</style>
-<style> 
-#Div1, #Div2, #Div3 
-{ 
-DISPLAY: none; 
-} 
-</style>
-<script type="text/javascript">
-if(jQuery){
- $j(document).ready(function(){
-    if ( $j.browser.msie ) {
-        $j(":checkbox").click(function(){
-             $j(this).change();
-     });
- }
- 
- });
+		.side-by-side label {
+		display: inline-block;
+		}
 
-</script>
+		.field-error {
+		color: #ff6666;
+		font-size: 1.1em;
+		display: block;
+		}
 
-<section>
-<table border="0" cellspacing="0" cellpadding="6" width="100%">
-    <tr>
-	    <td>Nom /Last Name:<lookup class="value" expression="patient.personName.familyName" /></td>
-        <td>Prénom/ First Name:<lookup class="value" expression="patient.personName.givenName" /> <lookup class="value" expression="patient.personName.middleName" /></td>
-	</tr>
-    <tr>
-        <td>Clinique / Clinic:<encounterLocation order="a62fd59a-6577-43e0-b39c-ba42ac8cfbc9" default="Butaro Hospital"/></td>
-        <td>Clinicien / Provider:<encounterProvider role="Oncology Provider" /></td>
-        <td>Date notified:<encounterDate default="today" /></td>
-    </tr>
-</table>
-</section>
+		.baseline-aligned td {
+		vertical-align: baseline;
+		}
 
-<div class="itembox">
-    <table>
-        <b>Notification made: </b> <obs conceptId="773e56e1-29df-422d-bb69-70c602569ab1" style="yes_no" noLabel="Unable to make contact, will not try again" yesLabel="Yes"/>
-    </table>
-</div>
-<br/>
-<left>
-	<submit />
-</left>
-<br/>
-<br/>
-<br/>
-<br/>
-<encounterVoided/>
+		.itembox {
+		border: 5px solid #3333cc;
+		border-radius: 10px;
+		padding: 20px;
+		}
 
+		.hide {
+		visibility: hidden;
+		}
+
+		#Div1, #Div2, #Div3 {
+		DISPLAY: none;
+		}
+	</style>
+
+	<script type="text/javascript">
+		if(jQuery) {
+		$j(document).ready(function() {
+		if ($j.browser.msie) {
+		$j(":checkbox").click(function() {
+		$j(this).change();
+		});
+		}
+		});
+		}
+	</script>
+
+	<h1>Oncology - Pathology Results Notified</h1>
+
+	<section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="PATIENT INFORMATION">
+		<div class="section-container">
+			<table border="2" cellspacing="0" cellpadding="6" width="100%">
+				<tr>
+					<td>
+						Last Name:
+						<lookup class="value" expression="patient.personName.familyName" />
+					</td>
+					<td>
+						First Name:
+						<lookup class="value" expression="patient.personName.givenName" />
+						<lookup class="value" expression="patient.personName.middleName" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Clinic:
+						<encounterLocation order="a62fd59a-6577-43e0-b39c-ba42ac8cfbc9" default="Butaro Hospital"/>
+					</td>
+					<td>
+						Provider:
+						<encounterProvider role="Oncology Provider" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						Date notified:
+						<encounterDate default="today" />
+					</td>
+				</tr>
+			</table>
+		</div>
+	</section>
+
+	<section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="NOTIFICATION STATUS">
+		<div class="section-container">
+			<fieldset>
+				<legend><b>Patient Notification</b></legend>
+
+				<div class="itembox">
+					<label><b>Notification made:</b></label><br/><br/>
+					<obs conceptId="773e56e1-29df-422d-bb69-70c602569ab1"
+						 style="yes_no"
+						 noLabel="Unable to make contact, will not try again"
+						 yesLabel="Yes"/>
+				</div>
+			</fieldset>
+		</div>
+	</section>
+
+	<ifMode mode="VIEW" include="false">
+		<div id="buttons">
+			<button id="submit" class="submitButton confirm right">
+				<uimessage code="Save" />
+				<i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i>
+			</button>
+			<button id="cancel" type="button" class="cancel">
+				<uimessage code="emr.cancel" />
+			</button>
+		</div>
+	</ifMode>
+
+	<encounterVoided/>
 </htmlform>
