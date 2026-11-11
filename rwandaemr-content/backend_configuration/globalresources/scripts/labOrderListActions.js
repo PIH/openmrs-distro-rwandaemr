@@ -152,9 +152,9 @@ class LabOrderListActions {
             return;
         }
 
-        // Antibiograms of the culture orders, which are recorded as nested obs groups: see rwandaemr AntibiogramService
-        var antibiogramPromise = new Promise(function(resolve) {
-            jq.get(openmrsContextPath + '/ws/rest/v1/rwandaemr/lab/antibiogram?' +
+        // Antimicrobial susceptibility of the bacteriology exams, recorded as nested obs groups: see rwandaemr BacteriologyService
+        var susceptibilityPromise = new Promise(function(resolve) {
+            jq.get(openmrsContextPath + '/ws/rest/v1/rwandaemr/lab/bacteriology?' +
                     jq.param({ order: completedOrders.map(function(o) { return o.uuid; }) }, true))
                 .done(function(data) { resolve(data || {}); })
                 .fail(function() { resolve({}); });
@@ -163,9 +163,12 @@ class LabOrderListActions {
         Promise.all([
             LabOrderListActions.buildOrderResults(completedOrders),
             printConfigPromise,
-            antibiogramPromise
+            susceptibilityPromise
         ]).then(function(results) {
-            results[0].forEach(function(eo) { eo.antibiogram = results[2][eo.order.uuid] || []; });
+            results[0].forEach(function(eo) {
+                var bacteriology = results[2][eo.order.uuid];
+                eo.isolates = bacteriology && bacteriology.isolates ? bacteriology.isolates : [];
+            });
             return LabOrderListActions.generateLabPdf(patientWithOrders.patient, results[0], results[1]);
         }).catch(function(err) {
             console.error('LabOrderListActions.printResults: failed to generate PDF', err);
@@ -527,9 +530,11 @@ class LabOrderListActions {
             });
         }
 
-        function renderAntibiogram(isolates, indent) {
-            if (!isolates || isolates.length === 0) return;
-            drawRow([{ text: 'Antibiogram', bold: true, indent: indent }, {}, {}, {}, {}]);
+        // Bact_Antimicrobial susceptibility (concepts/bacteriology.csv): a test of each bacteriology exam, printed as its isolates
+        const SUSCEPTIBILITY_CONCEPT = '6f65e869-9395-5c8b-8a65-05ad3e19bcb4';
+
+        // The organisms isolated, each with its antibiotics grouped by interpretation (S/I/R)
+        function renderIsolates(isolates, indent) {
             const interpretations = [['S', 'Sensitive', rgb(0.18, 0.49, 0.2)], ['I', 'Intermediate', cOrange], ['R', 'Resistant', cRed]];
             isolates.forEach(function(isolate) {
                 drawRow([{ text: isolate.organism.display, italic: true, indent: indent + 10 }, {}, {}, {}, {}]);
@@ -554,7 +559,10 @@ class LabOrderListActions {
 
                 tests.forEach(function(test) {
                     const testName = test.concept.displayStringForLab || test.concept.display;
-                    if (test.obs.length === 0) {
+                    if (test.concept.uuid === SUSCEPTIBILITY_CONCEPT && eo.isolates.length > 0) {
+                        drawRow([{ text: testName, indent: 10 }, {}, {}, {}, {}]);
+                        renderIsolates(eo.isolates, 20);
+                    } else if (test.obs.length === 0) {
                         drawRow([{ text: testName, indent: 10 }, {}, {}, {}, {}]);
                     } else {
                         test.obs.forEach(function(obs) {
@@ -575,7 +583,6 @@ class LabOrderListActions {
                         });
                     }
                 });
-                renderAntibiogram(eo.antibiogram, 10);
 
             } else {
                 const test   = tests[0];
@@ -601,7 +608,6 @@ class LabOrderListActions {
                         }
                     });
                 }
-                renderAntibiogram(eo.antibiogram, 0);
             }
         }
 
