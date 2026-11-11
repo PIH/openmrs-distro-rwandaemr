@@ -37,21 +37,6 @@
     }
   },
   {
-    "id": "rwandaemr.lab.validateResults",
-    "extensionPointId": "org.openmrs.module.pihapps.labOrderList.patientGroupActions",
-    "type": "link",
-    "label": "Validate results",
-    "order": 6,
-    "requiredPrivilege": "Task: pihapps.labs.validateResults",
-    "extensionParams": {
-      "iconClass": "fas fa-fw fa-check-double",
-      "jsFunction": "rwandaLabValidateResults",
-      "visibleForOrderStatuses": [
-        "AWAITING_VALIDATION"
-      ]
-    }
-  },
-  {
     "id": "rwandaemr.lab.paymentStatus",
     "extensionPointId": "org.openmrs.module.pihapps.labOrderList.orderBadges",
     "type": "link",
