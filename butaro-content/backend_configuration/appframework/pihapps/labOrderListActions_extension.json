@@ -30,7 +30,7 @@
     "requiredPrivilege": "Add Encounters",
     "extensionParams": {
       "iconClass": "fas fa-fw fa-clipboard-list",
-      "jsFunction": "rwandaLabEnterResults"
+      "jsFunction": "pihappsLabEnterResults"
     }
   },
   {

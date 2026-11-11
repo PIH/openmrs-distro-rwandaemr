@@ -106,12 +106,6 @@
             <value>true</value>
         </globalProperty>
 
-        <!-- The lab order list validates results on Rwanda's own page, which also enters antibiograms -->
-        <globalProperty>
-            <property>pihapps.labs.validateResultsPage</property>
-            <value>/rwandaemr/labs/labResults.page?patient={patient}&amp;mode=validate</value>
-        </globalProperty>
-
         <!-- orderentryowa.orderReasonsMap -->
         <!-- orderentryowa.labOrderAutoExpireTimeInDays -->
 
