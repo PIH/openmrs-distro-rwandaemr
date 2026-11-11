@@ -100,6 +100,12 @@
             <value>4e849126-304a-4fe8-b9c1-be276880335f</value>
         </globalProperty>
 
+        <!-- Results are only reported to clinicians once a second user has validated them -->
+        <globalProperty>
+            <property>pihapps.labs.requireResultValidation</property>
+            <value>true</value>
+        </globalProperty>
+
         <!-- orderentryowa.orderReasonsMap -->
         <!-- orderentryowa.labOrderAutoExpireTimeInDays -->
 

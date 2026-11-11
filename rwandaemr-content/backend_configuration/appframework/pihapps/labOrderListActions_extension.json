@@ -20,5 +20,55 @@
       "iconClass": "fas fa-fw fa-bell",
       "jsFunction": "labOrderListNotifyPatient"
     }
+  },
+  {
+    "id": "rwandaemr.lab.enterResults",
+    "extensionPointId": "org.openmrs.module.pihapps.labOrderList.patientGroupActions",
+    "type": "link",
+    "label": "Enter results by Lab ID",
+    "order": 5,
+    "requiredPrivilege": "Add Encounters",
+    "extensionParams": {
+      "iconClass": "fas fa-fw fa-clipboard-list",
+      "jsFunction": "rwandaLabEnterResults",
+      "visibleForOrderStatuses": [
+        "COLLECTED"
+      ]
+    }
+  },
+  {
+    "id": "rwandaemr.lab.validateResults",
+    "extensionPointId": "org.openmrs.module.pihapps.labOrderList.patientGroupActions",
+    "type": "link",
+    "label": "Validate results",
+    "order": 6,
+    "requiredPrivilege": "Task: rwandaemr.labs.validateResults",
+    "extensionParams": {
+      "iconClass": "fas fa-fw fa-check-double",
+      "jsFunction": "rwandaLabValidateResults",
+      "visibleForOrderStatuses": [
+        "AWAITING_VALIDATION"
+      ]
+    }
+  },
+  {
+    "id": "rwandaemr.lab.paymentStatus",
+    "extensionPointId": "org.openmrs.module.pihapps.labOrderList.orderBadges",
+    "type": "link",
+    "label": "Payment status",
+    "order": 10,
+    "extensionParams": {
+      "jsFunction": "rwandaLabOrderPaymentBadges"
+    }
+  },
+  {
+    "id": "rwandaemr.lab.returnedForCorrection",
+    "extensionPointId": "org.openmrs.module.pihapps.labOrderList.orderBadges",
+    "type": "link",
+    "label": "Returned for correction",
+    "order": 20,
+    "extensionParams": {
+      "jsFunction": "rwandaLabOrderReturnedBadges"
+    }
   }
 ]
