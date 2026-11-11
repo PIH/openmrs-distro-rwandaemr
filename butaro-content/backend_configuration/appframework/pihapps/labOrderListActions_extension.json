@@ -42,15 +42,5 @@
     "extensionParams": {
       "jsFunction": "rwandaLabOrderPaymentBadges"
     }
-  },
-  {
-    "id": "rwandaemr.lab.returnedForCorrection",
-    "extensionPointId": "org.openmrs.module.pihapps.labOrderList.orderBadges",
-    "type": "link",
-    "label": "Returned for correction",
-    "order": 20,
-    "extensionParams": {
-      "jsFunction": "rwandaLabOrderReturnedBadges"
-    }
   }
 ]
