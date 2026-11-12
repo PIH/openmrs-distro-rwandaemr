@@ -143,12 +143,13 @@ class LabOrderListActions {
                 .fail(function() { resolve({}); });
         });
 
-        // Only results that have been validated (COMPLETED) are reported
+        // Only the results of completed orders are reported: when results must be validated, an order is completed
+        // once its results are validated
         var completedOrders = patientWithOrders.orders.filter(function(order) {
             return order.fulfillerStatus === 'COMPLETED';
         });
         if (completedOrders.length === 0) {
-            emr.errorMessage('There are no validated results to print');
+            emr.errorMessage('There are no completed results to print');
             return;
         }
 
