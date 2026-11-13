@@ -29,7 +29,7 @@
     "order": 5,
     "requiredPrivilege": "Add Encounters",
     "extensionParams": {
-      "iconClass": "fas fa-fw fa-clipboard-list",
+      "iconClass": "fas fa-fw fa-vials",
       "jsFunction": "pihappsLabEnterResults",
       "visibleForOrderStatuses": [
         "COLLECTED"

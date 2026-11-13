@@ -1,7 +1,7 @@
 [
   {
     "id": "rwandaemr.lab.susceptibilityRenderer",
-    "extensionPointId": "org.openmrs.module.pihapps.patientLabResults.resultRenderers",
+    "extensionPointId": "org.openmrs.module.pihapps.labResults.resultRenderers",
     "type": "link",
     "label": "Antimicrobial susceptibility",
     "order": 10,
