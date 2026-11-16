@@ -148,18 +148,12 @@
       "oxygenSaturationUuid": "3ce9401c-26fe-102b-80cb-0017a47871b2",
       "respiratoryRateUuid": "3ceb11f8-26fe-102b-80cb-0017a47871b2",
       "heightUuid": "3ce93cf2-26fe-102b-80cb-0017a47871b2",
-      "weightUuid": "3ce93b62-26fe-102b-80cb-0017a47871b2"
+      "weightUuid": "3ce93b62-26fe-102b-80cb-0017a47871b2",
+      "midUpperArmCircumferenceUuid": "4326b04b-3158-417a-bb8d-ad022295b0f4"
     },
     "vitals": {
       "encounterTypeUuid": "daf32375-d293-4e27-a68d-2a58494c96e1",
       "formUuid": "5a70541e-71ea-4163-bd9e-2412e7b085f3"
-    }
-  },
-  "@openmrs/esm-patient-biometrics-app": {
-    "concepts": {
-      "heightUuid": "3ce93cf2-26fe-102b-80cb-0017a47871b2",
-      "weightUuid": "3ce93b62-26fe-102b-80cb-0017a47871b2",
-      "muacUuid": "4326b04b-3158-417a-bb8d-ad022295b0f4"
     }
   },
     "@openmrs/esm-patient-medications-app": {
@@ -197,7 +191,7 @@
   },
     "@openmrs/esm-login-app": {
     "logo": {
-      "src": "https://pbs.twimg.com/media/C1w_czvWgAAWONL.jpg",
+      "src": "${openmrsSpaBase}/imb-logo-orange.svg",
 	  "alt": "IMB Logo"
     }
   },
