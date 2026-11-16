@@ -34,7 +34,7 @@
         <rwandaemrVersion>4.1.1-SNAPSHOT</rwandaemrVersion>
         <mohbillingVersion>2.2.6-SNAPSHOT</mohbillingVersion>
         <!-- rwandaemr's RHIP-INTEGRATION branch requires the rbcmessaging module -->
-        <rbcmessagingVersion>1.1-SNAPSHOT</rbcmessagingVersion>
+        <rbcmessagingVersion>1.1.0-SNAPSHOT</rbcmessagingVersion>
         <!-- Butaro runs 1.4.0-SNAPSHOT built from main@2f159ab; main is now 1.4.2-SNAPSHOT -->
         <transferappVersion>1.4.2-SNAPSHOT</transferappVersion>
 
