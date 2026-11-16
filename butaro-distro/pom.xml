@@ -17,12 +17,10 @@
         <!-- Modules Butaro runs that the base distribution doesn't (versions as in production, October 2026) -->
         <growthchartVersion>2.2.0-SNAPSHOT</growthchartVersion>
         <radiologyappVersion>1.8.0</radiologyappVersion>
-        <!-- Not published: build from source. muzimacore: muzima/openmrs-module-muzimacore-enterprise master@b8910657;
-             rwandapharmacymanagement: rwanda-emr/openmrs-module-rwandapharmacymanagement main@93994f8;
-             patienthandover: rwanda-emr/openmrs-module-patienthandover main (production runs 1.1.18, built from uncommitted code) -->
+        <!-- Not published: build from source. muzimacore: muzima/openmrs-module-muzimacore-enterprise master@b8910657 -->
         <muzimacoreVersion>2.6.1-SNAPSHOT</muzimacoreVersion>
-        <patienthandoverVersion>1.1.5</patienthandoverVersion>
-        <rwandapharmacymanagementVersion>1.0.3-SNAPSHOT</rwandapharmacymanagementVersion>
+        <patienthandoverVersion>1.5.3-SNAPSHOT</patienthandoverVersion>
+        <rwandapharmacymanagementVersion>1.0.7-SNAPSHOT</rwandapharmacymanagementVersion>
     </properties>
 
     <dependencies>
