@@ -20,4 +20,74 @@
         <sqlFile endDelimiter="#" path="sql/create_functions.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
 
+    <!--
+        RWA-1106: remove duplicate and invalid metadata that make Initializer's locations and ocl domains fail.
+        Each changeset runs only where its problem exists, and is marked as run otherwise.
+    -->
+    <changeSet id="RWA-1106-duplicate-location-attributes" author="mseaton">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sqlCheck expectedResult="0">
+                    SELECT COUNT(*) FROM (
+                        SELECT la.location_id FROM location_attribute la
+                          JOIN location_attribute_type t ON t.location_attribute_type_id = la.attribute_type_id
+                         WHERE la.voided = 0 AND t.max_occurs IS NOT NULL
+                         GROUP BY la.location_id, la.attribute_type_id, la.value_reference
+                        HAVING COUNT(*) > 1) d
+                </sqlCheck>
+            </not>
+        </preConditions>
+        <comment>Void location attributes that repeat an active attribute with the same value</comment>
+        <sqlFile path="sql/RWA-1106-duplicate-location-attributes.sql" relativeToChangelogFile="true" stripComments="true" />
+    </changeSet>
+
+    <changeSet id="RWA-1106-duplicate-concept-mappings" author="mseaton">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sqlCheck expectedResult="0">
+                    SELECT COUNT(*) FROM concept_reference_map m
+                      JOIN concept c ON c.concept_id = m.concept_id
+                      JOIN concept_map_type t ON t.concept_map_type_id = m.concept_map_type_id
+                      JOIN concept_reference_term rt ON rt.concept_reference_term_id = m.concept_reference_term_id
+                      JOIN concept_reference_source s ON s.concept_source_id = rt.concept_source_id
+                     WHERE c.uuid = 'b3fa7102-0135-40bb-b3c3-633450598623' AND t.name = 'NARROWER-THAN'
+                       AND s.name = 'PIH' AND rt.code IN ('6249', 'PRELIMINARY')
+                </sqlCheck>
+            </not>
+        </preConditions>
+        <comment>Delete the NARROWER-THAN maps of concept Preliminary that repeat its SAME-AS maps</comment>
+        <sqlFile path="sql/RWA-1106-duplicate-concept-mappings.sql" relativeToChangelogFile="true" stripComments="true" />
+    </changeSet>
+
+    <changeSet id="RWA-1106-duplicate-reference-terms" author="mseaton">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sqlCheck expectedResult="0">
+                    SELECT COUNT(*) FROM (
+                        SELECT concept_source_id FROM concept_reference_term
+                         GROUP BY concept_source_id, code HAVING COUNT(*) > 1) d
+                </sqlCheck>
+            </not>
+        </preConditions>
+        <comment>Merge reference terms that repeat the same source and code</comment>
+        <sqlFile path="sql/RWA-1106-duplicate-reference-terms.sql" relativeToChangelogFile="true" stripComments="true" />
+    </changeSet>
+
+    <changeSet id="RWA-1106-invalid-concept-state-conversions" author="mseaton">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sqlCheck expectedResult="0">
+                    SELECT COUNT(*) FROM concept_state_conversion x
+                      LEFT JOIN program_workflow w ON w.program_workflow_id = x.program_workflow_id
+                      LEFT JOIN program_workflow_state s ON s.program_workflow_state_id = x.program_workflow_state_id
+                      LEFT JOIN concept c ON c.concept_id = x.concept_id
+                     WHERE w.program_workflow_id IS NULL OR s.program_workflow_state_id IS NULL OR c.concept_id IS NULL
+                        OR s.program_workflow_id &lt;&gt; w.program_workflow_id
+                </sqlCheck>
+            </not>
+        </preConditions>
+        <comment>Delete concept state conversions that refer to missing or mismatched workflows and states</comment>
+        <sqlFile path="sql/RWA-1106-invalid-concept-state-conversions.sql" relativeToChangelogFile="true" stripComments="true" />
+    </changeSet>
+
 </databaseChangeLog>
