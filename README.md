@@ -42,6 +42,12 @@ can be represented with variables, then a variable syntax is supported.  One sho
 * In any file that contains variable content across distributions, replace the content with this variable name (eg. `${oncologyLocation}`
 * In any downstream distribution that includes this content, add a value for this variable (eg. `var.oncologyLocation=Rwinkwavu Hospital`)
 
+# Optional add-ons
+
+Some modules aren't part of any distribution and are installed by hand where a server needs them:
+
+* [mUzima](docs/muzima.md) (muzimacore)
+
 # Setting up a development environment with the OpenMRS SDK
 
 First identify the distribution you want to set up.  There are currently 2 options:
