@@ -18,11 +18,11 @@
         <growthchartVersion>2.2.0-SNAPSHOT</growthchartVersion>
         <radiologyappVersion>1.8.0</radiologyappVersion>
         <!-- Not published: build from source. muzimacore: muzima/openmrs-module-muzimacore-enterprise master@b8910657;
-             rwandapharmacymanagement: rwanda-emr/openmrs-module-rwandapharmacymanagement main@93994f8;
              patienthandover: rwanda-emr/openmrs-module-patienthandover main (production runs 1.1.18, built from uncommitted code) -->
         <muzimacoreVersion>2.6.1-SNAPSHOT</muzimacoreVersion>
         <patienthandoverVersion>1.1.5</patienthandoverVersion>
-        <rwandapharmacymanagementVersion>1.0.3-SNAPSHOT</rwandapharmacymanagementVersion>
+        <!-- Published from rwanda-emr/openmrs-module-rwandapharmacymanagement main by GitHub Actions -->
+        <rwandapharmacymanagementVersion>1.0.7-SNAPSHOT</rwandapharmacymanagementVersion>
     </properties>
 
     <dependencies>
