@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.openmrs.module</groupId>
         <artifactId>rwandaemr</artifactId>
-        <version>4.0.0-SNAPSHOT</version>
+        <version>4.1.1-SNAPSHOT</version>
     </parent>
 
     <groupId>org.pih.openmrs</groupId>
     <artifactId>rwandaemr</artifactId>
-    <version>4.0.0-SNAPSHOT</version>
+    <version>4.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>RwandaEMR</name>
     <description>Parent project for Rwanda distributions of OpenMRS</description>
@@ -30,6 +30,13 @@
 
     <properties>
         <sdkVersion>6.9.0</sdkVersion>
+        <!-- rwandaemr's RHIP-INTEGRATION branch is 4.1.1-SNAPSHOT and needs mohbilling's RHIP-INTEGRATION branch -->
+        <rwandaemrVersion>4.1.1-SNAPSHOT</rwandaemrVersion>
+        <mohbillingVersion>2.2.6-SNAPSHOT</mohbillingVersion>
+        <!-- rwandaemr's RHIP-INTEGRATION branch requires the rbcmessaging module -->
+        <rbcmessagingVersion>1.1.0-SNAPSHOT</rbcmessagingVersion>
+        <!-- Butaro runs 1.4.0-SNAPSHOT built from main@2f159ab; main is now 1.4.2-SNAPSHOT -->
+        <transferappVersion>1.4.2-SNAPSHOT</transferappVersion>
 
         <pihMavenPluginVersion>1.6.0</pihMavenPluginVersion>
         <dependencyReportClassifier>dependencies</dependencyReportClassifier>

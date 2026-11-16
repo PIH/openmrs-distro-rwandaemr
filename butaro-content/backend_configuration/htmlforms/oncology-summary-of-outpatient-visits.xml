@@ -1,79 +1,149 @@
-<htmlform 
-	htmlformUuid="30357990-0c93-436c-9d50-9854041d9771" 
-	formUuid="3bb5d087-81c9-431c-9df8-29762d0035f5" 
-	formName="Oncology Summary of outpatient visits" 
-	formDescription="lkm" 
-	formVersion="1.0" 
-	formEncounterType="ff319885-3f20-4ae5-8663-3ad5678cba41" 
-	formPublished="false" 
-	formRetired="false"
+<htmlform
+		htmlformUuid="0afd9dac-ecae-49c9-a243-2876e97c1fb1"
+		formUuid="1e052f59-d96f-4449-b50e-38d8caebf18b"
+		formName="Oncology Pediatric Inpatient Progress Note"
+		formDescription="Pediatric-specific inpatient clinical documentation"
+		formVersion="1.1"
+		formEncounterType="ff319885-3f20-4ae5-8663-3ad5678cba41"
+		formPublished="true"
+		formRetired="false"
 >
-    <!-- Hypertension flowsheet:  Clinic visits
-         written by jberchmas 
-         -->
-         <macros>
-		paperFormId = Flow-DM-RW.V2.0.akb.15May09
-		headerColor =#009d8e
-		fontOnHeaderColor = white
-@PATIENT_PLAN_COMMENTS@ = 3ce88a32-26fe-102b-80cb-0017a47871b2
-	</macros>
-	<style>
-		.formName { background-color:#e0e0ff; }
-		.section { border: 1px
-		solid #8FABC7; width:99%; padding:2px; text-align:left;
-		margin-bottom:10px; }
-		.sectionHeader { background-color: #8FABC7;
-		color: white; display: block; padding: 2px; font-weight:bold; }
-		table.symptoms th {text-align: right;}
-		.note {color:red;}
-		td
-		{vertical-align:top;}
-		table.labTable td { color:red; }
-		table.labTable
-		td.dateField { text-align:right; }
-		table.identifierTable td
-		{padding-right:10px;}
-		div.paddedTable span {padding-right:20px;}
-	</style>
+	<h1>Oncology Pediatric Inpatient Progress Note</h1>
 
-	<table border="2" cellspacing="0" cellpadding="6" width="100%">
-		<tr>
-			<td>
-				<b>IMB ID:<lookup class="value" expression="patientIdentifiers.get(&quot;IMB ID&quot;)" />
-				</b>
-			</td>
-			<td>
-				Clinique / Clinic:<encounterLocation />
-			</td>
-			<td>
-				Nom/ Signature:<encounterProvider role="NCD Provider"/>
-			</td>
-		</tr>
-	</table>
-
-	<section headerLabel=" RENDEZ-VOUS / CLINIC VISITS" >
-		<table border="1" width="100%">
-			<tr>
-				<td>Date</td>
-				<td>Plan</td>
-                                <td>systolic</td>
-                               
-			</tr>
-
-                        <tr>
-				<td><encounterDate default="today"/></td>
-				<td><obs conceptId="$@PATIENT_PLAN_COMMENTS@" /></td>
-			</tr>
-
-                       
-			
-		</table>
+	<section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION">
+		<div class="section-container">
+			<table border="0" width="100%">
+				<tr>
+					<td><b>Visit Date:</b> <encounterDate default="today" /></td>
+					<td><b>Facility:</b> <encounterLocation default="GlobalProperty:billing.defaultLocation" /></td>
+					<td><b>Provider:</b> <encounterProvider default="currentUser" /></td>
+				</tr>
+			</table>
+			<fieldset>
+				<legend>Patient Demographics</legend>
+				<table width="100%">
+					<tr>
+						<td><b>Name:</b> <lookup class="value" expression="patient.personName.familyName" />, <lookup class="value" expression="patient.personName.givenName" /></td>
+						<td><b>DOB:</b> <lookup class="value" expression="patient.birthdate" /></td>
+						<td><b>Phone:</b> <lookup expression="fn.latestObs(1426).valueText"/></td>
+					</tr>
+				</table>
+			</fieldset>
+		</div>
 	</section>
 
-	<br />
-	<center>
-		<submit />
-	</center>
-	<br />
+	<section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="CLINICAL STATUS UPDATE">
+		<div class="section-container">
+			<fieldset>
+				<legend>Diagnosis and Staging Verification</legend>
+				<p><i>Confirm if there are changes to the baseline diagnosis or staging.</i></p>
+				<table width="100%">
+					<tr>
+						<td><b>Diagnosis:</b> <lookup expression="fn.currentProgramWorkflowStatus(49).state.concept.name" /></td>
+						<td><b>Date of Dx:</b> <lookup expression="fn.latestObs('PIH:7417').valueDatetime"/></td>
+						<td><b>Stage:</b> <lookup expression="fn.latestObs($@OVERALL_ONCOLOGY_STAGE@).valueCoded.name"/></td>
+					</tr>
+				</table>
+			</fieldset>
 
+			<fieldset>
+				<legend>Clinical Narrative</legend>
+				<b>Chief Complaint:</b><br/>
+				<obs conceptId="$@Chief_complaint_text@" style="textarea" rows="2" cols="80"/><br/>
+				<b>Summary of Present Illness:</b><br/>
+				<obs conceptId="$@Summary_of_present_illness@" style="textarea" rows="3" cols="80"/>
+			</fieldset>
+		</div>
+	</section>
+
+	<section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="PEDIATRIC ASSESSMENT">
+		<div class="section-container">
+			<div class="two-columns">
+				<div>
+					<fieldset>
+						<legend>Performance Status</legend>
+						<p><b>Lansky Play-Performance Scale:</b></p>
+
+						<obs conceptId="$@ECOG_Performance_status_Lansky_play_performance_scale@" placeholder="Enter 0-100 score"/>
+						<p><small><i>Assessing activity levels and play-based restriction.</i></small></p>
+					</fieldset>
+				</div>
+				<div>
+					<fieldset>
+						<legend>Status Overview</legend>
+						<b>Clinical Trend:</b><br/>
+						<obs conceptId="$@Clinical_status_Overview@" answerConceptIds="$@Improved@,$@STABLE@,$@worsening@" style="radio" answerLabels="Improved,Stable,Worsening"/><br/><br/>
+						<b>Physical Exam:</b><br/>
+						Abnormal Findings? <obs conceptId="$@Physical_Exam_Abnormal_Findings@" answerConceptIds="$@YES@,$@NO@" answerLabels="Yes,No"/>
+					</fieldset>
+				</div>
+			</div>
+
+			<fieldset>
+				<legend>Disease &amp; Treatment Status</legend>
+				<table width="100%">
+					<tr>
+						<td><b>Tumor Status:</b></td>
+						<td><obs conceptId="$@Tumor_status@" answerConceptIds="$@Improved@,$@STABLE@,$@worsening@,$@not_evaluated@" style="radio" answerLabels="Improved,Stable,Worsening,N/A"/></td>
+					</tr>
+					<tr>
+						<td><b>Phase of Treatment:</b></td>
+						<td><obs conceptId="$@Phase_of_Treatment@" answerConceptIds="$@evaluation@,$@ACTIVE_TREATMENT@,$@Supportive_care_only@,$@Surveillance@" style="radio" answerLabels="Eval,Active,Supportive,Surv"/></td>
+					</tr>
+				</table>
+			</fieldset>
+		</div>
+	</section>
+
+	<section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="MEDICATIONS AND CLEARANCE">
+		<div class="section-container">
+			<fieldset style="border: 2px solid #009d8e;">
+				<legend style="color: #009d8e;"><b>Chemotherapy Clearance</b></legend>
+				<b>Cleared for Chemotherapy Today?</b>
+				<obs conceptId="$@Patients_cleared_for_Chemotherapy_today@" answerConceptIds="$@YES@,$@NO@" style="radio" answerLabels="Yes,No"/>
+				<br/>
+				Unplanned change in treatment? <obs conceptId="$@unplanned_change_in_treatment@" answerConceptIds="$@YES@,$@NO@" style="radio" answerLabels="Yes,No"/>
+			</fieldset>
+
+			<fieldset>
+				<legend>Take-Home Medications</legend>
+				<obs conceptId="$@Take_Home_Meds@" answerConceptId="$@supportive_care_meds@" style="checkbox" answerLabel="Supportive Care Meds"/>
+				<obs conceptId="$@Take_Home_Meds@" answerConceptId="$@oral_chemotherapy@" style="checkbox" answerLabel="Oral Chemotherapy"/>
+
+				<div class="itembox" style="margin-top:10px;">
+					<p><b>Order Medications:</b></p>
+					<drugOrder orderType="131168f4-15f5-102d-96e4-000c29c2a5d7" selectLabel="Add Drug Order">
+					</drugOrder>
+				</div>
+			</fieldset>
+		</div>
+	</section>
+
+	<section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="PLAN AND FOLLOW-UP">
+		<div class="section-container">
+			<fieldset>
+				<legend>Interventions &amp; Referrals</legend>
+				<div class="three-columns">
+					<obs conceptId="$@Additional_services_for_patients__Referrals_or_Interventions@" answerConceptId="$@RADIOLOGY_SERVICES@" style="checkbox" answerLabel="Radiology"/>
+					<obs conceptId="$@Additional_services_for_patients__Referrals_or_Interventions@" answerConceptId="$@Nutrition_consult@" style="checkbox" answerLabel="Nutrition"/>
+					<obs conceptId="$@Additional_services_for_patients__Referrals_or_Interventions@" answerConceptId="$@Psychology_consult@" style="checkbox" answerLabel="Psychology"/>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Next Appointment</legend>
+				<div class="itembox">
+					<b>Pediatric Oncology Visit:</b><br/>
+					Routine Follow-up: <obs conceptId="$@Peciatric_Non_chemotherapy@" allowFutureDates="true" /><br/>
+					Chemotherapy: <obs conceptId="$@Pediatric_Chemotherapy@ " allowFutureDates="true" />
+				</div>
+			</fieldset>
+		</div>
+	</section>
+
+	<div style="text-align:center; padding: 20px;">
+		<submit />
+	</div>
+
+	<encounterVoided/>
 </htmlform>

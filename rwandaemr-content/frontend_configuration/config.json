@@ -209,11 +209,11 @@
       },
       {
         "title": "Find Patient",
-        "redirect": "/openmrs/findPatient.htm"
+        "redirect": "/openmrs/coreapps/findpatient/findPatient.page?app=coreapps.findPatient_refApp"
       },
       {
         "title": "Create Patient",
-        "redirect": "/openmrs//module/rwandaprimarycare/login/login.form"
+        "redirect": "/openmrs/registrationapp/findPatient.page?appId=rwandaemr.registerPatient"
       },
       {
         "title": "Dictionary",

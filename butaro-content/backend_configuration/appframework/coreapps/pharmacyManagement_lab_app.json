@@ -1,0 +1,20 @@
+[
+  {
+    "id": "rwandaemr.pharmacyManageApp.lab",
+    "description": "SPA Stock management",
+    "order": 10,
+    "extensions": [
+      {
+        "id": "rwandapharmacymanagement.dashboard.lab",
+        "label": "Pharmacy Lab Request",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "order": 50,
+        "icon": "icon-medkit",
+        "url": "rwandapharmacymanagement/lab/request.page",
+        "requiredPrivilege": "App: rwandapharmacymanagement.dashboard",
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Laboratory Location')"
+      }
+    ]
+  }
+]

@@ -1,0 +1,5 @@
+Uuid,Void/Retire,Name,Description,_order:1000
+66747528-13f2-4140-9399-57111e7110cd,,OC Encounter,General historical OpenClinic encounter,
+bcdafb6f-968c-48c5-9b96-2515d3972ac8,,OC Lab,Historical OpenClinic laboratory encounter,
+863e8f27-cda1-43f1-8580-a90c7ccfd44b,,OC Orders,Historical OpenClinic orders encounter,
+9738dd4d-1135-4336-a74f-9f80967cd7af ,,OC Diagnosis,Historical OpenClinic diagnosis encounter,

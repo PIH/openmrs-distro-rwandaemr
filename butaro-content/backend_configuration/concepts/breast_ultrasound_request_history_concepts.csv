@@ -1,0 +1,5 @@
+Uuid,Fully specified name:en,Short name:en,Description:en,Data class,Data type,Answers,Units
+4b47dc3e-f215-5ea6-b247-ef93b9d4e155,Family history present,Family History,Whether the patient reports family history.,Question,Coded,3cd6f600-26fe-102b-80cb-0017a47871b2;3cd6f86c-26fe-102b-80cb-0017a47871b2,
+0069c000-7d81-5bfd-8bb4-60b82d19133b,Family history details,Family History details,Free-text description when family history is present.,Question,Text,,
+685a0cd0-1a7f-54aa-ac65-93a0c7fef703,Medical history present,Medical History,Whether the patient reports medical history.,Question,Coded,3cd6f600-26fe-102b-80cb-0017a47871b2;3cd6f86c-26fe-102b-80cb-0017a47871b2,
+80ba8ba2-f041-5eab-8ca1-53c97ffc7cbb,Medical history details,Medical History details,Free-text description when medical history is present.,Question,Text,,

@@ -1,0 +1,1402 @@
+<htmlform
+  formUuid="4240e688-9953-5fc4-a264-1d7966edec96"
+  formName="Breast Cancer Early Detection"
+  formEncounterType="54eb2a6b-a3e1-4c9f-b865-ee74434c0aaa"
+  formVersion="1.0"
+>
+  <style>
+    #breadcrumbs {
+      display: none;
+    }
+
+    .field-error {
+      color: #ff6666;
+      font-size: 1.1em;
+      display: block;
+    }
+
+    form fieldset {
+      display: block;
+    }
+
+    .family-history-item .label {
+      display: inline-block;
+      width: 250px;
+    }
+
+    .family-history-item .relative {
+      display: inline-block;
+      width: 120px;
+    }
+
+    .section-header {
+      margin-top: 1.5em;
+    }
+
+    .past-medical-history-item {
+    }
+
+    .past-medical-history-item input[type="checkbox"] {
+      float: none;
+      vertical-align: middle;
+    }
+
+    .past-medical-history-item input[type="text"] {
+      min-width: 200px;
+      display: inline !important;
+      vertical-align: middle;
+      padding: 1px 10px;
+    }
+
+    .past-medical-history-item &gt; span,
+    .past-medical-history-item &gt; label {
+      display: inline !important;
+      vertical-align: middle;
+    }
+
+    .two-columns {
+      column-count: 2;
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+    }
+
+    .three-columns {
+      column-count: 3;
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+    }
+
+    p.radio &gt; * {
+      display: inline;
+      float: none !important;
+      min-width: initial;
+    }
+
+    .section-container {
+      background: #f2f2f2;
+      box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+      padding: 10px 5px 10px 15px;
+      line-height: 1.5em;
+      /*add this for vertical spacing between elements*/
+    }
+
+    .section-container-color {
+      background: #f2f2f2;
+      box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+      padding: 10px 5px 10px 15px;
+      line-height: 1.5em;
+      /*add this for vertical spacing between elements*/
+    }
+
+    .section-container input[type="checkbox"] {
+      margin: 0px 5px;
+      /*changed values to vertical, horizontal*/
+      top: 5px;
+      /*added to offset the checkbox position to line up*/
+    }
+
+    .section-container label {
+      /*new definition to override labels inside section-containers*/
+      margin: 0px;
+    }
+
+    .section {
+      width: 100%;
+    }
+
+    .div {
+      float: left;
+    }
+
+    form input[type="radio"],
+    .form input[type="radio"] {
+      float: none;
+      display: inline-block;
+    }
+
+    .side-by-side label {
+      display: inline-block;
+    }
+
+    .date-one-line {
+      display: flex;
+    }
+
+    .date-one-line label {
+      align-self: center;
+      margin-right: 1em;
+    }
+
+    .date-one-line span {
+      display: flex;
+    }
+
+    .hasDatepicker {
+      min-width: 120px;
+      margin-top: 0px;
+    }
+
+    .hfe-hours,
+    .hfe-minutes,
+    .hfe-seconds {
+      width: 70px;
+      min-width: 70px;
+      margin: 0px 10px 0px 10px;
+    }
+
+    .five-columns,
+    .four-columns,
+    .three-columns,
+    .two-columns {
+      display: table;
+      height: 100%;
+      width: 100%;
+    }
+
+    .two-columns &gt; div {
+      display: table-cell;
+      width: 50%;
+    }
+
+    .three-columns &gt; div {
+      display: table-cell;
+      width: 33%;
+    }
+
+    .four-columns &gt; div {
+      display: table-cell;
+      width: 25%;
+    }
+
+    .five-columns &gt; div {
+      display: table-cell;
+      width: 20%;
+    }
+
+    .small-input input {
+      min-width: 5em;
+    }
+
+    .flexView {
+      display: flex;
+    }
+
+    /* Breast Cancer Early Detection form layout */
+    .bced {
+      max-width: 1050px;
+      margin: auto;
+      font-family: Arial, sans-serif;
+    }
+
+    fieldset {
+      margin: 12px 0;
+      padding: 12px;
+      border: 1px solid #aaa;
+    }
+
+    legend {
+      font-weight: bold;
+    }
+
+    .row {
+      margin: 8px 0;
+    }
+
+    .lbl {
+      display: inline-block;
+      min-width: 290px;
+      font-weight: bold;
+      vertical-align: top;
+    }
+
+    .grid {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .grid td,
+    .grid th {
+      padding: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .sub {
+      margin: 10px 25px;
+      padding: 10px;
+      border-left: 3px solid #bbb;
+    }
+
+    .conditional-section {
+      margin-top: 10px;
+    }
+
+    .section-note {
+      color: #666;
+      font-style: italic;
+    }
+
+    /*
+             * HFE / Reference Application radio and checkbox alignment.
+             * Keep the control and generated label on the same line.
+             */
+    .side-by-side input[type="radio"],
+    .side-by-side input[type="checkbox"],
+    p.radio input[type="radio"],
+    p.radio input[type="checkbox"] {
+      float: none !important;
+      display: inline-block !important;
+      width: auto !important;
+      min-width: initial !important;
+      margin: 0 5px 0 0 !important;
+      vertical-align: middle !important;
+    }
+
+    .side-by-side label,
+    p.radio label {
+      float: none !important;
+      display: inline-block !important;
+      width: auto !important;
+      min-width: initial !important;
+      margin: 0 18px 0 0 !important;
+      vertical-align: middle !important;
+    }
+
+    /* Conditional option blocks */
+    .conditional-options {
+      margin-top: 8px;
+    }
+
+    .conditional-options .option-line {
+      display: inline-block;
+      margin: 4px 24px 8px 0;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    .conditional-options .option-line input[type="radio"],
+    .conditional-options .option-line input[type="checkbox"] {
+      float: none !important;
+      display: inline-block !important;
+      width: auto !important;
+      min-width: 0 !important;
+      margin: 0 6px 0 0 !important;
+      vertical-align: middle !important;
+    }
+
+    .conditional-options .option-line label {
+      float: none !important;
+      display: inline !important;
+      width: auto !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      vertical-align: middle !important;
+    }
+
+    .other-line {
+      margin-top: 8px;
+    }
+
+    .other-line .other-label {
+      display: inline-block;
+      min-width: 55px;
+      font-weight: normal;
+    }
+
+    .other-line input[type="text"] {
+      width: 420px;
+      max-width: 80%;
+    }
+
+    /* Breast Mass/Lump layout */
+    .mass-table td:first-child {
+      width: 260px;
+      font-weight: normal;
+      vertical-align: middle;
+    }
+
+    .mass-table td:nth-child(2) {
+      vertical-align: middle;
+    }
+
+    .mass-radio {
+      white-space: nowrap;
+    }
+
+    .mass-radio input[type="radio"] {
+      float: none !important;
+      display: inline-block !important;
+      width: auto !important;
+      min-width: 0 !important;
+      margin: 0 5px 0 0 !important;
+      vertical-align: middle !important;
+    }
+
+    .mass-radio label {
+      float: none !important;
+      display: inline-block !important;
+      width: auto !important;
+      min-width: 0 !important;
+      margin: 0 22px 0 0 !important;
+      vertical-align: middle !important;
+    }
+
+    .mass-size {
+      white-space: nowrap;
+    }
+
+    .mass-size input[type="text"] {
+      display: inline-block !important;
+      width: 120px !important;
+      min-width: 120px !important;
+      margin: 0 6px !important;
+      vertical-align: middle !important;
+    }
+
+    .mass-table input[type="text"] {
+      max-width: 280px;
+    }
+
+    /* Breast disposition radio alignment */
+    .disposition-options input[type="radio"] {
+      float: none !important;
+      display: inline-block !important;
+      width: auto !important;
+      min-width: 0 !important;
+      margin: 0 5px 0 0 !important;
+      vertical-align: middle !important;
+    }
+
+    .disposition-options label {
+      float: none !important;
+      display: inline-block !important;
+      width: auto !important;
+      min-width: 0 !important;
+      margin: 0 24px 8px 0 !important;
+      vertical-align: middle !important;
+    }
+
+    /* Service/unit Other field goes below the dropdown */
+    .service-other-line {
+      display: block;
+      margin-top: 8px;
+      margin-left: 290px;
+      clear: both;
+    }
+
+    .service-other-label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: normal;
+    }
+
+    .service-other-line input[type="text"] {
+      display: block !important;
+      width: 560px;
+      max-width: 90%;
+    }
+
+    .other-field {
+      display: inline-block;
+    }
+
+    .other-label {
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    /* All Other fields are always visible */
+    .other-field {
+      display: inline-block !important;
+    }
+
+    div.other-field,
+    #serviceUnitOther,
+    #clinicalDiagnosisOther {
+      display: block !important;
+    }
+
+    /* Normal checkbox appearance */
+    .bced input[type="checkbox"],
+    form .bced input[type="checkbox"],
+    .form .bced input[type="checkbox"] {
+      -webkit-appearance: checkbox !important;
+      appearance: checkbox !important;
+      float: none !important;
+      display: inline-block !important;
+      position: static !important;
+      width: 13px !important;
+      min-width: 13px !important;
+      height: 13px !important;
+      min-height: 13px !important;
+      padding: 0 !important;
+      margin: 0 5px 0 0 !important;
+      vertical-align: middle !important;
+      box-shadow: none !important;
+    }
+
+    .bced input[type="checkbox"] + label,
+    form .bced input[type="checkbox"] + label,
+    .form .bced input[type="checkbox"] + label {
+      display: inline !important;
+      float: none !important;
+      width: auto !important;
+      min-width: 0 !important;
+      margin: 0 16px 0 0 !important;
+      padding: 0 !important;
+      vertical-align: middle !important;
+    }
+
+    /* Precise radio-button alignment for OpenMRS Reference Application */
+    .bced input[type="radio"],
+    form .bced input[type="radio"],
+    .form .bced input[type="radio"] {
+      float: none !important;
+      display: inline-block !important;
+      position: static !important;
+      width: 13px !important;
+      min-width: 13px !important;
+      height: 13px !important;
+      min-height: 13px !important;
+      padding: 0 !important;
+      margin: 0 5px 0 0 !important;
+      vertical-align: -2px !important;
+      box-shadow: none !important;
+    }
+
+    .bced input[type="radio"] + label,
+    form .bced input[type="radio"] + label,
+    .form .bced input[type="radio"] + label {
+      float: none !important;
+      display: inline !important;
+      width: auto !important;
+      min-width: 0 !important;
+      padding: 0 !important;
+      margin: 0 18px 0 0 !important;
+      line-height: 18px !important;
+      vertical-align: baseline !important;
+    }
+
+    /* Keep disposition choices on one clean line where space allows */
+    .disposition-options {
+      line-height: 26px;
+    }
+
+    .disposition-options input[type="radio"] {
+      margin-left: 8px !important;
+    }
+
+    .disposition-options input[type="radio"]:first-child {
+      margin-left: 0 !important;
+    }
+
+    /* Larger form */
+    .bced {
+      width: 96% !important;
+      max-width: 1450px !important;
+      margin: 0 auto !important;
+      font-size: 15px !important;
+    }
+
+    .bced fieldset {
+      width: 100% !important;
+      box-sizing: border-box !important;
+      margin: 18px 0 28px !important;
+      padding: 22px 30px 26px !important;
+    }
+
+    .bced legend {
+      font-size: 22px !important;
+      padding: 0 10px !important;
+    }
+
+    .bced .row {
+      margin: 12px 0 !important;
+    }
+
+    .bced .lbl {
+      min-width: 360px !important;
+    }
+
+    .bced select {
+      min-width: 330px !important;
+    }
+
+    .bced input[type="text"] {
+      min-width: 330px;
+    }
+
+    .bced .service-other-line input[type="text"] {
+      width: 650px !important;
+      max-width: 90% !important;
+    }
+
+    /* Fieldset background from supplied color sample: RGB(249,249,249) = #F9F9F9 */
+    .bced fieldset {
+      background-color: #f9f9f9 !important;
+    }
+
+    /* Encounter: Visit date, Health facility and Provider on one line */
+    .bced fieldset.encounter-inline {
+      display: flex !important;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px 32px;
+    }
+
+    .bced fieldset.encounter-inline legend {
+      display: block;
+    }
+
+    .bced .encounter-inline .encounter-item {
+      display: flex !important;
+      align-items: center !important;
+      margin: 4px 0 !important;
+      width: auto !important;
+      white-space: nowrap;
+    }
+
+    .bced .encounter-inline .encounter-item .lbl {
+      display: inline-block !important;
+      min-width: 0 !important;
+      width: auto !important;
+      margin-right: 10px !important;
+      padding: 0 !important;
+      vertical-align: middle !important;
+    }
+
+    .bced .encounter-inline .encounter-item select {
+      min-width: 210px !important;
+      width: 210px !important;
+    }
+
+    .bced .encounter-inline .encounter-item input[type="text"] {
+      min-width: 110px !important;
+      width: 110px !important;
+    }
+
+    @media (max-width: 1050px) {
+      .bced fieldset.encounter-inline {
+        display: block !important;
+      }
+
+      .bced .encounter-inline .encounter-item {
+        margin: 10px 0 !important;
+      }
+    }
+  </style>
+  <script type="text/javascript">
+    if (jQuery) {
+      $j(document).ready(function () {
+        var dispositionRadios = $j(".disposition-options input[type='radio']");
+        var updateReferredFacility = function () {
+          // The facility-name field belongs only to the Referred to facility choice.
+          var referred = dispositionRadios.eq(4).is(":checked");
+          var facilitySection = $j("#referredFacilitySection");
+          facilitySection.toggle(referred);
+          if (!referred) {
+            facilitySection.find("input[type='text'], textarea, select").val("").change();
+          }
+        };
+        dispositionRadios.change(updateReferredFacility);
+        updateReferredFacility();
+
+        var ultrasoundRadios = $j("#ultrasoundRequestRow input[type='radio']");
+        var remainingSectionsHidden = function () {
+          return ultrasoundRadios.first().is(":checked");
+        };
+        var clearRemainingSections = function () {
+          var sections = $j(".ultrasound-remaining");
+          var choices = sections.find("input[type='checkbox'], input[type='radio']");
+          choices.prop("checked", false);
+          // Clear both displayed values and hidden date/autocomplete values.
+          var fields = sections.find("input, select, textarea")
+            .not(":checkbox, :radio, :button, :submit, :reset");
+          fields.val("");
+          sections.find(".hasDatepicker").each(function () {
+            $j(this).datepicker("setDate", null);
+          });
+          choices.add(fields).change();
+        };
+        var updateUltrasoundSections = function () {
+          if (remainingSectionsHidden()) {
+            clearRemainingSections();
+          }
+          $j(".ultrasound-remaining").toggle(!remainingSectionsHidden());
+          $j("#dispositionRequiredError").hide();
+        };
+        ultrasoundRadios.change(updateUltrasoundSections);
+        updateUltrasoundSections();
+
+        // Disposition is required only when completing the remaining sections.
+        beforeSubmit.push(function () {
+          if (remainingSectionsHidden()) {
+            clearRemainingSections();
+          }
+          var missingDisposition = !remainingSectionsHidden() &amp;&amp; !getValue("disposition.value");
+          $j("#dispositionRequiredError").toggle(missingDisposition);
+          return !missingDisposition;
+        });
+
+        $j(".checkboxGroup").each(function () {
+          var group = $j(this);
+          var uncheckAll = function () {
+            group.find("input[type$='checkbox']").attr("checked", false);
+            group.find("input[type$='checkbox']").change();
+          };
+          var uncheckRadioAndAll = function () {
+            group
+              .find("#checkboxAll,#checkboxRadio")
+              .find("input[type$='checkbox']")
+              .attr("checked", false);
+            group
+              .find("#checkboxAll,#checkboxRadio")
+              .find("input[type$='checkbox']")
+              .change();
+          };
+          group
+            .find("#checkboxRadio")
+            .find("input[type$='checkbox']")
+            .click(function () {
+              uncheckAll();
+              $j(this).siblings("input[type$='checkbox']").attr("checked", false);
+              $j(this).attr("checked", true);
+              $j(this).change();
+            });
+        });
+        $j("input[type=radio]").change(function () {
+          // Find the associated textarea based on the name attribute of the radio button
+          var textarea = $j(this).closest("td").find("textarea");
+          // Update the textarea value based on the selected radio button value
+          if ($j(this).val() === "normal") {
+            textarea.val("Normal");
+          } else if ($j(this).val() === "abnormal") {
+            textarea.val("Abnormal because:");
+          }
+        });
+      });
+    }
+  </script>
+  <div class="bced">
+    <h2>Breast Cancer Early Detection</h2>
+    <fieldset class="encounter-inline">
+      <legend>Encounter</legend>
+      <div class="row side-by-side encounter-item">
+        <span class="lbl">Visit date *</span>
+        <encounterDate default="today" />
+      </div>
+      <div class="row encounter-item">
+        <span class="lbl">Health facility *</span>
+        <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+      </div>
+      <div class="row encounter-item">
+        <span class="lbl">Provider *</span>
+        <encounterProvider default="currentUser" />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Entry information</legend>
+      <div class="row side-by-side">
+        <span class="lbl">Level of care *</span>
+        <obs
+          conceptId="4d9507d3-fb23-5504-a2b1-cd9ee6970cdd"
+          answerConceptIds="70eefae0-557e-5a98-bf97-7f55d8eae7ac,3ce0d472-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Health Center/Health Post,Hospital"
+          style="radio"
+          required="true"
+          answerSeparator=""
+         />
+      </div>
+      <div class="row side-by-side">
+        <span class="lbl">Entry mode *</span>
+        <obs
+          id="entryMode"
+          conceptId="e1355ce5-6d7a-54be-9a96-3ef2de8dff13"
+          answerConceptIds="e570dcd8-b4f9-54f8-968e-38ac2353226a,6bd8fdd4-9439-53a3-93df-668414b64578,3ce451d8-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Voluntary checkup/screening,Referred from Health Facility,Follow-up"
+          style="radio"
+          required="true"
+          answerSeparator=""
+        >
+          <controls>
+            <when value="6bd8fdd4-9439-53a3-93df-668414b64578" thenDisplay="#entryReferralSection" />
+            <when value="3ce451d8-26fe-102b-80cb-0017a47871b2" thenDisplay="#followupSection" />
+          </controls>
+        </obs>
+      </div>
+      <div id="entryReferralSection" class="sub conditional-section">
+        <b>If referred from Health Facility - Reason for referral *</b>
+        <div class="conditional-options side-by-side">
+          <obs
+            conceptId="285a5d6d-95a2-51e4-8661-ff30be405abd"
+            answerConceptIds="de3a4342-b07e-48f8-ab80-202aab697756,ec45c0f5-7ff2-42c4-a4cb-1a8e4706fb71,db64df50-1db1-4f80-abe5-b0307d7d4f9e,c548a633-9931-496d-9ade-4b7c971e6600"
+            answerLabels="Further management,Imaging,Biopsy,Other"
+            style="radio"
+            answerSeparator=""
+            id="entryReferralReason"
+           />
+        </div>
+        <div class="other-line">
+          <span class="other-label">Other:</span>
+          <span id="entryReferralOther" class="other-field">
+            <span class="other-label">Other:</span>
+            <obs conceptId="a96a5e8b-5e35-5a66-bd19-6df945e3c241" />
+          </span>
+        </div>
+      </div>
+      <div id="followupSection" class="sub conditional-section">
+        <b>If Follow-up - Reason for follow-up *</b>
+        <div class="conditional-options side-by-side">
+          <obs
+            conceptId="09441951-3c0a-50db-9f96-f88666866630"
+            answerConceptIds="dbfaaf81-27fe-5d57-b492-4688a377792e,5a1fe5fb-5430-544d-8b99-33e7af5af835,c548a633-9931-496d-9ade-4b7c971e6600"
+            answerLabels="Post treatment,Ultrasound follow up,Other"
+            style="radio"
+            answerSeparator=""
+            id="followupReason"
+           />
+        </div>
+        <div class="other-line">
+          <span class="other-label">Other:</span>
+          <span id="followupOther" class="other-field">
+            <span class="other-label">Other:</span>
+            <obs conceptId="36152afa-4659-55fc-bec2-c3685ccd9de6" />
+          </span>
+        </div>
+      </div>
+      <div class="row side-by-side">
+        <span class="lbl">Service/unit *</span>
+        <obs
+          conceptId="c49c6c24-a876-5991-ac34-d4b7281df777"
+          answerConceptIds="a535b376-76d3-4cd8-9e2f-031ef42caf72,9e5e7ffc-6eb8-4d0f-a1a8-319eed6399fb,3ceb46fa-26fe-102b-80cb-0017a47871b2,3812237d-a5ed-55e2-bfe5-020c669d213f,21322c37-8045-5bf4-9d66-3cec3f9fd191,f29abbef-237c-5a5d-bbb0-eefbe0fcdf13,c548a633-9931-496d-9ade-4b7c971e6600"
+          answerLabels="HIV clinic,OPD,Family planning,Vaccination,ANC,WCED Clinic,Other"
+          required="true"
+          id="serviceUnit"
+         />
+        <div class="service-other-line other-field" id="serviceUnitOther">
+          <span class="service-other-label">Other:</span>
+          <obs conceptId="c1af3448-47d6-58a6-984b-fa8c4ffe3c0d" />
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>History</legend>
+      <div class="row side-by-side">
+        <span class="lbl">History of breast cancer in family</span>
+        <obs
+          conceptId="76a90aab-9dce-53eb-b622-5cd7b210a4b0"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2,3cd6fac4-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No,Unknown"
+          style="radio"
+          answerSeparator=""
+         />
+      </div>
+      <div class="row side-by-side">
+        <span class="lbl">HIV status *</span>
+        <obs
+          conceptId="aec6ad18-f4dd-4cfa-b68d-3d7bb6ea908e"
+          answerConceptIds="3cd3a7a2-26fe-102b-80cb-0017a47871b2,3cd28732-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Positive,Negative"
+          style="radio"
+          required="true"
+          answerSeparator=""
+         />
+      </div>
+      <div class="row side-by-side">
+        <span class="lbl">Currently pregnant?</span>
+        <obs
+          conceptId="70f067e4-999c-5fa8-81fc-6527a36e623e"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+         />
+      </div>
+      <div class="row side-by-side">
+        <span class="lbl">Currently breastfeeding?</span>
+        <obs
+          conceptId="7984f360-575a-5372-b624-039ff21a5760"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+         />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Clinical Breast Examination</legend>
+      <div class="row side-by-side">
+        <span class="lbl">Reason for breast exam *</span>
+        <obs
+          id="examReason"
+          conceptId="a72fb8b7-6e13-560f-8c9e-bb8a470f97cf"
+          answerConceptIds="a2ba5a88-57f2-5e35-900b-e420a3a639b1,021c6de1-351c-5904-97c0-e188a39a1027"
+          answerLabels="Screening (no symptoms),Breast complaints"
+          style="radio"
+          required="true"
+          answerSeparator=""
+        >
+          <controls>
+            <when value="021c6de1-351c-5904-97c0-e188a39a1027" thenDisplay="#breastComplaintsSection" />
+          </controls>
+        </obs>
+      </div>
+      <div id="breastComplaintsSection" class="row side-by-side conditional-section">
+        <b>If breast complaints, check all that apply:</b>
+        <br />
+        <obs
+          conceptId="ebfdd9b1-b655-59be-aa2d-cc3dcd235f76"
+          answerConceptId="03bc6925-326c-4c2c-a2bf-2c61081bb57c"
+          answerLabel="Breast pain"
+          style="checkbox"
+         />
+        <obs
+          conceptId="ebfdd9b1-b655-59be-aa2d-cc3dcd235f76"
+          answerConceptId="6ce98b16-3c86-446a-bace-a861ca023f17"
+          answerLabel="Breast mass"
+          style="checkbox"
+         />
+        <obs
+          conceptId="ebfdd9b1-b655-59be-aa2d-cc3dcd235f76"
+          answerConceptId="4be9089b-5469-4fc2-8d45-bb4df40d42f0"
+          answerLabel="Nipple retraction"
+          style="checkbox"
+         />
+        <obs
+          conceptId="ebfdd9b1-b655-59be-aa2d-cc3dcd235f76"
+          answerConceptId="1d9561ca-ac25-406e-bd8b-81174ab68a26"
+          answerLabel="Nipple discharge"
+          style="checkbox"
+         />
+        <obs
+          conceptId="ebfdd9b1-b655-59be-aa2d-cc3dcd235f76"
+          answerConceptId="93c7f1e7-5c71-423d-803f-bc38fdbdaeca"
+          answerLabel="Breast wound"
+          style="checkbox"
+         />
+        <obs
+          conceptId="ebfdd9b1-b655-59be-aa2d-cc3dcd235f76"
+          answerConceptId="5b357578-179a-4ddf-996f-2eb760b092d7"
+          answerLabel="Skin changes"
+          style="checkbox"
+         />
+        <obs
+          conceptId="ebfdd9b1-b655-59be-aa2d-cc3dcd235f76"
+          answerConceptId="c548a633-9931-496d-9ade-4b7c971e6600"
+          answerLabel="Other"
+          style="checkbox"
+          id="breastComplaintOtherChoice"
+         />
+        <span id="breastComplaintOther" class="other-field">
+          <span class="other-label">Other:</span>
+          <obs conceptId="3b95ee84-4b28-56df-876e-8af4cabfd932" />
+        </span>
+      </div>
+      <div class="row side-by-side">
+        <span class="lbl">Clinical breast examination findings *</span>
+        <obs
+          id="examFinding"
+          conceptId="e903302e-4cbd-59a2-8f0d-a9e8bdbbae90"
+          answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Normal,Abnormal"
+          style="radio"
+          required="true"
+          answerSeparator=""
+        >
+          <controls>
+            <when value="3cd75230-26fe-102b-80cb-0017a47871b2" thenDisplay="#abnormalExamSection" />
+          </controls>
+        </obs>
+      </div>
+      <div id="abnormalExamSection" class="sub conditional-section">
+        <b>If abnormal, check all that apply:</b>
+        <br />
+        <obs
+          conceptId="fe27a552-954f-5258-92b4-abb8da110718"
+          answerConceptId="6ce98b16-3c86-446a-bace-a861ca023f17"
+          answerLabel="Breast mass"
+          style="checkbox"
+         />
+        <obs
+          conceptId="fe27a552-954f-5258-92b4-abb8da110718"
+          answerConceptId="5b357578-179a-4ddf-996f-2eb760b092d7"
+          answerLabel="Skin changes"
+          style="checkbox"
+         />
+        <obs
+          conceptId="fe27a552-954f-5258-92b4-abb8da110718"
+          answerConceptId="4be9089b-5469-4fc2-8d45-bb4df40d42f0"
+          answerLabel="Nipple retraction"
+          style="checkbox"
+         />
+        <obs
+          conceptId="fe27a552-954f-5258-92b4-abb8da110718"
+          answerConceptId="1d9561ca-ac25-406e-bd8b-81174ab68a26"
+          answerLabel="Nipple discharge"
+          style="checkbox"
+         />
+        <obs
+          conceptId="fe27a552-954f-5258-92b4-abb8da110718"
+          answerConceptId="11405dda-ca85-5612-ada9-fe30f6bdd870"
+          answerLabel="Breast pain/tenderness"
+          style="checkbox"
+         />
+        <obs
+          conceptId="fe27a552-954f-5258-92b4-abb8da110718"
+          answerConceptId="c548a633-9931-496d-9ade-4b7c971e6600"
+          answerLabel="Other"
+          style="checkbox"
+         />
+        <h4>Breast Mass/Lump</h4>
+        <p>Mass 1</p>
+        <obsgroup groupingConceptId="e983d1a0-7a86-5205-9f1e-d5ec6b554913">
+          <table class="grid mass-table">
+            <tr>
+              <td>Breast</td>
+              <td>
+                <span class="mass-radio">
+                  <obs
+                    conceptId="c8e0ea78-d64a-505f-9b37-dc5681c8be2f"
+                    answerConceptIds="93330dcb-e5da-42d2-9130-fb8df3d37e6e,d3351e23-dacc-4184-9abb-18d577b07631"
+                    answerLabels="Left breast,Right breast"
+                    style="radio"
+                    answerSeparator=""
+                   />
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>Location on clock face</td>
+              <td>
+                <obs conceptId="9e9e8baa-981c-5b7a-af4d-a978850ec147" />
+              </td>
+            </tr>
+            <tr>
+              <td>cm from nipple</td>
+              <td>
+                <obs conceptId="a86f29ad-31cb-5adc-9e8b-6c11ff241fe0" />
+              </td>
+            </tr>
+            <tr>
+              <td>Size in cm</td>
+              <td>
+                <span class="mass-size">
+                  <obs conceptId="54ea21ab-c21b-594e-8aeb-9044bad448b8" />
+                  <strong>X</strong>
+                  <obs conceptId="56e1bba3-479f-58d9-958d-65633f4e00b9" />
+                </span>
+              </td>
+            </tr>
+          </table>
+        </obsgroup>
+        <p>Mass 2 (if needed)</p>
+        <obsgroup groupingConceptId="e983d1a0-7a86-5205-9f1e-d5ec6b554913">
+          <table class="grid mass-table">
+            <tr>
+              <td>Breast</td>
+              <td>
+                <span class="mass-radio">
+                  <obs
+                    conceptId="c8e0ea78-d64a-505f-9b37-dc5681c8be2f"
+                    answerConceptIds="93330dcb-e5da-42d2-9130-fb8df3d37e6e,d3351e23-dacc-4184-9abb-18d577b07631"
+                    answerLabels="Left breast,Right breast"
+                    style="radio"
+                    answerSeparator=""
+                   />
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>Location on clock face</td>
+              <td>
+                <obs conceptId="9e9e8baa-981c-5b7a-af4d-a978850ec147" />
+              </td>
+            </tr>
+            <tr>
+              <td>cm from nipple</td>
+              <td>
+                <obs conceptId="a86f29ad-31cb-5adc-9e8b-6c11ff241fe0" />
+              </td>
+            </tr>
+            <tr>
+              <td>Size in cm</td>
+              <td>
+                <span class="mass-size">
+                  <obs conceptId="54ea21ab-c21b-594e-8aeb-9044bad448b8" />
+                  <strong>X</strong>
+                  <obs conceptId="56e1bba3-479f-58d9-958d-65633f4e00b9" />
+                </span>
+              </td>
+            </tr>
+          </table>
+        </obsgroup>
+        <p>Mass 3 (if needed)</p>
+        <obsgroup groupingConceptId="e983d1a0-7a86-5205-9f1e-d5ec6b554913">
+          <table class="grid mass-table">
+            <tr>
+              <td>Breast</td>
+              <td>
+                <span class="mass-radio">
+                  <obs
+                    conceptId="c8e0ea78-d64a-505f-9b37-dc5681c8be2f"
+                    answerConceptIds="93330dcb-e5da-42d2-9130-fb8df3d37e6e,d3351e23-dacc-4184-9abb-18d577b07631"
+                    answerLabels="Left breast,Right breast"
+                    style="radio"
+                    answerSeparator=""
+                   />
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>Location on clock face</td>
+              <td>
+                <obs conceptId="9e9e8baa-981c-5b7a-af4d-a978850ec147" />
+              </td>
+            </tr>
+            <tr>
+              <td>cm from nipple</td>
+              <td>
+                <obs conceptId="a86f29ad-31cb-5adc-9e8b-6c11ff241fe0" />
+              </td>
+            </tr>
+            <tr>
+              <td>Size in cm</td>
+              <td>
+                <span class="mass-size">
+                  <obs conceptId="54ea21ab-c21b-594e-8aeb-9044bad448b8" />
+                  <strong>X</strong>
+                  <obs conceptId="56e1bba3-479f-58d9-958d-65633f4e00b9" />
+                </span>
+              </td>
+            </tr>
+          </table>
+        </obsgroup>
+        <div class="row side-by-side">
+          <span class="lbl">If skin change</span>
+          <obs
+            conceptId="5e2ff1c5-ec03-5555-8c14-8a27c5f5bf2d"
+            answerConceptIds="cd4b909c-809c-42e3-bff9-0f5d305cef6f,3f04d623-58d8-45d5-bb7a-96c83936b866,77922fb0-6df9-5cf9-bf9b-fb3170c53609"
+            answerLabels="Peau d'orange,Redness,Rashes"
+            style="radio"
+            answerSeparator=""
+           />
+        </div>
+        <div class="row side-by-side">
+          <span class="lbl">If nipple discharge</span>
+          <obs
+            conceptId="f732de1b-42e8-59f7-b0fa-70aca40d09a7"
+            answerConceptIds="b6ddda59-8473-45c9-bfad-5e00b9e86320,ec4f3c17-db68-4780-be49-0c9cdd6186c3,4d876d82-78cc-5702-ac44-4b1e1fcb140d,c8856459-03a0-5fd3-89f8-bf6cbd187361,2f1afffc-5842-5e85-9c88-be437472cab6"
+            answerLabels="Blood,Pus,Breast milk fluids,Watery fluids,Yellowish fluids"
+            style="radio"
+            answerSeparator=""
+           />
+        </div>
+        <h4>Lymph Nodes</h4>
+        <table class="grid">
+          <tr>
+            <th>Region</th>
+            <th>Left</th>
+            <th>Right</th>
+          </tr>
+          <tr>
+            <td>Cervical</td>
+            <td>
+              <obsgroup groupingConceptId="305f04a1-6384-534b-95fb-b9cfd292457f">
+                <obs
+                  conceptId="75f2ab68-4a57-5715-875d-63b9f5480c1e"
+                  answerConceptId="3cd265f4-26fe-102b-80cb-0017a47871b2"
+                  answerLabel="Cervical"
+                 />
+                <obs
+                  conceptId="696dc1b8-4308-55ca-8f5c-97238e2c9510"
+                  answerConceptId="93330dcb-e5da-42d2-9130-fb8df3d37e6e"
+                  answerLabel="Left breast"
+                 />
+              </obsgroup>
+            </td>
+            <td>
+              <obsgroup groupingConceptId="305f04a1-6384-534b-95fb-b9cfd292457f">
+                <obs
+                  conceptId="75f2ab68-4a57-5715-875d-63b9f5480c1e"
+                  answerConceptId="3cd265f4-26fe-102b-80cb-0017a47871b2"
+                  answerLabel="Cervical"
+                 />
+                <obs
+                  conceptId="696dc1b8-4308-55ca-8f5c-97238e2c9510"
+                  answerConceptId="d3351e23-dacc-4184-9abb-18d577b07631"
+                  answerLabel="Right breast"
+                 />
+              </obsgroup>
+            </td>
+          </tr>
+          <tr>
+            <td>Supraclavicular</td>
+            <td>
+              <obsgroup groupingConceptId="305f04a1-6384-534b-95fb-b9cfd292457f">
+                <obs
+                  conceptId="75f2ab68-4a57-5715-875d-63b9f5480c1e"
+                  answerConceptId="3cd170d6-26fe-102b-80cb-0017a47871b2"
+                  answerLabel="Supraclavicular"
+                 />
+                <obs
+                  conceptId="696dc1b8-4308-55ca-8f5c-97238e2c9510"
+                  answerConceptId="93330dcb-e5da-42d2-9130-fb8df3d37e6e"
+                  answerLabel="Left breast"
+                 />
+              </obsgroup>
+            </td>
+            <td>
+              <obsgroup groupingConceptId="305f04a1-6384-534b-95fb-b9cfd292457f">
+                <obs
+                  conceptId="75f2ab68-4a57-5715-875d-63b9f5480c1e"
+                  answerConceptId="3cd170d6-26fe-102b-80cb-0017a47871b2"
+                  answerLabel="Supraclavicular"
+                 />
+                <obs
+                  conceptId="696dc1b8-4308-55ca-8f5c-97238e2c9510"
+                  answerConceptId="d3351e23-dacc-4184-9abb-18d577b07631"
+                  answerLabel="Right breast"
+                 />
+              </obsgroup>
+            </td>
+          </tr>
+          <tr>
+            <td>Infraclavicular</td>
+            <td>
+              <obsgroup groupingConceptId="305f04a1-6384-534b-95fb-b9cfd292457f">
+                <obs
+                  conceptId="75f2ab68-4a57-5715-875d-63b9f5480c1e"
+                  answerConceptId="34434be6-bbd2-4809-bf34-5647d2b4885b"
+                  answerLabel="Infraclavicular"
+                 />
+                <obs
+                  conceptId="696dc1b8-4308-55ca-8f5c-97238e2c9510"
+                  answerConceptId="93330dcb-e5da-42d2-9130-fb8df3d37e6e"
+                  answerLabel="Left breast"
+                 />
+              </obsgroup>
+            </td>
+            <td>
+              <obsgroup groupingConceptId="305f04a1-6384-534b-95fb-b9cfd292457f">
+                <obs
+                  conceptId="75f2ab68-4a57-5715-875d-63b9f5480c1e"
+                  answerConceptId="34434be6-bbd2-4809-bf34-5647d2b4885b"
+                  answerLabel="Infraclavicular"
+                 />
+                <obs
+                  conceptId="696dc1b8-4308-55ca-8f5c-97238e2c9510"
+                  answerConceptId="d3351e23-dacc-4184-9abb-18d577b07631"
+                  answerLabel="Right breast"
+                 />
+              </obsgroup>
+            </td>
+          </tr>
+          <tr>
+            <td>Axillary</td>
+            <td>
+              <obsgroup groupingConceptId="305f04a1-6384-534b-95fb-b9cfd292457f">
+                <obs
+                  conceptId="75f2ab68-4a57-5715-875d-63b9f5480c1e"
+                  answerConceptId="3ce9672c-26fe-102b-80cb-0017a47871b2"
+                  answerLabel="Axillary"
+                 />
+                <obs
+                  conceptId="696dc1b8-4308-55ca-8f5c-97238e2c9510"
+                  answerConceptId="93330dcb-e5da-42d2-9130-fb8df3d37e6e"
+                  answerLabel="Left breast"
+                 />
+              </obsgroup>
+            </td>
+            <td>
+              <obsgroup groupingConceptId="305f04a1-6384-534b-95fb-b9cfd292457f">
+                <obs
+                  conceptId="75f2ab68-4a57-5715-875d-63b9f5480c1e"
+                  answerConceptId="3ce9672c-26fe-102b-80cb-0017a47871b2"
+                  answerLabel="Axillary"
+                 />
+                <obs
+                  conceptId="696dc1b8-4308-55ca-8f5c-97238e2c9510"
+                  answerConceptId="d3351e23-dacc-4184-9abb-18d577b07631"
+                  answerLabel="Right breast"
+                 />
+              </obsgroup>
+            </td>
+          </tr>
+        </table>
+        <div class="row side-by-side">
+          <span class="lbl">Others</span>
+          <obs conceptId="8dcbc214-b1aa-562d-a958-2078993cf01d" />
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Clinical Diagnosis - Breast *</legend>
+      <obs
+        conceptId="593fc763-97d9-576f-88ce-aa683ae9ba49"
+        answerConceptIds="df96d43b-bc8d-5260-aa06-9d80d9a9c002,6ce98b16-3c86-446a-bace-a861ca023f17,bf0d5b84-a8ee-5015-8ab4-dddce248941b,3ccd029e-26fe-102b-80cb-0017a47871b2,3ccd2666-26fe-102b-80cb-0017a47871b2,3cd47e3e-26fe-102b-80cb-0017a47871b2,c548a633-9931-496d-9ade-4b7c971e6600"
+        answerLabels="Normal breast,Breast mass,Breast pain only (no mass|skinchanges|nipple discharge),Mastitis,Abscess,Eczema,Other"
+        required="true"
+        id="clinicalDiagnosis"
+       />
+      <div class="row other-field" id="clinicalDiagnosisOther">
+        <span class="lbl">Other diagnosis</span>
+        <obs conceptId="fc3e22de-f239-5a5d-85bb-05853f94820c" />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Breast Ultrasound</legend>
+      <div id="ultrasoundRequestRow" class="row side-by-side">
+        <span class="lbl">Breast ultrasound requested</span>
+        <obs
+          id="ultrasoundRequested"
+          conceptId="67c3ca44-9741-5af3-a272-f7fd88ba2a0d"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+        >
+          <controls>
+            <when value="3cd6f600-26fe-102b-80cb-0017a47871b2" thenDisplay="#biradsSection" />
+          </controls>
+        </obs>
+      </div>
+      <div id="biradsSection" class="row conditional-section">
+        <span class="lbl">If yes, BI-RADS category</span>
+        <obs
+          conceptId="c6b76a68-645c-55b2-86ae-9598eda5d1c3"
+          answerConceptIds="af9964e1-1206-5f79-a9aa-7e5865ccd2ce,6c98f431-3817-5259-949f-e29225d7e478,a700578d-8d42-5556-8497-8234d4533f19,855c2d6e-10b4-5bb4-9809-c79ca8896f51,052c9da1-3274-5203-bbce-ccbf47575ad0,bd4e25a1-5777-557e-b3ad-171916487c1f,68329d21-ab69-5447-8aa7-e54a4850858a"
+          answerLabels="BI-RADS 0 - Needs additional imaging,BI-RADS 1 - Negative,BI-RADS 2 - Benign,BI-RADS 3 - Probably benign,BI-RADS 4 - Suspicious,BI-RADS 5 - Highly suggestive of malignancy,BI-RADS 6 - Known biopsy-proven malignancy"
+         />
+      </div>
+    </fieldset>
+    <div class="ultrasound-remaining">
+    <fieldset>
+      <legend>Breast Management / Recommendation</legend>
+      <div class="row side-by-side">
+        <b>Check all that apply:</b>
+        <br />
+        <obs id="managementReassurance"
+          conceptId="958b8a57-f9dd-50f0-98ee-266aa163cac6"
+          answerConceptId="3682e702-82e8-5ecc-81fb-b80e6baf720d"
+          answerLabel="Reassurance"
+          style="checkbox"
+         />
+        <obs id="managementMedicationsProvided"
+          conceptId="958b8a57-f9dd-50f0-98ee-266aa163cac6"
+          answerConceptId="b2dfe83d-1b46-544f-906f-1db01828ddb5"
+          answerLabel="Medications provided"
+          style="checkbox"
+         />
+        <obs id="managementImagingReferral"
+          conceptId="958b8a57-f9dd-50f0-98ee-266aa163cac6"
+          answerConceptId="265d5921-7d04-5d85-afcf-98a1f3aa2772"
+          answerLabel="Referral for further imaging"
+          style="checkbox"
+         />
+        <obs id="managementNoImagingFollowup"
+          conceptId="958b8a57-f9dd-50f0-98ee-266aa163cac6"
+          answerConceptId="1f3440f2-4f37-5d92-b6e1-a6df1a6480c3"
+          answerLabel="No imaging follow-up needed"
+          style="checkbox"
+         />
+        <obs id="managementCystAspiration"
+          conceptId="958b8a57-f9dd-50f0-98ee-266aa163cac6"
+          answerConceptId="edd2f11d-cff0-474a-8eb4-8ea9ee887108"
+          answerLabel="Aspiration of cyst"
+          style="checkbox"
+         />
+        <obs id="managementAbscessDrainage"
+          conceptId="958b8a57-f9dd-50f0-98ee-266aa163cac6"
+          answerConceptId="725c97cb-d2ed-4b9e-a63c-c71aa10f3392"
+          answerLabel="Drainage of abscess"
+          style="checkbox"
+         />
+        <obs id="managementDressing"
+          conceptId="958b8a57-f9dd-50f0-98ee-266aa163cac6"
+          answerConceptId="d3d60d18-e220-4f28-b7ee-bb949812dcb7"
+          answerLabel="Dressing"
+          style="checkbox"
+         />
+        <obs id="managementBiopsyNeeded"
+          conceptId="958b8a57-f9dd-50f0-98ee-266aa163cac6"
+          answerConceptId="0a478c11-b7c1-56a1-8caf-733b4096e08a"
+          answerLabel="Breast biopsy needed"
+          style="checkbox"
+         />
+      </div>
+      <div class="row side-by-side">
+        <span class="lbl">Medications (name, dosage, duration)</span>
+        <obs id="managementMedications" conceptId="cfa6316a-624b-5a94-bf00-6f4dfe9cf7d2" />
+      </div>
+      <div class="row side-by-side">
+        <span class="lbl">If biopsy needed, type</span>
+        <obs id="managementBiopsyType"
+          conceptId="8d1e640e-f6e2-59fe-b4dc-6491f5bc3524"
+          answerConceptIds="184456db-251c-5504-b651-4e186c8713a1,ac54468b-9371-503c-a076-91f29aaf8e90,690f13e4-8cfd-5517-89b0-f7a80257b234,d7469b10-2a3f-53d3-b90a-38a0b0bb8bf2"
+          answerLabels="FNA - Fine needle aspiration,Ultrasound-guided core needle biopsy,Excisional biopsy,Incisional biopsy"
+          style="radio"
+          answerSeparator=""
+         />
+      </div>
+      <div class="row"><span class="lbl">Ultrasound follow-up in</span><obs id="managementUltrasoundFollowup" conceptId="ab68ead6-7cc7-5907-b4e1-d5525513fa39"/>
+                 months
+            </div>
+      <div class="row">
+        <span class="lbl">Other recommendations</span>
+        <obs id="managementOtherRecommendations" conceptId="96fd8957-88ba-5b14-9580-03e0250af935" />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Breast Disposition *</legend>
+      <div class="disposition-options side-by-side">
+        <obs
+          id="disposition"
+          conceptId="f29569f1-6b33-5d15-9499-c71af5612db7"
+          answerConceptIds="6340fd67-facb-4a6c-a9d9-f629c9e53053,d0e94536-0b91-40a1-b994-04bb4f5cd15d,55604da0-3fd1-5977-99a3-71f76b01adb3,de6c9dab-fdac-5078-a20b-bc7b6c6a9a69,8172e1a2-e01a-5c90-bc24-4d6f9548f5e3"
+          answerLabels="Discharged,Follow-up at this health facility,Follow-up at another health facility,Internal transfer,Referred to facility"
+          style="radio"
+          answerSeparator=""
+        >
+          <controls>
+            <when value="de6c9dab-fdac-5078-a20b-bc7b6c6a9a69" thenDisplay="#internalTransferSection" />
+            <when value="8172e1a2-e01a-5c90-bc24-4d6f9548f5e3" thenDisplay="#dispositionReferralReasonSection" />
+            <when value="d0e94536-0b91-40a1-b994-04bb4f5cd15d" thenDisplay="#nextVisitSection" />
+            <when value="55604da0-3fd1-5977-99a3-71f76b01adb3" thenDisplay="#nextVisitSection" />
+            <when value="8172e1a2-e01a-5c90-bc24-4d6f9548f5e3" thenDisplay="#nextVisitSection" />
+          </controls>
+        </obs>
+      </div>
+      <span id="dispositionRequiredError" class="field-error" style="display:none">Please select a breast disposition.</span>
+      <div id="internalTransferSection" class="row conditional-section">
+        <span class="lbl">Internal transfer - service/unit</span>
+        <obs id="dispositionInternalTransfer" conceptId="6c1071fa-e7ae-55c5-b6e3-47e6ff4cba3b" />
+      </div>
+      <div id="referredFacilitySection" class="row conditional-section" style="display:none">
+        <span class="lbl">Referred to facility name</span>
+        <obs id="dispositionReferredFacility" conceptId="ab271022-2288-5dde-b54b-50560f118919" />
+      </div>
+      <div id="dispositionReferralReasonSection" class="row side-by-side conditional-section">
+        <span class="lbl">Reason for referral</span>
+        <obs
+          conceptId="b4cf5be5-3ab9-5559-a183-95f5eaa77b00"
+          answerConceptIds="de3a4342-b07e-48f8-ab80-202aab697756,ec45c0f5-7ff2-42c4-a4cb-1a8e4706fb71,db64df50-1db1-4f80-abe5-b0307d7d4f9e,c548a633-9931-496d-9ade-4b7c971e6600"
+          answerLabels="Further management,Imaging,Biopsy,Other"
+          style="radio"
+          answerSeparator=""
+          id="dispositionReferralReason"
+         />
+        <span id="dispositionReferralOther" class="other-field">
+          <span class="other-label">Other:</span>
+          <obs id="dispositionOtherReferralReason" conceptId="a4f39700-7593-5023-9a1b-7381121d7d1f" />
+        </span>
+      </div>
+      <div id="nextVisitSection" class="row conditional-section">
+        <span class="lbl">Date of next visit</span>
+        <obs id="dispositionNextVisit" conceptId="712a35bd-614d-5b8f-a836-8d44ba6573ef" />
+      </div>
+    </fieldset>
+    </div>
+    <div style="text-align:center;margin:20px">
+      <submit />
+    </div>
+  </div>
+</htmlform>

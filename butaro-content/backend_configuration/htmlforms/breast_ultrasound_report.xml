@@ -1,0 +1,908 @@
+<htmlform
+  formUuid="cfca9ba7-a815-55df-b904-c7673ef15237"
+  formName="Diagnostic Breast Ultrasound Report Form"
+  formEncounterType="54eb2a6b-a3e1-4c9f-b865-ee74434c0aaa"
+  formVersion="1.0"
+>
+  <style>
+    #breadcrumbs {
+      display: none;
+    }
+
+    .bur {
+      width: 96%;
+      max-width: 1450px;
+      margin: auto;
+      font-family: Arial;
+      font-size: 15px;
+    }
+
+    .bur fieldset {
+      display: block;
+      float: none;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      box-sizing: border-box;
+      margin: 18px 0 28px;
+      padding: 22px 30px;
+      border: 1px solid #aaa;
+      background: #f9f9f9;
+    }
+
+    legend {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .row {
+      margin: 12px 0;
+    }
+
+    .lbl {
+      display: inline-block;
+      min-width: 340px;
+      font-weight: bold;
+      vertical-align: top;
+    }
+
+    .opts {
+      line-height: 30px;
+    }
+
+    .sub {
+      margin: 14px 0 14px 30px;
+      padding: 12px 18px;
+      border-left: 3px solid #bbb;
+    }
+
+    .enc {
+      display: flex !important;
+      flex-wrap: wrap;
+      gap: 20px 32px;
+      align-items: center;
+    }
+
+    .enc .lbl {
+      min-width: 0;
+      margin-right: 8px;
+    }
+
+    .small input {
+      min-width: 90px !important;
+      width: 90px !important;
+    }
+
+    /* Normal checkbox appearance */
+    .bur input[type="checkbox"],
+    form .bur input[type="checkbox"],
+    .form .bur input[type="checkbox"] {
+      -webkit-appearance: checkbox !important;
+      appearance: checkbox !important;
+      float: none !important;
+      display: inline-block !important;
+      position: static !important;
+      width: 13px !important;
+      min-width: 13px !important;
+      height: 13px !important;
+      min-height: 13px !important;
+      padding: 0 !important;
+      margin: 0 5px 0 0 !important;
+      vertical-align: middle !important;
+      box-shadow: none !important;
+    }
+
+    .bur input[type="checkbox"] + label,
+    form .bur input[type="checkbox"] + label,
+    .form .bur input[type="checkbox"] + label {
+      display: inline-block !important;
+      float: none !important;
+      width: auto !important;
+      min-width: 0 !important;
+      margin: 0 16px 0 0 !important;
+      padding: 0 !important;
+      vertical-align: middle !important;
+    }
+
+    /* Precise radio-button alignment for OpenMRS Reference Application */
+    .bur input[type="radio"],
+    form .bur input[type="radio"],
+    .form .bur input[type="radio"] {
+      float: none !important;
+      display: inline-block !important;
+      position: static !important;
+      width: 13px !important;
+      min-width: 13px !important;
+      height: 13px !important;
+      min-height: 13px !important;
+      padding: 0 !important;
+      margin: 0 5px 0 0 !important;
+      vertical-align: middle !important;
+      box-shadow: none !important;
+    }
+
+    .bur input[type="radio"] + label,
+    form .bur input[type="radio"] + label,
+    .form .bur input[type="radio"] + label {
+      float: none !important;
+      display: inline-block !important;
+      width: auto !important;
+      min-width: 0 !important;
+      padding: 0 !important;
+      margin: 0 18px 0 0 !important;
+      line-height: 18px !important;
+      vertical-align: middle !important;
+    }
+
+    /* Keep checkbox choices together and align wrapped rows with the first choice. */
+    .bur .opts {
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr);
+      column-gap: 4px;
+      align-items: start;
+    }
+
+    .bur .opts &gt; .lbl {
+      min-width: 0;
+    }
+
+    .bur .choice-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      min-width: 0;
+    }
+
+    .bur .option-item {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .bur .option-item input[type="checkbox"] + label {
+      margin-right: 0 !important;
+    }
+
+    @media (max-width: 700px) {
+      .bur .opts {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .bur .margin-details {
+      margin-left: 340px;
+      line-height: 30px;
+    }
+
+    @media (max-width: 700px) {
+      .bur .margin-details {
+        margin-left: 0;
+      }
+    }
+  </style>
+  <script type="text/javascript">
+    // Adapted from the supplied script. Scope handlers to this report and use
+    // checked properties so that both user clicks and HFE change handlers agree.
+    if (typeof jQuery !== "undefined") {
+      jQuery(function ($j) {
+        var report = $j(".bur");
+        report.find(".checkboxGroup").each(function () {
+          var group = $j(this);
+          var exclusive = group.find(".checkboxRadio input[type='checkbox']");
+          var alternatives = group.find(".checkboxOther input[type='checkbox']");
+          var months = group.find(
+            "#ultrasoundFollowupMonths input[type='text'], #ultrasoundFollowupMonths input[type='number']",
+          );
+          var uncheckAll = function () {
+            alternatives.filter(":checked").prop("checked", false).change();
+            months.val("").change();
+          };
+          var uncheckRadioAndAll = function () {
+            exclusive.filter(":checked").prop("checked", false).change();
+          };
+          exclusive.change(function () {
+            if ($j(this).is(":checked")) {
+              uncheckAll();
+            }
+          });
+          alternatives.change(function () {
+            if ($j(this).is(":checked")) {
+              uncheckRadioAndAll();
+            }
+          });
+          months.change(function () {
+            if ($j.trim($j(this).val()) !== "") {
+              uncheckRadioAndAll();
+            }
+          });
+        });
+        // HFE clears hidden inputs without firing their change handlers. Refresh
+        // nested controllers after the parent's native handler has finished, so
+        // reopening a cleared section cannot reveal stale child branches.
+        setTimeout(function () {
+          if (typeof getField !== "function") {
+            return;
+          }
+          // Keep the existing single coded margin observation. Move its four
+          // detailed choices below the main choices instead of creating a
+          // second observation for the same question.
+          var margins = getField("lesionMargins.value");
+          var marginDetails = $j('&lt;div class="margin-details"&gt;&lt;/div&gt;');
+          var detailedValues = [];
+          var nonCircumscribedValue;
+          margins.each(function () {
+            var input = $j(this);
+            var label = input.next("label");
+            var text = $j.trim(label.text());
+            if (text === "Not Circumscribed") {
+              nonCircumscribedValue = input.val();
+            }
+            if (
+              $j.inArray(text, [
+                "Indistinct",
+                "Angular",
+                "Micro lobulated",
+                "Spiculated",
+              ]) !== -1
+            ) {
+              detailedValues.push(input.val());
+              input.add(label).wrapAll('&lt;span class="option-item"&gt;&lt;/span&gt;');
+              marginDetails.append(input.parent());
+            }
+          });
+          if (detailedValues.length) {
+            margins.first().closest(".row").append(marginDetails);
+            var updateMargins = function () {
+              var selected = margins.filter(":checked").val();
+              marginDetails.toggle(
+                selected === nonCircumscribedValue ||
+                  $j.inArray(selected, detailedValues) !== -1,
+              );
+            };
+            margins.change(updateMargins);
+            updateMargins();
+          }
+          var descendants = {
+            breastLesionPresent: ["intramammaryNode"],
+            intramammaryNode: ["vascularityFeature", "lesionMargins"],
+            axillaryLesionPresent: ["axillaryFeature"],
+            overallAssessment: ["breastAssessment", "axillaryAssessmentType"],
+            axillaryAssessmentType: ["axillaryNodeAssessment"],
+            axillaryNodeAssessment: ["axillaryDistribution"],
+          };
+          $j.each(descendants, function (parent, children) {
+            getField(parent + ".value").change(function () {
+              setTimeout(function () {
+                $j.each(children, function (index, child) {
+                  getField(child + ".value").change();
+                });
+              }, 0);
+            });
+          });
+        }, 0);
+        report.find("input[type='radio']").change(function () {
+          // Preserve the supplied table/textarea helper only for explicit string
+          // answers. Coded HFE radios use numeric concept IDs, not these strings.
+          var textarea = $j(this).closest("td").find("textarea");
+          if (!textarea.length || $j.trim(textarea.val()) !== "") {
+            return;
+          }
+          if ($j(this).val() === "normal") {
+            textarea.val("Normal");
+          } else if ($j(this).val() === "abnormal") {
+            textarea.val("Abnormal because:");
+          }
+        });
+      });
+    }
+  </script>
+  <div class="bur">
+    <h2>Diagnostic Breast Ultrasound Report Form</h2>
+    <p>
+      <i>Complete one form per indication or per breast lesion.</i>
+    </p>
+    <fieldset class="enc">
+      <legend>Encounter / Patient Information</legend>
+      <div class="row">
+        <span class="lbl">Date of exam *</span>
+        <encounterDate default="today" />
+      </div>
+      <div class="row">
+        <span class="lbl">Health facility *</span>
+        <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+      </div>
+      <div class="row">
+        <span class="lbl">Provider *</span>
+        <encounterProvider default="currentUser" />
+      </div>
+      <div>
+        <b>Patient:</b>
+        <lookup expression="patient.personName" />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>II. Reason for US</legend>
+      <div class="row opts">
+        <span class="lbl">Indication (choose all that apply)</span>
+        <span class="choice-options">
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="6ce98b16-3c86-446a-bace-a861ca023f17"
+              answerLabel="Breast mass"
+              style="checkbox"
+            />
+          </span>
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="ae4b69fe-51c6-4026-8e19-d2d61ac12a98"
+              answerLabel="Focal pain"
+              style="checkbox"
+            />
+          </span>
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="1d9561ca-ac25-406e-bd8b-81174ab68a26"
+              answerLabel="Nipple discharge"
+              style="checkbox"
+            />
+          </span>
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="f8d33fc5-248d-5cc9-957d-9d8e385c8189"
+              answerLabel="Follow-up of mass"
+              style="checkbox"
+            />
+          </span>
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="5b357578-179a-4ddf-996f-2eb760b092d7"
+              answerLabel="Skin changes"
+              style="checkbox"
+              id="indicationSkin"
+            >
+              <controls>
+                <when value="5b357578-179a-4ddf-996f-2eb760b092d7" thenDisplay="#indicationSkinDetails" />
+              </controls>
+            </obs>
+          </span>
+          <span class="option-item">
+            <obs
+              conceptId="f3336a3f-817e-55b8-9454-4639c3886a92"
+              answerConceptId="c548a633-9931-496d-9ade-4b7c971e6600"
+              answerLabel="Other"
+              style="checkbox"
+              id="indicationOther"
+            >
+              <controls>
+                <when value="c548a633-9931-496d-9ade-4b7c971e6600" thenDisplay="#indicationOtherDetails" />
+              </controls>
+            </obs>
+          </span>
+        </span>
+      </div>
+      <div class="row" id="indicationSkinDetails">
+        <span class="lbl">Skin changes (specify)</span>
+        <obs conceptId="49fe0400-4c27-550f-a54d-72f3b51e5053" />
+      </div>
+      <div class="row" id="indicationOtherDetails">
+        <span class="lbl">Other (specify)</span>
+        <obs conceptId="cda7ee1f-c367-5e2a-95e7-e2bd2d324f20" />
+      </div>
+      <div class="row">
+        <span class="lbl">Pregnant?</span>
+        <obs
+          conceptId="70f067e4-999c-5fa8-81fc-6527a36e623e"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+        />
+      </div>
+      <div class="row">
+        <span class="lbl">Lactating?</span>
+        <obs
+          conceptId="7984f360-575a-5372-b624-039ff21a5760"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+        />
+      </div>
+      <div class="row">
+        <span class="lbl">Confirmed current breast cancer diagnosis?</span>
+        <obs
+          conceptId="154e8bd9-514a-5c0a-b4f6-138cfce27a90"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+        />
+      </div>
+      <div class="row">
+        <span class="lbl">Breast cancer diagnosis</span>
+        <obs
+          conceptId="57576e87-912c-4e82-9f3a-3dcaa323ba8a"
+          answerConceptIds="cc6de937-358a-5fd7-8ac5-5504df33b731,eca98be5-7922-57b8-93ea-fbc3c90e0399,3cd743f8-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Current breast cancer,Prior breast cancer,None"
+          style="radio"
+          answerSeparator=""
+          id="cancerHistory"
+        >
+          <controls>
+            <when value="cc6de937-358a-5fd7-8ac5-5504df33b731" thenDisplay="#cancerLocationDetails" />
+            <when value="eca98be5-7922-57b8-93ea-fbc3c90e0399" thenDisplay="#cancerLocationDetails" />
+          </controls>
+        </obs>
+      </div>
+      <div class="row" id="cancerLocationDetails">
+        <span class="lbl">Cancer location</span>
+        <obs
+          conceptId="a7a204b2-2798-591a-829f-f35ee3b1561c"
+          answerConceptIds="3ce9949a-26fe-102b-80cb-0017a47871b2,3ce99198-26fe-102b-80cb-0017a47871b2,57ec1a86-4e5a-4402-b417-9cd14d294f79"
+          answerLabels="Right,Left,Bilateral"
+          style="radio"
+          answerSeparator=""
+        />
+      </div>
+      <div class="row">
+        <span class="lbl">Side of current concern</span>
+        <obs
+          conceptId="291bddd5-933f-5445-b130-bd57c3ae57e5"
+          answerConceptIds="3ce9949a-26fe-102b-80cb-0017a47871b2,3ce99198-26fe-102b-80cb-0017a47871b2,57ec1a86-4e5a-4402-b417-9cd14d294f79"
+          answerLabels="Right,Left,Bilateral"
+          style="radio"
+          answerSeparator=""
+        />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>III. US Findings</legend>
+      <div class="row">
+        <span class="lbl">IIIa. Breast lesion?</span>
+        <obs
+          conceptId="859c8537-2570-5b78-b49d-06c8e1e6161a"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+          id="breastLesionPresent"
+        >
+          <controls>
+            <when value="3cd6f600-26fe-102b-80cb-0017a47871b2" thenDisplay="#breastLesionDetails" />
+          </controls>
+        </obs>
+      </div>
+      <div class="sub" id="breastLesionDetails">
+        <h4>Breast lesion details</h4>
+        <div class="row">
+          <span class="lbl">Breast</span>
+          <obs
+            conceptId="45f20adf-2bde-508e-944c-1f95b2d0d84a"
+            answerConceptIds="d3351e23-dacc-4184-9abb-18d577b07631,93330dcb-e5da-42d2-9130-fb8df3d37e6e"
+            answerLabels="Right breast,Left breast"
+            style="radio"
+            answerSeparator=""
+          />
+        </div>
+        <div class="row">
+          <span class="lbl">Location (clockwise)</span>
+          <obs conceptId="99feb621-b2ef-5128-a338-117f9cb1c2e7" />
+        </div>
+        <div class="row">
+          <span class="lbl">cm from nipple</span>
+          <obs conceptId="16767c16-f446-5aa0-a7a8-cd44a73d78f5" />
+        </div>
+        <div class="row small"><span class="lbl">Size</span><obs conceptId="3e2695ee-e9be-5746-8d78-6e9ab33443fb"/> cm RAD X <obs conceptId="a35fa6ca-7f7e-5371-b1e4-77aa9f55d39c"/> cm AP X <obs conceptId="5cc677c7-fa03-53aa-b57d-a95c3081ee9b"/> cm ARAD</div>
+        <div class="row">
+          <span class="lbl">Intramammary lymph node?</span>
+          <obs
+            conceptId="546d6cca-6dae-512d-b1c5-45f416cc24c9"
+            answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+            answerLabels="Yes,No"
+            style="radio"
+            answerSeparator=""
+            id="intramammaryNode"
+          >
+            <controls>
+              <when value="3cd6f600-26fe-102b-80cb-0017a47871b2" thenDisplay="#intramammaryThicknessDetails" />
+              <when value="3cd6f86c-26fe-102b-80cb-0017a47871b2" thenDisplay="#breastMorphologyDetails" />
+            </controls>
+          </obs>
+        </div>
+        <div class="row" id="intramammaryThicknessDetails"><span class="lbl">Intramammary max cortical thickness</span><obs conceptId="c409d5a9-f766-5587-a172-fcdabdc84267"/> mm</div>
+        <div id="breastMorphologyDetails">
+          <div class="row">
+            <span class="lbl">Shape</span>
+            <obs
+              conceptId="68569d1f-8cde-5789-9142-d22c136af644"
+              answerConceptIds="cc9ca7f0-acac-5285-b373-136c36f205c4,abb4e48c-a257-4561-9c0e-78f34cf9e1f7,c4857913-143d-5b5a-bc76-09f7ff2b2429,880c5fce-227e-4ba7-9831-eee5a59c0733"
+              answerLabels="Oval,Lobular,Round,Irregular"
+              style="radio"
+              answerSeparator=""
+            />
+          </div>
+          <div class="row">
+            <span class="lbl">Margins</span>
+            <obs
+              conceptId="e9c7834f-ce44-5894-8ce3-4227472a7672"
+              answerConceptIds="aa3845d0-33ba-5bcf-9c28-29ebdc86db3c,3f1ab531-365a-5fd9-be0d-04fe7354f151,3e986af3-5c68-4644-b93a-08678efcfabb,17d15601-175e-52bf-aab4-08eb300d0457,1e61e002-79c7-5861-9dbe-00242d32db3c,b4b5ae26-bf52-5af6-b9ea-e0d4d43913c6"
+              answerLabels="Circumscribed,Not Circumscribed,Indistinct,Angular,Micro lobulated,Spiculated"
+              style="radio"
+              answerSeparator=""
+              id="lesionMargins"
+            />
+          </div>
+          <div class="row">
+            <span class="lbl">Echo Pattern</span>
+            <obs
+              conceptId="59b634c1-c805-54d3-8bc6-d74269ce5651"
+              answerConceptIds="0da3c284-0474-5b79-b178-7d5edb692464,0262ad86-5e9f-5537-ae8b-530314842398,05ed1eee-db77-4bfc-ab29-dbd310592b44,0752e33a-53db-499f-bc1d-3f66ada74088,46a5c797-5ad5-5a0e-bb53-675aa8275f20,2a218650-c6ef-4fb2-b80c-aaa35b035a0e"
+              answerLabels="Anechoic,Hypoechoic,Isoechoic,Hyperechoic,Mixed solid/cystic,Heterogeneous"
+              style="radio"
+              answerSeparator=""
+            />
+          </div>
+          <div class="row">
+            <span class="lbl">Posterior Features</span>
+            <obs
+              conceptId="72be734a-5d32-489c-976b-1227b6b7b429"
+              answerConceptIds="3cd743f8-26fe-102b-80cb-0017a47871b2,8f5ece68-7157-5ead-947f-8f28fee8b2f4,95733be7-e820-5c3a-9e66-2e80b5b17eac,04df838b-bb9f-523e-9e20-96ffaba9cf33"
+              answerLabels="None,Enhancement,Shadowing,Combined"
+              style="radio"
+              answerSeparator=""
+            />
+          </div>
+          <div class="row">
+            <span class="lbl">Orientation</span>
+            <obs
+              conceptId="411df084-cf38-4050-b9db-4d1442e65bb9"
+              answerConceptIds="3cefdeae-38b2-4b03-adbb-2958aeeeba74,9a8c510d-6c4a-5cbe-a7b9-6494437f7eb8"
+              answerLabels="Parallel,Not parallel"
+              style="radio"
+              answerSeparator=""
+            />
+          </div>
+          <div class="row opts">
+            <span class="lbl">Associated features</span>
+            <span class="choice-options">
+              <span class="option-item">
+                <obs
+                  conceptId="d8348d77-e3db-52b0-9727-aa2bf4720aeb"
+                  answerConceptId="fe027462-b6dc-55b2-aaa8-2a03a8d398fb"
+                  answerLabel="Vascularity"
+                  style="checkbox"
+                  id="vascularityFeature"
+                >
+                  <controls>
+                    <when value="fe027462-b6dc-55b2-aaa8-2a03a8d398fb" thenDisplay="#vascularityDetails" />
+                  </controls>
+                </obs>
+              </span>
+              <span class="option-item">
+                <obs
+                  conceptId="d8348d77-e3db-52b0-9727-aa2bf4720aeb"
+                  answerConceptId="6eafd5fe-0392-51bc-b376-e277d33259a6"
+                  answerLabel="Architectural distortion"
+                  style="checkbox"
+                />
+              </span>
+              <span class="option-item">
+                <obs
+                  conceptId="d8348d77-e3db-52b0-9727-aa2bf4720aeb"
+                  answerConceptId="f2d8ef3f-85cf-4ff1-9739-39400186eed5"
+                  answerLabel="Edema"
+                  style="checkbox"
+                />
+              </span>
+              <span class="option-item">
+                <obs
+                  conceptId="d8348d77-e3db-52b0-9727-aa2bf4720aeb"
+                  answerConceptId="16710ece-90d9-51d8-aa32-639ee2e0eff7"
+                  answerLabel="Duct changes"
+                  style="checkbox"
+                />
+              </span>
+              <span class="option-item">
+                <obs
+                  conceptId="d8348d77-e3db-52b0-9727-aa2bf4720aeb"
+                  answerConceptId="9045cfaa-a5f1-53c5-95cd-4bc2703cd8c6"
+                  answerLabel="Calcifications"
+                  style="checkbox"
+                />
+              </span>
+              <span class="option-item">
+                <obs
+                  conceptId="d8348d77-e3db-52b0-9727-aa2bf4720aeb"
+                  answerConceptId="7ca19e1d-17c3-5db6-93b4-a1d7a41d3c6c"
+                  answerLabel="Echogenic rind"
+                  style="checkbox"
+                />
+              </span>
+              <span class="option-item">
+                <obs
+                  conceptId="d8348d77-e3db-52b0-9727-aa2bf4720aeb"
+                  answerConceptId="5b357578-179a-4ddf-996f-2eb760b092d7"
+                  answerLabel="Skin changes"
+                  style="checkbox"
+                />
+              </span>
+              <span class="option-item">
+                <obs
+                  conceptId="d8348d77-e3db-52b0-9727-aa2bf4720aeb"
+                  answerConceptId="a3ec32b6-fe6d-5341-9660-22f37cb6ef13"
+                  answerLabel="Nipple changes"
+                  style="checkbox"
+                />
+              </span>
+            </span>
+          </div>
+          <div class="row" id="vascularityDetails">
+            <span class="lbl">Vascularity</span>
+            <obs
+              conceptId="25421b34-4de1-5a80-a0aa-028bc1d86c34"
+              answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+              answerLabels="Yes,No"
+              style="radio"
+              answerSeparator=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="lbl">IIIb. Axillary lesion?</span>
+        <obs
+          conceptId="b066deab-d818-5fc3-8a52-381250f6b26c"
+          answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2"
+          answerLabels="Yes,No"
+          style="radio"
+          answerSeparator=""
+          id="axillaryLesionPresent"
+        >
+          <controls>
+            <when value="3cd6f600-26fe-102b-80cb-0017a47871b2" thenDisplay="#axillaryLesionDetails" />
+          </controls>
+        </obs>
+      </div>
+      <div class="sub" id="axillaryLesionDetails">
+        <div class="row">
+          <span class="lbl">Axilla</span>
+          <obs
+            conceptId="d26554ce-37e1-5193-8f91-8f49a6294850"
+            answerConceptIds="8caff895-c72e-4a67-81c5-4987761a640d,cb75eff7-f3e6-4143-b9ac-fd75d786bc50"
+            answerLabels="Right axilla,Left axilla"
+            style="radio"
+            answerSeparator=""
+          />
+        </div>
+        <div class="row">
+          <span class="lbl">Feature</span>
+          <obs
+            conceptId="946ca9ed-d90d-541a-b6cf-63cf849bb144"
+            answerConceptIds="7435b9a8-6617-5d64-b0ff-fea833610ace,02de49ae-f8f1-53c6-9698-654cb6089437,c548a633-9931-496d-9ade-4b7c971e6600"
+            answerLabels="Lymph node(s),Accessory axillary breast tissue,Other"
+            style="radio"
+            answerSeparator=""
+            id="axillaryFeature"
+          >
+            <controls>
+              <when value="7435b9a8-6617-5d64-b0ff-fea833610ace" thenDisplay="#axillaryThicknessDetails" />
+              <when value="02de49ae-f8f1-53c6-9698-654cb6089437" thenDisplay="#accessoryTissueDetails" />
+              <when value="c548a633-9931-496d-9ade-4b7c971e6600" thenDisplay="#otherAxillaryDetails" />
+            </controls>
+          </obs>
+        </div>
+        <div class="row" id="axillaryThicknessDetails"><span class="lbl">Max cortical thickness</span><obs conceptId="bcdcb5a8-32ed-5945-9e51-701b52a990e3"/> mm</div>
+        <div class="row" id="accessoryTissueDetails">
+          <span class="lbl">Accessory tissue description</span>
+          <obs conceptId="8f4f1ed5-58fe-5e5a-9804-48caec3204fa" />
+        </div>
+        <div class="row" id="otherAxillaryDetails">
+          <span class="lbl">Other axillary lesion</span>
+          <obs conceptId="f14b2877-fe0c-56e7-9999-11cfb45f16d4" />
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>IV. Assessment and Management</legend>
+      <div class="row">
+        <span class="lbl">Overall assessment</span>
+        <obs
+          conceptId="601828da-1dae-58bd-ba78-327095d20db2"
+          answerConceptIds="b0f15fa8-e945-5f5a-bd79-a957e9e7c10c,6ce98b16-3c86-446a-bace-a861ca023f17,1ba08456-4df8-5b26-918e-9492f47f5841,c548a633-9931-496d-9ade-4b7c971e6600"
+          answerLabels="Normal ultrasound,Breast mass,Axillary lesion,Other"
+          style="radio"
+          answerSeparator=""
+          id="overallAssessment"
+        >
+          <controls>
+            <when value="6ce98b16-3c86-446a-bace-a861ca023f17" thenDisplay="#breastAssessmentDetails" />
+            <when value="1ba08456-4df8-5b26-918e-9492f47f5841" thenDisplay="#axillaryAssessmentDetails" />
+            <when value="c548a633-9931-496d-9ade-4b7c971e6600" thenDisplay="#otherOverallAssessmentDetails" />
+          </controls>
+        </obs>
+      </div>
+      <div class="row" id="otherOverallAssessmentDetails">
+        <span class="lbl">Other (specify)</span>
+        <obs conceptId="634ea499-f36c-5d35-8e5a-b8bbd54cd085" rows="2" cols="60" />
+      </div>
+      <div id="breastAssessmentDetails">
+        <div class="row">
+          <span class="lbl">Breast lesion assessment</span>
+          <obs
+            conceptId="aef90262-7625-4f9d-a3f2-36448b6ea023"
+            answerConceptIds="e8901564-7090-5819-ac8c-5e681e41ca15,3ccd2666-26fe-102b-80cb-0017a47871b2,56df6f5f-0c9c-5ae9-a71c-6291c738f601,d98964a0-13b5-4d81-bed9-9719e5d4354c,c1714145-0829-506e-aa41-b762365619e7,fc14c783-90ba-5594-b35c-70148ed546f8,cc1407e4-092b-54a1-be3e-991b15055ca9,19cd6cd1-3a3b-4245-b67a-aaf7b38a8b0f,46a5c797-5ad5-5a0e-bb53-675aa8275f20,d9b8d597-0347-5f59-b968-7082c4075d7d"
+            answerLabels="Intramammary LN,Abscess,Phlegmon/Mastitis,Simple cyst,Complicated cyst,Clustered microcysts,Fat-containing lesion,Skin lesion,Mixed solid/cystic,Solid mass - suspicion for malignancy"
+            style="radio"
+            answerSeparator=""
+            id="breastAssessment"
+          >
+            <controls>
+              <when value="e8901564-7090-5819-ac8c-5e681e41ca15" thenDisplay="#intramammaryAssessmentDetails" />
+              <when value="d9b8d597-0347-5f59-b968-7082c4075d7d" thenDisplay="#solidMassSuspicionDetails" />
+            </controls>
+          </obs>
+        </div>
+        <div class="row" id="intramammaryAssessmentDetails">
+          <span class="lbl">Intramammary LN</span>
+          <obs
+            conceptId="1f2a21a4-a7f4-4808-afb5-5969a289409b"
+            answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2"
+            answerLabels="Normal,Abnormal"
+            style="radio"
+            answerSeparator=""
+          />
+        </div>
+        <div class="row" id="solidMassSuspicionDetails">
+          <span class="lbl">Solid mass suspicion</span>
+          <obs
+            conceptId="96882b2a-a323-4a18-a9d6-1e8465fc5aa9"
+            answerConceptIds="6ffb0d57-10d5-4246-a9dd-4c0e2cfe4e58,dc4cdd36-d352-4337-b881-03c2739469c1,fff74ea7-3ba6-4600-ae2a-d9ac037cad56"
+            answerLabels="Low,Intermediate,High"
+            style="radio"
+            answerSeparator=""
+          />
+        </div>
+      </div>
+      <div id="axillaryAssessmentDetails" class="sub">
+        <h4>Axillary lesion assessment</h4>
+        <div class="row">
+          <span class="lbl">Axillary lesion type</span>
+          <obs
+            id="axillaryAssessmentType"
+            conceptId="8fe5108b-4fe3-5eac-be42-e0151e7f4181"
+            answerConceptIds="7435b9a8-6617-5d64-b0ff-fea833610ace,02de49ae-f8f1-53c6-9698-654cb6089437,c548a633-9931-496d-9ade-4b7c971e6600"
+            answerLabels="LN(s),Accessory axillary breast tissue,Other"
+            style="radio"
+            answerSeparator=""
+          >
+            <controls>
+              <when value="7435b9a8-6617-5d64-b0ff-fea833610ace" thenDisplay="#axillaryNodeAssessmentDetails" />
+              <when value="c548a633-9931-496d-9ade-4b7c971e6600" thenDisplay="#otherAxillaryAssessmentDetails" />
+            </controls>
+          </obs>
+        </div>
+        <div id="axillaryNodeAssessmentDetails" class="sub">
+          <div class="row">
+            <span class="lbl">Axillary LN assessment</span>
+            <obs
+              conceptId="08267024-f60c-4f81-9675-c6c36f91f984"
+              answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2,3cee7fb4-26fe-102b-80cb-0017a47871b2"
+              answerLabels="Normal,Abnormal,Other axilla lesion"
+              style="radio"
+              answerSeparator=""
+              id="axillaryNodeAssessment"
+            >
+              <controls>
+                <when value="3cd75230-26fe-102b-80cb-0017a47871b2" thenDisplay="#abnormalAxillaryDetails" />
+              </controls>
+            </obs>
+          </div>
+          <div id="abnormalAxillaryDetails">
+            <div class="row">
+              <span class="lbl">Abnormal axillary laterality</span>
+              <obs
+                conceptId="d3fc9795-44d0-457f-b717-7c4065abc4f8"
+                answerConceptIds="090a7c0e-cf00-4afb-84da-6d36c3722b1f,57ec1a86-4e5a-4402-b417-9cd14d294f79"
+                answerLabels="Unilateral,Bilateral"
+                style="radio"
+                answerSeparator=""
+                id="axillaryDistribution"
+              >
+                <controls>
+                  <when value="090a7c0e-cf00-4afb-84da-6d36c3722b1f" thenDisplay="#axillaryCountDetails" />
+                  <when value="57ec1a86-4e5a-4402-b417-9cd14d294f79" thenDisplay="#axillaryCountDetails" />
+                </controls>
+              </obs>
+            </div>
+            <div class="row" id="axillaryCountDetails">
+              <span class="lbl">Approximate number</span>
+              <obs conceptId="51e6337c-609c-5839-b34e-7220943a0b6d" />
+            </div>
+          </div>
+        </div>
+        <div class="row" id="otherAxillaryAssessmentDetails">
+          <span class="lbl">Other axillary lesion (specify)</span>
+          <obs conceptId="69746681-5346-5d89-a962-4ed46b3fd0cc" rows="2" cols="60" />
+        </div>
+      </div>
+      <div class="row">
+        <span class="lbl">BI-RADS Category</span>
+        <obs
+          conceptId="c6b76a68-645c-55b2-86ae-9598eda5d1c3"
+          answerConceptIds="af9964e1-1206-5f79-a9aa-7e5865ccd2ce,6c98f431-3817-5259-949f-e29225d7e478,a700578d-8d42-5556-8497-8234d4533f19,855c2d6e-10b4-5bb4-9809-c79ca8896f51,052c9da1-3274-5203-bbce-ccbf47575ad0,bd4e25a1-5777-557e-b3ad-171916487c1f,68329d21-ab69-5447-8aa7-e54a4850858a"
+          answerLabels="0 - Needs additional imaging,1 - Negative,2 - Benign,3 - Probably benign,4 - Suspicious,5 - Highly suggestive of malignancy,6 - Known biopsy-proven malignancy"
+          style="radio"
+          answerSeparator=""
+        />
+      </div>
+      <div id="followupRecommendations" class="checkboxGroup">
+        <div class="row opts">
+          <span class="lbl">Follow-up recommendation</span>
+          <span class="choice-options">
+            <span class="option-item checkboxOther">
+              <obs
+                conceptId="f4cb427c-5742-5d86-a018-37d5732540f3"
+                answerConceptId="265d5921-7d04-5d85-afcf-98a1f3aa2772"
+                answerLabel="Referral imaging"
+                style="checkbox"
+              />
+            </span>
+            <span class="option-item checkboxRadio">
+              <obs
+                conceptId="f4cb427c-5742-5d86-a018-37d5732540f3"
+                answerConceptId="1f3440f2-4f37-5d92-b6e1-a6df1a6480c3"
+                answerLabel="No imaging followup"
+                style="checkbox"
+              />
+            </span>
+            <span class="option-item">
+              <obs
+                conceptId="f4cb427c-5742-5d86-a018-37d5732540f3"
+                answerConceptId="3349e7c9-bd85-4e78-8e9c-5b48f86be06e"
+                answerLabel="Aspiration or drainage"
+                style="checkbox"
+              />
+            </span>
+            <span class="option-item">
+              <obs
+                conceptId="f4cb427c-5742-5d86-a018-37d5732540f3"
+                answerConceptId="f6e7547e-7a38-5c13-bb32-c96af9aab38a"
+                answerLabel="Clinical management"
+                style="checkbox"
+              />
+            </span>
+            <span class="option-item">
+              <obs
+                conceptId="f4cb427c-5742-5d86-a018-37d5732540f3"
+                answerConceptId="0a478c11-b7c1-56a1-8caf-733b4096e08a"
+                answerLabel="Breast biopsy"
+                style="checkbox"
+              />
+            </span>
+            <span class="option-item">
+              <obs
+                conceptId="f4cb427c-5742-5d86-a018-37d5732540f3"
+                answerConceptId="d6766b1f-c14b-5c06-8008-0e4c867a2cf8"
+                answerLabel="Axillary Biopsy needed"
+                style="checkbox"
+              />
+            </span>
+          </span>
+        </div>
+        <div class="row checkboxOther" id="ultrasoundFollowupMonths"><span class="lbl">US follow-up in</span><obs conceptId="ab68ead6-7cc7-5907-b4e1-d5525513fa39"/> months</div>
+        <p class="section-note">If the patient notices a suspicious change in the breast examination, return to clinic sooner.</p>
+      </div>
+      <div class="row">
+        <span class="lbl">Other Recommendations</span>
+        <obs conceptId="96fd8957-88ba-5b14-9580-03e0250af935" rows="3" cols="60" />
+      </div>
+    </fieldset>
+    <div style="text-align:center;margin:20px">
+      <submit />
+    </div>
+  </div>
+</htmlform>

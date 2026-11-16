@@ -1,0 +1,250 @@
+body {
+    max-width: unset !important;
+    width: 1500px;
+}
+
+header {
+    background: linear-gradient(135deg, #005d5d 0%, #00403f 100%);
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(0, 63, 94, 0.14);
+    min-height: 86px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    height: 86px;
+    padding-left: 28px;
+}
+
+header .logo a {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img,
+.login-header-image {
+    display: block;
+    height: 66px;
+    max-width: 340px;
+    width: auto;
+    object-fit: contain;
+    padding: 0;
+}
+
+body:has(#login-page) {
+    background: radial-gradient(circle at top right, #e4efed 0%, #eef2f1 55%, #eef2f1 100%);
+    color: #24313f;
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    width: auto;
+}
+
+body:has(#login-page) header {
+    margin: 10px 14px 0;
+}
+
+body:has(#login-page) #body-wrapper {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 48px 20px 64px;
+    display: flex;
+    justify-content: center;
+}
+
+body:has(#login-page) #content {
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#login-page {
+    max-width: 920px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Split card: a teal brand panel carries the welcome heading, the white
+   panel carries the actual form — same markup, laid out with grid. */
+#login-form {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.85fr) 1.15fr;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0, 63, 94, 0.16);
+}
+
+#login-form h1 {
+    grid-column: 1;
+    margin: 0;
+    padding: 48px 34px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.35;
+    background:
+        radial-gradient(circle at 85% 88%, rgba(100, 200, 20, 0.28) 0%, transparent 55%),
+        radial-gradient(circle at 12% 12%, rgba(255, 255, 255, 0.10) 0%, transparent 45%),
+        linear-gradient(160deg, #005d5d 0%, #003f3f 100%);
+}
+
+#login-page fieldset {
+    grid-column: 2;
+    border: 0;
+    border-radius: 0;
+    padding: 44px 40px 34px;
+}
+
+#login-page fieldset legend {
+    border: 0;
+    color: #005d5d;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin-bottom: 22px;
+    padding: 0;
+    text-transform: none;
+    width: auto;
+}
+
+#login-page fieldset legend i {
+    color: #64c814;
+    margin-right: 10px;
+}
+
+#login-form label {
+    color: #24313f;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+#login-form input[type=text],
+#login-form input[type=password] {
+    background: #f8fbfb;
+    border: 1px solid #cddbd8;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #16232f;
+    font-size: 16px;
+    height: 46px;
+    min-width: 100%;
+    padding: 9px 12px;
+}
+
+#login-form input[type=text]:focus,
+#login-form input[type=password]:focus {
+    border-color: #005d5d;
+    box-shadow: 0 0 0 3px rgba(0, 93, 93, 0.14);
+    outline: none;
+}
+
+#login-button.confirm {
+    background: #64c814;
+    border: 1px solid #55ad10;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    min-width: 124px;
+    padding: 10px 22px;
+    text-shadow: none;
+}
+
+#login-button.confirm:hover,
+#login-button.confirm:focus {
+    background: #55ad10;
+}
+
+#cant-login {
+    color: #005d5d;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+@media (max-width: 760px) {
+    header .logo {
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    header .logo img,
+    .login-header-image {
+        height: 44px;
+    }
+
+    body:has(#login-page) #body-wrapper {
+        padding: 24px 14px 42px;
+    }
+
+    #login-form {
+        grid-template-columns: 1fr;
+    }
+
+    #login-form h1 {
+        grid-column: 1;
+        padding: 32px 24px;
+        font-size: 22px;
+    }
+
+    #login-page fieldset {
+        grid-column: 1;
+        padding: 28px 22px 24px;
+    }
+}
+.patient-header.dead .death-header {
+    background: red;
+}
+form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+  min-width: 80%;
+  color: #003F5E;
+  display: block;
+  padding: 5px 10px;
+  margin: 0;
+  margin-top: 5px;
+  background-color: #FFF;
+  border: 1px solid #DDD;
+}
+span.value {
+    color: blue;
+}
+
+label {
+    vertical-align: top;
+}
+
+.dashboard .info-body h3 {
+    width: 160px;
+}
+
+#encounterDate input, #encounterDate select {
+    min-width: unset;
+    display: unset;
+}
+
+#encounterDate .hfe-hours, #encounterDate > .hfe-minutes, #encounterDate > .hfe-seconds {
+    min-width: unset;
+}
+
+.encounters-during-visit span.value {
+    color: #363463;
+}
+
+#visits-list li.selected {
+    background: #5b57a6;
+    color: white;
+    font-weight: bold;
+}
+
+#national-ids-questions > h3 {
+    font-weight: bold;
+}
+
+.padded-icon {
+    padding: 0.2em;
+}

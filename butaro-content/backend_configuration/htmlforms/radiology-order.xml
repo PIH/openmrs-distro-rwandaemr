@@ -1,0 +1,536 @@
+<htmlform 
+    htmlformUuid="c5a6b9cb-4ba1-11f0-a5b6-d21e7ba45d33"
+    formUuid="ce1f0acc-4ba1-11f0-a5b6-d21e7ba45d33"
+    formName="Radiology Order"
+    formDescription="Radiology Order"
+    formVersion="1.0" 
+    formEncounterType="02965343-bbe7-4c3c-83c5-c3d084e715b7"
+    formPublished="false" 
+    formRetired="false"
+>
+
+    <script type="text/javascript">
+        jq(document).ready(function() {
+            // Collapse all sections on load
+            jq(".collapsible-content").hide();
+
+            // Toggle content when header is tapped
+            jq(".sectionHeader").click(function() {
+                jq(this).toggleClass("expanded");
+                jq(this).next(".collapsible-content").slideToggle("fast");
+            });
+
+            var HISTORY_SELECTOR = '.order-field-widget.order-clinicalHistory textarea';
+            var MAX_HISTORY_LENGTH = 512;
+            // From this many characters left, the counter warns that the limit is close
+            var HISTORY_WARNING_LEFT = 50;
+
+            // Clinical history shared with the other tests while a "same clinical history" box is ticked, else null
+            var sharedHistory = null;
+
+            // The order widget clones a hidden template (id ending in "_template") for each test that is added
+            var isTemplate = function(element) {
+                var orderForm = jq(element).closest('[id*="_template"]');
+                return orderForm.length > 0 &amp;&amp; /_template$/.test(orderForm.attr('id'));
+            };
+
+            var getOrderForm = function(element) {
+                return jq(element).closest('[id*="_template"]');
+            };
+
+            var getHistoryFields = function() {
+                return jq(HISTORY_SELECTOR).filter(function() { return !isTemplate(this); });
+            };
+
+            // Fill the shared history into the other tests, unless the doctor already typed something different there
+            var applySharedHistory = function(previousValue) {
+                if (sharedHistory === null) {
+                    return;
+                }
+                getHistoryFields().each(function() {
+                    var field = jq(this);
+                    var current = jq.trim(field.val());
+                    if (current === '' || (previousValue !== undefined &amp;&amp; current === jq.trim(previousValue))) {
+                        field.val(sharedHistory);
+                    }
+                });
+            };
+
+            // The nearest other test with a clinical history: the closest one above, otherwise the closest one below
+            var findHistoryToCopy = function(field) {
+                var fields = getHistoryFields().toArray();
+                var index = fields.indexOf(field[0]);
+                for (var i = index - 1; i >= 0; i--) {
+                    if (jq.trim(jq(fields[i]).val()) !== '') {
+                        return jq(fields[i]);
+                    }
+                }
+                for (var j = index + 1; j &lt; fields.length; j++) {
+                    if (jq.trim(jq(fields[j]).val()) !== '') {
+                        return jq(fields[j]);
+                    }
+                }
+                return null;
+            };
+
+            // Text is only changed when it differs, as every change to the page wakes the observer below, which would
+            // otherwise run again without end
+            var setText = function(element, text) {
+                if (element.text() !== text) {
+                    element.text(text);
+                }
+            };
+
+            // Show how many characters each clinical history has used, and warn as the limit gets close
+            var updateHistoryCounters = function() {
+                getHistoryFields().each(function() {
+                    var field = jq(this);
+                    var counter = field.data('historyCounter');
+                    if (counter) {
+                        var length = field.val().length;
+                        var left = MAX_HISTORY_LENGTH - length;
+                        var hint = 'Up to ' + MAX_HISTORY_LENGTH + ' characters';
+                        if (left &lt;= 0) {
+                            hint = 'Limit reached: no more text can be added';
+                        }
+                        else if (left &lt;= HISTORY_WARNING_LEFT) {
+                            hint = left + (left === 1 ? ' character' : ' characters') + ' left';
+                        }
+                        setText(counter.find('.history-counter-hint'), hint);
+                        setText(counter.find('.history-counter-count'), length + ' / ' + MAX_HISTORY_LENGTH);
+                        counter.toggleClass('history-counter-near', left &gt; 0 &amp;&amp; left &lt;= HISTORY_WARNING_LEFT);
+                        counter.toggleClass('history-counter-full', left &lt;= 0);
+                        field.toggleClass('history-field-full', left &lt;= 0);
+                    }
+                });
+            };
+
+            // Clinical history is kept on one line, and never longer than the limit, even if the browser lets more through:
+            // line breaks in pasted text become spaces
+            var cleanHistoryText = function(textarea) {
+                var value = textarea.value;
+                var cleaned = value.replace(/[\r\n]+/g, ' ');
+                if (cleaned.length &gt; MAX_HISTORY_LENGTH) {
+                    cleaned = cleaned.substring(0, MAX_HISTORY_LENGTH);
+                }
+                if (cleaned !== value) {
+                    var caret = Math.min(textarea.selectionStart || cleaned.length, cleaned.length);
+                    textarea.value = cleaned;
+                    textarea.setSelectionRange(caret, caret);
+                }
+            };
+
+            var addSameHistoryCheckbox = function(textarea) {
+                var field = jq(textarea);
+                if (field.data('sameHistoryReady')) {
+                    return false;
+                }
+                field.data('sameHistoryReady', true);
+
+                // The browser stops typing and pasting beyond the limit
+                field.attr('maxlength', MAX_HISTORY_LENGTH).addClass('history-field');
+                var counter = jq('&lt;div class="history-counter"&gt;&lt;span class="history-counter-hint"&gt;&lt;/span&gt;'
+                    + '&lt;span class="history-counter-count"&gt;&lt;/span&gt;&lt;/div&gt;');
+                field.after(counter);
+                field.data('historyCounter', counter);
+
+                var checkbox = jq('&lt;input type="checkbox" class="same-history-checkbox"/&gt;');
+                var wrapper = jq('&lt;label class="same-history-option"&gt;&lt;/label&gt;')
+                    .append(checkbox)
+                    .append(' Similar clinical history');
+                counter.after(wrapper);
+
+                checkbox.change(function() {
+                    if (this.checked) {
+                        if (jq.trim(field.val()) === '') {
+                            // Empty test: copy the history from another test, and follow it while ticked
+                            var source = findHistoryToCopy(field);
+                            if (source === null) {
+                                alert('Enter the clinical history in one of the tests first.');
+                                this.checked = false;
+                                return;
+                            }
+                            field.val(source.val());
+                            field.data('copiedFrom', source);
+                            field.data('copiedText', source.val());
+                        }
+                        else {
+                            // Test with a history: share it with all the other tests that are still empty
+                            jq('.same-history-checkbox').not(this).filter(function() {
+                                return !jq(this).closest('.order-field-widget').find('textarea').data('copiedFrom');
+                            }).prop('checked', false);
+                            sharedHistory = field.val();
+                            applySharedHistory();
+                        }
+                    }
+                    else {
+                        if (field.data('copiedFrom')) {
+                            // Remove the copied text, unless the doctor has changed it since
+                            if (field.val() === field.data('copiedText')) {
+                                field.val('');
+                            }
+                            field.removeData('copiedFrom');
+                            field.removeData('copiedText');
+                        }
+                        else {
+                            sharedHistory = null;
+                        }
+                    }
+                    updateHistoryCounters();
+                });
+
+                // The Enter key does not start a new line in the clinical history
+                field.on('keydown', function(e) {
+                    if (e.key === 'Enter' || e.keyCode === 13) {
+                        e.preventDefault();
+                    }
+                });
+
+                field.on('input', function() {
+                    cleanHistoryText(this);
+                    // Keep the other tests in step while the source text is edited
+                    if (checkbox.is(':checked') &amp;&amp; !field.data('copiedFrom')) {
+                        var previous = sharedHistory;
+                        sharedHistory = field.val();
+                        applySharedHistory(previous);
+                    }
+                    // Update tests that copied from this one and have not been changed since
+                    getHistoryFields().each(function() {
+                        var other = jq(this);
+                        var copiedFrom = other.data('copiedFrom');
+                        if (copiedFrom &amp;&amp; copiedFrom[0] === field[0] &amp;&amp; other.val() === other.data('copiedText')) {
+                            other.val(field.val());
+                            other.data('copiedText', field.val());
+                        }
+                    });
+                    field.closest('.order-field-widget').find('.clinical-history-error').remove();
+                    updateHistoryCounters();
+                });
+
+                // A test added after a history was shared starts with that history
+                if (sharedHistory !== null &amp;&amp; jq.trim(field.val()) === '') {
+                    field.val(sharedHistory);
+                }
+                return true;
+            };
+
+            // Only does something when a test was added, so changes the script itself makes to the page are ignored
+            var decorateHistoryFields = function() {
+                var added = false;
+                getHistoryFields().each(function() {
+                    added = addSameHistoryCheckbox(this) || added;
+                });
+                if (added) {
+                    updateHistoryCounters();
+                }
+            };
+
+            decorateHistoryFields();
+            // Tests are added to the page by the order widget when the doctor clicks to add one
+            if (window.MutationObserver) {
+                new MutationObserver(decorateHistoryFields).observe(document.body, { childList: true, subtree: true });
+            }
+
+            // Clinical history is required for every test being ordered, and cannot be longer than the limit
+            var validateClinicalHistory = function() {
+                var missing = [];
+                var tooLong = false;
+                getHistoryFields().each(function() {
+                    var field = jq(this);
+                    var orderForm = getOrderForm(field);
+                    var concept = orderForm.find('.order-field-widget.order-concept select').val();
+                    var action = orderForm.find('.order-field.order-action select').val();
+                    var widget = field.closest('.order-field-widget');
+                    widget.find('.clinical-history-error').remove();
+                    if (concept &amp;&amp; action !== 'DISCONTINUE' &amp;&amp; jq.trim(field.val()) === '') {
+                        widget.append('&lt;span class="error clinical-history-error"&gt;Clinical history is required&lt;/span&gt;');
+                        missing.push(field);
+                    }
+                    else if (concept &amp;&amp; action !== 'DISCONTINUE' &amp;&amp; field.val().length &gt; MAX_HISTORY_LENGTH) {
+                        widget.append('&lt;span class="error clinical-history-error"&gt;Clinical history cannot be longer than '
+                            + MAX_HISTORY_LENGTH + ' characters&lt;/span&gt;');
+                        missing.push(field);
+                        tooLong = true;
+                    }
+                });
+                if (missing.length > 0) {
+                    // Open the section holding the first missing field so the doctor can see it
+                    var content = missing[0].closest('.collapsible-content');
+                    if (!content.is(':visible')) {
+                        content.prev('.sectionHeader').addClass('expanded');
+                        content.show();
+                    }
+                    missing[0].focus();
+                    alert(tooLong ? 'Clinical history must be filled in for every test, and be no longer than '
+                        + MAX_HISTORY_LENGTH + ' characters.' : 'Clinical history is required for every test ordered.');
+                    return false;
+                }
+                return true;
+            };
+
+            if (typeof htmlForm !== 'undefined' &amp;&amp; htmlForm.getBeforeSubmit) {
+                htmlForm.getBeforeSubmit().push(validateClinicalHistory);
+            }
+            else if (typeof beforeSubmit !== 'undefined') {
+                beforeSubmit.push(validateClinicalHistory);
+            }
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+            color: #2e2e2e;
+            font-size: 1.05em;
+        }
+
+        .section {
+            border: 1px solid #b4d9e5;
+            border-radius: 8px;
+            margin-bottom: 1.5em;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        .sectionHeader {
+            background-color: #00473f;
+            color: white;
+            padding: 14px 16px;
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+        }
+
+        .sectionHeader.expanded {
+            background-color: #031057;
+        }
+
+        .collapsible-content {
+            padding: 16px;
+            background-color: #f4f9fc;
+            border-top: 1px solid #b4d9e5;
+        }
+
+        label {
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            font-size: 1.05em;
+            padding: 10px;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* The full-width input rule above must not apply to radio buttons and checkboxes */
+        .collapsible-content input[type="radio"],
+        .collapsible-content input[type="checkbox"] {
+            width: auto;
+            margin: 0 6px 0 0;
+            padding: 0;
+            vertical-align: middle;
+        }
+
+        /* Urgency options on one line: (o) Routine  (o) STAT  (o) On Scheduled Date */
+        .order-field-radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 22px;
+            margin: 5px 0 16px;
+        }
+
+        .order-field-radio-group br {
+            display: none;
+        }
+
+        .order-field-radio-group label {
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .same-history-option {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            margin: 0 0 16px;
+            cursor: pointer;
+        }
+
+        /* Make sure the theme's checkbox styling does not hide this box */
+        .same-history-option input.same-history-checkbox {
+            -webkit-appearance: checkbox;
+            appearance: auto;
+            display: inline-block;
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            width: 18px;
+            height: 18px;
+            min-width: 18px;
+            margin: 0 8px 0 0;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        /* Clinical history box: the counter sits just below it */
+        .collapsible-content textarea.history-field {
+            margin-bottom: 6px;
+        }
+
+        .collapsible-content textarea.history-field.history-field-full {
+            border-color: #e0a3a3;
+        }
+
+        .history-counter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 10px;
+            font-size: 0.85em;
+            color: #78909c;
+        }
+
+        .history-counter-count {
+            padding: 2px 10px;
+            border-radius: 12px;
+            background-color: #eceff1;
+            color: #546e7a;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .history-counter-near .history-counter-hint {
+            color: #8a6d3b;
+        }
+
+        .history-counter-near .history-counter-count {
+            background-color: #fcf3d9;
+            color: #8a6d3b;
+        }
+
+        .history-counter-full .history-counter-hint {
+            color: #9f1d1d;
+            font-weight: 600;
+        }
+
+        .history-counter-full .history-counter-count {
+            background-color: #f8d7da;
+            color: #9f1d1d;
+        }
+
+        .clinical-history-error {
+            display: block;
+            margin-top: -10px;
+            margin-bottom: 12px;
+        }
+
+        .orderwidget-autocomplete-textbox {
+            min-width: 60%;
+        }
+
+        .form-controls {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .form-controls input[type="submit"] {
+            background-color: #007e99;
+            color: white;
+            font-weight: bold;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+        }
+
+        .form-controls input[type="submit"]:hover {
+            background-color: #005f70;
+        }
+    </style>
+
+    <!-- Encounter Info -->
+    <section class="section">
+        <div class="sectionHeader">Encounter Details</div>
+        <div class="collapsible-content">
+            <label>Date:</label>
+            <encounterDate default="today"/>
+            <br/>
+
+            <label>Location:</label>
+            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+            <br/>
+
+            <label>Provider:</label>
+            <encounterProvider default="currentUser" />
+        </div>
+    </section>
+
+    <!-- Radiology Orders -->
+    <repeat>
+        <template>
+            <section class="section">
+                <div class="sectionHeader">{headerLabel}</div>
+                <div class="collapsible-content">
+                    <order orderType="5a3a8d2e-97c3-4797-a6a8-5417e6e699ec">
+                        <orderTemplate>
+
+                            <!-- Labels are set on each orderProperty, as the order widget renders its own labels
+                                 (without one, the study field is labelled "Drug") -->
+                            <orderProperty name="concept" label="Type of Study (type to search)" style="autocomplete">
+                                <optionGroup concept="{orderableSet}" sortAlphabetically="true"/>
+                            </orderProperty>
+
+                            <orderProperty name="urgency" label="Urgency" value="ROUTINE">
+                                <option value="ROUTINE" label="Routine" />
+                                <option value="STAT" label="EMERGENCY"/>
+                                <option value="ON_SCHEDULED_DATE" label="On Scheduled Date"/>
+                            </orderProperty>
+
+                            <orderProperty name="scheduledDate" label="Scheduled Date"/>
+
+                            <!-- Required: checked before submit by the script at the top of the form -->
+                            <orderProperty name="clinicalHistory" label="Clinical History *" textArea="true" textAreaRows="5" textAreaColumns="40"/>
+
+                            <orderProperty name="orderReasonNonCoded" label="Additional information (non-coded)" textArea="true" textAreaRows="5" textAreaColumns="40"/>
+
+                            <!-- Hidden metadata -->
+                            <div style="display:none;">
+                                <orderProperty name="action" label="Action" value="NEW">
+                                    <option value="NEW" label="New Order"/>
+                                </orderProperty>
+                                <orderProperty name="previousOrder"/>
+                                <orderProperty name="careSetting" value="OUTPATIENT"/>
+                            </div>
+
+                        </orderTemplate>
+                    </order>
+                </div>
+            </section>
+        </template>
+
+        <!-- Orderable Sets -->
+        <render headerLabel="X-Ray Orders" orderableSet="97fc3080-f604-5f7f-938b-444e0e4e779d" />
+        <render headerLabel="CT Scan Orders" orderableSet="51c5805d-00ce-52e1-8ac4-b71ac26f801e" />
+        <render headerLabel="Ultrasound Orders" orderableSet="41b5d062-d359-569a-9561-b6048e6077c7" />
+        <render headerLabel="Mammography Orders" orderableSet="6b1b2cff-8ccb-4452-a13e-eb009f6c6c7f" />
+
+    </repeat>
+
+    <!-- Submit -->
+    <div class="form-controls">
+        <submit/>
+    </div>
+
+
+</htmlform>

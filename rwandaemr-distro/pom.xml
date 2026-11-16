@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.pih.openmrs</groupId>
         <artifactId>rwandaemr</artifactId>
-        <version>4.0.0-SNAPSHOT</version>
+        <version>4.1.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>rwandaemr-distro</artifactId>
@@ -346,6 +346,18 @@
             <groupId>org.openmrs.module</groupId>
             <artifactId>sync-omod</artifactId>
             <version>${syncVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>rbcmessaging-omod</artifactId>
+            <version>${rbcmessagingVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>transferapp-omod</artifactId>
+            <version>${transferappVersion}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

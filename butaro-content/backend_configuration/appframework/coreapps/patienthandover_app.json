@@ -1,0 +1,18 @@
+[
+  {
+    "id": "patienthandover.app",
+    "description": "Patient Handover App",
+    "extensions": [
+      {
+        "id": "patienthandover.homepageLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "Patient Handover",
+        "url": "patienthandover/handoverDashboard.page",
+        "icon": "icon-exchange",
+        "requiredPrivilege": "Patienthandover Privilege",
+        "order": 5
+      }
+    ]
+  }
+]
