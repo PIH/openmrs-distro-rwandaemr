@@ -19,8 +19,6 @@
         <radiologyappVersion>1.8.0</radiologyappVersion>
         <!-- Not published: build from source. muzimacore: muzima/openmrs-module-muzimacore-enterprise master@b8910657 -->
         <muzimacoreVersion>2.6.1-SNAPSHOT</muzimacoreVersion>
-        <!-- Published from rwanda-emr/openmrs-module-patienthandover and openmrs-module-rwandapharmacymanagement main
-             by GitHub Actions. Production runs patienthandover 1.1.18, built from uncommitted code. -->
         <patienthandoverVersion>1.5.3-SNAPSHOT</patienthandoverVersion>
         <rwandapharmacymanagementVersion>1.0.7-SNAPSHOT</rwandapharmacymanagementVersion>
     </properties>
