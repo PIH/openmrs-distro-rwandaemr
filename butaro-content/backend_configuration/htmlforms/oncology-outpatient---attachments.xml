@@ -328,13 +328,13 @@
 	<!-- ===== ATTACHMENTS SECTION ===== -->
 	<div class="section-card">
 		<div class="section-header">
-			<span>📎</span>
+			<span>&#x1F4CE;</span>
 			Document Attachments
 		</div>
 		<div class="section-content">
 			<div class="attachments-grid">
 				<div class="attachment-item">
-					<div class="attachment-icon">📄</div>
+					<div class="attachment-icon">&#x1F4C4;</div>
 					<div class="attachment-label">Attachment 1</div>
 					<div class="attachment-field">
 						<obs conceptId="$@Non-Image_attachment@" />
@@ -342,7 +342,7 @@
 				</div>
 
 				<div class="attachment-item">
-					<div class="attachment-icon">📄</div>
+					<div class="attachment-icon">&#x1F4C4;</div>
 					<div class="attachment-label">Attachment 2</div>
 					<div class="attachment-field">
 						<obs conceptId="$@Non-Image_attachment@" />
@@ -350,7 +350,7 @@
 				</div>
 
 				<div class="attachment-item">
-					<div class="attachment-icon">📄</div>
+					<div class="attachment-icon">&#x1F4C4;</div>
 					<div class="attachment-label">Attachment 3</div>
 					<div class="attachment-field">
 						<obs conceptId="$@Non-Image_attachment@" />
@@ -358,7 +358,7 @@
 				</div>
 
 				<div class="attachment-item">
-					<div class="attachment-icon">📄</div>
+					<div class="attachment-icon">&#x1F4C4;</div>
 					<div class="attachment-label">Attachment 4</div>
 					<div class="attachment-field">
 						<obs conceptId="$@Non-Image_attachment@" />

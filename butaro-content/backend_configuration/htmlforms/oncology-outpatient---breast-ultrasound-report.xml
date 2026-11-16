@@ -653,7 +653,7 @@
     <!-- ===== PATIENT HISTORY AND EXAM ===== -->
     <div class="section-card">
         <div class="section-header">
-            <span>📋</span>
+            <span>&#x1F4CB;</span>
             Patient History and Exam
         </div>
         <div class="section-content">
@@ -740,7 +740,7 @@
     <!-- ===== ULTRASOUND FINDINGS ===== -->
     <div class="section-card">
         <div class="section-header">
-            <span>🔬</span>
+            <span>&#x1F52C;</span>
             Ultrasound Findings
         </div>
         <div class="section-content">
@@ -917,7 +917,7 @@
     <!-- ===== ASSESSMENT ===== -->
     <div class="section-card">
         <div class="section-header">
-            <span>📊</span>
+            <span>&#x1F4CA;</span>
             Assessment
         </div>
         <div class="section-content">
@@ -999,7 +999,7 @@
     <!-- ===== FOLLOW-UP RECOMMENDATION ===== -->
     <div class="section-card">
         <div class="section-header">
-            <span>📅</span>
+            <span>&#x1F4C5;</span>
             Follow-up Recommendation
         </div>
         <div class="section-content">
@@ -1038,7 +1038,7 @@
     <!-- ===== PATHOLOGIC DIAGNOSIS ===== -->
     <div class="section-card">
         <div class="section-header">
-            <span>🔬</span>
+            <span>&#x1F52C;</span>
             For Masses Biopsied - Pathologic Diagnosis
         </div>
         <div class="section-content">
