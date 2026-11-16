@@ -1,0 +1,15 @@
+UUID,Void/Retire,Name,Description
+b8bbf83e-645f-451f-8efe-a0db56f09676,,Login Location,"When a user logs in and chooses a session location, they may only choose one with this tag"
+0967d73d-f3c9-492b-abed-356478610a94,,Visit Location,Visits are only allowed to happen at locations tagged with this location tag or at locations that descend from a location tagged with this tag.
+1c783dca-fd54-4ea8-a0fc-2875374e9cb6,,Admission Location,Patients may only be admitted to inpatient care in a location with this tag
+8d4626ca-7abd-42ad-be48-56767bbcf272,,Transfer Location,Patients may only be transferred (within the hospital) to a location with this tag
+972fb98b-e8dc-4081-9444-f8434270b8c6,,Billing Location,Patients may only have billing information to be recorded
+b0700e23-2f07-412e-88b1-52b234543a71,,Laboratory Location,Patients may only be ordered lab tests and need results
+0e5d779d-a7c6-4256-9fee-6986541e4e4b,,Outpatient Location,Patients may only be visiting OPD services
+8b085223-3e70-4395-a033-739c8145ca50,,Pharmacy Location,Patients may only be described drugs and need to be dispensed
+3d7a4731-4bb8-431a-90ee-d803565f92d6,,Admin Location,All related tasks related to administration of the system
+860a9b7d-939d-4ce7-b9a7-71ea273a2cd0,,ID Location,This tag allows users to have access on HIV Patients
+911c24a7-570c-4e94-ab66-afed2b8bf06c,,Inpatient Location,For all inpatient services
+ec28d294-23a7-4064-adf2-d3a2629be653,,Maternity Location,Maternity Location
+e378837a-12e9-4fb6-84b2-218bbbaef847,,Neonatology Location,Neonatology Location
+9c0ad80a-cec0-49ab-a2f8-962fac841c0b,,Oncology Location,Oncology Location

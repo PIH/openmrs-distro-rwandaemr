@@ -1,0 +1,27 @@
+key: "lab_results_reports"
+uuid: "2407d840-9b06-11f1-b845-64497d05a69a"
+name: "Lab Results Report"
+description: "A report that contains data needed in laboratory service"
+parameters:
+  - key: "startDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.startDate"
+  - key: "endDate"
+    type: "java.util.Date"
+    label: "reporting.parameter.endDate"
+  - key: "concept"
+    type: "org.openmrs.Concept"
+    label: "reporting.parameter.concept"
+    required: false
+
+datasets:
+  - key: "lab_results_reports"
+    type: "sql"
+    config: "sql/lab_results_reports.sql"
+designs:
+  - type: "csv"
+    properties:
+      "filenameBase": "usersdateexport.{{ formatDate request.evaluateStartDatetime \"yyyyMMdd\" }}.{{ formatDate request.evaluateStartDatetime \"HHmm\" }}"
+      "characterEncoding": "ISO-8859-1"
+      "blacklistRegex": "[^\\p{InBasicLatin}\\p{L}]"
+      "dateFormat": "dd-MMM-yyyy HH:mm:ss"

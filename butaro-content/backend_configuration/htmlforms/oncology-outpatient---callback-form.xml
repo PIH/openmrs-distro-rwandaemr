@@ -1,26 +1,35 @@
-<htmlform 
-	htmlformUuid="1b9d5ee6-25a3-452d-80cd-ba1cb35a01f2" 
-	formUuid="d637e79b-774a-457e-9cfb-92912784b81b" 
-	formName="Oncology Outpatient - Callback form" 
-	formDescription="Oncology - Outpatient Callback forms" 
-	formVersion="1.0" 
-	formEncounterType="b1c2d207-7221-4c23-b580-6c5de5385847" 
-	formPublished="true" 
-	formRetired="false"
-> <!--
-           Oncology - Inpatient progress note -Breast DST
-            Pilot_4July_v1.3NT
-                Author:
-                Builder: Byiringiro Joshua
-                started on July 27, 2017
-        -->
+<htmlform
+        htmlformUuid="1b9d5ee6-25a3-452d-80cd-ba1cb35a01f2"
+        formUuid="d637e79b-774a-457e-9cfb-92912784b81b"
+        formName="Oncology Outpatient - Callback Form"
+        formDescription="Oncology Outpatient Callback and Follow-up Form"
+        formVersion="2.0"
+        formEncounterType="b1c2d207-7221-4c23-b580-6c5de5385847"
+        formPublished="true"
+        formRetired="false"
+>
+    <!--
+        Oncology - Outpatient Callback Form
+        Original Author: Byiringiro Joshua
+        Original Date: July 27, 2017
+        Reformatted: 2025
+    -->
 
     <macros>
+        headerColor = #009d8e
+        fontOnHeaderColor = white
+        cardBackground = #f8fffe
+        borderColor = #e0e0e0
+        labelColor = #555555
+
+        <!-- Reason for Calling -->
         @REASON_OF_CALLING_PATIENT@ = 19c95455-a799-45ae-926d-decda05113b4
         @PATIENT__MISSED_VISIT@ = f51c7db2-8e41-4cf7-857a-41d68c484443
         @COMMUNICATE_RESULTS@ = 51a0a235-1a74-4759-b6d7-2b50400e778e
         @SCHEDULE_SPECIALIST_CONSULT@ = bc0fbe21-db22-499b-a92c-9276d148478b
         @RDV_Changed@ = 5a2cd0f1-aeb1-4f9d-ae56-1023a336acfb
+
+        <!-- Reason for Missed Visit -->
         @Reason_for_missed_visit@ = fc38d672-be55-4b92-b1dd-4e9be7ce39c4
         @Unable_to_afford_transport@ = e064aebc-196b-402c-bbfb-f3b33cbb4b18
         @Illness@ = c204ee42-d512-4539-b838-2e6596bdbe7e
@@ -40,313 +49,648 @@
         @Severe_weather_or_rainy_season@ = 570bff34-1d39-4a1d-955e-db4bb9afc4b5
         @OTHER_NON-CODED@ = 3cee7fb4-26fe-102b-80cb-0017a47871b2
         @Other_reason_for_missing_visit@ = 5bdc0594-ebf3-4377-97d8-f3ea3b1e491f
+
+        <!-- Result of Call -->
         @Result_of_Call@ = f89b3523-c37a-4d50-ace7-cc50f2292d77
-        @RDV_Changed@ = 5a2cd0f1-aeb1-4f9d-ae56-1023a336acfb
         @Patient_Not_Reached@ = 9266216f-822e-40d7-84e0-067ab78ecd18
         @PATIENT_REFUSED@ = efab937b-853e-47da-b97e-220f1bdff97d
         @PATIENT_DIED@ = 3cdd446a-26fe-102b-80cb-0017a47871b2
         @Other_result_of_call@ = 83653e1f-1dd3-49f6-a28f-3627a9408466
+
+        <!-- Outpatient RDV -->
         @Scheduled_Oncology_Outpatient_Clinic_Visit_date@ = a7aa7d20-3520-4d8a-9324-f7b8f6a3b109
         @Next_Outpatient_RDV@ = 29c6018b-1b9e-4e57-bd9d-b8ea0fc53cbe
         @FOLLOW-UP@ = 3ce451d8-26fe-102b-80cb-0017a47871b2
         @BIOPSY@ = db64df50-1db1-4f80-abe5-b0307d7d4f9e
-        @COMMUNICATE_RESULTS@ = 51a0a235-1a74-4759-b6d7-2b50400e778e
         @Oncology_Special_Consultation_Visit@ = 7ec61380-3cde-4b7a-a322-4678a0b460c4
         @Chemotherapy_infusion_center_visit_scheduled@ = 9e597e90-b8c9-4784-82ff-2cc2420c62b7
         @CLINICIAN_HOME_VISITS@ = 262dba46-b8b0-4dd4-9edc-9bac0a7932cc
+
+        <!-- Inpatient RDV -->
         @Next_inpatient_RDV@ = 30fc803a-d035-4d7e-86c2-ad98ca36eb5f
         @Chemotherapy_in_ward@ = 14d80a97-ad8b-44b8-9301-214c3aa7e8a7
         @Referred_to_emergency@ = 522c98f8-fa5e-472c-86d6-e8e84d8da1a6
         @Other_next_inpatient_visit_reasons@ = af6a93bc-c148-4ee4-91bc-048c4d6aee5a
         @Scheduled_Inpatient_visit_Date@ = 11baced5-4a9b-4374-bbcd-475a3ac6dae8
-
     </macros>
 
-
     <style>
-        th.tableHeader {
-        background-color: #009d8e;
-        color: #FFFFFF;
-        font-size: 16px;
-        text-align: left;
+        /* ===== Base Reset and Typography ===== */
+        .htmlform {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #ffffff;
         }
 
-        ul {
-        list-style-type: square;
-        font-family: Verdana, Arial, Helvetica, sans-serif;
-        font-size: 11px;
+        /* ===== Header Section ===== */
+        .form-header {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: $fontOnHeaderColor;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        tr.spaceUnder>td {
-        padding-bottom: 1em;
+        .form-header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
         }
 
-        td {
-        font-size: 15px;
+        .form-header-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
         }
 
-        #container {
-        
-        margin: auto;
-        
+        .form-header-logo {
+        width: 60px;
         height: auto;
         }
 
-        @media print {
-        #container {
-        display: block;
+        .form-header-title h1 {
+        margin: 0 0 4px 0;
+        font-size: 20px;
+        font-weight: 600;
         }
-        #printArea {
-        display: none;
+
+        .form-header-title h2 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+        opacity: 0.9;
         }
-        #userBar {
-        display: none;
+
+        .form-header-right {
+        text-align: right;
         }
-        #banner {
-        display: none;
+
+        .form-header-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        display: inline-block;
         }
-        #footer {
-        display: none;
+
+        /* ===== Patient Info Bar ===== */
+        .patient-info-bar {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
         }
-        #htmlFormEntryBanner {
-        display: none;
+
+        .patient-info-item {
+        display: flex;
+        flex-direction: column;
         }
-        .error {
-        display: none;
+
+        .patient-info-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: $labelColor;
+        margin-bottom: 4px;
         }
-        .lables {
-        width: 200px;
+
+        .patient-info-value {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
         }
-        table {
+
+        /* ===== Encounter Info Bar ===== */
+        .encounter-info-bar {
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        }
+
+        .form-field {
         width: 100%;
         }
-        table,td,th {
-        border: 1px solid black;
-        border-collapse: collapse;
+
+        /* ===== Section Cards ===== */
+        .section-card {
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
-        th {
-        text-align: left;
-        background-color: #D9D9D9;
-        font-size: 10px;
+
+        .section-header {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: $fontOnHeaderColor;
+        padding: 14px 20px;
+        font-size: 15px;
+        font-weight: 600;
         }
-        td {
-        font-size: 10px;
+
+        .section-content {
+        padding: 20px;
         }
-        .value {
-        font-size: 20px;
-        font-weight: bold;
-        font-style: italic;
+
+        /* ===== Form Layout ===== */
+        .two-column {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
         }
-        .selectedCancerStagingKeys {
-        page-break-before: always;
-        border: 0px;
+
+        .three-column {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
         }
-        table.selectedCancerStagingKeys td {
-        border: 0px;
-        }
-        #signature {
-        border: none;
-        }
-        #signature td {
-        border: none;
+
+        @media (max-width: 768px) {
+        .two-column,
+        .three-column {
+        grid-template-columns: 1fr;
         }
         }
 
-        @media screen {
-        table {
-        border: 1px solid #DFDFDF;
-        width: 100%;
-        border-color: #009d8e;
+        /* ===== Checkbox Groups ===== */
+        .checkbox-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         }
-        #container {
+
+        .checkbox-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 10px 12px;
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 6px;
+        transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .checkbox-item:hover {
+        background: #e8f5f3;
+        border-color: $headerColor;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+        margin-top: 2px;
+        flex-shrink: 0;
+        }
+
+        .checkbox-label {
+        font-size: 13px;
+        color: #333;
+        line-height: 1.4;
+        }
+
+        /* ===== Reason Cards ===== */
+        .reason-card {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px;
+        height: 100%;
+        }
+
+        .reason-card-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: $headerColor;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid $headerColor;
+        }
+
+        .reason-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 13px;
+        }
+
+        .reason-item:last-child {
+        border-bottom: none;
+        }
+
+        .reason-specify {
+        margin-top: 8px;
+        padding-left: 24px;
+        }
+
+        .reason-specify input {
+        width: 100%;
+        padding: 6px 10px;
+        border: 1px solid #d1d5db;
+        border-radius: 4px;
+        font-size: 13px;
+        }
+
+        /* ===== Outcome Cards ===== */
+        .outcome-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        }
+
+        .outcome-card {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 10px;
+        overflow: hidden;
+        }
+
+        .outcome-card-header {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: white;
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 600;
+        }
+
+        .outcome-card-content {
+        padding: 16px;
+        }
+
+        .outcome-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 8px 0;
+        font-size: 13px;
+        }
+
+        .outcome-date {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px;
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: 6px;
+        margin-bottom: 12px;
+        }
+
+        .outcome-date-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: $labelColor;
+        text-transform: uppercase;
+        }
+
+        /* ===== Submit Button ===== */
+        .submit-section {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid $borderColor;
+        text-align: center;
+        }
+
+        .submit-section input[type="submit"] {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: white;
+        border: none;
+        padding: 14px 48px;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-section input[type="submit"]:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 157, 142, 0.3);
+        }
+
+        .submit-section input[type="submit"]:active {
+        transform: translateY(0);
+        }
+
+        /* ===== Voided Section ===== */
+        .voided-section {
+        margin-top: 16px;
+        text-align: center;
+        }
+
+        /* ===== Utility ===== */
+        .value {
+        font-weight: 500;
+        }
+
+        .divider {
+        height: 1px;
+        background: $borderColor;
+        margin: 16px 0;
+        }
+
+        .form-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 10px;
         display: block;
         }
-        #printArea {
+
+        /* ===== Print Styles ===== */
+        @media print {
+        .form-header,
+        .section-header,
+        .outcome-card-header {
+        background: #009d8e !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        }
+
+        .submit-section {
         display: none;
         }
         }
     </style>
-    <div id="container" style="width:100%">
-        <section>
 
-            <table border="1" cellspacing="0" cellpadding="6" width="100%">
-                <tr>
-                    <td><b> IMB ID: <lookup class="value"
-                                            expression="patientIdentifiers.get(&quot;IMB ID&quot;)" /> <lookup
-                            class="value"
-                            expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" /></b>
-                    </td>
-                    <td>Date: <encounterDate id="encounterDate" default="today" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nom / Last name: <lookup class="value"
-                                                 expression="patient.personName.familyName" />
-                    </td>
-                    <td>Prénom/ First name: <lookup class="value"
-                                                    expression="patient.personName.givenName" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><img
-                            src="/openmrs/moduleResources/rwandareports/images/pihHands.png"
-                            align="left" height="65"></img>
-                        <h2>
-                            Inshuti Mu Buzima <br /> PIH Rwanda
-                        </h2></td>
-                    <td><strong> Oncology Program / Programme d'oncologie
-                        <br /> Outpatient callback forma
-                    </strong> <br /></td>
-                </tr>
-                <tr>
-                    <td>Clinique / Clinic: <encounterLocation
-                            id="encounterLocation" default="Butaro Hospital" />
-                    </td>
-                    <td>Provider:<encounterProvider id="encounterProvider"
-                                                    role="Oncology Provider"  />
-                    </td>
-                </tr>
-            </table>
-            <br />
-
-            <table border="1">
-                <tr>
-
-                    <th class="tableHeader">Action Taken</th>
-                    <th class="tableHeader" colspan="3">If Patient Missed Visit, Reason</th>
-                </tr>
-                <tr>
-
-                    <td rowspan="3">
-                        <strong>
-                            Patient called for the following reason:
-                        </strong>
-                        <br/>
-                        <obs conceptId="$@REASON_OF_CALLING_PATIENT@" answerConceptId="$@PATIENT__MISSED_VISIT@" answerLabel="Patient missed visit" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@REASON_OF_CALLING_PATIENT@" answerConceptId="$@COMMUNICATE_RESULTS@" answerLabel="Communicate results" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@REASON_OF_CALLING_PATIENT@" answerConceptId="$@SCHEDULE_SPECIALIST_CONSULT@" answerLabel="Schedule specialist Consult" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@REASON_OF_CALLING_PATIENT@" answerConceptId="$@RDV_Changed@" answerLabel="RDV to be re-scheduled due to holiday,etc" style="checkbox"/>
-                    </td>
-                    <td>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Unable_to_afford_transport@" answerLabel="Unable to afford transport" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Illness@" answerLabel="Illness (too unwell to travel to facility)" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Did_not_understand_that_he/she_had_to_come_in@" answerLabel="Did not understand that he/she had to come in" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Did_not_remember_RDV_Date@" answerLabel="Did not remember RDV date" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Seen_at_a_different_facility@" answerLabel="Visited a different health facility" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Health_Facility_Text@"/>
-                    </td>
-                    <td>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Didnt_think_it_was_neccessary_to_come_in_due_to_improvement_in_disease_symptoms@"
-                             answerLabel="Did not think it was necessary to come in due to improvement in disease symptoms" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Didnt_think_it_was_neccessary_to_come_in_due_to_other_reason@"
-                             answerLabel="Did not think it was necessary to come in due to OTHER reason (specify)" style="checkbox"/>:
-                        <br/>
-                        <obs conceptId="$@Other_Reason_patient_did_not_think_it_is_necessary_to_come_in@"/>
-                        <br/>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Did_not_wish_to_continue_treatment_due_to_treatment_side_effects@"
-                             answerLabel="Did not wish to continue treatment due to treatment side effects" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Did_not_wish_to_continue_treatment_due_to_perception_that_treatment_is_not_helping@"
-                             answerLabel="Did not wish to continue treatment due to perception that treatment is not helping" style="checkbox"/>
-                    </td>
-                    <td>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Did_not_wish_to_continue_treatment_due_to_Other_reason@"
-                             answerLabel="Did not wish to continue treatment due to OTHER reason (specify)" style="checkbox"/>:
-                        <br/>
-                        <obs conceptId="$@Other_reason_patient_did_not_wish_to_continue_treatment@"/>
-                        <br/>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Family_obligations@" answerLabel="Family obligations (e.g.child care)" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Work/welfare_obligations@" answerLabel="Work/welfare obligations (e.g. farming)" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Severe_weather_or_rainy_season@" answerLabel="Severe weather,rainy season" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" style="checkbox"/>:
-                        <br/>
-                        <obs conceptId="$@Other_reason_for_missing_visit@"/>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="tableHeader">
-                        Outcome of Phone Call
-                    </th>
-                    <th class="tableHeader">
-                        Next Outpatient RDV
-                    </th>
-                    <th class="tableHeader">
-                        Next Inpatient RDV
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        <obs conceptId="$@Result_of_Call@" answerConceptId="$@RDV_Changed@" answerLabel="RDV re-scheduled" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Result_of_Call@" answerConceptId="$@PATIENT_DIED@"
-                             answerLabel="Patient died (complete exit form" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Result_of_Call@" answerConceptId="$@Patient_Not_Reached@"
-                             answerLabel="patient not reached" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Result_of_Call@" answerConceptId="$@OTHER_NON-CODED@"
-                             answerLabel="Other:" style="checkbox"/>
-                        <obs conceptId="$@Other_result_of_call@"/>
-                        <br/>
-                        <obs conceptId="$@Result_of_Call@" answerConceptId="$@PATIENT_REFUSED@"
-                             answerLabel="Patient declined further care (complete exit form)" style="checkbox"/>
-                    </td>
-                    <td>
-                        Date: <obs conceptId="$@Scheduled_Oncology_Outpatient_Clinic_Visit_date@" allowFutureDates="true"/>
-                        <br/>
-                        <obs conceptId="$@Next_Outpatient_RDV@" answerConceptId="$@FOLLOW-UP@"
-                             answerLabel="Routine follow_up" style="checkbox"/>
-                        <obs conceptId="$@Next_Outpatient_RDV@" answerConceptId="$@BIOPSY@"
-                             answerLabel="Perform biopsy" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Next_Outpatient_RDV@" answerConceptId="$@COMMUNICATE_RESULTS@"
-                             answerLabel="Communicate results" style="checkbox"/>
-                        <obs conceptId="$@Next_Outpatient_RDV@" answerConceptId="$@Oncology_Special_Consultation_Visit@"
-                             answerLabel="Special consult" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Next_Outpatient_RDV@" answerConceptId="$@Chemotherapy_infusion_center_visit_scheduled@"
-                             answerLabel="Chemotherapy at infusion center" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Next_Outpatient_RDV@" answerConceptId="$@CLINICIAN_HOME_VISITS@"
-                             answerLabel="Home visit" style="checkbox"/>
-                    </td>
-                    <td>
-                        Date: <obs conceptId="$@Scheduled_Inpatient_visit_Date@" allowFutureDates="true" />
-                        <br/>
-                        <obs conceptId="$@Next_inpatient_RDV@" answerConceptId="$@Chemotherapy_in_ward@"
-                             answerLabel="Chemotherapy in ward" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Next_inpatient_RDV@" answerConceptId="$@Referred_to_emergency@"
-                             answerLabel="Referred to emergency" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Next_inpatient_RDV@" answerConceptId="$@OTHER_NON-CODED@"
-                             answerLabel="Other" style="checkbox"/>
-                        <br/>
-                        <obs conceptId="$@Other_next_inpatient_visit_reasons@" />
-
-                    </td>
-                </tr>
-
-            </table>
-
-        </section>
-        <br />
-
-        <submit />
-        <br/>
-        <encounterVoided/>
+    <!-- ===== FORM HEADER ===== -->
+    <div class="form-header">
+        <div class="form-header-content">
+            <div class="form-header-left">
+                <img src="/openmrs/moduleResources/rwandareports/images/pihHands.png"
+                     alt="PIH Rwanda" class="form-header-logo" />
+                <div class="form-header-title">
+                    <h1>Inshuti Mu Buzima / PIH Rwanda</h1>
+                    <h2>Oncology Program - Outpatient Callback Form</h2>
+                </div>
+            </div>
+            <div class="form-header-right">
+                <div class="form-header-badge">Patient Follow-up</div>
+            </div>
+        </div>
     </div>
+
+    <!-- ===== PATIENT INFORMATION ===== -->
+    <div class="patient-info-bar">
+        <div class="patient-info-item">
+            <span class="patient-info-label">IMB ID</span>
+            <span class="patient-info-value">
+                <lookup class="value" expression="patientIdentifiers.get(&quot;IMB ID&quot;)" />
+                <lookup class="value" expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" />
+            </span>
+        </div>
+        <div class="patient-info-item">
+            <span class="patient-info-label">Last Name / Nom</span>
+            <span class="patient-info-value">
+                <lookup class="value" expression="patient.personName.familyName" />
+            </span>
+        </div>
+        <div class="patient-info-item">
+            <span class="patient-info-label">First Name / Prenom</span>
+            <span class="patient-info-value">
+                <lookup class="value" expression="patient.personName.givenName" />
+            </span>
+        </div>
+    </div>
+
+    <!-- ===== ENCOUNTER INFORMATION ===== -->
+    <div class="encounter-info-bar">
+        <div class="patient-info-item">
+            <span class="patient-info-label">Encounter Date</span>
+            <span class="form-field">
+                <encounterDate id="encounterDate" default="today" />
+            </span>
+        </div>
+        <div class="patient-info-item">
+            <span class="patient-info-label">Clinic / Clinique</span>
+            <span class="form-field">
+                <encounterLocation id="encounterLocation" default="Butaro Hospital" />
+            </span>
+        </div>
+        <div class="patient-info-item">
+            <span class="patient-info-label">Provider</span>
+            <span class="form-field">
+                <encounterProvider id="encounterProvider" role="Oncology Provider" />
+            </span>
+        </div>
+    </div>
+
+    <!-- ===== REASON FOR CALLING ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            Reason for Calling Patient
+        </div>
+        <div class="section-content">
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <obs conceptId="$@REASON_OF_CALLING_PATIENT@" answerConceptId="$@PATIENT__MISSED_VISIT@" answerLabel="Patient missed visit" style="checkbox"/>
+                </div>
+                <div class="checkbox-item">
+                    <obs conceptId="$@REASON_OF_CALLING_PATIENT@" answerConceptId="$@COMMUNICATE_RESULTS@" answerLabel="Communicate results" style="checkbox"/>
+                </div>
+                <div class="checkbox-item">
+                    <obs conceptId="$@REASON_OF_CALLING_PATIENT@" answerConceptId="$@SCHEDULE_SPECIALIST_CONSULT@" answerLabel="Schedule specialist consult" style="checkbox"/>
+                </div>
+                <div class="checkbox-item">
+                    <obs conceptId="$@REASON_OF_CALLING_PATIENT@" answerConceptId="$@RDV_Changed@" answerLabel="RDV to be re-scheduled due to holiday, etc." style="checkbox"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== REASON FOR MISSED VISIT ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            If Patient Missed Visit - Reason
+        </div>
+        <div class="section-content">
+            <div class="three-column">
+                <!-- Column 1: Access and Understanding -->
+                <div class="reason-card">
+                    <div class="reason-card-title">Access and Understanding</div>
+
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Unable_to_afford_transport@" answerLabel="Unable to afford transport" style="checkbox"/>
+                    </div>
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Illness@" answerLabel="Illness (too unwell to travel)" style="checkbox"/>
+                    </div>
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Did_not_understand_that_he/she_had_to_come_in@" answerLabel="Did not understand need to come in" style="checkbox"/>
+                    </div>
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Did_not_remember_RDV_Date@" answerLabel="Did not remember RDV date" style="checkbox"/>
+                    </div>
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Seen_at_a_different_facility@" answerLabel="Visited a different health facility" style="checkbox"/>
+                    </div>
+                    <div class="reason-specify">
+                        <obs conceptId="$@Health_Facility_Text@" size="25"/>
+                    </div>
+                </div>
+
+                <!-- Column 2: Patient Perception -->
+                <div class="reason-card">
+                    <div class="reason-card-title">Patient Perception</div>
+
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Didnt_think_it_was_neccessary_to_come_in_due_to_improvement_in_disease_symptoms@" answerLabel="Not necessary - symptoms improved" style="checkbox"/>
+                    </div>
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Didnt_think_it_was_neccessary_to_come_in_due_to_other_reason@" answerLabel="Not necessary - other reason" style="checkbox"/>
+                    </div>
+                    <div class="reason-specify">
+                        <obs conceptId="$@Other_Reason_patient_did_not_think_it_is_necessary_to_come_in@" size="25"/>
+                    </div>
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Did_not_wish_to_continue_treatment_due_to_treatment_side_effects@" answerLabel="Declined treatment - side effects" style="checkbox"/>
+                    </div>
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Did_not_wish_to_continue_treatment_due_to_perception_that_treatment_is_not_helping@" answerLabel="Declined treatment - not helping" style="checkbox"/>
+                    </div>
+                </div>
+
+                <!-- Column 3: Other Obligations -->
+                <div class="reason-card">
+                    <div class="reason-card-title">Other Obligations</div>
+
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Did_not_wish_to_continue_treatment_due_to_Other_reason@" answerLabel="Declined treatment - other reason" style="checkbox"/>
+                    </div>
+                    <div class="reason-specify">
+                        <obs conceptId="$@Other_reason_patient_did_not_wish_to_continue_treatment@" size="25"/>
+                    </div>
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Family_obligations@" answerLabel="Family obligations (e.g. child care)" style="checkbox"/>
+                    </div>
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Work/welfare_obligations@" answerLabel="Work/welfare obligations (e.g. farming)" style="checkbox"/>
+                    </div>
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@Severe_weather_or_rainy_season@" answerLabel="Severe weather or rainy season" style="checkbox"/>
+                    </div>
+                    <div class="reason-item">
+                        <obs conceptId="$@Reason_for_missed_visit@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other reason" style="checkbox"/>
+                    </div>
+                    <div class="reason-specify">
+                        <obs conceptId="$@Other_reason_for_missing_visit@" size="25"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== OUTCOME AND NEXT STEPS ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            Outcome and Next Steps
+        </div>
+        <div class="section-content">
+            <div class="outcome-grid">
+                <!-- Outcome of Phone Call -->
+                <div class="outcome-card">
+                    <div class="outcome-card-header">Outcome of Phone Call</div>
+                    <div class="outcome-card-content">
+                        <div class="outcome-item">
+                            <obs conceptId="$@Result_of_Call@" answerConceptId="$@RDV_Changed@" answerLabel="RDV re-scheduled" style="checkbox"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Result_of_Call@" answerConceptId="$@Patient_Not_Reached@" answerLabel="Patient not reached" style="checkbox"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Result_of_Call@" answerConceptId="$@PATIENT_DIED@" answerLabel="Patient died (complete exit form)" style="checkbox"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Result_of_Call@" answerConceptId="$@PATIENT_REFUSED@" answerLabel="Patient declined further care (complete exit form)" style="checkbox"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Result_of_Call@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" style="checkbox"/>
+                            <obs conceptId="$@Other_result_of_call@" size="20"/>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Outpatient RDV -->
+                <div class="outcome-card">
+                    <div class="outcome-card-header">Next Outpatient RDV</div>
+                    <div class="outcome-card-content">
+                        <div class="outcome-date">
+                            <span class="outcome-date-label">Date:</span>
+                            <obs conceptId="$@Scheduled_Oncology_Outpatient_Clinic_Visit_date@" allowFutureDates="true"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Next_Outpatient_RDV@" answerConceptId="$@FOLLOW-UP@" answerLabel="Routine follow-up" style="checkbox"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Next_Outpatient_RDV@" answerConceptId="$@BIOPSY@" answerLabel="Perform biopsy" style="checkbox"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Next_Outpatient_RDV@" answerConceptId="$@COMMUNICATE_RESULTS@" answerLabel="Communicate results" style="checkbox"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Next_Outpatient_RDV@" answerConceptId="$@Oncology_Special_Consultation_Visit@" answerLabel="Special consult" style="checkbox"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Next_Outpatient_RDV@" answerConceptId="$@Chemotherapy_infusion_center_visit_scheduled@" answerLabel="Chemotherapy at infusion center" style="checkbox"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Next_Outpatient_RDV@" answerConceptId="$@CLINICIAN_HOME_VISITS@" answerLabel="Home visit" style="checkbox"/>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Inpatient RDV -->
+                <div class="outcome-card">
+                    <div class="outcome-card-header">Next Inpatient RDV</div>
+                    <div class="outcome-card-content">
+                        <div class="outcome-date">
+                            <span class="outcome-date-label">Date:</span>
+                            <obs conceptId="$@Scheduled_Inpatient_visit_Date@" allowFutureDates="true"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Next_inpatient_RDV@" answerConceptId="$@Chemotherapy_in_ward@" answerLabel="Chemotherapy in ward" style="checkbox"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Next_inpatient_RDV@" answerConceptId="$@Referred_to_emergency@" answerLabel="Referred to emergency" style="checkbox"/>
+                        </div>
+                        <div class="outcome-item">
+                            <obs conceptId="$@Next_inpatient_RDV@" answerConceptId="$@OTHER_NON-CODED@" answerLabel="Other" style="checkbox"/>
+                        </div>
+                        <div class="reason-specify">
+                            <obs conceptId="$@Other_next_inpatient_visit_reasons@" size="25"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SUBMIT ===== -->
+    <div class="submit-section">
+        <submit submitLabel="Save Callback Form" />
+    </div>
+
+    <!-- ===== VOIDED STATUS ===== -->
+    <div class="voided-section">
+        <encounterVoided />
+    </div>
+
 </htmlform>

@@ -1,0 +1,239 @@
+<htmlform formName="Anesthesia Medication Administration"
+          formUuid="74c8fdf1-957d-4cad-86b1-6d30d10d5998"
+          formEncounterType="Anesthesia Record"
+          formVersion="3.2">
+
+    <style>
+        form fieldset {
+        display: block;
+        }
+
+        .section {
+        width: 100%;
+        }
+
+        fieldset legend {
+        font-weight: bold;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        display: block;
+        }
+
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        }
+
+        .section-container label {
+        margin: 0px;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .item-table {
+        table-layout: fixed;
+        }
+
+        .item-table th {
+        background-color: #f0f0f0;
+        text-align: left;
+        }
+
+        .item-table td {
+        vertical-align: top;
+        }
+
+        .item-number {
+        text-align: center;
+        width: 44px;
+        }
+
+        .item-actions {
+        text-align: center;
+        width: 54px;
+        }
+
+        .anesthesia-item-row[data-row]:not([data-row="1"]) {
+        display: none;
+        }
+
+        .add-item {
+        margin-top: 12px;
+        }
+
+        .remove-item {
+        min-width: 34px;
+        padding: 5px 8px;
+        }
+
+        .anesthesia-case-link {
+        display: none;
+        }
+    </style>
+
+    <div class="anesthesia-case-link"><anesthesiaCaseIdObs/></div>
+
+    <h2>Medications &amp; Fluids / Medicaments et perfusion</h2>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="GENERAL INFORMATION / CONSULTATION">
+        <div class="section-container">
+            <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                <tr>
+                    <td>
+                        Date / Time:
+                        <encounterDate default="now" showTime="true"/>
+                    </td>
+                    <td>
+                        Location:
+                        <encounterLocation default="GlobalProperty:billing.defaultLocation"/>
+                    </td>
+                    <td>
+                        Provider:
+                        <encounterProvider default="currentUser"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="ADMINISTRATIONS">
+        <div class="section-container">
+            <table class="item-table" border="2" cellspacing="0" cellpadding="6" width="100%">
+                <thead>
+                <tr>
+                    <th class="item-number">#</th>
+                    <th>Medication administered / Medicament administre</th>
+                    <th>Fluids / Perfusion</th>
+                    <th>Transfusion</th>
+                    <th class="item-actions"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <repeat>
+                    <template>
+                        <obsgroup groupingConceptId="975ecb87-fe23-40f1-97ac-ad5e85356e60">
+                            <tr class="anesthesia-item-row" data-row="{row}">
+                                <td class="item-number">{row}</td>
+                                <td class="item-value"><obs conceptId="e2a92af0-e3a8-48c7-b73f-1bf5fb1b63ef" rows="2"/></td>
+                                <td class="item-value"><obs conceptId="074c4f8b-2f73-41c3-9b9b-9ee8826d4016" rows="2"/></td>
+                                <td class="item-value"><obs conceptId="4e56e745-a912-4734-bca7-62d78070b64d" rows="2"/></td>
+                                <td class="item-actions">
+                                    <ifMode mode="VIEW" include="false">
+                                        <button type="button" class="remove-item" title="Remove administration">&#215;</button>
+                                    </ifMode>
+                                </td>
+                            </tr>
+                        </obsgroup>
+                    </template>
+                    <render row="1"/>
+                    <render row="2"/>
+                    <render row="3"/>
+                    <render row="4"/>
+                    <render row="5"/>
+                    <render row="6"/>
+                    <render row="7"/>
+                    <render row="8"/>
+                </repeat>
+                </tbody>
+            </table>
+            <ifMode mode="VIEW" include="false">
+                <button id="add-anesthesia-medication" type="button" class="add-item confirm"><i class="icon-plus"></i> Add another administration</button>
+            </ifMode>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        $j(function() {
+            var rows = $j('.anesthesia-item-row');
+            var addButton = $j('#add-anesthesia-medication');
+
+            function rowHasValue(row) {
+                var hasControlValue = false;
+                row.find('input:not([type="hidden"]):not([type="button"]), textarea, select').each(function() {
+                    var input = $j(this);
+                    if ((input.is(':checkbox') || input.is(':radio')) ? input.is(':checked') : input.val()) {
+                        hasControlValue = true;
+                    }
+                });
+                return hasControlValue || $j.trim(row.find('.item-value').text()).length > 0;
+            }
+
+            function updateControls() {
+                var visibleRows = rows.filter(':visible');
+                visibleRows.find('.remove-item').prop('disabled', visibleRows.length === 1);
+                addButton.prop('disabled', rows.filter(':hidden').length === 0);
+            }
+
+            rows.each(function(index) {
+                var row = $j(this);
+                if (index === 0 || rowHasValue(row)) {
+                    row.show();
+                }
+            });
+
+            addButton.on('click', function() {
+                rows.filter(':hidden').first().show();
+                updateControls();
+            });
+
+            rows.on('click', '.remove-item', function() {
+                var row = $j(this).closest('.anesthesia-item-row');
+                row.find('input:not([type="hidden"]), textarea, select').each(function() {
+                    var input = $j(this);
+                    if (input.is(':checkbox') || input.is(':radio')) {
+                        input.prop('checked', false);
+                    }
+                    else {
+                        input.val('');
+                    }
+                    input.trigger('change');
+                });
+                row.hide();
+                updateControls();
+            });
+
+            if (typeof beforeSubmit !== 'undefined') {
+                beforeSubmit.push(function() {
+                    var hasAdministration = false;
+                    rows.filter(':visible').each(function() {
+                        hasAdministration = hasAdministration || rowHasValue($j(this));
+                    });
+                    if (!hasAdministration) {
+                        alert('Enter at least one medication, fluid, or transfusion item before saving.');
+                        return false;
+                    }
+                    return true;
+                });
+            }
+
+            updateControls();
+        });
+    </script>
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+            <button id="submit" class="submitButton confirm">
+                <uimessage code="Save"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel"/>
+            </button>
+        </div>
+    </ifMode>
+</htmlform>

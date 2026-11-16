@@ -475,9 +475,9 @@
         }
 
         .itembox {
-            border: 5px solid #3333cc;
-            border-radius: 10px;
-            padding: 20px;
+        border: 5px solid #3333cc;
+        border-radius: 10px;
+        padding: 20px;
         }
     </style>
     <style type="text/css">
@@ -531,8 +531,8 @@
                     <td>
                         Health Facility:
                         <encounterLocation default="GlobalProperty:billing.defaultLocation" />
-<!--                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-->
-<!--                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-->
+                        <!--                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-->
+                        <!--                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-->
                         Provider:
                         <encounterProvider default="currentUser" />
                     </td>
@@ -544,7 +544,7 @@
                     <td >
                         Name:
                         <lookup class="value" expression="patient.personName.familyName" />
-<!--                        &nbsp; &nbsp; &nbsp;-->
+                        <!--                        &nbsp; &nbsp; &nbsp;-->
                         <br/>
                         <lookup class="value" expression="patient.personName.givenName" />
                         <br/>
@@ -574,9 +574,9 @@
         <table border="1">
 
             <tr>
-               <td>
-                   <strong>Is there any change in Diagnosis, Date of Dx and Stage at Diagnosis?</strong>
-               </td>
+                <td>
+                    <strong>Is there any change in Diagnosis, Date of Dx and Stage at Diagnosis?</strong>
+                </td>
                 <td>
 
                     Diagnosis:
@@ -606,26 +606,26 @@
                 <td>
                     <obs conceptId="$@CHIEF_COMPLAINT@" answerConceptId="$@Pain@" style="checkbox" answerLabel="Pain/discomfort"/>
                     <br/>
-                        <table border="1" style="padding:20px;">
-                            <tr>
-                                <td>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@FATIGUE@" style="checkbox" answerLabel="FATIGUE"/>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@Pain@" style="checkbox" answerLabel="Pain"/>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@body_aches@" style="checkbox" answerLabel="Body aches"/>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@Dizziness@" style="checkbox" answerLabel="Dizziness"/>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@FEVER@" style="checkbox" answerLabel="Fever"/>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@WEAKNESS@" style="checkbox" answerLabel="Weakness"/>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@HEADACHE@" style="checkbox" answerLabel="Headache"/>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@alopecia@" style="checkbox" answerLabel="Alopecia"/>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@CHILLS@" style="checkbox" answerLabel="Chills"/>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@NIGHT_SWEATS@" style="checkbox" answerLabel="Night sweats"/>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@Unintentional_weight_loss_or_gain@" style="checkbox" answerLabel="Unintentional weight loss"/>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@hot_flashes@" style="checkbox" answerLabel="Hot flashes"/>
-                                    <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@THROAT_PAINFUL@" style="checkbox" answerLabel="Sore throat"/>
+                    <table border="1" style="padding:20px;">
+                        <tr>
+                            <td>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@FATIGUE@" style="checkbox" answerLabel="FATIGUE"/>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@Pain@" style="checkbox" answerLabel="Pain"/>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@body_aches@" style="checkbox" answerLabel="Body aches"/>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@Dizziness@" style="checkbox" answerLabel="Dizziness"/>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@FEVER@" style="checkbox" answerLabel="Fever"/>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@WEAKNESS@" style="checkbox" answerLabel="Weakness"/>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@HEADACHE@" style="checkbox" answerLabel="Headache"/>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@alopecia@" style="checkbox" answerLabel="Alopecia"/>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@CHILLS@" style="checkbox" answerLabel="Chills"/>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@NIGHT_SWEATS@" style="checkbox" answerLabel="Night sweats"/>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@Unintentional_weight_loss_or_gain@" style="checkbox" answerLabel="Unintentional weight loss"/>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@hot_flashes@" style="checkbox" answerLabel="Hot flashes"/>
+                                <obs conceptId="$@pain_or_discomfort@" answerConceptId="$@THROAT_PAINFUL@" style="checkbox" answerLabel="Sore throat"/>
 
-                                </td>
-                            </tr>
-                        </table>
+                            </td>
+                        </tr>
+                    </table>
                     <obs conceptId="$@CHIEF_COMPLAINT@" answerConceptId="$@SWELLING@" style="checkbox" answerLabel="Swelling"/>
                     <br/>
                     <table border="1" style="padding:20px;">
@@ -784,7 +784,7 @@
                 <td> <obs conceptId="$@HEMOGLOBIN@"/> </td>
             </tr>
 
-             <tr>
+            <tr>
                 <td>Plt</td>
                 <td> <obs conceptId="$@PLATELETS@"/> </td>
             </tr>
@@ -859,7 +859,7 @@
                 <td>BSA(m2)</td>
                 <td> <obs conceptId="$@Body_surface_area@"/> </td>
             </tr>
-    
+
             <tr>
                 <td>
                     <strong>  Disease Status, Metastatic disease</strong>
@@ -872,12 +872,12 @@
             </tr>
             <tr>
                 <td>
-                Date of first distant metastatic diagnosis; approximate
-                <obs conceptId="$@Date_of_first_distant_metastatic_diagnosis@"/>
+                    Date of first distant metastatic diagnosis; approximate
+                    <obs conceptId="$@Date_of_first_distant_metastatic_diagnosis@"/>
                 </td>
             </tr>
 
-            
+
             <tr>
                 <td>If Metastatic, Sites of metastatic disease</td>
                 <td>
@@ -891,7 +891,7 @@
             </tr>
             <tr>
                 <td>If Other site of Metastatic</td>
-                <td>                    
+                <td>
                     <obs conceptId="$@Other_site_of_Metastatic@"/>
 
                 </td>
@@ -908,14 +908,14 @@
                 </td>
             </tr>
 
-            <tr> 
+            <tr>
                 <td>Basis for Tumor status assessment</td>
                 <td>
                     <obs conceptId="$@Basis_for_Tumor_status_assessment@" answerConceptId="$@SYMPTOMS@" style="checkbox" answerLabel="Symptoms"/>
                     <obs conceptId="$@Basis_for_Tumor_status_assessment@" answerConceptId="$@PHYSICAL_EXAMINATION@" style="checkbox" answerLabel="Physical Exam"/>
                     <obs conceptId="$@Basis_for_Tumor_status_assessment@" answerConceptId="$@Medical_Imaging@" style="checkbox" answerLabel="Imaging"/>
                     <obs conceptId="$@Basis_for_Tumor_status_assessment@" answerConceptId="$@Blood_work@" style="checkbox" answerLabel="Blood work"/>
-                    
+
                 </td>
             </tr>
 
@@ -930,14 +930,14 @@
                 </td>
             </tr>
 
-            <tr> 
+            <tr>
                 <td>Type of surgery </td>
                 <td>
 
 
                 </td>
             </tr>
-            
+
             <tr>
                 <td>
                     <strong>  Radiation Status</strong>
@@ -1054,7 +1054,7 @@
                 </td>
                 <td>
                     <obs conceptId="$@Patients_cleared_for_Chemotherapy_today@"
-                    answerConceptIds="$@YES@,$@NO@,$@NOT_APPLICABLE@" style="radio"
+                         answerConceptIds="$@YES@,$@NO@,$@NOT_APPLICABLE@" style="radio"
                          answerLabels="Yes,No,Not applicable"/>
 
                 </td>
@@ -1068,9 +1068,9 @@
                     <obs conceptId="$@Treatment_not_given_reasons@" answerConceptId="$@stock_out@" style="checkbox" answerLabel="Stock out"/>
                     <obs conceptId="$@Treatment_not_given_reasons@" answerConceptId="$@alternate_therapies@" style="checkbox" answerLabel="Alternate therapies"/>
                     <obs conceptId="$@Treatment_not_given_reasons@" answerConceptId="$@clinical_symptoms@" style="checkbox" answerLabel="Clinical symptoms"/>
-                    
 
-                    
+
+
                 </td>
             </tr>
 
@@ -1088,16 +1088,16 @@
             </tr>
             <tr>
                 <td>
-                    
+
                     <obs conceptId="$@cycle_and_day@"/>
                 </td>
             </tr>
-          
+
             <tr>
                 <td>
-                   <strong>Take Home Meds</strong>
-               </td>
-               <td>
+                    <strong>Take Home Meds</strong>
+                </td>
+                <td>
                     <obs conceptId="$@Take_Home_Meds@" answerConceptId="$@supportive_care_meds@" style="checkbox" answerLabel="Supportive Care Meds"/>
                     <br/>
                     <obs conceptId="$@Take_Home_Meds@" answerConceptId="$@oral_chemotherapy@" style="checkbox" answerLabel="Oral Chemotherapy"/>
@@ -1107,7 +1107,7 @@
             <tr bgcolor="red">
                 <td><stong>Take Home Supportive Medication</stong></td>
                 <td>
-<!--                    <p>	<strong><lookup expression="fn.message('Drug Order: ')"/></strong></p>-->
+                    <!--                    <p>	<strong><lookup expression="fn.message('Drug Order: ')"/></strong></p>-->
                     <div class = "itembox">
                         <drugOrder orderType="131168f4-15f5-102d-96e4-000c29c2a5d7" selectLabel="Order Drug" >
                             <orderTemplate>
@@ -1195,7 +1195,7 @@
             <tr bgcolor="red">
                 <td><stong>Take Home Chemotherapy</stong></td>
                 <td>
-<!--                    <p>	<strong><lookup expression="fn.message('Drug Order: ')"/></strong></p>-->
+                    <!--                    <p>	<strong><lookup expression="fn.message('Drug Order: ')"/></strong></p>-->
                     <div class = "itembox">
                         <drugOrder orderType="131168f4-15f5-102d-96e4-000c29c2a5d7" selectLabel="Order Drug" >
                             <orderTemplate>
@@ -1299,7 +1299,7 @@
                 </td>
             </tr>
 
-                
+
             <tr>
                 <td>
                     <strong>  Additional services for patients? Referrals /Interventions</strong>
@@ -1329,7 +1329,7 @@
                 <td> Other Referrals/Interventions </td>
                 <td>
                     <obs conceptId="$@other_referrals_planned@"/>
-                    
+
                 </td>
             </tr>
             <tr>
@@ -1337,7 +1337,7 @@
                     <strong>  Next appointment date</strong>
                 </td>
                 <td>
-<!--                    <obs conceptId="$@RETURN_VISIT_DATE@" allowFutureDates="true"/>-->
+                    <!--                    <obs conceptId="$@RETURN_VISIT_DATE@" allowFutureDates="true"/>-->
 
                     <div class="itembox">
                         <b>Outpatient Visit-Butaro Hospital</b><br/><br/>
@@ -1372,136 +1372,136 @@
                         <tr>
                             <td>
                                 |<obs conceptId="$@admit_to_inpatient_ward@" answerConceptId="$@Administration@" style="checkbox" answerLabel="Administration"/>
-                                    <br/>
+                                <br/>
 
-                                    <table border="1" style="padding:20px;">
-                                        <tr>
-                                            <td>
-                                                <obs conceptId="$@Administration@" answerConceptId="$@Administer_antibiotics@" style="checkbox" answerLabel="Administer antibiotics"/>
-                                                <obs conceptId="$@Administration@" answerConceptId="$@administer_antiemetics@" style="checkbox" answerLabel="Administer antiemetics"/>
-                                                <obs conceptId="$@Administration@" answerConceptId="$@administer_pain_medication@" style="checkbox" answerLabel="Administer pain medication"/>
-                                                <obs conceptId="$@Administration@" answerConceptId="$@administer_prescribed_medications@" style="checkbox" answerLabel="Administer prescribed medications"/>
-                                                <obs conceptId="$@Administration@" answerConceptId="$@Oxygen_therapy@" style="checkbox" answerLabel="Oxygen therapy"/>
-                                                <obs conceptId="$@Administration@" answerConceptId="$@IV_fluids@" style="checkbox" answerLabel="IV fluids"/>
-                                                
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <table border="1" style="padding:20px;">
+                                    <tr>
+                                        <td>
+                                            <obs conceptId="$@Administration@" answerConceptId="$@Administer_antibiotics@" style="checkbox" answerLabel="Administer antibiotics"/>
+                                            <obs conceptId="$@Administration@" answerConceptId="$@administer_antiemetics@" style="checkbox" answerLabel="Administer antiemetics"/>
+                                            <obs conceptId="$@Administration@" answerConceptId="$@administer_pain_medication@" style="checkbox" answerLabel="Administer pain medication"/>
+                                            <obs conceptId="$@Administration@" answerConceptId="$@administer_prescribed_medications@" style="checkbox" answerLabel="Administer prescribed medications"/>
+                                            <obs conceptId="$@Administration@" answerConceptId="$@Oxygen_therapy@" style="checkbox" answerLabel="Oxygen therapy"/>
+                                            <obs conceptId="$@Administration@" answerConceptId="$@IV_fluids@" style="checkbox" answerLabel="IV fluids"/>
+
+                                        </td>
+                                    </tr>
+                                </table>
                                 |<obs conceptId="$@admit_to_inpatient_ward@" answerConceptId="$@Procedures@" style="checkbox" answerLabel="Procedures"/>
-                                    <br/>
-                                    <table border="1" style="padding:20px;">
-                                        <tr>
-                                            <td>
-                                                <obs conceptId="$@Procedures@" answerConceptId="$@NG_tube_insertion@" style="checkbox" answerLabel="NG Tube insertion"/>
-                                                <obs conceptId="$@Procedures@" answerConceptId="$@foley_catheter_placement@" style="checkbox" answerLabel="Foley catheter placement"/>
-                                                <obs conceptId="$@Procedures@" answerConceptId="$@Repositioning_of_patient_q_3hrs@" style="checkbox" answerLabel="Repositioning of patient q 3hrs"/>
-                                                <obs conceptId="$@Procedures@" answerConceptId="$@Immobilization@" style="checkbox" answerLabel="Immobilization"/>
-                                                <obs conceptId="$@Procedures@" answerConceptId="$@sunction_of_secretions@" style="checkbox" answerLabel="Suction of secretions"/>
-                                                <obs conceptId="$@Procedures@" answerConceptId="$@Pleural_tap@" style="checkbox" answerLabel="Pleural tap"/>
-                                                <obs conceptId="$@Procedures@" answerConceptId="$@Ascitic_tap@" style="checkbox" answerLabel="Ascitic tap"/>
-                                                <obs conceptId="$@Procedures@" answerConceptId="$@Wound_care@" style="checkbox" answerLabel="Wound care"/>
-                                                <obs conceptId="$@Procedures@" answerConceptId="$@BIOPSY@" style="checkbox" answerLabel="Biopsy"/>
-                                                <obs conceptId="$@Procedures@" answerConceptId="$@LUMBAR_PUNCTURE@" style="checkbox" answerLabel="Lumbar Puncture"/>
+                                <br/>
+                                <table border="1" style="padding:20px;">
+                                    <tr>
+                                        <td>
+                                            <obs conceptId="$@Procedures@" answerConceptId="$@NG_tube_insertion@" style="checkbox" answerLabel="NG Tube insertion"/>
+                                            <obs conceptId="$@Procedures@" answerConceptId="$@foley_catheter_placement@" style="checkbox" answerLabel="Foley catheter placement"/>
+                                            <obs conceptId="$@Procedures@" answerConceptId="$@Repositioning_of_patient_q_3hrs@" style="checkbox" answerLabel="Repositioning of patient q 3hrs"/>
+                                            <obs conceptId="$@Procedures@" answerConceptId="$@Immobilization@" style="checkbox" answerLabel="Immobilization"/>
+                                            <obs conceptId="$@Procedures@" answerConceptId="$@sunction_of_secretions@" style="checkbox" answerLabel="Suction of secretions"/>
+                                            <obs conceptId="$@Procedures@" answerConceptId="$@Pleural_tap@" style="checkbox" answerLabel="Pleural tap"/>
+                                            <obs conceptId="$@Procedures@" answerConceptId="$@Ascitic_tap@" style="checkbox" answerLabel="Ascitic tap"/>
+                                            <obs conceptId="$@Procedures@" answerConceptId="$@Wound_care@" style="checkbox" answerLabel="Wound care"/>
+                                            <obs conceptId="$@Procedures@" answerConceptId="$@BIOPSY@" style="checkbox" answerLabel="Biopsy"/>
+                                            <obs conceptId="$@Procedures@" answerConceptId="$@LUMBAR_PUNCTURE@" style="checkbox" answerLabel="Lumbar Puncture"/>
 
-                                            </td>
-                                        </tr>
-                                    </table>
+                                        </td>
+                                    </tr>
+                                </table>
 
                                 |<obs conceptId="$@admit_to_inpatient_ward@" answerConceptId="$@Transfusion@" style="checkbox" answerLabel="Transfusion"/>
-                                    <br/>
-                                    
-                                    <table border="1" style="padding:20px;">
-                                        <tr>
-                                            <td>
-                                                <obs conceptId="$@Transfusion@" answerConceptId="$@Transfuse_platelets@" style="checkbox" answerLabel="Transfuse platelets"/>
-                                                <obs conceptId="$@Transfusion@" answerConceptId="$@Transfuse_red_blood_cells@" style="checkbox" answerLabel="Transfuse red blood cells"/>
-                                                <obs conceptId="$@Transfusion@" answerConceptId="$@Transfuse_fresh_frozen_plasma@" style="checkbox" answerLabel="Transfuse fresh frozen plasma"/>
-                                                
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <br/>
+
+                                <table border="1" style="padding:20px;">
+                                    <tr>
+                                        <td>
+                                            <obs conceptId="$@Transfusion@" answerConceptId="$@Transfuse_platelets@" style="checkbox" answerLabel="Transfuse platelets"/>
+                                            <obs conceptId="$@Transfusion@" answerConceptId="$@Transfuse_red_blood_cells@" style="checkbox" answerLabel="Transfuse red blood cells"/>
+                                            <obs conceptId="$@Transfusion@" answerConceptId="$@Transfuse_fresh_frozen_plasma@" style="checkbox" answerLabel="Transfuse fresh frozen plasma"/>
+
+                                        </td>
+                                    </tr>
+                                </table>
 
                                 |<obs conceptId="$@admit_to_inpatient_ward@" answerConceptId="$@RADIOLOGY@" style="checkbox" answerLabel="Radiology"/>
-                                    <br/>
+                                <br/>
 
-                                    <table border="1" style="padding:20px;">
-                                        <tr>
-                                            <td>
-                                                <obs conceptId="$@RADIOLOGY@" answerConceptId="$@x_ray@" style="checkbox" answerLabel="X ray"/>
-                                                <obs conceptId="$@RADIOLOGY@" answerConceptId="$@Magnetic_Resonance_Imaging@" style="checkbox" answerLabel="MRI"/>
-                                                <obs conceptId="$@RADIOLOGY@" answerConceptId="$@Computed_tomography_scan@" style="checkbox" answerLabel="CT Scan"/>
-                                                <obs conceptId="$@RADIOLOGY@" answerConceptId="$@ECHOGRAM@" style="checkbox" answerLabel="Echogram"/>
-                                                <obs conceptId="$@RADIOLOGY@" answerConceptId="$@ELECTROCARDIOGRAM@" style="checkbox" answerLabel="EKG"/>
-                                                <obs conceptId="$@RADIOLOGY@" answerConceptId="$@Ultrasound@" style="checkbox" answerLabel="ultrasound"/>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <table border="1" style="padding:20px;">
+                                    <tr>
+                                        <td>
+                                            <obs conceptId="$@RADIOLOGY@" answerConceptId="$@x_ray@" style="checkbox" answerLabel="X ray"/>
+                                            <obs conceptId="$@RADIOLOGY@" answerConceptId="$@Magnetic_Resonance_Imaging@" style="checkbox" answerLabel="MRI"/>
+                                            <obs conceptId="$@RADIOLOGY@" answerConceptId="$@Computed_tomography_scan@" style="checkbox" answerLabel="CT Scan"/>
+                                            <obs conceptId="$@RADIOLOGY@" answerConceptId="$@ECHOGRAM@" style="checkbox" answerLabel="Echogram"/>
+                                            <obs conceptId="$@RADIOLOGY@" answerConceptId="$@ELECTROCARDIOGRAM@" style="checkbox" answerLabel="EKG"/>
+                                            <obs conceptId="$@RADIOLOGY@" answerConceptId="$@Ultrasound@" style="checkbox" answerLabel="ultrasound"/>
+                                        </td>
+                                    </tr>
+                                </table>
 
                                 |<obs conceptId="$@admit_to_inpatient_ward@" answerConceptId="$@laboratory_investigation@" style="checkbox" answerLabel="Laboratory Investigation"/>
-                                    <br/>
+                                <br/>
 
-                                    <table border="1" style="padding:20px;">
-                                        <tr>
-                                            <td>
-                                                <obs conceptId="$@laboratory_investigation@" answerConceptId="$@Draw_labs@" style="checkbox" answerLabel="Draw Labs"/>
-                                                <obs conceptId="$@laboratory_investigation@" answerConceptId="$@Chemotherapy_labs@" style="checkbox" answerLabel="Chemo labs"/>
-                                                <obs conceptId="$@laboratory_investigation@" answerConceptId="$@Draw_blood_cultures@" style="checkbox" answerLabel="Draw blood cultures"/>
-                                                <obs conceptId="$@laboratory_investigation@" answerConceptId="$@obtain_wound_culture@" style="checkbox" answerLabel="Obtain wound culture"/>
-                                                <obs conceptId="$@laboratory_investigation@" answerConceptId="$@urine_culture@" style="checkbox" answerLabel="Urine Culture"/>
-                                                <obs conceptId="$@laboratory_investigation@" answerConceptId="$@URINE_ANALYSIS@" style="checkbox" answerLabel="Urine Analysis"/>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <table border="1" style="padding:20px;">
+                                    <tr>
+                                        <td>
+                                            <obs conceptId="$@laboratory_investigation@" answerConceptId="$@Draw_labs@" style="checkbox" answerLabel="Draw Labs"/>
+                                            <obs conceptId="$@laboratory_investigation@" answerConceptId="$@Chemotherapy_labs@" style="checkbox" answerLabel="Chemo labs"/>
+                                            <obs conceptId="$@laboratory_investigation@" answerConceptId="$@Draw_blood_cultures@" style="checkbox" answerLabel="Draw blood cultures"/>
+                                            <obs conceptId="$@laboratory_investigation@" answerConceptId="$@obtain_wound_culture@" style="checkbox" answerLabel="Obtain wound culture"/>
+                                            <obs conceptId="$@laboratory_investigation@" answerConceptId="$@urine_culture@" style="checkbox" answerLabel="Urine Culture"/>
+                                            <obs conceptId="$@laboratory_investigation@" answerConceptId="$@URINE_ANALYSIS@" style="checkbox" answerLabel="Urine Analysis"/>
+                                        </td>
+                                    </tr>
+                                </table>
 
                                 |<obs conceptId="$@admit_to_inpatient_ward@" answerConceptId="$@Chemotherapy_plan@" style="checkbox" answerLabel="Chemotherapy Plan"/>
                                 <br/>
-                                    <table border="1" style="padding:20px;">
-                                        <tr>
-                                            <td>
-                                                <obs conceptId="$@Chemotherapy_plan@" answerConceptId="$@Restart_chemo@" style="checkbox" answerLabel="Restart Chemo"/>
-                                                <obs conceptId="$@Chemotherapy_plan@" answerConceptId="$@Initiate_chemo@" style="checkbox" answerLabel="Initiate chemo"/>
-                                                <obs conceptId="$@Chemotherapy_plan@" answerConceptId="$@Stop_chemo@" style="checkbox" answerLabel="Stop chemo"/>
-                                                <obs conceptId="$@Chemotherapy_plan@" answerConceptId="$@Hold_chemo@" style="checkbox" answerLabel="Hold chemo"/>
-                                                <obs conceptId="$@Chemotherapy_plan@" answerConceptId="$@Administer_IT_chemo@" style="checkbox" answerLabel="Administer IT chemo"/>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <table border="1" style="padding:20px;">
+                                    <tr>
+                                        <td>
+                                            <obs conceptId="$@Chemotherapy_plan@" answerConceptId="$@Restart_chemo@" style="checkbox" answerLabel="Restart Chemo"/>
+                                            <obs conceptId="$@Chemotherapy_plan@" answerConceptId="$@Initiate_chemo@" style="checkbox" answerLabel="Initiate chemo"/>
+                                            <obs conceptId="$@Chemotherapy_plan@" answerConceptId="$@Stop_chemo@" style="checkbox" answerLabel="Stop chemo"/>
+                                            <obs conceptId="$@Chemotherapy_plan@" answerConceptId="$@Hold_chemo@" style="checkbox" answerLabel="Hold chemo"/>
+                                            <obs conceptId="$@Chemotherapy_plan@" answerConceptId="$@Administer_IT_chemo@" style="checkbox" answerLabel="Administer IT chemo"/>
+                                        </td>
+                                    </tr>
+                                </table>
 
                                 |<obs conceptId="$@admit_to_inpatient_ward@" answerConceptId="$@referral@" style="checkbox" answerLabel="Referral"/>
                                 <br/>
-                                    <table border="1" style="padding:20px;">
-                                        <tr>
-                                            <td>
-                                                <obs conceptId="$@referral@" answerConceptId="$@Internal@" style="checkbox" answerLabel="Internal"/>
-                                                <obs conceptId="$@referral@" answerConceptId="$@external@" style="checkbox" answerLabel="External"/>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <table border="1" style="padding:20px;">
+                                    <tr>
+                                        <td>
+                                            <obs conceptId="$@referral@" answerConceptId="$@Internal@" style="checkbox" answerLabel="Internal"/>
+                                            <obs conceptId="$@referral@" answerConceptId="$@external@" style="checkbox" answerLabel="External"/>
+                                        </td>
+                                    </tr>
+                                </table>
 
                                 |<obs conceptId="$@admit_to_inpatient_ward@" answerConceptId="$@consults@" style="checkbox" answerLabel="Consults"/>
                                 <br/>
-                                    <table border="1" style="padding:20px;">
-                                        <tr>
-                                            <td>
-                                                <obs conceptId="$@consults@" answerConceptId="$@Psychology_consult@" style="checkbox" answerLabel="Psychology"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@NUTRITION@" style="checkbox" answerLabel="Nutrition"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@PHYSIOTHERAPY@" style="checkbox" answerLabel="Physiotherapy"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@palliative_care@" style="checkbox" answerLabel="Palliative care"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@Social_work_consult@" style="checkbox" answerLabel="Social work"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@SURGERY@" style="checkbox" answerLabel="Surgery"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@OB_Gynecology@" style="checkbox" answerLabel="OB-Gynecology"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@ICU@" style="checkbox" answerLabel="ICU"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@Pathology@" style="checkbox" answerLabel="Pathology"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@Dental@" style="checkbox" answerLabel="Dental"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@OPHTALMOLOGY@" style="checkbox" answerLabel="Ophthalmology"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@EAR_NOSE_AND_THROAT_SYSTEMS@" style="checkbox" answerLabel="ENT"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@Dermatology@" style="checkbox" answerLabel="Dermatology"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@HIV_clinic@" style="checkbox" answerLabel="HIV Clinic"/>
-                                                <obs conceptId="$@consults@" answerConceptId="$@OTHER_NON_CODED@" style="checkbox" answerLabel="Other"/>
+                                <table border="1" style="padding:20px;">
+                                    <tr>
+                                        <td>
+                                            <obs conceptId="$@consults@" answerConceptId="$@Psychology_consult@" style="checkbox" answerLabel="Psychology"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@NUTRITION@" style="checkbox" answerLabel="Nutrition"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@PHYSIOTHERAPY@" style="checkbox" answerLabel="Physiotherapy"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@palliative_care@" style="checkbox" answerLabel="Palliative care"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@Social_work_consult@" style="checkbox" answerLabel="Social work"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@SURGERY@" style="checkbox" answerLabel="Surgery"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@OB_Gynecology@" style="checkbox" answerLabel="OB-Gynecology"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@ICU@" style="checkbox" answerLabel="ICU"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@Pathology@" style="checkbox" answerLabel="Pathology"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@Dental@" style="checkbox" answerLabel="Dental"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@OPHTALMOLOGY@" style="checkbox" answerLabel="Ophthalmology"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@EAR_NOSE_AND_THROAT_SYSTEMS@" style="checkbox" answerLabel="ENT"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@Dermatology@" style="checkbox" answerLabel="Dermatology"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@HIV_clinic@" style="checkbox" answerLabel="HIV Clinic"/>
+                                            <obs conceptId="$@consults@" answerConceptId="$@OTHER_NON_CODED@" style="checkbox" answerLabel="Other"/>
 
-                                            </td>
-                                        </tr>
-                                    </table>
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
                         </tr>
                     </table>
@@ -1528,19 +1528,18 @@
         </table>
     </section>
 
-<!--    <ifMode mode="VIEW" include="false">-->
-<!--        <div id="buttons">-->
+        <ifMode mode="VIEW" include="false">
+            <div id="buttons">
 
-<!--            <button id="submit" class="submitButton confirm right">-->
-<!--                <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"-->
-<!--                                            style="display: none; margin-left: 10px;"></i>-->
-<!--            </button>-->
-<!--            <button id="cancel" type="button" class="cancel">-->
-<!--                <uimessage code="emr.cancel" />-->
-<!--            </button>-->
-<!--        </div>-->
-<!--    </ifMode>-->
-    <submit/>
+                <button id="submit" class="submitButton confirm right">
+                    <uimessage code="Save" /><i class="icon-spinner icon-spin icon-2x"
+                                                style="display: none; margin-left: 10px;"></i>
+                </button>
+                <button id="cancel" type="button" class="cancel">
+                    <uimessage code="emr.cancel" />
+                </button>
+            </div>
+        </ifMode>
 
     <encounterVoided/>
 

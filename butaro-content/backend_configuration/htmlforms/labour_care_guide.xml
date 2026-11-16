@@ -1,0 +1,1201 @@
+<htmlform
+  htmlformUuid="acd74e1c-9849-4a7e-8669-a182a663801d"
+  formUuid="d9c269cf-e4c6-43ac-848e-a20806e55992"
+  formName="Labor Care Guide"
+  formDescription="Labor Care Guide"
+  formVersion="2.0"
+  formEncounterType="c34caa2c-5795-4d3c-9a1e-1a9f0ede5141"
+  formPublished="false"
+  formRetired="false"
+>
+  <!-- WHO LABOUR CARE GUIDE - RWANDA ADAPTATION
+       Page 2 : Birth Outcome / Postpartum & Postnatal Record.
+       One form, one encounter per save. Each tab holds the fields of what used
+       to be a separate sub-form, wrapped in its own obs group so values that
+       share a concept (pulse, temperature, BP, treatments) stay tied to the
+       right section and person. Discharge keeps its existing woman/baby groups.
+       Each tab ends with a table of earlier saves for that section. -->
+
+  <style type="text/css">
+    #lcg-form { width: 100%; font-family: Arial, sans-serif; color: #222; }
+    #lcg-form * { box-sizing: border-box; }
+    #lcg-form .form-title { text-align: center; font-size: 22px; font-weight: bold; margin: 12px 0 8px; }
+    #lcg-form .form-subtitle { text-align: center; margin: 0 0 16px; color: #444; }
+    #lcg-form .info-table, #lcg-form .history-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+    #lcg-form .info-table td, #lcg-form .history-table th, #lcg-form .history-table td { border: 1px solid #ccc; padding: 8px; vertical-align: top; }
+    #lcg-form .history-table th { background: #eeeeee; text-align: left; white-space: nowrap; }
+    #lcg-form .history-table tbody tr:nth-child(even) { background: #fafafa; }
+    #lcg-form .section-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 14px; }
+    #lcg-form .section-tab { flex: 1 1 180px; border: 1px solid #b9b9b9; background: #f3f3f3; color: #222; padding: 10px 12px; font-weight: bold; text-align: left; cursor: pointer; }
+    #lcg-form .section-tab.is-active { background: #1f6b4a; color: #fff; border-color: #1f6b4a; }
+    #lcg-form .clinical-section { border: 1px solid #d7d7d7; background: #f7f7f5; padding: 12px; margin-bottom: 16px; }
+    #lcg-form .clinical-section h2 { margin: 0 0 8px; font-size: 18px; }
+    #lcg-form .hint { margin: 0 0 10px; color: #444; }
+    #lcg-form .paper-box { background: #fff; border: 1px solid #d5d5d5; padding: 10px; margin-bottom: 10px; }
+    #lcg-form .paper-box-title { font-weight: bold; margin: 0 0 6px; }
+    #lcg-form .reference-box ul { margin: 0 0 8px; padding-left: 18px; }
+    #lcg-form .reference-box li { margin: 2px 0; }
+    #lcg-form .entry-card { background: #fff; border: 1px solid #ccc; padding: 10px; margin: 0 0 10px; }
+    #lcg-form .entry-card-title { font-weight: bold; margin: 0 0 8px; color: #1f6b4a; }
+    #lcg-form .fields { display: flex; flex-wrap: wrap; gap: 8px 10px; }
+    #lcg-form .field { flex: 1 1 140px; min-width: 120px; max-width: 220px; }
+    #lcg-form .field-wide { flex: 1 1 100%; max-width: none; min-width: 0; }
+    #lcg-form .field-choices { flex: 1 1 260px; max-width: none; }
+    #lcg-form .field label { display: block !important; width: auto !important; font-weight: bold; font-size: 12px; margin: 0 0 3px !important; }
+    #lcg-form .field-choices label + span label, #lcg-form .field-choices span label { display: inline-block !important; font-weight: normal; font-size: 13px; margin: 0 12px 0 0 !important; }
+    #lcg-form .field input[type="text"], #lcg-form .field textarea, #lcg-form .field select { width: 100% !important; max-width: 100%; }
+    #lcg-form .unit { font-size: 12px; color: #555; }
+    #lcg-form .alert-value { background: #fde2e1 !important; border: 1px solid #c9302c !important; color: #a94442; font-weight: bold; }
+    #lcg-form .history-title { margin-top: 22px; padding: 10px; background: #51a351; color: #fff; font-size: 17px; font-weight: bold; }
+    #lcg-form .history-status { padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; background: #fafafa; }
+    #lcg-form .history-empty { font-style: italic; color: #666; }
+    #lcg-form .history-error { color: #a94442; font-weight: bold; }
+    #lcg-form .history-scroll { overflow-x: auto; }
+    #lcg-form .submit-row { position: sticky; bottom: 0; z-index: 5; margin-top: 18px; padding: 12px 8px; text-align: center; background: #fff; border-top: 1px solid #ccc; }
+    #lcg-form .hidden-data { display: none; }
+    @media (max-width: 768px) {
+      #lcg-form .field { flex: 1 1 45%; max-width: none; }
+      #lcg-form .section-tab { flex: 1 1 100%; }
+      #lcg-form .info-table, #lcg-form .info-table tbody, #lcg-form .info-table tr, #lcg-form .info-table td { display: block; width: 100%; }
+    }
+  </style>
+
+  <div id="lcg-form">
+    <div class="form-title">BIRTH OUTCOME / POSTPARTUM &amp; POSTNATAL RECORD</div>
+    <p class="form-subtitle">Hourly labour assessment, labour summary, PPH diagnosis, newborn, postpartum and postnatal follow-up, and discharge.</p>
+
+    <table class="info-table">
+      <tr>
+        <td><b>Patient name</b></td>
+        <td><lookup expression="patient.personName"/></td>
+        <td><b>Age</b></td>
+        <td><lookup expression="patient.age"/> years</td>
+      </tr>
+      <tr>
+        <td><b>Encounter date/time</b></td>
+        <td><encounterDate default="now" id="encounterDate" showTime="true"/></td>
+        <td><b>Health facility</b></td>
+        <td><encounterLocation default="UserProperty:defaultLocation" id="encounterLocation"/></td>
+      </tr>
+      <tr>
+        <td><b>Encounter provider</b></td>
+        <td colspan="3"><encounterProvider id="encounterProvider" default="currentUser" required="true"/></td>
+      </tr>
+    </table>
+    <span class="hidden-data" id="lcgPatientUuid"><lookup expression="patient.uuid"/></span>
+    <span class="hidden-data" id="lcgEncounterUuid"><lookup complexExpression="#if($encounter) $!{encounter.uuid} #end"/></span>
+
+    <div class="section-tabs">
+      <button class="section-tab is-active" data-section="hourly" type="button">1. LCG HOURLY ASSESSMENT</button>
+      <button class="section-tab" data-section="summary" type="button">2. LABOUR SUMMARY</button>
+      <button class="section-tab" data-section="pph" type="button">3. PPH DIAGNOSIS</button>
+      <button class="section-tab" data-section="newborn" type="button">4. NEWBORN</button>
+      <button class="section-tab" data-section="woman" type="button">5. POST-PARTUM FOLLOW-UP (WOMAN)</button>
+      <button class="section-tab" data-section="baby" type="button">6. POST-NATAL FOLLOW-UP (NEWBORN)</button>
+      <button class="section-tab" data-section="discharge" type="button">7. DISCHARGE</button>
+    </div>
+    <p class="hint">Select a section. The other sections stay hidden until you select them. Values already entered are kept when you switch sections. Each save is one entry: record one hourly assessment or one follow-up per save.</p>
+
+    <!-- ===================== 1. LCG HOURLY ASSESSMENT ===================== -->
+    <div class="clinical-section" data-section="hourly" id="section-hourly">
+      <h2>LCG HOURLY ASSESSMENT</h2>
+      <p class="hint">Record one hourly assessment per save; the encounter date/time is the time of the assessment. Fields turn red when a value meets an alert threshold: alert the senior midwife or doctor and record the assessment and action in Shared decision-making. If labour extends beyond 12h, continue on a new LCG.</p>
+      <div class="paper-box reference-box">
+        <div class="paper-box-title">Abbreviations</div>
+        <ul>
+          <li>Y-Yes, N-No, D-Declined, U-Unknown, SP-Supine, MO-Mobile</li>
+          <li>E-Early, L-Late, V-Variable; I-Intact, C-Clear, M-Meconium, B-Blood</li>
+          <li>A-Anterior, P-Posterior, T-Transverse; P+-Protein, A+-Acetone</li>
+          <li>Urine volume: record "N/A" if labour is progressing normally with no maternal/fetal complications.</li>
+        </ul>
+      </div>
+      <obsgroup groupingConceptId="8927ba77-971b-4032-94c3-ccf11ce4d894">
+        <div class="entry-card">
+          <div class="entry-card-title">Supportive care</div>
+          <div class="fields">
+            <div class="field field-choices">
+              <label>Companion (N = none)</label>
+              <obs answerCodes="Yes,No,Unknown,Declined" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2,3cd6fac4-26fe-102b-80cb-0017a47871b2,f8ad33cc-36ff-4d5c-b3ee-d6848667acc2" conceptId="9fd6786b-6b83-4fa7-b6b4-ba5846a84937" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Pain relief (N = none)</label>
+              <obs answerCodes="Yes,No,Unknown,Declined" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2,3cd6fac4-26fe-102b-80cb-0017a47871b2,f8ad33cc-36ff-4d5c-b3ee-d6848667acc2" conceptId="9bd95df5-684b-4a9c-be19-1f30f104908a" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Oral fluid (N = none)</label>
+              <obs answerCodes="Yes,No,Unknown,Declined" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2,3cd6fac4-26fe-102b-80cb-0017a47871b2,f8ad33cc-36ff-4d5c-b3ee-d6848667acc2" conceptId="59dfcb57-b663-4ecb-8fa6-ca0b7a23674b" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Posture (SP = supine, MO = mobile)</label>
+              <obs answerCodes="Supine,Mobile" answerConceptIds="2f37e840-546e-46bf-9387-819702e04dcf,09175207-f6f5-4806-92e0-0f7ace0359f0" conceptId="0348eb2f-9c99-4367-a68a-023ab537806f" style="radio"/>
+            </div>
+          </div>
+        </div>
+        <div class="entry-card">
+          <div class="entry-card-title">Baby</div>
+          <div class="fields">
+            <div class="field">
+              <label>Baseline FHR, bpm (alert if &lt;110 or ≥160)</label>
+              <obs conceptId="36a6d4d5-b797-4316-adde-3ca3e7109b52" id="fhrId"/>
+            </div>
+            <div class="field field-choices">
+              <label>FHR deceleration (E-early, L-late, V-variable)</label>
+              <obs answerCodes="Early,Late,Variable,None" answerConceptIds="78e11357-78fd-4d4d-9322-9c47709c8436,f80940ab-56ca-436b-be21-5ce470fd4168,6018fb55-16ac-4d69-8b7e-bef1f08864b7,3cd743f8-26fe-102b-80cb-0017a47871b2" conceptId="30331c69-3ecf-4ae5-bd54-71ea90f033bf" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Amniotic fluid (M-meconium, B-blood, C-clear, I-intact)</label>
+              <obs answerCodes="Clear,Meconium,Blood,Intact" answerConceptIds="5d2c51ec-3432-45a4-b13d-c6bc20b1f6d6,fdcf6d8b-ae7a-4253-b4d7-d3a50dad127f,7fb92bd6-7b2c-4966-91cf-447c4c9b1595,a245e139-aa2c-4d62-9230-e870db5b7a92" conceptId="2576c214-d10e-4330-ab3c-3df4d6bf466d" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Fetal position (P-posterior, A-anterior, T-transverse)</label>
+              <obs answerCodes="Anterior,Posterior,Transverse" answerConceptIds="6b713ffd-dd57-467f-96a6-b998607c13ce,1f521426-241a-49f3-95c1-7fb0a2c43c97,d8b29a7f-b332-4e99-879b-5433433b66df" conceptId="370efbe9-f916-425c-9d3e-8dd1c747be3e" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Caput (alert if +++)</label>
+              <obs answerCodes="None,+,++,+++" answerConceptIds="3cd743f8-26fe-102b-80cb-0017a47871b2,a5b4c4bb-54b3-4997-b30d-6372f58b9bee,5384734e-7426-4220-a4ca-e1f784da37f8,6f6c39fc-839d-4aae-9ad7-3e095ef372ae" conceptId="eaa3f2f6-22bb-4a58-82e4-5e3950f74cc8" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Moulding (alert if +++)</label>
+              <obs answerCodes="None,+,++,+++" answerConceptIds="3cd743f8-26fe-102b-80cb-0017a47871b2,a5b4c4bb-54b3-4997-b30d-6372f58b9bee,5384734e-7426-4220-a4ca-e1f784da37f8,6f6c39fc-839d-4aae-9ad7-3e095ef372ae" conceptId="74a28037-2fc1-49a5-8572-8cf2710b8c12" style="radio"/>
+            </div>
+          </div>
+        </div>
+        <div class="entry-card">
+          <div class="entry-card-title">Woman</div>
+          <div class="fields">
+            <div class="field">
+              <label>Pulse, bpm (alert if &lt;60 or ≥120)</label>
+              <obs conceptId="3ce93824-26fe-102b-80cb-0017a47871b2" id="pulseId"/>
+            </div>
+            <div class="field">
+              <label>Respirations, /min (alert if &lt;12 or ≥20)</label>
+              <obs conceptId="3ceb11f8-26fe-102b-80cb-0017a47871b2" id="respId"/>
+            </div>
+            <div class="field">
+              <label>Systolic BP, mmHg (alert if &lt;80 or ≥140)</label>
+              <obs conceptId="3ce934fa-26fe-102b-80cb-0017a47871b2" id="sysbpId"/>
+            </div>
+            <div class="field">
+              <label>Diastolic BP, mmHg (alert if ≥90)</label>
+              <obs conceptId="3ce93694-26fe-102b-80cb-0017a47871b2" id="diabpId"/>
+            </div>
+            <div class="field">
+              <label>Temperature °C (alert if &lt;35.0 or ≥37.5)</label>
+              <obs conceptId="3ce939d2-26fe-102b-80cb-0017a47871b2" id="tempId"/>
+            </div>
+            <div class="field field-choices">
+              <label>Urine (P++ protein, A++ acetone)</label>
+              <obs answerCodes="Normal,P++,A++,P++/A++" answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,58f6fb62-69e2-4a94-8ccc-4a671f64b6f1,67219f70-b0bb-4f3a-9a6e-e367c7950165,451b6015-c2f5-4142-87bb-98ec714568ec" conceptId="8eeea59e-d31c-4294-b02d-078249818e1b" style="radio"/>
+            </div>
+            <div class="field">
+              <label>Urine volume (alert if &lt;30 mL/hr; N/A if normal labour)</label>
+              <obs conceptId="bd418b33-2082-43de-bbe4-3ed8fd813088"/>
+            </div>
+            <div class="field">
+              <label>Contractions per 10 min (alert if ≤2 or &gt;5)</label>
+              <obs conceptId="5965b71c-4214-4780-a74e-2de09b06a552" id="contrCountId"/>
+            </div>
+            <div class="field">
+              <label>Duration of contractions, sec (alert if &lt;20 or &gt;60)</label>
+              <obs conceptId="33dddcf3-791b-4c20-a971-4d5c1ed4110c" id="contrDurId"/>
+            </div>
+          </div>
+        </div>
+        <div class="entry-card">
+          <div class="entry-card-title">Labour progress</div>
+          <div class="fields">
+            <div class="field">
+              <label>Cervix dilatation [Plot X] (cm, 5-10)</label>
+              <obs conceptId="1d28c215-f090-48d4-8813-b214d0e4054b"/>
+            </div>
+            <div class="field">
+              <label>Descent [Plot O] (station, 0-5)</label>
+              <obs conceptId="ef129b33-e1ed-43f2-9e47-b169a95f7c59"/>
+            </div>
+          </div>
+        </div>
+        <div class="entry-card">
+          <div class="entry-card-title">Medication</div>
+          <div class="fields">
+            <div class="field">
+              <label>Oxytocin (U/L, drops/min)</label>
+              <obs conceptId="76f30070-c91f-4211-880c-024565b69d42"/>
+            </div>
+            <div class="field">
+              <label>Medicine</label>
+              <obs conceptId="89bf85f5-72f1-4037-ac86-6e3ac730ef45"/>
+            </div>
+            <div class="field">
+              <label>IV fluids</label>
+              <obs conceptId="def3f08b-e55a-464d-8d1c-b4a389a37649"/>
+            </div>
+          </div>
+        </div>
+        <div class="entry-card">
+          <div class="entry-card-title">Shared decision-making</div>
+          <div class="fields">
+            <div class="field field-wide">
+              <label>Assessment</label>
+              <obs conceptId="34ab9dab-f58c-409d-8649-6cc5c254470d" rows="3"/>
+            </div>
+            <div class="field field-wide">
+              <label>Plan</label>
+              <obs conceptId="ca5f9645-f958-47ca-b488-079d4089cc3e" rows="3"/>
+            </div>
+            <div class="field">
+              <label>Initials</label>
+              <obs conceptId="d5180c5c-96a4-4640-9509-5e3926c5efe4"/>
+            </div>
+          </div>
+        </div>
+      </obsgroup>
+      <div class="history-title">LCG HOURLY ASSESSMENT - SAVED ENTRIES</div>
+      <div class="history-status" id="history-status-hourly">Loading history...</div>
+      <div class="history-scroll">
+        <table class="history-table" id="history-table-hourly" style="display:none">
+          <thead>
+            <tr>
+              <th>Saved at</th><th>Baseline FHR</th><th>Pulse</th><th>Systolic BP</th><th>Diastolic BP</th><th>Temp</th><th>Contractions /10 min</th><th>Cervix (cm)</th><th>Descent</th>
+            </tr>
+          </thead>
+          <tbody id="history-body-hourly"/>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===================== 2. LABOUR SUMMARY ===================== -->
+    <div class="clinical-section" data-section="summary" id="section-summary" style="display:none">
+      <h2>LABOUR SUMMARY</h2>
+      <p class="hint">Birth details, third stage of labour, perineum and complications. Blood loss turns red at 500 mL or more: alert the senior midwife or doctor. AMTSL = Active Management of the Third Stage of Labour.</p>
+      <obsgroup groupingConceptId="bf2f748a-1a8b-476c-931c-36322bbe395c">
+        <div class="entry-card">
+          <div class="entry-card-title">Birth details</div>
+          <div class="fields">
+            <div class="field field-choices">
+              <label>Mode of childbirth</label>
+              <obs answerCodes="Spontaneous vaginal birth,Cesarean birth,Vacuum-assisted birth" answerConceptIds="c2069c3d-1a82-4bf8-8546-55dd8e77dd26,88da05c7-d76c-49d1-9c20-55080d8db170,4d5a4ab4-6b3c-4152-882a-e8ea3f20e6aa" conceptId="3104238e-94f7-4d63-a59f-d2886bd7b15a" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Conducted by</label>
+              <obs answerCodes="Obstetrician,Midwife,Nurse,Other" answerConceptIds="e773a478-875d-4665-a3af-2dfb82336044,6834067f-54fb-4214-87fa-4b19e79360fc,ef9880fe-3a14-4a05-aadc-e3000c721e3c,da0ed6e5-8017-44c2-a68f-23ea082b8dc4" conceptId="669638cb-ad30-4caa-bff8-6c28721129aa" style="radio"/>
+            </div>
+            <div class="field">
+              <label>If Other</label>
+              <obs conceptId="da0ed6e5-8017-44c2-a68f-23ea082b8dc4"/>
+            </div>
+          </div>
+        </div>
+        <div class="entry-card">
+          <div class="entry-card-title">Third stage of labour</div>
+          <div class="fields">
+            <div class="field field-choices">
+              <label>Uterotonics for AMTSL</label>
+              <obs answerCodes="Oxytocin,Misoprostol,Carbetocin" answerConceptIds="76f30070-c91f-4211-880c-024565b69d42,7c9418db-c53f-43d8-aa7d-631053ae9f14,43819630-e7ff-41e3-9f82-85d84a0ce9b2" conceptId="334d8cd9-a467-4daa-b4c3-406c0275656c" style="radio"/>
+            </div>
+            <div class="field">
+              <label>Uterotonic dose</label>
+              <obs conceptId="aa2e1a96-1371-494a-8ca3-879656ade4be"/>
+            </div>
+            <div class="field">
+              <label>Uterotonic time</label>
+              <obs conceptId="79b9f813-6612-49a9-bc28-bf2a18c0af2d"/>
+            </div>
+            <div class="field">
+              <label>Placenta delivery time</label>
+              <obs conceptId="211a882c-9b07-4dde-82f8-c7f8d90c500e"/>
+            </div>
+            <div class="field field-choices">
+              <label>Placenta delivery</label>
+              <obs conceptId="96f890c7-72ed-4586-9782-22a91a07bbbd" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Fundus of uterus firmly contracted</label>
+              <obs answerCodes="Yes,No" conceptId="2ee6a566-8b83-41a2-ae30-74f7d30fffa6" style="radio"/>
+            </div>
+            <div class="field">
+              <label>Blood loss, mL (alert if ≥500)</label>
+              <obs conceptId="93e9d507-b603-4f83-9d6b-d514fd87ab1a" id="bloodLossId"/>
+            </div>
+          </div>
+        </div>
+        <div class="entry-card">
+          <div class="entry-card-title">Perineum &amp; complications</div>
+          <div class="fields">
+            <div class="field field-choices">
+              <label>Perineum</label>
+              <obs conceptId="781be340-8a64-426d-911b-7d02ecea2036" style="radio"/>
+            </div>
+            <div class="field">
+              <label>Repaired by</label>
+              <obs conceptId="00304a3e-4604-4672-a32d-c8d39d0fb447"/>
+            </div>
+            <div class="field field-wide field-choices">
+              <label>Complications</label>
+              <obs answerCodes="Tight cord,Nuchal cord,Shoulder dystocia,Other" conceptId="56e6bf34-c8a2-4a54-bd8a-43e1e9d1c78f" style="radio"/>
+            </div>
+          </div>
+        </div>
+      </obsgroup>
+      <div class="history-title">LABOUR SUMMARY - SAVED ENTRIES</div>
+      <div class="history-status" id="history-status-summary">Loading history...</div>
+      <div class="history-scroll">
+        <table class="history-table" id="history-table-summary" style="display:none">
+          <thead>
+            <tr>
+              <th>Saved at</th><th>Mode of childbirth</th><th>Placenta time</th><th>Fundus firmly contracted</th><th>Blood loss (mL)</th><th>Perineum</th><th>Complications</th>
+            </tr>
+          </thead>
+          <tbody id="history-body-summary"/>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===================== 3. PPH DIAGNOSIS ===================== -->
+    <div class="clinical-section" data-section="pph" id="section-pph" style="display:none">
+      <h2>PPH DIAGNOSIS</h2>
+      <p class="hint">Record when PPH was diagnosed, its cause, and the interventions given for that cause.</p>
+      <div class="paper-box">
+        <div class="paper-box-title">Interventions for all cases</div>
+        <p class="hint">Uterine massage / IV access / 10 IU oxytocin per 500 mL / 20 IU oxytocin per 1L / TXA 1g IV (1st dose if &lt;3h since childbirth)</p>
+      </div>
+      <obsgroup groupingConceptId="dd016afc-c27d-4b14-b7c9-0947e58b9abc">
+        <div class="entry-card">
+          <div class="entry-card-title">Information</div>
+          <div class="fields">
+            <div class="field">
+              <label>Date</label>
+              <obs conceptId="7fbd32ed-3d7c-4e81-b89b-87d7043a1b5a"/>
+            </div>
+            <div class="field">
+              <label>Time</label>
+              <obs conceptId="bcc829a6-7394-49a6-920b-f42f2a68a96c"/>
+            </div>
+            <div class="field field-wide field-choices">
+              <label>Diagnosis based on</label>
+              <obs conceptId="5bc1ae2b-5d58-4201-a1ec-5538321350c2" style="radio"/>
+            </div>
+            <div class="field field-wide field-choices">
+              <label>Bleeding and its causes</label>
+              <obs answerCodes="Uterine atony,Retained Placenta,Tear,Blood clotting disorder" answerConceptIds="a0bc6f56-c70b-4f7a-b9a4-2dd9806f67b5,bcc5dab9-108e-47b3-80d5-004086deb7cd,a0917de6-0d6d-435c-a0d7-e9d6143c6274,e8d41002-5304-4ba0-9931-cf65d93dbcbc" conceptId="26e9c2db-befd-4e2d-a901-07b0cee4cc8f" style="radio"/>
+            </div>
+          </div>
+        </div>
+        <div class="entry-card">
+          <div class="entry-card-title">Interventions by cause</div>
+          <div class="fields">
+            <div class="field field-wide field-choices">
+              <label>Uterine atony interventions</label>
+              <obs conceptId="b115df7b-2657-4203-ae3c-725ccc2b8b39" style="radio"/>
+            </div>
+            <div class="field field-wide field-choices">
+              <label>Retained placenta interventions</label>
+              <obs conceptId="a6135f07-7de7-4f31-9807-73cf8e739a3b" style="radio"/>
+            </div>
+            <div class="field field-wide field-choices">
+              <label>Tear interventions</label>
+              <obs conceptId="60db29ac-c00f-433a-9dd0-04feb7bd7017" style="radio"/>
+            </div>
+            <div class="field field-wide field-choices">
+              <label>Blood clotting disorder interventions</label>
+              <obs conceptId="0acac343-acde-4862-b8cf-7eebfdbc2490" style="radio"/>
+            </div>
+          </div>
+        </div>
+      </obsgroup>
+      <div class="history-title">PPH DIAGNOSIS - SAVED ENTRIES</div>
+      <div class="history-status" id="history-status-pph">Loading history...</div>
+      <div class="history-scroll">
+        <table class="history-table" id="history-table-pph" style="display:none">
+          <thead>
+            <tr>
+              <th>Saved at</th><th>Date</th><th>Time</th><th>Diagnosis based on</th><th>Cause of bleeding</th><th>Uterine atony</th><th>Retained placenta</th><th>Tear</th><th>Clotting disorder</th>
+            </tr>
+          </thead>
+          <tbody id="history-body-pph"/>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===================== 4. NEWBORN ===================== -->
+    <div class="clinical-section" data-section="newborn" id="section-newborn" style="display:none">
+      <h2>NEWBORN</h2>
+      <p class="hint">Birth status, immediate condition, measurements, and care given at birth.</p>
+      <obsgroup groupingConceptId="ed6ab1d8-be59-4d21-a279-662844abd6fc">
+        <div class="entry-card">
+          <div class="entry-card-title">Birth</div>
+          <div class="fields">
+            <div class="field">
+              <label>LMP</label>
+              <obs conceptId="3cd653c6-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>GA</label>
+              <obs conceptId="3cd9446e-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field field-choices">
+              <label>Birth status</label>
+              <obs answerCodes="Born alive,Stillbirth,Died before 24 hrs" answerConceptIds="b056404d-333c-4231-989e-a3abe01e5cd0,a972e953-3552-4a95-bd9f-1a59c2a87f69,7bdbe689-0646-4c3c-a473-a30bf8521605" conceptId="cf3137cf-8a15-429b-800b-2e35d43011d7" style="radio"/>
+            </div>
+            <div class="field">
+              <label>Time the umbilical cord was cut</label>
+              <obs conceptId="80d26408-00ce-4476-9683-bd44ebdc0f4f"/>
+            </div>
+            <div class="field">
+              <label>APGAR 1 min</label>
+              <obs conceptId="4ac39577-f644-4b8d-9a96-5d46a9bcf785"/>
+            </div>
+            <div class="field">
+              <label>APGAR 5 min</label>
+              <obs conceptId="930ba9c4-73a0-4910-b4eb-c26937ab7a67"/>
+            </div>
+            <div class="field">
+              <label>APGAR 10 min</label>
+              <obs conceptId="f96a327a-4d14-465e-bd4c-f0e71780843b"/>
+            </div>
+            <div class="field field-choices">
+              <label>Resuscitation</label>
+              <obs answerCodes="None,Stimulation,Bag &amp; mask" conceptId="cfa799db-d343-4213-9eed-8dec825ccc0e" style="radio"/>
+            </div>
+          </div>
+        </div>
+        <div class="entry-card">
+          <div class="entry-card-title">Measurements</div>
+          <div class="fields">
+            <div class="field field-choices">
+              <label>Gender</label>
+              <obs answerCodes="Male,Female" conceptId="e552ef1b-a9b2-45ef-8078-b1d3989c2454" style="radio"/>
+            </div>
+            <div class="field">
+              <label>Weight (g)</label>
+              <obs conceptId="3cf15b3a-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Head circumference (cm)</label>
+              <obs conceptId="3ceb96b4-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Height (cm)</label>
+              <obs conceptId="3ce93cf2-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+          </div>
+        </div>
+        <div class="entry-card">
+          <div class="entry-card-title">Care at birth</div>
+          <div class="fields">
+            <div class="field field-choices">
+              <label>Skin to skin initiated immediately for at least 1 hr</label>
+              <obs answerCodes="Yes,No" conceptId="d0b955fb-3f3c-4b99-8ed4-75d5b1e49d62" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Breastfeeding initiated within the first hour</label>
+              <obs answerCodes="Yes,No" conceptId="f3be2244-7e9c-492e-a130-17556110a9fc" style="radio"/>
+            </div>
+            <div class="field field-wide">
+              <label>Congenital malformation(s)</label>
+              <obs conceptId="dc758597-fddf-47aa-baa7-40de8038371c" rows="2"/>
+            </div>
+            <div class="field">
+              <label>BCG</label>
+              <obs conceptId="3cd4e004-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Polio</label>
+              <obs conceptId="3ceb32b4-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Hep B</label>
+              <obs conceptId="3ccc7a0e-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Eye care</label>
+              <obs conceptId="2b202155-cdd7-4f6b-8e4f-85bf8d28e0a7"/>
+            </div>
+            <div class="field">
+              <label>Vitamin K</label>
+              <obs conceptId="9eb2c604-beab-41e7-a1ef-d53b6aa5dda6"/>
+            </div>
+            <div class="field field-wide">
+              <label>Treatments</label>
+              <obs conceptId="4044b850-32da-4689-bb59-107fdacfb470" rows="2"/>
+            </div>
+          </div>
+        </div>
+      </obsgroup>
+      <div class="history-title">NEWBORN - SAVED ENTRIES</div>
+      <div class="history-status" id="history-status-newborn">Loading history...</div>
+      <div class="history-scroll">
+        <table class="history-table" id="history-table-newborn" style="display:none">
+          <thead>
+            <tr>
+              <th>Saved at</th><th>Birth status</th><th>APGAR 1 min</th><th>APGAR 5 min</th><th>Resuscitation</th><th>Gender</th><th>Weight (g)</th>
+            </tr>
+          </thead>
+          <tbody id="history-body-newborn"/>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===================== 5. POST-PARTUM FOLLOW-UP FOR WOMAN ===================== -->
+    <div class="clinical-section" data-section="woman" id="section-woman" style="display:none">
+      <h2>POST-PARTUM FOLLOW-UP FOR WOMAN</h2>
+      <p class="hint">Record one follow-up per save. The table below trends pulse, BP, vaginal bleeding, and uterine height and tone to flag secondary PPH or sepsis.</p>
+      <obsgroup groupingConceptId="6cdfc195-ebb7-467e-9b38-a31cb56894e9">
+        <div class="entry-card">
+          <div class="fields">
+            <div class="field">
+              <label>Date &amp; time</label>
+              <obs conceptId="f6acad2a-8553-436a-af8d-15fb934be24c"/>
+            </div>
+            <div class="field">
+              <label>Pulse (bpm)</label>
+              <obs conceptId="3ce93824-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Temperature (°C)</label>
+              <obs conceptId="3ce939d2-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Systolic BP (mmHg)</label>
+              <obs conceptId="3ce934fa-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Diastolic BP (mmHg)</label>
+              <obs conceptId="3ce93694-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Vaginal bleeding</label>
+              <obs conceptId="0f3f27e8-949d-4ef3-9c1a-04cb2ac121ff"/>
+            </div>
+            <div class="field">
+              <label>Uterine height and tone</label>
+              <obs conceptId="910ed264-7712-43f6-b9e6-59d8ecf05da9"/>
+            </div>
+            <div class="field field-wide">
+              <label>Observation &amp; treatment</label>
+              <obs conceptId="4044b850-32da-4689-bb59-107fdacfb470" rows="2"/>
+            </div>
+          </div>
+        </div>
+      </obsgroup>
+      <div class="history-title">POST-PARTUM FOLLOW-UP FOR WOMAN - SAVED ENTRIES</div>
+      <div class="history-status" id="history-status-woman">Loading history...</div>
+      <div class="history-scroll">
+        <table class="history-table" id="history-table-woman" style="display:none">
+          <thead>
+            <tr>
+              <th>Saved at</th><th>Date &amp; time</th><th>Pulse</th><th>Temp</th><th>Systolic BP</th><th>Diastolic BP</th><th>Vaginal bleeding</th><th>Uterine height and tone</th><th>Observation &amp; treatment</th>
+            </tr>
+          </thead>
+          <tbody id="history-body-woman"/>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===================== 6. POST-NATAL FOLLOW-UP FOR NEWBORN ===================== -->
+    <div class="clinical-section" data-section="baby" id="section-baby" style="display:none">
+      <h2>POST-NATAL FOLLOW-UP FOR NEWBORN</h2>
+      <p class="hint">Record one follow-up per save. The table below trends heart rate, temperature, umbilicus, and breastfeeding to flag neonatal sepsis or feeding failure.</p>
+      <obsgroup groupingConceptId="f05022bb-0efd-44bd-9222-eced503c12a0">
+        <div class="entry-card">
+          <div class="fields">
+            <div class="field">
+              <label>Date &amp; time</label>
+              <obs conceptId="0bc46a19-fe56-4c3a-9d2a-13f1786163a9"/>
+            </div>
+            <div class="field">
+              <label>Heart rate (bpm)</label>
+              <obs conceptId="57c934dd-a086-4e73-a9b8-3b9c1abef1b1"/>
+            </div>
+            <div class="field">
+              <label>Temperature (°C)</label>
+              <obs conceptId="3ce939d2-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Respiration (/min)</label>
+              <obs conceptId="226c9283-7de0-4c80-945f-cbfceea18ab8"/>
+            </div>
+            <div class="field field-choices">
+              <label>Umbilicus</label>
+              <obs conceptId="f49fa661-191f-4507-8328-7e3a3a0444af" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Breastfeeding</label>
+              <obs conceptId="3cd4860e-26fe-102b-80cb-0017a47871b2" style="radio"/>
+            </div>
+            <div class="field field-wide">
+              <label>Observation &amp; treatment</label>
+              <obs conceptId="6602a73b-b8d3-40bc-bae8-f00ff3b9cceb" rows="2"/>
+            </div>
+          </div>
+        </div>
+      </obsgroup>
+      <div class="history-title">POST-NATAL FOLLOW-UP FOR NEWBORN - SAVED ENTRIES</div>
+      <div class="history-status" id="history-status-baby">Loading history...</div>
+      <div class="history-scroll">
+        <table class="history-table" id="history-table-baby" style="display:none">
+          <thead>
+            <tr>
+              <th>Saved at</th><th>Date &amp; time</th><th>Heart rate</th><th>Temp</th><th>Respiration</th><th>Umbilicus</th><th>Breastfeeding</th><th>Observation &amp; treatment</th>
+            </tr>
+          </thead>
+          <tbody id="history-body-baby"/>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===================== 7. DISCHARGE ===================== -->
+    <div class="clinical-section" data-section="discharge" id="section-discharge" style="display:none">
+      <h2>DISCHARGE</h2>
+      <p class="hint">Discharge assessment for the woman and the baby, screening, prevention, counselling, and the next postnatal visit.</p>
+
+      <div class="paper-box">
+        <div class="paper-box-title">Woman</div>
+        <obsgroup groupingConceptId="2ae89b6d-c12b-4ff0-b5e3-879320e89317">
+          <div class="fields">
+            <div class="field field-choices">
+              <label>HIV status</label>
+              <obs answerCodes="Negative,Positive" answerConceptIds="3cd28732-26fe-102b-80cb-0017a47871b2,3cd3a7a2-26fe-102b-80cb-0017a47871b2" conceptId="3ce17cec-26fe-102b-80cb-0017a47871b2" style="radio"/>
+            </div>
+            <div class="field">
+              <label>HIV test date</label>
+              <obs conceptId="092e2163-e657-4961-b554-96ce2c21d051"/>
+            </div>
+            <div class="field field-choices">
+              <label>Syphilis status</label>
+              <obs answerCodes="Negative,Positive" answerConceptIds="3cd28732-26fe-102b-80cb-0017a47871b2,3cd3a7a2-26fe-102b-80cb-0017a47871b2" conceptId="3d5ef803-a531-4747-99e4-62f0d72bed4c" style="radio"/>
+            </div>
+            <div class="field">
+              <label>Syphilis test date</label>
+              <obs conceptId="e484492a-4c62-4410-a062-dbbf6d1895c5"/>
+            </div>
+            <div class="field">
+              <label>Haemoglobin (g/dL)</label>
+              <obs conceptId="3ccc7158-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Haemoglobin date</label>
+              <obs conceptId="86d31952-a2cb-4f76-bd04-c5d9cb4a0a15"/>
+            </div>
+            <div class="field field-choices">
+              <label>Presence of danger signs?</label>
+              <obs answerCodes="Yes,No" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" conceptId="14e038f6-779f-4826-af20-0e12a973a4fe" style="radio"/>
+            </div>
+            <div class="field field-wide">
+              <label>If yes, list danger signs</label>
+              <obs conceptId="3c2611df-27d4-4d5a-a6e5-71ded3b75f5e"/>
+            </div>
+            <div class="field field-choices">
+              <label>Under treatment for a complication?</label>
+              <obs answerCodes="Yes,No" conceptId="e65c3e51-261e-4294-a5d3-47f94164dc5f" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Condition stabilized?</label>
+              <obs answerCodes="Yes,No" conceptId="9cf94292-eca1-4544-b678-a75d2cd86ccf" style="radio"/>
+            </div>
+            <div class="field">
+              <label>Temperature (°C)</label>
+              <obs conceptId="3ce939d2-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Pulse (bpm)</label>
+              <obs conceptId="3ce93824-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Respirations (/min)</label>
+              <obs conceptId="3ceb11f8-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Systolic BP (mmHg)</label>
+              <obs conceptId="3ce934fa-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Diastolic BP (mmHg)</label>
+              <obs conceptId="3ce93694-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field field-choices">
+              <label>Conjunctival / palmar pallor</label>
+              <obs answerCodes="Yes,No" conceptId="0e1f0062-5792-4ad8-932b-e2e5db5e76e3" style="radio"/>
+            </div>
+            <div class="field">
+              <label>Breasts</label>
+              <obs conceptId="abbbc8a7-d9d0-45a1-bef8-62b7ffee48f1"/>
+            </div>
+            <div class="field">
+              <label>Uterine height</label>
+              <obs conceptId="910ed264-7712-43f6-b9e6-59d8ecf05da9"/>
+            </div>
+            <div class="field field-choices">
+              <label>Uterine tone</label>
+              <obs conceptId="fb226e21-1096-44d0-a6d3-680afd6f7a8d" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Uterine tenderness</label>
+              <obs answerCodes="Yes,No" conceptId="cfe15491-db4b-4125-a44a-815aa1d540cd" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Voiding without difficulty?</label>
+              <obs answerCodes="Yes,No" conceptId="200e5115-d928-43d1-9765-529000e0c440" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Urinary incontinence?</label>
+              <obs answerCodes="Yes,No" conceptId="166883b7-3a15-4541-bf87-1ad25af0821e" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Bowel function normal?</label>
+              <obs answerCodes="Yes,No" conceptId="63ffeb53-4480-410b-82d9-2921386fb0ad" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Fecal incontinence?</label>
+              <obs answerCodes="Yes,No" conceptId="c0e7e3ed-0c14-4629-b42d-81cf8c1b3614" style="radio"/>
+            </div>
+            <div class="field">
+              <label>Perineum</label>
+              <obs conceptId="bfc8edc6-6059-41d2-a468-4b28e3e2634f"/>
+            </div>
+            <div class="field">
+              <label>Lochia colour</label>
+              <obs conceptId="4fdbcef3-018b-480e-a574-739ad781e290"/>
+            </div>
+            <div class="field">
+              <label>Lochia odour</label>
+              <obs conceptId="a9d6c09a-6b1e-48c3-8a6c-34a0245dc624"/>
+            </div>
+            <div class="field">
+              <label>Lochia amount</label>
+              <obs conceptId="5906e188-2991-40c6-bb3b-2c6651530849"/>
+            </div>
+            <div class="field">
+              <label>Caesarean incision</label>
+              <obs conceptId="a1ca483e-73e6-4f91-a4c8-013794ddffef"/>
+            </div>
+            <div class="field">
+              <label>Genital tears</label>
+              <obs conceptId="a1d2a8bd-d2ba-4532-aacd-caca946721cc"/>
+            </div>
+          </div>
+        </obsgroup>
+      </div>
+
+      <div class="paper-box">
+        <div class="paper-box-title">Woman: screening</div>
+        <div class="fields">
+          <div class="field field-wide field-choices">
+            <label>Postpartum depression and anxiety</label>
+            <obs answerCodes="Screened negative for postpartum depression and anxiety,Screened positive for postpartum depression and anxiety" conceptId="2d5d45c4-d8dd-479b-8a3a-76577f7e4c14" style="radio"/>
+          </div>
+          <div class="field field-choices">
+            <label>Woman bonding well with her baby?</label>
+            <obs answerCodes="Yes,No" conceptId="8acb9a3d-c318-48c5-a254-b074d8784ba9" style="radio"/>
+          </div>
+          <div class="field field-wide field-choices">
+            <label>Substance use</label>
+            <obs answerCodes="Screened negative for substance use,Screened positive for substance use" conceptId="ed5d34b0-441b-4a2f-972d-6c6af5c108ab" style="radio"/>
+          </div>
+          <div class="field field-choices">
+            <label>Woman able and confident to care for herself?</label>
+            <obs answerCodes="Yes,No" conceptId="457b48c5-f089-4ba9-b123-34e3751506ad" style="radio"/>
+          </div>
+          <div class="field field-choices">
+            <label>Woman has a social network able to assist her in the home?</label>
+            <obs answerCodes="Yes,No" conceptId="e03876e8-df57-4b83-9d3d-cdc32410cf08" style="radio"/>
+          </div>
+          <div class="field field-choices">
+            <label>HIV catch-up</label>
+            <obs answerCodes="HIV catch-up negative,HIV catch-up positive" conceptId="b5985b24-dca0-4432-ae74-5f54a149358d" style="radio"/>
+          </div>
+          <div class="field field-choices">
+            <label>RPR catch-up</label>
+            <obs answerCodes="RPR catch-up negative,RPR catch-up positive" conceptId="cc3857ef-7dff-4973-8ef1-d4d4e765f908" style="radio"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper-box">
+        <div class="paper-box-title">Woman: prevention / treatment / referral</div>
+        <div class="fields">
+          <div class="field field-choices">
+            <label>FP method received?</label>
+            <obs answerCodes="Yes,No" conceptId="610590af-ded5-40cd-81a2-8f4329e051e8" style="radio"/>
+          </div>
+          <div class="field">
+            <label>FP method</label>
+            <obs conceptId="2bd9654e-3913-43d8-b629-2448c767bfbc"/>
+          </div>
+          <div class="field">
+            <label>Iron/Folate tablets x/day</label>
+            <obs conceptId="991f4b07-99e9-43e6-91ae-54642cce42c9"/>
+          </div>
+          <div class="field field-wide field-choices">
+            <label>Advice on</label>
+            <obs answerConceptId="66170440-d983-43f7-a8fa-e79d73d8663b" conceptId="18cf2829-7aab-459c-b324-36a0d0b177d5" style="checkbox" answerLabel="Local cooling for perineal pain relief"/><br/>
+            <obs answerConceptId="f50ea84e-26c9-402b-91f4-e4537eb9f5d3" conceptId="18cf2829-7aab-459c-b324-36a0d0b177d5" style="checkbox" answerLabel="Oral analgesia for perineal pain relief"/><br/>
+            <obs answerConceptId="f0fb1b0e-371b-4dd9-bb9d-eef144201470" conceptId="18cf2829-7aab-459c-b324-36a0d0b177d5" style="checkbox" answerLabel="Pharmacological relief of pain due to uterine cramping/involution"/><br/>
+            <obs answerConceptId="aa036636-f2d1-45ef-b19d-bf4059217b6b" conceptId="18cf2829-7aab-459c-b324-36a0d0b177d5" style="checkbox" answerLabel="Non-pharmacological interventions to treat postpartum breast engorgement"/><br/>
+            <obs answerConceptId="a3b35497-1224-4599-a121-3c897c7a2f45" conceptId="18cf2829-7aab-459c-b324-36a0d0b177d5" style="checkbox" answerLabel="Non-pharmacological interventions to prevent postpartum mastitis"/><br/>
+            <obs answerConceptId="973b16eb-791a-4a6b-a50e-c5f7cfcaeba9" conceptId="18cf2829-7aab-459c-b324-36a0d0b177d5" style="checkbox" answerLabel="Prevention of postpartum constipation"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper-box">
+        <div class="paper-box-title">Woman: counselled on</div>
+        <div class="fields">
+          <div class="field field-wide field-choices">
+            <obs answerConceptId="c0165f54-659f-4ad2-b997-db91844b26c2" conceptId="487771af-dbbf-476a-a176-190179de2a45" style="checkbox" answerLabel="Postpartum care and hygiene"/><br/>
+            <obs answerConceptId="0b9ec1eb-49ca-48dc-9aa6-63366b2104b3" conceptId="487771af-dbbf-476a-a176-190179de2a45" style="checkbox" answerLabel="Nutrition"/><br/>
+            <obs answerConceptId="737d736e-9c1e-482a-a9af-328114cc5638" conceptId="487771af-dbbf-476a-a176-190179de2a45" style="checkbox" answerLabel="Rest, help with care in the home"/><br/>
+            <obs answerConceptId="5fa213ba-7a0e-4cbe-a0e7-44ce1cc8804a" conceptId="487771af-dbbf-476a-a176-190179de2a45" style="checkbox" answerLabel="Return to fertility, birth spacing and PPFP"/><br/>
+            <obs answerConceptId="0c603c96-1ed9-4ecd-8de1-2ca49b4838b5" conceptId="487771af-dbbf-476a-a176-190179de2a45" style="checkbox" answerLabel="Resumption of sexual activity, safer sex"/><br/>
+            <obs answerConceptId="99984549-c162-4e95-b107-be9fce845500" conceptId="487771af-dbbf-476a-a176-190179de2a45" style="checkbox" answerLabel="Lochia and involution"/><br/>
+            <obs answerConceptId="cf9cff6f-cd2d-48e7-9935-7534289aff82" conceptId="487771af-dbbf-476a-a176-190179de2a45" style="checkbox" answerLabel="Danger signs, emergency preparedness"/><br/>
+            <obs answerConceptId="904a8277-48f2-48b2-a3d5-c18a1c3247ec" conceptId="487771af-dbbf-476a-a176-190179de2a45" style="checkbox" answerLabel="Follow-up visits"/>
+          </div>
+          <div class="field">
+            <label>First PNC within 24 hrs, visit time (woman)</label>
+            <obs conceptId="802d4de7-6632-4469-9c52-e7351bc811b1"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper-box">
+        <div class="paper-box-title">Baby</div>
+        <obsgroup groupingConceptId="13b639fa-4649-499b-a2be-a00316f8309b">
+          <div class="fields">
+            <div class="field field-choices">
+              <label>Presence of danger signs?</label>
+              <obs answerCodes="Yes,No" answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" conceptId="14e038f6-779f-4826-af20-0e12a973a4fe" style="radio"/>
+            </div>
+            <div class="field field-wide">
+              <label>If yes, list danger signs</label>
+              <obs conceptId="3c2611df-27d4-4d5a-a6e5-71ded3b75f5e"/>
+            </div>
+            <div class="field field-choices">
+              <label>Under treatment for a complication?</label>
+              <obs answerCodes="Yes,No" conceptId="e65c3e51-261e-4294-a5d3-47f94164dc5f" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Condition stabilized?</label>
+              <obs answerCodes="Yes,No" conceptId="9cf94292-eca1-4544-b678-a75d2cd86ccf" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Receiving prophylactic medications?</label>
+              <obs answerCodes="Yes,No" conceptId="49685457-b20e-4489-b1ea-cb278f5f3f0f" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Continue at home?</label>
+              <obs answerCodes="Yes,No" conceptId="9f1f6af0-51e6-4c04-8673-81ae61fa812e" style="radio"/>
+            </div>
+            <div class="field">
+              <label>Temperature (°C)</label>
+              <obs conceptId="3ce939d2-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Heart rate (bpm)</label>
+              <obs conceptId="57c934dd-a086-4e73-a9b8-3b9c1abef1b1"/>
+            </div>
+            <div class="field">
+              <label>Respirations (/min)</label>
+              <obs conceptId="3ceb11f8-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field">
+              <label>Weight (kg)</label>
+              <obs conceptId="3ce93b62-26fe-102b-80cb-0017a47871b2"/>
+            </div>
+            <div class="field field-choices">
+              <label>Breastfeeding</label>
+              <obs conceptId="3cd4860e-26fe-102b-80cb-0017a47871b2" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Skin colour</label>
+              <obs conceptId="dacb742c-7045-4922-86fc-b851267b5dae" style="radio"/>
+            </div>
+            <div class="field">
+              <label>Movement and tone</label>
+              <obs conceptId="457458f6-b33b-4fb7-ab57-a29f253b44a3"/>
+            </div>
+            <div class="field">
+              <label>Cord appearance</label>
+              <obs conceptId="2ee4cb15-c73f-491a-9ee5-ee0645727966"/>
+            </div>
+            <div class="field field-choices">
+              <label>Any abnormalities?</label>
+              <obs answerCodes="Yes,No" conceptId="42d2029b-4cd8-4cc0-98da-1d631da10dcf" style="radio"/>
+            </div>
+            <div class="field field-wide">
+              <label>If yes, describe</label>
+              <obs conceptId="a9cf27e7-2c5f-4039-9c7f-657349fb4f7d"/>
+            </div>
+            <div class="field field-choices">
+              <label>Passing urine?</label>
+              <obs answerCodes="Yes,No" conceptId="40cb03dc-37b0-4f66-badc-a9e22bba9002" style="radio"/>
+            </div>
+            <div class="field field-choices">
+              <label>Passing stool?</label>
+              <obs answerCodes="Yes,No" conceptId="09cc9435-40fd-425c-a5a5-53630b281ce1" style="radio"/>
+            </div>
+          </div>
+        </obsgroup>
+      </div>
+
+      <div class="paper-box">
+        <div class="paper-box-title">Baby: screening</div>
+        <div class="fields">
+          <div class="field field-wide field-choices">
+            <label>Abnormalities of the eye</label>
+            <obs answerCodes="Screened negative for abnormalities of the eye,Screened positive for abnormalities of the eye" answerConceptIds="4f083700-f814-4ce9-9d0d-426c910844cb,4087e66a-b161-4319-b0a3-4879547dc177" conceptId="2d5d45c4-d8dd-479b-8a3a-76577f7e4c14" style="radio"/>
+          </div>
+          <div class="field field-wide field-choices">
+            <label>Hearing impairment</label>
+            <obs answerCodes="Screened negative for hearing impairment,Screened positive for hearing impairment" answerConceptIds="d7641598-2ee9-471a-8730-41b38a768def,4cea6065-d3ce-46fa-b533-f682cf675c4e" conceptId="2d5d45c4-d8dd-479b-8a3a-76577f7e4c14" style="radio"/>
+          </div>
+          <div class="field field-wide field-choices">
+            <label>Hyperbilirubinaemia by TcB</label>
+            <obs answerCodes="Screened negative for hyperbilirubinaemia by TcB,Screened positive for hyperbilirubinaemia by TcB" answerConceptIds="57e76394-b299-424c-b31f-c4bb0fdd0869,0851540a-f9ff-48a1-9e8d-a5ddc2ab124a" conceptId="2d5d45c4-d8dd-479b-8a3a-76577f7e4c14" style="radio"/>
+          </div>
+          <div class="field field-choices">
+            <label>Mother/parents able and confident to care for the baby?</label>
+            <obs answerCodes="Yes,No" conceptId="1967bfdc-821c-4a0f-aa31-dfc620a91b60" style="radio"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper-box">
+        <div class="paper-box-title">Baby: prevention / treatment / referral</div>
+        <div class="fields">
+          <div class="field field-wide">
+            <obs conceptId="4044b850-32da-4689-bb59-107fdacfb470" rows="3"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper-box">
+        <div class="paper-box-title">Baby: counselled on</div>
+        <div class="fields">
+          <div class="field field-wide field-choices">
+            <obs answerConceptId="0696c948-f435-46b9-8565-47eb7d84292d" conceptId="cdf67c09-aa3b-4b7e-b06f-268b5b7b581c" style="checkbox" answerLabel="Exclusive, responsive breastfeeding"/><br/>
+            <obs answerConceptId="eb5ea87a-c490-4302-b02b-749c67e5f21f" conceptId="cdf67c09-aa3b-4b7e-b06f-268b5b7b581c" style="checkbox" answerLabel="Hand washing, general hygiene"/><br/>
+            <obs answerConceptId="b76f83ea-b94d-4768-8beb-91e6a69c2527" conceptId="cdf67c09-aa3b-4b7e-b06f-268b5b7b581c" style="checkbox" answerLabel="Prevention of hypo- and hyperthermia"/><br/>
+            <obs answerConceptId="68d358df-f16d-4b26-b05c-f6f34eb00048" conceptId="cdf67c09-aa3b-4b7e-b06f-268b5b7b581c" style="checkbox" answerLabel="Supine sleeping"/><br/>
+            <obs answerConceptId="28208174-8023-44c9-8101-a1569d3526ec" conceptId="cdf67c09-aa3b-4b7e-b06f-268b5b7b581c" style="checkbox" answerLabel="Whole body massage"/><br/>
+            <obs answerConceptId="cf9cff6f-cd2d-48e7-9935-7534289aff82" conceptId="cdf67c09-aa3b-4b7e-b06f-268b5b7b581c" style="checkbox" answerLabel="Danger signs, emergency preparedness"/><br/>
+            <obs answerConceptId="904a8277-48f2-48b2-a3d5-c18a1c3247ec" conceptId="cdf67c09-aa3b-4b7e-b06f-268b5b7b581c" style="checkbox" answerLabel="Follow-up visits"/>
+          </div>
+          <div class="field">
+            <label>First PNC within 24 hrs, visit time (baby)</label>
+            <obs conceptId="c2348cb1-bf27-4cd4-a289-82a69146de7e"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper-box">
+        <div class="fields">
+          <div class="field">
+            <label>Next postnatal care visit appointment date</label>
+            <obs conceptId="45350b66-a3e2-4030-b9a1-b14aa3fea440" allowFutureDates="true"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="history-title">DISCHARGE - SAVED ENTRIES</div>
+      <div class="history-status" id="history-status-discharge">Loading history...</div>
+      <div class="history-scroll">
+        <table class="history-table" id="history-table-discharge" style="display:none">
+          <thead>
+            <tr>
+              <th>Saved at</th><th>Woman: danger signs</th><th>Woman: HIV status</th><th>Woman: under treatment</th><th>Baby: danger signs</th><th>Baby: abnormalities</th><th>Next PNC visit</th>
+            </tr>
+          </thead>
+          <tbody id="history-body-discharge"/>
+        </table>
+      </div>
+    </div>
+
+    <div class="submit-row">
+      <submit/>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    <![CDATA[
+    $j(function () {
+        // ---- Tabs: show one section at a time, remember the open one across reloads.
+        var storageKey = 'lcg-form-active-section';
+        var tabs = $j('#lcg-form .section-tab');
+        var sections = $j('#lcg-form .clinical-section');
+
+        function showSection(name) {
+            if (!sections.filter('[data-section="' + name + '"]').length) {
+                name = tabs.first().data('section');
+            }
+            tabs.removeClass('is-active').filter('[data-section="' + name + '"]').addClass('is-active');
+            sections.hide().filter('[data-section="' + name + '"]').show();
+            try { window.sessionStorage.setItem(storageKey, name); } catch (e) {}
+        }
+
+        var saved = null;
+        try { saved = window.sessionStorage.getItem(storageKey); } catch (e) {}
+        tabs.on('click', function () { showSection($j(this).data('section')); });
+        showSection(saved || tabs.first().data('section'));
+
+        // ---- Alert highlighting: only toggles a CSS class, never changes the value.
+        var alertRules = [
+            { id: 'fhrId',        test: function (v) { return v < 110 || v >= 160; } },
+            { id: 'pulseId',      test: function (v) { return v < 60 || v >= 120; } },
+            { id: 'respId',       test: function (v) { return v < 12 || v >= 20; } },
+            { id: 'sysbpId',      test: function (v) { return v < 80 || v >= 140; } },
+            { id: 'diabpId',      test: function (v) { return v >= 90; } },
+            { id: 'tempId',       test: function (v) { return v < 35.0 || v >= 37.5; } },
+            { id: 'contrCountId', test: function (v) { return v <= 2 || v > 5; } },
+            { id: 'contrDurId',   test: function (v) { return v < 20 || v > 60; } },
+            { id: 'bloodLossId',  test: function (v) { return v >= 500; } }
+        ];
+        $j.each(alertRules, function (i, rule) {
+            var field;
+            try { field = getField(rule.id + '.value'); } catch (e) { return; }
+            if (!field || !field.length) { return; }
+            var check = function () {
+                var text = $j.trim(field.val() || '');
+                var v = parseFloat(text);
+                field.toggleClass('alert-value', text !== '' && !isNaN(v) && rule.test(v));
+            };
+            field.on('input change keyup', check);
+            check();
+        });
+
+        // ---- History: earlier saves of this form for this patient, one table per section.
+        var ENCOUNTER_TYPE = 'c34caa2c-5795-4d3c-9a1e-1a9f0ede5141';
+        var MAX_ROWS = 20;
+        var G = {
+            hourly: '8927ba77-971b-4032-94c3-ccf11ce4d894',
+            summary: 'bf2f748a-1a8b-476c-931c-36322bbe395c',
+            pph: 'dd016afc-c27d-4b14-b7c9-0947e58b9abc',
+            newborn: 'ed6ab1d8-be59-4d21-a279-662844abd6fc',
+            woman: '6cdfc195-ebb7-467e-9b38-a31cb56894e9',
+            baby: 'f05022bb-0efd-44bd-9222-eced503c12a0',
+            dischargeWoman: '2ae89b6d-c12b-4ff0-b5e3-879320e89317',
+            dischargeBaby: '13b639fa-4649-499b-a2be-a00316f8309b'
+        };
+        // Each column is [group concept or null for top level, question concept].
+        var HISTORY = {
+            hourly: [[G.hourly, '36a6d4d5-b797-4316-adde-3ca3e7109b52'], [G.hourly, '3ce93824-26fe-102b-80cb-0017a47871b2'],
+                     [G.hourly, '3ce934fa-26fe-102b-80cb-0017a47871b2'], [G.hourly, '3ce93694-26fe-102b-80cb-0017a47871b2'],
+                     [G.hourly, '3ce939d2-26fe-102b-80cb-0017a47871b2'], [G.hourly, '5965b71c-4214-4780-a74e-2de09b06a552'],
+                     [G.hourly, '1d28c215-f090-48d4-8813-b214d0e4054b'], [G.hourly, 'ef129b33-e1ed-43f2-9e47-b169a95f7c59']],
+            summary: [[G.summary, '3104238e-94f7-4d63-a59f-d2886bd7b15a'], [G.summary, '211a882c-9b07-4dde-82f8-c7f8d90c500e'],
+                      [G.summary, '2ee6a566-8b83-41a2-ae30-74f7d30fffa6'], [G.summary, '93e9d507-b603-4f83-9d6b-d514fd87ab1a'],
+                      [G.summary, '781be340-8a64-426d-911b-7d02ecea2036'], [G.summary, '56e6bf34-c8a2-4a54-bd8a-43e1e9d1c78f']],
+            pph: [[G.pph, '7fbd32ed-3d7c-4e81-b89b-87d7043a1b5a'], [G.pph, 'bcc829a6-7394-49a6-920b-f42f2a68a96c'],
+                  [G.pph, '5bc1ae2b-5d58-4201-a1ec-5538321350c2'], [G.pph, '26e9c2db-befd-4e2d-a901-07b0cee4cc8f'],
+                  [G.pph, 'b115df7b-2657-4203-ae3c-725ccc2b8b39'], [G.pph, 'a6135f07-7de7-4f31-9807-73cf8e739a3b'],
+                  [G.pph, '60db29ac-c00f-433a-9dd0-04feb7bd7017'], [G.pph, '0acac343-acde-4862-b8cf-7eebfdbc2490']],
+            newborn: [[G.newborn, 'cf3137cf-8a15-429b-800b-2e35d43011d7'], [G.newborn, '4ac39577-f644-4b8d-9a96-5d46a9bcf785'],
+                      [G.newborn, '930ba9c4-73a0-4910-b4eb-c26937ab7a67'], [G.newborn, 'cfa799db-d343-4213-9eed-8dec825ccc0e'],
+                      [G.newborn, 'e552ef1b-a9b2-45ef-8078-b1d3989c2454'], [G.newborn, '3cf15b3a-26fe-102b-80cb-0017a47871b2']],
+            woman: [[G.woman, 'f6acad2a-8553-436a-af8d-15fb934be24c'], [G.woman, '3ce93824-26fe-102b-80cb-0017a47871b2'],
+                    [G.woman, '3ce939d2-26fe-102b-80cb-0017a47871b2'], [G.woman, '3ce934fa-26fe-102b-80cb-0017a47871b2'],
+                    [G.woman, '3ce93694-26fe-102b-80cb-0017a47871b2'], [G.woman, '0f3f27e8-949d-4ef3-9c1a-04cb2ac121ff'],
+                    [G.woman, '910ed264-7712-43f6-b9e6-59d8ecf05da9'], [G.woman, '4044b850-32da-4689-bb59-107fdacfb470']],
+            baby: [[G.baby, '0bc46a19-fe56-4c3a-9d2a-13f1786163a9'], [G.baby, '57c934dd-a086-4e73-a9b8-3b9c1abef1b1'],
+                   [G.baby, '3ce939d2-26fe-102b-80cb-0017a47871b2'], [G.baby, '226c9283-7de0-4c80-945f-cbfceea18ab8'],
+                   [G.baby, 'f49fa661-191f-4507-8328-7e3a3a0444af'], [G.baby, '3cd4860e-26fe-102b-80cb-0017a47871b2'],
+                   [G.baby, '6602a73b-b8d3-40bc-bae8-f00ff3b9cceb']],
+            discharge: [[G.dischargeWoman, '14e038f6-779f-4826-af20-0e12a973a4fe'], [G.dischargeWoman, '3ce17cec-26fe-102b-80cb-0017a47871b2'],
+                        [G.dischargeWoman, 'e65c3e51-261e-4294-a5d3-47f94164dc5f'], [G.dischargeBaby, '14e038f6-779f-4826-af20-0e12a973a4fe'],
+                        [G.dischargeBaby, '42d2029b-4cd8-4cc0-98da-1d631da10dcf'], [null, '45350b66-a3e2-4030-b9a1-b14aa3fea440']]
+        };
+
+        function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+        function formatDate(text, withTime) {
+            var m = String(text).match(/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/);
+            if (!m) { return String(text); }
+            var out = m[3] + '/' + m[2] + '/' + m[1];
+            if (withTime && m[4] && !(m[4] === '00' && m[5] === '00')) { out += ' ' + m[4] + ':' + m[5]; }
+            return out;
+        }
+
+        function formatValue(value) {
+            if (value === null || value === undefined) { return ''; }
+            if (typeof value === 'object') {
+                return value.display || (value.name && value.name.display) || '';
+            }
+            if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(value)) { return formatDate(value, true); }
+            return String(value);
+        }
+
+        function conceptUuid(obs) { return obs && obs.concept ? obs.concept.uuid : null; }
+
+        // Collects every value for a column (a coded question can have several obs).
+        function columnValue(encounter, column) {
+            var groupUuid = column[0], questionUuid = column[1], values = [];
+            $j.each(encounter.obs || [], function (i, obs) {
+                if (groupUuid) {
+                    if (conceptUuid(obs) !== groupUuid) { return; }
+                    $j.each(obs.groupMembers || [], function (j, member) {
+                        if (conceptUuid(member) === questionUuid) { values.push(formatValue(member.value)); }
+                    });
+                } else if (conceptUuid(obs) === questionUuid && !(obs.groupMembers && obs.groupMembers.length)) {
+                    values.push(formatValue(obs.value));
+                }
+            });
+            return values.join(', ');
+        }
+
+        function setStatus(key, html, cssClass) {
+            $j('#history-status-' + key).html(html ? '<span class="' + (cssClass || '') + '">' + html + '</span>' : '').toggle(!!html);
+        }
+
+        function renderSection(key, encounters) {
+            var body = $j('#history-body-' + key).empty();
+            var rows = 0;
+            $j.each(encounters, function (i, encounter) {
+                if (rows >= MAX_ROWS) { return false; }
+                var cells = $j.map(HISTORY[key], function (column) { return columnValue(encounter, column); });
+                var hasData = $j.grep(cells, function (c) { return c !== ''; }).length > 0;
+                if (!hasData) { return; }
+                var tr = $j('<tr/>').append($j('<td/>').text(formatDate(encounter.encounterDatetime, true)));
+                $j.each(cells, function (j, c) { tr.append($j('<td/>').text(c)); });
+                body.append(tr);
+                rows++;
+            });
+            $j('#history-table-' + key).toggle(rows > 0);
+            if (rows > 0) {
+                setStatus(key, '');
+            } else {
+                setStatus(key, 'No saved entries yet.', 'history-empty');
+            }
+        }
+
+        var patientUuid = $j.trim($j('#lcgPatientUuid').text());
+        var currentEncounterUuid = $j.trim($j('#lcgEncounterUuid').text());
+        var contextPath = (typeof openmrsContextPath !== 'undefined' && openmrsContextPath) ? openmrsContextPath : '/openmrs';
+
+        if (!patientUuid) {
+            $j.each(HISTORY, function (key) { setStatus(key, 'History is not available.', 'history-error'); });
+            return;
+        }
+
+        $j.ajax({
+            url: contextPath + '/ws/rest/v1/encounter',
+            dataType: 'json',
+            data: {
+                patient: patientUuid,
+                encounterType: ENCOUNTER_TYPE,
+                limit: 100,
+                v: 'custom:(uuid,encounterDatetime,voided,obs:(concept:(uuid),value,groupMembers:(concept:(uuid),value)))'
+            }
+        }).done(function (response) {
+            var encounters = $j.grep(response.results || [], function (e) {
+                return !e.voided && e.uuid !== currentEncounterUuid;
+            });
+            encounters.sort(function (a, b) {
+                return String(b.encounterDatetime).localeCompare(String(a.encounterDatetime));
+            });
+            $j.each(HISTORY, function (key) { renderSection(key, encounters); });
+        }).fail(function () {
+            $j.each(HISTORY, function (key) { setStatus(key, 'Could not load history.', 'history-error'); });
+        });
+    });
+    ]]>
+  </script>
+</htmlform>

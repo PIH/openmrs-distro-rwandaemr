@@ -1,192 +1,530 @@
-<htmlform 
-	htmlformUuid="b12165b2-18ce-4ec0-bd44-6d376bd6bfe6" 
-	formUuid="c6c8d23e-7206-4239-a382-bf117fd86c18" 
-	formName="Oncology Outpatient - GTD  - Beta-HCG Tracking Sheet" 
-	formDescription="GTD  - Beta-HCG Tracking Sheet" 
-	formVersion="1.0" 
-	formEncounterType="ff319885-3f20-4ae5-8663-3ad5678cba41" 
-	formPublished="false" 
-	formRetired="false"
-> <!--
-           Oncology - Inpatient progress note -Breast DST
-            Pilot_4July_v1.3NT
-                Author:
-                Builder: Byiringiro Joshua
-                started on July 27, 2017
-        -->
+<htmlform
+        htmlformUuid="5ad71922-1645-48e3-a594-36aecab8d0e3"
+        formUuid="5993157e-5356-48a1-9acf-581e64317162"
+        formName="Progress Note and Evolution"
+        formDescription="IPD Progress Note - SOAP Format"
+        formVersion="2.0"
+        formEncounterType="b9b9d19e-3774-4951-ab68-ddd6e817d6dd"
+        formPublished="true"
+        formRetired="false"
+>
+    <!--
+        DH - IPD Followup Form
+        Progress Note and Evolution (SOAP Format)
+        Reformatted: 2025
+    -->
 
     <macros>
-        @Cycle@ = f75e7814-8a95-4316-b6cf-f5881a8ac3b8
-        @Cycle_Date@ = de1f38da-af50-49e9-999f-05798ce4c73f
-        @B-HCG_Date@ = 8f3648bf-7340-467c-a2e5-bce67cc0d209
-        @B-HCG_Level@ = 5125b632-7c6d-4fc5-92f0-e6f3b7edd358
-
+        headerColor = #009d8e
+        fontOnHeaderColor = white
+        cardBackground = #f8fffe
+        borderColor = #e0e0e0
+        labelColor = #555555
     </macros>
 
-
     <style>
-        th.tableHeader {
-        background-color: #009d8e;
-        color: #FFFFFF;
-        font-size: 16px;
-        text-align: left;
+        /* ===== Base Reset and Typography ===== */
+        .htmlform {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #ffffff;
         }
 
-        ul {
-        list-style-type: square;
-        font-family: Verdana, Arial, Helvetica, sans-serif;
+        /* ===== Header Section ===== */
+        .form-header {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: $fontOnHeaderColor;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        }
+
+        .form-header-title h1 {
+        margin: 0 0 4px 0;
+        font-size: 22px;
+        font-weight: 600;
+        }
+
+        .form-header-title h2 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+        opacity: 0.9;
+        }
+
+        .form-header-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        }
+
+        /* ===== Encounter Info Bar ===== */
+        .encounter-info-bar {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        }
+
+        .info-item {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .info-label {
         font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: $labelColor;
+        margin-bottom: 4px;
         }
 
-        tr.spaceUnder>td {
-        padding-bottom: 1em;
+        .info-value {
+        font-size: 14px;
+        font-weight: 500;
         }
 
-        td {
+        /* ===== Section Cards ===== */
+        .section-card {
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-header {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: $fontOnHeaderColor;
+        padding: 14px 20px;
         font-size: 15px;
+        font-weight: 600;
         }
 
-        #container {
-        
-        margin: auto;
-        
-        height: auto;
+        .section-content {
+        padding: 20px;
         }
 
+        /* ===== SOAP Sections ===== */
+        .soap-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        }
+
+        .soap-section {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 10px;
+        overflow: hidden;
+        }
+
+        .soap-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px;
+        background: #fff;
+        border-bottom: 1px solid $borderColor;
+        }
+
+        .soap-badge {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 14px;
+        color: white;
+        flex-shrink: 0;
+        }
+
+        .soap-badge.subjective { background: #3b82f6; }
+        .soap-badge.objective { background: #10b981; }
+        .soap-badge.assessment { background: #f59e0b; }
+        .soap-badge.plan { background: #ef4444; }
+        .soap-badge.summary { background: #8b5cf6; }
+
+        .soap-title {
+        font-weight: 600;
+        font-size: 14px;
+        color: #333;
+        }
+
+        .soap-subtitle {
+        font-size: 12px;
+        color: $labelColor;
+        margin-top: 2px;
+        }
+
+        .soap-content {
+        padding: 16px;
+        }
+
+        .soap-content textarea {
+        width: 100%;
+        min-height: 100px;
+        padding: 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 14px;
+        line-height: 1.5;
+        resize: vertical;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .soap-content textarea:focus {
+        outline: none;
+        border-color: $headerColor;
+        box-shadow: 0 0 0 3px rgba(0, 157, 142, 0.1);
+        }
+
+        .soap-content textarea::placeholder {
+        color: #9ca3af;
+        font-size: 13px;
+        }
+
+        /* ===== Education Section ===== */
+        .education-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 16px;
+        }
+
+        .education-card {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px;
+        }
+
+        .education-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+        }
+
+        .education-card textarea {
+        width: 100%;
+        min-height: 80px;
+        padding: 10px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 14px;
+        resize: vertical;
+        }
+
+        /* ===== Billing Section ===== */
+        .billing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 16px;
+        }
+
+        .billing-card {
+        background: $cardBackground;
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+        padding: 16px;
+        }
+
+        .billing-label {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: $labelColor;
+        margin-bottom: 8px;
+        }
+
+        .billing-card select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 14px;
+        background: #fff;
+        cursor: pointer;
+        }
+
+        .billing-card select:focus {
+        outline: none;
+        border-color: $headerColor;
+        box-shadow: 0 0 0 3px rgba(0, 157, 142, 0.1);
+        }
+
+        /* ===== Buttons ===== */
+        .button-section {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid $borderColor;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        }
+
+        .button-section button {
+        padding: 12px 32px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .button-section .submitButton {
+        background: linear-gradient(135deg, $headerColor 0%, #007a6c 100%);
+        color: white;
+        border: none;
+        }
+
+        .button-section .submitButton:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 157, 142, 0.3);
+        }
+
+        .button-section .cancel {
+        background: #fff;
+        color: #666;
+        border: 1px solid #d1d5db;
+        }
+
+        .button-section .cancel:hover {
+        background: #f9fafb;
+        }
+
+        /* ===== Required Indicator ===== */
+        .required-indicator {
+        color: #ef4444;
+        margin-left: 2px;
+        }
+
+        /* ===== Field Error ===== */
+        .field-error {
+        color: #ef4444;
+        font-size: 12px;
+        margin-top: 4px;
+        }
+
+        /* ===== Utility ===== */
+        .hidden { display: none; }
+
+        /* ===== Print Styles ===== */
         @media print {
-        #container {
-        display: block;
+        .form-header, .section-header, .soap-badge {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
         }
-        #printArea {
-        display: none;
-        }
-        #userBar {
-        display: none;
-        }
-        #banner {
-        display: none;
-        }
-        #footer {
-        display: none;
-        }
-        #htmlFormEntryBanner {
-        display: none;
-        }
-        .error {
-        display: none;
-        }
-        .lables {
-        width: 200px;
-        }
-        table {
-        width: 100%;
-        }
-        table,td,th {
-        border: 1px solid black;
-        border-collapse: collapse;
-        }
-        th {
-        text-align: left;
-        background-color: #D9D9D9;
-        font-size: 10px;
-        }
-        td {
-        font-size: 10px;
-        }
-        .value {
-        font-size: 20px;
-        font-weight: bold;
-        font-style: italic;
-        }
-        .selectedCancerStagingKeys {
-        page-break-before: always;
-        border: 0px;
-        }
-        table.selectedCancerStagingKeys td {
-        border: 0px;
-        }
-        #signature {
-        border: none;
-        }
-        #signature td {
-        border: none;
-        }
-        }
-
-        @media screen {
-        table {
-        border: 1px solid #DFDFDF;
-        width: 100%;
-        border-color: #009d8e;
-        }
-        #container {
-        display: block;
-        }
-        #printArea {
-        display: none;
-        }
+        .button-section { display: none; }
         }
     </style>
-    <div id="container" style="width:100%">
-        <section>
 
-            <table border="1" cellspacing="0" cellpadding="6" width="100%">
-                <tr>
-                    <td><b> IMB ID: <lookup class="value"
-                                            expression="patientIdentifiers.get(&quot;IMB ID&quot;)" /> <lookup
-                            class="value"
-                            expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" /></b>
-                    </td>
-                    <td>Date: <encounterDate id="encounterDate" default="today" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nom / Last name: <lookup class="value"
-                                                 expression="patient.personName.familyName" />
-                    </td>
-                    <td>Prénom/ First name: <lookup class="value"
-                                                    expression="patient.personName.givenName" />
-                    </td>
-                </tr>
+    <postSubmissionAction class="org.openmrs.module.mohbilling.automation.CreateBillOnHtmlFormSubmissionAction" />
 
-                <tr>
-                    <td><img
-                            src="/openmrs/moduleResources/rwandareports/images/pihHands.png"
-                            align="left" height="65"></img>
-                        <h2>
-                            Inshuti Mu Buzima <br /> PIH Rwanda
-                        </h2></td>
-                    <td><strong> Oncology Program / Programme d'oncologie
-                        <br /> GTD - Beta-HCG Tracking sheet
-                    </strong> <br /></td>
-                </tr>
-                <tr>
-                    <td>Clinique / Clinic: <encounterLocation
-                            id="encounterLocation" default="Butaro Hospital" />
-                    </td>
-                    <td>Provider:<encounterProvider id="encounterProvider"
-                                                    role="Oncology Provider"  />
-                    </td>
-                </tr>
-            </table>
-            <br />
-            <font size="6"><strong>Subsequent</strong> B-HCG Values -- </font>
-            <br />
-            <table class="tableHeader">
-                <tr>
-                    <td>
-                        Cycle #-<obs conceptId="$@Cycle@"/>
-                        Cycle Date: <obs conceptId="$@Cycle_Date@"/>
-                        B-HCG Date: <obs conceptId="$@B-HCG_Date@"/>
-                        B-HCG Level:<obs conceptId="$@B-HCG_Level@"/>
-                    </td>
-                </tr>
-            </table>
-        </section>
-        <br />
-
-        <submit />
-        <br/>
-        <encounterVoided/>
+    <!-- ===== FORM HEADER ===== -->
+    <div class="form-header">
+        <div class="form-header-content">
+            <div class="form-header-title">
+                <h1>DH - IPD Progress Note</h1>
+                <h2>Progress Note and Evolution - SOAP Format</h2>
+            </div>
+            <div class="form-header-badge">Inpatient Followup</div>
+        </div>
     </div>
+
+    <!-- ===== ENCOUNTER INFORMATION ===== -->
+    <div class="encounter-info-bar">
+        <div class="info-item">
+            <span class="info-label">Date</span>
+            <encounterDate default="today" />
+        </div>
+        <div class="info-item">
+            <span class="info-label">Health Facility</span>
+            <encounterLocation id="location" default="GlobalProperty:billing.defaultLocation" />
+        </div>
+        <div class="info-item">
+            <span class="info-label">Provider</span>
+            <encounterProvider default="currentUser" />
+        </div>
+    </div>
+
+    <!-- ===== SOAP SECTION ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            SOAP Notes
+        </div>
+        <div class="section-content">
+            <div class="soap-container">
+
+                <!-- Progress Note Summary -->
+                <div class="soap-section">
+                    <div class="soap-header">
+                        <div class="soap-badge summary">P</div>
+                        <div>
+                            <div class="soap-title">Progress Note Summary</div>
+                            <div class="soap-subtitle">Brief overview of the patient's current status</div>
+                        </div>
+                    </div>
+                    <div class="soap-content">
+                        <obs conceptId="12933" cols="30" rows="3" style="textarea" />
+                    </div>
+                </div>
+
+                <!-- 1. SUBJECTIVE -->
+                <div class="soap-section">
+                    <div class="soap-header">
+                        <div class="soap-badge subjective">S</div>
+                        <div>
+                            <div class="soap-title">1. Subjective<span class="required-indicator">*</span></div>
+                            <div class="soap-subtitle">Clinical history - what your patient says about their health problem</div>
+                        </div>
+                    </div>
+                    <div class="soap-content">
+                        <obs conceptId="ce1925ed-404f-4b79-9f7f-6d91126438f5"
+                             cols="30" rows="3" style="textarea" required="true"
+                             placeholder="Document the patient's chief complaint, history of present illness, and relevant symptoms as described by the patient..." />
+                    </div>
+                </div>
+
+                <!-- 2. OBJECTIVE -->
+                <div class="soap-section">
+                    <div class="soap-header">
+                        <div class="soap-badge objective">O</div>
+                        <div>
+                            <div class="soap-title">2. Objective<span class="required-indicator">*</span></div>
+                            <div class="soap-subtitle">Physical exam findings, laboratory data, imaging results, other diagnostic data</div>
+                        </div>
+                    </div>
+                    <div class="soap-content">
+                        <obs conceptId="e14aa7f7-48fe-4677-a3e8-c10cad2d960b"
+                             cols="30" rows="3" style="textarea" required="true"
+                             placeholder="Document physical examination findings, vital signs, laboratory results, imaging findings, and review of other clinicians' documentation..." />
+                    </div>
+                </div>
+
+                <!-- 3. ASSESSMENT -->
+                <div class="soap-section">
+                    <div class="soap-header">
+                        <div class="soap-badge assessment">A</div>
+                        <div>
+                            <div class="soap-title">3. Assessment<span class="required-indicator">*</span></div>
+                            <div class="soap-subtitle">Summary of your diagnosis of the patient's existing condition</div>
+                        </div>
+                    </div>
+                    <div class="soap-content">
+                        <obs conceptId="5ca0ba17-ab68-4f42-b780-9b83e54dc714"
+                             cols="30" rows="3" style="textarea" required="true"
+                             placeholder="Document your clinical assessment, working diagnosis, differential diagnoses, and clinical reasoning..." />
+                    </div>
+                </div>
+
+                <!-- 4. PLAN -->
+                <div class="soap-section">
+                    <div class="soap-header">
+                        <div class="soap-badge plan">P</div>
+                        <div>
+                            <div class="soap-title">4. Plan<span class="required-indicator">*</span></div>
+                            <div class="soap-subtitle">Treatment and action taken</div>
+                        </div>
+                    </div>
+                    <div class="soap-content">
+                        <obs conceptId="9c0a921e-ee2d-45ee-a448-a438d147392e"
+                             cols="50" rows="3" style="textarea" required="true"
+                             placeholder="Document treatment plan, medications prescribed, procedures ordered, follow-up instructions, and patient disposition..." />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PATIENT EDUCATION ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            Patient Education
+        </div>
+        <div class="section-content">
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-label">Identified Health Education Needs<span class="required-indicator">*</span></div>
+                    <obs conceptId="e8c8e2d7-2f28-4650-8759-ff0745f7db3d"
+                         cols="30" rows="3" style="textarea" required="true" />
+                </div>
+                <div class="education-card">
+                    <div class="education-label">Education Subject<span class="required-indicator">*</span></div>
+                    <obs conceptId="a0c245fb-a639-4288-8919-cfcf051398ec"
+                         cols="30" rows="3" style="textarea" required="true" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BILLING: VISIT AND ROOMS ===== -->
+    <div class="section-card">
+        <div class="section-header">
+            Bill Visit and Rooms
+        </div>
+        <div class="section-content">
+            <div class="billing-grid">
+                <div class="billing-card">
+                    <div class="billing-label">Department<span class="required-indicator">*</span></div>
+                    <obs conceptId="9b42e3b9-c648-4025-95db-8b72757e57d1" required="true" />
+                </div>
+
+                <div class="billing-card">
+                    <div class="billing-label">Visit Type</div>
+                    <obs conceptId="07de3ac4-1a57-423a-996c-6583fd1ae6ca"
+                         answerConceptIds="f8d45706-92fe-5dc9-156f-dbc13e5c5e561,f8d45706-92fe-5dc9-156f-dbc13e5c5e562"
+                         answerLabels="Ward visit by specialist - PZB.AA.ZZ,Ward visit by GP - PZB.AA.ZZ" />
+                </div>
+
+                <div class="billing-card">
+                    <div class="billing-label">Hospitalization Room Type</div>
+                    <obs conceptId="3f246a6b-5f16-495b-a2c4-f3f1f4893c82"
+                         answerConceptIds="f8d45706-92fe-5dc9-156f-dbc13e5c5e879,f8d45706-92fe-5dc9-156f-dbc13e5c5e880,f8d45706-92fe-5dc9-156f-dbc13e5c5e881,f8d45706-92fe-5dc9-156f-dbc13e5c5e882,f8d45706-92fe-5dc9-156f-dbc13e5c5e884,f8d45706-92fe-5dc9-156f-dbc13e5c5e885,f8d45706-92fe-5dc9-156f-dbc13e5c5e886,f8d45706-92fe-5dc9-156f-dbc13e5c5e887,f8d45706-92fe-5dc9-156f-dbc13e5c5e888,f8d45706-92fe-5dc9-156f-dbc13e5c5e889,f8d45706-92fe-5dc9-156f-dbc13e5c5e890,f8d45706-92fe-5dc9-156f-dbc13e5c5e891"
+                         answerLabels="HDU bed per day,Hospitalization - room with one bed,Hospitalization - room with 4 beds,Hospitalization - room with 3 beds,Hospitalization - room with 2 beds,Hospitalisation stay - psychiatric services,Hospital ward (more than 4 beds),Observation in emergency room,Post-Anesthesia Recovery Ward (PACU),ICU bed per day,NICU bed per day - without invasive ventilation,NICU bed per day - with invasive ventilation" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BUTTONS ===== -->
+    <ifMode mode="VIEW" include="false">
+        <div class="button-section">
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel" />
+            </button>
+            <button id="submit" class="submitButton confirm">
+                <uimessage code="Save" />
+                <i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i>
+            </button>
+        </div>
+    </ifMode>
+
 </htmlform>

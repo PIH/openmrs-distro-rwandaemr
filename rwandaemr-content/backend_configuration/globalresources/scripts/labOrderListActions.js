@@ -6,22 +6,23 @@ class LabOrderListActions {
      *   - isPanel = orderable.setMembers.length > 0
      *   - tests   = isPanel ? orderable.setMembers : [orderable]
      *   - per test: obs where concept matches AND (obs.order == this order OR obs has no order)
+     *   - a test that is a panel itself (eg Wet mount in a bacteriology exam) has subTests, found the same way
      *
      * Resolves to:
      *   [{order, conceptName, fulfillerStatus, encounterLabId, isPanel,
-     *     tests: [{concept, obs: [obs]}]}]
+     *     tests: [{concept, obs: [obs], subTests: [{concept, obs: [obs]}]}]}]
      */
     static buildOrderResults(orders) {
-        var encounterRep =
-            'uuid,encounterDatetime,obs:(uuid,obsDatetime,concept:(uuid,display,displayStringForLab,units),' +
+        // The results of a panel are in its obs group, and those of a panel within it in a group within that one
+        var obsFields = 'uuid,obsDatetime,concept:(uuid,display,displayStringForLab,units),' +
             'order:(uuid),valueCoded:(uuid,display,displayStringForLab),valueNumeric,valueText,' +
-            'valueDatetime,comment,referenceRange,' +
-            'groupMembers:(uuid,obsDatetime,concept:(uuid,display,displayStringForLab,units),' +
-            'order:(uuid),valueCoded:(uuid,display,displayStringForLab),valueNumeric,valueText,' +
-            'valueDatetime,comment,referenceRange))';
+            'valueDatetime,comment,referenceRange';
+        var encounterRep = 'uuid,encounterDatetime,obs:(' + obsFields + ',groupMembers:(' + obsFields +
+            ',groupMembers:(' + obsFields + ')))';
 
+        var memberRep = 'uuid,display,displayStringForLab,units';
         var conceptRep =
-            'uuid,display,displayStringForLab,setMembers:(uuid,display,displayStringForLab,units)';
+            'uuid,display,displayStringForLab,setMembers:(' + memberRep + ',setMembers:(' + memberRep + '))';
 
         var encounterUuids = [], conceptUuids = [];
         orders.forEach(function(order) {
@@ -66,13 +67,13 @@ class LabOrderListActions {
                 // encounterMap: uuid -> { encounter, flatObs, labId }
                 var encounterMap = {};
                 results[1].filter(Boolean).forEach(function(encounter) {
-                    var flatObs = (encounter.obs || []).reduce(function(acc, o) {
-                        acc.push(o);
-                        if (o.groupMembers && o.groupMembers.length > 0) {
-                            o.groupMembers.forEach(function(m) { acc.push(m); });
-                        }
-                        return acc;
-                    }, []);
+                    var flatten = function(obsList) {
+                        return (obsList || []).reduce(function(acc, o) {
+                            acc.push(o);
+                            return acc.concat(flatten(o.groupMembers));
+                        }, []);
+                    };
+                    var flatObs = flatten(encounter.obs);
                     var labIdObs = labIdConceptUuid
                         ? flatObs.find(function(o) { return o.concept.uuid === labIdConceptUuid; })
                         : null;
@@ -102,7 +103,7 @@ class LabOrderListActions {
                         : { flatObs: [], labId: null };
                     var flatObs = encData.flatObs;
 
-                    var enrichedTests = tests.map(function(test) {
+                    var findObs = function(test) {
                         // Mirror recordLabResults: prefer obs linked to this order, fall back to unlinked
                         var linked   = flatObs.filter(function(o) {
                             return o.concept.uuid === test.uuid && o.order && o.order.uuid === order.uuid;
@@ -110,11 +111,16 @@ class LabOrderListActions {
                         var unlinked = flatObs.filter(function(o) {
                             return o.concept.uuid === test.uuid && !o.order;
                         });
-                        var obs = (linked.length > 0 ? linked : unlinked).filter(function(o) {
+                        return (linked.length > 0 ? linked : unlinked).filter(function(o) {
                             return o.valueNumeric != null || o.valueCoded != null
                                 || (o.valueText && o.valueText.trim()) || o.valueDatetime != null;
                         });
-                        return { concept: test, obs: obs };
+                    };
+                    var enrichedTests = tests.map(function(test) {
+                        var subTests = isPanel && test.setMembers && test.setMembers.length > 0
+                            ? test.setMembers.map(function(m) { return { concept: m, obs: findObs(m) }; })
+                            : null;
+                        return { concept: test, obs: findObs(test), subTests: subTests };
                     });
 
                     return {
@@ -143,10 +149,33 @@ class LabOrderListActions {
                 .fail(function() { resolve({}); });
         });
 
+        // Only the results of completed orders are reported: when results must be validated, an order is completed
+        // once its results are validated
+        var completedOrders = patientWithOrders.orders.filter(function(order) {
+            return order.fulfillerStatus === 'COMPLETED';
+        });
+        if (completedOrders.length === 0) {
+            emr.errorMessage('There are no completed results to print');
+            return;
+        }
+
+        // Antimicrobial susceptibility of the bacteriology exams, recorded as nested obs groups: see rwandaemr BacteriologyService
+        var susceptibilityPromise = new Promise(function(resolve) {
+            jq.get(openmrsContextPath + '/ws/rest/v1/rwandaemr/lab/bacteriology?' +
+                    jq.param({ order: completedOrders.map(function(o) { return o.uuid; }) }, true))
+                .done(function(data) { resolve(data || {}); })
+                .fail(function() { resolve({}); });
+        });
+
         Promise.all([
-            LabOrderListActions.buildOrderResults(patientWithOrders.orders),
-            printConfigPromise
+            LabOrderListActions.buildOrderResults(completedOrders),
+            printConfigPromise,
+            susceptibilityPromise
         ]).then(function(results) {
+            results[0].forEach(function(eo) {
+                var bacteriology = results[2][eo.order.uuid];
+                eo.isolates = bacteriology && bacteriology.isolates ? bacteriology.isolates : [];
+            });
             return LabOrderListActions.generateLabPdf(patientWithOrders.patient, results[0], results[1]);
         }).catch(function(err) {
             console.error('LabOrderListActions.printResults: failed to generate PDF', err);
@@ -453,7 +482,16 @@ class LabOrderListActions {
                 if (eo.isPanel) {
                     h += RH; // panel header row
                     eo.tests.forEach(function(test) {
-                        if (test.obs.length === 0) {
+                        const withValues = (test.subTests || []).filter(function(t) { return t.obs.length > 0; });
+                        if (withValues.length > 0) {
+                            h += RH;
+                            withValues.forEach(function(t) {
+                                t.obs.forEach(function(obs) {
+                                    h += RH;
+                                    if (obs.comment && obs.comment.trim()) h += RH_COMMENT;
+                                });
+                            });
+                        } else if (test.obs.length === 0) {
                             h += RH;
                         } else {
                             test.obs.forEach(function(obs) {
@@ -477,6 +515,55 @@ class LabOrderListActions {
             return h;
         }
 
+        // Draws a label and a text wrapped across the result columns, for long lists such as antibiotics
+        function drawWrappedRow(label, text, color, indent) {
+            const width = W - MR - COL_X[1] - 6;
+            const words = text.split(' ');
+            const lines = [];
+            let line = '';
+            words.forEach(function(word) {
+                const candidate = line ? line + ' ' + word : word;
+                if (line && fontReg.widthOfTextAtSize(candidate, FS) > width) {
+                    lines.push(line);
+                    line = word;
+                } else {
+                    line = candidate;
+                }
+            });
+            if (line) lines.push(line);
+            lines.forEach(function(l, i) {
+                ensureSpace(RH);
+                const textY = y - RH + (RH - FS) / 2;
+                if (i === 0) {
+                    page.drawText(label, { x: COL_X[0] + 3 + indent, y: textY, size: FS, font: fontBold, color: color });
+                }
+                page.drawText(l, { x: COL_X[1] + 3, y: textY, size: FS, font: fontReg, color: cBlack });
+                page.drawLine({ start: {x: ML, y: y - RH}, end: {x: W - MR, y: y - RH}, thickness: 0.3, color: cBorder });
+                [ML, COL_X[1], W - MR].forEach(function(cx) {
+                    page.drawLine({ start: {x: cx, y}, end: {x: cx, y: y - RH}, thickness: 0.3, color: cBorder });
+                });
+                y -= RH;
+            });
+        }
+
+        // Bact_Antimicrobial susceptibility (concepts/bacteriology.csv): a test of each bacteriology exam, printed as its isolates
+        const SUSCEPTIBILITY_CONCEPT = '6f65e869-9395-5c8b-8a65-05ad3e19bcb4';
+
+        // The organisms isolated, each with its antibiotics grouped by interpretation (S/I/R)
+        function renderIsolates(isolates, indent) {
+            const interpretations = [['S', 'Sensitive', rgb(0.18, 0.49, 0.2)], ['I', 'Intermediate', cOrange], ['R', 'Resistant', cRed]];
+            isolates.forEach(function(isolate) {
+                drawRow([{ text: isolate.organism.display, italic: true, indent: indent + 10 }, {}, {}, {}, {}]);
+                interpretations.forEach(function(interpretation) {
+                    const names = isolate.results.filter(function(r) { return r.code === interpretation[0]; })
+                        .map(function(r) { return r.antibiotic.display; }).sort();
+                    if (names.length > 0) {
+                        drawWrappedRow(interpretation[1], names.join(', '), interpretation[2], indent + 20);
+                    }
+                });
+            });
+        }
+
         function renderOrderRows(eo) {
             const { conceptName, isPanel, tests } = eo;
 
@@ -486,27 +573,42 @@ class LabOrderListActions {
                     {}, {}, {}, {}
                 ], { bgColor: cPanelBg });
 
+                // A test's results, each on a row, with its comment beneath
+                const renderTestObs = function(testName, obsList, indent) {
+                    obsList.forEach(function(obs) {
+                        const flag = getFlagInfo(obs);
+                        drawRow([
+                            { text: testName, indent: indent },
+                            { text: fmtResultValue(obs), bold: !!flag, color: flag ? flag.color : cBlack },
+                            { text: fmtUnits(obs) },
+                            { text: flag ? flag.label : '', bold: !!flag, color: flag ? flag.color : cBlack },
+                            { text: fmtRange(obs) }
+                        ]);
+                        if (obs.comment && obs.comment.trim()) {
+                            drawRow(
+                                [{ text: obs.comment.trim(), italic: true, color: cGrey, indent: indent + 10 }, {}, {}, {}, {}],
+                                { rowHeight: RH_COMMENT, textPad: (RH_COMMENT - FS) / 2 }
+                            );
+                        }
+                    });
+                };
+
                 tests.forEach(function(test) {
                     const testName = test.concept.displayStringForLab || test.concept.display;
-                    if (test.obs.length === 0) {
+                    // A panel within the panel: its name, then those of its tests that have results
+                    const withValues = (test.subTests || []).filter(function(t) { return t.obs.length > 0; });
+                    if (withValues.length > 0) {
+                        drawRow([{ text: testName, indent: 10 }, {}, {}, {}, {}]);
+                        withValues.forEach(function(t) {
+                            renderTestObs(t.concept.displayStringForLab || t.concept.display, t.obs, 20);
+                        });
+                    } else if (test.concept.uuid === SUSCEPTIBILITY_CONCEPT && eo.isolates.length > 0) {
+                        drawRow([{ text: testName, indent: 10 }, {}, {}, {}, {}]);
+                        renderIsolates(eo.isolates, 20);
+                    } else if (test.obs.length === 0) {
                         drawRow([{ text: testName, indent: 10 }, {}, {}, {}, {}]);
                     } else {
-                        test.obs.forEach(function(obs) {
-                            const flag = getFlagInfo(obs);
-                            drawRow([
-                                { text: testName, indent: 10 },
-                                { text: fmtResultValue(obs), bold: !!flag, color: flag ? flag.color : cBlack },
-                                { text: fmtUnits(obs) },
-                                { text: flag ? flag.label : '', bold: !!flag, color: flag ? flag.color : cBlack },
-                                { text: fmtRange(obs) }
-                            ]);
-                            if (obs.comment && obs.comment.trim()) {
-                                drawRow(
-                                    [{ text: obs.comment.trim(), italic: true, color: cGrey, indent: 20 }, {}, {}, {}, {}],
-                                    { rowHeight: RH_COMMENT, textPad: (RH_COMMENT - FS) / 2 }
-                                );
-                            }
-                        });
+                        renderTestObs(testName, test.obs, 10);
                     }
                 });
 

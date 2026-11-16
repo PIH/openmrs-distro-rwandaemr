@@ -1,0 +1,406 @@
+<htmlform formUuid="PALLIATIVE-Follow up-FORM-UUID"
+          formName="Palliative Care Follow up Form"
+          formEncounterType="ENCOUNTERTYPE-UUID"
+          formVersion="1.0">
+
+ 
+  <style>
+    .section { border: 1px solid #e5e7eb; padding: 12px; margin: 14px 0; border-radius: 8px; }
+    .section h3 { margin-top: 0; background: #f7f7f7; padding: 8px 10px; border-radius: 6px; }
+    .section h4 { margin-top: 0; background: #f7f7f7; padding: 8px 10px; border-radius: 6px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .muted { color: #666; font-style: italic; font-size: 0.9em; }
+    .inline { display: inline-block; margin-right: 16px; }
+    .hidden { display: none; }
+    label { font-weight: 300; }
+    .note { font-size: 0.9em; color: #444; }
+  </style>
+
+  <script type="text/javascript">
+   jQuery(function() {
+getField('patient-locations.value').change(function() {
+ if (getValue('patient-locations.value')==5622){
+  $j('#other-location-wrap').show();
+ }else{
+  $j('#other-location-wrap').hide();
+  setValue('other-location.value', null);
+ }
+});
+
+getField('reason-consult-other.value').change(function() {
+ if (getValue('reason-consult-other.value')==5622){
+  $j('#reason-consult-other-wrap').show();
+ }else{
+  $j('#reason-consult-other-wrap').hide();
+  setValue('reason-consult-other-text.value', null);
+ }
+});
+
+
+getField('diagnosis.value').change(function() {
+ if (getValue('diagnosis.value')==722464 || getValue('diagnosis.value')==5622){
+  $j('#other-cancer-wrap').show();
+ }else{
+  $j('#other-cancer-wrap').hide();
+  setValue('other-cancer.value', null);
+ }
+});
+
+
+getField('diagnosis.value').change(function() {
+ if (getValue('diagnosis.value')==7839){
+  $j('#other-noncancer-wrap').show();
+ }else{
+  $j('#other-noncancer-wrap').hide();
+  setValue('other-noncancer.value', null);
+ }
+});
+
+getField('stage.value').change(function() {
+ if (getValue('stage.value')==5622){
+  $j('#stage-other-wrap').show();
+ }else{
+  $j('#stage-other-wrap').hide();
+  setValue('stage-other.value', null);
+ }
+});
+
+getField('surgical.value').change(function() {
+ if (getValue('surgical.value')==1065){
+  $j('#surgical-wrap').show();
+ }else{
+  $j('#surgical-wrap').hide();
+  setValue('surgical_type.value', null);
+  setValue('surgical_date.value', null);
+ }
+});
+
+getField('Allergies.value').change(function() {
+ if (getValue('Allergies.value')==1065){
+  $j('#Allergies-wrap').show();
+ }else{
+  $j('#Allergies-wrap').hide();
+  setValue('Allergies_type_severity.value', null);
+ }
+});
+
+
+getField('AlcoholUse.value').change(function() {
+ if (getValue('AlcoholUse.value')==1065){
+  $j('#AlcoholUse-wrap').show();
+ }else{
+  $j('#AlcoholUse-wrap').hide();
+  setValue('Drinks-per-week.value', null);
+ }
+});
+
+
+getField('TobaccoUse.value').change(function() {
+ if (getValue('TobaccoUse.value')==1065){
+  $j('#TobaccoUse-wrap').show();
+ }else{
+  $j('#TobaccoUse-wrap').hide();
+  setValue('Pack-years.value', null);
+ }
+});
+
+
+getField('Othersubstanceuse.value').change(function() {
+ if (getValue('Othersubstanceuse.value')==1065){
+  $j('#Othersubstanceuse-wrap').show();
+ }else{
+  $j('#Othersubstanceuse-wrap').hide();
+  setValue('OthersubstanceusenonCoded.value', null);
+ }
+});
+
+
+
+
+
+});
+  </script>
+
+  <!-- =================== ENCOUNTER & DEMOGRAPHICS =================== -->
+  <div class="section">
+    <h3>Encounter Information</h3>
+    <div class="grid-2">
+      <div>
+        <label>Follow up date</label>
+        <encounterDate id="encounter-date" default="today"/><br/>
+        <label>Provider</label>
+        <encounterProvider role="Provider"/><br/>
+        <label>Location</label>
+        <encounterLocation/><br/>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Patient Demographics</h3>
+    <div class="grid-2">
+      <div>
+        <label>Age</label><br/>
+        <span class="note"><lookup expression="patient.age"/></span>
+      </div>
+      <div>
+        <label>Sex</label><br/>
+        <span class="note"><lookup expression="patient.gender"/></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================== PRESENTING CONTEXT =================== -->
+  <div class="section">
+    <h3>Where is the patient located/admitted?</h3>
+    <div id="patient-location">
+      <obs conceptId="e9a5b87b-a09d-4b8b-a35a-8854af8366cd" style="dropdown" id="patient-locations" 
+           answerConceptIds="93b9b303-60b8-4ecb-af64-805875e46aba,636ff63c-44fe-4aa8-bb83-a95030367d90,2e76372d-275e-4dee-bd5f-42f57627cea5,46b82579-4267-4185-9cc6-ec862ac08a56,26912185-845a-49c2-8ed2-876b2dc3d2f5,c3eea300-843a-4b09-b5ae-a760019d3a1e,3ce1e6e6-26fe-102b-80cb-0017a47871b2,d2a524e9-6346-4c91-9d39-9e59dd2f1a3b,c567b775-3a37-4c99-988f-c96eb3a88a43"
+           answerLabels="Adult oncology ward,Pediatric oncology ward,Oncology OPD,Community/home-care,Internal Medecine,Surgery service,Maternity Ward,Emergency Dpt,Intensice Care Unit"/>
+    </div>
+<br />
+      <div id="other-location-wrap" class="hidden"><br />
+      <obs conceptId="d4883a95-d8e2-4e8d-ad5f-430cd826c9b6" style="text" labelText="Other (comment)" id="other-location"/>
+    </div>
+  </div>
+
+
+<div class="section">
+    <h3>MODIFIED PALLIATIVE OUTCOME SCALE (POS)</h3>
+    <h4>Ask the patient (POS)</h4><br/>
+    <label>Q1. Please rate your pain during the last 3 days</label><br/>
+<obs conceptId="86602ec9-9ea4-43eb-ada4-0b21cf1a10a5" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (none),1,2,3,4,5 (terrible/overwhelming)" /><br/>
+   Pain description <obs conceptId="240bae75-a0c9-4af1-88e6-00def5e9cd42" /><br/><br/>
+
+    <label>Q2. Have any other symptoms been affecting how you feel in the last 3 days?</label><br/>
+<obs conceptId="359e1937-0c32-40a9-9a1b-399471f792ce" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (none),1,2,3,4,5 (terrible/overwhelming)" /><br/>
+   Comment (symptoms) <obs conceptId="3aa72e36-3746-4582-8aba-7e79d1bd975b" /><br/><br/>
+
+    <label>2a. How much dyspnea have you been experiencing in the last 3 days?</label><br/>
+    <obs conceptId="a697349b-b93d-49fc-8368-9b26a2fea81f" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (none),1,2,3,4,5 (terrible/overwhelming)" /><br/>
+    Comment (symptoms) <obs conceptId="c822876a-c455-479d-b294-9f4229c56c78" /><br/><br/>
+
+
+    <label>  2b. How much constipation have you been experiencing in the last 3 days?</label><br/>
+    <obs conceptId="efd8812a-d61c-41be-bbeb-1991d5557425" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (none),1,2,3,4,5 (terrible/overwhelming)" /><br/>
+     Comment (constipation)<obs conceptId="ca3a84c5-298e-4ac6-a6b1-0b950672353d" /><br/><br/>
+
+    <label> 2c. How much nausea/vomiting have you been experiencing in the last 3 days?</label><br/>
+<obs conceptId="0867d9d4-4189-4f4f-83f0-98874d6b4e14" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (none),1,2,3,4,5 (terrible/overwhelming)" /><br/>
+     Comment (nausea/vomiting)<obs conceptId="c3a754e4-a0f0-444f-afd4-973ad94a3d63" /><br/><br/>
+
+    <label>2d. How much depression have you been experiencing in the last 3 days?</label><br/>
+<obs conceptId="758a3f7c-6a1e-49b2-8873-316a83cd85ef" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (none),1,2,3,4,5 (terrible/overwhelming)" /><br/>
+    Comment (depression)<obs conceptId="2b1810d3-b0b4-4bbc-96b4-e79c2248eec8" /><br/><br/>
+
+    <label> 2e. How much anxiety have you been experiencing in the last 3 days?</label><br/>
+<obs conceptId="d788b493-c303-499f-95ad-0dec566baffb" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (none),1,2,3,4,5 (terrible/overwhelming)" /><br/>
+     Comment (anxiety)<obs conceptId="c85679d0-d194-465b-9b91-766617945c2b" /><br/><br/>
+
+    <label>  Q3. Have you been feeling worried about your illness in the past 3 days?</label><br/>
+<obs conceptId="e2b6cc09-ae91-4b67-8ae7-cfdfa541fd1b" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (no at all),1,2,3,4,5 (terrible/overwhelming)" /><br/>
+     Comment <obs conceptId="19c3613b-f324-41e5-b8d1-e176fb5231e6" /><br/><br/>
+
+    <label>   Q4. Over the past 3 days, have you been able to share how you are feeling with your family or friends?</label><br/>
+<obs conceptId="68430c73-909a-426f-b862-bc1a95331385" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (no, not at all),1,2,3,4,5 (yes, I've talked freely)" /><br/>
+     Comment <obs conceptId="99e425ca-7190-474f-a4f4-f22a07d8356d" /><br/><br/>
+
+    <label>   Q5. Over the past 3 days have you felt that life was worthwhile?</label><br/>
+<obs conceptId="a19e75c5-75fc-4bec-aeef-e06ea2e2e298" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (no, not at all),1,2,3,4,5 (yes, all the time)" /><br/>
+     Comment <obs conceptId="eabd30a2-6071-4472-be39-0457be0c96af" /><br/><br/>
+
+
+    <label>   Q6. Over the past 3 days, have you felt at peace?</label><br/>
+<obs conceptId="064d8da1-4409-4ed9-9454-90659861f215" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (no, not at all),1,2,3,4,5 (yes, all the time)" /><br/>
+     Comment <obs conceptId="b8585f87-a43e-468c-805e-21a1a639002c" /><br/><br/>
+
+
+    <label>   Q7. Have you had enough help and advice for your family to plan for the future?</label><br/>
+<obs conceptId="46fa5b94-30b5-4756-af9d-613cf1271a4a" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (no, not ata all),1,2,3,4,5 (as much as wanted)" /><br/>
+     Comment <obs conceptId="439fa816-da25-4d49-b980-77cd2e17f916" /><br/><br/>
+
+    <h4>Ask the family carer (next-of-kin)</h4>
+    <label> Q8. How much information have you and your family been given?</label><br/>
+<obs conceptId="14039b2f-58bc-4d59-9367-849ae1cd8c53" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (none),1,2,3,4,5 (as much as wanted)" /><br/>
+     Comment <obs conceptId="40853445-b81c-4f4f-9fde-e980a762a1c3" /><br/><br/>
+
+    <label> Q9. How confident does the family feel caring for __ (the patient)?</label><br/>
+<obs conceptId="3a71babf-8625-4c7d-9d6a-c47f36a4f9d6" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (not at all),1,2,3,4,5 (very confident)" /><br/>
+     Comment <obs conceptId="da8b83da-496d-4d0d-b19d-fe1b633102a6" /><br/><br/>
+
+
+    <label> Q10. Has the family been feeling worried about ____ (the patient) over the last 3 days?</label><br/>
+<obs conceptId="049c125b-c28a-4222-b7da-d452182918dc" style="radio"  answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee,bbbfd235-a511-4612-9a32-923d92cefa25" answerLabels="0 (not at all),1,2,3,4,5 (severe worry)" /><br/>
+     Comment <obs conceptId="74702534-115e-403a-b289-76b5cd0d1652" /><br/><br/>    
+
+</div>
+
+
+
+<div class="section">
+    <h3>PALLIATIVE REVIEW OF SYSTEMS</h3>
+    <label>Nutritional status (weight change, appetite, taste disturbance)</label>
+<obs conceptId="2f786b28-bde0-4266-a71d-eeb0d8c8b42f" /><br/>
+<br/>
+<label>Oral symptoms (dry mouth, dysphagia, pain when swallowing)</label>
+<obs conceptId="993e9ae5-6c9f-4490-86c2-5c5e1be395d6" /><br/>
+<br/>
+<label>Cough</label>
+<obs conceptId="d02da98e-8c50-4a6c-b1d1-90e3bf5c8405" style="radio"
+             answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerLabels="Yes,No"/><br/>
+<br/>
+<label>Diarrhea</label>
+<obs conceptId="9dea5061-ba28-48b8-82ee-f78077d5bd6f" style="radio"
+             answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerLabels="Yes,No"/><br/>
+<br/>
+<label> Urination problems</label>
+<obs conceptId="51b0fdca-1205-4ec5-9155-c5e9fc568221" style="radio"
+             answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerLabels="Yes,No"/><br/>
+<br/>
+<label> Sleep disturbance</label>
+<obs conceptId="e317fec7-d658-4215-b793-6285cc9e0ce7" style="radio"
+             answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerLabels="Yes,No"/><br/>
+<br/>
+<label>Fatigue</label>
+<obs conceptId="969f46f3-01aa-45ec-8f27-90eadca5586a" style="radio"
+             answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerLabels="Yes,No"/><br/>
+<br/>
+<label>Peripheral neuropathy</label>
+<obs conceptId="1e38b756-10ed-4001-b3a5-72cecb69f17b" style="radio"
+             answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerLabels="Yes,No"/><br/>
+<br/>
+<label>Lymphedema</label>
+<obs conceptId="e161b307-f504-4c48-80f7-cc6b74c094e4" style="radio"
+             answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerLabels="Yes,No"/><br/>
+<br/>
+<label> Cognitive/memory problems</label>
+<obs conceptId="97bfc2c9-2325-4246-8c70-b531fe35eb6f" style="radio"
+             answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerLabels="Yes,No"/><br/>
+<br/>
+<label>Trouble sleeping</label>
+<obs conceptId="539d96ac-122b-4193-9350-8a3caa951e15" style="radio"
+             answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerLabels="Yes,No"/><br/>
+<br/>
+<label>Concerns/worries</label>
+<obs conceptId="1b124e3e-121e-4917-a295-6226d79d0994" style="radio"
+             answerConceptIds="3cd6f600-26fe-102b-80cb-0017a47871b2,3cd6f86c-26fe-102b-80cb-0017a47871b2" answerLabels="Yes,No"/><br/>
+<br/>
+<label>Other</label>
+<obs conceptId="3cd65b1e-26fe-102b-80cb-0017a47871b2"/>
+</div>
+
+<div class="section">
+    <h3>PHYSICAL EXAM</h3>
+    <label>ECOG Performance Status</label>
+<obs conceptId="3642cc94-659a-4716-876c-f07be8156925" style="dropdown"             answerConceptIds="3cd73aa2-26fe-102b-80cb-0017a47871b2,25d95fcf-01f0-47ed-8b8a-02e11229fbf3,89356922-05d5-48a5-a6c2-71c385f00501,e3ced8df-1d7d-4a19-af4c-c8be76364558,e2b72fbb-8809-42b5-96d6-c2eea62578ee" answerLabels="0-Fully Active,1-Restricted stenuous Actively ,2-Ambulatory|Unable to work,3-Limited self-care|bed-chair >50 waking hours/week,4-Bed|chair confined| no self-care"/><br/>
+
+<br />
+    <label>General appearance</label>
+<obs conceptId="9eaf1da8-d944-49da-b6f6-6fe1a589f78f" style="dropdown"             answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2,88c35a06-3720-4eeb-a260-f897701082b3" answerLabels="Nomal,Abnormal ,Not examined"/><br/>
+<br />
+    <label>HEENT</label>
+<obs conceptId="3cd75b86-26fe-102b-80cb-0017a47871b2" style="dropdown"             answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2,88c35a06-3720-4eeb-a260-f897701082b3" answerLabels="Nomal,Abnormal ,Not examined"/><br/>
+<br />
+    <label>Cardiovascular</label>
+<obs conceptId="49d64f95-5832-4253-8a47-cc13fd271c14" style="dropdown"             answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2,88c35a06-3720-4eeb-a260-f897701082b3" answerLabels="Nomal,Abnormal ,Not examined"/><br/>
+<br />
+    <label>Respiratory</label>
+<obs conceptId="77de1ef8-2775-420a-92e9-45f48a485e05" style="dropdown"             answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2,88c35a06-3720-4eeb-a260-f897701082b3" answerLabels="Nomal,Abnormal ,Not examined"/><br/>
+<br />
+    <label>Gastrointestinal</label>
+<obs conceptId="0bca9c45-10b6-460e-b9ba-67cb7a47416e" style="dropdown"             answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2,88c35a06-3720-4eeb-a260-f897701082b3" answerLabels="Nomal,Abnormal ,Not examined"/><br/>
+
+<br />
+    <label>Genitourinary</label>
+<obs conceptId="60250bf2-fa64-4d97-bc7f-e2fbfb50e628" style="dropdown"             answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2,88c35a06-3720-4eeb-a260-f897701082b3" answerLabels="Nomal,Abnormal ,Not examined"/><br/>
+<br />
+    <label>Musculoskeletal</label>
+<obs conceptId="e30e1feb-5729-409a-9ba3-e6e86a1594b5" style="dropdown"             answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2,88c35a06-3720-4eeb-a260-f897701082b3" answerLabels="Nomal,Abnormal ,Not examined"/><br/>
+
+
+<br />
+    <label> Skin/Extremities</label>
+<obs conceptId="c389fb5d-1608-487d-9947-346b855a3789" style="dropdown"             answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2,88c35a06-3720-4eeb-a260-f897701082b3" answerLabels="Nomal,Abnormal ,Not examined"/><br/>
+
+<br />
+    <label> Central Nervous System</label>
+<obs conceptId="7d3fe20d-b5d8-45c2-9804-488ed97d7b3d" style="dropdown"             answerConceptIds="3cd750a0-26fe-102b-80cb-0017a47871b2,3cd75230-26fe-102b-80cb-0017a47871b2,88c35a06-3720-4eeb-a260-f897701082b3" answerLabels="Nomal,Abnormal ,Not examined"/><br/>
+
+<br />
+<label>Other physical exam findings</label>
+    <obs conceptId="72fa386b-8013-4b02-b722-647ce375a7e2" style="textarea" rows="4" cols="80"/>
+</div>
+
+<div class="section">
+    <h3>INVESTIGATIONS</h3>
+<label>Relevant laboratory studies</label>
+    <obs conceptId="d739afb6-14ec-499d-9d16-808fd96b6969" style="textarea" rows="4" cols="80"/><br />
+<br/>
+<label>Imaging</label>
+    <obs conceptId="ec45c0f5-7ff2-42c4-a4cb-1a8e4706fb71" style="textarea" rows="4" cols="80"/><br />
+<br/>
+<label>Pathology</label>
+    <obs conceptId="80f1ef7f-3c2a-46b7-be9e-0f1c0463f643" style="textarea" rows="4" cols="80"/><br />
+<br/>
+<label>Other</label>
+    <obs conceptId="91b133c0-b4b4-4b6d-adaf-5a7f6a9ee026" style="textarea" rows="4" cols="80"/><br />
+<br/>
+</div>
+
+
+<div class="section">
+    <h3>ASSESSMENT</h3>
+<label>Assessment</label>
+    <obs conceptId="bc46eabb-9ca9-4a58-86bf-ccf0c8110d52" style="textarea" rows="4" cols="80"/><br />
+<br/>
+
+</div>
+
+<div class="section">
+    <h3>PLAN</h3>
+<label>Plan Summary/Recommendations to the primary care team</label>
+    <obs conceptId="cf1056fa-2f58-4a07-81d0-10b1f1806dab" style="textarea" rows="4" cols="80"/><br />
+<br/>
+<label> Follow up date</label>
+    <obs conceptId="3ce94df0-26fe-102b-80cb-0017a47871b2"/><br />
+<br/>
+<label> Recommended Disposition</label><br /><br />
+<obs conceptId="57f7c25b-87b4-45b4-827a-932ced7440e5" style="checkbox"
+           answerConceptId="3d5f93c6-cb31-47d9-8a1c-28ee776ad1f1"
+           answerLabel=" Referral to community-based palliative care "/><br/>
+<br/>
+<obs conceptId="57f7c25b-87b4-45b4-827a-932ced7440e5" style="checkbox"
+           answerConceptId="a7bc15ca-383b-46d7-99e1-2f3b815e32d7"
+           answerLabel=" Continued follow-up in Butaro "/><br/>
+<br/>
+<obs conceptId="57f7c25b-87b4-45b4-827a-932ced7440e5" style="checkbox"
+           answerConceptId="9c6183cd-1b32-4eb4-8518-10e31dd4f667"
+           answerLabel=" Referral for additional speciality care "/><br/>
+<br/>
+<obs conceptId="57f7c25b-87b4-45b4-827a-932ced7440e5" style="checkbox"
+           answerConceptId="9ce11609-87cd-4d72-aee1-1f75f76b1510"
+           answerLabel="Referral to district hospital"/><br/>
+<br/>
+<obs conceptId="57f7c25b-87b4-45b4-827a-932ced7440e5" style="checkbox"
+           answerConceptId="486f27ce-869d-4d81-b357-82e6c1ce2fca"
+           answerLabel="Referral to emergency department"/><br/>
+<br/>
+<obs conceptId="57f7c25b-87b4-45b4-827a-932ced7440e5" style="checkbox"
+           answerConceptId="3cee7fb4-26fe-102b-80cb-0017a47871b2"
+           answerLabel="Other"/><br/>
+<br/>
+<label> Speciality care</label>
+    <obs conceptId="ddb94234-879c-4503-a689-9d42c16d8ea7"/><br />
+<br/>
+<label> Communications with outside care team (community health workers, district hospital staff, etc.)</label>
+    <obs conceptId="2c1f3dd3-43a0-42bb-9eba-8895cf6af151" style="textarea" rows="4" cols="80"/><br />
+<br/>
+    <label> Time spent with patient</label>
+<obs conceptId="e0ca351a-2118-40a9-b414-69c4940cb05c" style="dropdown"             answerConceptIds="e3bd570e-57de-49fd-95df-44e141ccfb9c,a6e97e8d-6e90-4395-8db2-ed88cfb9630e,1ebbc221-42c8-440f-aa44-659a397ee9a7,b69872bb-2599-4dac-beb3-004108ed9d2e" answerLabels="Less than 15 minutes,15-30 minutes,30-60 minutes,Greater 60 minutes" /><br/>
+</div>
+
+  <div class="section">
+    <submit/>
+  </div>
+
+</htmlform>

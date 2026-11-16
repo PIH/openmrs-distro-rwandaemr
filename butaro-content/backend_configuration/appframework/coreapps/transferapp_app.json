@@ -1,0 +1,20 @@
+[
+    {
+        "id": "transferapp.dashboard",
+        "description": "transferapp.dashboard.description",
+        "label": "transferapp.dashboard.label",
+        "order": 16,
+        "extensions": [
+            {
+                "id": "transferapp.dashboard.homepageLink",
+                "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+                "type": "link",
+                "label": "transferapp.dashboard.label",
+                "url": "transferapp/dashboard.page?app=transferapp.dashboard",
+                "icon": "icon-retweet",
+                "order": 16,
+                "requiredPrivilege": "App: transferapp.dashboard"
+            }
+        ]
+    }
+]

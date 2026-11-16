@@ -477,10 +477,11 @@ Consent signed
 
 
             <tr>
-                <td colspan="2">Previous biopsy? <obs
-                        conceptId="ddf9a573-f53e-4b3c-9262-3e5347c3dc37" style="yes_no"
-                        yesLabel="Yes" noLabel="No" />
-                    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                <td colspan="2">Previous biopsy?
+ <obs conceptId="ddf9a573-f53e-4b3c-9262-3e5347c3dc37"
+         answerConceptIds="1065,1066"
+         answerLabels="Yes,No"
+         style="radio" />                    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
 			        <span ><br/>
                     facility
                         <obs conceptId="$@Facility@"/>

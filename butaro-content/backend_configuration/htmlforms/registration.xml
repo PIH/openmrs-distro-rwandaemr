@@ -4,12 +4,12 @@
           formEncounterType="cfe614d5-fa7e-4919-b76b-a66117f57e4c"
           formVersion="1.0">
 
-    <postSubmissionAction class="org.openmrs.module.rwandaemr.htmlformentry.CreateAppointmentAction"/>
-
+    <!-- <postSubmissionAction class="org.openmrs.module.rwandaemr.htmlformentry.CreateAppointmentAction"/> -->
+    <postSubmissionAction class="org.openmrs.module.rwandaemr.htmlformentry.CreateQueueAction"/>
 
     <macros>
         <macro key="serviceRequestedQuestion" expression="fn.globalProperty('registration.serviceRequestedConcept')"/>
-        <!-- The below 2 expressions are provided by the RwandaEmrVelocityContextProvider -->
+        <!-- The below 2 expressions are provided by the rwandaemrVelocityContextProvider -->
         <macro key="serviceConcepts" expression="appointmentServiceConceptUuids"/>
         <macro key="serviceLabels" expression="appointmentServiceConceptNames"/>
     </macros>
@@ -18,7 +18,7 @@
         <script type="text/javascript">
             // When opening the form, skip to the service requested section for faster entry
             jq(function() {
-                jq("#service-requested-question > select").focus();
+            jq("#service-requested-question > select").focus();
             });
         </script>
     </ifMode>
@@ -26,15 +26,15 @@
     <ifMode mode="VIEW" include="true">
         <style>
             #registration-form-section label {
-                padding-right: 10px;
-                width: 160px;
+            padding-right: 10px;
+            width: 160px;
             }
             #registration-form-section label::after {
-                content: ': ';
-                display: inline;
+            content: ': ';
+            display: inline;
             }
             #insurance-question {
-                display: inline-block;
+            display: inline-block;
             }
         </style>
     </ifMode>
@@ -51,20 +51,19 @@
                     <encounterProviderAndRole id="encounterProvider" default="currentUser" encounterRole="e8a0fb6a-aba5-11e1-b9e7-002713655c9f" required="true"/>
                 </div>
                 <div class="col-12">
-                    <label for="encounterLocation"><uimessage code="rwandaemr.registration.encounter.location.label"/></label>
-                    <!-- TODO: Determine what location tags to limit this to: eg.  tags="Registration Location" -->
+                    <label for="encounterLocation">Location</label>
                     <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" required="true"/>
                 </div>
             </div>
             <br class="hide-on-dashboard"/>
-        </includeIf>
-        <excludeIf velocityTest="$visit || $context.mode != 'ENTER'">
+         </includeIf>
+         <excludeIf velocityTest="$visit || $context.mode != 'ENTER'">
             <div style="display:none">
                 <encounterDate id="encounterDate" default="now"/>
                 <encounterProviderAndRole id="encounterProvider" default="currentUser" autocompleteProvider="true" encounterRole="e8a0fb6a-aba5-11e1-b9e7-002713655c9f" required="true"/>
                 <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" required="true"/>
             </div>
-        </excludeIf>
+         </excludeIf>
 
         <div class="row col-12">
             <div class="col-12">
@@ -86,6 +85,34 @@
                                     required="true"
                 />
             </div>
+            <excludeIf velocityTest="$visit || $context.mode != 'ENTER'">
+                <lookup class="value patientUpid" complexExpression="#foreach ($patId in $patientIdentifiers.get('UPID')) $patId #end" /> <br />
+                <div class="col-9" id="transfer_from_hie"> 
+                </div>
+                <div class="col-12">
+                    <obs conceptId="076b04e5-d62d-47da-83e2-0da6e7a119b4" labelText="Transfer ID:" id="hie_transfer_id" />
+                </div>
+                <style>
+                .patientUpid {
+                    display: none;
+                }
+                </style>
+                <script type="text/javascript">
+                (function(jq) {
+                    jq(function() {
+                        var ctx = (typeof openmrsContextPath !== "undefined" ? openmrsContextPath : "/openmrs");
+                        var base = ctx.replace(/\/+$/, "") + "/moduleResources/transferapp/scripts/";
+                        jq.getScript(base + "transferMohLogo.js")
+                            .then(function() { return jq.getScript(base + "transferFormPreview.js"); })
+                            .then(function() { return jq.getScript(base + "registrationHieTransfer.js"); })
+                            .fail(function() {
+                                jq("#transfer_from_hie").text("Unable to load transfer preview resources.");
+                            });
+                    });
+                }(jQuery));
+                </script>
+            </excludeIf>
+           
         </div>
 
         <ifMode mode="VIEW" include="false">
