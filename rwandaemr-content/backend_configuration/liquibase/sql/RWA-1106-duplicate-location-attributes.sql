@@ -10,6 +10,6 @@ UPDATE location_attribute la
         HAVING COUNT(*) > 1) k
     ON k.location_id = la.location_id AND k.attribute_type_id = la.attribute_type_id
    AND k.value_reference = la.value_reference
-   SET la.voided = 1, la.voided_by = 1, la.date_voided = NOW(),
+   SET la.voided = 1, la.voided_by = (SELECT user_id FROM users WHERE system_id = 'admin'), la.date_voided = NOW(),
        la.void_reason = 'RWA-1106: duplicate of an attribute with the same value'
  WHERE la.voided = 0 AND t.max_occurs IS NOT NULL AND la.location_attribute_id <> k.keep_id;

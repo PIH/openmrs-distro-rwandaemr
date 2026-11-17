@@ -41,6 +41,20 @@
         <sqlFile path="sql/RWA-1106-duplicate-location-attributes.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
 
+    <changeSet id="RWA-1106-duplicate-reference-terms" author="mseaton">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sqlCheck expectedResult="0">
+                    SELECT COUNT(*) FROM (
+                        SELECT concept_source_id FROM concept_reference_term
+                         GROUP BY concept_source_id, code HAVING COUNT(*) > 1) d
+                </sqlCheck>
+            </not>
+        </preConditions>
+        <comment>Merge reference terms that repeat the same source and code</comment>
+        <sqlFile path="sql/RWA-1106-duplicate-reference-terms.sql" relativeToChangelogFile="true" stripComments="true" />
+    </changeSet>
+
     <changeSet id="RWA-1106-duplicate-concept-mappings" author="mseaton">
         <preConditions onFail="MARK_RAN">
             <not>
@@ -55,22 +69,8 @@
                 </sqlCheck>
             </not>
         </preConditions>
-        <comment>Delete the NARROWER-THAN maps of concept Preliminary that repeat its SAME-AS maps</comment>
+        <comment>Replace the NARROWER-THAN maps of concept Preliminary with SAME-AS maps</comment>
         <sqlFile path="sql/RWA-1106-duplicate-concept-mappings.sql" relativeToChangelogFile="true" stripComments="true" />
-    </changeSet>
-
-    <changeSet id="RWA-1106-duplicate-reference-terms" author="mseaton">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <sqlCheck expectedResult="0">
-                    SELECT COUNT(*) FROM (
-                        SELECT concept_source_id FROM concept_reference_term
-                         GROUP BY concept_source_id, code HAVING COUNT(*) > 1) d
-                </sqlCheck>
-            </not>
-        </preConditions>
-        <comment>Merge reference terms that repeat the same source and code</comment>
-        <sqlFile path="sql/RWA-1106-duplicate-reference-terms.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
 
     <changeSet id="RWA-1106-invalid-concept-state-conversions" author="mseaton">
