@@ -17,7 +17,28 @@
       }
     ]
   },
- {
+{
+    "id": "transferapp.patientTransfers",
+    "description": "transferapp.patient.transfers.description",
+    "label": "transferapp.patient.transfers.title",
+    "icon": "icon-retweet",
+    "order": 0,
+    "config": {
+      "label": "Transfer Information"
+    },
+    "extensions": [
+      {
+        "id": "transferapp.patientTransfers.clinicianDashboardFirstColumn",
+        "appId": "transferapp.patientTransfers",
+        "extensionPointId": "patientDashboard.firstColumnFragments",
+        "extensionParams": {
+          "provider": "transferapp",
+          "fragment": "patient/transfersSection"
+        }
+      }
+    ]
+  },
+  {
     "id": "rwandaemr.iremboPayBillingInfo",
     "description": "rwandaemr.mostRecentClinicalSummery.app.description",
     "label": "rwandaemr.hie.recentClinicalSummary",
@@ -61,27 +82,7 @@
       }
     ]
   },
-  {
-    "id": "transferapp.patientTransfers",
-    "description": "transferapp.patient.transfers.description",
-    "label": "transferapp.patient.transfers.title",
-    "icon": "icon-retweet",
-    "order": 0,
-    "config": {
-      "label": "Transfer Information"
-    },
-    "extensions": [
-      {
-        "id": "transferapp.patientTransfers.clinicianDashboardFirstColumn",
-        "appId": "transferapp.patientTransfers",
-        "extensionPointId": "patientDashboard.firstColumnFragments",
-        "extensionParams": {
-          "provider": "transferapp",
-          "fragment": "patient/transfersSection"
-        }
-      }
-    ]
-  },
+
   {
     "id": "rwandaemr.recentEncounters",
     "description": "coreapps.mostRecentVitals.app.description",
@@ -236,5 +237,31 @@
           "requiredPrivilege": "App: coreapps.programsList"
         }
       ]
-    }
+    },
+  {
+    "id": "coreapps.partogramGrph.fetalHeartRate",
+    "instanceOf": "coreapps.template.dashboardWidget",
+    "description": "coreapps.obsGraph.app.description",
+    "order": 4,
+    "config": {
+      "widget": "obsgraph",
+      "icon": "fas fa-fw fa-chart-area",
+      "label": "Partograph:Fetal Heart Rate",
+      "conceptId": "57c934dd-a086-4e73-a9b8-3b9c1abef1b1",
+      "maxResults": "10",
+      "maxAge": "1y"
+    },
+    "extensions": [
+      {
+        "id": "coreapps.obsGraph.clinicianDashboardFirstColumn",
+        "appId": "coreapps.partogramGrph.fetalHeartRate",
+        "extensionPointId": "patientDashboard.firstColumnFragments",
+        "extensionParams": {
+          "provider": "coreapps",
+          "fragment": "dashboardwidgets/dashboardWidget"
+        },
+        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Maternity Location') && patient.person.gender == 'F'"
+      }
+    ]
+  }
 ]
