@@ -145,7 +145,7 @@
         <!-- Registration Core -->
         <globalProperty>
             <property>registrationcore.identifierSourceId</property>
-            <value>08656d01-b429-43fb-957a-a1539e9128db</value>
+            <value>${identifierSource.primaryCareRegistrationId.uuid}</value>
         </globalProperty>
         <globalProperty>
             <property>registrationcore.patientNameSearch</property>
