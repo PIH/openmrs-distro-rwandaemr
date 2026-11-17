@@ -41,13 +41,13 @@
 	</Appenders>
 	<Loggers>
 		<!-- Library logging -->
-		<Logger name="org.apache" level="WARN" />
+		<Logger name="org.apache" level="ERROR" />
 		<Logger name="org.apache.fop" level="ERROR" />
 		<Logger name="org.hibernate" level="ERROR" />
 		<Logger name="org.hibernate.orm.deprecation" additivity="false" level="ERROR"/>
 		<Logger name="org.hibernate.engine.internal.StatefulPersistenceContext" additivity="false" level="ERROR" /> <!-- UHM-6758 -->
 		<Logger name="net.sf.ehcache" level="ERROR" />
-		<Logger name="org.springframework" level="WARN" />
+		<Logger name="org.springframework" level="INFO" />
 		<Logger name="org.springframework.context.support.ResourceBundleMessageSource" level="ERROR" />
 		<Logger name="org.springframework.beans.factory.support.DefaultListableBeanFactory" level="ERROR" />
 		<Logger name="liquibase" level="INFO" />
@@ -62,6 +62,7 @@
 			<AppenderRef ref="AUTHENTICATION_EVENT_LOG"/>
 		</Logger>
 		<Logger name="org.openmrs.module.authentication.web.AuthenticationFilter" level="INFO"/>
+                <Logger name="org.openmrs.module.rwandaemr.radiology.RadiologyOrderEventListener" level="INFO" />
 
 		<!-- Rwanda EMR Logging -->
 		<Logger name="org.openmrs.module.rwandaemr" level="INFO" />

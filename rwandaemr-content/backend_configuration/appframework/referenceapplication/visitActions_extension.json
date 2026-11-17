@@ -40,5 +40,15 @@
     "require": "visit.active",
     "order": 20,
     "requiredPrivilege": "Task: coreapps.endVisit"
+  },
+    {
+    "id": "rwandaemr.visitAction.anesthesiaRecord",
+    "extensionPointId": "patientDashboard.visitActions",
+    "type": "link",
+    "label": "Intra-Operative Anaesthesia Record",
+    "url": "rwandaemr/patient/anesthesiaRecord.page?patientId={{patient.uuid}}",
+    "icon": "icon-medkit",
+    "order": 7,
+    "require": "visit.admitted && hasMemberWithProperty(sessionLocation.tags, 'display', 'Anesthesia Location')"
   }
 ]

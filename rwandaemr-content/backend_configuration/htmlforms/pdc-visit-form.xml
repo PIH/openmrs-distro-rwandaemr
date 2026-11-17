@@ -665,8 +665,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <p class="side-by-side">
-                            Who attended with the child
+                        <p class="radio">
+                            Who attended with the child:
                             <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@MOTHER@" answerLabel="Mother" style="checkbox"/>
                             <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@FATHER@" answerLabel="Father" style="checkbox"/>
                             <obs conceptId="$@who_attended_with_the_child@" answerConceptId="$@Grandmother@" answerLabel="Grandmother" style="checkbox"/>
