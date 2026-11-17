@@ -6,7 +6,6 @@ header {
 }
 body {
     max-width: unset !important;
-    width: 1500px;
 }
 .patient-header.dead .death-header {
     background: red;

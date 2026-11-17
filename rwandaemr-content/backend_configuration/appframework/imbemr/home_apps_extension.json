@@ -30,17 +30,6 @@
         "order": 7
     },
     {
-        "id": "rwandaemr.labPatientReception",
-        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
-        "type": "link",
-        "label": "Laboratory Reception",
-        "url": "pihapps/labs/labPatientList.page",
-        "icon": "icon-beaker",
-        "requiredPrivilege": "App: coreapps.laboratory",
-        "require": "typeof sessionLocation !== 'undefined' && hasMemberWithProperty(sessionLocation.tags, 'display', 'Laboratory Location')",
-        "order": 7
-    },
-    {
         "id": "rwandaemr.labOrderList",
         "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
         "type": "link",
