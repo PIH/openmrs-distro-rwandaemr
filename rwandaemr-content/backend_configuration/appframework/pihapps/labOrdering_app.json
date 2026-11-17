@@ -1,0 +1,19 @@
+[
+  {
+    "id": "pih.app.labs.ordering",
+    "instanceOf": "coreapps.template.findPatient",
+    "description": "Patient search for the Laboratory Orders page's \"Add lab orders\" button: opens the lab order form, then returns to Laboratory Orders",
+    "order": 0,
+    "config": {
+      "afterSelectedUrl": "/pihapps/labs/labOrder.page?patient={{patientId}}&returnUrl=%2Fopenmrs%2Fpihapps%2Flabs%2FlabOrderList.page",
+      "label": "coreapps.findPatient.app.label",
+      "heading": "coreapps.findPatient.app.label",
+      "showLastViewedPatients": false,
+      "breadcrumbs": [
+        { "icon": "icon-home", "link": "/index.htm" },
+        { "label": "Laboratory Orders", "link": "/pihapps/labs/labOrderList.page" },
+        { "label": "Find Patient Record" }
+      ]
+    }
+  }
+]

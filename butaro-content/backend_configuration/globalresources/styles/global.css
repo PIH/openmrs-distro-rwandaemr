@@ -1,20 +1,36 @@
 body {
     max-width: unset !important;
-    width: 1500px;
+}
+
+/* One header on every page, login included: a full-width bar flush with the top of the window, like the
+   content area below it. Its 15px side padding matches the content's (#content), so the logo lines up with
+   the page content on the left and the user menu with it on the right. */
+body {
+    margin-top: 0;
 }
 
 header {
     background: linear-gradient(135deg, #005d5d 0%, #00403f 100%);
-    border-radius: 4px;
-    box-shadow: 0 8px 24px rgba(0, 63, 94, 0.14);
-    min-height: 86px;
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(0, 63, 94, 0.14);
+    min-height: 56px;
+    padding: 0 15px;
 }
 
 header .logo {
     display: flex;
     align-items: center;
-    height: 86px;
-    padding-left: 28px;
+    height: 56px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Pages other than login: appui puts the logo and the user menu in a Bootstrap navbar, which has its own
+   padding and is 3.2em high from 1200px wide. Let the header's padding and height apply instead. */
+header .navbar {
+    height: auto;
+    min-height: 56px;
+    padding: 0;
 }
 
 header .logo a {
@@ -25,8 +41,8 @@ header .logo a {
 header .logo img,
 .login-header-image {
     display: block;
-    height: 66px;
-    max-width: 340px;
+    height: 42px;
+    max-width: 260px;
     width: auto;
     object-fit: contain;
     padding: 0;
@@ -37,10 +53,6 @@ body:has(#login-page) {
     color: #24313f;
     font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
     width: auto;
-}
-
-body:has(#login-page) header {
-    margin: 10px 14px 0;
 }
 
 body:has(#login-page) #body-wrapper {
