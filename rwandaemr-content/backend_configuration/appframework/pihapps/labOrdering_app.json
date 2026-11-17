@@ -12,7 +12,7 @@
       "breadcrumbs": [
         { "icon": "icon-home", "link": "/index.htm" },
         { "label": "Laboratory Orders", "link": "/pihapps/labs/labOrderList.page" },
-        { "label": "Find Patient Record" }
+        { "label": "coreapps.findPatient.app.label" }
       ]
     }
   }
