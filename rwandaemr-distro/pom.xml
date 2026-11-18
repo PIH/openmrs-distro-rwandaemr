@@ -241,6 +241,12 @@
         </dependency>
         <dependency>
             <groupId>org.openmrs.module</groupId>
+            <artifactId>openconceptlab-omod</artifactId>
+            <version>${openconceptlabVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
             <artifactId>orderextension-omod</artifactId>
             <version>${orderextensionVersion}</version>
             <scope>provided</scope>
