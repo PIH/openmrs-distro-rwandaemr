@@ -133,6 +133,12 @@
         </dependency>
         <dependency>
             <groupId>org.openmrs.module</groupId>
+            <artifactId>growthchart-omod</artifactId>
+            <version>${growthchartVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
             <artifactId>heightweighttracker-omod</artifactId>
             <version>${heightweighttrackerVersion}</version>
             <scope>provided</scope>
@@ -177,12 +183,6 @@
             <groupId>org.openmrs.module</groupId>
             <artifactId>initializer-omod</artifactId>
             <version>${initializerVersion}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.openmrs.module</groupId>
-            <artifactId>laboratorymanagement-omod</artifactId>
-            <version>${laboratorymanagementVersion}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -259,6 +259,12 @@
         </dependency>
         <dependency>
             <groupId>org.openmrs.module</groupId>
+            <artifactId>patienthandover-omod</artifactId>
+            <version>${patienthandoverVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
             <artifactId>pharmacymanagement-omod</artifactId>
             <version>${pharmacymanagementVersion}</version>
             <scope>provided</scope>
@@ -267,6 +273,12 @@
             <groupId>org.openmrs.module</groupId>
             <artifactId>pihapps-omod</artifactId>
             <version>${pihappsVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>radiologyapp-omod</artifactId>
+            <version>${radiologyappVersion}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -358,6 +370,12 @@
             <groupId>org.openmrs.module</groupId>
             <artifactId>rbcmessaging-omod</artifactId>
             <version>${rbcmessagingVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>rwandapharmacymanagement-omod</artifactId>
+            <version>${rwandapharmacymanagementVersion}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
