@@ -6,8 +6,8 @@ module (`org.openmrs.module.muzimacore`) provides the REST services the app uses
 the queue that turns submitted data into encounters and observations.
 
 The distributions in this repository don't include muzimacore. Where a server needs it, install it by hand as
-described below. Server names in `rwandaemr-content/backend_configuration/imbemr/site-config.properties` include
-`kirehe-muzima` and `kayonza-muzima`, and Butaro production runs muzimacore 2.6.1-SNAPSHOT.
+described below. Kirehe and Kayonza have had mUzima servers (`kirehe-muzima`, `kayonza-muzima`), and Butaro
+production runs muzimacore 2.6.1-SNAPSHOT.
 
 ## Why it isn't in the distribution
 
