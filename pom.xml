@@ -37,6 +37,11 @@
         <rbcmessagingVersion>1.1.0-SNAPSHOT</rbcmessagingVersion>
         <!-- Butaro runs 1.4.0-SNAPSHOT built from main@2f159ab; main is now 1.4.2-SNAPSHOT -->
         <transferappVersion>1.4.2-SNAPSHOT</transferappVersion>
+        <!-- Modules Butaro production runs, installed at every site (RWA-1131) -->
+        <growthchartVersion>2.2.0-SNAPSHOT</growthchartVersion>
+        <radiologyappVersion>1.8.0</radiologyappVersion>
+        <patienthandoverVersion>1.5.3-SNAPSHOT</patienthandoverVersion>
+        <rwandapharmacymanagementVersion>1.0.7-SNAPSHOT</rwandapharmacymanagementVersion>
 
         <pihMavenPluginVersion>1.6.0</pihMavenPluginVersion>
         <dependencyReportClassifier>dependencies</dependencyReportClassifier>
