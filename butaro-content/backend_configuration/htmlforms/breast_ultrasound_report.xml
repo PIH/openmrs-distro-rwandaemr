@@ -314,6 +314,10 @@
         <span class="lbl">Provider *</span>
         <encounterProvider default="currentUser" />
       </div>
+      <div class="row">
+        <span class="lbl">Radiology test</span>
+        <radiologyReportOrder/>
+      </div>
       <div>
         <b>Patient:</b>
         <lookup expression="patient.personName" />
