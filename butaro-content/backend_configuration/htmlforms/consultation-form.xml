@@ -3190,6 +3190,7 @@
             </div>
         </div>
     </section>
+    <insuranceApprovalCheck/>
 
     <script type="text/javascript">
         var $acts = jQuery;

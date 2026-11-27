@@ -32,7 +32,7 @@
         <sdkVersion>6.9.0</sdkVersion>
         <!-- rwandaemr's RHIP-INTEGRATION branch is 4.1.1-SNAPSHOT and needs mohbilling's RHIP-INTEGRATION branch -->
         <rwandaemrVersion>4.1.1-SNAPSHOT</rwandaemrVersion>
-        <mohbillingVersion>2.2.6-SNAPSHOT</mohbillingVersion>
+        <mohbillingVersion>2.2.7-SNAPSHOT</mohbillingVersion>
         <!-- rwandaemr's RHIP-INTEGRATION branch requires the rbcmessaging module -->
         <rbcmessagingVersion>1.1.0-SNAPSHOT</rbcmessagingVersion>
         <!-- Butaro runs 1.4.0-SNAPSHOT built from main@2f159ab; main is now 1.4.2-SNAPSHOT -->

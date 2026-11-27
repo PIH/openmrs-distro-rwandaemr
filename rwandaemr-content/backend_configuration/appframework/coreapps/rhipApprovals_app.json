@@ -1,0 +1,20 @@
+[
+  {
+    "id": "rwandaemr.rhipApprovals",
+    "description": "RHIP prior approvals: request the insurer's approval for procedures that need it and follow its decisions",
+    "label": "RHIP Approvals",
+    "order": 123,
+    "extensions": [
+      {
+        "id": "rwandaemr.rhipApprovals.homepageLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "RHIP Approvals",
+        "url": "rwandaemr/admin/rhipApprovals.page",
+        "icon": "icon-shield",
+        "order": 123,
+        "requiredPrivilege": "Billing RHIP Approval - View"
+      }
+    ]
+  }
+]
