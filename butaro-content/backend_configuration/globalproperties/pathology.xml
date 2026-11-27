@@ -1,0 +1,11 @@
+<config>
+    <globalProperties>
+
+        <!-- Concept: Pathology orderables -->
+        <globalProperty>
+            <property>rwandaemr.pathology.orderables</property>
+            <value>cd80eb1d-6f08-4e12-aa5a-a36c12203d2e</value>
+        </globalProperty>
+
+    </globalProperties>
+</config>
