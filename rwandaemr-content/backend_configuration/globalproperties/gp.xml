@@ -27,6 +27,31 @@
             <value>${concept.radiologyOrderablesUS.uuid}</value>
         </globalProperty>
 
+        <!-- Lab result SMS (RWA-1077): sent by lab staff with "Notify Patient" on the lab orders page.
+             The SMS gateway credentials (rbcmessaging.mohpih.*) are set on each server, not here. -->
+        <globalProperty>
+            <property>rwandaemr.labNotification.enabled</property>
+            <value>true</value>
+        </globalProperty>
+
+        <globalProperty>
+            <!-- rbcmessaging: MOH FDI Biz API with the rbcmessaging.mohpih.* settings; intouch: direct InTouch gateway -->
+            <property>rwandaemr.labNotification.provider</property>
+            <value>rbcmessaging</value>
+        </globalProperty>
+
+        <globalProperty>
+            <!-- One SMS per completed order, without staff action. Off: lab staff notify the patient. -->
+            <property>rwandaemr.labNotification.autoSend</property>
+            <value>false</value>
+        </globalProperty>
+
+        <globalProperty>
+            <!-- {patientName}, {facility}, {orders}; the hospital name is added on a second line -->
+            <property>rwandaemr.labNotification.messageTemplate</property>
+            <value>{patientName}. Ibisubizo by'ibizamini byawe byabonetse. Wasubira aho muganga wagusuzumye akorera.</value>
+        </globalProperty>
+
         <!-- PIH Apps -->
 
         <!-- Taken from configuration of laboratorymanagement.labExamCategory -->
