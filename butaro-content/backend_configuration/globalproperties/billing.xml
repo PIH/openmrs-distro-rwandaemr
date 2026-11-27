@@ -1,0 +1,11 @@
+<config>
+    <globalProperties>
+
+        <!-- Department that orders of these order types are billed on: Radiology Order and Pathology Order -->
+        <globalProperty>
+            <property>billing.orderTypeDepartments</property>
+            <value>5a3a8d2e-97c3-4797-a6a8-5417e6e699ec=RADIOLOGY,fe7aad7e-c224-4f56-878e-7d7309a6d3c3=PATHOLOGY</value>
+        </globalProperty>
+
+    </globalProperties>
+</config>
