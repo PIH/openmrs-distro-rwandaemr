@@ -1,17 +1,17 @@
 <htmlform
-	htmlformUuid="4566981f-ff21-4984-9771-e774de163e10" 
-	formUuid="17c48a32-d7d3-4b4e-bb2e-9b730e030070" 
-	formName="Pathology Report for Pathology System" 
-	formDescription="Pathology Report designed for the pathology software project" 
-	formVersion="1.0" 
-	formEncounterType="b1c2d207-7221-4c23-b580-6c5de5385847" 
-	formPublished="true" 
+	htmlformUuid="4566981f-ff21-4984-9771-e774de163e10"
+	formUuid="17c48a32-d7d3-4b4e-bb2e-9b730e030070"
+	formName="Pathology Report for Pathology System"
+	formDescription="Pathology Report designed for the pathology software project"
+	formVersion="1.0"
+	formEncounterType="b1c2d207-7221-4c23-b580-6c5de5385847"
+	formPublished="true"
 	formRetired="false"
 > <!--
 	   Oncology Pathology specimen submission
-		Author:  
-		Builder: Jberchmas 
-		started on Feb 21, 2013		
+		Author:
+		Builder: Jberchmas
+		started on Feb 21, 2013
 	-->
     <macros>
 
@@ -54,7 +54,7 @@
 
 		@ORGAN_SYSTEM@=b88f9524-6b39-41b3-9b3a-f9a7a4b08fed
 		@ORGAN@=488fe4a2-7903-41da-b21e-fb236a1ee356
-		
+
 		@ALIMENTARY_SYSTEM@=bd315f5e-076b-445c-9a43-92a565140851
 		@BREAST@=50b9f804-8540-49c9-9b92-0468b667dfb0
 		@CARDIOVASCULAR_SYSTEM@=3ce1567c-26fe-102b-80cb-0017a47871b2
@@ -84,27 +84,27 @@
 
 		@BREAST@=50b9f804-8540-49c9-9b92-0468b667dfb0
 		@OTHER_BREAST@=8da66be0-2cfe-4322-a53b-274bc1598691
-		
+
 		@HEART@=3ceb7454-26fe-102b-80cb-0017a47871b2
 		@ARTERIES@=1503b0ae-7eef-440b-ae12-110e24118921
 		@VEINS@=da777a63-b92a-44b5-8453-8d80eebab37e
 		@LYMPH_VESSELS@=c543e575-3b3c-4c80-b031-ad5b7956af2b
 		@OTHER_CARDIOVASCULAR@=af361f19-0992-4146-8199-dcf1485ed99c
-		
+
 		@CEREBRUM@=ec2dface-709b-4810-8a98-92b0e9819450
 		@CEREBELLUM@=308cbfd4-882e-4928-9815-10e020fdcf8f
 		@BRAIN_STEM@=6ae43c7d-e6e4-440a-91b5-4eac03d74597
 		@SPINAL_CHORD@=df9ecd98-3f65-405f-b8b6-63ae202dba93
 		@MENINGES@=62482c13-ac7f-4e59-b263-1b21eb4c400f
 		@OTHER_NERVOUS@=19adbf3e-fd83-4853-9116-7bd407471e01
-		
+
 		@THYROID@=ffa7d332-730e-4d4a-84b1-f7068326252a
 		@PARATHYROID@=a718c429-8f48-4d00-8b64-01e00a324e0f
 		@ADRENAL_GLAND_AND_PARAGANGLIA@=bba224d7-3915-47ac-9ff4-1f65c350dfaf
 		@PITUITARY@=1bf0bfd0-cf7a-4910-a6df-2b56ebf16d20
 		@HYPOTHALAMUS@=1aa4de9a-cc29-4cbf-8d92-74486bd6ca86
 		@OTHER_ENDOCRINE@=37dc963c-ee60-4f83-ae42-450a10b8fafc
-		
+
 		@VULVA@=d1642f47-e2c9-4014-850a-2559548f9016
 		@VAGINA@=1a1f18a3-08de-49f9-badf-d5263ed53aa0
 		@CERVIX@=dbcdeccc-6fe1-43b8-9264-ed01a7252b36
@@ -137,10 +137,10 @@
 		@SPLEEN@=9feb93a7-f48f-432a-889b-b9232c4eb036
 		@TONSIL@=d3554b89-db5f-485b-8906-b5cd56cdfdd7
 		@OTHER_HEMATOPOIETIC@=576987f5-5c70-43c2-a846-702cc77c7cf7
-	
+
 		@SKIN@=137011cc-b0a3-4446-9f8e-bfa479b31a8d
 		@OTHER_INTEGUMENTARY@=1eb71164-73e5-40fb-a94b-2bd62070927d
-	
+
 		@PROSTATE@=9f7cae35-024c-4978-87ac-9d06b17526a0
 		@SEMINAL_VESICLES@=636bf989-5479-480e-819b-f06f1b4d7bf4
 		@TESTICLES@=a2aaf894-5f0f-44b3-b639-a36a030c6b3d
@@ -151,20 +151,20 @@
 
 		@THYMUS@=f36f854d-69cf-4ea0-b986-ad7069d7a00c
 		@OTHER_MEDIASTINUM@=fd6f8170-fbf9-40a0-ba5c-82caea932e3e
-	
+
 		@BONE@=fcbc33ff-b716-41e2-932a-d84a02a93e36
 		@JOINT@=cc11875b-74c2-44c9-9527-5f817bc98f7c
 		@SOFT_TISSUE@=e10eaff4-4535-4f51-a7ed-abdca60fe599
-		
+
 		@PERITONEUM@=6dff2bd7-6601-400b-9496-b071c486a099
 		@RETROPERITONEUM@=2daa06a3-7cfa-4330-b44e-9511eb4729c7
-		
+
 		@RELATED_STRUCTURES_TO_PERITONEUM@=57e9c9ea-cdda-47af-b7d1-41c744fcb40b
-		
+
 		@TRACHEA@=8ed6cf82-8dd5-4dd6-84a8-cca1e496d126
 		@LUNG@=3ce15384-26fe-102b-80cb-0017a47871b2
 		@PLEURA@=d9d61364-ddd3-4f61-a041-8cdaf1db5297
-		
+
 		@KIDNEY@=c2c6213c-e6c7-4ff9-ba30-ac764c8e0a0b
 		@URETER@=35b4d840-e806-4d64-ad7a-870175832523
 		@BLADDER@=2926eb6d-4adc-4aed-815d-9932540b8964
@@ -176,78 +176,126 @@
 		@pathology_request_encounter_UUID@ = 4a1c767f-6bab-4938-b3f0-d3a5a3f9cd2c
 		@PATHOLOGIC_DIAGNOSIS@=21f54f50-b804-476e-a0dd-a3238cd556fb
 		@PATHOLOGY_COMMENT@=e85305cf-ad93-4d1a-881e-53faf715fa8f
+		@PATHOLOGY_TISSUE_BLOCKS@=3f34707a-3fda-4248-a965-a1235f195462
+		@PATHOLOGY_SLIDES@=68e4e69b-9c0d-4807-a662-bfacd92db3b2
+		@ADDITIONAL_PATHOLOGY_STAINS@=49635425-9696-4a23-a65e-3f9463025d3e
+		@SENT_FOR_PATHOLOGIST_REVIEW@=07c80ea9-68b4-49e6-a1a3-74de43ec1777
 
-		
-		
+
+
 
     </macros>
-<style>
-.hidden
-{ color: #D8D8D8; width: 19%; }
-</style>
+    <!-- The same look as the pathology request form (Oncology - Pathology Specimen Submission) -->
     <style>
-        th.tableHeader {
-        background-color: #009d8e;
-        color: #FFFFFF;
-        font-size: 16px;
-        text-align: left;
+        .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
         }
 
-        ul {
-        list-style-type: square;
-        font-family: Verdana, Arial, Helvetica, sans-serif;
-        font-size: 11px;
+        form fieldset {
+        display: block;
         }
 
-        tr.spaceUnder>td {
-        padding-bottom: 1em;
+        .section {
+        width: 100%;
         }
 
-        td {
-        font-size: 15px;
+        fieldset legend {
+        font-weight: bold;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        display: block;
         }
 
-        #container {
-        margin: auto;
-        height: auto;
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em;
+        }
+
+        .section-container label {
+        margin: 0px;
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px;
+        top: 5px;
+        }
+
+        form input[type="radio"],
+        .form input[type="radio"] {
+        float: none;
+        display: inline-block;
+        }
+
+        .side-by-side label {
+        display: inline-block;
+        }
+
+        .small-input input {
+        min-width: 5em;
+        }
+
+        .flexView {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5em 1em;
+        }
+
+        .date-one-line {
+        display: flex;
+        }
+
+        .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+        }
+
+        .date-one-line span {
+        display: flex;
+        }
+
+        .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+        }
+
+        .hfe-hours,
+        .hfe-minutes,
+        .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+        }
+
+        .hidden {
+        color: #D8D8D8;
         }
 
         @media print {
-        #container {
-        display: block;
-        }
-        #printArea {
-        display: none;
-        }
-        #userBar {
-        display: none;
-        }
-        #banner {
-        display: none;
-        }
-        #footer {
-        display: none;
-        }
-        #htmlFormEntryBanner {
-        display: none;
-        }
+        #userBar,
+        #banner,
+        #footer,
+        #htmlFormEntryBanner,
         .error {
         display: none;
         }
-        .lables {
-        width: 200px;
+        .section-container {
+        background: none;
+        box-shadow: none;
         }
         table {
         width: 100%;
         }
-        table,td,th {
+        table, td, th {
         border: 1px solid black;
         border-collapse: collapse;
-        }
-        th {
-        text-align: left;
-        background-color: #D9D9D9;
-        font-size: 10px;
         }
         td {
         font-size: 10px;
@@ -256,33 +304,6 @@
         font-size: 20px;
         font-weight: bold;
         font-style: italic;
-        }
-        .selectedCancerStagingKeys {
-        page-break-before: always;
-        border: 0px;
-        }
-        table.selectedCancerStagingKeys td {
-        border: 0px;
-        }
-        #signature {
-        border: none;
-        }
-        #signature td {
-        border: none;
-        }
-        }
-
-        @media screen {
-        table {
-        border: 1px solid #DFDFDF;
-        width: 100%;
-        border-color: #009d8e;
-        }
-        #container {
-        display: block;
-        }
-        #printArea {
-        display: none;
         }
         }
     </style>
@@ -364,7 +385,7 @@
 
                     });
                     $j(".initialHide").hide();
-					
+
                 });
             }
 	</script>
@@ -395,7 +416,7 @@ $j("#hivstatusentry").show();
 							getField('specimenCNonCoded.value')[0].disabled = true;
 							getField('specimenDNonCoded.value')[0].disabled = true;
                                                         getField('hospitalNonCoded.value')[0].disabled = true;
-							
+
 							getField('specimenA.value').change(function() {
 								if(getValue('specimenA.value') == $@OTHER_NON_CODED@) {
 									getField('specimenANonCoded.value')[0].disabled = false;
@@ -591,269 +612,261 @@ $j("#hivstatusentry").show();
 	}
 </script>
 
-   <postSubmissionAction class="org.openmrs.module.rbcmessaging.util.SendOncologyPathologyResultMessageOnHtmlFormSubmissionAction"/> 
- <section>
+   <postSubmissionAction class="org.openmrs.module.rbcmessaging.util.SendOncologyPathologyResultMessageOnHtmlFormSubmissionAction"/>
+    <div class="flexView">
+        <img src="/openmrs/moduleResources/rwandareports/images/pihHands.png" height="65"></img>
+        <h2>Inshuti Mu Buzima - PIH Rwanda<br/>Oncology Program: Pathology Report</h2>
+    </div>
 
-        <table border="1" cellspacing="0" cellpadding="6" width="100%">
-            <tr>
-                <td><b> IMB ID: <lookup class="value"
-                                        expression="patientIdentifiers.get(&quot;IMB ID&quot;)" /> <lookup
-                        class="value"
-                        expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" /></b>
-                </td>
-                <td>Signout Date: <encounterDate id="encounterDate" default="today" />
-                </td>
-            </tr>
-            <tr>
-                <td>Nom / Last name: <lookup class="value"
-                                             expression="patient.personName.familyName" />
-                </td>
-                <td>Prénom/ First name: <lookup class="value"
-                                                expression="patient.personName.givenName" />
-                </td>
-            </tr>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="PATIENT INFORMATION">
+        <div class="section-container">
+            <table border="2" cellspacing="0" cellpadding="6" width="100%">
+                <tr>
+                    <td>
+                        <b>IMB ID:</b>
+                        <lookup class="value" expression="patientIdentifiers.get(&quot;IMB ID&quot;)" />
+                        <lookup class="value" expression="patientIdentifiers.get(&quot;IMB Primary Care Registration ID&quot;)" />
+                    </td>
+                    <td>
+                        <p class="date-one-line">
+                            <label>Signout Date:</label>
+                            <encounterDate id="encounterDate" default="today" />
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Last name:
+                        <lookup class="value" expression="patient.personName.familyName" />
+                    </td>
+                    <td>
+                        First name:
+                        <lookup class="value" expression="patient.personName.givenName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Clinic:
+                        <encounterLocation id="encounterLocation" default="Butaro Hospital" />
+                    </td>
+                   <!-- <td>
+                        Accession Number:
+                        <obs id="accessionNumber" conceptId="$@ASSESSION_NUMBER@" />
+                    </td>-->
+                </tr>
+                <tr>
+                    <!-- The case of the pathology lab this report is for.  Saving the report moves the case on the
+                         pathology queue to each step it has results for; ticking "Pathologist reviewed" signs it out. -->
+                    <td colspan="2">
+                        Pathology case:
+                        <pathologyCase grossedConcepts="$@Gross_Description@"
+                                       processedConcepts="$@PATHOLOGY_TISSUE_BLOCKS@,$@PATHOLOGY_SLIDES@,$@MICROSCOPIC_EXAMINATION@"
+                                       additionalStainsConcepts="$@ADDITIONAL_PATHOLOGY_STAINS@"
+                                       sentForReviewConcepts="$@SENT_FOR_PATHOLOGIST_REVIEW@"
+                                       signedOutConcepts="$@PATHOLOGIST_VALIDATION@"
+                                       accessionNumberField="accessionNumber" surgeryDateField="surgeryDate"
+                                       receivedDateField="receptionDate" physicianField="sendingPhysician"
+                                       facilityField="facilityOfProcedure" clinicalInformationField="clinicalInformation"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
 
-            <tr>
-                <td><img
-                        src="/openmrs/moduleResources/rwandareports/images/pihHands.png"
-                        align="left" height="65"></img>
-                    <h2>
-                        Inshuti Mu Buzima <br /> PIH Rwanda
-                    </h2></td>
-                <td ><strong> Oncology Program 
-                    <br /> Pathology Report
-                </strong> <br /></td>
-            </tr>
-            <tr>
-                <td>Clinique / Clinic: <encounterLocation
-                        id="encounterLocation" default="Butaro Hospital" />
-                </td>
-				<td>Accession Number<obs conceptId="$@ASSESSION_NUMBER@" />
-				</td>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="SPECIMEN INFORMATION">
+        <div class="section-container">
+            <fieldset>
+                <legend>Surgery and Reception</legend>
+                <p class="date-one-line">
+                    <label>Date of Surgery:</label>
+                    <obs id="surgeryDate" conceptId="$@Date_Biopsy_Specimen_Taken@"/>
+                </p>
+                <p class="date-one-line">
+                    <label>Specimen Reception Date:</label>
+                    <obs id="receptionDate" conceptId="$@SPECIMENT_SUBMISSION_DATE@"/>
+                </p>
+                <p class="small-input flexView">
+                    Sending Physician:
+                    <obs id="sendingPhysician" conceptId="$@SENDING_PHYSICIAN@"/>
+                    Facility of procedure:
+                    <obs id="facilityOfProcedure" conceptId="$@Other_Biopsy_Location@"/>
+                </p>
+            </fieldset>
 
-            </tr>
-        </table>
-        <table>
-
-            <tr>
-                <td>
-                    <br/>
-                    <br/>
-                    Date of Surgery:
-                    <obs conceptId="$@Date_Biopsy_Specimen_Taken@"/>
-					<br/>
-					Specimen Reception Date
-					<obs conceptId="$@SPECIMENT_SUBMISSION_DATE@"/>
-
-					
-
-                </td>
-            </tr>
-            <tr>
-                <td>
-				Sending Physician
-				<obs conceptId="$@SENDING_PHYSICIAN@"/>
-                    Facility of procedure
-                    <obs conceptId="$@Other_Biopsy_Location@"/>
-                    
-                </td>
-            </tr>
- 
-			<tr>
-
-				<td>
-				
-				<br/>
-				<span class="activate" id="Organ_System_Alimentary" title="Alimentary">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@ALIMENTARY_SYSTEM@" style="checkbox"/> 
-				<br/>
-				</span>
-				<span class="Alimentary initialHide" >
+            <fieldset>
+                <legend>Specimen</legend>
+                <!-- One body system, chosen from a list, shows the organs of that system -->
+                <p class="organ-system">Body system:
+                <obs id="organSystem" conceptId="$@ORGAN_SYSTEM@" style="dropdown"
+                     answerConceptIds="$@ALIMENTARY_SYSTEM@,$@BREAST@,$@CARDIOVASCULAR_SYSTEM@,$@CENTRAL_NERVOUS_SYSTEM@,$@ENDOCRINE_SYSTEM@,$@FEMALE_REPRODUCTIVE_SYSTEM@,$@HEAD_AND_NECK_SYSTEM@,$@HEMATOPOIETIC_AND_LYMPHATIC_SYSTEM@,$@INTEGUMENTARY_SYSTEM@,$@MALE_REPRODUCTIVE_SYSTEM@,$@MEDIASTINUM@,$@MUSCULOSKELETAL_SYSTEM@,$@PERITONEUM_AND_RETROPERITONEUM@,$@RESPIRATORY_SYSTEM@,$@URINARY_SYSTEM@"
+                     answerLabels="Alimentary system,Breast and lymphoglandular,Cardiovascular system,Central nervous system,Endocrine system,Female reproductive system,Head and neck,Hematopoietic and lymphatic system,Integumentary system (skin),Male reproductive system,Mediastinum,Musculoskeletal system,Peritoneum and retroperitoneum,Respiratory system,Urinary system"/>
+                </p>
+				<span class="Alimentary initialHide organ-list" data-system="Alimentary system">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@ESOPHAGUS@, $@STOMACH@, $@SMALL_BOWEL@, $@LARGE_BOWEL@, $@APPENDIX@, $@ANUS@, $@LIVER@, $@GALLBLADDER@, $@PANCREAS@, $@OTHER_ALIMENTARY@    " />
 				</span>
-				<br/>
-				<br/>
-				<span class="activate" id="Organ_System_BREAST" title="BREAST">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@BREAST@" style="checkbox"/>
-				</span>
-				<br/>
-
-				<span class="BREAST initialHide" >
+				<span class="BREAST initialHide organ-list" data-system="Breast and lymphoglandular">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@BREAST@, $@OTHER_BREAST@   " />
 				</span>
-				<br/>
-				<span class="activate" id="Organ_System_CARDIOVASCULAR" title="CARDIOVASCULAR">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@CARDIOVASCULAR_SYSTEM@" style="checkbox"/> 
-				</span>
-				<br/>		
-				<span class="CARDIOVASCULAR initialHide" >
+				<span class="CARDIOVASCULAR initialHide organ-list" data-system="Cardiovascular system">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@HEART@,$@ARTERIES@,$@VEINS@, $@LYMPH_VESSELS@, $@OTHER_CARDIOVASCULAR@     " />
 				</span>
-				<br/>
-				<span class="activate" id="Organ_System_NERVOUS" title="NERVOUS">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@CENTRAL_NERVOUS_SYSTEM@" style="checkbox"/> 
-				</span>
-				<br/>
-	
-				<span class="NERVOUS initialHide" >
+				<span class="NERVOUS initialHide organ-list" data-system="Central nervous system">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@CEREBRUM@,$@CEREBELLUM@, $@BRAIN_STEM@, $@SPINAL_CHORD@, $@MENINGES@, $@OTHER_NERVOUS@    " />
 				</span>
-				<br/>
-				<span class="activate" id="Organ_System_ENDOCRINE" title="ENDOCRINE">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@ENDOCRINE_SYSTEM@" style="checkbox"/> 
-				</span>
-				<br/>
-		
-				<span class="ENDOCRINE initialHide" >
+				<span class="ENDOCRINE initialHide organ-list" data-system="Endocrine system">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@THYROID@,$@PARATHYROID@,$@ADRENAL_GLAND_AND_PARAGANGLIA@,$@PITUITARY@, $@HYPOTHALAMUS@, $@OTHER_ENDOCRINE@      " />
 				</span>
-				<br/>
-				<span class="activate" id="Organ_System_FEMALE_REPRODUCTIVE" title="FEMALE_REPRODUCTIVE">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@FEMALE_REPRODUCTIVE_SYSTEM@" style="checkbox"/> 
-				</span>
-				<br/>
-				
-
-				<span class="FEMALE_REPRODUCTIVE initialHide" >
+				<span class="FEMALE_REPRODUCTIVE initialHide organ-list" data-system="Female reproductive system">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@VULVA@,$@VAGINA@,$@CERVIX@,$@CORPUS_UTERI@,$@FALLOPIAN_TUBE@, $@OVARY@, $@PREGNANCY_PLACENTA@, $@OTHER_F_REPRODUCTIVE@   " />
 				</span>
-				<br/>
-				<span class="activate" id="Organ_System_HEAD_AND_NECK" title="HEAD_AND_NECK">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@HEAD_AND_NECK_SYSTEM@" style="checkbox"/> 
-				</span>
-				<br/>
-	
-				<span class="HEAD_AND_NECK initialHide" >
+				<span class="HEAD_AND_NECK initialHide organ-list" data-system="Head and neck">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@ORAL_CAVITY@, $@TONGUE@,$@PALATE@, $@OROPHARYNX@,$@NASOPHARYNX@,$@HYPOTHARYNX@, $@LARYNX@, $@PAROTID_GLAND@,$@SUBMANDIBULAR_GLAND@, $@SINUSES@, $@SINONASAL@, $@PARANASAL_SINUS@, $@MAXILLA@, $@MANDIBULA@, $@EAR@, $@EYE@, $@OTHER_HEAD@       " />
 				</span>
-				<br/>
-				<span class="activate" id="Organ_System_HEMATOPOIETIC" title="HEMATOPOIETIC">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@HEMATOPOIETIC_AND_LYMPHATIC_SYSTEM@" style="checkbox"/> 
-				</span>
-				<br/>
-				
-				<span class="HEMATOPOIETIC initialHide" >
+				<span class="HEMATOPOIETIC initialHide organ-list" data-system="Hematopoietic and lymphatic system">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@BONE_MARROW@, $@LYMPH_NODE@, $@SPLEEN@,$@TONSIL@, $@OTHER_HEMATOPOIETIC@    " />
 				</span>
-				<br/>
-				<span class="activate" id="Organ_System_INTEGUMENTARY" title="INTEGUMENTARY">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@INTEGUMENTARY_SYSTEM@" style="checkbox"/> 
-				</span>
-				<br/>
-				
-				<span class="INTEGUMENTARY initialHide" >
+				<span class="INTEGUMENTARY initialHide organ-list" data-system="Integumentary system (skin)">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@SKIN@, $@OTHER_INTEGUMENTARY@   " />
 				</span>
-				<br/>
-				<span class="activate" id="Organ_System_MALE_REPRODUCTIVE" title="MALE_REPRODUCTIVE">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@MALE_REPRODUCTIVE_SYSTEM@" style="checkbox"/> 
-				</span>
-				<br/>
-		
-				<span class="MALE_REPRODUCTIVE initialHide" >
+				<span class="MALE_REPRODUCTIVE initialHide organ-list" data-system="Male reproductive system">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@PROSTATE@, $@SEMINAL_VESICLES@, $@TESTICLES@, $@TESTICULAR_ADNEXA@, $@PENIS@, $@SCROTUM@, $@OTHER_MALE_REPRODUCTIVE@   " />
 				</span>
-				<br/>
-				<span class="activate" id="Organ_System_MEDIASTINUM" title="MEDIASTINUM">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@MEDIASTINUM@" style="checkbox"/> 
-				</span>
-				<br/>
-				
-				<span class="MEDIASTINUM initialHide" >
+				<span class="MEDIASTINUM initialHide organ-list" data-system="Mediastinum">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds=" $@THYMUS@, $@OTHER_MEDIASTINUM@  " />
 				</span>
-				<br/><span class="activate" id="Organ_System_MUSCULOSKELETAL" title="MUSCULOSKELETAL">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@MUSCULOSKELETAL_SYSTEM@" style="checkbox"/> 
-				</span>
-				<br/>
-		
-				<span class="MUSCULOSKELETAL initialHide" >
+				<span class="MUSCULOSKELETAL initialHide organ-list" data-system="Musculoskeletal system">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@BONE@, $@JOINT@, $@SOFT_TISSUE@   " />
 				</span>
-				<br/>
-				<span class="activate" id="Organ_System_PERITONEUM" title="PERITONEUM">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@PERITONEUM_AND_RETROPERITONEUM@" style="checkbox"/> 
-				</span>
-				<br/>
-				
-				<span class="PERITONEUM initialHide" >
+				<span class="PERITONEUM initialHide organ-list" data-system="Peritoneum and retroperitoneum">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@PERITONEUM@, $@RETROPERITONEUM@, $@RELATED_STRUCTURES_TO_PERITONEUM@   " />
 				</span>
-				<br/>
-				<span class="activate" id="Organ_System_RESPIRATORY" title="RESPIRATORY">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@RESPIRATORY_SYSTEM@" style="checkbox"/> 
-				</span>
-				<br/>
-				
-		
-				<span class="RESPIRATORY initialHide" >
+				<span class="RESPIRATORY initialHide organ-list" data-system="Respiratory system">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds=" $@TRACHEA@, $@LUNG@, $@PLEURA@  " />
 				</span>
-				<br/>
-				<span class="activate" id="Organ_System_URINARY" title="URINARY">
-				<obs conceptId="$@ORGAN_SYSTEM@"  answerConceptId="$@URINARY_SYSTEM@" style="checkbox"/> 
-				</span>
-				<br/>
-	
-				<span class="URINARY initialHide" >
+				<span class="URINARY initialHide organ-list" data-system="Urinary system">
 				<obs conceptId="$@ORGAN@" style="radio" answerConceptIds="$@KIDNEY@,$@URETER@,$@BLADDER@, $@URETHRA@, $@OTHER_URINARY@     " />
 				</span>
+				<script type="text/javascript">
+				$j(function() {
+					var organs = $j('.organ-list');
+					var system = getField('organSystem.value');
+					if (!system || !system.is('select')) {
+						// Viewing the report: shows only the organ chosen
+						organs.each(function() {
+							var list = $j(this);
+							if (list.find('.value').length) {
+								list.find('.emptyValue').hide();
+								list.show();
+							}
+						});
+						return;
+					}
+					// Shows the organs of the chosen system, and clears the organs chosen for another one
+					var showOrgans = function(clearOthers) {
+						var chosen = system.find('option:selected').text();
+						organs.each(function() {
+							var list = $j(this);
+							if (list.attr('data-system') === chosen) {
+								list.show();
+							}
+							else {
+								if (clearOthers) {
+									list.find('input').attr('checked', false);
+								}
+								list.hide();
+							}
+						});
+					};
+					system.change(function() { showOrgans(true); });
+					showOrgans(false);
+				});
+				</script>
+                <p>
+                    Procedure Type:
+                    <obs conceptId="$@PROCEDURES@"/>
+                </p>
+                <p>
+                    Clinical Information:<br/>
+                    <obs id="clinicalInformation" conceptId="$@SPECIMEN_DETAIL@" cols="70"/>
+                </p>
+            </fieldset>
+        </div>
+    </section>
 
-				<!--Organ  <obs conceptId="$@ORGAN@" /> -->
-				<br/>
-				Procedure Type<obs conceptId="$@PROCEDURES@"/>
-				<br/>
-				<br/>
-				Clinical Information <obs conceptId="$@SPECIMEN_DETAIL@" cols="70"/>
-				</td>
-			</tr>
-
-
-            <tr>
-                <td>
-					Gross Description:
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="RESULTS">
+        <div class="section-container">
+            <fieldset>
+                <legend>Gross Examination</legend>
+                <p>
+                    Gross Description:<br/>
                     <obs conceptId="$@Gross_Description@" cols="100"/>
-					<br/>
-					Microscopic Examination:
+                </p>
+                <p class="small-input flexView">
+                    Number of blocks:
+                    <obs conceptId="$@PATHOLOGY_TISSUE_BLOCKS@"/>
+                    Number of slides:
+                    <obs conceptId="$@PATHOLOGY_SLIDES@"/>
+                </p>
+                <p>
+                    Additional stains requested (special stains, immunohistochemistry):<br/>
+                    <obs conceptId="$@ADDITIONAL_PATHOLOGY_STAINS@" cols="100"/>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Microscopic Examination and Diagnosis</legend>
+                <p>
+                    Microscopic Examination:<br/>
                     <obs conceptId="$@MICROSCOPIC_EXAMINATION@" cols="100"/>
-					<br/>
-                    Conclusion:
+                </p>
+                <p>
+                    Conclusion:<br/>
                     <obs conceptId="$@COMMENTS_AT_CONCLUSION_OF_EXAMINATION@" cols="100"/>
-					
-					<br/>
-					Comment
-					<obs conceptId="$@PATHOLOGY_COMMENT@" cols="100"/>
-					<br/>
-					Pathologic diagnosis:
-					<obs conceptId="$@PATHOLOGIC_DIAGNOSIS@" />
-                  
-                     <br />
-                                <br />
-                Canreg Code <obs conceptId="$@CANREG_CODE@" />
+                </p>
+                <p>
+                    Comment:<br/>
+                    <obs conceptId="$@PATHOLOGY_COMMENT@" cols="100"/>
+                </p>
+                <p class="small-input flexView">
+                    Pathologic diagnosis:
+                    <obs conceptId="$@PATHOLOGIC_DIAGNOSIS@" />
+                </p>
+                <p class="small-input flexView">
+                    Canreg Code:
+                    <obs conceptId="$@CANREG_CODE@" />
+                </p>
+            </fieldset>
+        </div>
+    </section>
 
-                </td>
-            </tr>
-			<tr>
-				<td>
-			        <br />
-        <br />
-        Doctor submitting form <encounterProvider role="Oncology Provider" />
-		<br />
-		Pathologist reviewed <obs conceptId="$@PATHOLOGIST_VALIDATION@" answerConceptId="$@YES@" style="checkbox" />
-</td>
-</tr>
-<tr class="hidden">
-   <th> Request UUID</th>
-   <td>
-      <obs id="requestUuid" conceptId="$@pathology_request_encounter_UUID@" size="80"/>
-   </td>
-</tr>
-        </table>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="SIGN-OUT">
+        <div class="section-container">
+            <fieldset>
+                <legend>Review</legend>
+                <p>
+                    Doctor submitting form:<br/>
+                    <encounterProvider role="Oncology Provider" />
+                </p>
+                <p class="side-by-side">
+                    Send for pathologist review
+                    <obs conceptId="$@SENT_FOR_PATHOLOGIST_REVIEW@" answerConceptId="$@YES@" style="checkbox" />
+                </p>
+                <p class="side-by-side">
+                    Pathologist reviewed
+                    <obs conceptId="$@PATHOLOGIST_VALIDATION@" answerConceptId="$@YES@" style="checkbox" />
+                </p>
+            </fieldset>
+            <p class="hidden small-input flexView">
+                Request UUID:
+                <obs id="requestUuid" conceptId="$@pathology_request_encounter_UUID@" size="80"/>
+            </p>
+        </div>
+    </section>
 
-    </section> <submit />
+    <submit />
     <br/>
     <br/>
     <encounterVoided/>
-	<!-- <postSubmissionAction class="org.openmrs.module.imbpathologyrequest.notify.NotifyProviderOnHtmlFormSubmissionAction"/> -->
+	<postSubmissionAction class="org.openmrs.module.imbpathologyrequest.notify.NotifyProviderOnHtmlFormSubmissionAction"/>
 
 </htmlform>

@@ -5,3 +5,7 @@ fa9e0a92-392e-5eba-964e-e9086ec88636,Histopathology for large biopsy greater tha
 0d6105a5-9948-479b-9654-6b124f24fc7d,Tissue biopsy external,Tissue biopsy external,Test,N/A,,
 cd80eb1d-6f08-4e12-aa5a-a36c12203d2e,Pathology orderables,Pathology tests,ConvSet,N/A,,6336517b-f4d6-5b29-a630-e2d2c356c21f;fa9e0a92-392e-5eba-964e-e9086ec88636;238bc457-2bf9-46a7-941d-24ffe9282bcb;0d6105a5-9948-479b-9654-6b124f24fc7d
 23dd6f2e-efd4-4e41-bf7e-4096bad655aa,Surgeon contact construct,Surgeon contact,Misc,N/A,,3cd997f2-26fe-102b-80cb-0017a47871b2;276f8057-55a4-4b1c-8915-69ad090fcffb;a4cd8972-6a31-411c-ade2-54c24ddad631
+3f34707a-3fda-4248-a965-a1235f195462,Number of pathology tissue blocks,Tissue blocks,Question,Numeric,,
+68e4e69b-9c0d-4807-a662-bfacd92db3b2,Number of pathology slides,Slides,Question,Numeric,,
+49635425-9696-4a23-a65e-3f9463025d3e,Additional pathology stains requested,Additional stains,Question,Text,,
+07c80ea9-68b4-49e6-a1a3-74de43ec1777,Sent for pathologist review,Sent for review,Question,Coded,3cd6f600-26fe-102b-80cb-0017a47871b2,
